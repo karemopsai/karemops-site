@@ -404,13 +404,9 @@ for g in GUIDES:
     assert FIRST_SKILL_INSIDE in out, f"missing inside anchor for {g['slug']}"
     out = out.replace(FIRST_SKILL_INSIDE, inside_new)
 
-    dl_new = build_dl_section(g)
-    assert FIRST_SKILL_DL_SECTION in out, f"missing dl anchor for {g['slug']}"
-    out = out.replace(FIRST_SKILL_DL_SECTION, dl_new)
-
-    what_new = build_what_section(g)
-    assert FIRST_SKILL_WHAT_SECTION in out, f"missing what anchor for {g['slug']}"
-    out = out.replace(FIRST_SKILL_WHAT_SECTION, what_new)
+    # Download + "What This Is" sections were removed from the template.
+    # The `dl_items`, `dl_folder`, `what_p1`, `what_p2`, `what_bq`, `what_p3`
+    # fields in each guide config are kept for potential future use, but not rendered.
 
     js_new = build_guide_js(g)
     assert FIRST_SKILL_GUIDE_JS in out, f"missing js anchor for {g['slug']}"
