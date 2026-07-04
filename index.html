@@ -534,6 +534,7 @@
       badge: "NEW",
       desc: "How to prompt the most powerful model you can actually use — plus 10 copy-paste jobs to run before it flips to pay-as-you-go.",
       thumb: "Fable 5\nPlaybook",
+      pdp: "fable-5",
       href: "lead-magnets/fable-5-playbook-guide.html"
     },
     {
@@ -541,60 +542,70 @@
       badge: "NEW",
       desc: "The setup that turns Claude Code into a lead-gen machine — DM keywords → auto-send guides → warm every reply.",
       thumb: "Infinite\nLeads",
+      pdp: "infinite-leads",
       href: "lead-magnets/Claude Code = Infinite Leads — The Setup Guide.pdf"
     },
     {
       title: "Build Your First Claude Code Skill",
       desc: "From zero to shipping your first /skill in one sitting. The exact folder, files, and prompts I use.",
       thumb: "First\nSkill",
+      pdp: "first-skill",
       href: "lead-magnets/Build Your First Claude Code Skill — Karemops.ai.pdf"
     },
     {
       title: "Post to 5 Platforms a Day",
       desc: "The Claude Code repurposing stack: one video → IG, TikTok, LinkedIn, YouTube, X — every day.",
       thumb: "5\nPlatforms",
+      pdp: "5-platforms",
       href: "lead-magnets/Post to 5 Platforms a Day with Claude Code — Karemops.ai.pdf"
     },
     {
       title: "The SID Process for carousels",
       desc: "How I script + design 10-slide carousels in under an hour. The exact skill-driven workflow.",
       thumb: "SID\nCarousels",
+      pdp: "sid-carousels",
       href: "lead-magnets/The SID Process for carousels — Karemops.ai.pdf"
     },
     {
       title: "The Resume Skill Stack",
       desc: "The Claude Code skills that rewrite, rank, and tailor resumes for any job in minutes.",
       thumb: "Resume\nStack",
+      pdp: "resume-stack",
       href: "lead-magnets/The Resume Skill Stack — Karemops.ai.pdf"
     },
     {
       title: "6-Subagent Stack for Content",
       desc: "The subagent architecture I use to research, hook, script, visualize, and post — all in one command.",
       thumb: "6-Agent\nStack",
+      pdp: "6-agent-stack",
       href: "lead-magnets/6-subagent-stack-guide.html"
     },
     {
       title: "Meta Ads MCP Setup",
       desc: "Wire the Meta Ads MCP into Claude Code and run your entire ad account from a terminal.",
       thumb: "Meta Ads\nMCP",
+      pdp: "meta-ads-mcp",
       href: "lead-magnets/meta-ads-mcp-guide.html"
     },
     {
       title: "Shopify AI Toolkit",
       desc: "The Claude Code + Shopify MCP stack to manage products, orders, and inventory in plain English.",
       thumb: "Shopify\nToolkit",
+      pdp: "shopify-toolkit",
       href: "lead-magnets/shopify-ai-toolkit-guide.html"
     },
     {
       title: "Anthropic Courses Guide",
       desc: "The roadmap through Anthropic's free courses — what to skip, what to master, in what order.",
       thumb: "Courses\nRoadmap",
+      pdp: "courses-roadmap",
       href: "lead-magnets/anthropic-courses-guide.html"
     },
     {
       title: "Routines: Automate Your Day",
       desc: "The Claude Code /routines setup that runs my mornings — email, news, priorities, on autopilot.",
       thumb: "Routines",
+      pdp: "routines",
       href: "lead-magnets/routines-guide.html"
     }
   ];
@@ -613,7 +624,7 @@
   function renderGuides() {
     const items = expanded ? GUIDES : GUIDES.slice(0, INITIAL_COUNT);
     list.innerHTML = items.map((g, i) => `
-      <a class="card guide-card" href="#" data-idx="${i}">
+      <a class="card guide-card" href="${g.pdp ? 'guides/' + g.pdp + '.html' : '#'}" data-idx="${i}">
         <div class="guide-thumb"><div class="thumb-glyph">${g.thumb.replace(/\n/g,'<br>')}</div></div>
         <div class="guide-body">
           <div class="guide-title-row">
@@ -626,15 +637,18 @@
       </a>
     `).join('');
 
+    // Cards with a PDP slug behave as normal anchors (native navigation, cmd/ctrl-click opens new tab).
+    // Cards WITHOUT a PDP fall back to the old email-capture flow.
     list.querySelectorAll('.guide-card').forEach(el => {
+      const idx = parseInt(el.dataset.idx, 10);
+      const g = GUIDES[idx];
+      if (g.pdp) return; // native anchor navigation to /guides/<slug>.html
+
       el.addEventListener('click', e => {
         e.preventDefault();
-        const idx = parseInt(el.dataset.idx, 10);
-        pendingGuide = GUIDES[idx];
+        pendingGuide = g;
 
-        // If we already captured an email this session, skip the form —
-        // log the download in the background and open the PDF straight away.
-        const savedEmail = sessionStorage.getItem('karemops_email');
+        const savedEmail = localStorage.getItem('karemops_email') || sessionStorage.getItem('karemops_email');
         if (savedEmail) {
           logSignup(savedEmail, pendingGuide);
           if (pendingGuide.href) {
@@ -729,8 +743,8 @@
     captureSubmit.textContent = 'Sending…';
     captureSubmit.disabled = true;
 
-    // Remember the email for the rest of this session so future guide
-    // clicks skip the capture form.
+    // Remember the email across pages so future guide clicks skip the form.
+    try { localStorage.setItem('karemops_email', email); } catch (e) { /* ignore */ }
     try { sessionStorage.setItem('karemops_email', email); } catch (e) { /* ignore */ }
 
     const guideHref = pendingGuide?.href || '';
