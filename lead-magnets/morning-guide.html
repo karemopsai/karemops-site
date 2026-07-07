@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Your Morning, on Autopilot — Karemops.ai</title>
+<meta name="description" content="The /morning skill runs your daily briefing before you sit down — email triage + drafts, the news that matters to your niche, and your top priorities." />
+<meta property="og:title" content="Your Morning, on Autopilot — Karemops.ai" />
+<meta property="og:description" content="The /morning skill runs your daily briefing before you sit down — email triage + drafts, the news that matters to your niche, and your top priorities." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#000000;
+    --bg-soft:#050B1F;
+    --text:#FFFFFF;
+    --text-muted:#A8B0C2;
+    --accent-1:#5B8BFF;
+    --accent-2:#2D5EF0;
+    --accent:#3B82F6;
+    --stroke:rgba(59,130,246,0.6);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;font-weight:400;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .page{
+    width:8.5in;height:11in;box-sizing:border-box;margin:0 auto;
+    padding:0.7in 0.75in;background:var(--bg);
+    page-break-after:always;page-break-inside:avoid;break-inside:avoid;
+    position:relative;overflow:hidden;
+  }
+  .page:last-child{page-break-after:auto;}
+  .page::before{
+    content:"";position:absolute;top:-200px;right:-200px;
+    width:500px;height:500px;
+    background:radial-gradient(circle, rgba(59,130,246,0.18), transparent 70%);
+    pointer-events:none;z-index:0;
+  }
+  .page > *{position:relative;z-index:1;}
+  .tag{
+    font-size:11px;font-weight:500;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--text-muted);
+    margin-bottom:18px;display:inline-block;
+  }
+  h1{font-weight:900;font-size:64px;line-height:1.02;letter-spacing:-0.02em;margin-bottom:24px;}
+  h2{font-weight:900;font-size:38px;line-height:1.08;letter-spacing:-0.015em;margin:0 0 16px 0;}
+  h3{font-weight:700;font-size:20px;line-height:1.3;margin:24px 0 10px 0;}
+  h4{font-weight:700;font-size:15px;line-height:1.4;margin:18px 0 8px 0;color:var(--text);}
+  p{font-size:14px;color:var(--text);margin-bottom:12px;}
+  p.muted{color:var(--text-muted);}
+  .lead{font-size:16px;color:var(--text-muted);margin-bottom:20px;line-height:1.6;}
+  .grad{
+    background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .accent-blue{color:var(--accent-1);}
+  .panel{
+    border:1.5px solid var(--stroke);border-radius:14px;padding:22px 24px;
+    background:rgba(59,130,246,0.04);
+    box-shadow:inset 0 0 30px rgba(59,130,246,0.06);
+    margin:18px 0;
+  }
+  ul{list-style:none;padding:0;margin:10px 0;}
+  ul li{font-size:14px;padding:7px 0 7px 22px;position:relative;color:var(--text);}
+  ul li::before{
+    content:"";position:absolute;left:0;top:14px;
+    width:8px;height:8px;border-radius:50%;
+    background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+  }
+  ol{padding-left:0;counter-reset:step;list-style:none;margin:10px 0;}
+  ol li{font-size:14px;padding:8px 0 8px 36px;position:relative;counter-increment:step;}
+  ol li::before{
+    content:counter(step);position:absolute;left:0;top:6px;
+    width:24px;height:24px;border-radius:50%;
+    background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+    color:#fff;font-weight:700;font-size:12px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  code,pre{font-family:'JetBrains Mono','SF Mono',monospace;font-size:12.5px;}
+  code.inline{
+    background:rgba(59,130,246,0.12);color:var(--accent-1);
+    padding:2px 7px;border-radius:5px;font-size:12px;
+  }
+  pre{
+    background:var(--bg-soft);border:1.5px solid var(--stroke);
+    border-radius:10px;padding:16px 18px;color:var(--text);
+    overflow-x:auto;line-height:1.55;font-size:12px;
+    white-space:pre-wrap;word-break:break-word;
+  }
+  .callout{
+    border-left:3px solid var(--accent);
+    background:rgba(59,130,246,0.06);
+    padding:14px 18px;border-radius:0 8px 8px 0;
+    margin:18px 0;font-size:13.5px;color:var(--text-muted);
+  }
+  .callout strong{color:var(--text);}
+  .cover{display:flex;flex-direction:column;}
+  .cover-meta{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    border-top:1px solid rgba(168,176,194,0.2);
+    padding-top:18px;margin-top:30px;
+    color:var(--text-muted);
+    font-size:11px;letter-spacing:0.05em;text-transform:uppercase;
+  }
+  .cover h1{font-size:72px;}
+  .cover .lead{font-size:18px;max-width:6in;color:var(--text-muted);}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--stroke),transparent);margin:24px 0;border:0;}
+  .step-label{
+    display:inline-block;font-family:'JetBrains Mono',monospace;
+    font-size:11px;color:var(--accent-1);
+    letter-spacing:0.1em;text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .brand-bar{
+    margin-top:30px;padding-top:18px;
+    border-top:1px solid rgba(168,176,194,0.15);
+    display:flex;justify-content:space-between;
+    color:var(--text-muted);
+    font-size:11px;letter-spacing:0.06em;text-transform:uppercase;
+  }
+  .brand-bar .grad{font-weight:700;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:14px 0;}
+  .col-card{
+    border:1.5px solid var(--stroke);border-radius:12px;padding:18px;
+    background:rgba(59,130,246,0.03);
+  }
+  .col-card.bad{border-color:rgba(168,176,194,0.25);background:rgba(168,176,194,0.04);}
+  .col-card h4{margin-top:0;}
+  .label-bad{color:#A8B0C2;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
+  .label-good{color:var(--accent-1);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
+  .hero-mark{
+    display:flex;align-items:center;justify-content:center;
+    width:100%;height:2.2in;margin:0 0 32px 0;
+    border:1.5px solid var(--stroke);border-radius:18px;
+    background:
+      radial-gradient(circle at 30% 40%, rgba(91,139,255,0.28), transparent 55%),
+      radial-gradient(circle at 75% 65%, rgba(45,94,240,0.22), transparent 60%),
+      var(--bg-soft);
+    position:relative;overflow:hidden;
+  }
+  .hero-mark::after{
+    content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px) 0 0/32px 32px,
+      linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px) 0 0/32px 32px;
+    pointer-events:none;
+  }
+  .hero-mark .stamp{
+    position:relative;z-index:2;
+    font-family:'JetBrains Mono',monospace;
+    color:var(--accent-1);font-size:13px;
+    letter-spacing:0.18em;text-transform:uppercase;
+  }
+  .hero-mark .stamp .big{
+    display:block;font-family:'Inter',sans-serif;font-weight:900;
+    font-size:56px;letter-spacing:-0.02em;text-transform:none;
+    background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    margin-top:6px;
+  }
+  @media print{
+    @page{size:8.5in 11in;margin:0;}
+    html,body{background:var(--bg) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .page{margin:0;box-shadow:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="page cover">
+  <div class="hero-mark">
+    <div class="stamp">
+      Karemops.ai · Field Guide
+      <span class="big">/morning</span>
+    </div>
+  </div>
+
+  <span class="tag">Karemops.ai · Field Guide</span>
+  <h1>Your morning, <span class="grad">on autopilot</span>.</h1>
+  <p class="lead">The Claude Code skill that runs your daily briefing before you sit down — inbox triaged with replies drafted, the news that matters to <em>your</em> niche, and your top priorities on the screen.</p>
+
+  <div class="panel">
+    <h4 style="margin-top:0;">Inside</h4>
+    <ul>
+      <li>What <code class="inline">/morning</code> actually does — the 4 modules</li>
+      <li>The 30-second install (folder + SKILL.md, that's it)</li>
+      <li>The one command that unlocks personalization: <em>"Tell me about my morning skill"</em></li>
+      <li>How to swap AI news for <strong>your niche</strong> — real estate, ecom, fitness, whatever you run</li>
+      <li>How to schedule it so it fires while you're still asleep</li>
+    </ul>
+  </div>
+
+  <div class="cover-meta">
+    <div>
+      <div style="color:var(--text);font-weight:700;font-size:13px;letter-spacing:0;text-transform:none;margin-bottom:4px;">Karem AlMoayyad</div>
+      <div>Karemops.ai · Arc Digital</div>
+    </div>
+    <div style="text-align:right;">
+      <div>@karemops.ai</div>
+      <div>IG · TikTok · LinkedIn</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — THE PROBLEM -->
+<section class="page">
+  <span class="tag">§ 01 · The Problem</span>
+  <h2>Your first hour <span class="grad">decides your day.</span></h2>
+  <p class="lead">And most people spend theirs the same way: 40 unread emails, 12 Twitter tabs, no clear top-3 for the day. By 10am they're already reacting instead of executing.</p>
+
+  <p>The move isn't more discipline. Discipline runs out. The move is to hand the first hour off to a skill that does the boring parts before you open your laptop — reads the inbox, drafts replies to the threads that matter, pulls the news for your niche, lays out your priorities.</p>
+
+  <p>That's what <code class="inline">/morning</code> does. It's a Claude Code skill you install once. You run it manually or schedule it. It hands you a briefing.</p>
+
+  <div class="callout">
+    <strong>The shift:</strong> Stop starting your day inside your inbox. Start it inside a briefing that already knows what mattered overnight.
+  </div>
+
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">01 / 08</span></div>
+</section>
+
+<!-- PAGE 3 — THE 4 MODULES -->
+<section class="page">
+  <span class="tag">§ 02 · What It Does</span>
+  <h2>Four modules, <span class="grad">one command.</span></h2>
+  <p class="lead">Run <code class="inline">/morning</code> and it fires all four in sequence. Skip any of them by editing the SKILL.md later — but the default runs the full brief.</p>
+
+  <div class="panel">
+    <h4 style="margin-top:0;">1 · Email triage + drafts</h4>
+    <p style="margin-bottom:0;">Scans Gmail. Sorts into brand deals / important / noise. Auto-drafts replies to the partnership threads (with your manager CC'd). You wake up, review the drafts, hit send.</p>
+  </div>
+
+  <div class="panel">
+    <h4 style="margin-top:0;">2 · News that matters</h4>
+    <p style="margin-bottom:0;">Pulls AI + Claude Code news by default — new releases, features, actionable stuff you can talk about on camera today. <strong>This is the module you'll rewire to your niche</strong> (real estate, fitness, ecom — page 5).</p>
+  </div>
+
+  <div class="panel">
+    <h4 style="margin-top:0;">3 · Task priorities</h4>
+    <p style="margin-bottom:0;">Reads your active projects (git commits, calendar, open loops), returns your top 3 for the day. Not 12. Three.</p>
+  </div>
+
+  <div class="panel">
+    <h4 style="margin-top:0;">4 · Account stats</h4>
+    <p style="margin-bottom:0;">Yesterday's numbers — follower delta, top-performing post, DMs. So you know what actually landed before you plan today.</p>
+  </div>
+
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">02 / 08</span></div>
+</section>
+
+<!-- PAGE 4 — INSTALL (part 1) -->
+<section class="page">
+  <div class="step-label">Step 01</div>
+  <h2>Install it in <span class="grad">30 seconds.</span></h2>
+  <p class="lead">A Claude Code skill is one folder with one file. Do these three steps and you're live in every project you open.</p>
+
+  <ol>
+    <li>Open a terminal and run: <code class="inline">mkdir -p ~/.claude/skills/morning</code></li>
+    <li>Create a new file at <code class="inline">~/.claude/skills/morning/SKILL.md</code> and paste in the starter skill on the next page.</li>
+    <li>Open Claude Code in any project. Type <code class="inline">/morning</code>. If the slash menu autocompletes, it's installed.</li>
+  </ol>
+
+  <h3>The starter skill (part 1 of 2)</h3>
+  <p class="muted">Copy this and the next page into your <code class="inline">SKILL.md</code>. It's the base version — you'll personalize it after install (page 5).</p>
+
+  <pre>---
+name: morning
+description: Daily morning briefing. Triages Gmail with drafted replies for important threads, pulls the last 24 hours of news in the configured niche, lists top 3 priorities for the day, and shows yesterday's account stats. Use when the user types /morning, asks for their morning brief, or asks what happened overnight.
+---
+
+# Morning Briefing
+
+Runs 4 modules in parallel and combines them into one brief.
+
+## Config (edit these once)
+
+- Your name: YOUR_NAME
+- Timezone: YOUR_TIMEZONE
+- News niche: AI + Claude Code   ← change to your niche
+- Important email keywords: partnership, sponsor, collab, invoice, booking
+- Manager CC (for partnership drafts): none
+
+## Execution
+
+Spawn all 4 agents in a SINGLE message so they run in parallel.
+When they return, combine outputs into the final format below.</pre>
+
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">03 / 08</span></div>
+</section>
+
+<!-- PAGE 4B — INSTALL (part 2, rest of SKILL.md) -->
+<section class="page">
+  <div class="step-label">Step 01 · continued</div>
+  <h2>The starter skill <span class="grad">(part 2 of 2)</span>.</h2>
+  <p class="lead">Paste this directly under part 1 in the same <code class="inline">SKILL.md</code> file. Save. Done.</p>
+
+  <pre>## Agent 1 — Email triage + drafts
+
+Search Gmail for unread inbox mail from the last 48 hours (paginate all pages, don't stop at 50). Read every non-bulk email body. Categorize into:
+- Important (real replies, calls booked, partnership threads)
+- Revenue (payments, new customer notifications)
+- Noise (marketing, alerts, digests)
+
+For any thread matching the "Important email keywords" above, DRAFT a reply using gmail_create_draft. If a Manager CC is set, CC them on partnership drafts.
+
+Return counts per bucket + a one-line note per Important thread.
+
+## Agent 2 — News
+
+Pull the last 24 hours of news in the configured News niche. Return 5 bullets max. Each bullet ends with a "so what for me today" line — one sentence, actionable.
+
+## Agent 3 — Priorities
+
+Read today's calendar events + the last 24 hours of git commits across the user's active repos. Return exactly the top 3 priorities for today. Not 12. Three.
+
+## Agent 4 — Account stats
+
+Return yesterday's numbers from tracked social accounts: follower delta, top-performing post, DM count. If no stats source is wired up, return "not configured — ask Karem to wire this."
+
+## Final output format
+
+# Morning Briefing — [DATE]
+
+## Email
+[Agent 1]
+
+## News
+[Agent 2]
+
+## Top 3 Today
+[Agent 3]
+
+## Stats
+[Agent 4]
+
+---
+End with: "What do you want to hit first?"</pre>
+
+  <div class="callout">
+    <strong>That's the whole install.</strong> No npm, no config, no restart. Fire <code class="inline">/morning</code> once to sanity-check it works — then move to page 5 to make it yours.
+  </div>
+
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">04 / 08</span></div>
+</section>
+
+<!-- PAGE 5 — THE MAGIC COMMAND -->
+<section class="page">
+  <div class="step-label">Step 02</div>
+  <h2>One command <span class="grad">unlocks it all.</span></h2>
+  <p class="lead">This is the single most important page in this guide. If you skip it, you get my morning. If you use it, you get <em>yours</em>.</p>
+
+  <p>After you install the skill, open Claude Code and type this — exactly:</p>
+
+  <pre>Tell me about my morning skill.</pre>
+
+  <p>Claude will read the SKILL.md and explain the four modules — email triage, news, priorities, stats — the way I have them set up by default. Now you have leverage. You know what's in there, so you know what to change.</p>
+
+  <h3>Why this matters</h3>
+  <p>Every skill I ship is a starting point, not a fixed script. Once Claude has explained what it does, you can tell it to <strong>rewire any part of it in plain English</strong> — no code, no re-install, no messing with the file yourself. Claude edits the SKILL.md for you.</p>
+
+  <div class="callout">
+    <strong>Rule of thumb:</strong> Any time you install a skill of mine, the first thing you should type is <em>"Tell me about my [skill name] skill."</em> Then tell Claude what to change. That's how you turn a shared skill into your skill.
+  </div>
+
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">05 / 08</span></div>
+</section>
+
+<!-- PAGE 6 — SWAP THE NICHE -->
+<section class="page">
+  <div class="step-label">Step 03</div>
+  <h2>Swap the news for <span class="grad">your niche.</span></h2>
+  <p class="lead">The default news module pulls AI + Claude Code news because that's what I make content about. If you're a real estate agent, that's noise. If you sell skincare, that's noise. Rewire it.</p>
+
+  <h3>The exact prompt</h3>
+  <p>After you've run <code class="inline">Tell me about my morning skill</code>, follow up with something like this — swap the bracketed part for your actual niche:</p>
+
+  <pre>I don't want AI news in the morning brief.
+I want [real estate market news for the GCC region] instead.
+Rewrite the news module in my morning skill so it pulls that
+every morning, and keep the rest of the skill exactly the same.</pre>
+
+  <p>Claude will edit the SKILL.md for you. Next time you fire <code class="inline">/morning</code>, the news module runs against <em>your</em> niche.</p>
+
+  <h3>Some examples people have already rewired it for</h3>
+  <div class="two-col">
+    <div class="col-card">
+      <div class="label-good">Ecom operator</div>
+      <p style="font-size:13px;margin-bottom:0;">"Pull DTC + Meta ads news, Klaviyo product updates, and any Shopify feature launches from the last 24 hours."</p>
+    </div>
+    <div class="col-card">
+      <div class="label-good">Real estate agent</div>
+      <p style="font-size:13px;margin-bottom:0;">"Pull mortgage rate moves, new listing volume in my metro, and any local zoning or tax news."</p>
+    </div>
+    <div class="col-card">
+      <div class="label-good">Fitness coach</div>
+      <p style="font-size:13px;margin-bottom:0;">"Pull new research on training + nutrition, viral fitness content from the last 24 hours, and creatine/supplement news."</p>
+    </div>
+    <div class="col-card">
+      <div class="label-good">B2B founder</div>
+      <p style="font-size:13px;margin-bottom:0;">"Pull funding announcements in my space, competitor product launches, and any regulatory changes for SaaS in my market."</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Same move works for every module.</strong> Don't want auto-drafted email replies? Say so. Want a different definition of "important"? Say so. The skill bends around your day, not the other way around.
+  </div>
+
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">06 / 08</span></div>
+</section>
+
+<!-- PAGE 7 — SCHEDULE IT -->
+<section class="page">
+  <div class="step-label">Step 04</div>
+  <h2>Fire it while <span class="grad">you're asleep.</span></h2>
+  <p class="lead">Running <code class="inline">/morning</code> manually is fine for week one. Then you'll get tired of typing it, and that's when you schedule it.</p>
+
+  <h3>Run it once, manually</h3>
+  <ol>
+    <li>Open Claude Code.</li>
+    <li>Type <code class="inline">/morning</code>. Hit enter.</li>
+    <li>Watch it triage, pull news, list priorities, drop stats. Read it. Fix anything wrong (via the prompt on page 5).</li>
+    <li>Do this for 3 mornings until the output is exactly what you want.</li>
+  </ol>
+
+  <h3>Then schedule it</h3>
+  <p>Claude Code supports scheduled tasks. Ask Claude:</p>
+
+  <pre>Schedule my morning skill to run every weekday at 7am.</pre>
+
+  <p>Claude sets up the schedule. From then on, the brief lands in your Claude Code session before you sit down. You open the laptop, the drafts are already written, the news is already summarized, the top 3 are already picked.</p>
+
+  <div class="callout">
+    <strong>The whole point:</strong> your first hour stops being about processing input and starts being about executing on a plan that was already made for you.
+  </div>
+
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">07 / 08</span></div>
+</section>
+
+<!-- PAGE 8 — PAYOFF + CTA -->
+<section class="page">
+  <span class="tag">§ Payoff</span>
+  <h2>One skill. <span class="grad">Every morning back.</span></h2>
+  <p class="lead">You just installed one skill. Personalized it to your niche in plain English. Scheduled it so it runs before you're awake. That's the whole system.</p>
+
+  <p>The people you see moving 10x faster aren't grinding harder in the mornings. They stopped starting from zero. Their first hour is a review, not a scramble.</p>
+
+  <div class="divider"></div>
+
+  <h3>What's next</h3>
+  <p>The pattern you just learned — install a skill, ask Claude to explain it, tell it what to change in plain English — is the same pattern behind every skill I ship. It's the reason my whole operation runs from a terminal.</p>
+
+  <p>Now imagine that pattern applied to content ideation, scripting, carousel design, ad launches, cold email, client onboarding. All the skills, wired together, personalized to your business, running on schedule.</p>
+
+  <div class="panel">
+    <h4 style="margin-top:0;">The full Karemops Skill Library</h4>
+    <ul>
+      <li><code class="inline">/morning</code> — the one you just installed</li>
+      <li><code class="inline">/content-ideator</code> — weekly topics from your data + competitor wins</li>
+      <li><code class="inline">/content-scripter</code> — hooks + full filming cards</li>
+      <li><code class="inline">/carousel-creator</code> — slides end-to-end</li>
+      <li><code class="inline">/post-content</code> — publishes across IG, TikTok, LinkedIn, YouTube</li>
+      <li>Plus the analysis loop that makes them all sharper every week.</li>
+    </ul>
+    <p style="font-size:13px;margin-top:14px;margin-bottom:0;">Everything on <a href="https://www.karemopsai.com" style="color:var(--accent-1);text-decoration:none;">karemopsai.com</a>. Install, run <em>"tell me about my [skill] skill,"</em> personalize it, ship.</p>
+  </div>
+
+  <div class="callout">
+    <strong>If this hit, send it to one other person who's still starting their day inside their inbox.</strong>
+  </div>
+
+  <div class="brand-bar"><span>Karemops.ai · @karemops.ai</span><span class="grad">08 / 08</span></div>
+</section>
+
+</body>
+</html>
