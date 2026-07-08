@@ -332,6 +332,33 @@ GUIDES = [
         'what_p3': 'You can copy the setup verbatim.',
         'lead_magnet': 'lead-magnets/routines-guide.html',
     },
+    {
+        'slug': 'higgs-field-claude',
+        'title': 'Connect Higgs Field to Claude',
+        'meta_desc': 'Wire Higgs Field into Claude via MCP and generate UGC video ads, IG carousels, Meta creatives, and product shots from a chat window. 2-minute setup.',
+        'kicker': 'CLAUDE · HIGGS FIELD',
+        'h1_pre': 'Generate Ads Inside',
+        'h1_accent': 'Claude',
+        'lede': "Higgs Field makes UGC video ads, product shots, IG carousels, and Meta creatives. Wire it to Claude via MCP and you never leave the chat to build a marketing asset again.",
+        'callout': "One MCP link. One custom connector. Upload a product and ask Claude for 10 UGC ads — you'll see why this changes everything.",
+        'inside': [
+            ('🎬', 'The 2-minute MCP setup — sign up, copy link, paste in Claude'),
+            ('📸', 'What Higgs Field ships: UGC video ads, carousels, Meta creatives, product shots'),
+            ('⚡', '5 copy-paste prompts to run today — pick one, ship one'),
+            ('🧠', "The Higgs Field + ChatGPT combo that covers every asset an agency would ship"),
+        ],
+        'dl_items': [
+            ('higgs-field-setup.md', 'the 3-step MCP install for Claude'),
+            ('higgs-field-prompts.md', 'the 5 prompts I run on every product — UGC, carousels, ads, shots, brand kit'),
+            ('higgs-field-brand-upload.md', 'the assets to upload once so every prompt lands on-brand'),
+        ],
+        'dl_folder': 'higgs-field',
+        'what_p1': "Every founder I know has the same problem: they need UGC ads, carousels, product shots, and Meta creatives — and they're stitching together 4 tools and 6 tabs to get one asset out.",
+        'what_p2': "Higgs Field ships all of that from one platform. Connect it to Claude via MCP and Claude runs it for you. You upload a product once, ask for 10 UGC ads, and the whole batch appears in the chat. Then carousels. Then product shots. From a chat window.",
+        'what_bq': "The moat isn't 'AI generates content.' The moat is a chat window that ships every asset a marketing agency would ship — UGC, static, video, brand system — without leaving the conversation.",
+        'what_p3': 'This is that setup.',
+        'lead_magnet': 'lead-magnets/higgs-field-claude-guide.html',
+    },
 ]
 
 # ---- load template ----
