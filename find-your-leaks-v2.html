@@ -669,20 +669,29 @@
   }
   .footer-contact {
     margin-top: 22px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
     color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
   }
   .footer-contact .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--text-dim);
-    margin-right: 8px;
   }
   .footer-contact a {
     color: var(--brand-blue-2);
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0;
   }
+  .footer-contact a:hover { color: var(--text); }
   .socials {
     display: flex;
     justify-content: center;
@@ -777,7 +786,8 @@
     <span>KAREMOPS.AI · KAREM ALMOAYYAD</span>
   </div>
   <div class="footer-contact">
-    <span class="label">CONTACT US ·</span><a href="mailto:karem@karemopsai.com">karem@karemopsai.com</a>
+    <span class="label">Contact us</span>
+    <a href="mailto:Karem@karemopsai.com">Karem@karemopsai.com</a>
   </div>
   <div class="socials">
     <a href="https://instagram.com/karemops.ai" target="_blank" rel="noopener" aria-label="Instagram">
