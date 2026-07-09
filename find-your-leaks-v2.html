@@ -1123,10 +1123,31 @@ function renderEmailGate() {
   document.getElementById('in-email').addEventListener('input', e => { state.email = e.target.value; });
   document.getElementById('in-book').addEventListener('change', e => { state.bookCall = e.target.checked; });
 
-  document.getElementById('btn-submit').addEventListener('click', () => {
+  document.getElementById('btn-submit').addEventListener('click', async () => {
     if (!state.firstName.trim() || !isValidEmail(state.email)) {
       alert('Add your first name and a valid email to see the report.');
       return;
+    }
+    const btn = document.getElementById('btn-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending report to your inbox…';
+    try {
+      const r = computeResults();
+      const html = buildEmailHtml(r);
+      const summary = buildTextSummary(r);
+      await fetch('/api/submit-audit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: state.firstName.trim(),
+          email: state.email.trim(),
+          bookCall: !!state.bookCall,
+          htmlReport: html,
+          textSummary: summary
+        })
+      });
+    } catch (err) {
+      console.warn('Email send failed, showing report anyway:', err);
     }
     state.step = 11;
     render();
@@ -1194,6 +1215,111 @@ function computeResults() {
 
 function fmtMoney(n) {
   return '$' + Math.round(n).toLocaleString('en-US');
+}
+
+function buildTextSummary(r) {
+  const lines = [];
+  lines.push(`Name: ${state.firstName}`);
+  lines.push(`Email: ${state.email}`);
+  lines.push(`Industry: ${state.industry !== null ? INDUSTRIES[state.industry] : '—'}`);
+  lines.push(`Revenue: ${state.revenue !== null ? REVENUES[state.revenue] : '—'}`);
+  lines.push(`Team: ${state.team !== null ? TEAM_SIZES[state.team] : '—'}`);
+  lines.push(`Hourly cost: $${r.hourly}/hr`);
+  lines.push('');
+  lines.push(`Manual tasks: ${r.totalManualTasks}`);
+  lines.push(`Weekly hours: ${r.totalHours}`);
+  lines.push(`Annual payroll on manual work: ${fmtMoney(r.totalPayroll)}`);
+  lines.push(`Automatable range: ${fmtMoney(r.rangeLow)}–${fmtMoney(r.rangeHigh)}/yr`);
+  lines.push(`Hours back per week: ~${Math.round(r.hoursSavedWeekly)}`);
+  lines.push(`FTE equivalent: ${r.fte.toFixed(1)}`);
+  lines.push(`Payback: ${r.paybackMonths > 0 ? r.paybackMonths.toFixed(1) + ' months' : '—'}`);
+  lines.push('');
+  r.perFunction.filter(f => f.included).forEach(f => {
+    lines.push(`  ${f.name}: ${f.selectedTaskIdxs.length} tasks · ${f.hoursPerWeek} hrs/wk · ${fmtMoney(f.annualPayroll)}/yr · ~${fmtMoney(f.automatable)} automatable`);
+  });
+  return lines.join('\n');
+}
+
+function buildEmailHtml(r) {
+  const bar = (label, value, foot) => `
+    <tr><td style="padding:14px 0;border-bottom:1px solid #1a1a1a;">
+      <div style="font-size:11px;font-family:'Courier New',monospace;color:#888;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">${label}</div>
+      <div style="font-size:22px;font-weight:800;color:#fff;letter-spacing:-0.01em;">${value}</div>
+      ${foot ? `<div style="font-size:11px;color:#888;margin-top:4px;">${foot}</div>` : ''}
+    </td></tr>`;
+
+  const funcRows = r.perFunction.filter(f => f.included).map(f => `
+    <tr><td style="padding:16px 0;border-bottom:1px solid #1a1a1a;">
+      <div style="display:flex;justify-content:space-between;font-size:15px;color:#fff;font-weight:700;">
+        <span>${escapeHtml(f.name)}</span>
+        <span>${fmtMoney(f.annualPayroll)}/yr</span>
+      </div>
+      <div style="font-size:12px;color:#8b95a8;margin-top:4px;">${f.selectedTaskIdxs.length} tasks · ${f.hoursPerWeek} hrs/wk · ~${fmtMoney(f.automatable)} automatable at ${Math.round(f.appliedRate*100)}%</div>
+      <ul style="margin:10px 0 0;padding-left:18px;color:#c0c8d8;font-size:13px;line-height:1.6;">
+        ${f.selectedTaskIdxs.map(i => `<li>${escapeHtml(f.tasks[i].name)}</li>`).join('')}
+      </ul>
+    </td></tr>
+  `).join('');
+
+  const buildOrder = [...r.perFunction].filter(f => f.included).sort((a,b) => b.automatable - a.automatable).slice(0, 3);
+  const buildRows = buildOrder.map((f, i) => `
+    <tr><td style="padding:12px 0;">
+      <div style="font-size:11px;font-family:'Courier New',monospace;color:#5B8BFF;letter-spacing:0.05em;">0${i+1}</div>
+      <div style="font-size:15px;font-weight:700;color:#fff;margin-top:4px;">${escapeHtml(f.name)} agents</div>
+      <div style="font-size:12px;color:#8b95a8;margin-top:2px;">${f.selectedTaskIdxs.length} tasks · ~${fmtMoney(f.automatable)}/yr automatable · ~${Math.round(f.hoursPerWeek * f.appliedRate)} hrs/wk back</div>
+    </td></tr>
+  `).join('');
+
+  return `<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Your AI Payroll Audit</title></head>
+<body style="margin:0;padding:0;background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#000;padding:32px 16px;">
+  <tr><td align="center">
+    <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background:#0a0a0a;border-radius:16px;border:1px solid #1a1a1a;padding:32px;">
+      <tr><td>
+        <div style="text-align:center;margin-bottom:24px;">
+          <div style="display:inline-block;background:rgba(8,102,255,0.14);border:1px solid rgba(59,130,246,0.6);color:#5B8BFF;font-family:'Courier New',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;padding:5px 12px;border-radius:999px;">${escapeHtml(state.firstName.toUpperCase())}'S AUDIT REPORT</div>
+        </div>
+        <h1 style="margin:0 0 12px;font-size:26px;font-weight:800;color:#fff;text-align:center;letter-spacing:-0.02em;">Your Payroll Efficiency Audit</h1>
+        <p style="margin:0 0 20px;font-size:14px;color:#a8b0c2;text-align:center;line-height:1.6;">You identified <strong style="color:#fff;">${r.totalManualTasks} manual tasks</strong> consuming <strong style="color:#fff;">~${r.totalHours} hrs/week</strong>. Estimated payroll going into work AI agents can take over:</p>
+        <div style="text-align:center;margin:20px 0 8px;">
+          <span style="font-size:38px;font-weight:900;color:#5B8BFF;letter-spacing:-0.02em;">${fmtMoney(r.rangeLow)} — ${fmtMoney(r.rangeHigh)}</span>
+        </div>
+        <div style="text-align:center;font-size:12px;color:#8b95a8;margin-bottom:24px;">Per year, at your own numbers.</div>
+
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:24px 0;">
+          ${bar('Payroll on manual tasks', fmtMoney(r.totalPayroll) + '/yr', `${r.totalHours} hrs/wk × $${r.hourly}/hr × 52 weeks`)}
+          ${bar('Hours back per week', '~' + Math.round(r.hoursSavedWeekly) + ' hrs', 'At conservative per-function automation rates')}
+          ${bar('Capacity equivalent', r.fte.toFixed(1) + ' FTE', "Full-time roles' worth of hours recovered")}
+          ${bar('Typical payback', (r.paybackMonths > 0 ? r.paybackMonths.toFixed(1) : '—') + ' months', 'On a $25,000 typical engagement')}
+        </table>
+
+        ${buildOrder.length ? `
+        <h2 style="font-size:18px;font-weight:700;color:#fff;margin:28px 0 4px;letter-spacing:-0.01em;">Your build order</h2>
+        <p style="margin:0 0 12px;font-size:13px;color:#8b95a8;">Ranked by automatable payroll — the sequence we'd install agents in.</p>
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${buildRows}</table>` : ''}
+
+        <div style="margin:32px 0;padding:24px;background:#0a0a0a;border:1px solid #1a1a1a;border-radius:12px;text-align:center;">
+          <h3 style="margin:0 0 8px;font-size:18px;font-weight:800;color:#fff;">Want this validated against your real payroll?</h3>
+          <p style="margin:0 0 16px;font-size:13px;color:#a8b0c2;line-height:1.6;">Book a free 30-min audit call. We'll pressure-test the numbers and give you a build plan — with or without us.</p>
+          <a href="https://cal.com/karemops" style="display:inline-block;background:#0866FF;color:#fff;font-weight:700;font-size:14px;padding:12px 24px;border-radius:999px;text-decoration:none;">Book the audit call →</a>
+        </div>
+
+        <h2 style="font-size:18px;font-weight:700;color:#fff;margin:28px 0 4px;letter-spacing:-0.01em;">Your full task map</h2>
+        <p style="margin:0 0 8px;font-size:13px;color:#8b95a8;">Every manual task you identified.</p>
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${funcRows}</table>
+
+        <p style="margin:32px 0 0;font-size:11px;color:#666;line-height:1.6;">Directional estimates from your own inputs and disclosed assumptions — not a quote or a promise of savings. Reply to this email if you want to book the call directly.</p>
+        <p style="margin:16px 0 0;font-size:11px;color:#666;text-align:center;">— Karem · <a href="mailto:karem@karemopsai.com" style="color:#5B8BFF;">karem@karemopsai.com</a> · <a href="https://karemopsai.com" style="color:#5B8BFF;">karemopsai.com</a></p>
+      </td></tr>
+    </table>
+  </td></tr>
+</table>
+</body></html>`;
+}
+
+function escapeHtml(str) {
+  return String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
 function renderResults() {
