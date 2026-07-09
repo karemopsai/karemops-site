@@ -1192,6 +1192,16 @@ function renderEmailGate() {
       const r = computeResults();
       const html = buildEmailHtml(r);
       const summary = buildTextSummary(r);
+      const functionsData = r.perFunction.map(f => ({
+        key: f.key,
+        name: f.name,
+        applied_rate: f.appliedRate,
+        hours_per_week: f.hoursPerWeek,
+        annual_payroll: f.annualPayroll,
+        automatable: f.automatable,
+        included: f.included,
+        selected_tasks: f.selectedTaskIdxs.map(i => f.tasks[i].name)
+      }));
       await fetch('/api/submit-audit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -1199,6 +1209,23 @@ function renderEmailGate() {
           firstName: state.firstName.trim(),
           email: state.email.trim(),
           bookCall: !!state.bookCall,
+          industry: state.industry !== null ? INDUSTRIES[state.industry] : null,
+          revenueBand: state.revenue !== null ? REVENUES[state.revenue] : null,
+          teamSize: state.team !== null ? TEAM_SIZES[state.team] : null,
+          hourlyBand: state.hourlyIdx !== null ? HOURLY_COSTS[state.hourlyIdx].label : null,
+          hourlyMidpoint: r.hourly,
+          functionsData,
+          totals: {
+            totalManualTasks: r.totalManualTasks,
+            totalHours: r.totalHours,
+            totalPayroll: r.totalPayroll,
+            totalAutomatable: r.totalAutomatable,
+            rangeLow: r.rangeLow,
+            rangeHigh: r.rangeHigh,
+            hoursSavedWeekly: r.hoursSavedWeekly,
+            fte: r.fte,
+            paybackMonths: r.paybackMonths
+          },
           htmlReport: html,
           textSummary: summary
         })
