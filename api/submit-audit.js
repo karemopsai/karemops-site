@@ -71,6 +71,8 @@ export default async function handler(req, res) {
       </div>
     `;
 
+    // Notification email — sent from a different local-part on the same domain
+    // to avoid Gmail's self-send phishing filter (from karem@ → to karem@ gets dropped).
     fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -78,7 +80,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: 'Karemops Audit <karem@karemopsai.com>',
+        from: 'Karemops Audits <audits@karemopsai.com>',
         to: ['karem@karemopsai.com'],
         reply_to: email,
         subject: `NEW AUDIT · ${cleanName} · ${email}${bookCall ? ' · WANTS CALL' : ''}`,
