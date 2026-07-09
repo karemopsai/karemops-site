@@ -841,11 +841,12 @@ const HOUR_BANDS = [
 ];
 
 const HOURLY_COSTS = [
+  { label: '$8 – $15 / hour', mid: 11.5 },
+  { label: '$15 – $25 / hour', mid: 20 },
   { label: '$25 – $35 / hour', mid: 30 },
   { label: '$35 – $50 / hour', mid: 42.5 },
   { label: '$50 – $70 / hour', mid: 60 },
-  { label: '$70+ / hour', mid: 80 },
-  { label: 'Not sure — use the U.S. average (≈$45/hr)', mid: 45 }
+  { label: '$70+ / hour', mid: 80 }
 ];
 
 const FUNCTIONS = [
@@ -1000,16 +1001,28 @@ function render() {
     footnote.style.display = 'none';
   }
 
-  if (s === 0) renderSingleSelect('What industry are you in?', '', INDUSTRIES, state.industry, i => { state.industry = i; render(); });
-  else if (s === 1) renderSingleSelect("What's your approximate annual revenue?", '', REVENUES, state.revenue, i => { state.revenue = i; render(); });
-  else if (s === 2) renderSingleSelect('How many people are on your team?', 'Employees and regular contractors — everyone whose time you pay for.', TEAM_SIZES, state.team, i => { state.team = i; render(); });
+  if (s === 0) renderSingleSelect('What industry are you in?', '', INDUSTRIES, state.industry, i => { state.industry = i; advance(); });
+  else if (s === 1) renderSingleSelect("What's your approximate annual revenue?", '', REVENUES, state.revenue, i => { state.revenue = i; advance(); });
+  else if (s === 2) renderSingleSelect('How many people are on your team?', 'Employees and regular contractors — everyone whose time you pay for.', TEAM_SIZES, state.team, i => { state.team = i; advance(); });
   else if (s >= 3 && s <= 8) renderFunctionScreen(FUNCTIONS[s - 3]);
-  else if (s === 9) renderSingleSelect("What's the average hourly cost of the people doing this work?", "Include payroll taxes and benefits, not just wages. If you're not sure, pick the U.S. average.", HOURLY_COSTS.map(h => h.label), state.hourlyIdx, i => { state.hourlyIdx = i; render(); });
+  else if (s === 9) renderSingleSelect("What's the average hourly cost of the people doing this work?", 'Include payroll taxes and benefits, not just wages.', HOURLY_COSTS.map(h => h.label), state.hourlyIdx, i => { state.hourlyIdx = i; advance(); });
   else if (s === 10) renderEmailGate();
   else if (s === 11) renderResults();
 
   updateNextButton();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (state.step !== lastRenderedStep) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    lastRenderedStep = state.step;
+  }
+}
+
+let lastRenderedStep = -1;
+
+function advance() {
+  render();
+  setTimeout(() => {
+    if (state.step < 10) { state.step += 1; render(); }
+  }, 220);
 }
 
 function esc(str) {
@@ -1429,7 +1442,7 @@ function renderResults() {
     <div class="method">
       <h3>Methodology & assumptions</h3>
       <p><strong>Your numbers, real formulas.</strong> Every dollar above is computed from the tasks you selected, the hours you reported (midpoint of the range you picked), and the hourly cost you chose. Nothing is scored against a hidden model — the exact formula is printed on each card.</p>
-      <p><strong>Labor cost.</strong> If you selected "not sure," we use ~$45/hour, in line with the U.S. Bureau of Labor Statistics' Employer Costs for Employee Compensation, which averages total employer cost — wages plus benefits — in the mid-$40s per hour worked for civilian workers.</p>
+      <p><strong>Labor cost.</strong> We use the midpoint of the hourly range you selected, which should reflect total employer cost — wages plus payroll taxes and benefits — for the people doing this work. For reference, the U.S. Bureau of Labor Statistics' Employer Costs for Employee Compensation averages that number in the mid-$40s per hour for civilian workers.</p>
       <p><strong>Applied automation rates are conservative.</strong> McKinsey Global Institute's automation research estimates roughly half of all work activities have the technical potential to be automated with already-demonstrated technology, with data collection and data processing in the 60–70% range. We apply lower, function-specific rates (40%–60%) to reflect what actually holds up in production — not the theoretical ceiling.</p>
       <p><strong>Range, not a point estimate.</strong> The headline figure is shown ±15% to reflect variability in real workloads. Payback assumes a typical initial engagement of $25,000; our projects range roughly $5,000–$50,000 depending on scope.</p>
       <p><strong>What this is not.</strong> This is a directional audit, not a quote or a promise of savings. The audit call exists precisely to replace these estimates with your actual payroll numbers before anything is built.</p>
