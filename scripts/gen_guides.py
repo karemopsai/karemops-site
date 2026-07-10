@@ -359,6 +359,33 @@ GUIDES = [
         'what_p3': 'This is that setup.',
         'lead_magnet': 'lead-magnets/higgs-field-claude-guide.html',
     },
+    {
+        'slug': 'md-file-builder',
+        'title': 'MD File Builder — The Full Claude Prompt',
+        'meta_desc': 'The prompt that interviews you 425 times, then compiles one about-me.md file every AI reads like it already knows you.',
+        'kicker': 'CLAUDE · CONTEXT',
+        'h1_pre': 'MD File',
+        'h1_accent': 'Builder',
+        'lede': "The prompt that turns Claude into your personal interviewer. 425 questions on who you are, how you work, and what good looks like — then one .md file every AI reads like it already knows you.",
+        'callout': "Build the file once. Drop it into Claude, ChatGPT, Gemini. Stop re-explaining yourself at the start of every session.",
+        'inside': [
+            ('🧠', 'What this prompt actually does — and why one file beats 100 prompts'),
+            ('⚡', 'The 60-second setup: new chat, paste, answer honestly'),
+            ('🎙️', 'The three commands: <code class="inline">pause</code>, <code class="inline">skip</code>, <code class="inline">compile now</code>'),
+            ('📄', 'The full 425-question interview prompt, copy-paste ready'),
+        ],
+        'dl_items': [
+            ('md-file-builder-prompt.md', 'the full 425-question interview prompt, copy-paste ready'),
+            ('about-me-template.md', 'the output structure Claude compiles at the end'),
+            ('bend-the-prompt.md', 'the one-liners that weight the interview toward your real job'),
+        ],
+        'dl_folder': 'md-file-builder',
+        'what_p1': "Every new chat, you retype your background, your stack, your voice. The AI half-listens. The output drifts. You get bored explaining and start cutting corners.",
+        'what_p2': "This prompt fixes that. Claude interviews you 425 times — identity, work, voice, hard nos, how you want AI to behave — and compiles one about-me.md file. Drop it into any AI and every conversation starts on-voice, on-context, on-rails.",
+        'what_bq': "The gap between people who prompt well and people who prompt badly is 90% context. This closes the gap in one deep session.",
+        'what_p3': 'Build the file once. Never re-explain yourself again.',
+        'lead_magnet': 'lead-magnets/md-file-builder-guide.html',
+    },
 ]
 
 # ---- load template ----
