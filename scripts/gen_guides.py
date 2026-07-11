@@ -386,6 +386,33 @@ GUIDES = [
         'what_p3': 'Build the file once. Never re-explain yourself again.',
         'lead_magnet': 'lead-magnets/md-file-builder-guide.html',
     },
+    {
+        'slug': 'employee-context',
+        'title': 'Your Job. Loaded. Into Claude.',
+        'meta_desc': 'The prompt that builds a CLAUDE.md + reference folder so the AI knows your role, your company, your audience, and your voice before you type a single message.',
+        'kicker': 'CLAUDE · FOR EMPLOYEES',
+        'h1_pre': 'Your Job. Loaded.',
+        'h1_accent': 'Into Claude.',
+        'lede': "The prompt that interviews you across 7 sections and 175 questions, then compiles a 125-line CLAUDE.md summary plus a full reference folder (business, avatars, voice). Your role loaded once, forever.",
+        'callout': "One 125-line CLAUDE.md + three deep reference files the AI opens only when needed. Stop pasting your job description into every new chat.",
+        'inside': [
+            ('🧠', 'The 4-file system: <code class="inline">CLAUDE.md</code> + business + avatars + voice'),
+            ('🗂️', 'The routing rules that tell the AI which file to open when'),
+            ('⚡', 'The 7-section, 175-question interview that fills them all in'),
+            ('📄', 'The full prompt, copy-paste ready'),
+        ],
+        'dl_items': [
+            ('employee-context-prompt.md', 'the full 175-question interview prompt'),
+            ('claude-md-template.md', 'the 125-line summary structure the AI loads every session'),
+            ('reference-folder-template.md', 'the three reference file skeletons: business, avatars, voice'),
+        ],
+        'dl_folder': 'employee-context',
+        'what_p1': "If you work at a company, half of every AI chat is you re-explaining your role, your product, your team, your customers, your writing style. Every single time.",
+        'what_p2': "This prompt fixes it. Claude interviews you across 7 sections — you and your role, the company, your work, your team, your audience, your voice, and how you want AI to behave. Then it compiles a 125-line CLAUDE.md summary plus three deep reference files the AI only opens when the question needs them.",
+        'what_bq': "125 lines loads on every message for pennies. The full 1000-line context only pulls when it's actually needed. Same quality, fraction of the tokens.",
+        'what_p3': 'Build the files once. Load them into every future project.',
+        'lead_magnet': 'lead-magnets/employee-context-guide.html',
+    },
 ]
 
 # ---- load template ----
