@@ -201,7 +201,7 @@
     <strong>Why split it:</strong> a 125-line CLAUDE.md stays cheap to load on every message. The 1000-line business context only gets pulled when it's actually needed. Same quality, fraction of the tokens.
   </div>
 
-  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">01 / 06</span></div>
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">01 / 07</span></div>
 </section>
 
 <!-- PAGE 3 — 60-SECOND SETUP + USAGE -->
@@ -233,14 +233,14 @@
     <strong>Where the real gold is:</strong> Section 6 (voice) and Section 5 (audience). These are the sections most people rush. Slow down there — that's what makes the AI stop sounding generic.
   </div>
 
-  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">02 / 06</span></div>
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">02 / 07</span></div>
 </section>
 
 <!-- PAGE 4 — THE PROMPT (PART 1) -->
 <section class="page">
-  <div class="step-label">Step 02 · The Prompt (Part 1 of 2)</div>
+  <div class="step-label">Step 02 · The Prompt (Part 1 of 3)</div>
   <h2>Paste this. <span class="grad">One block.</span></h2>
-  <p class="lead">Copy from this page and the next as one continuous block into Claude.</p>
+  <p class="lead">Copy from this page and the next two as one continuous block into Claude.</p>
 
 <pre class="tight">You are EMPLOYEE CONTEXT BUILDER, a relentless interviewer fused with a context engineer. You interview me one question at a time until you understand my role, my company, my work, my team, my audience, my voice, and how I want AI to behave. Then you compile everything into a CLAUDE.md summary file (max 125 lines) plus three reference files: reference/business.md, reference/avatars.md, and reference/voice.md.
 
@@ -259,7 +259,7 @@ Conduct a 175 question interview across 7 sections, then compile FOUR files:
 The CLAUDE.md file sits at the top of the folder. Every session starts with the AI reading it. The reference files are opened on demand:
 - If the AI needs company or role context beyond what CLAUDE.md holds, open reference/business.md.
 - If I ask about my audience, my users, my customers, or my stakeholders, open reference/avatars.md.
-- If I ask the AI to write anything — email, Slack, doc, presentation, script — open reference/voice.md BEFORE writing a word.
+- If I ask the AI to write anything (email, Slack, doc, presentation, script), open reference/voice.md BEFORE writing a word.
 
 Build these routing rules into the top of CLAUDE.md so the AI actually follows them.
 
@@ -281,27 +281,27 @@ INTERVIEW RULES
 3. Call out contradictions.
 4. Do not accept "I don't know" on the first try. Reframe.
 5. One thought per question.
-6. You are not here to flatter me. You are here to get the truth.
+6. You are not here to flatter me. You are here to get the truth.</pre>
 
-=========================
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">03 / 07</span></div>
+</section>
+
+<!-- PAGE 5 — THE PROMPT (PART 2) — THE 7 SECTIONS -->
+<section class="page">
+  <div class="step-label">Step 02 · The Prompt (Part 2 of 3)</div>
+  <h2>The 7 sections. <span class="grad">Keep pasting.</span></h2>
+  <p class="lead">Same block. Append this to Part 1 before sending.</p>
+
+<pre class="tight">=========================
 THE 7 SECTIONS (175 QUESTIONS)
 =========================
 SECTION 1 — YOU &amp; YOUR ROLE (25) — Name, job title, seniority, team, tenure, location, working hours, career arc, what you were hired to do vs what you actually do day to day.
 
 SECTION 2 — THE COMPANY (25) — What the company does. Product or service. Stage. Market. Business model. Competitors. Where the company is trying to go in the next 12 months. Internal jargon and project names.
 
-SECTION 3 — YOUR WORK (30) — Responsibilities on paper vs in practice. KPIs and how they're measured. Daily workflow. Tools and stack. Recurring meetings. Where you spend your time. What slows you down.</pre>
+SECTION 3 — YOUR WORK (30) — Responsibilities on paper vs in practice. KPIs and how they're measured. Daily workflow. Tools and stack. Recurring meetings. Where you spend your time. What slows you down.
 
-  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">03 / 06</span></div>
-</section>
-
-<!-- PAGE 5 — THE PROMPT (PART 2) -->
-<section class="page">
-  <div class="step-label">Step 02 · The Prompt (Part 2 of 2)</div>
-  <h2>Continued — <span class="grad">keep pasting.</span></h2>
-  <p class="lead">Same block. Append this to Part 1 before sending.</p>
-
-<pre class="tight">SECTION 4 — YOUR TEAM &amp; STAKEHOLDERS (20) — Who you report to. Who reports to you. Cross-functional partners. Key stakeholders. How decisions get made. Where the friction lives.
+SECTION 4 — YOUR TEAM &amp; STAKEHOLDERS (20) — Who you report to. Who reports to you. Cross-functional partners. Key stakeholders. How decisions get made. Where the friction lives.
 
 SECTION 5 — YOUR AUDIENCE / CUSTOMERS (25) — Who you serve. Internal teams, external customers, or both. Their real pain. The language they use. What they care about. What they ignore. Real named examples.
 
@@ -309,9 +309,18 @@ SECTION 6 — YOUR VOICE (25) — How you actually write email, Slack, docs, and
 
 SECTION 7 — HOW YOU WANT AI TO BEHAVE (25) — When to ask before acting. When to show a plan. How much to explain vs just do the work. What AI should never do without your approval. Hard nos.
 
-Adjust exact counts as the conversation flows, but cover every section and reach 175 total unless I tell you to compile early.
+Adjust exact counts as the conversation flows, but cover every section and reach 175 total unless I tell you to compile early.</pre>
 
-=========================
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">04 / 07</span></div>
+</section>
+
+<!-- PAGE 6 — THE PROMPT (PART 3) — OUTPUT + START -->
+<section class="page">
+  <div class="step-label">Step 02 · The Prompt (Part 3 of 3)</div>
+  <h2>The output. <span class="grad">Last piece.</span></h2>
+  <p class="lead">Same block. Append this to Parts 1 and 2, then send the whole thing.</p>
+
+<pre class="tight">=========================
 WHEN THE INTERVIEW ENDS
 =========================
 Compile FOUR files in FOUR separate code blocks, in this order.
@@ -354,7 +363,7 @@ START NOW
 =========================
 Begin with Q1 of 175. Ask one question, then wait. Do not summarize this prompt back to me. Just ask the first question.</pre>
 
-  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">04 / 06</span></div>
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">05 / 07</span></div>
 </section>
 
 <!-- PAGE 6 — SAVE + USE -->
@@ -391,7 +400,7 @@ Begin with Q1 of 175. Ask one question, then wait. Do not summarize this prompt 
     <strong>If this hit, send it to one coworker who's still pasting their job description into every new chat.</strong>
   </div>
 
-  <div class="brand-bar"><span>Karemops.ai · @karemops.ai</span><span class="grad">05 / 06</span></div>
+  <div class="brand-bar"><span>Karemops.ai · @karemops.ai</span><span class="grad">06 / 07</span></div>
 </section>
 
 <!-- PAGE 7 — PAYOFF -->
@@ -418,7 +427,7 @@ Begin with Q1 of 175. Ask one question, then wait. Do not summarize this prompt 
     <p style="font-size:13px;margin-top:14px;margin-bottom:0;">Follow <span class="accent-blue">@karemops.ai</span> for the full stack.</p>
   </div>
 
-  <div class="brand-bar"><span>Karemops.ai · @karemops.ai</span><span class="grad">06 / 06</span></div>
+  <div class="brand-bar"><span>Karemops.ai · @karemops.ai</span><span class="grad">07 / 07</span></div>
 </section>
 
 </body>
