@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Build Your Content Agent Dashboard — Karemops.ai</title>
+<meta name="description" content="The exact Claude Code prompt that walks you through building a 5-agent content dashboard — Apify data pull, live dashboard, Telegram digest. Copy, paste, ship." />
+<meta property="og:title" content="Build Your Content Agent Dashboard — Karemops.ai" />
+<meta property="og:description" content="The exact Claude Code prompt that walks you through building a 5-agent content dashboard — Apify data pull, live dashboard, Telegram digest. Copy, paste, ship." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#000000;
+    --bg-soft:#050B1F;
+    --text:#FFFFFF;
+    --text-muted:#A8B0C2;
+    --accent-1:#5B8BFF;
+    --accent-2:#2D5EF0;
+    --accent:#3B82F6;
+    --stroke:rgba(59,130,246,0.6);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;font-weight:400;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .page{
+    width:8.5in;height:11in;box-sizing:border-box;margin:0 auto;
+    padding:0.7in 0.75in;background:var(--bg);
+    page-break-after:always;page-break-inside:avoid;break-inside:avoid;
+    position:relative;overflow:hidden;
+  }
+  .page:last-child{page-break-after:auto;}
+  .page::before{
+    content:"";position:absolute;top:-200px;right:-200px;
+    width:500px;height:500px;
+    background:radial-gradient(circle, rgba(59,130,246,0.18), transparent 70%);
+    pointer-events:none;z-index:0;
+  }
+  .page > *{position:relative;z-index:1;}
+  .tag{
+    font-size:11px;font-weight:500;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--text-muted);
+    margin-bottom:18px;display:inline-block;
+  }
+  h1{font-weight:900;font-size:64px;line-height:1.02;letter-spacing:-0.02em;margin-bottom:24px;}
+  h2{font-weight:900;font-size:38px;line-height:1.08;letter-spacing:-0.015em;margin:0 0 16px 0;}
+  h3{font-weight:700;font-size:20px;line-height:1.3;margin:24px 0 10px 0;}
+  h4{font-weight:700;font-size:15px;line-height:1.4;margin:18px 0 8px 0;color:var(--text);}
+  p{font-size:14px;color:var(--text);margin-bottom:12px;}
+  p.muted{color:var(--text-muted);}
+  .lead{font-size:16px;color:var(--text-muted);margin-bottom:20px;line-height:1.6;}
+  .grad{
+    background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .accent-blue{color:var(--accent-1);}
+  .panel{
+    border:1.5px solid var(--stroke);border-radius:14px;padding:22px 24px;
+    background:rgba(59,130,246,0.04);
+    box-shadow:inset 0 0 30px rgba(59,130,246,0.06);
+    margin:18px 0;
+  }
+  ul{list-style:none;padding:0;margin:10px 0;}
+  ul li{font-size:14px;padding:7px 0 7px 22px;position:relative;color:var(--text);}
+  ul li::before{
+    content:"";position:absolute;left:0;top:14px;
+    width:8px;height:8px;border-radius:50%;
+    background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+  }
+  ol{padding-left:0;counter-reset:step;list-style:none;margin:10px 0;}
+  ol li{font-size:14px;padding:8px 0 8px 36px;position:relative;counter-increment:step;}
+  ol li::before{
+    content:counter(step);position:absolute;left:0;top:6px;
+    width:24px;height:24px;border-radius:50%;
+    background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+    color:#fff;font-weight:700;font-size:12px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  code,pre{font-family:'JetBrains Mono','SF Mono',monospace;font-size:12.5px;}
+  code.inline{
+    background:rgba(59,130,246,0.12);color:var(--accent-1);
+    padding:2px 7px;border-radius:5px;font-size:12px;
+  }
+  pre{
+    background:var(--bg-soft);border:1.5px solid var(--stroke);
+    border-radius:10px;padding:16px 18px;color:var(--text);
+    overflow-x:auto;line-height:1.55;font-size:12px;
+    white-space:pre-wrap;word-break:break-word;
+  }
+  .callout{
+    border-left:3px solid var(--accent);
+    background:rgba(59,130,246,0.06);
+    padding:14px 18px;border-radius:0 8px 8px 0;
+    margin:18px 0;font-size:13.5px;color:var(--text-muted);
+  }
+  .callout strong{color:var(--text);}
+  .cover{display:flex;flex-direction:column;}
+  .cover-meta{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    border-top:1px solid rgba(168,176,194,0.2);
+    padding-top:18px;margin-top:30px;
+    color:var(--text-muted);
+    font-size:11px;letter-spacing:0.05em;text-transform:uppercase;
+  }
+  .cover h1{font-size:72px;}
+  .cover .lead{font-size:18px;max-width:6in;color:var(--text-muted);}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--stroke),transparent);margin:24px 0;border:0;}
+  .step-label{
+    display:inline-block;font-family:'JetBrains Mono',monospace;
+    font-size:11px;color:var(--accent-1);
+    letter-spacing:0.1em;text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .brand-bar{
+    margin-top:30px;padding-top:18px;
+    border-top:1px solid rgba(168,176,194,0.15);
+    display:flex;justify-content:space-between;
+    color:var(--text-muted);
+    font-size:11px;letter-spacing:0.06em;text-transform:uppercase;
+  }
+  .brand-bar .grad{font-weight:700;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:14px 0;}
+  .col-card{
+    border:1.5px solid var(--stroke);border-radius:12px;padding:18px;
+    background:rgba(59,130,246,0.03);
+  }
+  .col-card h4{margin-top:0;}
+  .label-good{color:var(--accent-1);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
+  .hero-mark{
+    display:flex;align-items:center;justify-content:center;
+    width:100%;height:2.2in;margin:0 0 32px 0;
+    border:1.5px solid var(--stroke);border-radius:18px;
+    background:
+      radial-gradient(circle at 30% 40%, rgba(91,139,255,0.28), transparent 55%),
+      radial-gradient(circle at 75% 65%, rgba(45,94,240,0.22), transparent 60%),
+      var(--bg-soft);
+    position:relative;overflow:hidden;
+  }
+  .hero-mark::after{
+    content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px) 0 0/32px 32px,
+      linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px) 0 0/32px 32px;
+    pointer-events:none;
+  }
+  .hero-mark .stamp{
+    position:relative;z-index:2;
+    font-family:'JetBrains Mono',monospace;
+    color:var(--accent-1);font-size:13px;
+    letter-spacing:0.18em;text-transform:uppercase;
+  }
+  .hero-mark .stamp .big{
+    display:block;font-family:'Inter',sans-serif;font-weight:900;
+    font-size:56px;letter-spacing:-0.02em;text-transform:none;
+    background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    margin-top:6px;
+  }
+  @media print{
+    @page{size:8.5in 11in;margin:0;}
+    html,body{background:var(--bg) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .page{margin:0;box-shadow:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="page cover">
+  <div class="hero-mark">
+    <div class="stamp">
+      Karemops.ai · Field Guide
+      <span class="big">/content-agent</span>
+    </div>
+  </div>
+
+  <span class="tag">Karemops.ai · Field Guide</span>
+  <h1>Your content team, <span class="grad">on a dashboard.</span></h1>
+  <p class="lead">The exact Claude Code prompt that walks you — one step at a time — through building a 5-agent content dashboard. Real Instagram data. Live dashboard. Telegram digest to your phone. No black boxes.</p>
+
+  <div class="panel">
+    <h4 style="margin-top:0;">Inside</h4>
+    <ul>
+      <li>The full copy-paste prompt (page 3) — Claude builds it <em>with</em> you, not for you</li>
+      <li>How Claude pulls your real IG posts + your competitors via Apify</li>
+      <li>The 5 agents on the dashboard: Ideator · Hook & Script · Planner · Analyst · DM Manager</li>
+      <li>The Telegram bot that lands your daily digest on your phone</li>
+      <li>The scheduled loop that runs the whole thing weekly, on its own</li>
+    </ul>
+  </div>
+
+  <div class="cover-meta">
+    <div>
+      <div style="color:var(--text);font-weight:700;font-size:13px;letter-spacing:0;text-transform:none;margin-bottom:4px;">Karem AlMoayyad</div>
+      <div>Karemops.ai · Arc Digital</div>
+    </div>
+    <div style="text-align:right;">
+      <div>@karemops.ai</div>
+      <div>IG · TikTok · LinkedIn</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — THE PROBLEM / WHAT THIS IS -->
+<section class="page">
+  <span class="tag">§ 01 · What This Is</span>
+  <h2>One prompt. <span class="grad">Five agents. A real dashboard.</span></h2>
+  <p class="lead">You paste one prompt into Claude Code. Claude walks you through building a working content operations dashboard — the same architecture I use to run my content — and stops at every step to make sure it actually works before moving on.</p>
+
+  <p>By the end, you have three things:</p>
+  <ul>
+    <li>A folder on your machine with your real Instagram data + your competitors' data, ranked by views</li>
+    <li>A clean dashboard in the browser showing 5 agents (Ideator, Hook &amp; Script, Planner, Analyst, DM Manager) with live stats from your account</li>
+    <li>A Telegram bot that sends you the digest — top idea, top post, key numbers — every week, automatically</li>
+  </ul>
+
+  <p>No SaaS subscription. No black box. Plain files you can read and edit.</p>
+
+  <div class="callout">
+    <strong>The rule:</strong> Claude goes ONE step at a time. You stay in the driver's seat. Nothing gets built without you seeing it work first. That's the whole point of this prompt.
+  </div>
+
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">01 / 08</span></div>
+</section>
+
+<!-- PAGE 3 — THE PROMPT (part 1) -->
+<section class="page">
+  <div class="step-label">Step 01 · The Prompt</div>
+  <h2>Copy this. <span class="grad">Paste into Claude Code.</span></h2>
+  <p class="lead">This is the whole thing. Open a fresh Claude Code session in any folder, paste this prompt, and let Claude drive. It will ask you for your handle, your competitors, and your Apify token before it touches a file.</p>
+
+  <pre>Task: Be my guide — walk me through building a "content agent dashboard": a team of 5 AI agents that run my content (scout ideas, write hooks/scripts, plan a daily calendar, analyse my stats, handle my DMs), shown on a clean dashboard, reporting to my Telegram. Go ONE STEP AT A TIME, ask me what you need, and verify each piece works before moving on. Do NOT dump the whole build at once. This is a guide, not a one-shot script.
+
+SAY THIS BACK TO ME FIRST (so I know you get it)
+We are building, in order: (1) a content agent that pulls my Instagram + my competitors' data, (2) a dashboard that shows 5 agents working with my real stats, (3) a Telegram bot that the dashboard reports to. You build it WITH me, checking in at each step. I stay in the driver's seat.
+
+BEFORE YOU START
+Ask me three things: my Instagram handle, 3-5 competitor handles in my exact niche, and whether I have an Apify account (free tier is fine — apify.com). If I don't, walk me through making one and getting an API token.</pre>
+
+  <p class="muted" style="margin-top:14px;">(prompt continues on the next page — paste both blocks as one message)</p>
+
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">02 / 08</span></div>
+</section>
+
+<!-- PAGE 3B — THE PROMPT (part 2) -->
+<section class="page">
+  <div class="step-label">Step 01 · continued</div>
+  <h2>The prompt <span class="grad">(part 2 of 2).</span></h2>
+  <p class="lead">Paste this directly under part 1 in the same message. Send it once — Claude runs the rest of the setup interactively.</p>
+
+  <pre>STEP 1 — THE AGENT FOLDER
+Create a clean project folder (default: ~/content-agent). Inside it scaffold: CLAUDE.md (the agent's instructions — who I am, my niche, my voice, my competitors), a scripts/ folder, a dashboard/ folder, and a gitignored .env for tokens. Seed CLAUDE.md with my handle + competitors. Show me the folder tree before moving on.
+
+STEP 2 — PULL THE REAL DATA
+Write a small Node script that uses Apify's "instagram-scraper" (resultsType: posts, a high resultsLimit) to pull MY full post history + my competitors' recent posts, then ranks every post by views. Run it. Show me my true all-time top posts + my real follower count. (Important: do NOT use the "instagram-profile-scraper" latestPosts field — it only returns recent posts and will get my top post wrong.) Save the result to dashboard/data.json.
+
+STEP 3 — BUILD THE DASHBOARD
+Build a single self-contained dashboard (one index.html + a few small JS files) that shows: my key stats up top (followers, top post, total views, engagement), and a row of 5 "agent" cards — Ideator, Hook &amp; Script, Planner, Analyst, DM Manager — each with a little working animation and a few live metrics. Make every section clickable so I can drill into what each agent produced. Use a clean, modern look (white background, one accent colour, soft shadows). Render it, screenshot it, and show me before we wire anything else.
+
+STEP 4 — THE TELEGRAM BOT
+Walk me through creating a Telegram bot: open Telegram, message @BotFather, send /newbot, name it, copy the token. Have me message my new bot once. Then write a small sender script that reads the token + my chat id from .env, pulls my chat id from getUpdates, and sends a digest (my real stats + top idea) to my phone. Run it and confirm it lands on my phone. Store the token in the gitignored .env — never print it.
+
+STEP 5 — MAKE IT RUN ON ITS OWN
+Now wire the loop: the agent re-pulls my data on a schedule (weekly is fine), refreshes the dashboard, and sends the digest to Telegram automatically. Use a cron job or launchd. Prove it by triggering one run end to end while I watch.
+
+STEP 6 — PROVE THE WHOLE THING
+Walk me through one full cycle: data pulls → dashboard updates → the 5 agents' output → the digest hits my phone. I want to watch it work, not take your word for it.
+
+RULES
+- One step at a time. Stop and wait for my "ok" before the next step.
+- Verify everything against what's really on screen / on my phone — never assume.
+- Keep tokens in a gitignored .env. Never print or commit them.
+- Plain files I can read and edit. No black-box services.
+- If something already exists (a folder, a bot), inspect it and improve it instead of overwriting.
+
+Start by saying the goal back to me in one line, then ask me for my Instagram handle, my competitors, and whether I have an Apify account.</pre>
+
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">03 / 08</span></div>
+</section>
+
+<!-- PAGE 4 — WHAT YOU NEED BEFORE YOU RUN IT -->
+<section class="page">
+  <div class="step-label">Step 02 · Prep</div>
+  <h2>Three things <span class="grad">to have ready.</span></h2>
+  <p class="lead">Claude will ask you for these on the first message. If you have them lined up before you paste the prompt, you shave 20 minutes off the build.</p>
+
+  <div class="panel">
+    <h4 style="margin-top:0;">1 · Your Instagram handle</h4>
+    <p style="margin-bottom:0;">Just the handle — e.g. <code class="inline">@karemops.ai</code>. Your account must be public for the Apify scraper to read it. If it's private, flip it public for the pull, then flip it back.</p>
+  </div>
+
+  <div class="panel">
+    <h4 style="margin-top:0;">2 · 3–5 competitor handles</h4>
+    <p style="margin-bottom:0;">People in your <em>exact</em> niche who make the content you want to make. Not the biggest accounts — the accounts closest to where you're going. Their top posts are the map.</p>
+  </div>
+
+  <div class="panel">
+    <h4 style="margin-top:0;">3 · An Apify account + API token</h4>
+    <p style="margin-bottom:0;">Free tier is fine to start. Sign up at <a href="https://apify.com" style="color:var(--accent-1);text-decoration:none;">apify.com</a>, go to <strong>Settings → API &amp; Integrations → Personal API tokens</strong>, and copy the token. If you skip this, Claude will walk you through it — but pre-doing it saves a step.</p>
+  </div>
+
+  <div class="callout">
+    <strong>Important:</strong> the prompt tells Claude to use <code class="inline">instagram-scraper</code> with <code class="inline">resultsType: posts</code> — not the profile scraper. This is the one mistake that makes your "top post" wrong. The prompt already handles it, but if you tweak the script later, keep this rule.
+  </div>
+
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">04 / 08</span></div>
+</section>
+
+<!-- PAGE 5 — THE 5 AGENTS -->
+<section class="page">
+  <span class="tag">§ 03 · The Dashboard</span>
+  <h2>Five agents. <span class="grad">One screen.</span></h2>
+  <p class="lead">This is what Claude builds in Step 3. A single <code class="inline">index.html</code> with your real stats up top and a row of 5 agent cards below. Every card is clickable — click any one and you drill into what that agent produced this week.</p>
+
+  <div class="two-col">
+    <div class="col-card">
+      <div class="label-good">Agent 01</div>
+      <h4>Ideator</h4>
+      <p style="font-size:13px;margin-bottom:0;">Scouts topics from your niche + your top-performing posts + competitor wins. Returns a ranked list of ideas to film.</p>
+    </div>
+    <div class="col-card">
+      <div class="label-good">Agent 02</div>
+      <h4>Hook &amp; Script</h4>
+      <p style="font-size:13px;margin-bottom:0;">Takes an idea, writes 6 hook variants, then a full short-form script in your voice. Beat-by-beat, retention-first.</p>
+    </div>
+    <div class="col-card">
+      <div class="label-good">Agent 03</div>
+      <h4>Planner</h4>
+      <p style="font-size:13px;margin-bottom:0;">Lays your posts on a calendar. What ships tomorrow, what ships Friday, what needs filming this weekend.</p>
+    </div>
+    <div class="col-card">
+      <div class="label-good">Agent 04</div>
+      <h4>Analyst</h4>
+      <p style="font-size:13px;margin-bottom:0;">Reads your data.json every week. Flags what's working, what died, and what to double down on. Your feedback loop.</p>
+    </div>
+  </div>
+
+  <div class="col-card" style="margin-top:14px;">
+    <div class="label-good">Agent 05</div>
+    <h4>DM Manager</h4>
+    <p style="font-size:13px;margin-bottom:0;">Handles inbound. Categorises DMs into leads / fans / spam, drafts warm replies, surfaces the ones that need you personally. This is where the funnel lives.</p>
+  </div>
+
+  <div class="callout">
+    <strong>Every card is clickable.</strong> The dashboard isn't just a status page — it's a control panel. Click Ideator, see this week's picks. Click Analyst, see the numbers. Click DM Manager, see the drafts.
+  </div>
+
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">05 / 08</span></div>
+</section>
+
+<!-- PAGE 6 — TELEGRAM -->
+<section class="page">
+  <div class="step-label">Step 03 · Telegram</div>
+  <h2>The digest lands <span class="grad">on your phone.</span></h2>
+  <p class="lead">A dashboard you have to open is a dashboard you forget. Telegram fixes that. Claude walks you through creating a bot in about two minutes.</p>
+
+  <h3>The setup (Claude drives — you tap)</h3>
+  <ol>
+    <li>Open Telegram. Search <code class="inline">@BotFather</code>. Message it.</li>
+    <li>Send <code class="inline">/newbot</code>. Give your bot a name and a username.</li>
+    <li>BotFather returns a token — a long string. Copy it.</li>
+    <li>Message your new bot once (say "hi") so it can find your chat id.</li>
+    <li>Paste the token to Claude. It writes it into a gitignored <code class="inline">.env</code>, pulls your chat id via <code class="inline">getUpdates</code>, and fires a test digest to your phone.</li>
+  </ol>
+
+  <div class="panel">
+    <h4 style="margin-top:0;">What lands on your phone</h4>
+    <ul>
+      <li>Your current follower count + delta from last week</li>
+      <li>Your top-performing post from the last pull, with a link</li>
+      <li>This week's top idea from the Ideator agent</li>
+      <li>Any DMs the DM Manager flagged as leads</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <strong>Security note:</strong> the prompt is strict about this — tokens live in a gitignored <code class="inline">.env</code>, never printed, never committed. If Claude ever tries to echo your token back at you, tell it to stop. That rule is in the prompt for a reason.
+  </div>
+
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">06 / 08</span></div>
+</section>
+
+<!-- PAGE 7 — MAKE IT RUN ITSELF -->
+<section class="page">
+  <div class="step-label">Step 04 · Autopilot</div>
+  <h2>Then hand it off <span class="grad">to a cron job.</span></h2>
+  <p class="lead">You built it once. Now wire the loop so it runs without you touching anything. Weekly is the sweet spot for content data — daily is overkill, monthly is stale.</p>
+
+  <h3>The loop</h3>
+  <ol>
+    <li>Cron fires the Apify pull. Fresh data lands in <code class="inline">dashboard/data.json</code>.</li>
+    <li>The dashboard re-renders with the new numbers on next open.</li>
+    <li>The Ideator + Analyst agents run against the new data.</li>
+    <li>The Telegram sender ships the digest to your phone.</li>
+  </ol>
+
+  <p>On macOS Claude will use <code class="inline">launchd</code>. On Linux, a plain <code class="inline">crontab</code> entry. Either way, you get to watch it fire end-to-end once before it goes autonomous.</p>
+
+  <div class="panel">
+    <h4 style="margin-top:0;">The verification move</h4>
+    <p style="margin-bottom:0;">Don't take Claude's word for anything. When the schedule is wired, ask it to trigger one run manually while you watch. Data pulls → dashboard refreshes → digest lands. If any step fails silently, you catch it now, not in three weeks when you realise you haven't gotten a digest.</p>
+  </div>
+
+  <div class="callout">
+    <strong>Rule from the prompt:</strong> "Verify everything against what's really on screen / on my phone — never assume." That's your job too. Make Claude prove every piece.
+  </div>
+
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">07 / 08</span></div>
+</section>
+
+<!-- PAGE 8 — PAYOFF + CTA -->
+<section class="page">
+  <span class="tag">§ Payoff</span>
+  <h2>One prompt. <span class="grad">A full content ops stack.</span></h2>
+  <p class="lead">You just built the same architecture I use to run my content — the data pull, the 5 agents, the Telegram digest, the weekly loop. Paste one prompt, answer three questions, ship the whole thing in an afternoon.</p>
+
+  <p>Most people never ship this because they think it's a "real dev project." It isn't. It's one prompt and 90 minutes of clicking "ok" while Claude drives.</p>
+
+  <div class="divider"></div>
+
+  <h3>What to do this week</h3>
+  <ol>
+    <li>Get your Apify token + pick your 3–5 competitors. 10 minutes.</li>
+    <li>Paste the prompt on page 3. Run through Steps 1–3 today. Stop when the dashboard renders.</li>
+    <li>Wire Telegram tomorrow. Schedule it the day after. Done.</li>
+  </ol>
+
+  <div class="panel">
+    <h4 style="margin-top:0;">The rest of the Karemops Skill Library</h4>
+    <ul>
+      <li><code class="inline">/morning</code> — daily brief before you sit down</li>
+      <li><code class="inline">/content-ideator</code> — weekly topics from your data + competitor wins</li>
+      <li><code class="inline">/content-scripter</code> — hooks + full filming cards</li>
+      <li><code class="inline">/carousel-creator</code> — slides end-to-end</li>
+      <li><code class="inline">/post-content</code> — publishes across IG, TikTok, LinkedIn, YouTube</li>
+    </ul>
+    <p style="font-size:13px;margin-top:14px;margin-bottom:0;">Everything on <a href="https://www.karemopsai.com" style="color:var(--accent-1);text-decoration:none;">karemopsai.com</a>. Same pattern every time: one prompt, one command, real output.</p>
+  </div>
+
+  <div class="callout">
+    <strong>If this hit, send it to one other creator who's still running content ops out of a Google Doc.</strong>
+  </div>
+
+  <div class="brand-bar"><span>Karemops.ai · @karemops.ai</span><span class="grad">08 / 08</span></div>
+</section>
+
+</body>
+</html>
