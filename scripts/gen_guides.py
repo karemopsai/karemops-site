@@ -9,6 +9,33 @@ BASE = 'https://www.karemopsai.com'
 # ---- per-guide content ----
 GUIDES = [
     {
+        'slug': 'truth-prompt',
+        'title': 'The Truth Prompt',
+        'meta_desc': 'One prompt that stops Claude and ChatGPT from confidently making things up. Install once, use forever.',
+        'kicker': 'CLAUDE · CHATGPT · PROMPT',
+        'h1_pre': 'The Truth',
+        'h1_accent': 'Prompt',
+        'lede': "One copy-paste system prompt that stops Claude and ChatGPT from confidently making things up. It forces the model to separate fact from guess, score its own confidence, and tell you when it doesn't know.",
+        'callout': "Install once. Every future chat is quieter, sharper, and safer to act on. Works in Claude, Claude Code, ChatGPT, and any API you're building on.",
+        'inside': [
+            ('🧠', 'The full Truth Prompt — copy-paste, one block, ready to install'),
+            ('⚡', 'Where it goes in Claude, Claude Code, ChatGPT, and the API'),
+            ('🎯', '8 in-the-moment follow-ups that force it to stay honest'),
+            ('📋', 'A one-page cheat sheet you can screenshot'),
+        ],
+        'dl_items': [
+            ('truth-prompt.md', 'the full Truth Prompt, one block, drop in anywhere'),
+            ('short-prompts.md', 'the compressed + one-liner + audit versions'),
+            ('follow-ups.md', 'the 8 in-the-moment follow-ups to pressure-test any answer'),
+        ],
+        'dl_folder': 'truth-prompt',
+        'what_p1': "Every hallucinated stat, fake citation, and made-up function name has the same root cause: the model has no internal alarm that goes off when it crosses from recall into invention. Both feel the same to it.",
+        'what_p2': "The Truth Prompt is the fix. It doesn't make the model smarter — it changes the process before it answers and forces it to show you its work after. Every response comes back with a confidence score and a caveats section that tells you exactly what to verify.",
+        'what_bq': "The single biggest gain from this prompt is not fewer errors. It's that the errors now announce themselves. A wrong answer that says 'confidence 0.6, I'm extrapolating here' is a wrong answer you will not act on.",
+        'what_p3': 'Install it once. Every future chat gets safer to trust.',
+        'lead_magnet': 'lead-magnets/truth-prompt-guide.html',
+    },
+    {
         'slug': 'fable-5',
         'title': 'The Fable 5 Playbook',
         'meta_desc': 'How to prompt the most powerful model you can actually use — plus 10 copy-paste jobs to run before it flips to pay-as-you-go.',

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Truth Prompt — Karemops.ai</title>
+<meta name="description" content="One prompt that stops Claude and ChatGPT from confidently making things up. Install once, use forever.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#000000;--bg-soft:#050B1F;--text:#FFFFFF;--text-muted:#A8B0C2;
+    --accent-1:#5B8BFF;--accent-2:#2D5EF0;--accent:#3B82F6;
+    --stroke:rgba(59,130,246,0.6);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;font-weight:400;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .page{width:8.5in;margin:0 auto;padding:0.7in 0.75in;background:var(--bg);page-break-after:always;position:relative;overflow:hidden;}
+  .page:last-child{page-break-after:auto;}
+  .page::before{content:"";position:absolute;top:-200px;right:-200px;width:500px;height:500px;background:radial-gradient(circle, rgba(59,130,246,0.18), transparent 70%);pointer-events:none;z-index:0;}
+  .page > *{position:relative;z-index:1;}
+  .tag{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-1);margin-bottom:18px;display:inline-block;}
+  h1{font-weight:900;font-size:60px;line-height:1.02;letter-spacing:-0.02em;margin-bottom:22px;}
+  h2{font-weight:900;font-size:36px;line-height:1.08;letter-spacing:-0.015em;margin:0 0 16px 0;}
+  h3{font-weight:700;font-size:20px;line-height:1.3;margin:24px 0 10px 0;color:var(--accent-1);}
+  h4{font-weight:700;font-size:15px;line-height:1.4;margin:18px 0 8px 0;color:var(--text);}
+  p{font-size:14px;color:var(--text);margin-bottom:12px;}
+  p.muted{color:var(--text-muted);}
+  .lead{font-size:16px;color:var(--text-muted);margin-bottom:20px;line-height:1.6;}
+  .grad{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .accent-blue{color:var(--accent-1);}
+  .panel{border:1.5px solid var(--stroke);border-radius:14px;padding:22px 24px;background:rgba(59,130,246,0.04);box-shadow:inset 0 0 30px rgba(59,130,246,0.06);margin:18px 0;}
+  ul{list-style:none;padding:0;margin:10px 0;}
+  ul li{font-size:14px;padding:7px 0 7px 22px;position:relative;color:var(--text);}
+  ul li::before{content:"";position:absolute;left:0;top:14px;width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));}
+  code,pre{font-family:'JetBrains Mono','SF Mono',monospace;font-size:12.5px;}
+  code.inline{background:rgba(59,130,246,0.12);color:var(--accent-1);padding:2px 7px;border-radius:5px;font-size:12px;}
+  pre{background:var(--bg-soft);border:1.5px solid var(--stroke);border-radius:10px;padding:16px 18px;color:var(--text);overflow-x:auto;line-height:1.55;font-size:12.5px;white-space:pre-wrap;word-break:break-word;}
+  pre .cmt{color:var(--accent-1);font-weight:500;}
+  .callout{border-left:3px solid var(--accent);background:rgba(59,130,246,0.06);padding:14px 18px;border-radius:0 8px 8px 0;margin:18px 0;font-size:13.5px;color:var(--text-muted);}
+  .callout strong{color:var(--text);}
+  .cover{display:flex;flex-direction:column;justify-content:center;min-height:11in;}
+  .cover-meta{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(168,176,194,0.2);padding-top:18px;color:var(--text-muted);font-size:11px;letter-spacing:0.05em;text-transform:uppercase;margin-top:40px;font-family:'JetBrains Mono',monospace;}
+  .cover h1{font-size:78px;}
+  .cover .sub{font-size:22px;color:var(--text-muted);margin-bottom:32px;max-width:6.5in;line-height:1.4;}
+  .cover .lead{font-size:17px;max-width:6in;color:var(--text-muted);}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--stroke),transparent);margin:28px 0;border:0;}
+  .step-label{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent-1);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;}
+  .brand-bar{margin-top:36px;padding-top:18px;border-top:1px solid rgba(168,176,194,0.15);display:flex;justify-content:space-between;color:var(--text-muted);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;}
+  .brand-bar .grad{font-weight:700;}
+  table{width:100%;border-collapse:separate;border-spacing:0;margin:14px 0;font-size:13px;}
+  th,td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid rgba(168,176,194,0.12);}
+  th{background:rgba(59,130,246,0.08);color:var(--accent-1);font-weight:700;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;border-bottom:1.5px solid var(--stroke);}
+  td{color:var(--text);}
+  td:first-child{font-weight:700;color:var(--accent-1);white-space:nowrap;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
+  .col-panel{border:1px solid var(--stroke);border-radius:12px;padding:16px 18px;background:rgba(59,130,246,0.04);}
+  .col-panel h4{margin-top:0;color:var(--accent-1);font-size:13px;text-transform:uppercase;letter-spacing:0.06em;}
+  .col-panel ul li{font-size:13px;padding:5px 0 5px 20px;}
+  .col-panel ul li::before{width:6px;height:6px;top:12px;}
+  .cta{border:1.5px solid var(--stroke);border-radius:14px;padding:26px 28px;background:linear-gradient(135deg, rgba(45,94,240,0.12), rgba(91,139,255,0.04));margin:24px 0 8px;}
+  .cta h3{color:var(--text);font-size:22px;margin:0 0 10px 0;font-weight:900;letter-spacing:-0.01em;}
+  .cta p{font-size:14px;color:var(--text-muted);margin-bottom:16px;}
+  .cta a{display:inline-block;padding:11px 22px;background:var(--accent-1);color:#000;font-weight:700;border-radius:999px;font-size:13px;text-decoration:none;letter-spacing:0.02em;}
+  .cta a:hover{background:#fff;}
+  @media print{
+    @page{size:8.5in 11in;margin:0;}
+    html,body{background:var(--bg) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .page{margin:0;box-shadow:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="page cover">
+  <div>
+    <span class="tag">KAREMOPS · AI THAT TELLS THE TRUTH</span>
+    <h1>The <span class="grad">Truth</span><br>Prompt</h1>
+    <p class="sub">One prompt that stops Claude and ChatGPT from confidently making things up.</p>
+    <p class="lead">
+      A copy-paste system prompt that forces the model to separate fact from guess,
+      score its own confidence, and tell you when it doesn't know.
+      Install it once. Every future chat is quieter, sharper, and safer to act on.
+    </p>
+    <div class="cover-meta">
+      <span>KAREMOPS.AI</span>
+      <span>2026 EDITION</span>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 — THE PROMPT -->
+<section class="page">
+  <span class="tag">01 / THE PROMPT</span>
+  <h2>The Truth Prompt</h2>
+  <p class="lead">
+    Here it is. Copy it. Paste it into your AI's custom instructions. Read the rest of this guide after.
+    The whole thing is one block. Don't shorten it.
+  </p>
+  <pre><span class="cmt"># THE TRUTH PROMPT</span>
+
+Adopt the role of a rigorous, truth-seeking reasoning assistant.
+
+For every complex or factual request, follow this process:
+
+<span class="cmt"># 1. DECOMPOSE</span>
+Break the request into smaller questions or claims that can be
+evaluated independently.
+
+<span class="cmt"># 2. DISTINGUISH</span>
+Clearly separate:
+- Verified facts
+- Reasonable inferences
+- Assumptions
+- Opinions
+- Unknown or missing information
+
+<span class="cmt"># 3. SOLVE</span>
+Address each part carefully. Do not invent facts, sources, quotes,
+statistics, links, or details to fill gaps.
+
+<span class="cmt"># 4. VERIFY</span>
+Before answering, check:
+- Logical consistency
+- Factual accuracy
+- Whether the answer fully addresses the request
+- Whether important context is missing
+- Whether bias or unsupported assumptions may be affecting the answer
+
+<span class="cmt"># 5. CALIBRATE CONFIDENCE</span>
+Assign a confidence score from 0.0 to 1.0 based on the quality of the
+available evidence, not on how persuasive the answer sounds.
+
+<span class="cmt"># 6. RETRY WHEN NEEDED</span>
+If confidence is below 0.8:
+- Identify the weakest claims
+- Reconsider the reasoning
+- Revise the answer
+- Or state what information is needed if the uncertainty cannot be resolved
+
+<span class="cmt"># 7. BE HONEST ABOUT UNCERTAINTY</span>
+Never present an assumption, prediction, or uncertain claim as a
+confirmed fact. If something cannot be verified, say so directly.
+
+<span class="cmt"># OUTPUT FORMAT</span>
+For every final response, use this format:
+
+Clear Answer:
+Provide the most accurate and useful answer possible.
+
+Confidence Level:
+Give an overall confidence score from 0.0 to 1.0 and briefly explain it.
+
+Key Caveats:
+List any assumptions, uncertainties, missing information, conflicting
+evidence, or facts that require verification.</pre>
+  <div class="callout"><strong>Do this now.</strong> Open Claude. Click your name (bottom left) → Settings → "Instructions for Claude." Paste. Save. It now applies to every new chat.</div>
+  <div class="brand-bar"><span>KAREMOPS.AI · THE TRUTH PROMPT</span><span class="grad">PAGE 02</span></div>
+</section>
+
+<!-- PAGE 3 — WHY AI MAKES THINGS UP -->
+<section class="page">
+  <span class="tag">02 / WHY THIS MATTERS</span>
+  <h2>Why AI confidently makes things up</h2>
+  <p>
+    AI doesn't lie the way a person lies. There's no intent. What actually happens is simpler — and in some ways, worse.
+  </p>
+  <p>
+    A language model is a prediction engine. It looks at everything in front of it and predicts what text should come next.
+    That's the entire job. It's not looking things up in a database. It's not checking a source.
+    It's producing the most plausible continuation of a sentence.
+  </p>
+  <p>
+    Here's the problem: a sentence that's confidently wrong is <em>just as plausible</em> as a sentence that's confidently right.
+    "The study was published in 2019 by researchers at Stanford" reads perfectly whether that study exists or not.
+    The model has no internal alarm that goes off when it crosses from recall into invention. Both feel the same to it.
+  </p>
+  <div class="panel">
+    <h3 style="margin-top:0;">The actual term: hallucination</h3>
+    <p class="muted" style="margin-bottom:0;">
+      When an AI produces content that sounds right but isn't grounded in anything real, it's called a hallucination.
+      It shows up as fake citations, invented statistics, made-up URLs, quotes nobody said, and function names that don't exist in a library.
+      The output is fluent. That's exactly what makes it dangerous.
+    </p>
+  </div>
+
+  <h3>The three failure modes you actually run into</h3>
+  <div class="two-col">
+    <div class="col-panel">
+      <h4>1 · Gap filling</h4>
+      <p style="font-size:13px;color:var(--text-muted);margin:0;">You ask a question, the model knows 80% of the answer, and it smooths over the missing 20% instead of flagging it. You never see the seam.</p>
+    </div>
+    <div class="col-panel">
+      <h4>2 · Confidence without evidence</h4>
+      <p style="font-size:13px;color:var(--text-muted);margin:0;">The tone is the same whether it's certain or guessing. There's no verbal hedge. You read confidence and assume accuracy. They're unrelated.</p>
+    </div>
+  </div>
+  <div class="col-panel" style="margin:16px 0;">
+    <h4>3 · Agreeing with you</h4>
+    <p style="font-size:13px;color:var(--text-muted);margin:0;">Models are trained on human feedback, and humans rate agreeable answers higher. Push back on a correct answer and watch it fold. That isn't the model changing its mind — that's it optimizing for your approval.</p>
+  </div>
+  <div class="callout"><strong>Heads up:</strong> you'll see viral claims that AI "lies X% of the time." Treat any single number with suspicion. Hallucination rates swing wildly by model, topic, whether web search is on, and how the question is asked. The rate isn't zero. That's the only part you need to act on.</div>
+  <div class="brand-bar"><span>KAREMOPS.AI · THE TRUTH PROMPT</span><span class="grad">PAGE 03</span></div>
+</section>
+
+<!-- PAGE 4 — WHAT THE PROMPT ACTUALLY DOES -->
+<section class="page">
+  <span class="tag">03 / WHAT THE PROMPT ACTUALLY DOES</span>
+  <h2>Why each of the 7 steps is there</h2>
+  <p>
+    The Truth Prompt doesn't give the model new knowledge. It can't.
+    What it does is change the model's process <em>before</em> it answers, and force it to show you its work <em>after</em>.
+  </p>
+  <p class="muted">
+    Think of it as the difference between asking someone a question in the hallway versus asking them to write you a memo.
+    Same person. Same knowledge. Wildly different rigor.
+  </p>
+  <table>
+    <tr><th style="width:22%;">Step</th><th style="width:38%;">What it forces</th><th>Why it matters</th></tr>
+    <tr><td>1 · Decompose</td><td>Split the request into separate claims</td><td>A wrong sub-claim hides inside a right-sounding answer. Splitting it exposes the weak link.</td></tr>
+    <tr><td>2 · Distinguish</td><td>Label each piece: fact, inference, assumption, opinion, unknown</td><td>Most bad AI answers blend all five into one confident paragraph.</td></tr>
+    <tr><td>3 · Solve</td><td>Answer without inventing sources, stats, quotes, or links</td><td>An explicit ban on gap-filling. Naming what it fabricates works better than "be accurate."</td></tr>
+    <tr><td>4 · Verify</td><td>Self-check logic, facts, completeness, bias</td><td>A second pass catches contradictions the first pass wrote in.</td></tr>
+    <tr><td>5 · Calibrate</td><td>Score confidence 0.0 – 1.0 based on evidence, not on how good it sounds</td><td>Separates "I'm sure" from "this reads well." Those are different things.</td></tr>
+    <tr><td>6 · Retry</td><td>If under 0.8, find the weakest claim and redo it</td><td>The model gets a chance to catch itself before you see the answer.</td></tr>
+    <tr><td>7 · Be honest</td><td>Say "I don't know" out loud</td><td>Gives the model explicit permission to not have an answer. Without it, silence feels like failure.</td></tr>
+  </table>
+  <div class="panel">
+    <h3 style="margin-top:0;">The output format is half the value</h3>
+    <p class="muted" style="margin-bottom:0;">
+      Clear Answer. Confidence Level. Key Caveats. The <strong style="color:var(--text);">Caveats</strong> section is the one people skip — and it's the most useful part of the whole thing. That's where the model tells you what it was unsure about, what it assumed, and what you should verify yourself.
+    </p>
+  </div>
+  <div class="brand-bar"><span>KAREMOPS.AI · THE TRUTH PROMPT</span><span class="grad">PAGE 04</span></div>
+</section>
+
+<!-- PAGE 5 — HOW TO INSTALL -->
+<section class="page">
+  <span class="tag">04 / INSTALL IT EVERYWHERE</span>
+  <h2>How to install it everywhere</h2>
+  <p class="lead">Do this once per tool. It applies to every conversation from then on. You never paste it again.</p>
+
+  <h3>Claude (web + desktop)</h3>
+  <p>Click your name (bottom left) → Settings → <strong style="color:var(--text);">Instructions for Claude</strong>. Paste the full prompt. Save.</p>
+  <p class="muted">If you only want it on research-heavy chats, open a Project instead, click "Set project instructions," and paste it there. That way your casual chats stay casual, and your research chats stay rigorous.</p>
+
+  <h3>Claude Code (or any coding agent)</h3>
+  <p>Drop it into your <code class="inline">CLAUDE.md</code> at the project root. Every session reads that file automatically. For coding specifically, add this one extra line — the failure mode is different:</p>
+  <pre><span class="cmt"># CODING ADD-ON</span>
+
+Additional rule for code:
+Never invent library functions, API endpoints, flags, or config keys.
+If you are not certain a function exists, say so and tell me to check
+the docs. A wrong function name that looks right costs more time than
+saying "I don't know."</pre>
+
+  <h3>ChatGPT</h3>
+  <p>Profile (bottom left) → Settings → Personalization → Custom Instructions. Paste into <em>"How would you like ChatGPT to respond?"</em> and save.</p>
+  <p class="muted">If the full prompt doesn't fit in ChatGPT's character limit, use the compressed version on the next page.</p>
+
+  <h3>API / system prompts</h3>
+  <p>Drop it in as the system message. Same text, no changes. If you're building anything that touches facts, numbers, or citations, this belongs in your system prompt permanently.</p>
+
+  <div class="callout"><strong>Tip:</strong> instructions apply to <strong style="color:var(--text);">new</strong> chats. If a conversation was already open, close it and start a fresh one — otherwise you'll think the prompt didn't work.</div>
+  <div class="brand-bar"><span>KAREMOPS.AI · THE TRUTH PROMPT</span><span class="grad">PAGE 05</span></div>
+</section>
+
+<!-- PAGE 6 — SHORT VERSIONS -->
+<section class="page">
+  <span class="tag">05 / SHORT VERSIONS</span>
+  <h2>Short versions for when you need them</h2>
+  <p class="lead">The full prompt is the right one for custom instructions. But sometimes you need something that fits in a character limit, or you just want to spot-check one answer without changing your settings.</p>
+
+  <h3>Compressed (fits anywhere)</h3>
+  <pre><span class="cmt"># SHORT TRUTH PROMPT</span>
+
+Be a rigorous, truth-seeking assistant.
+
+For factual requests: break the question into separate claims. Label each
+as verified fact, inference, assumption, or unknown. Never invent sources,
+stats, quotes, or links to fill gaps. Check your answer for logic,
+accuracy, and missing context before replying. If your confidence is
+under 0.8, revise it or tell me what you'd need to know.
+
+End every factual answer with:
+Confidence: 0.0–1.0 (based on evidence, not how good the answer sounds)
+Caveats: assumptions, unknowns, things to verify</pre>
+
+  <h3>The one-liner (paste into any single chat)</h3>
+  <pre>Answer this, then give me a confidence score from 0.0 to 1.0 and list
+every assumption or unverified claim you made. Do not invent sources or
+numbers. If you do not know, say so.</pre>
+
+  <h3>The audit (run it on an answer you already got)</h3>
+  <pre><span class="cmt"># AUDIT AN EXISTING ANSWER</span>
+
+Re-read your last answer as a skeptical fact-checker who wants to find
+errors.
+
+List every factual claim you made. For each one, mark it: VERIFIED,
+LIKELY, UNCERTAIN, or FABRICATED.
+
+Then rewrite the answer keeping only what survives.</pre>
+  <div class="callout"><strong>Use this one often.</strong> The audit prompt is the highest-leverage one in this whole guide. Run it on any AI answer you're about to act on. You'll be surprised how often something gets downgraded.</div>
+  <div class="brand-bar"><span>KAREMOPS.AI · THE TRUTH PROMPT</span><span class="grad">PAGE 06</span></div>
+</section>
+
+<!-- PAGE 7 — HOW TO READ THE CONFIDENCE SCORE -->
+<section class="page">
+  <span class="tag">06 / READING THE CONFIDENCE SCORE</span>
+  <h2>How to read the confidence score</h2>
+  <p>This part matters and almost nobody gets it right. The confidence score is <em>useful</em>. It's not a <em>measurement</em>.</p>
+  <p>The model isn't computing a probability. It's estimating one, using the same prediction machinery that produces everything else it says. The score is a signal, not a guarantee. A 0.9 isn't a promise. It's the model saying "this feels well-supported to me."</p>
+  <p>So why bother? Because the relative movement is informative. When a model that normally hands you 0.9 suddenly hands you 0.55, something in that answer is shaky, and it just told you. That's worth a lot.</p>
+
+  <table>
+    <tr><th style="width:18%;">Score</th><th>What it usually means</th><th style="width:40%;">What to do</th></tr>
+    <tr><td>0.9 – 1.0</td><td>Well-established, widely documented, unlikely to be contested</td><td>Proceed. Still verify anything with money, health, or legal consequences.</td></tr>
+    <tr><td>0.75 – 0.9</td><td>Solid, but with assumptions baked in or details it's fuzzy on</td><td>Read the caveats carefully. That's where the soft spot is.</td></tr>
+    <tr><td>0.5 – 0.75</td><td>The model is reasoning, not recalling. Real uncertainty.</td><td>Don't act on this without a second source. Ask what would change its mind.</td></tr>
+    <tr><td>Below 0.5</td><td>It's guessing and admitting it</td><td>Treat as a starting point for your own research. Nothing more.</td></tr>
+  </table>
+
+  <div class="callout"><strong>Heads up:</strong> a high confidence score on a hallucinated fact is still possible. The prompt reduces this. It doesn't eliminate it. If an answer will cost you money, time, or credibility when wrong, verify it against a real source. The prompt is a filter — not a guarantee.</div>
+
+  <h3>The follow-up that breaks a fake high score</h3>
+  <pre><span class="cmt"># PRESSURE-TEST A CONFIDENT ANSWER</span>
+
+You gave that a high confidence score. Now argue against yourself.
+
+What's the strongest case that your answer is wrong? What would I find
+if I checked your sources and they didn't exist? Where is the weakest
+link in your reasoning?
+
+Then re-score your confidence.</pre>
+  <div class="brand-bar"><span>KAREMOPS.AI · THE TRUTH PROMPT</span><span class="grad">PAGE 07</span></div>
+</section>
+
+<!-- PAGE 8 — 8 FOLLOW-UPS -->
+<section class="page">
+  <span class="tag">07 / IN-THE-MOMENT FOLLOW-UPS</span>
+  <h2>8 follow-ups that force it to stay honest</h2>
+  <p class="lead">Custom instructions set the baseline. These are what you type <em>in the moment</em>, when an answer feels a little too smooth.</p>
+
+  <h3>1 · The source check</h3>
+  <pre>For every source, statistic, and quote you just used: do you actually
+know this exists, or are you reconstructing what a plausible source
+would say? Be specific about which is which.</pre>
+
+  <h3>2 · The anti-agreement check</h3>
+  <pre>I think you changed your answer because I pushed, not because I was
+right. Were you correct the first time? Tell me honestly.</pre>
+
+  <h3>3 · The missing context check</h3>
+  <pre>What did you leave out of that answer that a real expert would have
+included? What would they say you got dangerously wrong?</pre>
+
+  <h3>4 · The disconfirming evidence check</h3>
+  <pre>Give me the strongest evidence AGAINST what you just told me. Do not
+soften it.</pre>
+
+  <h3>5 · The blank-slate check</h3>
+  <pre>Forget everything I told you I wanted. If you had no idea what answer
+I was hoping for, what would you say?</pre>
+
+  <div class="brand-bar"><span>KAREMOPS.AI · THE TRUTH PROMPT</span><span class="grad">PAGE 08</span></div>
+</section>
+
+<!-- PAGE 9 — MORE FOLLOW-UPS + MISTAKES -->
+<section class="page">
+  <span class="tag">07 / CONT.</span>
+  <h2>The follow-ups, continued</h2>
+
+  <h3>6 · The verification path</h3>
+  <pre>Do not tell me the answer. Tell me exactly how I would verify it myself,
+and what I should search for. Then give the answer.</pre>
+
+  <h3>7 · The knowledge boundary check</h3>
+  <pre>Is this something you actually have reliable training data on, or is it
+recent, niche, or obscure enough that you are extrapolating? Be specific
+about where your knowledge thins out.</pre>
+
+  <h3>8 · The stakes check</h3>
+  <pre>I am going to act on this. Money and reputation are on the line. Given
+that, what do you want to change or caveat about your answer?</pre>
+
+  <div class="callout"><strong>The one you'll use most is #2.</strong> Models fold under pressure. If you push back and the AI immediately agrees with you, that's a red flag — not a win.</div>
+
+  <h2 style="margin-top:32px;">The mistakes that quietly turn the prompt off</h2>
+  <p>The prompt works. But there are specific things people do that quietly cancel it out — and then they conclude it "didn't work."</p>
+  <ul>
+    <li><strong style="color:var(--accent-1);">Pasting into an old chat.</strong> Custom instructions only load at the start of a conversation. Start a new one.</li>
+    <li><strong style="color:var(--accent-1);">Trimming it down to "be accurate."</strong> Vague instructions get vague compliance. The specific list of banned inventions is what does the work.</li>
+    <li><strong style="color:var(--accent-1);">Skipping the caveats section.</strong> That's the payload. Skipping it is installing a smoke detector and unplugging it.</li>
+    <li><strong style="color:var(--accent-1);">Treating 0.9 as verified.</strong> It's the model's self-assessment. For anything that matters, you still check.</li>
+    <li><strong style="color:var(--accent-1);">Leaving it on for creative work.</strong> It'll caveat a poem. Turn it off, or scope it to a Project so it only runs where you need it.</li>
+  </ul>
+  <div class="brand-bar"><span>KAREMOPS.AI · THE TRUTH PROMPT</span><span class="grad">PAGE 09</span></div>
+</section>
+
+<!-- PAGE 10 — WHEN ON, WHEN OFF -->
+<section class="page">
+  <span class="tag">08 / WHEN TO USE IT</span>
+  <h2>When to use it, when not to</h2>
+  <p class="lead">Rigor has a cost. Answers get longer, more hedged, slower. That's a great trade for research and a terrible one for a quick idea. Know which mode you're in.</p>
+  <div class="two-col">
+    <div class="col-panel">
+      <h4>Turn it ON for</h4>
+      <ul>
+        <li>Research and fact-finding</li>
+        <li>Anything with statistics or numbers</li>
+        <li>Medical, legal, or financial questions</li>
+        <li>Writing you'll publish under your name</li>
+        <li>Code you'll ship</li>
+        <li>Decisions with real money attached</li>
+        <li>Anything you'll cite to someone else</li>
+      </ul>
+    </div>
+    <div class="col-panel">
+      <h4>Turn it OFF for</h4>
+      <ul>
+        <li>Brainstorming and idea generation</li>
+        <li>Creative writing, fiction, poetry</li>
+        <li>Casual conversation</li>
+        <li>First drafts you'll heavily rewrite</li>
+        <li>Rough scratch code and experiments</li>
+        <li>Rewording, summarizing, formatting</li>
+        <li>Tasks where you already know the answer</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3 style="margin-top:0;">The Project trick</h3>
+    <p class="muted" style="margin-bottom:0;">
+      In Claude, create one Project called <strong style="color:var(--text);">"Research"</strong> with the Truth Prompt as its project instructions. Leave your global settings clean. Now you get rigor when you want it, and a normal, fast Claude the rest of the time. Same idea works in ChatGPT with a custom GPT.
+    </p>
+  </div>
+
+  <h3>Pair it with search</h3>
+  <p>The prompt makes the model honest about what it doesn't know. Web search gives it a way to <em>actually find out</em>. Together they're far stronger than either alone. If your tool has search, turn it on for anything factual and recent — the confidence scores get noticeably more useful.</p>
+
+  <div class="brand-bar"><span>KAREMOPS.AI · THE TRUTH PROMPT</span><span class="grad">PAGE 10</span></div>
+</section>
+
+<!-- PAGE 11 — CHEAT SHEET + CTA -->
+<section class="page">
+  <span class="tag">09 / THE CHEAT SHEET</span>
+  <h2>The one-page cheat sheet</h2>
+  <p class="lead">Everything in this guide, compressed. Screenshot this page.</p>
+
+  <h3>Setup</h3>
+  <table>
+    <tr><th style="width:35%;">Tool</th><th>Where the prompt goes</th></tr>
+    <tr><td>Claude</td><td>Your name (bottom left) → Settings → Instructions for Claude</td></tr>
+    <tr><td>Claude (one project)</td><td>Open a Project → Set project instructions</td></tr>
+    <tr><td>Claude Code</td><td><code class="inline">CLAUDE.md</code> at project root</td></tr>
+    <tr><td>ChatGPT</td><td>Profile → Settings → Personalization → Custom Instructions</td></tr>
+    <tr><td>API</td><td>System prompt</td></tr>
+  </table>
+
+  <h3>The seven steps in one line</h3>
+  <p class="muted">
+    Decompose the question. Distinguish fact from inference from assumption from unknown. Solve without inventing anything. Verify logic, facts, completeness, bias. Calibrate confidence 0.0 to 1.0. Retry if under 0.8. Be honest about what it doesn't know.
+  </p>
+
+  <h3>The output you should now see every time</h3>
+  <pre><span class="cmt"># EXPECTED FORMAT</span>
+
+Clear Answer:
+...
+
+Confidence Level:
+0.0 to 1.0, with a reason
+
+Key Caveats:
+Assumptions, unknowns, things to verify</pre>
+
+  <h3>The three follow-ups worth memorizing</h3>
+  <ul>
+    <li>"Which of those sources do you actually know exist, and which are you reconstructing?"</li>
+    <li>"Did you change your answer because I pushed, or because I was right?"</li>
+    <li>"Argue against yourself. Where is the weakest link?"</li>
+  </ul>
+
+  <div class="cta">
+    <h3>Want more of this?</h3>
+    <p>I ship one of these every week — copy-paste prompts, Claude Code skills, and the systems I actually run on my own business. No fluff. If you got value from this, subscribe.</p>
+    <a href="https://www.karemopsai.com/">→ Get every guide free</a>
+  </div>
+  <div class="brand-bar"><span>KAREMOPS.AI</span><span class="grad">END</span></div>
+</section>
+
+</body>
+</html>
