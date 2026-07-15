@@ -495,6 +495,33 @@ GUIDES = [
         'what_p3': 'Build the files once. Load them into every future project.',
         'lead_magnet': 'lead-magnets/employee-context-guide.html',
     },
+    {
+        'slug': 'skills-setup',
+        'title': 'Build Your Own Claude Code Skills',
+        'meta_desc': 'The non-tech setup guide. Zero coding. From a blank Terminal to your first working Claude Code skill — plus 3 you can steal.',
+        'kicker': 'CLAUDE CODE · SETUP',
+        'h1_pre': 'Build Your Own',
+        'h1_accent': 'Claude Code Skills',
+        'lede': "The non-tech setup guide. Zero coding required. From a blank Terminal to your first working skill — plus 3 stealable skills you can copy-paste and run today.",
+        'callout': "A skill is a saved employee, not a saved prompt. You write instructions once, in plain English, and Claude runs the same job the same way every time. This guide is the whole install.",
+        'inside': [
+            ('🧠', 'What a skill actually is — plain English, no dev-speak'),
+            ('⚡', 'Installing Claude Code from zero (Mac or Windows)'),
+            ('🎯', 'The <code class="inline">SKILL.md</code> anatomy + trigger description formula'),
+            ('🧩', '3 stealable skills — copy, paste, run today'),
+        ],
+        'dl_items': [
+            ('skills-setup-guide.html', 'the full setup guide — install, folder, SKILL.md, test'),
+            ('weekly-review.md', 'the Friday review skill — steal it'),
+            ('client-recap.md', 'the after-call recap skill — steal it'),
+        ],
+        'dl_folder': 'skills-setup',
+        'what_p1': "Most business owners open Claude Code, type a prompt, get a decent answer, and then type the same prompt again tomorrow. Different wording, same idea. That's the trap — you're paying a tax in time and quality every single day.",
+        'what_p2': "A skill is the fix. It's a folder on your computer with one file in it that tells Claude how to do a specific job — the steps, the format, the tools. You type a slash command, Claude runs the SOP. You didn't code anything. You just wrote the instructions once.",
+        'what_bq': "The people you're watching online who look 10x faster aren't prompting harder. They built skills. The prompts live in files now — and that's the entire gap.",
+        'what_p3': 'This guide closes that gap.',
+        'lead_magnet': 'lead-magnets/skills-setup-guide.html',
+    },
 ]
 
 # ---- load template ----
