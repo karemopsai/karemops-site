@@ -9,6 +9,33 @@ BASE = 'https://www.karemopsai.com'
 # ---- per-guide content ----
 GUIDES = [
     {
+        'slug': 'claude-skill-builder',
+        'title': 'Build Your First Claude Skill',
+        'meta_desc': 'The no-code way to build a Claude skill. One copy-paste prompt interviews you and writes it. Teach Claude a task once, use it forever.',
+        'kicker': 'CLAUDE APP · SKILLS',
+        'h1_pre': 'Build Your First Claude',
+        'h1_accent': 'Skill',
+        'lede': "Teach Claude a task once and it does it the same way forever. No code, no terminal. One copy-paste prompt interviews you and builds the whole skill. You'll ship your first one in about 10 minutes.",
+        'callout': "You don't write the skill yourself. The Skill Builder prompt asks you a few plain-English questions about a task you already do, then writes it for you. Your job is just to answer.",
+        'inside': [
+            ('🧠', 'What a skill actually is — plain English, no dev-speak'),
+            ('⚡', 'The copy-paste Skill Builder prompt that interviews you and writes it'),
+            ('🎯', 'Exactly where to save it in the Claude app so it runs forever'),
+            ('🧩', '4 starter skills you can steal — post writer, DM responder, and more'),
+        ],
+        'dl_items': [
+            ('skill-builder-prompt.md', 'the full Skill Builder prompt, copy-paste ready'),
+            ('skill-format.md', 'the finished skill format Claude fills in for you'),
+            ('starter-skills.md', 'the 4 stealable starter skills'),
+        ],
+        'dl_folder': 'claude-skill-builder',
+        'what_p1': "Most people re-explain the same task to Claude every single day. Different wording, same job. That's a tax on your time and the quality drifts every time.",
+        'what_p2': "A skill fixes that. You teach Claude once — the steps, your voice, the rules — and it becomes a reusable command. This guide hands you a prompt that builds the skill for you, so you never touch code.",
+        'what_bq': "The people who look 10x faster with AI aren't prompting harder. They stopped re-explaining themselves and saved the instructions once. That's the entire gap.",
+        'what_p3': 'This guide closes it in 10 minutes.',
+        'lead_magnet': 'lead-magnets/build-your-first-skill-guide.html',
+    },
+    {
         'slug': 'truth-prompt',
         'title': 'The Truth Prompt',
         'meta_desc': 'One prompt that stops Claude and ChatGPT from confidently making things up. Install once, use forever.',
