@@ -9,6 +9,33 @@ BASE = 'https://www.karemopsai.com'
 # ---- per-guide content ----
 GUIDES = [
     {
+        'slug': 'infinite-content',
+        'title': 'Infinite Content Unlocked',
+        'meta_desc': 'The exact Claude Code prompt that turns one idea into 100 short-form scripts — 5 angles, 4 hooks each, in your voice, for IG, TikTok, and YouTube Shorts.',
+        'kicker': 'CLAUDE CODE · CONTENT',
+        'h1_pre': 'Infinite Content',
+        'h1_accent': 'Unlocked',
+        'lede': "One prompt. One idea in. 100 short-form scripts out — every angle, every hook, in your voice — in under two minutes. This is the exact prompt, plus how to feed it your voice so it doesn't sound like a robot.",
+        'callout': "The prompt is only as good as what you feed it. Give it your real hooks and a real voice sample and it writes like you. Skip that and it sounds like every other AI script on the feed.",
+        'inside': [
+            ('🧠', 'Why one idea is enough — the 5×4×5 = 100 breakdown'),
+            ('⚡', 'The master prompt, copy-paste ready — just fill in 3 brackets'),
+            ('🎯', 'The 3 inputs that make every script sound like you, not a bot'),
+            ('🔁', 'The 3 follow-up prompts that cut 100 down to a filmable 10 + push to Airtable'),
+        ],
+        'dl_items': [
+            ('master-prompt.md', 'the full 1-idea-to-100-scripts prompt, copy-paste ready'),
+            ('inputs-checklist.md', 'the 3 inputs to load before you run it — hooks, voice, idea'),
+            ('refine-prompts.md', 'the 3 follow-ups: rank, sharpen, and export to your pipeline'),
+        ],
+        'dl_folder': 'infinite-content',
+        'what_p1': "Most creators film one idea, post it once, and pray. That's the whole problem. One idea can carry a month of content — you just never had the machine to unpack it.",
+        'what_p2': "Claude Code is that machine. Hand it a single idea plus your voice, and it writes 5 angles, 4 hooks per angle, and 5 full scripts per hook. That's 100 shorts from one thought — every one built to film, not just read.",
+        'what_bq': "The creators who win aren't the most creative. They're the ones who never run out of at-bats. This is how you get infinite at-bats from a single idea.",
+        'what_p3': 'This is the exact prompt, and how to run it.',
+        'lead_magnet': 'lead-magnets/infinite-content-guide.html',
+    },
+    {
         'slug': 'claude-skill-builder',
         'title': 'Build Your First Claude Skill',
         'meta_desc': 'The no-code way to build a Claude skill. One copy-paste prompt interviews you and writes it. Teach Claude a task once, use it forever.',
