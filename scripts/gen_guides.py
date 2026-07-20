@@ -9,6 +9,33 @@ BASE = 'https://www.karemopsai.com'
 # ---- per-guide content ----
 GUIDES = [
     {
+        'slug': 'humanizer',
+        'title': 'Make AI Writing Sound Human',
+        'meta_desc': 'The free Claude skill that checks your text against 33 AI tells and rewrites it in your voice. Paste one GitHub link into Claude Code and it installs itself. No code.',
+        'kicker': 'CLAUDE CODE · WRITING',
+        'h1_pre': 'Make AI Writing Sound',
+        'h1_accent': 'Human',
+        'lede': "People smell AI writing in half a second, and the moment they do, they stop reading. This free skill checks your text against 33 documented AI tells, rewrites it in your voice, then double-checks its own work. You install it by pasting one link into Claude Code.",
+        'callout': "Copy the GitHub link. Paste one prompt into Claude Code. Let it install the skill for you. Then paste any text and it comes back sounding like a person — no coding, no terminal commands to memorize.",
+        'inside': [
+            ('🕵️', 'The 33 tells that scream "a robot wrote this" — and why readers clock them instantly'),
+            ('🔗', 'The GitHub link + the exact prompt to paste so Claude Code installs it for you'),
+            ('✍️', 'How to run it on any text — captions, cold emails, DMs, posts'),
+            ('🎙️', 'The voice-match trick: feed it a sample so it rewrites in <em>your</em> voice, not generic clean'),
+        ],
+        'dl_items': [
+            ('install-prompt.md', 'the copy-paste prompt that makes Claude Code install the skill'),
+            ('how-to-run.md', 'the trigger + how to humanize any text in one message'),
+            ('voice-match.md', 'the sample-first prompt that copies your writing style'),
+        ],
+        'dl_folder': 'humanizer',
+        'what_p1': "It's never one big thing that gives AI writing away. It's a hundred tiny tells stacked up — the em dashes, the 'it's not just X, it's Y,' the words no human says out loud like delve, tapestry, testament, seamless. Your reader clocks it in half a second even if they can't name why.",
+        'what_p2': "The Humanizer is a free skill built on Wikipedia's documented list of AI writing signs. You give it text. It checks against 33 specific tells, rewrites it to sound human, and runs a second pass on its own output to catch anything it missed. Feed it a sample of your writing and it copies your voice instead of a generic clean one.",
+        'what_bq': "This matters most for cold email. Inboxes and readers are now allergic to AI-written copy. One whiff and you're spam. Sounding human isn't a nice-to-have — it's the difference between a reply and silence.",
+        'what_p3': 'This is the install and how to run it.',
+        'lead_magnet': 'lead-magnets/humanizer-guide.html',
+    },
+    {
         'slug': 'infinite-content',
         'title': 'Infinite Content Unlocked',
         'meta_desc': 'The exact Claude Code prompt that turns one idea into 100 short-form scripts — 5 angles, 4 hooks each, in your voice, for IG, TikTok, and YouTube Shorts.',

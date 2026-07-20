@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Make AI Writing Sound Human — Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#000000;
+    --bg-soft:#050B1F;
+    --text:#FFFFFF;
+    --text-muted:#A8B0C2;
+    --accent-1:#5B8BFF;
+    --accent-2:#2D5EF0;
+    --accent:#3B82F6;
+    --stroke:rgba(59,130,246,0.6);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;font-weight:400;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .page{
+    width:8.5in;
+    margin:0 auto;
+    padding:0.7in 0.75in;
+    background:var(--bg);
+    page-break-after:always;
+    position:relative;
+    overflow:hidden;
+  }
+  .page:last-child{page-break-after:auto;}
+  .page::before{
+    content:"";
+    position:absolute;
+    top:-200px;right:-200px;
+    width:500px;height:500px;
+    background:radial-gradient(circle, rgba(59,130,246,0.18), transparent 70%);
+    pointer-events:none;
+    z-index:0;
+  }
+  .page > *{position:relative;z-index:1;}
+  .tag{
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    margin-bottom:18px;
+    display:inline-block;
+  }
+  h1{font-weight:900;font-size:64px;line-height:1.02;letter-spacing:-0.02em;margin-bottom:24px;}
+  h2{font-weight:900;font-size:38px;line-height:1.08;letter-spacing:-0.015em;margin:0 0 16px 0;}
+  h3{font-weight:700;font-size:20px;line-height:1.3;margin:24px 0 10px 0;}
+  h4{font-weight:700;font-size:15px;line-height:1.4;margin:18px 0 8px 0;color:var(--text);}
+  p{font-size:14px;color:var(--text);margin-bottom:12px;}
+  p.muted{color:var(--text-muted);}
+  .lead{font-size:16px;color:var(--text-muted);margin-bottom:20px;line-height:1.6;}
+  .grad{
+    background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .accent-blue{color:var(--accent-1);}
+  .panel{
+    border:1.5px solid var(--stroke);
+    border-radius:14px;
+    padding:22px 24px;
+    background:rgba(59,130,246,0.04);
+    box-shadow:inset 0 0 30px rgba(59,130,246,0.06);
+    margin:18px 0;
+  }
+  ul{list-style:none;padding:0;margin:10px 0;}
+  ul li{font-size:14px;padding:7px 0 7px 22px;position:relative;color:var(--text);}
+  ul li::before{
+    content:"";
+    position:absolute;
+    left:0;top:14px;
+    width:8px;height:8px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+  }
+  ol{padding-left:0;counter-reset:step;list-style:none;margin:10px 0;}
+  ol li{font-size:14px;padding:8px 0 8px 36px;position:relative;counter-increment:step;}
+  ol li::before{
+    content:counter(step);
+    position:absolute;left:0;top:6px;
+    width:24px;height:24px;border-radius:50%;
+    background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+    color:#fff;font-weight:700;font-size:12px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  code,pre{font-family:'JetBrains Mono','SF Mono',monospace;font-size:12.5px;}
+  code.inline{
+    background:rgba(59,130,246,0.12);
+    color:var(--accent-1);
+    padding:2px 7px;
+    border-radius:5px;
+    font-size:12px;
+  }
+  pre{
+    background:var(--bg-soft);
+    border:1.5px solid var(--stroke);
+    border-radius:10px;
+    padding:16px 18px;
+    color:var(--text);
+    overflow-x:auto;
+    line-height:1.55;
+    font-size:12.5px;
+    white-space:pre-wrap;
+    word-break:break-word;
+  }
+  .callout{
+    border-left:3px solid var(--accent);
+    background:rgba(59,130,246,0.06);
+    padding:14px 18px;
+    border-radius:0 8px 8px 0;
+    margin:18px 0;
+    font-size:13.5px;
+    color:var(--text-muted);
+  }
+  .callout strong{color:var(--text);}
+  .cover{display:flex;flex-direction:column;}
+  .cover-meta{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    border-top:1px solid rgba(168,176,194,0.2);
+    padding-top:18px;
+    color:var(--text-muted);
+    font-size:11px;letter-spacing:0.05em;text-transform:uppercase;
+  }
+  .cover h1{font-size:78px;}
+  .cover .lead{font-size:20px;max-width:6in;color:var(--text-muted);}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--stroke),transparent);margin:30px 0;border:0;}
+  .step-label{
+    display:inline-block;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;color:var(--accent-1);
+    letter-spacing:0.1em;text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+  .ba .box{border:1.5px solid var(--stroke);border-radius:12px;padding:16px 18px;background:rgba(59,130,246,0.04);}
+  .ba .box p{font-size:13px;margin:0;line-height:1.5;}
+  .ba .lbl{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;display:block;}
+  .brand-bar{
+    margin-top:40px;padding-top:18px;
+    border-top:1px solid rgba(168,176,194,0.15);
+    display:flex;justify-content:space-between;
+    color:var(--text-muted);
+    font-size:11px;letter-spacing:0.06em;text-transform:uppercase;
+  }
+  .brand-bar .grad{font-weight:700;}
+  @media print{
+    @page{size:8.5in 11in;margin:0;}
+    html,body{background:var(--bg) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .page{margin:0;box-shadow:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="page cover">
+  <div>
+    <span class="tag">Karemops.ai · Field Guide</span>
+    <h1>Make AI writing sound <span class="grad">human.</span></h1>
+    <p class="lead">There's a free tool that reads your text, catches the 33 tells that scream "a robot wrote this," and rewrites it in your voice. You install it by copy-pasting one link. That's the whole job.</p>
+  </div>
+  <div>
+    <div class="panel" style="max-width:5in;">
+      <p class="muted" style="font-size:12px;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;">Inside</p>
+      <p style="font-size:14px;color:var(--text);margin:0;">Why AI writing gets ignored, how to install the Humanizer without touching code (you paste a link, Claude does the rest), how to run it on any text, and the voice-match trick that makes it sound like you.</p>
+    </div>
+    <div class="cover-meta">
+      <span>Karem AlMoayyad</span>
+      <span class="grad">@karemops.ai</span>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page">
+  <span class="tag">§ 01 · The problem</span>
+  <h2>People can <span class="grad">smell</span> AI writing.</h2>
+  <p class="lead">And the second they smell it, they stop reading. Your post, your email, your cold outreach — dead on arrival, because it reads like a machine typed it.</p>
+  <p>It's never one big thing. It's a hundred tiny tells stacked up: the em dashes, the "it's not just X, it's Y," the words no human says out loud like <em>delve, tapestry, testament, seamless, robust.</em> Your brain clocks it in half a second even if you can't name why.</p>
+
+  <div class="callout">
+    <strong>This matters most for cold email.</strong> Inboxes and readers are now allergic to AI-written copy. One whiff and you're spam. Sounding human isn't a nice-to-have — it's the difference between a reply and silence.
+  </div>
+
+  <h3>What the Humanizer does</h3>
+  <p>It's a free skill built on Wikipedia's documented list of AI writing signs. You give it text. It:</p>
+  <ul>
+    <li>Checks your writing against <strong>33 specific AI tells</strong></li>
+    <li>Rewrites it to sound like a real person wrote it</li>
+    <li>Runs a <strong>second pass</strong> on its own output to catch anything it missed</li>
+    <li>Can copy <strong>your</strong> voice if you feed it a sample of your writing</li>
+  </ul>
+
+  <div class="callout">
+    <strong>You don't need to be technical.</strong> No code, no terminal commands to memorize. If you can copy a link and paste it, you can install this and use it today.
+  </div>
+
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">01 / 06</span></div>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page">
+  <span class="step-label">Step 01</span>
+  <h2>Open <span class="grad">Claude Code.</span></h2>
+  <p class="lead">Claude Code is the app that can install tools for you and do the setup on its own. If you've got it open already, you're good. If not, here's the one-time setup.</p>
+
+  <ol>
+    <li>Make sure you have a <strong>Claude account</strong> (the same login you use at claude.ai).</li>
+    <li>Install Claude Code — the easiest way is the <strong>desktop app</strong>, or your team's setup. Once it's open you'll see a chat box where you type.</li>
+    <li>That's it. You don't need to know what a "terminal" is. You just type to it in plain English, like texting.</li>
+  </ol>
+
+  <div class="callout">
+    <strong>Stuck on install?</strong> Search "install Claude Code" or ask any Claude chat: <em>"Walk me through installing Claude Code on my computer, step by step, I'm not technical."</em> It'll hold your hand through it.
+  </div>
+
+  <hr class="divider">
+
+  <span class="step-label">Step 02</span>
+  <h2>Paste the link. Tell it to <span class="grad">install.</span></h2>
+  <p>Here's the magic part. You don't run any setup yourself. You hand Claude Code the link to the tool and tell it to do the work. Paste this into the chat box exactly:</p>
+
+<pre>Install this skill for me: https://github.com/blader/humanizer
+
+I'm not technical. Set it up so I can use it, and when
+you're done, tell me in plain English how to run it.</pre>
+
+  <p class="muted">Hit send. Claude Code grabs the tool, installs it, and reports back. If it asks you to confirm anything, just say <strong>yes</strong>. When it's finished, it'll tell you the trigger word to use — usually <code class="inline">/humanizer</code>.</p>
+
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">02 / 06</span></div>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page">
+  <span class="step-label">Step 03</span>
+  <h2>Run it on your <span class="grad">text.</span></h2>
+  <p class="lead">Now use it. Start a message, type the trigger, then paste whatever you want fixed underneath. That's the whole move.</p>
+
+<pre>/humanizer
+
+[paste your AI-sounding text here]</pre>
+
+  <p>Claude reads it, strips the tells, and hands you back a version that sounds like a person. Read it, tweak anything that isn't you, and ship it.</p>
+
+  <div class="callout">
+    <strong>No slash command showing up?</strong> Just ask in plain English instead: <em>"Humanize this for me:"</em> and paste your text. Same result. Claude knows what the skill is once it's installed.
+  </div>
+
+  <hr class="divider">
+
+  <span class="step-label">Step 04 · the upgrade</span>
+  <h2>Make it sound like <span class="grad">you.</span></h2>
+  <p>By default it cleans your text to a neutral "human" voice. But you can make it copy <em>your</em> voice. Feed it a sample of your own writing first:</p>
+
+<pre>/humanizer
+
+Here's a sample of how I actually write:
+[paste 2-3 paragraphs of your own real writing]
+
+Now rewrite this in that same voice:
+[paste the AI text you want fixed]</pre>
+
+  <p class="muted">It studies your rhythm, your word choices, your quirks — then rewrites in that style instead of generic "clean." This is what turns a post from "fine" into "that's clearly Karem."</p>
+
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">03 / 06</span></div>
+</section>
+
+<!-- PAGE 5 -->
+<section class="page">
+  <span class="tag">§ What it catches</span>
+  <h2>The tells it kills <span class="grad">for you.</span></h2>
+  <p class="lead">You don't need to memorize these. The tool handles them. But seeing the list tells you exactly why your writing sounded off.</p>
+
+  <div class="panel">
+    <h4 style="margin-top:0;">Words no human uses</h4>
+    <p class="muted" style="margin:0;font-size:13.5px;">delve, tapestry, testament, underscore, pivotal, vibrant, seamless, robust, leverage, showcase, foster.</p>
+  </div>
+  <div class="panel">
+    <h4 style="margin-top:0;">The dead giveaway sentence shapes</h4>
+    <p class="muted" style="margin:0;font-size:13.5px;">"It's not just X, it's Y." The forced group of three. "Honestly? Here's the thing." Manufactured drama with clipped fragments.</p>
+  </div>
+  <div class="panel">
+    <h4 style="margin-top:0;">The punctuation tic</h4>
+    <p class="muted" style="margin:0;font-size:13.5px;">Em dashes everywhere. It cuts them for periods, commas, or parentheses like a real writer would.</p>
+  </div>
+  <div class="panel">
+    <h4 style="margin-top:0;">The filler and the fluff</h4>
+    <p class="muted" style="margin:0;font-size:13.5px;">"In order to," "due to the fact that," empty hype, "the future looks bright," and the chatbot sign-off "I hope this helps!"</p>
+  </div>
+
+  <div class="callout">33 patterns total, plus a second self-check pass. You paste, it cleans, it double-checks its own work. Done.</div>
+
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">04 / 06</span></div>
+</section>
+
+<!-- PAGE 6 -->
+<section class="page">
+  <span class="tag">§ See it work</span>
+  <h2>Before and <span class="grad">after.</span></h2>
+  <p class="lead">Same message. One reads like ChatGPT. One reads like a person you'd actually reply to.</p>
+
+  <div class="ba">
+    <div class="box">
+      <span class="lbl">Before · robot</span>
+      <p>Nestled along the banks of the Tagus River, Lisbon stands as a vibrant testament to Portugal's enduring spirit — where rich history and modern energy intertwine at every turn. It's not just a city, it's a feeling. ✨</p>
+    </div>
+    <div class="box">
+      <span class="lbl">After · human</span>
+      <p>I spent five days in Lisbon last October and still have mixed feelings. Beautiful, yes. Also harder on the knees than anyone warned me. The hills are the whole story and somehow never make the brochures.</p>
+    </div>
+  </div>
+
+  <p>Notice what changed: the fancy words gone, the em dashes gone, the fake "it's not just X, it's Y" gone. What's left has a real opinion and a real detail. That's the whole game.</p>
+
+  <div class="callout">
+    <strong>Run everything through it.</strong> Captions, cold emails, DMs, LinkedIn posts, sales pages. If a human is going to read it, humanize it first.
+  </div>
+
+  <div class="panel" style="margin-top:28px;">
+    <p class="muted" style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Built by</p>
+    <h3 style="margin:0;font-size:22px;">Karem AlMoayyad</h3>
+    <p style="margin:4px 0 0 0;color:var(--text-muted);font-size:13px;">AI operator + educator. I help business owners ship AI systems that actually work — content, ads, automation, and the boring ops in between. Built with Claude Code.</p>
+    <p style="margin:14px 0 0 0;font-size:13px;">
+      <span class="grad" style="font-weight:700;">@karemops.ai</span>
+      <span style="color:var(--text-muted);"> · Instagram · TikTok · LinkedIn</span>
+    </p>
+  </div>
+
+  <div class="brand-bar"><span>Karemops.ai</span><span class="grad">05 / 06</span></div>
+</section>
+
+</body>
+</html>
