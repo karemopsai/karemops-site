@@ -9,6 +9,33 @@ BASE = 'https://www.karemopsai.com'
 # ---- per-guide content ----
 GUIDES = [
     {
+        'slug': 'claude-starter-pack',
+        'title': 'The Claude Starter Pack',
+        'meta_desc': "The 5-minute setup for anyone who thinks AI isn't for them. Sign up, send your first real prompt, teach Claude about you, and lock one weekly ritual. No coding, no tech background.",
+        'kicker': 'CLAUDE · GETTING STARTED',
+        'h1_pre': 'The Claude Starter',
+        'h1_accent': 'Pack',
+        'lede': "If you've been scrolling past AI content thinking \"this isn't for me,\" this is your 5 minutes. By the end you'll have Claude set up, your first prompt sent, and one weekly ritual locked. No coding. No tech background.",
+        'callout': "The people getting value from AI aren't using secret prompts. They opened the thing and used it every day until it clicked. This guide is the 5-minute setup plus the one habit that makes it stick.",
+        'inside': [
+            ('🆓', 'The free-plan setup that\'s genuinely enough to start — on the email you actually check'),
+            ('🧠', 'The first prompt that makes Claude ask <em>you</em> questions instead of guessing'),
+            ('📌', 'The "remember that..." move that stops it forgetting who you are'),
+            ('🔁', 'The 3 weekly rituals — pick one, run it 7 days, and it becomes a reflex'),
+        ],
+        'dl_items': [
+            ('first-prompt.md', 'the copy-paste first prompt that turns Claude into a collaborator'),
+            ('remember-facts.md', 'the "remember that..." starter list to teach it about you'),
+            ('weekly-ritual.md', 'the 3 rituals — Monday, pre-meeting, Friday — pick one'),
+        ],
+        'dl_folder': 'claude-starter-pack',
+        'what_p1': "Most people who \"tried AI once\" opened it, typed \"write me a caption,\" got an okay caption, and quietly decided it wasn't for them. The setup was never the problem. Nobody showed them the two or three moves that make it click.",
+        'what_p2': "This guide is those moves. Sign up free, send a first prompt that makes Claude ask you questions back, teach it a handful of facts about you so it stops forgetting, and pick one weekly ritual you actually commit to. Five minutes, no terminal, no code.",
+        'what_bq': "The gap isn't intelligence or secret prompts. It's the person who opens Claude every day versus the person who set it up once and forgot. This guide closes that gap with one habit.",
+        'what_p3': 'Set up in 5 minutes. Keep it with one ritual.',
+        'lead_magnet': 'lead-magnets/claude-starter-pack-guide.html',
+    },
+    {
         'slug': 'humanizer',
         'title': 'Make AI Writing Sound Human',
         'meta_desc': 'The free Claude skill that checks your text against 33 AI tells and rewrites it in your voice. Paste one GitHub link into Claude Code and it installs itself. No code.',
