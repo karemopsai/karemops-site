@@ -126,7 +126,7 @@ html[data-lang="ar"] .lede,html[data-lang="ar"] .what p,html[data-lang="ar"] .in
 .ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}`;
 
 function hero(g) {
-  const si = g.hero === "prompt" && g.prompts.length ? -1 : g.steps.findIndex((s) => s.code && s.code.trim().length >= 6 && s.code.length < 400);
+  const si = typeof g.hero === "number" ? g.hero - 1 : g.hero === "prompt" && g.prompts.length ? -1 : g.steps.findIndex((s) => s.code && s.code.trim().length >= 6 && s.code.length < 400);
   const src = si >= 0 ? g.steps[si] : g.prompts[0] || { code: "" };
   const code = (src.code || "").split("\n").slice(0, 5).join("\n");
   const isCmd = /^(\/|npx |git |mkdir|export|https?:|claude|Shift|npm |pip |node )/.test(code.trim());

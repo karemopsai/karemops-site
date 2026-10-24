@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Fable 5 playbook | Karemops.ai</title>
+<title>The Fable 5.1 playbook | Karemops.ai</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -106,46 +106,48 @@ html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
 <section class="page cover">
   <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip">Free guide</span></div>
   <div class="eyebrow">Field guide</div>
-  <h1>The Fable 5 <span class="em">playbook</span>.</h1>
-  <p class="lead">Fable 5 is back, free-included on Pro, Max, and Team through July 7. It's the most powerful model you can actually use right now. Here's how to prompt it, and the 10 highest-value jobs to run before it flips to pay-as-you-go.</p>
+  <h1>The Fable 5.1 <span class="em">playbook</span>.</h1>
+  <p class="lead">Fable 5.1 is Anthropic's most capable generally available model for coding and knowledge work. Here's how to point it at the right jobs, and the 10 highest-value ones to run first.</p>
   <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Prompt</span></div><pre>Make a checklist of every task I do in a normal day, then look at it and tell me exactly which of these you could automate for me and how.<span class="caret"></span></pre><div class="note">The first prompt in this guide. Copy it as is.</div></div></div>
   <div class="bottom">
-    <div class="inside"><h3 style="margin-top:0">Inside</h3><p>You'll know Anthropic's 4 prompting rules for Fable 5 and have 10 copy-paste prompts pointed at the hard jobs that actually need a frontier model.</p></div>
+    <div class="inside"><h3 style="margin-top:0">Inside</h3><p>Switch to Fable 5.1 in Claude Code, set the effort level per task, use the prompting rules that get the most out of it, and run 10 jobs worth the tokens.</p></div>
     <div class="by"><div class="mono-k">K</div><div><b>Karem AlMoayyad</b><small><span class="ltr">@karemops.ai</span></small></div></div>
   </div>
 </section>
 
-<section class="page"><div class="run"><b>karemops.ai</b><span>The Fable 5 playbook</span><span>FABLE</span></div>
+<section class="page"><div class="run"><b>karemops.ai</b><span>The Fable 5.1 playbook</span><span>FABLE</span></div>
   <div class="eyebrow">01 · What this is</div>
   <h2>What you're <span class="em">setting up.</span></h2>
-  <p>Fable 5 was pulled by US export controls, cleared June 30, and redeployed July 1 as a safeguarded version. Free-included on Pro, Max, and Team through July 7. After that it's still there, it just stops being free. It's the strongest model you can put your hands on today, and it's expensive to run: roughly $10 in / $50 out per million tokens, about twice Opus.</p>
-  <p>So the game is simple: point it at hard, high-value work, not everyday chat. Reserve it for the jobs you'd normally break into pieces or hand to an expert. Build things once with it, then let a cheaper model run them on repeat. Don't waste it on tasks Sonnet or Opus already handle fine.</p>
-  <h3>You need</h3><ul><li class="l-en">A paid plan: Pro, Max, or Team (or API credits). This is not a free-plan perk.</li><li class="l-en">Claude Code, Cursor, or the Claude app, wherever you already work</li><li class="l-en">One hard, real problem worth pointing a frontier model at</li></ul>
-  <div class="callout"><strong>Heads up:</strong> Don't ask it to "show its reasoning" or "explain its thinking" step by step. On the current model that can trip a safety classifier and quietly drop you to Opus 4.8. Some requests (cyber, bio/chem, some coding) fall back to Opus 4.8 the same way. Ask for the answer and the work, not a running narration of its thought process.</div>
+  <p>Anthropic released Fable 5.1 on September 1, 2026. It's built for long, multi-step work: whole-codebase changes, deep analysis and sessions that run for hours. It defaults to High effort in Claude Code and Medium on claude.ai.</p>
+  <p>It costs more per token than Opus or Sonnet, so the move is to spend it on hard problems and on assets you build once and reuse, not on quick questions.</p>
+  <h3>You need</h3><ul><li class="l-en">A Claude plan or API account with Fable 5.1 access</li><li class="l-en">Claude Code installed (for the build-once jobs)</li><li class="l-en">One real problem you've been putting off</li></ul>
+  <div class="callout"><strong>Heads up:</strong> Fable 5.1 is the expensive tier: $10 per million input tokens and $50 per million output (cache reads dropped to $0.25). Some dual-use security tasks, like exploit generation, still get handed to Opus models. Use Sonnet for quick everyday asks and save Fable for the jobs below.</div>
   <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 08</span></div>
 </section>
 
-<section class="page"><div class="run"><b>karemops.ai</b><span>The Fable 5 playbook</span><span>FABLE</span></div>
+<section class="page"><div class="run"><b>karemops.ai</b><span>The Fable 5.1 playbook</span><span>FABLE</span></div>
   <div class="eyebrow">02 · The steps</div><h2>Set it up, <span class="em">step by step.</span></h2>
   <div class="step"><div class="num">01</div><div>
-    <h2>Give it your hardest problems</h2><p>Start at the top of your difficulty range. Fable is built for the jobs you'd normally split up or outsource, so hand it the whole thing. Easy tasks waste it.</p></div></div>
+    <h2>Switch to Fable 5.1</h2><p>In Claude Code, run /model and pick Fable 5.1. On claude.ai, pick it from the model menu. On the API the model id is claude-fable-5-1.</p><pre>/model</pre></div></div>
   <div class="step"><div class="num">02</div><div>
-    <h2>Keep your prompts short</h2><p>Over-engineered prompts actually degrade the output. State the goal and the constraints, then stop. Let the model do the reasoning instead of scripting every step.</p></div></div>
+    <h2>Set the effort to the job</h2><p>Effort goes from low to max. High is the Claude Code default and fits most builds. Drop to medium for routine edits, where 5.1 matches the old model for less money. Go to xhigh or max only for the hardest problems.</p></div></div>
   <div class="step"><div class="num">03</div><div>
-    <h2>Tell it why you're asking</h2><p>Give it the intent, not just the request. Knowing the "why" lets it make better judgment calls on the parts you didn't spell out.</p></div></div>
+    <h2>Keep your prompts short</h2><p>Over-engineered prompts actually degrade the output. State the goal and the constraints, then stop. Let the model do the reasoning instead of scripting every step.</p></div></div>
   <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 08</span></div>
 </section>
 
-<section class="page"><div class="run"><b>karemops.ai</b><span>The Fable 5 playbook</span><span>FABLE</span></div>
+<section class="page"><div class="run"><b>karemops.ai</b><span>The Fable 5.1 playbook</span><span>FABLE</span></div>
   
   <div class="step"><div class="num">04</div><div>
-    <h2>Let it run, and let it self-verify</h2><p>Fable can work for hours on one goal and check its own work with subagents. Give it room to run instead of interrupting every few minutes.</p></div></div>
+    <h2>Tell it why you're asking</h2><p>Give it the intent, not just the request. Knowing the "why" lets it make better judgment calls on the parts you didn't spell out.</p></div></div>
   <div class="step"><div class="num">05</div><div>
-    <h2>Spend it once on durable assets</h2><p>Fable burns credits fast. The best use of the free window is building durable assets once that you then run on a cheaper model forever: your brand system (#6), your second-brain rebuild (#7), your auto-repurposing engine (#10). Spend Fable once. Reuse the result cheap.</p></div></div>
+    <h2>Let it run, and let it self-verify</h2><p>Fable can work for hours on one goal and check its own work with subagents. Give it room to run instead of interrupting every few minutes.</p></div></div>
+  <div class="step"><div class="num">06</div><div>
+    <h2>Spend it on things you build once</h2><p>The best value is work that keeps paying: a brand system, a reorganized second brain, an auto-repurposing engine. Build it once with Fable 5.1, then run it daily on a cheaper model.</p></div></div>
   <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 08</span></div>
 </section>
 
-<section class="page"><div class="run"><b>karemops.ai</b><span>The Fable 5 playbook</span><span>FABLE</span></div>
+<section class="page"><div class="run"><b>karemops.ai</b><span>The Fable 5.1 playbook</span><span>FABLE</span></div>
   <div class="eyebrow">03 · Copy and paste</div><h2>Your <span class="em">prompts.</span></h2>
   <div class="prompt"><h4><span class="tag">PROMPT</span>Automate your day</h4><pre>Make a checklist of every task I do in a normal day, then look at it and tell me exactly which of these you could automate for me and how.</pre></div>
   <div class="prompt"><h4><span class="tag">PROMPT</span>Upgrade your old code</h4><pre>Review all of the code that was written while you were unavailable and find every optimization and improvement, then implement the highest-impact ones.</pre></div>
@@ -153,7 +155,7 @@ html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
   <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 08</span></div>
 </section>
 
-<section class="page"><div class="run"><b>karemops.ai</b><span>The Fable 5 playbook</span><span>FABLE</span></div>
+<section class="page"><div class="run"><b>karemops.ai</b><span>The Fable 5.1 playbook</span><span>FABLE</span></div>
   
   <div class="prompt"><h4><span class="tag">PROMPT</span>Auto security checks</h4><pre>Loop every 24 hours and run a full security check on all of my app's API endpoints, then report anything new that looks exposed or risky.</pre></div>
   <div class="prompt"><h4><span class="tag">PROMPT</span>Find your viral winners</h4><pre>Here is my entire content library plus each post's metrics. Rank my true outliers and reverse-engineer the repeatable hook, structure, and topic patterns behind them.</pre></div>
@@ -161,7 +163,7 @@ html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
   <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 08</span></div>
 </section>
 
-<section class="page"><div class="run"><b>karemops.ai</b><span>The Fable 5 playbook</span><span>FABLE</span></div>
+<section class="page"><div class="run"><b>karemops.ai</b><span>The Fable 5.1 playbook</span><span>FABLE</span></div>
   
   <div class="prompt"><h4><span class="tag">PROMPT</span>Reorganize your second brain (build once)</h4><pre>Point yourself at my whole notes vault. Dedupe it, restructure it, cross-link it, and rebuild it into a clean memory system you can keep maintaining for me.</pre></div>
   <div class="prompt"><h4><span class="tag">PROMPT</span>Senior-analyst read on your business</h4><pre>Here are my contracts, financials, and reports. Give me the redlines, pull the numbers straight from the tables, and make the strategic call a senior analyst would make.</pre></div>
@@ -169,17 +171,17 @@ html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
   <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 08</span></div>
 </section>
 
-<section class="page"><div class="run"><b>karemops.ai</b><span>The Fable 5 playbook</span><span>FABLE</span></div>
+<section class="page"><div class="run"><b>karemops.ai</b><span>The Fable 5.1 playbook</span><span>FABLE</span></div>
   
   <div class="prompt"><h4><span class="tag">PROMPT</span>Build your auto-repurposing engine (build once)</h4><pre>Build me a Claude agent that repurposes and distributes each new post across all my channels while I sleep, and flags any cross-posting gaps it finds.</pre></div>
   <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 08</span></div>
 </section>
 
-<section class="page"><div class="run"><b>karemops.ai</b><span>The Fable 5 playbook</span><span>FABLE</span></div>
+<section class="page"><div class="run"><b>karemops.ai</b><span>The Fable 5.1 playbook</span><span>FABLE</span></div>
   <div class="eyebrow">Done</div>
   <h2>That's the <span class="em">whole setup.</span></h2>
   <p class="lead">Run it once this week on something real. Then tell me what it did: DM me on Instagram, I read them.</p>
-  <h3>Credit</h3><ul><li>Prompting rules from Anthropic's official Fable 5 guidance</li></ul>
+  <h3>Credit</h3><ul><li>Claude Fable 5.1 by Anthropic (anthropic.com/claude-fable-and-mythos-5-1)</li></ul>
   <div class="cta">
     <div class="k">Built by Karem AlMoayyad</div>
     <h3>Want it built for you?</h3>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Post to 5 platforms a day from one Claude Code command | Karemops.ai</title>
+<title>Post to 5 platforms from one Claude Code chat | Karemops.ai</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -106,76 +106,78 @@ html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
 <section class="page cover">
   <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip">Free guide</span></div>
   <div class="eyebrow">Field guide</div>
-  <h1>Post to <span class="em">5 platforms</span> a day from one Claude Code command.</h1>
-  <p class="lead">Late + Claude Code + the /post-content skill. One video in. Instagram, TikTok, LinkedIn, YouTube, X out. No Buffer. No scheduler. No VA.</p>
-  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Prompt</span></div><pre>1. Instagram   (Business/Creator account, needs a linked FB page)
-2. TikTok      (Personal or Business both work)
-3. LinkedIn    (Personal profile OR company page, your call)
-4. YouTube     (Channel auth via Google)
-5. X           (OAuth, takes ~10 seconds)<span class="caret"></span></pre><div class="note">Step 02 of this guide. Copy it as is.</div></div></div>
+  <h1>Post to <span class="em">5 platforms</span> from one Claude Code chat.</h1>
+  <p class="lead">Instagram, TikTok, LinkedIn, YouTube and X from one message. Claude Code writes a caption for each platform and posts or schedules through Zernio, after you approve.</p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Claude Code</span></div><pre><span class="p">&gt;</span> claude mcp add zernio https://mcp.zernio.com --header "Authorization: Bearer YOUR_ZERNIO_API_KEY"<span class="caret"></span></pre><div class="note">Step 04 of this guide. Copy it as is.</div></div></div>
   <div class="bottom">
-    <div class="inside"><h3 style="margin-top:0">Inside</h3><p>You'll have Late connected to all 5 socials, the Late MCP running in Claude Code, and your first video posted with /post-content.</p></div>
+    <div class="inside"><h3 style="margin-top:0">Inside</h3><p>Connect your accounts to Zernio, plug its MCP into Claude Code, and run the prompts that write per-platform captions and post or schedule them.</p></div>
     <div class="by"><div class="mono-k">K</div><div><b>Karem AlMoayyad</b><small><span class="ltr">@karemops.ai</span></small></div></div>
   </div>
 </section>
 
-<section class="page"><div class="run"><b>karemops.ai</b><span>Post to 5 platforms a day from one Claude Code command</span><span>POST</span></div>
+<section class="page"><div class="run"><b>karemops.ai</b><span>Post to 5 platforms from one Claude Code chat</span><span>PLATFORMS</span></div>
   <div class="eyebrow">01 · What this is</div>
   <h2>What you're <span class="em">setting up.</span></h2>
-  <p>One tool (Late) connects all your socials. One MCP install lets Claude Code talk to Late. One skill (/post-content) runs the whole publish loop end to end: transcribe, caption per platform, schedule, ship. You stop logging into five apps. You drop a video file, Claude transcribes it, writes platform-specific captions (because TikTok ≠ LinkedIn), and posts. Done in under two minutes.</p>
-  <p>Once it's connected you can post one video to IG Reels, TikTok, LinkedIn, YouTube Shorts and X from the same prompt, get a custom caption per platform, schedule or queue or fire immediately, re-post old winners with a fresh caption in one line, and pull post analytics back into Claude to brief your next video. It replaces the 4 hours a week of cross-posting and re-formatting captions.</p>
-  <h3>You need</h3><ul><li class="l-en">A Late account (free tier works to test)</li><li class="l-en">Your social accounts ready to auth: IG (Business or Creator), TikTok, LinkedIn, YouTube, X</li><li class="l-en">IG on a Business or Creator account linked to a Facebook page (2 minutes in the IG app if you're still on personal)</li><li class="l-en">Claude Code installed</li><li class="l-en">One short-form video you actually want to post (test run = real run)</li></ul>
-  <div class="callout"><strong>Heads up:</strong> Late actually publishes. Wrong caption, broken link, scheduled at 3 AM, that's all live. Always preview the draft Claude generates before approving the publish step.</div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 05</span></div>
+  <p>Zernio (the social media API formerly called Late) connects your social accounts once and gives Claude Code a hosted MCP server for posting, scheduling and analytics across 15+ networks.</p>
+  <p>You give Claude the video and the idea. It writes a native caption for each platform, shows you the drafts, then posts or schedules them. No scheduler app, no copy-pasting the same caption five times.</p>
+  <h3>You need</h3><ul><li class="l-en">A Zernio account (the first 2 connected accounts are free)</li><li class="l-en">Claude Code installed</li><li class="l-en">Business or Creator Instagram (linked to a Facebook page), plus TikTok, LinkedIn, YouTube and X logins</li></ul>
+  <div class="callout"><strong>Heads up:</strong> Zernio really publishes. A wrong caption, a broken link or a 3 AM schedule goes live on every platform at once. Always ask for drafts first and approve before Claude posts. Beyond 2 accounts Zernio charges per connected account, so check current pricing.</div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 06</span></div>
 </section>
 
-<section class="page"><div class="run"><b>karemops.ai</b><span>Post to 5 platforms a day from one Claude Code command</span><span>POST</span></div>
+<section class="page"><div class="run"><b>karemops.ai</b><span>Post to 5 platforms from one Claude Code chat</span><span>PLATFORMS</span></div>
   <div class="eyebrow">02 · The steps</div><h2>Set it up, <span class="em">step by step.</span></h2>
   <div class="step"><div class="num">01</div><div>
-    <h2>Get a Late account</h2><p>One tool that posts to every platform you care about. Go to getlate.dev and sign up with Google or email. Create a workspace, one per brand, this is where every post lives. Then Settings, Developer, generate a personal API key. Copy it. You'll paste it once in step 3.</p></div></div>
+    <h2>Create your Zernio account</h2><p>Sign up at zernio.com/signup. The first 2 connected accounts are free, enough to test the whole flow before you connect all five.</p></div></div>
   <div class="step"><div class="num">02</div><div>
-    <h2>Connect your socials</h2><p>Inside Late, hit Connect Account and auth each platform once, top to bottom. Then verify: Late dashboard, Accounts tab, 5 green dots. If any are red or "Re-auth needed," fix it now. The MCP won't recover later if a platform is half-connected.</p><pre>1. Instagram   (Business/Creator account, needs a linked FB page)
+    <h2>Connect your socials</h2><p>In the Zernio dashboard, connect each account. Instagram needs a Business or Creator account linked to a Facebook page.</p><pre>1. Instagram   (Business/Creator account, needs a linked FB page)
 2. TikTok      (Personal or Business both work)
 3. LinkedIn    (Personal profile OR company page, your call)
 4. YouTube     (Channel auth via Google)
 5. X           (OAuth, takes ~10 seconds)</pre></div></div>
   <div class="step"><div class="num">03</div><div>
-    <h2>Wire Late into Claude Code</h2><p>One command. Claude can now read your Late workspace and create posts. No restart needed, MCPs hot-load. To confirm, open any Claude Code session and ask "list my Late accounts". Expect 5 platforms back. If you get zero, the key didn't paste cleanly. Run claude mcp list and re-add.</p><pre>claude mcp add late
-# Paste the API key from Step 01 when prompted.</pre></div></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 05</span></div>
+    <h2>Create an API key</h2><p>Dashboard, then API Keys, then create a key. Keep it private: anyone with it can post as you.</p></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 06</span></div>
 </section>
 
-<section class="page"><div class="run"><b>karemops.ai</b><span>Post to 5 platforms a day from one Claude Code command</span><span>POST</span></div>
+<section class="page"><div class="run"><b>karemops.ai</b><span>Post to 5 platforms from one Claude Code chat</span><span>PLATFORMS</span></div>
   
   <div class="step"><div class="num">04</div><div>
-    <h2>Run /post-content</h2><p>One command. Five platforms. Claude transcribes the video with Whisper, writes a custom caption per platform, shows you the draft, and on approval ships it to Late. Late publishes to IG, TikTok, LinkedIn, YouTube, and X.</p><pre>/post-content video.mp4</pre></div></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 05</span></div>
+    <h2>Connect Zernio to Claude Code</h2><p>Paste this in your terminal with your key, then restart Claude Code. Test it by asking: List my connected Zernio accounts.</p><pre>claude mcp add zernio https://mcp.zernio.com --header "Authorization: Bearer YOUR_ZERNIO_API_KEY"</pre></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 06</span></div>
 </section>
 
-<section class="page"><div class="run"><b>karemops.ai</b><span>Post to 5 platforms a day from one Claude Code command</span><span>POST</span></div>
+<section class="page"><div class="run"><b>karemops.ai</b><span>Post to 5 platforms from one Claude Code chat</span><span>PLATFORMS</span></div>
   <div class="eyebrow">03 · Copy and paste</div><h2>Your <span class="em">prompts.</span></h2>
-  <div class="prompt"><h4><span class="tag">PROMPT</span>Post now with your own hook</h4><pre>/post-content video.mp4
-Use this hook for all 5 captions: "I stopped paying a VA $800/mo. Here's why."</pre></div>
-  <div class="prompt"><h4><span class="tag">PROMPT</span>Schedule for tomorrow 9 AM, skip X</h4><pre>/post-content video.mp4 schedule="tomorrow 09:00"
-platforms="ig,tiktok,linkedin,youtube"
-Stagger posts by 5 minutes so the algos don't cross-pollinate.</pre></div>
-  <div class="prompt"><h4><span class="tag">PROMPT</span>Repost your winners</h4><pre>Find my top 3 Reels from the last 30 days.
-Rewrite the hooks. Re-queue to Late for next week, one per day at 10 AM.</pre></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 05</span></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span>Draft captions for every platform</h4><pre>Here's my video: [file]. The idea: [one line].
+Write a native caption for Instagram, TikTok, LinkedIn, YouTube Shorts and X.
+Keep my voice, end each with [CTA]. Show me all five drafts. Don't post anything yet.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span>Post now, after you approve</h4><pre>Post the approved drafts through Zernio to all five accounts now.
+List each platform with the post link when done.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span>Schedule and skip one</h4><pre>Schedule the approved drafts for tomorrow at 9 AM my time on Instagram, TikTok, LinkedIn and YouTube.
+Skip X. Confirm the schedule back to me before you send it.</pre></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 06</span></div>
 </section>
 
-<section class="page"><div class="run"><b>karemops.ai</b><span>Post to 5 platforms a day from one Claude Code command</span><span>POST</span></div>
+<section class="page"><div class="run"><b>karemops.ai</b><span>Post to 5 platforms from one Claude Code chat</span><span>PLATFORMS</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span>Repost your winners</h4><pre>Pull my last 30 days of posts from Zernio analytics. Find the 3 with the best engagement
+and draft fresh captions to repost them next week. Show me before scheduling.</pre></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>Post to 5 platforms from one Claude Code chat</span><span>PLATFORMS</span></div>
   <div class="eyebrow">Done</div>
   <h2>That's the <span class="em">whole setup.</span></h2>
   <p class="lead">Run it once this week on something real. Then tell me what it did: DM me on Instagram, I read them.</p>
-  <h3>Credit</h3><ul><li>Late (getlate.dev, MCP docs at getlate.dev/docs/mcp)</li><li>Claude Code (claude.com/claude-code)</li></ul>
+  <h3>Credit</h3><ul><li>Zernio, formerly Late (zernio.com)</li><li>Claude Code by Anthropic</li></ul>
   <div class="cta">
     <div class="k">Built by Karem AlMoayyad</div>
     <h3>Want it built for you?</h3>
     <p>AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</p>
     <div class="h"><span class="ltr">@karemops.ai</span> · Instagram · TikTok · LinkedIn</div>
   </div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 05</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 06</span></div>
 </section>
 
 </body>

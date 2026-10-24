@@ -1,60 +1,63 @@
 {
-  "kw": "POST",
+  "kw": "PLATFORMS",
   "slug": "5-platforms",
   "legacy": true,
-  "title": "Post to <span class=\"em\">5 platforms</span> a day from one Claude Code command.",
-  "lead": "Late + Claude Code + the /post-content skill. One video in. Instagram, TikTok, LinkedIn, YouTube, X out. No Buffer. No scheduler. No VA.",
-  "inside": "You'll have Late connected to all 5 socials, the Late MCP running in Claude Code, and your first video posted with /post-content.",
+  "title": "Post to <span class=\"em\">5 platforms</span> from one Claude Code chat.",
+  "lead": "Instagram, TikTok, LinkedIn, YouTube and X from one message. Claude Code writes a caption for each platform and posts or schedules through Zernio, after you approve.",
+  "inside": "Connect your accounts to Zernio, plug its MCP into Claude Code, and run the prompts that write per-platform captions and post or schedule them.",
   "what": [
-    "One tool (Late) connects all your socials. One MCP install lets Claude Code talk to Late. One skill (/post-content) runs the whole publish loop end to end: transcribe, caption per platform, schedule, ship. You stop logging into five apps. You drop a video file, Claude transcribes it, writes platform-specific captions (because TikTok ≠ LinkedIn), and posts. Done in under two minutes.",
-    "Once it's connected you can post one video to IG Reels, TikTok, LinkedIn, YouTube Shorts and X from the same prompt, get a custom caption per platform, schedule or queue or fire immediately, re-post old winners with a fresh caption in one line, and pull post analytics back into Claude to brief your next video. It replaces the 4 hours a week of cross-posting and re-formatting captions."
+    "Zernio (the social media API formerly called Late) connects your social accounts once and gives Claude Code a hosted MCP server for posting, scheduling and analytics across 15+ networks.",
+    "You give Claude the video and the idea. It writes a native caption for each platform, shows you the drafts, then posts or schedules them. No scheduler app, no copy-pasting the same caption five times."
   ],
   "prereqs": [
-    "A Late account (free tier works to test)",
-    "Your social accounts ready to auth: IG (Business or Creator), TikTok, LinkedIn, YouTube, X",
-    "IG on a Business or Creator account linked to a Facebook page (2 minutes in the IG app if you're still on personal)",
+    "A Zernio account (the first 2 connected accounts are free)",
     "Claude Code installed",
-    "One short-form video you actually want to post (test run = real run)"
+    "Business or Creator Instagram (linked to a Facebook page), plus TikTok, LinkedIn, YouTube and X logins"
   ],
-  "warn": "Late actually publishes. Wrong caption, broken link, scheduled at 3 AM, that's all live. Always preview the draft Claude generates before approving the publish step.",
+  "warn": "Zernio really publishes. A wrong caption, a broken link or a 3 AM schedule goes live on every platform at once. Always ask for drafts first and approve before Claude posts. Beyond 2 accounts Zernio charges per connected account, so check current pricing.",
   "steps": [
     {
-      "h": "Get a Late account",
-      "p": "One tool that posts to every platform you care about. Go to getlate.dev and sign up with Google or email. Create a workspace, one per brand, this is where every post lives. Then Settings, Developer, generate a personal API key. Copy it. You'll paste it once in step 3.",
+      "h": "Create your Zernio account",
+      "p": "Sign up at zernio.com/signup. The first 2 connected accounts are free, enough to test the whole flow before you connect all five.",
       "code": ""
     },
     {
       "h": "Connect your socials",
-      "p": "Inside Late, hit Connect Account and auth each platform once, top to bottom. Then verify: Late dashboard, Accounts tab, 5 green dots. If any are red or \"Re-auth needed,\" fix it now. The MCP won't recover later if a platform is half-connected.",
+      "p": "In the Zernio dashboard, connect each account. Instagram needs a Business or Creator account linked to a Facebook page.",
       "code": "1. Instagram   (Business/Creator account, needs a linked FB page)\n2. TikTok      (Personal or Business both work)\n3. LinkedIn    (Personal profile OR company page, your call)\n4. YouTube     (Channel auth via Google)\n5. X           (OAuth, takes ~10 seconds)"
     },
     {
-      "h": "Wire Late into Claude Code",
-      "p": "One command. Claude can now read your Late workspace and create posts. No restart needed, MCPs hot-load. To confirm, open any Claude Code session and ask \"list my Late accounts\". Expect 5 platforms back. If you get zero, the key didn't paste cleanly. Run claude mcp list and re-add.",
-      "code": "claude mcp add late\n# Paste the API key from Step 01 when prompted."
+      "h": "Create an API key",
+      "p": "Dashboard, then API Keys, then create a key. Keep it private: anyone with it can post as you.",
+      "code": ""
     },
     {
-      "h": "Run /post-content",
-      "p": "One command. Five platforms. Claude transcribes the video with Whisper, writes a custom caption per platform, shows you the draft, and on approval ships it to Late. Late publishes to IG, TikTok, LinkedIn, YouTube, and X.",
-      "code": "/post-content video.mp4"
+      "h": "Connect Zernio to Claude Code",
+      "p": "Paste this in your terminal with your key, then restart Claude Code. Test it by asking: List my connected Zernio accounts.",
+      "code": "claude mcp add zernio https://mcp.zernio.com --header \"Authorization: Bearer YOUR_ZERNIO_API_KEY\""
     }
   ],
   "prompts": [
     {
-      "h": "Post now with your own hook",
-      "code": "/post-content video.mp4\nUse this hook for all 5 captions: \"I stopped paying a VA $800/mo. Here's why.\""
+      "h": "Draft captions for every platform",
+      "code": "Here's my video: [file]. The idea: [one line].\nWrite a native caption for Instagram, TikTok, LinkedIn, YouTube Shorts and X.\nKeep my voice, end each with [CTA]. Show me all five drafts. Don't post anything yet."
     },
     {
-      "h": "Schedule for tomorrow 9 AM, skip X",
-      "code": "/post-content video.mp4 schedule=\"tomorrow 09:00\"\nplatforms=\"ig,tiktok,linkedin,youtube\"\nStagger posts by 5 minutes so the algos don't cross-pollinate."
+      "h": "Post now, after you approve",
+      "code": "Post the approved drafts through Zernio to all five accounts now.\nList each platform with the post link when done."
+    },
+    {
+      "h": "Schedule and skip one",
+      "code": "Schedule the approved drafts for tomorrow at 9 AM my time on Instagram, TikTok, LinkedIn and YouTube.\nSkip X. Confirm the schedule back to me before you send it."
     },
     {
       "h": "Repost your winners",
-      "code": "Find my top 3 Reels from the last 30 days.\nRewrite the hooks. Re-queue to Late for next week, one per day at 10 AM."
+      "code": "Pull my last 30 days of posts from Zernio analytics. Find the 3 with the best engagement\nand draft fresh captions to repost them next week. Show me before scheduling."
     }
   ],
   "credit": [
-    "Late (getlate.dev, MCP docs at getlate.dev/docs/mcp)",
-    "Claude Code (claude.com/claude-code)"
-  ]
+    "Zernio, formerly Late (zernio.com)",
+    "Claude Code by Anthropic"
+  ],
+  "hero": 4
 }
