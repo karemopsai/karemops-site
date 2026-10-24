@@ -1,0 +1,64 @@
+{
+  "kw": "SKILL",
+  "slug": "claude-skill-builder",
+  "legacy": true,
+  "title": "Build your first Claude <span class=\"em\">skill.</span>",
+  "lead": "Teach Claude a task once and it does it the same way forever. No code. One prompt does all the work.",
+  "inside": "By the end you'll have shipped your first Claude skill, saved in the app and tested, in about 10 minutes.",
+  "what": [
+    "A skill is a job you do over and over, written down once, so Claude does it the same way every time without you re-explaining it. You trigger it with a short phrase and get the same quality back, in your voice.",
+    "Every skill is just 3 things: a trigger (the short phrase that fires it), the steps (what Claude does every time, in order), and the rules plus an example (your voice, your format, your always/nevers). You don't write it yourself. The Skill Builder prompt interviews you and builds it."
+  ],
+  "prereqs": [
+    "The Claude app (claude.ai in your browser, or the desktop app)",
+    "One repetitive task you already do",
+    "5 minutes to answer a few questions"
+  ],
+  "warn": "When it asks for \"a great result,\" paste a REAL example of your best work. That one example is what makes the skill sound like you instead of a robot.",
+  "steps": [
+    {
+      "h": "Copy the Skill Builder",
+      "p": "Open a new chat in the Claude app. Paste this whole thing and hit send. It runs the interview for you.",
+      "code": "You are my Skill Builder. Your job is to interview me, then build a\nreusable Claude skill for a task I do often. I am NOT technical, keep\nit simple and never assume I know any code.\n\nDo this in order:\n\n1. Ask me ONE question at a time. Wait for my answer before the next.\n   Ask about:\n   - What repetitive task do I want to turn into a skill?\n   - What would I type or say to trigger it?\n   - Walk me through how I do it now, step by step.\n   - What does a GREAT result look like? Ask me to paste 1-2 real examples.\n   - What are the hard rules, things you must ALWAYS or NEVER do?\n   - What info do you need from me each time it runs? (a topic, a link, a name)\n\n2. When you have enough, STOP and show me a plain-English summary:\n   name, trigger, the steps, the rules, and what you'll ask me for\n   each time. Then ask: \"Did I get this right? Anything to change?\"\n\n3. Once I approve, write the finished skill in this exact format:\n\n---\nname: [short-lowercase-name-with-dashes]\ndescription: [one sentence, when Claude should use this skill]\n---\n\n# [Skill Name]\n\n## When to use this\n[trigger + what it does]\n\n## What I need from you\n[the inputs it asks for]\n\n## Steps\n1. [step]\n2. [step]\n\n## Rules\n- ALWAYS [...]\n- NEVER [...]\n\n## Example of a great result\n[paste the example]\n---\n\n4. Then tell me, in simple numbered steps, exactly where to paste this\n   in the Claude app so it becomes a real skill.\n\nStart now with question 1."
+    },
+    {
+      "h": "Answer the questions",
+      "p": "Claude asks one thing at a time. Answer like you're texting a coworker, messy is fine. When it shows you the summary, read it and fix anything that's off before you approve.",
+      "code": ""
+    },
+    {
+      "h": "Save it in Claude",
+      "p": "In the Claude app, open Settings → Capabilities → Skills. Click Create skill (or \"New skill\"). Paste the block Claude gave you, the part between the two --- lines. Save. It's live in every future chat. Don't see a Skills option? Ask Claude in the same chat where to save it in your version.",
+      "code": ""
+    },
+    {
+      "h": "Test it",
+      "p": "Start a fresh chat and type your trigger phrase. If it runs your steps and sounds like you, it works. Then build one skill this week, use it for three days, and build the next.",
+      "code": "Start a fresh chat and type your trigger phrase, e.g.\n\"write my daily post about [today's topic]\".\nIf it runs your steps and sounds like you, it works."
+    }
+  ],
+  "prompts": [
+    {
+      "h": "Daily Post Writer",
+      "code": "Take a topic, give me a scroll-stopping post that sounds like me."
+    },
+    {
+      "h": "DM Responder",
+      "code": "I'll paste a DM, you draft my reply in my voice."
+    },
+    {
+      "h": "Notes-to-Action",
+      "code": "I'll paste raw notes, you give me a summary and next steps."
+    },
+    {
+      "h": "Plain-English Explainer",
+      "code": "I'll paste jargon, you make it simple and benefit-first."
+    },
+    {
+      "h": "Can't find the Skills menu",
+      "code": "Where do I save this skill in the app I'm using right now?"
+    }
+  ],
+  "credit": [],
+  "hero": "prompt"
+}

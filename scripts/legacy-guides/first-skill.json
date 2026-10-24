@@ -1,0 +1,62 @@
+{
+  "kw": "SKILLS",
+  "slug": "first-skill",
+  "legacy": true,
+  "title": "Build your first <span class=\"em\">Claude Code skill</span>.",
+  "lead": "From zero to a working slash command. The folder, the file, the trigger description, and one full example you can ship today.",
+  "inside": "You'll have a working /daily-standup skill built end to end, plus the formula for writing trigger descriptions Claude actually fires on.",
+  "what": [
+    "Prompts are disposable. Skills stick. Most people open Claude Code and start typing the same prompts they typed yesterday. Different wording, same idea. Every time you re-explain context to Claude, you're paying a tax: your time, your tokens, and a result that drifts a little every time because you phrased it slightly different.",
+    "A skill solves all three. You write the instructions once, in a file Claude reads every time you trigger it. Same context, same structure, same output quality. The only thing that changes is the input. A prompt is typed fresh each time, lives in your head, drifts, and dies when you close the chat. A skill is written once, lives in a file, carries your context, and is available every session, every project. Stop asking \"what should I type next?\" Start asking \"what process do I keep repeating that should live in a file?\""
+  ],
+  "prereqs": [
+    "Claude Code installed",
+    "One process you keep repeating that should live in a file",
+    "Optional for the example: a calendar MCP connected (otherwise the skill asks you to paste your events)"
+  ],
+  "warn": "A skill that lives in a folder but never triggers is just a markdown file. The usual culprits: a vague description, no trigger phrases, the wrong folder (global goes in ~/.claude/skills/, not ~/claude/skills/, the dot matters), or a description that overlaps with another skill. Most skills take 3-4 iterations on the description alone before they fire reliably. That's normal.",
+  "steps": [
+    {
+      "h": "Answer the 3 questions first",
+      "p": "Skip this and your skill either never fires, fires at the wrong time, or fires and does the wrong thing. Trigger: when should this fire? What words, what task, what situation? This is what Claude reads to decide whether to use your skill at all. Input: what does the skill need to do its job? A URL, a file path, a topic, raw text, a record ID? Be specific. Output: what does done look like? A file written to disk, a record updated in Airtable, a draft in your editor, a message in Slack? For /daily-standup: trigger is the user asking for a standup update, wanting to know what they did yesterday, or typing /daily-standup. Input is yesterday's calendar events + yesterday's git commits across the user's active repos. Output is a 3-bullet standup in the format \"Yesterday / Today / Blockers\". If you can't write those three lines in one sentence each, you don't have a skill yet. You have a vibe.",
+      "code": ""
+    },
+    {
+      "h": "Create the folder",
+      "p": "A skill is one folder with one file in it. That's the entire structure. Claude Code looks for skills in two places: your global skills folder and your project's local skills folder. Use global for skills you'll reuse across every project (your content workflow, your standup, your weekly review). Use project-local for skills tied to one codebase or client.",
+      "code": "~/.claude/skills/your-skill-name/        ← available in every project\n.claude/skills/your-skill-name/          ← project-specific only"
+    },
+    {
+      "h": "Add the SKILL.md file",
+      "p": "Inside that folder, create one file: SKILL.md. That's where everything lives: the trigger description, the instructions, the references. No package.json, no config, no install command. One folder, one markdown file. The whole system is files Claude reads.",
+      "code": "~/.claude/skills/daily-standup/\n└── SKILL.md"
+    },
+    {
+      "h": "Write the frontmatter",
+      "p": "Two fields. The name becomes your slash command (/daily-standup). The description is what Claude scans to decide if your skill applies to what the user just asked. If your skill never fires, this is why.",
+      "code": "---\nname: daily-standup\ndescription: [THIS IS THE WHOLE GAME]\n---"
+    },
+    {
+      "h": "Nail the trigger description",
+      "p": "Vague description = Claude ignores it. \"Helps with standup updates.\" won't fire: no trigger words, no input, no output, nothing to match against. The version below fires reliably because it names the output, the inputs, and the trigger situations. The formula: [What it does] by [how it does it]. Use when [trigger situation 1], [trigger situation 2], or [trigger situation 3].",
+      "code": "Generate a daily standup update by scanning today's calendar events and yesterday's git commits. Use when the user asks for a standup, asks what they did yesterday, or needs a status update for their team."
+    },
+    {
+      "h": "Write the body",
+      "p": "Everything under the frontmatter is the actual playbook. Treat it like you're onboarding a new employee on day one: explicit, sequenced, no assumptions. Here's the full SKILL.md for /daily-standup, end to end.",
+      "code": "---\nname: daily-standup\ndescription: Generate a daily standup update by scanning today's calendar events and yesterday's git commits. Use when the user asks for a standup, asks what they did yesterday, or needs a status update for their team.\n---\n\n# Daily Standup\n\nGenerate a 3-bullet standup update in the \"Yesterday / Today / Blockers\" format.\n\n## Steps\n\n1. Run `git log --since=\"yesterday\" --until=\"today\" --author=\"$(git config user.email)\" --oneline` in the user's active repos. Pull the commit messages.\n\n2. Read today's calendar events (use the calendar MCP if connected, otherwise ask the user to paste them).\n\n3. Summarize yesterday's commits into 1-2 bullets, what shipped, what's in progress. Skip noise commits (typos, formatting).\n\n4. Pull today's calendar to list what the user is heads-down on.\n\n5. Ask the user one question: any blockers? If yes, add as third bullet. If no, write \"None.\"\n\n## Output format\n\n**Yesterday:** [1-2 bullets of what shipped]\n**Today:** [1-2 bullets from the calendar, meetings + focus blocks]\n**Blockers:** [user's answer, or \"None\"]\n\nCopy the final output to clipboard."
+    },
+    {
+      "h": "Run the 30-second test",
+      "p": "Test it the second you save it. Open Claude Code in any project. Type the command: if the slash menu autocompletes your skill name, the file is being read. Hit enter and watch what Claude does. Does it follow your steps? Does it ask for the right inputs? Does the output match your format? If yes, ship it.",
+      "code": "/daily-standup"
+    },
+    {
+      "h": "Fix it if it won't fire",
+      "p": "Open the SKILL.md, fix the gap, save, rerun. Description too vague? \"Helps with X\" is invisible to Claude, rewrite it with the formula. No trigger phrases? Add 2-3 specific situations: \"Use when the user asks for X, mentions Y, or types Z.\" Wrong folder? Check the dot in ~/.claude/skills/. Overlaps with another skill? Claude picks one, and the more specific one wins, so tighten yours. Then do this 10 more times for the tasks you actually repeat every week and you've replaced half your workflow.",
+      "code": ""
+    }
+  ],
+  "prompts": [],
+  "credit": []
+}

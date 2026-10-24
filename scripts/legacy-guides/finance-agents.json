@@ -1,0 +1,101 @@
+{
+  "kw": "FINANCE",
+  "slug": "finance-agents",
+  "legacy": true,
+  "title": "Claude's <span class=\"em\">finance agents</span>, set up in five minutes",
+  "lead": "Anthropic quietly shipped 10 finance agent templates. Three of them turn your laptop into the closest thing regular people have ever had to a Wall Street desk. This is the setup.",
+  "inside": "By the end you'll have the Market Researcher, Model Builder and Earnings Reviewer running inside Claude, plus the prompts to use them.",
+  "what": [
+    "In May 2026, Anthropic dropped 10 finance agent templates. Not chatbot prompts. Actual agent systems, wired into the same data feeds hedge funds pay six figures a year for: FactSet, S&P Global, Moody's, the London Stock Exchange Group. Seven of the ten are built for analysts, auditors and back-office teams (Pitch Builder, Meeting Preparer, Valuation Reviewer, GL Reconciler, Month-End Closer, Statement Auditor, KYC Screener).",
+    "The other three are the retail-investor stack: the Market Researcher watches every stock you own, the Model Builder builds a full financial model in Excel from scratch, and the Earnings Reviewer reads 90-minute earnings calls in seconds. No code, no terminal, no jargon. If you can copy-paste a link, you can run this."
+  ],
+  "prereqs": [
+    "A paid Claude plan: Pro, Max, Team, or Enterprise (free tier won't cut it)",
+    "Claude on the web at claude.ai or the desktop app",
+    "Your list of tickers"
+  ],
+  "warn": "I'm not a financial advisor and this isn't advice. These are research tools, not oracles. They can't predict the future, and the model's assumptions (growth rate, margins, discount rate) drive the answer. Open the assumptions tab, verify any number your decision rests on against the actual SEC filing, and talk to a licensed advisor before making real money moves.",
+  "steps": [
+    {
+      "h": "Open Claude and go to Customize",
+      "p": "Open Claude on the web at claude.ai or the desktop app. Bottom-left sidebar, click Customize.",
+      "code": ""
+    },
+    {
+      "h": "Install the Finance plugin",
+      "p": "Under Personal Plugins, hit the + button. Click Browse Plugins, scroll until you see Finance, and add it. All 10 skills are now live in Claude.",
+      "code": ""
+    },
+    {
+      "h": "Add the Market Researcher from GitHub",
+      "p": "Back in Personal Plugins, hit + again. Click Create Plugin, then Add Marketplace, then Add from a repository. Paste this link:",
+      "code": "github.com/anthropics/financial-services/market-researcher"
+    },
+    {
+      "h": "Add the Model Builder and Earnings Reviewer",
+      "p": "Do the exact same thing two more times with these two links. That's the whole install.",
+      "code": "github.com/anthropics/financial-services/model-builder\ngithub.com/anthropics/financial-services/earnings-reviewer"
+    },
+    {
+      "h": "Open a new chat and describe what you want",
+      "p": "Claude picks the right agent automatically. These agents run in Claude.ai (web), Cowork (desktop) and Claude Code (terminal). Same agents, same capabilities. Pro move: ask Claude to run your portfolio briefing every Monday at 7am so you show up to a report, not a firehose.",
+      "code": ""
+    },
+    {
+      "h": "Give it your thesis and ask for the bear case",
+      "p": "\"Analyze NVDA\" is a lazy prompt. Tell it why you own the stock and ask whether the data still supports that. Claude defaults to balanced, so if you want reasons to pass, say it out loud: give me the strongest argument for not owning this right now. Paste your whole portfolio in one message instead of one stock at a time.",
+      "code": ""
+    },
+    {
+      "h": "Always ask for the Excel, then verify",
+      "p": "With the Model Builder, always request the .xlsx export. A model you can open and tweak beats a summary you can't audit. Claude will get 95% of it right, but if a specific number drives your decision, open the actual SEC filing and check it.",
+      "code": ""
+    }
+  ],
+  "prompts": [
+    {
+      "h": "Market Researcher: Monday morning briefing",
+      "code": "Here's my portfolio: [tickers]. Give me the Monday morning\nbriefing. What moved last week, what news dropped, any rating\nchanges, and, this is the important part, flag anything that\nwould make me reconsider owning any of these."
+    },
+    {
+      "h": "Market Researcher: one-stock deep dive",
+      "code": "Give me a full report on [ticker]. Business, latest earnings,\nanalyst consensus, biggest risks, what the bulls are saying,\nwhat the bears are saying, and whether the current price makes\nsense given the numbers."
+    },
+    {
+      "h": "Market Researcher: sector map",
+      "code": "I'm thinking about the [sector] space. Map out the top 5-7\nplayers. Who leads, who's gaining, who's dying. If I had to\npick one for a 2-year hold, who would it be and why."
+    },
+    {
+      "h": "Model Builder: full build",
+      "code": "Build me a complete financial model for [ticker] in Excel.\n3 years of history, 5 years of projections. Include a DCF, a\ncomp table, and sensitivity tables. Export it as .xlsx so I\ncan download it."
+    },
+    {
+      "h": "Model Builder: quick fair-value check",
+      "code": "What's [ticker] actually worth? Build a fast DCF using current\nconsensus estimates. Show me the implied share price under\nthree cases, bull, base, bear."
+    },
+    {
+      "h": "Model Builder: two-stock face-off",
+      "code": "I'm deciding between [ticker 1] and [ticker 2]. Build a\nside-by-side model, revenue growth, margins, valuation\nmultiples, implied upside. Tell me which one is cheaper for\nwhat you're getting."
+    },
+    {
+      "h": "Earnings Reviewer: one-call review",
+      "code": "Review the latest earnings call for [ticker]. Give me: the\nnumbers vs expectations, what management said about [specific\nthing you care about], what changed in their guidance, and\nanything I should be worried about."
+    },
+    {
+      "h": "Earnings Reviewer: the thesis test",
+      "code": "I own [ticker] because I believe [your reason]. Read the\nlatest earnings call and tell me straight, does what\nmanagement said support that thesis or undermine it?\nBe specific."
+    },
+    {
+      "h": "Earnings Reviewer: earnings-season sweep",
+      "code": "This week, [ticker 1], [ticker 2], [ticker 3] all reported.\nGive me a one-paragraph summary of each. Who beat, who missed,\nwhose guidance was ugly. Rank them from most bullish to most\nbearish based on the *quality* of what they said, not just\nthe beat."
+    },
+    {
+      "h": "Chain all three: full due diligence",
+      "code": "I'm thinking about buying [ticker]. Run full due diligence:\nStep 1. Market Researcher: news, analyst view, competitive\nposition, risks.\nStep 2. Model Builder: build me a DCF with bull/base/bear\ncases and export the Excel.\nStep 3. Earnings Reviewer: read the last call. Any red\nflags? Any tone shift?\nThen give me your final call: buy, wait, or pass. And be\nhonest, if the numbers don't hold up, say so."
+    }
+  ],
+  "credit": [
+    "Anthropic finance agent templates: github.com/anthropics/financial-services"
+  ],
+  "hero": "prompt"
+}

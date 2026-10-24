@@ -1,0 +1,74 @@
+{
+  "kw": "ROUTINES",
+  "slug": "routines",
+  "legacy": true,
+  "title": "The 3 Claude Code <span class=\"em\">routines</span> I'd set up first.",
+  "lead": "If I had to rebuild my business from zero this week, these are the first three things I'd schedule. Real prompts, real cadence, real stack.",
+  "inside": "You'll have three Claude Code Routines running on cron without you: daily money tracking, inbox triage, and weekly content + competitor intel.",
+  "what": [
+    "Anthropic shipped Routines, Outcomes, Dreaming, Multi-agent orchestration, and Webhooks at Code with Claude SF, all in public beta or research preview. The part business owners are missing: Routines turn Claude Code from \"the thing I open when I need help\" into scheduled work that runs on its own. Cron-style. Webhook-triggered. No babysitting.",
+    "How a Routine works: you write a Claude Code prompt once, you set a schedule (cron) or a trigger (webhook), and Claude runs it on time, every time, and pings you when it's done. Pair that with Outcomes, where the agent grades its own work against your rubric and iterates until it hits the standard, and you stop reading 40 drafts to find the one that's usable."
+  ],
+  "prereqs": [
+    "Claude Code installed (Pro, Max, Team, or Enterprise plan)",
+    "Routines feature enabled (currently public beta, auto-on for most accounts)",
+    "API access to your stack: Gmail, Stripe, GoHighLevel, Airtable",
+    "30 minutes the first time. Zero minutes after."
+  ],
+  "warn": "These run without you watching. Keep the inbox routine on drafts only (saved as Gmail drafts, not sent) and wrap every routine in an Outcome rubric so the agent grades its own output before it ships.",
+  "steps": [
+    {
+      "h": "Open routines in Claude Code",
+      "p": "Routines live inside Claude Code. Type the command in any Claude Code session, then pick Create new routine.",
+      "code": "/routines"
+    },
+    {
+      "h": "Routine 01: the daily money dashboard",
+      "p": "Every morning, before you've had coffee, you already know what your business made yesterday, what it spent, and what's bleeding. Stack: Stripe, GoHighLevel, Meta Ads, Slack. Saves ~25 min/day. It pulls yesterday's revenue from Stripe (gross + net + refunds), active pipeline value + new leads from GoHighLevel, ad spend + ROAS from Meta Ads MCP, then posts a 5-line summary to your Slack or email with green/red flags only. Why this one first: 90% of business owners don't actually know their numbers daily. They check Stripe at the end of the month. By then the leak's been bleeding for 30 days. Paste the money dashboard prompt and set this schedule.",
+      "code": "0 7 * * *"
+    },
+    {
+      "h": "Routine 02: inbox triage + draft replies",
+      "p": "Every 4 hours, Claude reads your inbox, sorts what matters, and drafts replies to the emails that actually move money. You walk in, review, hit send. Stack: Gmail, GoHighLevel. Saves ~2 hr/day. It scans Gmail for new threads since the last run, categorizes them as brand deal, lead, client or noise, drafts replies for brand deals + leads (saved as Gmail drafts, not sent), pushes lead emails into GoHighLevel as new contacts if they're not already there, and ignores newsletters, receipts and noise. Why this one second: inbox is where money dies. Brand deals get cold. Leads ghost. Paste the inbox triage prompt and set this schedule.",
+      "code": "0 */4 * * *"
+    },
+    {
+      "h": "Routine 03: weekly content + competitor intel",
+      "p": "Monday 9am. Claude pulls last week's content performance, scrapes 3 competitors' top performers, and spits back 5 topics worth filming this week, all written into Airtable. Stack: Airtable, Apify, Instagram, TikTok. Saves ~3 hr/week. It pulls the last 7 days of your IG + TikTok posts (views, watch time, saves), scrapes the top 5 performers from each competitor via Apify, finds hook patterns + topic gaps they're hitting and you're not, writes 5 ranked topics into the Content Pipeline Airtable, and flags any of your posts that's about to go viral so you can boost it. Paste the weekly content prompt and set this schedule.",
+      "code": "0 9 * * 1"
+    },
+    {
+      "h": "Name each routine",
+      "p": "Use the cron schedule shown for each routine, or a webhook trigger if you'd rather fire on event. Then give it a clear name.",
+      "code": "money-dashboard\ninbox-triage\nweekly-content"
+    },
+    {
+      "h": "Wire your tools",
+      "p": "Gmail, Slack, Airtable, Stripe, Meta Ads all connect via MCP. If you don't have the MCPs installed yet, ask Claude to install them and follow the prompts.",
+      "code": "install the [tool] MCP"
+    },
+    {
+      "h": "Wrap each routine in an Outcome rubric",
+      "p": "The agent grades its own output before it ships. You go from 40 drafts to 1 usable result. +10% success rate on Anthropic's internal benchmarks, more on the hard tasks. Three routines, roughly 6 hours a week back. And every routine you ship makes the next one easier, because Claude's Dreaming feature pulls patterns from past sessions and gets sharper with use.",
+      "code": ""
+    }
+  ],
+  "prompts": [
+    {
+      "h": "Daily money dashboard",
+      "code": "Pull yesterday's data and post a daily money summary.\n\n1. Stripe: gross revenue, refunds, net, # of transactions\n2. GoHighLevel: new leads, active pipeline $ value, deals closed\n3. Meta Ads: total spend, ROAS, top campaign by spend\n4. Compare each metric to the trailing 7-day average\n5. Flag anything more than 20% off baseline\n\nPost the summary to my Slack #money channel.\nFormat: 5 lines max. Numbers first, commentary second.\nDo not include filler or headers. Use the Outcome rubric:\n\"Could a busy founder read this in 15 seconds and know what to do?\""
+    },
+    {
+      "h": "Inbox triage + draft replies",
+      "code": "Scan my Gmail inbox for new threads since the last run.\n\nFor each thread, classify it as one of:\n- brand_deal (sponsorship, partnership, affiliate offer)\n- lead (someone asking about working with me / Arc Digital / Skool)\n- client (active client communication)\n- noise (newsletters, receipts, automated)\n\nFor brand_deal and lead emails:\n1. Draft a reply in my voice (casual-professional, direct, no fluff,\n   reference Karemops.ai when relevant). Save it as a Gmail draft.\n2. If lead and not in GoHighLevel, create a contact with name + email + source.\n\nSkip noise entirely. Do not summarize it.\n\nOutput: one line per email handled, format:\n[CATEGORY] sender, action taken"
+    },
+    {
+      "h": "Weekly content + competitor intel",
+      "code": "Run a weekly content + competitor performance review.\n\n1. Pull my last 7 days of posts from Instagram + TikTok via the\n   content analysis Airtable. Rank by views, then watch time.\n\n2. Scrape the top 5 posts from the last 14 days for each competitor\n   listed in the Competitors Airtable, using Apify.\n\n3. Find: which topics or hook angles are competitors winning with\n   that I haven't tried this month?\n\n4. Write 5 content ideas for this week into the Content Pipeline table\n   with: hook, topic, format (short-form / carousel / long-form),\n   why it'll work in one sentence.\n\n5. Flag any of MY posts from the last 7 days with above-average\n   engagement and recommend boosting.\n\nUse the Outcome rubric: \"Would Karem actually film these this week?\"\nReject ideas he's already done in the last 90 days."
+    }
+  ],
+  "credit": [
+    "Claude Code Routines, Outcomes and Dreaming by Anthropic (announced at Code with Claude SF)",
+    "Apify"
+  ]
+}

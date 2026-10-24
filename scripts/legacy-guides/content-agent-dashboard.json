@@ -1,0 +1,68 @@
+{
+  "kw": "DASHBOARD",
+  "slug": "content-agent-dashboard",
+  "legacy": true,
+  "title": "Your content team, <span class=\"em\">on a dashboard</span>",
+  "lead": "The exact Claude Code prompt that walks you, one step at a time, through building a 5-agent content dashboard. Real Instagram data, a live dashboard, and a Telegram digest to your phone.",
+  "inside": "By the end you'll have your real IG and competitor data ranked by views, a 5-agent dashboard in your browser, and a weekly Telegram digest that runs on its own.",
+  "what": [
+    "You paste one prompt into Claude Code. Claude walks you through building a working content operations dashboard, the same architecture I use to run my content, and stops at every step to make sure it works before moving on. The dashboard shows 5 agents: Ideator, Hook & Script, Planner, Analyst and DM Manager, each card clickable so you can drill into what it produced.",
+    "No SaaS subscription. No black box. Plain files you can read and edit. Claude goes one step at a time and you stay in the driver's seat. Most people never ship this because they think it's a real dev project. It's one prompt and 90 minutes of clicking \"ok\" while Claude drives."
+  ],
+  "prereqs": [
+    "Claude Code",
+    "Your Instagram handle (account must be public for the pull; flip it public, then back if it's private)",
+    "3 to 5 competitor handles in your exact niche, the accounts closest to where you're going, not the biggest",
+    "An Apify account + API token (free tier is fine): apify.com, Settings, API & Integrations, Personal API tokens",
+    "Telegram on your phone"
+  ],
+  "warn": "Use instagram-scraper with resultsType: posts, not the profile scraper. The instagram-profile-scraper latestPosts field only returns recent posts and gets your top post wrong. Also: tokens live in a gitignored .env, never printed, never committed. If Claude ever echoes your token back, tell it to stop.",
+  "steps": [
+    {
+      "h": "Get your three inputs ready",
+      "p": "Line up your handle, your 3 to 5 competitors and your Apify token before you paste. Claude asks for these on the first message, and having them ready shaves 20 minutes off the build.",
+      "code": ""
+    },
+    {
+      "h": "Paste the prompt into a fresh Claude Code session",
+      "p": "Open a fresh Claude Code session in any folder and paste the full prompt as one message. Claude says the goal back to you, then asks for your handle, competitors and Apify account before it touches a file.",
+      "code": ""
+    },
+    {
+      "h": "Scaffold the folder and pull the real data",
+      "p": "Claude creates ~/content-agent with CLAUDE.md, scripts/, dashboard/ and a gitignored .env, then writes a Node script that pulls your full post history and your competitors' recent posts, ranks every post by views, and saves it to dashboard/data.json.",
+      "code": ""
+    },
+    {
+      "h": "Build the 5-agent dashboard",
+      "p": "A single index.html with your stats up top and a row of 5 agent cards. Ideator scouts ranked ideas, Hook & Script writes 6 hook variants and a full script in your voice, Planner lays posts on a calendar, Analyst reads data.json weekly and flags what's working, DM Manager sorts DMs into leads, fans and spam and drafts replies. Claude renders and screenshots it before wiring anything else. Stop here on day one.",
+      "code": ""
+    },
+    {
+      "h": "Create the Telegram bot",
+      "p": "Open Telegram, search @BotFather and message it. Send /newbot, give it a name and username, and copy the token. Message your new bot once (say \"hi\") so it can find your chat id. Paste the token to Claude: it writes it into .env, pulls your chat id via getUpdates and fires a test digest with your follower count, top post, top idea and flagged leads.",
+      "code": "/newbot"
+    },
+    {
+      "h": "Hand it off to a cron job",
+      "p": "Weekly is the sweet spot for content data. Cron fires the Apify pull, the dashboard re-renders, the Ideator and Analyst run on the new data, and the digest ships to your phone. On macOS Claude uses launchd, on Linux a plain crontab entry.",
+      "code": ""
+    },
+    {
+      "h": "Make Claude prove the full cycle",
+      "p": "Don't take Claude's word for anything. Ask it to trigger one run manually while you watch: data pulls, dashboard refreshes, digest lands. If a step fails silently, you catch it now, not in three weeks.",
+      "code": ""
+    }
+  ],
+  "prompts": [
+    {
+      "h": "The content agent dashboard prompt (parts 1 and 2, send as one message)",
+      "code": "Task: Be my guide, walk me through building a \"content agent dashboard\": a team of 5 AI agents that run my content (scout ideas, write hooks/scripts, plan a daily calendar, analyse my stats, handle my DMs), shown on a clean dashboard, reporting to my Telegram. Go ONE STEP AT A TIME, ask me what you need, and verify each piece works before moving on. Do NOT dump the whole build at once. This is a guide, not a one-shot script.\nSAY THIS BACK TO ME FIRST (so I know you get it)\nWe are building, in order: (1) a content agent that pulls my Instagram + my competitors' data, (2) a dashboard that shows 5 agents working with my real stats, (3) a Telegram bot that the dashboard reports to. You build it WITH me, checking in at each step. I stay in the driver's seat.\nBEFORE YOU START\nAsk me three things: my Instagram handle, 3-5 competitor handles in my exact niche, and whether I have an Apify account (free tier is fine, apify.com). If I don't, walk me through making one and getting an API token.\nSTEP 1. THE AGENT FOLDER\nCreate a clean project folder (default: ~/content-agent). Inside it scaffold: CLAUDE.md (the agent's instructions, who I am, my niche, my voice, my competitors), a scripts/ folder, a dashboard/ folder, and a gitignored .env for tokens. Seed CLAUDE.md with my handle + competitors. Show me the folder tree before moving on.\nSTEP 2. PULL THE REAL DATA\nWrite a small Node script that uses Apify's \"instagram-scraper\" (resultsType: posts, a high resultsLimit) to pull MY full post history + my competitors' recent posts, then ranks every post by views. Run it. Show me my true all-time top posts + my real follower count. (Important: do NOT use the \"instagram-profile-scraper\" latestPosts field, it only returns recent posts and will get my top post wrong.) Save the result to dashboard/data.json.\nSTEP 3. BUILD THE DASHBOARD\nBuild a single self-contained dashboard (one index.html + a few small JS files) that shows: my key stats up top (followers, top post, total views, engagement), and a row of 5 \"agent\" cards, Ideator, Hook & Script, Planner, Analyst, DM Manager, each with a little working animation and a few live metrics. Make every section clickable so I can drill into what each agent produced. Use a clean, modern look (white background, one accent colour, soft shadows). Render it, screenshot it, and show me before we wire anything else.\nSTEP 4. THE TELEGRAM BOT\nWalk me through creating a Telegram bot: open Telegram, message @BotFather, send /newbot, name it, copy the token. Have me message my new bot once. Then write a small sender script that reads the token + my chat id from .env, pulls my chat id from getUpdates, and sends a digest (my real stats + top idea) to my phone. Run it and confirm it lands on my phone. Store the token in the gitignored .env, never print it.\nSTEP 5. MAKE IT RUN ON ITS OWN\nNow wire the loop: the agent re-pulls my data on a schedule (weekly is fine), refreshes the dashboard, and sends the digest to Telegram automatically. Use a cron job or launchd. Prove it by triggering one run end to end while I watch.\nSTEP 6. PROVE THE WHOLE THING\nWalk me through one full cycle: data pulls → dashboard updates → the 5 agents' output → the digest hits my phone. I want to watch it work, not take your word for it.\nRULES\n- One step at a time. Stop and wait for my \"ok\" before the next step.\n- Verify everything against what's really on screen / on my phone, never assume.\n- Keep tokens in a gitignored .env. Never print or commit them.\n- Plain files I can read and edit. No black-box services.\n- If something already exists (a folder, a bot), inspect it and improve it instead of overwriting.\nStart by saying the goal back to me in one line, then ask me for my Instagram handle, my competitors, and whether I have an Apify account."
+    }
+  ],
+  "credit": [
+    "Apify instagram-scraper (apify.com)",
+    "Telegram @BotFather"
+  ],
+  "hero": "prompt"
+}

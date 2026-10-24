@@ -13,7 +13,33 @@ const BASE = "https://www.karemopsai.com";
 const DATE_EN = "24 Oct 2026";
 const DATE_AR = "24 أكتوبر 2026";
 const guides = JSON.parse(fs.readFileSync(path.join(ROOT, "scripts/light-guides.json"), "utf8"));
-const tpl = fs.readFileSync(path.join(ROOT, "guides/first-skill.html"), "utf8");
+// Legacy guides (English only, restyled 2026-10-24): one JSON each in scripts/legacy-guides/.
+// They keep their existing guide URL so links already sent in DMs keep working; PDF-only ones get an HTML guide.
+const LEGACY_HREF = {
+  "claude-starter-pack": "claude-starter-pack-guide.html", humanizer: "humanizer-guide.html",
+  "infinite-content": "infinite-content-guide.html", "claude-skill-builder": "build-your-first-skill-guide.html",
+  "llm-council": "llm-council-guide.html", "finance-agents": "finance-agents-guide.html",
+  "truth-prompt": "truth-prompt-guide.html", "content-agent-dashboard": "content-agent-dashboard-guide.html",
+  "employee-context": "employee-context-guide.html", "md-file-builder": "md-file-builder-guide.html",
+  "higgs-field-claude": "higgs-field-claude-guide.html", morning: "morning-guide.html",
+  headroom: "headroom-guide.html", "fable-5": "fable-5-playbook-guide.html",
+  "6-agent-stack": "6-subagent-stack-guide.html", "meta-ads-mcp": "meta-ads-mcp-guide.html",
+  "shopify-toolkit": "shopify-ai-toolkit-guide.html", "courses-roadmap": "anthropic-courses-guide.html",
+  routines: "routines-guide.html", "first-skill": "first-skill-guide.html", "skills-setup": "skills-setup-guide.html",
+  "infinite-leads": "infinite-leads-guide.html", "5-platforms": "5-platforms-guide.html",
+  "sid-carousels": "sid-carousels-guide.html", "resume-stack": "resume-stack-guide.html",
+};
+const LEGACY_DIR = path.join(ROOT, "scripts/legacy-guides");
+if (fs.existsSync(LEGACY_DIR)) for (const file of fs.readdirSync(LEGACY_DIR).filter((x) => x.endsWith(".json")).sort()) {
+  const g = JSON.parse(fs.readFileSync(path.join(LEGACY_DIR, file), "utf8"));
+  if (!LEGACY_HREF[g.slug]) throw new Error("no guide file mapped for legacy slug " + g.slug);
+  g.legacy = true; g.guideFile = LEGACY_HREF[g.slug]; g.steps ||= []; g.prompts ||= []; g.what ||= []; g.prereqs ||= []; g.credit ||= [];
+  guides.push(g);
+}
+const ONLY = process.argv[2]; // optional: "legacy" to build only legacy pages
+// original dark first-skill.html (saved from git) = source of the email-gate script and footer icons.
+// guides/first-skill.html itself is now a generated light page, so never read the template from there.
+const tpl = fs.readFileSync(path.join(ROOT, "scripts/gate-template-first-skill.html"), "utf8");
 
 // reuse the live page's gate script (same endpoint + logic) and social icons
 const gateScript = tpl.slice(tpl.lastIndexOf("<script>"), tpl.lastIndexOf("</script>") + 9);
@@ -23,7 +49,8 @@ if (!gateScript.includes("SIGNUP_ENDPOINT") || !socials) throw new Error("templa
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const plain = (h) => String(h).replace(/<[^>]+>/g, "");
 const attr = (s) => plain(s).replace(/"/g, "&quot;");
-const t = (en, ar) => `<span class="l-en">${en}</span><span class="l-ar">${ar ?? en}</span>`;
+let BI = true; // false for English-only guides: no toggle, no Arabic spans
+const t = (en, ar) => (BI ? `<span class="l-en">${en}</span><span class="l-ar">${ar ?? en}</span>` : en);
 
 const CSS = `
 :root{--canvas:#F2F4F8;--paper:#FAFAF8;--white:#FFFFFF;--ink:#0B1220;--muted:#5A6478;--line:#E2E6EE;
@@ -99,7 +126,7 @@ html[data-lang="ar"] .lede,html[data-lang="ar"] .what p,html[data-lang="ar"] .in
 .ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}`;
 
 function hero(g) {
-  const si = g.steps.findIndex((s) => s.code && s.code.trim().length >= 6 && s.code.length < 400);
+  const si = g.hero === "prompt" && g.prompts.length ? -1 : g.steps.findIndex((s) => s.code && s.code.trim().length >= 6 && s.code.length < 400);
   const src = si >= 0 ? g.steps[si] : g.prompts[0] || { code: "" };
   const code = (src.code || "").split("\n").slice(0, 5).join("\n");
   const isCmd = /^(\/|npx |git |mkdir|export|https?:|claude|Shift|npm |pip |node )/.test(code.trim());
@@ -123,12 +150,14 @@ const LANG_SCRIPT = `<script>
 </script>`;
 
 for (const g of guides) {
-  const a = g.ar;
+  if (ONLY === "legacy" && !g.legacy) continue;
+  BI = !!g.ar;
+  const a = g.ar || { what: [], steps: [], prompts: [] };
   const titleEn = plain(g.title).replace(/\.$/, "");
-  const href = `${BASE}/lead-magnets/${g.slug}-guide.html`;
+  const href = `${BASE}/lead-magnets/${g.guideFile || g.slug + "-guide.html"}`;
   const h = hero(g);
   const insideEn = [...g.steps.map((s) => s.h), ...(g.prompts.length ? [`${g.prompts.length} copy-paste prompts: ${g.prompts.map((p) => p.h).join(", ")}`] : [])];
-  const insideAr = [...a.steps.map((s) => s.h), ...(g.prompts.length ? [`${g.prompts.length} أوامر جاهزة للنسخ: ${a.prompts.join("، ")}`] : [])];
+  const insideAr = !BI ? [] : [...a.steps.map((s) => s.h), ...(g.prompts.length ? [`${g.prompts.length} أوامر جاهزة للنسخ: ${a.prompts.join("، ")}`] : [])];
   // gate script: same endpoint + logic, guide title/href swapped, href follows the chosen language
   let gs = gateScript.replace(/const GUIDE = \{[\s\S]*?\};/, `const L = (en, ar) => document.documentElement.dataset.lang === "ar" ? ar : en;\n  const GUIDE = window.GUIDE = {\n    title: ${JSON.stringify(titleEn)},\n    base: ${JSON.stringify(href)},\n    href: ${JSON.stringify(href)} + (document.documentElement.dataset.lang === "ar" ? "#ar" : "")\n  };`);
   if (gs === gateScript) throw new Error("GUIDE anchor missing in gate script");
@@ -166,14 +195,14 @@ for (const g of guides) {
   <nav class="nav">
     <a href="${BASE}/" class="wordmark">karemops<i>.ai</i></a>
     <div class="navr">
-      <div class="lang" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>
+      ${BI ? `<div class="lang" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>` : ""}
       <a href="${BASE}/" class="back">${t("All guides", "كل الأدلة")}</a>
     </div>
   </nav>
 
-  <div class="eyebrow">${t(`Field guide · No. ${String(g.number).padStart(2, "0")} · Comment ${g.kw}`, `دليل عملي · رقم ${String(g.number).padStart(2, "0")} · اكتب ${g.kw}`)}</div>
+  <div class="eyebrow">${g.legacy ? "Free field guide" : t(`Field guide · No. ${String(g.number).padStart(2, "0")} · Comment ${g.kw}`, `دليل عملي · رقم ${String(g.number).padStart(2, "0")} · اكتب ${g.kw}`)}</div>
   <h1>${t(g.title, a.title)}</h1>
-  <p class="meta">${t("By Karem AlMoayyad", "إعداد كريم المؤيد")}<span class="dot"></span>${t(DATE_EN, DATE_AR)}<span class="dot"></span>${t("Free guide · EN + Arabic", "دليل مجاني · عربي وإنجليزي")}</p>
+  <p class="meta">${t("By Karem AlMoayyad", "إعداد كريم المؤيد")}<span class="dot"></span>${t(DATE_EN, DATE_AR)}<span class="dot"></span>${BI ? t("Free guide · EN + Arabic", "دليل مجاني · عربي وإنجليزي") : "Free guide"}</p>
   <p class="lede">${t(g.lead, a.lead)}</p>
 
   <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>${h.label}</span></div><pre>${h.body}<span class="caret"></span></pre></div></div>
@@ -192,7 +221,7 @@ for (const g of guides) {
   <div class="gate" id="gate">
     <div class="lock">🔒</div>
     <h3 id="gate-title">${t("Get the full guide free", "احصل على الدليل كاملًا مجانًا")}</h3>
-    <p id="gate-copy">${t("Drop your email and the guide opens right away, in English or Arabic. No spam.", "اكتب بريدك الإلكتروني ويفتح الدليل فورًا، بالعربية أو الإنجليزية. بدون رسائل مزعجة.")}</p>
+    <p id="gate-copy">${BI ? t("Drop your email and the guide opens right away, in English or Arabic. No spam.", "اكتب بريدك الإلكتروني ويفتح الدليل فورًا، بالعربية أو الإنجليزية. بدون رسائل مزعجة.") : "Drop your email and the guide opens right away. No spam."}</p>
     <form id="gate-form">
       <input type="email" id="gate-email" placeholder="your@email.com" autocomplete="email" required aria-label="Email">
       <button type="submit" id="gate-submit">${t("Open the guide →", "افتح الدليل ←")}</button>
@@ -215,7 +244,7 @@ for (const g of guides) {
   ${socials}
 </footer>
 
-${LANG_SCRIPT}
+${BI ? LANG_SCRIPT : ""}
 ${gs}
 </body>
 </html>

@@ -1,0 +1,82 @@
+{
+  "kw": "COUNCIL",
+  "slug": "llm-council",
+  "legacy": true,
+  "title": "Run every big call past a <span class=\"em\">council</span> of 5 AI advisors.",
+  "lead": "One AI gives you one confident answer and zero way to tell if it's brilliant or quietly wrong. The LLM Council runs your question through 5 independent advisors, makes them tear each other apart, and hands you one verdict. Free. Runs inside Claude.",
+  "inside": "By the end you'll have the LLM Council installed and know how to feed it a real decision and read the verdict.",
+  "what": [
+    "The LLM Council fixes the one-confident-answer trap with structure: Claude frames the real decision and pulls relevant context, 5 advisors answer in parallel, the answers get relabeled Response A to E and all 5 review the set blind, then a chairman reads everything and gives you one clear verdict. Not \"it depends.\"",
+    "It's for business owners making calls where being wrong is expensive: pricing, positioning, whether to take the deal, hire or automate."
+  ],
+  "prereqs": [
+    "Claude: web app, desktop app, or Claude Code. Any of them.",
+    "The repo: github.com/aiwithremy/claude-skills-llm-council",
+    "30 seconds. No code."
+  ],
+  "warn": "The Council is only as sharp as what you feed it. \"Should I raise my rates?\" gets generic advice. Give it real numbers, a genuine fork, and run it BEFORE the move. After you've committed, it's just expensive hindsight. Skip it for questions with one correct answer, creation tasks, summaries, or anything low-stakes.",
+  "steps": [
+    {
+      "h": "Install it in 30 seconds",
+      "p": "Completely free, no code. Open a new Claude chat and paste this exactly. Claude reads the repo and sets it up. Search for \"LLM Council\" when you look for it, not \"Claude Council.\"",
+      "code": "Please install this Claude skill for me. The SKILL.md file lives in this GitHub repo: https://github.com/aiwithremy/claude-skills-llm-council"
+    },
+    {
+      "h": "Or use the upload path",
+      "p": "Download SKILL.md from the repo, then tell Claude this. In the Claude web or desktop app you can also go Customize → Skills → Add → Upload a skill and drag the file in.",
+      "code": "I just downloaded a file called SKILL.md for the LLM Council skill, can you install it for me?"
+    },
+    {
+      "h": "Summon it with a trigger phrase",
+      "p": "Once installed, any of these fires the Council. Type one and add your question.",
+      "code": "ask the council\ncouncil this: [your question]\nrun the council on [your question]\npressure-test this\nstress-test this\nwar room this\ndebate this"
+    },
+    {
+      "h": "Know the 5 advisors",
+      "p": "Thinking lenses, not job titles, each deliberately one-sided. The Contrarian assumes your idea has a fatal flaw and hunts for it. The First Principles Thinker asks what you're actually trying to solve and rebuilds from zero. The Expansionist hunts the upside everyone else is missing. The Outsider has zero context about you and catches the curse of knowledge. The Executor only cares what you do Monday morning.",
+      "code": ""
+    },
+    {
+      "h": "Read the verdict like a map",
+      "p": "The chairman's verdict comes back in five parts: where the council agrees (high-confidence, move), where it clashes (the real decision lives there, slow down and dig), blind spots caught in peer review, one recommendation, and the one thing to do first. Most people skim to the recommendation and skip the clash section. That's the part that pays.",
+      "code": ""
+    },
+    {
+      "h": "Push back on it",
+      "p": "The verdict isn't final. Ask for a second pass that argues against the first, or zoom in on the advisor whose angle worried you.",
+      "code": "pressure-test that recommendation\nsay more about what the Contrarian flagged"
+    },
+    {
+      "h": "Feed it a war room, not a one-liner",
+      "p": "Drop in real numbers, your constraints, what you've tried and what's at stake. Bring forks (raise or hold, hire or automate), not lookups. For copy review, paste the actual draft so the Outsider can catch where it confuses people. Go in wanting the answer you don't want. Do the one first step, then come back and council your next fork.",
+      "code": ""
+    }
+  ],
+  "prompts": [
+    {
+      "h": "Raise your prices or hold",
+      "code": "council this: I run a service business at about $9k/month. I charge $1,500/mo per client and my last two prospects pushed back on price, but I'm also at capacity and turning down work. Do I raise to $2,000 for new clients and grandfather current ones, raise across the board and risk churn, or hold and fix capacity with systems first?"
+    },
+    {
+      "h": "Hire your first person vs automate",
+      "code": "council this: I'm maxed on hours and turning down work. Option A: hire a part-time contractor at $1,800/month, eats most of my profit for months and I've never managed anyone. Option B: build automation (Claude Code + n8n) to take the repetitive work off me. Hire now, automate first, or raise prices to thin the workload?"
+    },
+    {
+      "h": "Pressure-test a landing page before traffic",
+      "code": "council this, here is my landing page hero, find what's weak before I run traffic. Headline: \"[paste].\" Subhead: \"[paste].\" Button: \"[paste].\" Context: cold traffic, non-technical business owners, visits but almost no clicks. What's killing the conversion?"
+    },
+    {
+      "h": "Fire the draining client or keep the money",
+      "code": "council this: One client is 45% of my income but they scope-creep constantly and dealing with them is wrecking my motivation. Replacing that income takes months of pipeline I haven't built. Fire them now, set firm boundaries plus a rate increase and see if they leave, or keep them while I quietly build replacement income?"
+    },
+    {
+      "h": "War room a hook",
+      "code": "war room whether this hook actually lands or just sounds clever."
+    }
+  ],
+  "credit": [
+    "LLM Council skill by Ole Lehmann",
+    "Based on Andrej Karpathy's \"LLM Council\" methodology",
+    "Repo: https://github.com/aiwithremy/claude-skills-llm-council"
+  ]
+}

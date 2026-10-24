@@ -1,0 +1,47 @@
+{
+  "kw": "STARTER",
+  "slug": "claude-starter-pack",
+  "legacy": true,
+  "title": "The Claude <span class=\"em\">starter</span> pack.",
+  "lead": "If you've been scrolling past AI content thinking \"this isn't for me,\" this is your 5 minutes. No coding. No tech background.",
+  "inside": "By the end you'll have Claude set up, your first prompt sent, and one weekly ritual locked.",
+  "what": [
+    "The free-plan setup that's genuinely enough to start, the first prompt that makes Claude feel like a collaborator instead of a vending machine, how to teach it about you so it stops forgetting, one Project folder, and the weekly ritual that makes it stick.",
+    "It's for anyone who keeps saying \"AI isn't for me.\" No terminal. No install. No \"tech person\" required. Everything here happens inside a normal chat window."
+  ],
+  "prereqs": [
+    "An email you check daily (this becomes your AI's memory)",
+    "5 minutes and one work headache you'd like off your plate",
+    "Zero coding. If you can copy, paste, and type, you're set."
+  ],
+  "warn": "Don't set up and disappear. The people getting value from AI aren't using secret prompts. They opened the thing and used it every day until it clicked. That's the entire trick.",
+  "steps": [
+    {
+      "h": "Sign up. Free works.",
+      "p": "Go to claude.ai and sign up with the email you actually check. Claude saves things about you tied to this account, so you want that on your main inbox, not a throwaway. The free plan is genuinely enough to start. Upgrade when you hit the wall, not before. Grab the mobile app too (iOS or Android). You'll reach for Claude on your phone more than you expect.",
+      "code": ""
+    },
+    {
+      "h": "Send your first prompt",
+      "p": "Most people's first message is \"write me a caption,\" and they get an okay caption. Open a new chat, paste this exactly, and change the brackets to your real situation. Claude asks you questions back instead of guessing. Don't rush past the questions. Answer honestly, in your own messy words. That back-and-forth is the point.",
+      "code": "I work as [your job]. My biggest headache at work right now is\n[the frustrating thing]. Before giving me advice, what questions\ndo you need to ask me so you actually understand my situation?"
+    },
+    {
+      "h": "Teach it about you",
+      "p": "Type \"remember that...\" followed by a fact about yourself, and Claude keeps it. Drop 5 to 10 of these right now. Every chat you open after this already knows who you are, so you stop re-explaining yourself from scratch.",
+      "code": "remember that I work in [industry] as a [role]\nremember that I hate bullet points in my emails\nremember that I'm based in [city] and I work in the evenings\nremember that I write in [your English: US, UK, Australian]"
+    },
+    {
+      "h": "Set up one Project",
+      "p": "Click Projects in the left sidebar and make one called \"Work\" (or whatever your main thing is). A Project is a folder where Claude remembers context for one part of your life. Drop in a few documents (a resume, brand guidelines, a PDF) and add a one-line note: \"I'm a [role] at [company], here's what I'm working on this quarter.\" Start with one. Don't build ten empty folders.",
+      "code": ""
+    },
+    {
+      "h": "Pick your weekly ritual",
+      "p": "Pick ONE thing you already do every week and use Claude for it for the next 7 days. Monday morning: brain-dump your week and ask Claude to sort it into priorities. Before any meeting: paste the agenda and ask \"what questions should I be ready to answer?\" Friday wrap-up: tell Claude what went well and what flopped, and ask what to change next week. Don't add a second ritual until the first is a habit.",
+      "code": ""
+    }
+  ],
+  "prompts": [],
+  "credit": []
+}

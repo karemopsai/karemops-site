@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Post to 5 platforms a day from one Claude Code command | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E9EDF3; --paper:#FAFAF8; --white:#FFFFFF; --ink:#0B1220; --muted:#5A6478; --line:#E2E6EE;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F3F6FB;
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Instrument Serif','Times New Roman',serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(11,18,32,.06),0 12px 40px rgba(11,18,32,.08);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-weight:800;font-size:54px;line-height:1.02;letter-spacing:-.03em;text-wrap:balance}
+h2{font-weight:800;font-size:34px;line-height:1.08;letter-spacing:-.02em;margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--blue);letter-spacing:0}
+h1 .em{font-size:1.1em} h2 .em{font-size:1.08em}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--blue-soft);border:1px solid var(--blue-line);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--blue);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--ink)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:16px;padding:34px 40px;background-color:var(--blue-soft);
+  background-image:radial-gradient(rgba(8,102,255,.22) 1.2px,transparent 1.3px);background-size:16px 16px;border:1px solid var(--blue-line)}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(8,102,255,.12),0 2px 6px rgba(11,18,32,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:var(--line);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--line)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;display:grid;place-items:center;font-size:17px}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-size:40px;font-weight:800;color:var(--blue);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.step h2{font-size:24px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.prompt{margin-bottom:8px}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--blue);color:#fff;border-radius:16px;padding:28px 30px}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-size:26px;letter-spacing:-.02em;text-transform:none;margin:0 0 8px;font-weight:800}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+}</style>
+</head>
+<body>
+
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip">Free guide</span></div>
+  <div class="eyebrow">Field guide</div>
+  <h1>Post to <span class="em">5 platforms</span> a day from one Claude Code command.</h1>
+  <p class="lead">Late + Claude Code + the /post-content skill. One video in. Instagram, TikTok, LinkedIn, YouTube, X out. No Buffer. No scheduler. No VA.</p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Prompt</span></div><pre>1. Instagram   (Business/Creator account, needs a linked FB page)
+2. TikTok      (Personal or Business both work)
+3. LinkedIn    (Personal profile OR company page, your call)
+4. YouTube     (Channel auth via Google)
+5. X           (OAuth, takes ~10 seconds)<span class="caret"></span></pre><div class="note">Step 02 of this guide. Copy it as is.</div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0">Inside</h3><p>You'll have Late connected to all 5 socials, the Late MCP running in Claude Code, and your first video posted with /post-content.</p></div>
+    <div class="by"><div class="mono-k">K</div><div><b>Karem AlMoayyad</b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>Post to 5 platforms a day from one Claude Code command</span><span>POST</span></div>
+  <div class="eyebrow">01 · What this is</div>
+  <h2>What you're <span class="em">setting up.</span></h2>
+  <p>One tool (Late) connects all your socials. One MCP install lets Claude Code talk to Late. One skill (/post-content) runs the whole publish loop end to end: transcribe, caption per platform, schedule, ship. You stop logging into five apps. You drop a video file, Claude transcribes it, writes platform-specific captions (because TikTok ≠ LinkedIn), and posts. Done in under two minutes.</p>
+  <p>Once it's connected you can post one video to IG Reels, TikTok, LinkedIn, YouTube Shorts and X from the same prompt, get a custom caption per platform, schedule or queue or fire immediately, re-post old winners with a fresh caption in one line, and pull post analytics back into Claude to brief your next video. It replaces the 4 hours a week of cross-posting and re-formatting captions.</p>
+  <h3>You need</h3><ul><li class="l-en">A Late account (free tier works to test)</li><li class="l-en">Your social accounts ready to auth: IG (Business or Creator), TikTok, LinkedIn, YouTube, X</li><li class="l-en">IG on a Business or Creator account linked to a Facebook page (2 minutes in the IG app if you're still on personal)</li><li class="l-en">Claude Code installed</li><li class="l-en">One short-form video you actually want to post (test run = real run)</li></ul>
+  <div class="callout"><strong>Heads up:</strong> Late actually publishes. Wrong caption, broken link, scheduled at 3 AM, that's all live. Always preview the draft Claude generates before approving the publish step.</div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 05</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>Post to 5 platforms a day from one Claude Code command</span><span>POST</span></div>
+  <div class="eyebrow">02 · The steps</div><h2>Set it up, <span class="em">step by step.</span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2>Get a Late account</h2><p>One tool that posts to every platform you care about. Go to getlate.dev and sign up with Google or email. Create a workspace, one per brand, this is where every post lives. Then Settings, Developer, generate a personal API key. Copy it. You'll paste it once in step 3.</p></div></div>
+  <div class="step"><div class="num">02</div><div>
+    <h2>Connect your socials</h2><p>Inside Late, hit Connect Account and auth each platform once, top to bottom. Then verify: Late dashboard, Accounts tab, 5 green dots. If any are red or "Re-auth needed," fix it now. The MCP won't recover later if a platform is half-connected.</p><pre>1. Instagram   (Business/Creator account, needs a linked FB page)
+2. TikTok      (Personal or Business both work)
+3. LinkedIn    (Personal profile OR company page, your call)
+4. YouTube     (Channel auth via Google)
+5. X           (OAuth, takes ~10 seconds)</pre></div></div>
+  <div class="step"><div class="num">03</div><div>
+    <h2>Wire Late into Claude Code</h2><p>One command. Claude can now read your Late workspace and create posts. No restart needed, MCPs hot-load. To confirm, open any Claude Code session and ask "list my Late accounts". Expect 5 platforms back. If you get zero, the key didn't paste cleanly. Run claude mcp list and re-add.</p><pre>claude mcp add late
+# Paste the API key from Step 01 when prompted.</pre></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 05</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>Post to 5 platforms a day from one Claude Code command</span><span>POST</span></div>
+  
+  <div class="step"><div class="num">04</div><div>
+    <h2>Run /post-content</h2><p>One command. Five platforms. Claude transcribes the video with Whisper, writes a custom caption per platform, shows you the draft, and on approval ships it to Late. Late publishes to IG, TikTok, LinkedIn, YouTube, and X.</p><pre>/post-content video.mp4</pre></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 05</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>Post to 5 platforms a day from one Claude Code command</span><span>POST</span></div>
+  <div class="eyebrow">03 · Copy and paste</div><h2>Your <span class="em">prompts.</span></h2>
+  <div class="prompt"><h4><span class="tag">PROMPT</span>Post now with your own hook</h4><pre>/post-content video.mp4
+Use this hook for all 5 captions: "I stopped paying a VA $800/mo. Here's why."</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span>Schedule for tomorrow 9 AM, skip X</h4><pre>/post-content video.mp4 schedule="tomorrow 09:00"
+platforms="ig,tiktok,linkedin,youtube"
+Stagger posts by 5 minutes so the algos don't cross-pollinate.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span>Repost your winners</h4><pre>Find my top 3 Reels from the last 30 days.
+Rewrite the hooks. Re-queue to Late for next week, one per day at 10 AM.</pre></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 05</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>Post to 5 platforms a day from one Claude Code command</span><span>POST</span></div>
+  <div class="eyebrow">Done</div>
+  <h2>That's the <span class="em">whole setup.</span></h2>
+  <p class="lead">Run it once this week on something real. Then tell me what it did: DM me on Instagram, I read them.</p>
+  <h3>Credit</h3><ul><li>Late (getlate.dev, MCP docs at getlate.dev/docs/mcp)</li><li>Claude Code (claude.com/claude-code)</li></ul>
+  <div class="cta">
+    <div class="k">Built by Karem AlMoayyad</div>
+    <h3>Want it built for you?</h3>
+    <p>AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</p>
+    <div class="h"><span class="ltr">@karemops.ai</span> · Instagram · TikTok · LinkedIn</div>
+  </div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 05</span></div>
+</section>
+
+</body>
+</html>

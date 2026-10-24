@@ -1,0 +1,72 @@
+{
+  "kw": "SID",
+  "slug": "sid-carousels",
+  "legacy": true,
+  "title": "The SID <span class=\"em\">process</span>.",
+  "lead": "How to turn any text script into a fully designed Instagram carousel inside Claude Code. No Canva. No designer. No AI slop.",
+  "inside": "You'll have Kie.AI connected, a locked design brief, a full carousel matched to one anchor slide, and the flow saved as a reusable skill.",
+  "what": [
+    "Most AI carousels look like slop because people paste a script, type \"make me 6 slides,\" and hit go. Six slides come back that look like six different brands. The fix is the process. SID = Show, Idea, Design Deliver. Three steps, run end to end inside Claude Code. References inform the brief. The brief locks one anchor slide. Every other slide matches that anchor. Same style across the whole carousel, every time, unique to you.",
+    "Built for anyone stuck in Canva or bouncing between Canva and ChatGPT. What used to take a designer 2 to 3 days, or you 4 to 6 hours, runs inside Claude Code in under 20 minutes. Save it as a skill and every script you've already written becomes a carousel in 15 to 20 minutes."
+  ],
+  "prereqs": [
+    "Claude Code installed (Pro, Max, Team, or Enterprise plan)",
+    "$5 on Kie.AI for ~80 images (enough for 10+ carousels)",
+    "3-5 reference carousels (real screenshots, not links) and one script you've already written",
+    "20 minutes the first time. 15 every time after."
+  ],
+  "warn": "Never batch-generate the carousel. Anchor first. Lock it. Match the rest. Skip the brief or the anchor and every slide negotiates its own style, that's the slop you've been seeing.",
+  "steps": [
+    {
+      "h": "Connect Kie.AI to Claude Code",
+      "p": "Before SID can run, Claude needs to render images. Kie.AI is the MCP that plugs Claude Code into GPT Image 2, so slides get made inside the same chat. Flat $0.06 per image, and the same key also works for Seedance, Flux, Veo and Suno. $5 is enough for ~80 images, call it 10+ carousels before you top up again.",
+      "code": "# 1. Sign up at kie.ai → top up $5 → grab API key\n# 2. Add the MCP to Claude Code\nclaude mcp add kie-image\n# 3. Drop your KIE_API_KEY when prompted, confirm"
+    },
+    {
+      "h": "S: show Claude what good looks like",
+      "p": "Drop screenshots of carousels whose visual style you want into the chat. Real screenshots from creators you respect. Not links. Not \"make it like Apple.\" Actual images. Add the script you want to turn into slides, plus any logos, product shots or screenshots that need to live inside the carousel. Claude will use them directly. This is the most-skipped step and the reason output looks generic.",
+      "code": ""
+    },
+    {
+      "h": "I: build the idea brief",
+      "p": "Once Claude has your references and script, ask for a full design brief before it touches a single slide. Use the brief prompt below. The brief locks the sharp idea and audience promise, color palette with hex codes, font pairing, slide-by-slide headline + support copy, graphic type per slide (text-only, screenshot, comparison, data viz), and the anchor slide spec. Read it before you generate. Fixing it here costs 30 seconds. Fixing it after slide 6 costs the whole carousel.",
+      "code": ""
+    },
+    {
+      "h": "D: generate the anchor slide",
+      "p": "Generate one slide with the anchor prompt below. Review it. Tweak until it's right. Don't move on until you'd be proud to post it as a single image.",
+      "code": ""
+    },
+    {
+      "h": "D: match the rest to the anchor",
+      "p": "Anchor's locked. Run the match prompt and every other slide gets built to the same spec. This one rule is the difference between a custom carousel and the boring AI slop everyone else is cranking out.",
+      "code": ""
+    },
+    {
+      "h": "Save the flow as a skill",
+      "p": "Once the carousel hits, ask Claude Code to save the workflow as a skill. From then on: drop the script, drop 3-5 references, run the skill, sign off on the brief, lock the anchor, generate the rest, ship.",
+      "code": ""
+    }
+  ],
+  "prompts": [
+    {
+      "h": "Design brief",
+      "code": "Review the script and the reference carousels I just shared.\nBuild a full design brief. Don't generate any images yet.\n\nInclude: idea, audience promise, color palette (hex codes),\nfont pairing, slide-by-slide headline + support copy,\ngraphic type per slide, and the spec for the anchor slide.\n\nOnce I sign off on the brief, we lock the anchor."
+    },
+    {
+      "h": "Generate the anchor",
+      "code": "Generate just slide 1, the anchor. Use the brief.\n4:5 ratio, 2K resolution. Pull from the references for composition.\n\nThis is where we lock the visual style for the whole carousel,\nso make it count. We'll match every other slide to this one."
+    },
+    {
+      "h": "Match the rest",
+      "code": "Anchor's locked. Generate slides 2 through N matching that\nexact spec, same colors, same fonts, same composition language,\nsame energy. Carry the brand into every slide."
+    },
+    {
+      "h": "Save as a skill",
+      "code": "Save this workflow as a Claude skill called sid-carousel.\nInclude: reference upload step, brief generation prompt,\nanchor slide spec, batch generation rules."
+    }
+  ],
+  "credit": [
+    "Kie.AI (kie-image MCP, GPT Image 2)"
+  ]
+}

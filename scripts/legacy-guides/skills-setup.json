@@ -1,0 +1,71 @@
+{
+  "kw": "SKILLS",
+  "slug": "skills-setup",
+  "legacy": true,
+  "title": "Build your own <span class=\"em\">Claude Code skills</span>.",
+  "lead": "The non-tech setup guide. Zero coding required. From a blank Terminal to your first working skill, plus 3 skills you can steal and run today.",
+  "inside": "You'll have Claude Code installed, 3 stolen skills running, and your own SKILL.md written, tested and firing reliably.",
+  "what": [
+    "A skill is a saved employee, not a saved prompt. It's a folder on your computer with one file in it. That file tells Claude Code how to do a specific job: the exact steps, the format, the tools it should use. You type /your-skill-name, Claude reads the file, and does the job the same way every time. Like handing an SOP to a new employee, except this one runs 24/7, doesn't forget, and costs pennies.",
+    "You do not need to code. You write instructions in plain English inside a text file. A prompt is typed fresh each time, lives in your head, drifts, and dies when you close the chat. A skill is written once, lives in a file, carries your context, and is there every session, every project. Stop asking \"what should I type next?\" Start asking \"what process do I keep repeating that should live in a file?\""
+  ],
+  "prereqs": [
+    "A Mac or Windows machine",
+    "An Anthropic account (Claude Code asks you to log in on first run)",
+    "One process you keep repeating that should live in a file"
+  ],
+  "warn": "If your skill never fires, it's almost always the description or the folder. \"Helps with X\" is invisible to Claude. And global skills go in ~/.claude/skills/, not ~/claude/skills/. The dot matters.",
+  "steps": [
+    {
+      "h": "Install Claude Code",
+      "p": "Two minutes. One command. Mac: open Terminal (⌘ + Space, type \"Terminal\", enter) and paste the first line. Windows: open PowerShell (Start, type \"PowerShell\", enter) and paste the second. Then type claude in the same window and hit enter. First run asks you to log in with your Anthropic account. Do it once. That's the only Terminal moment in this guide, from here everything happens inside Claude Code.",
+      "code": "# Mac (Terminal)\ncurl -fsSL https://claude.ai/install.sh | bash\n\n# Windows (PowerShell)\nirm https://claude.ai/install.ps1 | iex\n\n# Then launch it\nclaude"
+    },
+    {
+      "h": "Paste the install prompt into Claude Code",
+      "p": "You don't have to create folders or files yourself. Open Claude Code, paste the \"Install 3 skills\" prompt below, hit enter. Claude does the whole install: 3 skills, wired up, ready to run. Then restart Claude Code (quit + relaunch). Type / and you'll see /weekly-review, /client-recap and /hook-remix in the menu.",
+      "code": ""
+    },
+    {
+      "h": "Write the description, it's the whole game",
+      "p": "Claude reads the description and decides whether your skill applies to what the user just asked. The name becomes your slash command (/daily-standup). Vague description = Claude ignores your skill and keeps improvising. \"Helps with standup updates.\" won't fire: no trigger words, no input, no output. \"Generate a daily standup update by scanning today's calendar events and yesterday's git commits. Use when the user asks for a standup, asks what they did yesterday, or needs a status update for their team.\" fires reliably because it names the output, the inputs and the trigger situations. The formula: [What it does] by [how it does it]. Use when [trigger situation 1], [trigger situation 2], or [trigger situation 3].",
+      "code": "---\nname: daily-standup\ndescription: [THIS IS THE WHOLE GAME]\n---"
+    },
+    {
+      "h": "Write the body, the SOP Claude follows",
+      "p": "Everything under the frontmatter is the actual playbook. Treat it like onboarding a new hire on day one: explicit, numbered, zero assumptions. Claude will do exactly what you write. Not more. Not less. Here's the full SKILL.md for /daily-standup, end to end.",
+      "code": "---\nname: daily-standup\ndescription: Generate a daily standup update by scanning today's calendar events and yesterday's git commits. Use when the user asks for a standup, asks what they did yesterday, or needs a status update for their team.\n---\n\n# Daily Standup\n\nGenerate a 3-bullet standup update in the \"Yesterday / Today / Blockers\" format.\n\n## Steps\n\n1. Run `git log --since=\"yesterday\" --until=\"today\" --author=\"$(git config user.email)\" --oneline` in the user's active repos. Pull the commit messages.\n\n2. Read today's calendar events (use the calendar MCP if connected, otherwise ask the user to paste them).\n\n3. Summarize yesterday's commits into 1-2 bullets, what shipped, what's in progress. Skip noise commits (typos, formatting).\n\n4. Pull today's calendar to list what the user is heads-down on.\n\n5. Ask the user one question: any blockers? If yes, add as third bullet. If no, write \"None.\"\n\n## Output format\n\n**Yesterday:** [1-2 bullets of what shipped]\n**Today:** [1-2 bullets from the calendar, meetings + focus blocks]\n**Blockers:** [user's answer, or \"None\"]\n\nCopy the final output to clipboard."
+    },
+    {
+      "h": "Run the 30-second test",
+      "p": "A skill that never triggers is just a markdown file. Open Claude Code in any project and type /daily-standup. If the slash menu autocompletes your skill name, the file is being read. Hit enter and watch: does it follow your steps, ask for the right inputs, match your format? If yes, ship it. If no, open the SKILL.md, fix the gap, save, rerun.",
+      "code": "/daily-standup"
+    },
+    {
+      "h": "Fix it when it won't fire",
+      "p": "Description too vague: rewrite it with the formula. No trigger phrases: add 2-3 specific situations (\"Use when the user asks for X, mentions Y, or types Z\"). Wrong folder: global goes in ~/.claude/skills/, not ~/claude/skills/. Overlaps another skill: Claude picks one and the more specific one wins, so tighten yours. Most skills take 3-4 rewrites of the description before they fire reliably. That's normal.",
+      "code": ""
+    }
+  ],
+  "prompts": [
+    {
+      "h": "Install 3 skills",
+      "code": "Install 3 Claude Code skills for me. For each one:\n1. Create the folder: ~/.claude/skills/<skill-name>/\n2. Create SKILL.md inside with the exact contents below.\n3. Confirm each file was written.\n\n--- SKILL 1: weekly-review ---\n---\nname: weekly-review\ndescription: Run a Friday weekly review. Pulls this week's calendar events, completed tasks, and open loops, then writes a one-page summary + next week's top 3 priorities. Use when the user says \"weekly review\", \"wrap up my week\", or it's Friday and they want to close out.\n---\nSteps: 1) Ask user for their top win + top miss this week. 2) List 3 things to carry into next week. 3) Save the summary as a dated markdown file in ~/reviews/.\n\n--- SKILL 2: client-recap ---\n---\nname: client-recap\ndescription: Turn raw client-call notes into a clean recap email + a next-steps list. Use when the user pastes call notes, says \"recap this call\", or finishes a discovery call.\n---\nSteps: 1) Extract decisions, action items, and open questions. 2) Draft a recap email in the user's voice (short, no fluff). 3) List next steps with owners and dates.\n\n--- SKILL 3: hook-remix ---\n---\nname: hook-remix\ndescription: Take one piece of content and rewrite it as 5 different hooks for short-form video. Use when the user pastes a caption, a script, or a LinkedIn post and wants variations to test.\n---\nSteps: 1) Read the source. 2) Write 5 hooks, one curiosity, one contrarian, one number-led, one story-open, one direct-value. 3) Return as a numbered list.\n\nAfter all 3 are installed, list the slash commands I can now use."
+    },
+    {
+      "h": "/weekly-review, Friday clean-up",
+      "code": "---\nname: weekly-review\ndescription: Run a Friday weekly review. Pulls this week's calendar events, completed tasks, and open loops, then writes a one-page summary + next week's top 3 priorities. Use when the user says \"weekly review\", \"wrap up my week\", or it's Friday and they want to close out.\n---\nSteps: 1) Ask user for their top win + top miss this week. 2) List 3 things to carry into next week. 3) Save the summary as a dated markdown file in ~/reviews/."
+    },
+    {
+      "h": "/client-recap, after every call",
+      "code": "---\nname: client-recap\ndescription: Turn raw client-call notes into a clean recap email + a next-steps list. Use when the user pastes call notes, says \"recap this call\", or finishes a discovery call.\n---\nSteps: 1) Extract decisions, action items, and open questions. 2) Draft a recap email in the user's voice (short, no fluff). 3) List next steps with owners and dates."
+    },
+    {
+      "h": "/hook-remix, repurpose any post",
+      "code": "---\nname: hook-remix\ndescription: Take one piece of content and rewrite it as 5 different hooks for short-form video. Use when the user pastes a caption, a script, or a LinkedIn post and wants variations to test.\n---\nSteps: 1) Read the source. 2) Write 5 hooks, one curiosity, one contrarian, one number-led, one story-open, one direct-value. 3) Return as a numbered list."
+    }
+  ],
+  "credit": [
+    "Claude Code (Anthropic)"
+  ]
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The SID process | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E9EDF3; --paper:#FAFAF8; --white:#FFFFFF; --ink:#0B1220; --muted:#5A6478; --line:#E2E6EE;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F3F6FB;
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Instrument Serif','Times New Roman',serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(11,18,32,.06),0 12px 40px rgba(11,18,32,.08);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-weight:800;font-size:54px;line-height:1.02;letter-spacing:-.03em;text-wrap:balance}
+h2{font-weight:800;font-size:34px;line-height:1.08;letter-spacing:-.02em;margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--blue);letter-spacing:0}
+h1 .em{font-size:1.1em} h2 .em{font-size:1.08em}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--blue-soft);border:1px solid var(--blue-line);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--blue);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--ink)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:16px;padding:34px 40px;background-color:var(--blue-soft);
+  background-image:radial-gradient(rgba(8,102,255,.22) 1.2px,transparent 1.3px);background-size:16px 16px;border:1px solid var(--blue-line)}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(8,102,255,.12),0 2px 6px rgba(11,18,32,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:var(--line);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--line)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;display:grid;place-items:center;font-size:17px}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-size:40px;font-weight:800;color:var(--blue);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.step h2{font-size:24px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.prompt{margin-bottom:8px}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--blue);color:#fff;border-radius:16px;padding:28px 30px}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-size:26px;letter-spacing:-.02em;text-transform:none;margin:0 0 8px;font-weight:800}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+}</style>
+</head>
+<body>
+
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip">Free guide</span></div>
+  <div class="eyebrow">Field guide</div>
+  <h1>The SID <span class="em">process</span>.</h1>
+  <p class="lead">How to turn any text script into a fully designed Instagram carousel inside Claude Code. No Canva. No designer. No AI slop.</p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Prompt</span></div><pre># 1. Sign up at kie.ai → top up $5 → grab API key
+# 2. Add the MCP to Claude Code
+claude mcp add kie-image
+# 3. Drop your KIE_API_KEY when prompted, confirm<span class="caret"></span></pre><div class="note">Step 01 of this guide. Copy it as is.</div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0">Inside</h3><p>You'll have Kie.AI connected, a locked design brief, a full carousel matched to one anchor slide, and the flow saved as a reusable skill.</p></div>
+    <div class="by"><div class="mono-k">K</div><div><b>Karem AlMoayyad</b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>The SID process</span><span>SID</span></div>
+  <div class="eyebrow">01 · What this is</div>
+  <h2>What you're <span class="em">setting up.</span></h2>
+  <p>Most AI carousels look like slop because people paste a script, type "make me 6 slides," and hit go. Six slides come back that look like six different brands. The fix is the process. SID = Show, Idea, Design Deliver. Three steps, run end to end inside Claude Code. References inform the brief. The brief locks one anchor slide. Every other slide matches that anchor. Same style across the whole carousel, every time, unique to you.</p>
+  <p>Built for anyone stuck in Canva or bouncing between Canva and ChatGPT. What used to take a designer 2 to 3 days, or you 4 to 6 hours, runs inside Claude Code in under 20 minutes. Save it as a skill and every script you've already written becomes a carousel in 15 to 20 minutes.</p>
+  <h3>You need</h3><ul><li class="l-en">Claude Code installed (Pro, Max, Team, or Enterprise plan)</li><li class="l-en">$5 on Kie.AI for ~80 images (enough for 10+ carousels)</li><li class="l-en">3-5 reference carousels (real screenshots, not links) and one script you've already written</li><li class="l-en">20 minutes the first time. 15 every time after.</li></ul>
+  <div class="callout"><strong>Heads up:</strong> Never batch-generate the carousel. Anchor first. Lock it. Match the rest. Skip the brief or the anchor and every slide negotiates its own style, that's the slop you've been seeing.</div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>The SID process</span><span>SID</span></div>
+  <div class="eyebrow">02 · The steps</div><h2>Set it up, <span class="em">step by step.</span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2>Connect Kie.AI to Claude Code</h2><p>Before SID can run, Claude needs to render images. Kie.AI is the MCP that plugs Claude Code into GPT Image 2, so slides get made inside the same chat. Flat $0.06 per image, and the same key also works for Seedance, Flux, Veo and Suno. $5 is enough for ~80 images, call it 10+ carousels before you top up again.</p><pre># 1. Sign up at kie.ai → top up $5 → grab API key
+# 2. Add the MCP to Claude Code
+claude mcp add kie-image
+# 3. Drop your KIE_API_KEY when prompted, confirm</pre></div></div>
+  <div class="step"><div class="num">02</div><div>
+    <h2>S: show Claude what good looks like</h2><p>Drop screenshots of carousels whose visual style you want into the chat. Real screenshots from creators you respect. Not links. Not "make it like Apple." Actual images. Add the script you want to turn into slides, plus any logos, product shots or screenshots that need to live inside the carousel. Claude will use them directly. This is the most-skipped step and the reason output looks generic.</p></div></div>
+  <div class="step"><div class="num">03</div><div>
+    <h2>I: build the idea brief</h2><p>Once Claude has your references and script, ask for a full design brief before it touches a single slide. Use the brief prompt below. The brief locks the sharp idea and audience promise, color palette with hex codes, font pairing, slide-by-slide headline + support copy, graphic type per slide (text-only, screenshot, comparison, data viz), and the anchor slide spec. Read it before you generate. Fixing it here costs 30 seconds. Fixing it after slide 6 costs the whole carousel.</p></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>The SID process</span><span>SID</span></div>
+  
+  <div class="step"><div class="num">04</div><div>
+    <h2>D: generate the anchor slide</h2><p>Generate one slide with the anchor prompt below. Review it. Tweak until it's right. Don't move on until you'd be proud to post it as a single image.</p></div></div>
+  <div class="step"><div class="num">05</div><div>
+    <h2>D: match the rest to the anchor</h2><p>Anchor's locked. Run the match prompt and every other slide gets built to the same spec. This one rule is the difference between a custom carousel and the boring AI slop everyone else is cranking out.</p></div></div>
+  <div class="step"><div class="num">06</div><div>
+    <h2>Save the flow as a skill</h2><p>Once the carousel hits, ask Claude Code to save the workflow as a skill. From then on: drop the script, drop 3-5 references, run the skill, sign off on the brief, lock the anchor, generate the rest, ship.</p></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>The SID process</span><span>SID</span></div>
+  <div class="eyebrow">03 · Copy and paste</div><h2>Your <span class="em">prompts.</span></h2>
+  <div class="prompt"><h4><span class="tag">PROMPT</span>Design brief</h4><pre>Review the script and the reference carousels I just shared.
+Build a full design brief. Don't generate any images yet.
+
+Include: idea, audience promise, color palette (hex codes),
+font pairing, slide-by-slide headline + support copy,
+graphic type per slide, and the spec for the anchor slide.
+
+Once I sign off on the brief, we lock the anchor.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span>Generate the anchor</h4><pre>Generate just slide 1, the anchor. Use the brief.
+4:5 ratio, 2K resolution. Pull from the references for composition.
+
+This is where we lock the visual style for the whole carousel,
+so make it count. We'll match every other slide to this one.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span>Match the rest</h4><pre>Anchor's locked. Generate slides 2 through N matching that
+exact spec, same colors, same fonts, same composition language,
+same energy. Carry the brand into every slide.</pre></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>The SID process</span><span>SID</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span>Save as a skill</h4><pre>Save this workflow as a Claude skill called sid-carousel.
+Include: reference upload step, brief generation prompt,
+anchor slide spec, batch generation rules.</pre></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>The SID process</span><span>SID</span></div>
+  <div class="eyebrow">Done</div>
+  <h2>That's the <span class="em">whole setup.</span></h2>
+  <p class="lead">Run it once this week on something real. Then tell me what it did: DM me on Instagram, I read them.</p>
+  <h3>Credit</h3><ul><li>Kie.AI (kie-image MCP, GPT Image 2)</li></ul>
+  <div class="cta">
+    <div class="k">Built by Karem AlMoayyad</div>
+    <h3>Want it built for you?</h3>
+    <p>AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</p>
+    <div class="h"><span class="ltr">@karemops.ai</span> · Instagram · TikTok · LinkedIn</div>
+  </div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 06</span></div>
+</section>
+
+</body>
+</html>

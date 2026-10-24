@@ -1,0 +1,81 @@
+{
+  "kw": "ADS",
+  "slug": "meta-ads-mcp",
+  "legacy": true,
+  "title": "Run Meta Ads from a <span class=\"em\">chat window</span>.",
+  "lead": "The exact 5-minute setup I use to run ads from Claude Code instead of clicking through Ads Manager for hours.",
+  "inside": "You'll have Claude or ChatGPT connected straight to your Meta ad account, pulling reports, auditing performance and building campaigns from one prompt.",
+  "what": [
+    "Meta dropped an official MCP server for Meta Ads. Translation: Claude and ChatGPT plug directly into your ad account and do things, not just talk about them. It lives at mcp.facebook.com/ads, it's in public beta, and setup takes about 5 minutes.",
+    "You stop being the person clicking 47 buttons in Ads Manager. You start being the person typing one sentence and watching the work happen. From a chat you can spin up full campaigns (paused, so you review before going live), pull real performance data like ROAS, CPA, CTR, frequency and breakdowns, manage product catalogs and fix feed issues, diagnose Pixel + CAPI signal quality, and search Meta's Help Center when something breaks."
+  ],
+  "prereqs": [
+    "A Facebook account with admin access to your Meta Business Portfolio",
+    "An active Meta ad account inside that portfolio",
+    "Claude (Pro, Max, Team, Enterprise) or ChatGPT (Plus, Pro, Business, Enterprise, Edu). Claude Free works but caps you at one custom connector. ChatGPT Free can't do custom connectors at all, you need Plus minimum.",
+    "5 minutes"
+  ],
+  "warn": "It's in beta. Don't run it on a client's account without their go-ahead. Every write action asks for your confirmation before it fires, so nothing happens behind your back.",
+  "steps": [
+    {
+      "h": "Grab the MCP URL",
+      "p": "Nothing to download. Meta hosts the server. You just point your AI at it. Then pick your tool below.",
+      "code": "https://mcp.facebook.com/ads"
+    },
+    {
+      "h": "Claude: add the connector",
+      "p": "About 2 minutes, on Pro, Max, Team or Enterprise. Go to claude.ai → profile pic (bottom-left) → Settings → Connectors. Scroll down → Add custom connector. Name it Meta Ads, paste the URL, click Add. On Team / Enterprise only Owners add the connector to the org. Each member then logs in with their own Facebook. No shared credentials, no security mess.",
+      "code": "Name: Meta Ads\nURL:  https://mcp.facebook.com/ads"
+    },
+    {
+      "h": "Claude: connect your Meta account and turn it on",
+      "p": "Hit Connect next to Meta Ads. The Facebook OAuth window opens, log in. Pick the Business Portfolio + ad accounts you want Claude to touch and approve. Green \"Connected\" badge = you're in. Then open a new chat → + button → Connectors → toggle Meta Ads on and start prompting.",
+      "code": ""
+    },
+    {
+      "h": "ChatGPT: turn on Developer Mode",
+      "p": "About 4 minutes, on Plus, Pro, Business, Enterprise or Edu. ChatGPT makes you flip on Developer Mode first, so slightly more friction. Plus or Pro: chatgpt.com → profile pic → Settings → Connectors → scroll to Advanced settings → toggle Developer mode on, read the warning, accept. Business / Enterprise / Edu: an admin enables it under Workspace Settings → Permissions & Roles → Connected Data Developer mode.",
+      "code": ""
+    },
+    {
+      "h": "ChatGPT: create the connector and authenticate",
+      "p": "Settings → Connectors → Add custom connector (or Create on workspaces). Set the name, server URL and OAuth auth, then click Create. Allow popups on chatgpt.com (otherwise the OAuth window dies silently), log into Facebook with your admin account, pick your ad accounts and approve.",
+      "code": "Name:       Meta Ads\nServer URL: https://mcp.facebook.com/ads\nAuth:       OAuth"
+    },
+    {
+      "h": "ChatGPT: turn it on in your chat",
+      "p": "New chat → + → hover More → toggle Developer Mode on → select Meta Ads from the tools menu. Two gotchas everyone hits. One: ChatGPT auto-kills memory when Developer Mode is on. Intentional, it keeps the connector from polluting your other chats. Two: you have to tell ChatGPT to use it. Start prompts with \"Use the Meta Ads MCP to…\" or it'll ignore the connector and just guess.",
+      "code": ""
+    },
+    {
+      "h": "Run your first prompts read-only",
+      "p": "Start read-only. Make sure it actually works before you let it touch anything. Replace act_XXXXXXXXX with your real ad account ID, then work through the prompts below.",
+      "code": ""
+    }
+  ],
+  "prompts": [
+    {
+      "h": "Test the connection",
+      "code": "List all the Meta ad accounts I have access to.\nShow ID, name, and currency."
+    },
+    {
+      "h": "Weekly report in 10 seconds",
+      "code": "For account act_XXXXXXXXX, pull the last 7 days vs the 7 days before.\nShow spend, ROAS, CPA, and the top 3 campaigns by spend.\nSummarize what changed in 3 bullets."
+    },
+    {
+      "h": "Full account audit",
+      "code": "Audit account act_XXXXXXXXX for the last 30 days.\nFind ad sets with frequency over 3, ads with CTR under 0.8%,\nand campaigns burning more than 30% of budget without hitting target ROAS.\nGive me a fix list."
+    },
+    {
+      "h": "Pixel + CAPI health check",
+      "code": "Check the signal health for account act_XXXXXXXXX.\nWhich events have low quality? Is event match quality on Purchase low?\nRecommend what to fix first."
+    },
+    {
+      "h": "Build a full campaign (paused, ready for review)",
+      "code": "Create a draft ABO campaign on act_XXXXXXXXX.\nObjective: Sales. Budget: $100/day.\n3 ad sets: broad, lookalike 1%, and 30-day retargeting.\nPull the 4 most recent creatives.\nLeave it paused so I can review before launch."
+    }
+  ],
+  "credit": [
+    "Meta Ads MCP server by Meta (mcp.facebook.com/ads)"
+  ]
+}

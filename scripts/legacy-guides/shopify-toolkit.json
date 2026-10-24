@@ -1,0 +1,88 @@
+{
+  "kw": "SHOPIFY",
+  "slug": "shopify-toolkit",
+  "legacy": true,
+  "title": "Plug Claude directly into your <span class=\"em\">Shopify</span> store.",
+  "lead": "Shopify shipped its AI Toolkit. Two commands and your agent can read docs, validate code, and run real store operations. Here's the no-fluff breakdown.",
+  "inside": "You'll have Claude Code (or Cursor, Gemini, VS Code, Codex) wired into your Shopify admin, updating products, querying the GraphQL API and generating Liquid + Hydrogen from a prompt.",
+  "what": [
+    "Shopify just dropped an official AI Toolkit. Two commands. A restart. Your agent now talks directly to your store. You stop bouncing between Shopify Admin, docs, and your editor. You describe what you want in plain English and the agent does it, using Shopify's own conventions, validated against the live schema.",
+    "Once it's connected you can update products, inventory, and configuration from a chat, generate Liquid, Hydrogen, and Polaris extension code validated against the live schema, query the Admin + Storefront GraphQL APIs without leaving the agent, and build full Shopify apps (functions, payments, POS, customer accounts) following Shopify's own conventions."
+  ],
+  "prereqs": [
+    "A Shopify store you have access to (use a development store for your first run)",
+    "Node.js 18+ installed locally",
+    "One of: Claude Code, Cursor, Gemini CLI, VS Code, or OpenAI Codex. The plugin install path supports the first four. Codex is skills + MCP only.",
+    "5 minutes"
+  ],
+  "warn": "The toolkit can execute real store changes through shopify-admin-execution. There is no undo. Always test on a development store before pointing it at production.",
+  "steps": [
+    {
+      "h": "Pick your install path",
+      "p": "Three options. Unless you have a reason, use Plugins. 1. Plugins (recommended): two commands and a restart, auto-updates whenever Shopify ships new capabilities. 2. Agent Skills (manual): cherry-pick from 16 skill files, no auto-updates, use this if you want fine-grained control. 3. Dev MCP Server: for teams already running MCP infrastructure, doesn't include the full skill set.",
+      "code": ""
+    },
+    {
+      "h": "Install in Claude Code",
+      "p": "Copy-paste the commands for your stack. Restart after install.",
+      "code": "/plugin marketplace add Shopify/shopify-ai-toolkit\n/plugin install shopify-plugin@shopify-ai-toolkit"
+    },
+    {
+      "h": "Install in Cursor",
+      "p": "No terminal needed, it's in the marketplace.",
+      "code": "Open the Cursor Marketplace → search \"Shopify\" → click Install."
+    },
+    {
+      "h": "Install in Gemini CLI",
+      "p": "One command.",
+      "code": "gemini extensions install https://github.com/Shopify/shopify-ai-toolkit"
+    },
+    {
+      "h": "Install in VS Code",
+      "p": "Turn on the agent plugins preview first, then install from source.",
+      "code": "1. Enable Agent plugins preview in settings\n2. Open the Command Palette (Cmd+Shift+P)\n3. Run: Chat: Install Plugin From Source\n4. Paste: https://github.com/Shopify/shopify-ai-toolkit"
+    },
+    {
+      "h": "Install in OpenAI Codex",
+      "p": "Codex gets skills + MCP only.",
+      "code": "Run /plugins in the Codex CLI → search Shopify → Add to Codex."
+    },
+    {
+      "h": "Or add the skills manually (any tool)",
+      "p": "The Agent Skills path. Works in any tool that reads skills.",
+      "code": "npx skills add Shopify/shopify-ai-toolkit"
+    },
+    {
+      "h": "Restart and test the connection",
+      "p": "After install, restart your tool. In a new chat, ask the agent to list your products to confirm the connection works. Then start read-only with the prompts below. Make sure it actually works before you let it touch anything.",
+      "code": "List my Shopify products"
+    }
+  ],
+  "prompts": [
+    {
+      "h": "Test the connection",
+      "code": "Using the Shopify AI Toolkit, list my stores and the first 5 products in each.\nShow ID, title, status, and inventory."
+    },
+    {
+      "h": "Catalog audit",
+      "code": "Audit my Shopify catalog.\nFind products with no description, missing images, $0 price,\nor zero inventory but status active.\nGive me a fix list grouped by issue."
+    },
+    {
+      "h": "Bulk update (paused, for review)",
+      "code": "Draft a bulk update for my Shopify store:\nrewrite product descriptions for the 10 lowest-converting products\nin a clearer, more benefit-focused tone.\nShow me the diff first. Do not execute until I confirm."
+    },
+    {
+      "h": "Build a checkout extension",
+      "code": "Using shopify-polaris-checkout-extensions and shopify-functions,\nscaffold a checkout extension that adds a free gift when cart total is over $100.\nValidate against the live schema and walk me through deploying it to a dev store."
+    },
+    {
+      "h": "Theme tweak in Liquid",
+      "code": "Open my current theme. In product.liquid, add a \"Low stock\" badge\nthat shows when inventory is under 5 units.\nUse Liquid only, no JS. Validate against shopify-liquid before saving."
+    }
+  ],
+  "credit": [
+    "Shopify AI Toolkit by Shopify: github.com/Shopify/shopify-ai-toolkit",
+    "Docs: shopify.dev/docs/apps/build/ai-toolkit",
+    "Agentic Commerce: shopify.dev/docs/agents"
+  ]
+}

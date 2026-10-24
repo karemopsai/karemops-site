@@ -1,0 +1,67 @@
+{
+  "kw": "HEADROOM",
+  "slug": "headroom",
+  "legacy": true,
+  "title": "Kill your Claude Code bill by up to <span class=\"em\">92%</span>.",
+  "lead": "A Netflix engineer gave away the tool that stops Claude from charging you for the same context over and over. You don't install it yourself. You paste one link into Claude Code and it sets itself up.",
+  "inside": "You'll have Headroom installed and wired into Claude Code, a real token-savings number in front of you, and learn mode writing corrections to your CLAUDE.md.",
+  "what": [
+    "Every time Claude reads a file or looks something up, that stuff gets stapled to the top of your conversation. On your next message Claude re-reads all of it. Same info, new bill. Every turn, every session. On a normal Claude Code day you're paying for the same context 10, 20, 100 times. That's the quiet reason your Max plan runs out at lunch or your API bill hits triple digits by Friday.",
+    "Headroom is a small helper that squeezes the repeat stuff out before Claude pays for it. Same answers, a fraction of the price. Built by Tejas Chopra, an engineer at Netflix (personal project, not a Netflix product). Free and open-source under Apache 2.0, past 43,000 stars on GitHub, and it runs on your own computer so nothing you type leaves your machine. No terminal knowledge, no coding, no config files. If you can paste a link, you can do this."
+  ],
+  "prereqs": [
+    "Claude Code (the app, or in your terminal)",
+    "The Headroom GitHub link below",
+    "About 5 minutes"
+  ],
+  "warn": "Skip this if you don't actually use Claude Code (or Cursor, Codex, Copilot) day to day. If you're a light user, a few messages a week, the savings won't be enough to bother.",
+  "steps": [
+    {
+      "h": "Copy the link",
+      "p": "This is the GitHub repo, the source code Tejas gave away for free. You don't need to read it or understand it. Highlight it and copy (Cmd+C on Mac, Ctrl+C on Windows). Don't download anything. Optional: open it and hit the star button at the top to bookmark it to your GitHub account.",
+      "code": "https://github.com/headroom-ai/headroom"
+    },
+    {
+      "h": "Open a fresh Claude Code session",
+      "p": "Open the Claude Code app (or run it in your terminal if that's how you have it) and start a new session.",
+      "code": ""
+    },
+    {
+      "h": "Paste the install prompt",
+      "p": "Paste the install prompt below exactly. Claude reads the repo, figures out what to do, and does the install, the setup, and the wiring. You watch. If it asks you something, answer in normal English. Claude will explain.",
+      "code": ""
+    },
+    {
+      "h": "Answer Claude's questions",
+      "p": "\"Do you have Python installed?\" If you don't know, say \"I don't know, please check.\" Claude will check. \"Can I install this globally?\" Say yes. \"Do you want the wrap mode or the proxy mode?\" Say \"wrap mode, keep it simple.\"",
+      "code": ""
+    },
+    {
+      "h": "Check what you saved",
+      "p": "Nothing changes about how you use Claude Code. Same typing, same answers, smaller bill. Tejas's benchmarks: typical savings 60-95%, accuracy hit none (±0.000), setup about 5 min. Debugging a broken app went 65,694 → 5,118 tokens (92% cheaper). Searching a codebase 17,765 → 1,408 (92% cheaper). Reviewing GitHub issues 54,174 → 14,761 (73% cheaper). Math accuracy test: exactly the same answers. If you spend $100/month on Claude Code today, that's somewhere between $10 and $40. After a normal session, ask Claude for your number. Screenshot it, keep receipts.",
+      "code": ""
+    },
+    {
+      "h": "Turn on learn mode",
+      "p": "The part nobody is talking about. When Claude makes the same mistake twice in your sessions, Headroom notices and writes a correction into your CLAUDE.md (the instructions file Claude reads at the start of every session). Next time Claude won't make that mistake, across every project. Everyone will fixate on the 92% savings. The quiet win is that your agent stops repeating mistakes.",
+      "code": ""
+    }
+  ],
+  "prompts": [
+    {
+      "h": "Install Headroom",
+      "code": "I want you to install this open-source tool for me so I stop\npaying for repeated context in my Claude Code sessions.\nThe repo is here:\nhttps://github.com/headroom-ai/headroom\nPlease:\n1. Read the README so you know what it is\n2. Install it on my machine (Python or Node, whichever is simpler)\n3. Set it up so that when I run Claude Code, it automatically\n   uses Headroom to compress my context\n4. Test that it's working and show me the token savings\n5. Explain what you did in plain English so I understand it"
+    },
+    {
+      "h": "Check your savings",
+      "code": "Show me how many tokens Headroom saved me in this session."
+    },
+    {
+      "h": "Turn on learn mode",
+      "code": "Please turn on Headroom's learn mode and let it write\ncorrections to my CLAUDE.md when it spots mistakes I'm\nteaching you to fix."
+    }
+  ],
+  "credit": [
+    "Headroom by Tejas Chopra (Apache 2.0): https://github.com/headroom-ai/headroom"
+  ]
+}

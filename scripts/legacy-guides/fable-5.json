@@ -1,0 +1,90 @@
+{
+  "kw": "FABLE",
+  "slug": "fable-5",
+  "legacy": true,
+  "title": "The Fable 5 <span class=\"em\">playbook</span>.",
+  "lead": "Fable 5 is back, free-included on Pro, Max, and Team through July 7. It's the most powerful model you can actually use right now. Here's how to prompt it, and the 10 highest-value jobs to run before it flips to pay-as-you-go.",
+  "inside": "You'll know Anthropic's 4 prompting rules for Fable 5 and have 10 copy-paste prompts pointed at the hard jobs that actually need a frontier model.",
+  "what": [
+    "Fable 5 was pulled by US export controls, cleared June 30, and redeployed July 1 as a safeguarded version. Free-included on Pro, Max, and Team through July 7. After that it's still there, it just stops being free. It's the strongest model you can put your hands on today, and it's expensive to run: roughly $10 in / $50 out per million tokens, about twice Opus.",
+    "So the game is simple: point it at hard, high-value work, not everyday chat. Reserve it for the jobs you'd normally break into pieces or hand to an expert. Build things once with it, then let a cheaper model run them on repeat. Don't waste it on tasks Sonnet or Opus already handle fine."
+  ],
+  "prereqs": [
+    "A paid plan: Pro, Max, or Team (or API credits). This is not a free-plan perk.",
+    "Claude Code, Cursor, or the Claude app, wherever you already work",
+    "One hard, real problem worth pointing a frontier model at"
+  ],
+  "warn": "Don't ask it to \"show its reasoning\" or \"explain its thinking\" step by step. On the current model that can trip a safety classifier and quietly drop you to Opus 4.8. Some requests (cyber, bio/chem, some coding) fall back to Opus 4.8 the same way. Ask for the answer and the work, not a running narration of its thought process.",
+  "steps": [
+    {
+      "h": "Give it your hardest problems",
+      "p": "Start at the top of your difficulty range. Fable is built for the jobs you'd normally split up or outsource, so hand it the whole thing. Easy tasks waste it.",
+      "code": ""
+    },
+    {
+      "h": "Keep your prompts short",
+      "p": "Over-engineered prompts actually degrade the output. State the goal and the constraints, then stop. Let the model do the reasoning instead of scripting every step.",
+      "code": ""
+    },
+    {
+      "h": "Tell it why you're asking",
+      "p": "Give it the intent, not just the request. Knowing the \"why\" lets it make better judgment calls on the parts you didn't spell out.",
+      "code": ""
+    },
+    {
+      "h": "Let it run, and let it self-verify",
+      "p": "Fable can work for hours on one goal and check its own work with subagents. Give it room to run instead of interrupting every few minutes.",
+      "code": ""
+    },
+    {
+      "h": "Spend it once on durable assets",
+      "p": "Fable burns credits fast. The best use of the free window is building durable assets once that you then run on a cheaper model forever: your brand system (#6), your second-brain rebuild (#7), your auto-repurposing engine (#10). Spend Fable once. Reuse the result cheap.",
+      "code": ""
+    }
+  ],
+  "prompts": [
+    {
+      "h": "Automate your day",
+      "code": "Make a checklist of every task I do in a normal day, then look at it and tell me exactly which of these you could automate for me and how."
+    },
+    {
+      "h": "Upgrade your old code",
+      "code": "Review all of the code that was written while you were unavailable and find every optimization and improvement, then implement the highest-impact ones."
+    },
+    {
+      "h": "Steal the best use cases",
+      "code": "Connect to the X MCP plus a trend-research skill and pull the 5 best ways people are actually using Fable 5 right now that fit my specific workflow."
+    },
+    {
+      "h": "Auto security checks",
+      "code": "Loop every 24 hours and run a full security check on all of my app's API endpoints, then report anything new that looks exposed or risky."
+    },
+    {
+      "h": "Find your viral winners",
+      "code": "Here is my entire content library plus each post's metrics. Rank my true outliers and reverse-engineer the repeatable hook, structure, and topic patterns behind them."
+    },
+    {
+      "h": "Build your brand system (build once)",
+      "code": "Here is my website and my assets. Produce a complete brand guide (voice, colors, type, do's and don'ts) and lock it in as a reusable brand file I can hand to any tool."
+    },
+    {
+      "h": "Reorganize your second brain (build once)",
+      "code": "Point yourself at my whole notes vault. Dedupe it, restructure it, cross-link it, and rebuild it into a clean memory system you can keep maintaining for me."
+    },
+    {
+      "h": "Senior-analyst read on your business",
+      "code": "Here are my contracts, financials, and reports. Give me the redlines, pull the numbers straight from the tables, and make the strategic call a senior analyst would make."
+    },
+    {
+      "h": "One dashboard for every metric",
+      "code": "Pull my numbers from every platform, including the ones with no public API, by running a headless browser to replay each site's hidden requests, then assemble one dashboard that refreshes daily."
+    },
+    {
+      "h": "Build your auto-repurposing engine (build once)",
+      "code": "Build me a Claude agent that repurposes and distributes each new post across all my channels while I sleep, and flags any cross-posting gaps it finds."
+    }
+  ],
+  "credit": [
+    "Prompting rules from Anthropic's official Fable 5 guidance"
+  ]
+}

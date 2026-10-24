@@ -2,6 +2,10 @@
 """Generate per-guide landing pages from the first-skill.html template."""
 import os, re
 
+raise SystemExit("Retired 2026-10-24: guide pages are now built in the light style by scripts/gen_light_guides.mjs "
+                 "(new guides: scripts/light-guides.json, old ones: scripts/legacy-guides/*.json). "
+                 "Running this would overwrite them with the old dark design.")
+
 TEMPLATE_PATH = '/Users/karoom/Desktop/karemops-site/guides/first-skill.html'
 OUT_DIR = '/Users/karoom/Desktop/karemops-site/guides'
 BASE = 'https://www.karemopsai.com'

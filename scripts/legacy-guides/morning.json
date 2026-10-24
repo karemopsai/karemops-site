@@ -1,0 +1,74 @@
+{
+  "kw": "MORNING",
+  "slug": "morning",
+  "legacy": true,
+  "title": "Your morning, <span class=\"em\">on autopilot</span>.",
+  "lead": "The Claude Code skill that runs your daily briefing before you sit down. Inbox triaged with replies drafted, the news that matters to your niche, and your top priorities on the screen.",
+  "inside": "You'll have /morning installed, rewired to your niche in plain English, and scheduled to run every weekday before you open your laptop.",
+  "what": [
+    "Your first hour decides your day. Most people spend it the same way: 40 unread emails, 12 Twitter tabs, no clear top 3. By 10am they're already reacting instead of executing. The move isn't more discipline. Discipline runs out. The move is to hand the first hour off to a skill that does the boring parts before you open your laptop.",
+    "/morning is a Claude Code skill you install once. One command runs four modules: email triage with drafted replies, news for your niche, your top 3 priorities from your calendar and git commits, and yesterday's account stats. Run it manually or schedule it. It hands you a briefing."
+  ],
+  "prereqs": [
+    "Claude Code, opened in any project",
+    "A terminal to create the skill folder",
+    "Gmail, a calendar, and your git repos connected if you want every module returning real data"
+  ],
+  "warn": "Don't schedule it on day one. Run it manually for 3 mornings and fix anything wrong until the output is exactly what you want. The stats module returns \"not configured\" until you wire up a stats source.",
+  "steps": [
+    {
+      "h": "Create the skill folder",
+      "p": "A Claude Code skill is one folder with one file. Open a terminal and run this.",
+      "code": "mkdir -p ~/.claude/skills/morning"
+    },
+    {
+      "h": "Paste the starter skill into SKILL.md",
+      "p": "Create a new file at ~/.claude/skills/morning/SKILL.md and paste in the starter skill below. Save. No npm, no config, no restart. It's the base version, you'll personalize it after install.",
+      "code": "---\nname: morning\ndescription: Daily morning briefing. Triages Gmail with drafted replies for important threads, pulls the last 24 hours of news in the configured niche, lists top 3 priorities for the day, and shows yesterday's account stats. Use when the user types /morning, asks for their morning brief, or asks what happened overnight.\n---\n# Morning Briefing\nRuns 4 modules in parallel and combines them into one brief.\n## Config (edit these once)\n- Your name: YOUR_NAME\n- Timezone: YOUR_TIMEZONE\n- News niche: AI + Claude Code   ← change to your niche\n- Important email keywords: partnership, sponsor, collab, invoice, booking\n- Manager CC (for partnership drafts): none\n## Execution\nSpawn all 4 agents in a SINGLE message so they run in parallel.\nWhen they return, combine outputs into the final format below.\n## Agent 1: Email triage + drafts\nSearch Gmail for unread inbox mail from the last 48 hours (paginate all pages, don't stop at 50). Read every non-bulk email body. Categorize into:\n- Important (real replies, calls booked, partnership threads)\n- Revenue (payments, new customer notifications)\n- Noise (marketing, alerts, digests)\nFor any thread matching the \"Important email keywords\" above, DRAFT a reply using gmail_create_draft. If a Manager CC is set, CC them on partnership drafts.\nReturn counts per bucket + a one-line note per Important thread.\n## Agent 2: News\nPull the last 24 hours of news in the configured News niche. Return 5 bullets max. Each bullet ends with a \"so what for me today\" line, one sentence, actionable.\n## Agent 3: Priorities\nRead today's calendar events + the last 24 hours of git commits across the user's active repos. Return exactly the top 3 priorities for today. Not 12. Three.\n## Agent 4: Account stats\nReturn yesterday's numbers from tracked social accounts: follower delta, top-performing post, DM count. If no stats source is wired up, return \"not configured. Ask me to wire this.\"\n## Final output format\n# Morning Briefing: [DATE]\n## Email\n[Agent 1]\n## News\n[Agent 2]\n## Top 3 Today\n[Agent 3]\n## Stats\n[Agent 4]\n---\nEnd with: \"What do you want to hit first?\""
+    },
+    {
+      "h": "Check it's installed",
+      "p": "Open Claude Code in any project and type /morning. If the slash menu autocompletes, it's installed. Fire it once to sanity-check it works.",
+      "code": "/morning"
+    },
+    {
+      "h": "Ask Claude to explain it",
+      "p": "The most important step. Skip it and you get my morning. Use it and you get yours. Claude reads the SKILL.md and explains the four modules the way they're set up by default. Then tell it what to change in plain English. No code, no re-install. Claude edits the SKILL.md for you. Do this with any skill you install.",
+      "code": "Tell me about my morning skill."
+    },
+    {
+      "h": "Swap the news for your niche",
+      "p": "The default news module pulls AI + Claude Code news. If you're a real estate agent or you sell skincare, that's noise. Send this follow-up and swap the bracketed part for your niche. Same move works for every module: don't want auto-drafted replies, or want a different definition of \"important\"? Say so.",
+      "code": "I don't want AI news in the morning brief.\nI want [real estate market news for the GCC region] instead.\nRewrite the news module in my morning skill so it pulls that\nevery morning, and keep the rest of the skill exactly the same."
+    },
+    {
+      "h": "Run it manually for 3 mornings",
+      "p": "Open Claude Code, type /morning, hit enter. Watch it triage, pull news, list priorities, drop stats. Read it. Fix anything wrong with the explain-then-change move above. Do this for 3 mornings until the output is exactly what you want.",
+      "code": ""
+    },
+    {
+      "h": "Schedule it",
+      "p": "Claude Code supports scheduled tasks. Ask Claude to set it up. From then on the brief lands in your Claude Code session before you sit down: drafts written, news summarized, top 3 picked.",
+      "code": "Schedule my morning skill to run every weekday at 7am."
+    }
+  ],
+  "prompts": [
+    {
+      "h": "Ecom operator news",
+      "code": "Pull DTC + Meta ads news, Klaviyo product updates, and any Shopify feature launches from the last 24 hours."
+    },
+    {
+      "h": "Real estate agent news",
+      "code": "Pull mortgage rate moves, new listing volume in my metro, and any local zoning or tax news."
+    },
+    {
+      "h": "Fitness coach news",
+      "code": "Pull new research on training + nutrition, viral fitness content from the last 24 hours, and creatine/supplement news."
+    },
+    {
+      "h": "B2B founder news",
+      "code": "Pull funding announcements in my space, competitor product launches, and any regulatory changes for SaaS in my market."
+    }
+  ],
+  "credit": []
+}

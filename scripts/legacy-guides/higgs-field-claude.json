@@ -1,0 +1,76 @@
+{
+  "kw": "HIGGS",
+  "slug": "higgs-field-claude",
+  "legacy": true,
+  "title": "Generate ads, carousels, and UGC videos <span class=\"em\">inside Claude</span>.",
+  "lead": "Higgs Field makes UGC video ads, product shots, carousels, and Meta creatives. Wire it to Claude via MCP and you never leave the chat to make a marketing asset again. 2-minute setup.",
+  "inside": "You'll have Higgs Field connected to Claude as a custom connector and your first ads, carousels, and product shots coming out of one chat window.",
+  "what": [
+    "Higgs Field is an AI video and image generator built for marketing: UGC ads, product shots, Instagram carousels, Meta creatives, brand kits. Connect it to Claude via MCP and Claude runs it for you.",
+    "This is one connector, not a new app. Everything happens inside your Claude chat. No switching tabs, no re-uploading, no exporting from one tool to import into another. You can make UGC-style video ads (10, 20, 50 variations from one product photo), Instagram carousels with each slide rendered as a designed image, Meta ad creatives sized for Facebook and IG placements, e-com ready product shots, and brand kits in your style."
+  ],
+  "prereqs": [
+    "Claude Pro or Team account (Free doesn't support custom connectors)",
+    "A product photo or brand asset ready to upload",
+    "2 minutes"
+  ],
+  "warn": "Custom connectors live under Customize → Connectors in Claude. If you don't see it, you're on the Free plan or in a workspace where admins have locked connectors down.",
+  "steps": [
+    {
+      "h": "Create a Higgs Field account",
+      "p": "Free to start. Sign up and get your brand assets in there now so Claude has them to pull from later.",
+      "code": "higgsfield.com"
+    },
+    {
+      "h": "Upload your brand assets first",
+      "p": "Your product photo (front-facing, clean background works best), your logo (SVG or transparent PNG), 2 to 3 brand reference images with the vibe you want your ads to match, and a short brand description Claude can reference later. Do this now, not later. Every prompt you run in Claude pulls from these assets. If they're not uploaded, Claude makes generic content instead of on-brand content. This is the single biggest quality lever.",
+      "code": ""
+    },
+    {
+      "h": "Grab the MCP link",
+      "p": "This is the whole install. One URL, one save button.",
+      "code": "https://higgsfield.ai/mcp"
+    },
+    {
+      "h": "Add it to Claude as a custom connector",
+      "p": "Open Claude and click Customize (bottom left). Go to Connectors and hit the + button. Select Add Custom Connector. Name it Higgs Field and paste the MCP link. Hit Save, then authorize the connector when Claude asks.",
+      "code": ""
+    },
+    {
+      "h": "Wake it up if it acts dead",
+      "p": "If it acts dead the first time, type this in your chat. That flips Claude into using the connector for real instead of guessing. From then on it's automatic.",
+      "code": "Use Higgs Field"
+    },
+    {
+      "h": "Drop a product and run your first prompt",
+      "p": "Upload your product photo in the chat first, then paste any of the prompts below. Claude does the rest. The combo that covers everything: Higgs Field for video ads and UGC content, ChatGPT's image model for static carousels and ad creatives. Between the two you're producing what a full agency creative team would produce, from a chat window.",
+      "code": ""
+    }
+  ],
+  "prompts": [
+    {
+      "h": "UGC video ads",
+      "code": "Here's my product [upload photo].\nCreate 10 UGC-style video ads showing it in\ndifferent lifestyle settings."
+    },
+    {
+      "h": "Instagram carousel",
+      "code": "Make a 5-slide Instagram carousel about\n[YOUR TOPIC]. Clean modern design, bold\nheadlines, one idea per slide."
+    },
+    {
+      "h": "Meta ad variations",
+      "code": "Generate 5 Meta ad variations for my [PRODUCT].\nTarget audience: [AUDIENCE].\nHighlight: [KEY BENEFIT]."
+    },
+    {
+      "h": "Product shots",
+      "code": "Take this product photo and create 8 different\nlifestyle shots with varied backgrounds."
+    },
+    {
+      "h": "Mini brand kit",
+      "code": "Build a mini brand kit: 3 social posts,\n2 story templates, 1 ad creative.\nBrand colors: [HEX CODES]."
+    }
+  ],
+  "credit": [
+    "Higgs Field (higgsfield.ai/mcp)",
+    "ChatGPT image model for static carousels and ad creatives"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "kw": "HUMANIZER",
+  "slug": "humanizer",
+  "legacy": true,
+  "title": "Make AI writing sound <span class=\"em\">human.</span>",
+  "lead": "There's a free tool that reads your text, catches the 33 tells that scream \"a robot wrote this,\" and rewrites it in your voice. You install it by copy-pasting one link.",
+  "inside": "By the end you'll have the Humanizer installed in Claude Code and running on your own text, in your own voice.",
+  "what": [
+    "People can smell AI writing, and the second they smell it, they stop reading. It's never one big thing. It's a hundred tiny tells stacked up: the em dashes, the \"it's not just X, it's Y,\" the words no human says out loud.",
+    "The Humanizer is a free skill built on Wikipedia's documented list of AI writing signs. It checks your text against 33 specific tells, rewrites it to sound like a real person, runs a second pass on its own output, and can copy your voice if you feed it a sample. No code, no terminal commands to memorize."
+  ],
+  "prereqs": [
+    "A Claude account (the same login you use at claude.ai)",
+    "Claude Code (the desktop app is the easiest way in)",
+    "Some AI-sounding text you want fixed"
+  ],
+  "warn": "This matters most for cold email. Inboxes and readers are now allergic to AI-written copy. One whiff and you're spam. Sounding human is the difference between a reply and silence.",
+  "steps": [
+    {
+      "h": "Open Claude Code",
+      "p": "Claude Code is the app that can install tools for you and do the setup on its own. Make sure you have a Claude account, install Claude Code (the desktop app is easiest), and you'll see a chat box where you type in plain English, like texting. Stuck on install? Ask any Claude chat to walk you through it.",
+      "code": ""
+    },
+    {
+      "h": "Paste the link and tell it to install",
+      "p": "You don't run any setup yourself. Hand Claude Code the link and tell it to do the work. Paste this exactly. If it asks you to confirm anything, say yes. When it's finished, it'll tell you the trigger word, usually /humanizer.",
+      "code": "Install this skill for me: https://github.com/blader/humanizer\n\nI'm not technical. Set it up so I can use it, and when\nyou're done, tell me in plain English how to run it."
+    },
+    {
+      "h": "Run it on your text",
+      "p": "Start a message, type the trigger, then paste whatever you want fixed underneath. Claude strips the tells and hands back a version that sounds like a person. Read it, tweak anything that isn't you, and ship it. No slash command showing up? Just ask \"Humanize this for me:\" and paste your text.",
+      "code": "/humanizer\n\n[paste your AI-sounding text here]"
+    },
+    {
+      "h": "Make it sound like you",
+      "p": "By default it cleans your text to a neutral human voice. Feed it a sample of your own writing first and it studies your rhythm, word choices and quirks, then rewrites in that style.",
+      "code": "/humanizer\n\nHere's a sample of how I actually write:\n[paste 2-3 paragraphs of your own real writing]\n\nNow rewrite this in that same voice:\n[paste the AI text you want fixed]"
+    },
+    {
+      "h": "Know what it catches",
+      "p": "You don't need to memorize these. Words no human uses (delve, tapestry, testament, underscore, pivotal, vibrant, seamless, robust, leverage, showcase, foster). The giveaway sentence shapes (\"It's not just X, it's Y,\" the forced group of three, \"Honestly? Here's the thing.\"). Em dashes everywhere. Filler like \"in order to,\" \"due to the fact that,\" and \"I hope this helps!\" 33 patterns total, plus a second self-check pass. Run everything a human will read through it: captions, cold emails, DMs, LinkedIn posts, sales pages.",
+      "code": ""
+    }
+  ],
+  "prompts": [
+    {
+      "h": "Get help installing Claude Code",
+      "code": "Walk me through installing Claude Code on my computer, step by step, I'm not technical."
+    },
+    {
+      "h": "Plain-English fallback",
+      "code": "Humanize this for me:"
+    }
+  ],
+  "credit": [
+    "Humanizer by blader: https://github.com/blader/humanizer",
+    "Built on Wikipedia's list of signs of AI writing"
+  ]
+}

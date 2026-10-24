@@ -1,0 +1,57 @@
+{
+  "kw": "LEADS",
+  "slug": "infinite-leads",
+  "legacy": true,
+  "title": "Pull <span class=\"em\">500 leads</span> with one Claude Code prompt.",
+  "lead": "No lead-list subscriptions. No VAs scraping Google Maps for $400/mo. Just Claude Code + Apify + one prompt that runs while you make coffee.",
+  "inside": "You'll have Apify connected to Claude Code and a deduplicated CSV of up to 500 filtered leads ready for outreach.",
+  "what": [
+    "Claude Code + Apify = your scraping team. Apify is a marketplace of pre-built scrapers (\"Actors\"). One of them, the Google Maps Scraper, pulls every business in a city with their name, phone, email, website, ratings, and hours. Claude Code is the terminal-based agent that runs on your laptop. Connect the two and you tell Claude in plain English what leads you want. It calls the right Apify Actor, runs it, and dumps a CSV.",
+    "Pull every marketing agency in Dubai with founder email + phone in under 5 minutes. Filter by rating, review count, area (Business Bay, JLT, DIFC), any field Google Maps shows. Export straight to CSV and drop it into GoHighLevel, Airtable, or your cold email tool. Re-run on any city or agency type by changing two words. Apify's free tier gives you $5/mo in compute, roughly 500 to 1,500 Google Maps leads a month. After that it's pay-as-you-go (about $0.50 per 1,000 results). You don't need a paid plan for this guide."
+  ],
+  "prereqs": [
+    "Claude Code installed (free, claude.com/claude-code)",
+    "An Apify account (free, apify.com)",
+    "Node installed (LTS version from nodejs.org), the npx command in the install line needs it",
+    "10 minutes"
+  ],
+  "warn": "Your Apify token is a password. Anyone with it can run scrapers on your account and burn your free credits. If you ever paste it in a screenshot or video, regenerate it on the same Integrations page.",
+  "steps": [
+    {
+      "h": "Grab your Apify key",
+      "p": "This is the credential Claude Code uses to talk to Apify. Go to apify.com and sign up (Google login is fastest). Click your profile icon top-right, then Settings, then Integrations in the left sidebar. You'll see \"Personal API tokens\". Copy the default one and keep it somewhere safe for 30 seconds. It always starts with apify_api_ followed by ~40 random characters, like the example below.",
+      "code": "apify_api_YOUR_TOKEN_HERE"
+    },
+    {
+      "h": "Connect Claude Code to Apify",
+      "p": "This wires up the MCP server, the bridge that lets Claude Code call Apify Actors straight from your terminal. Open your terminal (Mac: Cmd+Space, \"Terminal\"), run the command below with your token where it says YOUR_TOKEN_HERE, then start Claude Code by typing claude. That one line installs the Apify MCP server, stores your token, and registers it with Claude Code. Once per machine.",
+      "code": "claude mcp add apify \\\n  --env APIFY_TOKEN=YOUR_TOKEN_HERE \\\n  -- npx -y @apify/actors-mcp-server"
+    },
+    {
+      "h": "Verify it worked",
+      "p": "Inside Claude Code, type /mcp. You should see apify in the list with a green \"connected\" status. If it's red, your token is wrong or got copied with extra spaces. Regenerate it and run the install command again.",
+      "code": "/mcp"
+    },
+    {
+      "h": "Pull 500 leads",
+      "p": "Paste the lead prompt below into Claude Code. Change the bracketed parts. Hit enter. Walk away. Only the city and agency type change, everything else is already tuned for B2B agency outreach. Want Riyadh? Swap \"Dubai\" for \"Riyadh\". Want SaaS founders in Dubai? Swap \"marketing agency\" for \"SaaS company\". Filters, fields and CSV output stay the same.",
+      "code": ""
+    },
+    {
+      "h": "Put the CSV to work",
+      "p": "Cold email: drop it into Instantly, Smartlead, or Apollo. Cold call: import to GoHighLevel as a contact list and run a power dialer. DM outreach: match the website domain to a founder name on LinkedIn. Enrich first: run the emails through a verifier (NeverBounce, MillionVerifier) before sending. Save the prompt and re-run it for any niche or city.",
+      "code": ""
+    }
+  ],
+  "prompts": [
+    {
+      "h": "The 500-lead prompt",
+      "code": "I want you to use the Apify MCP to pull a list of leads.\n\nActor: compass/crawler-google-places\n\nSearch: [agency type] in [city]\nExample: \"marketing agency in Dubai\"\nRun all of these to get full coverage:\n  - \"marketing agency in Dubai\"\n  - \"digital agency in Dubai\"\n  - \"advertising agency in Dubai\"\n  - \"social media agency in Dubai\"\n  - \"branding agency in Dubai\"\n  - \"performance marketing agency in Dubai\"\n\nFor each result, return:\n- Agency name\n- Owner / founder name (if listed on Google or the website)\n- Phone number (WhatsApp format if UAE +971)\n- Email (decision-maker email if found, otherwise info@)\n- Website\n- Instagram + LinkedIn URL (if listed)\n- Area (Business Bay, JLT, DIFC, Downtown, Media City, etc.)\n- Google rating + review count\n- Years in business (from website footer or About page if available)\n\nFilters:\n- Only agencies with a working website\n- 4.0+ star rating\n- Minimum 5 Google reviews (kills fake listings)\n- Skip permanently closed\n- Skip listings that are clearly freelancers (no \"agency\" / \"studio\" / \"team\" wording)\n- Limit: 500 results, deduplicated by website domain\n\nWhen done:\n- Save as ./leads-agencies-dubai.csv\n- Print a summary: total agencies found, avg rating, % with emails,\n  and a breakdown by area (Business Bay vs JLT vs DIFC vs Downtown vs Media City)\n- Show me the top 10 by review count so I can spot the established players"
+    }
+  ],
+  "credit": [
+    "Apify Google Maps Scraper (compass/crawler-google-places)",
+    "Apify MCP server (@apify/actors-mcp-server)"
+  ],
+  "hero": "prompt"
+}

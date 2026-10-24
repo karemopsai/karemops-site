@@ -1,0 +1,56 @@
+{
+  "kw": "CONTENT",
+  "slug": "infinite-content",
+  "legacy": true,
+  "title": "Infinite content <span class=\"em\">unlocked.</span>",
+  "lead": "One prompt. One idea in. 100 scripts out, every angle, every hook, in your voice, in under two minutes.",
+  "inside": "By the end you'll have turned one idea into 100 short-form scripts and cut them down to your 10 best.",
+  "what": [
+    "Most creators film one idea, post it once, and pray. One idea can carry a month of content, you just never had the machine to unpack it.",
+    "Claude Code is that machine. You hand it a single idea and your voice. It writes 5 angles, 4 hooks for each angle, and 5 full scripts per hook. That's 100 shorts for IG Reels, TikTok and YouTube Shorts, every one built to be filmed."
+  ],
+  "prereqs": [
+    "Claude Code installed (or Claude desktop or any chat, the prompt works anywhere)",
+    "Your top 5 hooks that actually performed, copied from your best posts",
+    "A short writing sample in your voice (one caption or script you'd be proud of)",
+    "One idea. Steal one from a comment, a DM question you keep getting, or a competitor's best video."
+  ],
+  "warn": "The prompt is only as good as what you feed it. Garbage voice sample in, generic scripts out. Give it your real hooks and a real writing sample or it sounds like every other AI script on the feed.",
+  "steps": [
+    {
+      "h": "Load your inputs",
+      "p": "Gather three things before you paste the prompt. Your top 5 hooks: the first line from your 5 best-performing posts. A voice sample: one script or caption you'd actually post, pasted raw, imperfect grammar and all. Your one idea: one sentence, like \"AI kills busywork\" or \"why most founders can't delegate.\" This is the 10 minutes that decides whether the output is fire or filler.",
+      "code": ""
+    },
+    {
+      "h": "See how it hits 100",
+      "p": "The prompt reframes your idea 5 ways (tutorial, contrarian take, story, shock/pattern-break, proof/results), writes 4 opening hooks per angle modeled on your top 5, then writes 5 full 30 to 40 second scripts per hook. 5 × 4 × 5 = 100. Same script cross-posts to IG Reels, TikTok and YouTube Shorts.",
+      "code": ""
+    },
+    {
+      "h": "Run the master prompt",
+      "p": "Paste this into Claude Code, fill in the three brackets with your inputs, and hit enter. If it stops early (long outputs sometimes pause), type continue and it picks up where it left off.",
+      "code": "You are my short-form content writer. You study my voice and my\nbest hooks, then generate scripts that sound exactly like me.\n\nMY VOICE SAMPLE:\n[paste one caption or script in your voice, raw is fine]\n\nMY TOP 5 HOOKS (these already worked):\n[paste the first line from your 5 best posts]\n\nMY IDEA:\n[one sentence]\n\nTASK: turn that ONE idea into 100 short-form scripts:\n1. Write 5 distinct ANGLES on the idea:\n   tutorial, contrarian take, story, shock/pattern-break, proof.\n2. For EACH angle, write 4 different HOOKS (0-3s opening lines),\n   modeled on the style of my top 5 hooks above.\n3. For EACH hook, write 5 full SCRIPTS. Every script is:\n   - 30-40 seconds spoken\n   - structured: HOOK → 1-line context → the payoff → CTA\n   - written in MY voice, not corporate AI voice\n   - designed for a talking-head shot, cross-posted to\n     IG Reels + TikTok + YouTube Shorts (same video everywhere)\n\nRULES:\n- No fluff, no \"in today's video\", no throat-clearing.\n- Every hook must earn the next line. Cut anything skippable.\n- Vary the hooks hard: question, bold claim, number, callout, story.\n- End every script with a one-line CTA I can swap later.\n\nOUTPUT: number them 1-100, grouped by angle then hook.\nStart with angle 1, hook 1, scripts 1-5. Keep going to 100."
+    },
+    {
+      "h": "Cut it down to winners",
+      "p": "100 scripts is the raw material, not the shot list. Run the three follow-up prompts below to rank, sharpen and export. Then run this weekly on one fresh idea: film your 10 best, keep the other 90 as a backlog.",
+      "code": ""
+    }
+  ],
+  "prompts": [
+    {
+      "h": "Rank the best 10",
+      "code": "Out of all 100, pick the 10 with the strongest hooks,\nthe ones most likely to stop a scroll in the first 2 seconds.\nRank them and tell me in one line why each hook works."
+    },
+    {
+      "h": "Sharpen the ones I picked",
+      "code": "Take scripts 4, 17, and 42. Tighten each one:\npunchier hook, cut any dead words, make the payoff land harder.\nKeep my voice. Give me the before and after."
+    },
+    {
+      "h": "Drop it into my pipeline",
+      "code": "Format the top 10 as a table: hook, angle, full script, and a\nsuggested filming note. Output as CSV so I can paste it\nstraight into my Airtable content pipeline."
+    }
+  ],
+  "credit": []
+}

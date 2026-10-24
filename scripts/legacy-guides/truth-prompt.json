@@ -1,0 +1,94 @@
+{
+  "kw": "TRUTH",
+  "slug": "truth-prompt",
+  "legacy": true,
+  "title": "The <span class=\"em\">truth</span> prompt",
+  "lead": "One prompt that stops Claude and ChatGPT from confidently making things up. It forces the model to separate fact from guess, score its own confidence, and tell you when it doesn't know.",
+  "inside": "By the end the Truth Prompt will be installed in every AI you use, and you'll know how to read its confidence score and push back when an answer feels too smooth.",
+  "what": [
+    "A language model is a prediction engine. It isn't looking things up or checking a source, it's producing the most plausible next sentence. A confidently wrong sentence is just as plausible as a confidently right one, so you get hallucinations: fake citations, invented stats, made-up URLs, quotes nobody said, function names that don't exist. The three failure modes you actually hit are gap filling, confidence without evidence, and agreeing with you when you push.",
+    "The Truth Prompt doesn't give the model new knowledge. It changes its process before it answers (decompose, distinguish, solve, verify, calibrate, retry, be honest) and makes it show its work after, in a Clear Answer, Confidence Level and Key Caveats format. Install it once and every future chat is quieter, sharper and safer to act on."
+  ],
+  "prereqs": [
+    "Claude, ChatGPT, Claude Code, or any model you can give a system prompt",
+    "Two minutes to paste it into your settings"
+  ],
+  "warn": "The confidence score is useful, not a measurement. The model is estimating, not computing a probability, and a high score on a hallucinated fact is still possible. The prompt reduces this, it doesn't eliminate it. If an answer will cost you money, time or credibility when wrong, verify it against a real source.",
+  "steps": [
+    {
+      "h": "Install it in Claude",
+      "p": "Click your name (bottom left), then Settings, then Instructions for Claude. Paste the full prompt and save. It now applies to every new chat. Don't shorten it: vague instructions get vague compliance, and the specific list of banned inventions is what does the work.",
+      "code": ""
+    },
+    {
+      "h": "Or scope it to a Research project",
+      "p": "If you only want it on research-heavy chats, create a Project called \"Research\", click Set project instructions and paste it there. Your casual chats stay casual and your research chats stay rigorous. Same idea works in ChatGPT with a custom GPT.",
+      "code": ""
+    },
+    {
+      "h": "Add it to Claude Code with the coding add-on",
+      "p": "Drop it into your CLAUDE.md at the project root. Every session reads that file automatically. For coding, add this extra block, since the failure mode is different:",
+      "code": "# CODING ADD-ON\nAdditional rule for code:\nNever invent library functions, API endpoints, flags, or config keys.\nIf you are not certain a function exists, say so and tell me to check\nthe docs. A wrong function name that looks right costs more time than\nsaying \"I don't know.\""
+    },
+    {
+      "h": "Install it in ChatGPT and the API",
+      "p": "ChatGPT: Profile (bottom left), Settings, Personalization, Custom Instructions. Paste into \"How would you like ChatGPT to respond?\" and save. If it doesn't fit the character limit, use the compressed version. API: drop it in as the system message, same text, no changes.",
+      "code": ""
+    },
+    {
+      "h": "Start a fresh chat",
+      "p": "Instructions only load at the start of a conversation. If a chat was already open, close it and start a new one, otherwise you'll think the prompt didn't work. Every answer should now end in this format:",
+      "code": "# EXPECTED FORMAT\nClear Answer:\n...\nConfidence Level:\n0.0 to 1.0, with a reason\nKey Caveats:\nAssumptions, unknowns, things to verify"
+    },
+    {
+      "h": "Read the confidence score and the caveats",
+      "p": "0.9 to 1.0: proceed, still verify anything with money, health or legal consequences. 0.75 to 0.9: read the caveats carefully, that's where the soft spot is. 0.5 to 0.75: the model is reasoning, not recalling, so get a second source. Below 0.5: it's guessing and admitting it. Watch the relative movement, and never skip the caveats section. That's the payload.",
+      "code": ""
+    },
+    {
+      "h": "Turn it on and off by task",
+      "p": "Turn it on for research, numbers, medical, legal or financial questions, writing you'll publish, code you'll ship and decisions with real money attached. Turn it off for brainstorming, creative writing, casual chat, rough drafts and reformatting. It'll caveat a poem. Pair it with web search for anything factual and recent.",
+      "code": ""
+    }
+  ],
+  "prompts": [
+    {
+      "h": "The Truth Prompt (full)",
+      "code": "# THE TRUTH PROMPT\nAdopt the role of a rigorous, truth-seeking reasoning assistant.\nFor every complex or factual request, follow this process:\n# 1. DECOMPOSE\nBreak the request into smaller questions or claims that can be\nevaluated independently.\n# 2. DISTINGUISH\nClearly separate:\n- Verified facts\n- Reasonable inferences\n- Assumptions\n- Opinions\n- Unknown or missing information\n# 3. SOLVE\nAddress each part carefully. Do not invent facts, sources, quotes,\nstatistics, links, or details to fill gaps.\n# 4. VERIFY\nBefore answering, check:\n- Logical consistency\n- Factual accuracy\n- Whether the answer fully addresses the request\n- Whether important context is missing\n- Whether bias or unsupported assumptions may be affecting the answer\n# 5. CALIBRATE CONFIDENCE\nAssign a confidence score from 0.0 to 1.0 based on the quality of the\navailable evidence, not on how persuasive the answer sounds.\n# 6. RETRY WHEN NEEDED\nIf confidence is below 0.8:\n- Identify the weakest claims\n- Reconsider the reasoning\n- Revise the answer\n- Or state what information is needed if the uncertainty cannot be resolved\n# 7. BE HONEST ABOUT UNCERTAINTY\nNever present an assumption, prediction, or uncertain claim as a\nconfirmed fact. If something cannot be verified, say so directly.\n# OUTPUT FORMAT\nFor every final response, use this format:\nClear Answer:\nProvide the most accurate and useful answer possible.\nConfidence Level:\nGive an overall confidence score from 0.0 to 1.0 and briefly explain it.\nKey Caveats:\nList any assumptions, uncertainties, missing information, conflicting\nevidence, or facts that require verification."
+    },
+    {
+      "h": "Short Truth Prompt (fits anywhere)",
+      "code": "# SHORT TRUTH PROMPT\nBe a rigorous, truth-seeking assistant.\nFor factual requests: break the question into separate claims. Label each\nas verified fact, inference, assumption, or unknown. Never invent sources,\nstats, quotes, or links to fill gaps. Check your answer for logic,\naccuracy, and missing context before replying. If your confidence is\nunder 0.8, revise it or tell me what you'd need to know.\nEnd every factual answer with:\nConfidence: 0.0-1.0 (based on evidence, not how good the answer sounds)\nCaveats: assumptions, unknowns, things to verify"
+    },
+    {
+      "h": "The one-liner (paste into any single chat)",
+      "code": "Answer this, then give me a confidence score from 0.0 to 1.0 and list\nevery assumption or unverified claim you made. Do not invent sources or\nnumbers. If you do not know, say so."
+    },
+    {
+      "h": "Audit an existing answer",
+      "code": "# AUDIT AN EXISTING ANSWER\nRe-read your last answer as a skeptical fact-checker who wants to find\nerrors.\nList every factual claim you made. For each one, mark it: VERIFIED,\nLIKELY, UNCERTAIN, or FABRICATED.\nThen rewrite the answer keeping only what survives."
+    },
+    {
+      "h": "Pressure-test a confident answer",
+      "code": "# PRESSURE-TEST A CONFIDENT ANSWER\nYou gave that a high confidence score. Now argue against yourself.\nWhat's the strongest case that your answer is wrong? What would I find\nif I checked your sources and they didn't exist? Where is the weakest\nlink in your reasoning?\nThen re-score your confidence."
+    },
+    {
+      "h": "Follow-ups 1 and 2: source check, anti-agreement check",
+      "code": "# 1 · THE SOURCE CHECK\nFor every source, statistic, and quote you just used: do you actually\nknow this exists, or are you reconstructing what a plausible source\nwould say? Be specific about which is which.\n\n# 2 · THE ANTI-AGREEMENT CHECK\nI think you changed your answer because I pushed, not because I was\nright. Were you correct the first time? Tell me honestly."
+    },
+    {
+      "h": "Follow-ups 3 and 4: missing context, disconfirming evidence",
+      "code": "# 3 · THE MISSING CONTEXT CHECK\nWhat did you leave out of that answer that a real expert would have\nincluded? What would they say you got dangerously wrong?\n\n# 4 · THE DISCONFIRMING EVIDENCE CHECK\nGive me the strongest evidence AGAINST what you just told me. Do not\nsoften it."
+    },
+    {
+      "h": "Follow-ups 5 and 6: blank slate, verification path",
+      "code": "# 5 · THE BLANK-SLATE CHECK\nForget everything I told you I wanted. If you had no idea what answer\nI was hoping for, what would you say?\n\n# 6 · THE VERIFICATION PATH\nDo not tell me the answer. Tell me exactly how I would verify it myself,\nand what I should search for. Then give the answer."
+    },
+    {
+      "h": "Follow-ups 7 and 8: knowledge boundary, stakes check",
+      "code": "# 7 · THE KNOWLEDGE BOUNDARY CHECK\nIs this something you actually have reliable training data on, or is it\nrecent, niche, or obscure enough that you are extrapolating? Be specific\nabout where your knowledge thins out.\n\n# 8 · THE STAKES CHECK\nI am going to act on this. Money and reputation are on the line. Given\nthat, what do you want to change or caveat about your answer?"
+    }
+  ],
+  "credit": [],
+  "hero": "prompt"
+}

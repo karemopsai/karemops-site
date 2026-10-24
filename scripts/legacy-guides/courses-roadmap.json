@@ -1,0 +1,63 @@
+{
+  "kw": "COURSES",
+  "slug": "courses-roadmap",
+  "legacy": true,
+  "title": "The Anthropic course <span class=\"em\">library</span>.",
+  "lead": "Every free Anthropic course, every certificate, and how to use them to land the most in-demand non-technical AI job in 2026.",
+  "inside": "You'll have a path through all 16 free courses, your first Anthropic cert on LinkedIn, and a real Claude project with a Loom to show for it.",
+  "what": [
+    "AI Agent Manager. Chief Agent Officer. AI Operations Lead. Agentic Workflow Manager. Different titles, same role, and it didn't exist 18 months ago. Companies are paying up to $300K for it, and Forbes is explicit: the people getting hired don't have CS degrees. What they have is judgment. They deeply understand one business function and they know how to direct AI agents to do parts of it. The AI half is exactly what Anthropic just put online for free.",
+    "The gap that explains the pay: Deloitte's 2026 State of AI says 85% of large companies are deploying AI agents and only 21% have any governance over them. Someone has to translate between the business and the agents. The library has 16 courses and 13 certs, all free: Foundations (Claude 101, AI Fluency: Framework & Foundations), the Builder track (Claude Code 101, Claude Code in Action, Building with the Claude API), the Agent stack (Intro to MCP, MCP Advanced Topics, Intro to Agent Skills, Intro to Subagents), and Platform, Cowork and Education (Claude with Amazon Bedrock, Claude with Google Cloud Vertex AI, Intro to Claude Cowork, AI Fluency for Educators, Students, Nonprofits, Teaching AI Fluency)."
+  ],
+  "prereqs": [
+    "A free account at anthropic.skilljar.com (5 minutes)",
+    "8 to 12 hours of focused study for Path A",
+    "One workflow at your job you can build a Claude version of",
+    "A LinkedIn profile to add the credentials to",
+    "For Path B: a webcam and 2 hours for the proctored assessment"
+  ],
+  "warn": "These are completion certificates: you watched the course and passed quizzes. They're not proctored exam credentials like AWS Cloud Certified Architect (the Path B assessment is the exception). Frame them honestly on LinkedIn as \"Anthropic-issued completion credential\" or \"Anthropic course with quizzes and full credential.\" Don't claim hard exam parity.",
+  "steps": [
+    {
+      "h": "Sign up tonight",
+      "p": "Free, 5 minutes. Every course ends with a completion certificate issued by Anthropic via Skilljar. You don't need all of them, pick the path that fits your goal. Start Claude 101 tonight. The hour you'd have spent scrolling pays you back forever.",
+      "code": "anthropic.skilljar.com"
+    },
+    {
+      "h": "Run Path A: one weekend, 99th percentile",
+      "p": "8 to 12 hours, no exam, 6 certs, and you're ahead of 99% of people at your company on Claude. Take them in this order. 01 Claude 101: even if you've used Claude, the structured intro covers patterns the rest assume. 02 AI Fluency: Framework & Foundations: the conceptual layer that makes the others click. 03 Claude Code 101: where the operator path starts paying off in real productivity. 04 Intro to MCP: skip this and you hit a wall the second you try to ship anything real. 05 Intro to Agent Skills: turns you from a Claude user into a Claude operator. Operators stack skills. 06 One platform integration: Bedrock or Vertex AI, whichever your company runs.",
+      "code": ""
+    },
+    {
+      "h": "Take the Amazon Bedrock course",
+      "p": "The strongest single credibility signal in the whole library. Anthropic's own description literally reads \"first-of-its-kind training built for AWS employees.\" The same course Anthropic built for one of the largest cloud customers on the planet is sitting on a public URL with no paywall. The credential lands the same on a hiring manager's screen as it does on an Amazon engineer's. Take it.",
+      "code": "anthropic.skilljar.com/claude-in-amazon-bedrock"
+    },
+    {
+      "h": "Go for Path B: the proctored cert",
+      "p": "The highest ceiling. Anthropic runs a certificate-only assessment for AI Fluency. 60 questions, 2 hours, webcam on. Real scenarios like designing a customer support agent or wiring Claude into a deployment pipeline. Not trivia. Do Path A first, build one real project at your current job and document the time saved, then sit the assessment. Retake if you fail. This is the credential that gets past the first screening filter at most Fortune 500s.",
+      "code": "anthropic.skilljar.com/certificate-only-ai-fluency-frameworks-foundations/321670"
+    },
+    {
+      "h": "Add the cert to LinkedIn",
+      "p": "Skilljar has an official support article on this. Most people miss it because Skilljar buries the credential download. 01 Finish the course: complete every module, pass the quiz, the cert generates automatically. 02 Grab the cert URL: Skilljar issues a unique URL per cert plus a downloadable PDF, both work. 03 LinkedIn → Profile → Add section → Licenses & certifications. 04 Fill the fields: Name = course title. Issuing org = Anthropic (autocompletes). Credential URL = the Skilljar link. Issue date = your completion date. Skip credential ID and expiration, there's no expiry on these. Then add it everywhere: LinkedIn headline, resume top section, email signature, internal Slack.",
+      "code": "support.skilljar.com/hc/en-us/articles/38190373846413"
+    },
+    {
+      "h": "Ship a project with your first course",
+      "p": "Course without a shipped project = half a credential. The role is judged on what you've built, not what you've watched. Three project patterns, in order. 01 Internal process automation: weekly reporting, customer triage, content drafting, expense categorization. Build a Claude-powered version and document the time saved. 02 An agent that talks to one external tool: wire Claude into Notion, Gmail, Google Sheets, or your CRM via MCP. Pull data, take action, update systems. 03 A multi-step workflow: Claude has to plan, execute multiple steps, and recover if something fails. That is the actual job. Every project gets a 60-second Loom showing it work. Three short demos beat a 20-page case study every time.",
+      "code": ""
+    },
+    {
+      "h": "Follow the 7-day plan",
+      "p": "Today: sign up and start Claude 101. This week: finish Claude 101, start AI Fluency: Framework & Foundations, pick one workflow at your job to Claude-ify. Next week: start Claude Code 101 + Intro to MCP, begin building your first real Claude project, record a 60-sec Loom when it works. Within 30 days: finish Path A (or sit Path B), add credentials to LinkedIn under Licenses & Certifications, pitch the agent to your manager.",
+      "code": ""
+    }
+  ],
+  "prompts": [],
+  "credit": [
+    "Anthropic courses on Skilljar (anthropic.skilljar.com)",
+    "Forbes (on AI Agent Manager hiring)",
+    "Deloitte 2026 State of AI (85% deploying agents, 21% with governance)"
+  ]
+}
