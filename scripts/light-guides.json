@@ -1,0 +1,1380 @@
+[
+ {
+  "kw": "ROOM",
+  "title": "Redesign any room with <span class=\"em\">Claude Code.</span>",
+  "lead": "Photo of an empty room in, furnished design out. You keep the walls, windows and layout. You change everything else with one sentence.",
+  "inside": "Get a free Gemini API key, install an image skill in Claude Code, and run the room prompts that keep your real space intact.",
+  "what": [
+   "Claude Code can't draw on its own. It can drive Google's image model (Nano Banana) through a skill, so you describe the room and Claude handles the image calls, the file names and the revisions.",
+   "This is for owners furnishing an office, a shop or a home who want to walk into the designer's office already knowing the look."
+  ],
+  "prereqs": [
+   "Claude Code installed and logged in",
+   "A Google account for Google AI Studio",
+   "Daylight photos of the room, shot straight on, one per wall"
+  ],
+  "warn": "Image models bill per image once you pass the free tier. Check current Gemini pricing in AI Studio before you batch 50 renders.",
+  "steps": [
+   {
+    "h": "Get your Gemini API key",
+    "p": "Go to aistudio.google.com, sign in, click Get API key, then Create API key. Copy it somewhere safe.",
+    "code": "export GEMINI_API_KEY=\"paste-your-key-here\""
+   },
+   {
+    "h": "Install a Nano Banana skill",
+    "p": "Any public Nano Banana skill works. This one installs with the skills CLI. Restart Claude Code after.",
+    "code": "npx skills add https://github.com/glebis/claude-skills --skill nano-banana"
+   },
+   {
+    "h": "Make a folder for the project",
+    "p": "Put your room photos in it and open Claude Code inside that folder so it can see them.",
+    "code": "mkdir room && cd room\n# drop living-room.jpg here\nclaude"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "First redesign",
+    "code": "Use the nano-banana skill. Redesign living-room.jpg as a modern luxury interior.\nKeep the walls, windows, doors, floor plan and camera angle exactly the same.\nOnly change furniture, materials, lighting and decor. Save it as living-room-v1.png."
+   },
+   {
+    "h": "Revisions",
+    "code": "Same room, same angle. Change the sofa to warm beige boucle and the floor to light oak.\nKeep everything else from v1. Save as v2."
+   },
+   {
+    "h": "Switch style",
+    "code": "Give me 3 versions of v2: classic Lebanese, Japandi, and dark modern.\nSame room, same angle. Save each with the style in the file name."
+   }
+  ],
+  "credit": [
+   "Nano Banana is Google's Gemini image model",
+   "nano-banana skill by glebis (github.com/glebis/claude-skills)"
+  ],
+  "number": 1,
+  "ar": {
+   "title": "أعد تصميم أي غرفة باستخدام <span class=\"em\">Claude Code.</span>",
+   "lead": "تُدخل صورة غرفة فارغة، فتحصل على تصميم مفروش. تبقى الجدران والنوافذ والمخطط كما هي، وتغيّر كل ما عدا ذلك بجملة واحدة.",
+   "inside": "احصل على مفتاح Gemini API مجاني، وثبّت مهارة للصور في Claude Code، ثم استخدم أوامر الغرف التي تحافظ على مساحتك الحقيقية.",
+   "what": [
+    "لا يرسم Claude Code بنفسه، لكنه يستطيع تشغيل نموذج الصور من Google (Nano Banana) عبر مهارة، فتصف أنت الغرفة ويتولى Claude طلبات الصور وتسمية الملفات والتعديلات.",
+    "هذا مناسب لأصحاب الأعمال الذين يجهّزون مكتبًا أو متجرًا أو منزلًا، ويريدون دخول مكتب المصمم وهم يعرفون الشكل الذي يريدونه."
+   ],
+   "prereqs": [
+    "Claude Code مثبّت وتم تسجيل الدخول",
+    "حساب Google للدخول إلى Google AI Studio",
+    "صور نهارية للغرفة، ملتقطة من الأمام، صورة لكل جدار"
+   ],
+   "warn": "تُحتسب تكلفة نماذج الصور لكل صورة بعد تجاوز الحصة المجانية. راجع أسعار Gemini الحالية في AI Studio قبل إنتاج 50 تصميمًا.",
+   "steps": [
+    {
+     "h": "احصل على مفتاح Gemini API",
+     "p": "ادخل إلى aistudio.google.com وسجّل الدخول، ثم اضغط Get API key ثم Create API key، واحفظ المفتاح في مكان آمن."
+    },
+    {
+     "h": "ثبّت مهارة Nano Banana",
+     "p": "أي مهارة Nano Banana عامة تفي بالغرض. هذه تُثبَّت عبر أداة skills. أعد تشغيل Claude Code بعدها."
+    },
+    {
+     "h": "أنشئ مجلدًا للمشروع",
+     "p": "ضع صور الغرفة فيه، وافتح Claude Code داخل هذا المجلد حتى يرى الصور."
+    }
+   ],
+   "prompts": [
+    "التصميم الأول",
+    "التعديلات",
+    "تغيير الطراز"
+   ]
+  },
+  "slug": "room-redesign"
+ },
+ {
+  "kw": "HUMAN",
+  "title": "Make AI writing sound <span class=\"em\">human.</span>",
+  "lead": "Readers spot AI text in one line. Em dashes, 'it's not just X, it's Y', delve, seamless. This setup strips all of it before anything leaves your laptop.",
+  "inside": "Install the free humanizer skill, add one rule to CLAUDE.md, and add an Arabic layer so your Lebanese captions stop sounding like a news anchor.",
+  "what": [
+   "Wikipedia editors keep a page called Signs of AI writing: every pattern that gives AI text away. A free GitHub repo called humanizer turns that page into a Claude Code skill.",
+   "Once it's installed and you add one rule, everything a human will read (captions, emails, DMs, landing pages) gets a pass through it automatically."
+  ],
+  "prereqs": [
+   "Claude Code installed",
+   "git installed (it comes with Xcode tools on Mac)"
+  ],
+  "warn": "It removes tells. It doesn't invent your voice. Add 3 to 5 real examples of your own writing to CLAUDE.md so it has something to aim at.",
+  "steps": [
+   {
+    "h": "Install the skill",
+    "p": "Clone it into your Claude skills folder, then restart Claude Code.",
+    "code": "git clone https://github.com/blader/humanizer ~/.claude/skills/humanizer"
+   },
+   {
+    "h": "Read the source page once",
+    "p": "Skim it so you know what it catches. Search: Wikipedia Signs of AI writing.",
+    "code": "en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   },
+   {
+    "h": "Make it automatic",
+    "p": "Add this to the CLAUDE.md in your project (or ~/.claude/CLAUDE.md for every project).",
+    "code": "## Writing rule\nAnything a human will read (captions, emails, DMs, pages) goes through the humanizer skill before you show it to me.\nNo em dashes. No 'it's not just X, it's Y'. No delve, seamless, leverage, robust, tapestry."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "Clean one piece",
+    "code": "Run humanizer on this caption and show me what you changed and why:\n[paste]"
+   },
+   {
+    "h": "Arabic layer (add to CLAUDE.md)",
+    "code": "When writing Arabic or Lebanese: write how people talk, not news Arabic.\nUse شو، هلّق، كتير، بس. Never ماذا، سوف، لماذا.\nKeep tool names in English (Claude Code, prompt, skill)."
+   }
+  ],
+  "credit": [
+   "humanizer by blader (github.com/blader/humanizer)",
+   "Wikipedia: Signs of AI writing"
+  ],
+  "number": 2,
+  "ar": {
+   "title": "اجعل كتابة الذكاء الاصطناعي تبدو <span class=\"em\">بشرية.</span>",
+   "lead": "يكتشف القارئ النص المكتوب بالذكاء الاصطناعي من السطر الأول: الشرطات الطويلة، وعبارة «ليس مجرد كذا بل كذا»، وكلمات مثل delve وseamless. هذا الإعداد يزيلها كلها قبل أن يخرج أي نص من جهازك.",
+   "inside": "ثبّت مهارة humanizer المجانية، وأضف قاعدة واحدة إلى CLAUDE.md، ثم أضف طبقة عربية حتى لا تبدو منشوراتك العربية كنشرة أخبار.",
+   "what": [
+    "يحتفظ محررو ويكيبيديا بصفحة اسمها Signs of AI writing تجمع كل الأنماط التي تكشف النص المولَّد آليًا. ويحوّل مستودع مجاني على GitHub اسمه humanizer هذه الصفحة إلى مهارة في Claude Code.",
+    "بعد تثبيته وإضافة قاعدة واحدة، يمر كل نص سيقرؤه إنسان (المنشورات والرسائل والبريد وصفحات الهبوط) عبره تلقائيًا."
+   ],
+   "prereqs": [
+    "Claude Code مثبّت",
+    "git مثبّت (يأتي مع أدوات Xcode على أجهزة Mac)"
+   ],
+   "warn": "المهارة تزيل العلامات الآلية لكنها لا تصنع أسلوبك. أضف من 3 إلى 5 أمثلة حقيقية من كتابتك إلى CLAUDE.md حتى يكون لديها ما تقتدي به.",
+   "steps": [
+    {
+     "h": "ثبّت المهارة",
+     "p": "انسخ المستودع إلى مجلد مهارات Claude، ثم أعد تشغيل Claude Code."
+    },
+    {
+     "h": "اقرأ الصفحة الأصلية مرة واحدة",
+     "p": "تصفّحها لتعرف ما الذي تلتقطه المهارة. ابحث عن: Wikipedia Signs of AI writing."
+    },
+    {
+     "h": "اجعلها تلقائية",
+     "p": "أضف هذا إلى ملف CLAUDE.md في مشروعك (أو إلى ~/.claude/CLAUDE.md ليشمل كل المشاريع)."
+    }
+   ],
+   "prompts": [
+    "تنظيف نص واحد",
+    "الطبقة العربية (أضفها إلى CLAUDE.md)"
+   ]
+  },
+  "slug": "sound-human"
+ },
+ {
+  "kw": "JOBS",
+  "title": "Let ChatGPT run your <span class=\"em\">job hunt.</span>",
+  "lead": "Match your CV to the right titles, rewrite it for each role, and let Agent mode find and prep applications while you approve every one.",
+  "inside": "Four prompts: title matching, a master CV, the job search with Agent mode, and tailored applications. Plus the rules that keep it from spamming recruiters.",
+  "what": [
+   "ChatGPT's Agent mode can browse job boards, fill a sheet and prepare tailored CVs. The job titles and keywords you feed it decide whether it finds the right roles.",
+   "Volume isn't the goal. Fifty tailored applications beat five hundred blind ones, and recruiters notice mass-applying."
+  ],
+  "prereqs": [
+   "A ChatGPT plan with Agent mode",
+   "Your CV as PDF or Word",
+   "LinkedIn and Indeed accounts"
+  ],
+  "warn": "Keep a human approval step before anything gets submitted. Job sites can flag automated mass-applying, and one wrong application with a typo is worse than none.",
+  "steps": [
+   {
+    "h": "Upload your CV and match titles",
+    "p": "New chat, attach the CV, run prompt 1.",
+    "code": ""
+   },
+   {
+    "h": "Build the master CV",
+    "p": "Same chat, run prompt 2. Save the result as your base file.",
+    "code": ""
+   },
+   {
+    "h": "Turn on Agent mode and search",
+    "p": "Click + in the chat box, pick Agent mode, run prompt 3. It returns a sheet. Read it before step 4.",
+    "code": ""
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Title matching",
+    "code": "Act as a senior recruiter. From my CV, list the 20 job titles I'm most qualified for,\nranked by fit. For each, list the exact keywords ATS systems scan for."
+   },
+   {
+    "h": "2. Master CV",
+    "code": "Rewrite my CV as a master version I can tailor fast. Use the XYZ format\n(accomplished X, measured by Y, by doing Z). Remove anything a recruiter\nwould count against me in a 10-second scan."
+   },
+   {
+    "h": "3. Search (Agent mode)",
+    "code": "Search LinkedIn and Indeed for roles matching my top 10 titles posted in the last 7 days.\nMake a sheet: job link, company, match score 1-10, why it fits, and a tailored CV for each.\nDo not apply to anything yet."
+   },
+   {
+    "h": "4. Apply (after you review)",
+    "code": "Apply only to the jobs I marked YES in the sheet. Use each tailored CV.\nStop and ask me before submitting any form that asks a question you can't answer from my CV."
+   }
+  ],
+  "credit": [
+   "ChatGPT Agent mode by OpenAI"
+  ],
+  "number": 3,
+  "ar": {
+   "title": "دع ChatGPT يدير <span class=\"em\">بحثك عن عمل.</span>",
+   "lead": "طابق سيرتك الذاتية مع المسميات الصحيحة، وأعد كتابتها لكل وظيفة، ودع وضع Agent يجد الطلبات ويجهّزها بينما توافق أنت على كل طلب.",
+   "inside": "أربعة أوامر: مطابقة المسميات، وسيرة ذاتية رئيسية، والبحث عبر وضع Agent، وطلبات مخصصة. مع القواعد التي تمنعه من إغراق مسؤولي التوظيف بالطلبات.",
+   "what": [
+    "يستطيع وضع Agent في ChatGPT تصفّح مواقع الوظائف، وتعبئة جدول، وتجهيز سير ذاتية مخصصة. والمسميات والكلمات المفتاحية التي تعطيه إياها هي التي تحدد إن كان سيجد الوظائف المناسبة.",
+    "الكمية ليست الهدف. خمسون طلبًا مخصصًا أفضل من خمسمئة طلب عشوائي، ومسؤولو التوظيف يلاحظون التقديم الجماعي."
+   ],
+   "prereqs": [
+    "اشتراك ChatGPT يتضمن وضع Agent",
+    "سيرتك الذاتية بصيغة PDF أو Word",
+    "حسابان على LinkedIn وIndeed"
+   ],
+   "warn": "احتفظ بخطوة موافقة بشرية قبل إرسال أي طلب. قد تحظر مواقع الوظائف التقديم الآلي الجماعي، وطلب واحد خاطئ فيه خطأ إملائي أسوأ من عدم التقديم.",
+   "steps": [
+    {
+     "h": "ارفع سيرتك وطابق المسميات",
+     "p": "افتح محادثة جديدة، وأرفق السيرة الذاتية، ثم نفّذ الأمر 1."
+    },
+    {
+     "h": "ابنِ السيرة الرئيسية",
+     "p": "في المحادثة نفسها نفّذ الأمر 2، واحفظ النتيجة كملف أساسي."
+    },
+    {
+     "h": "فعّل وضع Agent وابحث",
+     "p": "اضغط + في مربع المحادثة، واختر Agent mode، ونفّذ الأمر 3. ستحصل على جدول، فراجعه قبل الخطوة 4."
+    }
+   ],
+   "prompts": [
+    "1. مطابقة المسميات",
+    "2. السيرة الرئيسية",
+    "3. البحث (وضع Agent)",
+    "4. التقديم (بعد مراجعتك)"
+   ]
+  },
+  "slug": "job-agent"
+ },
+ {
+  "kw": "CRITIC",
+  "title": "Make AI stop <span class=\"em\">flattering you.</span>",
+  "lead": "Chatbots are trained to please you. These three prompts make them argue, attack and do the math before you spend a dollar.",
+  "inside": "Critic mode, the opposite case, and the numbers check. Plus where to save them so they run every time.",
+  "what": [
+   "Ask ChatGPT or Claude about your idea and you'll hear 'great idea' nine times out of ten. That isn't feedback. You get real feedback by giving it a job that rewards disagreement."
+  ],
+  "prereqs": [
+   "ChatGPT, Claude or Gemini (any plan)"
+  ],
+  "warn": "A critic with no context gives generic criticism. Paste the real numbers: price, cost, audience, budget.",
+  "steps": [
+   {
+    "h": "Save them as instructions",
+    "p": "Claude: Projects → New project → Instructions. ChatGPT: Settings → Personalization → Custom instructions, or a Project. Paste the block below.",
+    "code": "Never open with praise. Before agreeing with me, list what's wrong.\nIf I ask for feedback, give the 3 biggest risks first, then fixes."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Critic mode",
+    "code": "No flattery. Tear this idea apart like an investor who wants to say no.\nList every flaw, risk and assumption I haven't proven, ranked by how likely each one kills it:\n[idea]"
+   },
+   {
+    "h": "2. The opposite case",
+    "code": "Argue the other side. What is the strongest reason this fails within 6 months?\nWhat would a competitor do to beat me?"
+   },
+   {
+    "h": "3. Numbers",
+    "code": "Put numbers on it. What do I have to spend before the first dollar comes back,\nhow many customers do I need to break even, and in how many months?\nShow your math and flag every number you guessed."
+   }
+  ],
+  "credit": [],
+  "number": 4,
+  "ar": {
+   "title": "اجعل الذكاء الاصطناعي يتوقف عن <span class=\"em\">مجاملتك.</span>",
+   "lead": "تُدرَّب روبوتات المحادثة على إرضائك. هذه الأوامر الثلاثة تجعلها تجادل وتنتقد وتحسب الأرقام قبل أن تنفق دولارًا واحدًا.",
+   "inside": "وضع الناقد، والحجة المعاكسة، وفحص الأرقام. مع مكان حفظها لتعمل في كل مرة.",
+   "what": [
+    "اسأل ChatGPT أو Claude عن فكرتك وستسمع «فكرة رائعة» في تسع مرات من عشر، وهذا ليس رأيًا حقيقيًا. تحصل على رأي حقيقي عندما تعطيه مهمة تكافئ الاعتراض."
+   ],
+   "prereqs": [
+    "ChatGPT أو Claude أو Gemini (أي اشتراك)"
+   ],
+   "warn": "الناقد الذي لا يملك سياقًا يعطي نقدًا عامًا. أعطه الأرقام الحقيقية: السعر والتكلفة والجمهور والميزانية.",
+   "steps": [
+    {
+     "h": "احفظها كتعليمات دائمة",
+     "p": "في Claude: Projects ثم New project ثم Instructions. في ChatGPT: Settings ثم Personalization ثم Custom instructions، أو داخل Project. الصق النص أدناه."
+    }
+   ],
+   "prompts": [
+    "1. وضع الناقد",
+    "2. الحجة المعاكسة",
+    "3. الأرقام"
+   ]
+  },
+  "slug": "stop-flattery"
+ },
+ {
+  "kw": "YOUTUBE",
+  "title": "Turn YouTube tutorials into <span class=\"em\">Claude skills.</span>",
+  "lead": "Give Claude a video link. It watches the frames, reads the transcript, and writes a skill that does what the tutorial teaches.",
+  "inside": "Install the free /watch plugin, install Anthropic's skill-creator, and run the two prompts that turn any tutorial into a working skill.",
+  "what": [
+   "claude-video is a free, MIT-licensed plugin by Brad Bonanno. It gives Claude a /watch command: it downloads the video, pulls frames, builds a timestamped transcript and hands both to Claude.",
+   "Pair it with Anthropic's skill-creator and a 20-minute tutorial becomes a reusable skill."
+  ],
+  "prereqs": [
+   "Claude Code installed",
+   "ffmpeg and yt-dlp (the plugin checks on first run and helps you install them)"
+  ],
+  "warn": "Tutorials skip steps and go out of date. Always run the new skill once on a small test before trusting it.",
+  "steps": [
+   {
+    "h": "Install /watch",
+    "p": "Inside Claude Code:",
+    "code": "/plugin marketplace add bradautomates/claude-video\n/plugin install watch@claude-video"
+   },
+   {
+    "h": "Install skill-creator",
+    "p": "Anthropic's official skills marketplace. If the names have changed, run /plugin and browse.",
+    "code": "/plugin marketplace add anthropics/skills\n/plugin install example-skills@anthropic-agent-skills"
+   },
+   {
+    "h": "Watch a tutorial",
+    "p": "Paste any YouTube, Loom, TikTok or Instagram link.",
+    "code": "/watch https://www.youtube.com/watch?v=..."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Turn it into a spec",
+    "code": "From that video, write a step-by-step spec of exactly what the tutorial does.\nMark each step: confirmed on screen, said only in audio, or unclear.\nList anything the video skipped."
+   },
+   {
+    "h": "2. Build the skill",
+    "code": "Use skill-creator to turn this spec into a skill called [name].\nAsk me about every step you marked unclear before you write it."
+   }
+  ],
+  "credit": [
+   "claude-video by Brad Bonanno (github.com/bradautomates/claude-video, MIT)",
+   "skill-creator by Anthropic (github.com/anthropics/skills)"
+  ],
+  "number": 5,
+  "ar": {
+   "title": "حوّل دروس يوتيوب إلى <span class=\"em\">مهارات Claude.</span>",
+   "lead": "أعطِ Claude رابط فيديو، فيشاهد اللقطات ويقرأ النص المفرغ، ثم يكتب مهارة تنفّذ ما يعلّمه الدرس.",
+   "inside": "ثبّت إضافة /watch المجانية، وثبّت أداة skill-creator من Anthropic، ثم استخدم الأمرين اللذين يحوّلان أي درس إلى مهارة تعمل.",
+   "what": [
+    "claude-video إضافة مجانية بترخيص MIT من تطوير Brad Bonanno. تضيف إلى Claude أمر /watch الذي ينزّل الفيديو، ويستخرج اللقطات، ويبني نصًا مفرغًا مرتبطًا بالتوقيت، ثم يسلّمهما إلى Claude.",
+    "اجمعها مع skill-creator من Anthropic، فيتحول درس مدته عشرون دقيقة إلى مهارة يمكن إعادة استخدامها."
+   ],
+   "prereqs": [
+    "Claude Code مثبّت",
+    "ffmpeg وyt-dlp (تتحقق الإضافة منهما عند أول تشغيل وتساعدك في تثبيتهما)"
+   ],
+   "warn": "الدروس تتخطى خطوات وتتقادم. شغّل المهارة الجديدة دائمًا على اختبار صغير قبل الاعتماد عليها.",
+   "steps": [
+    {
+     "h": "ثبّت /watch",
+     "p": "داخل Claude Code:"
+    },
+    {
+     "h": "ثبّت skill-creator",
+     "p": "من سوق المهارات الرسمي لـ Anthropic. إذا تغيّرت الأسماء، اكتب /plugin وتصفّح."
+    },
+    {
+     "h": "شاهد درسًا",
+     "p": "الصق أي رابط من YouTube أو Loom أو TikTok أو Instagram."
+    }
+   ],
+   "prompts": [
+    "1. حوّله إلى مواصفات",
+    "2. ابنِ المهارة"
+   ]
+  },
+  "slug": "youtube-to-skill"
+ },
+ {
+  "kw": "PLUGIN",
+  "title": "Claude for <span class=\"em\">small business.</span>",
+  "lead": "Anthropic's plugin for owners. Overdue invoices, contracts, leads and month-end books, connected to the tools you already pay for.",
+  "inside": "How to install it in Claude desktop, which tools to connect first, and the first three jobs to give it.",
+  "what": [
+   "Claude for Small Business is an official Anthropic plugin for the Claude desktop app. It bundles ready-made workflows for the admin work owners lose hours on: chasing invoices, reviewing contracts, sorting leads, closing the month.",
+   "It drafts and prepares. You approve before anything is sent."
+  ],
+  "prereqs": [
+   "Claude desktop app on a paid plan",
+   "Logins for the tools you'll connect (accounting, payments, CRM)"
+  ],
+  "warn": "The connector list changes. Check inside the plugin which tools it supports today before you plan around one.",
+  "steps": [
+   {
+    "h": "Install it",
+    "p": "Claude desktop → Customize → Plugins → Browse → search Small Business → Install. If it offers an onboarding command, run it first.",
+    "code": ""
+   },
+   {
+    "h": "Connect your stack",
+    "p": "Start with accounting (QuickBooks or similar) and payments (PayPal, Stripe). Add your CRM (HubSpot) after the first week.",
+    "code": ""
+   },
+   {
+    "h": "Type / to see the workflows",
+    "p": "In a new chat, type / and scroll the plugin's commands.",
+    "code": "/"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Invoices",
+    "code": "Pull every unpaid invoice older than 14 days. Rank them by amount and how late they are.\nDraft a polite follow-up for each. Don't send anything."
+   },
+   {
+    "h": "2. Contracts",
+    "code": "Review this contract. List anything unusual about payment terms, termination,\nliability and auto-renewal, in plain language. [attach]"
+   },
+   {
+    "h": "3. Month-end",
+    "code": "Give me a one-page summary of this month: revenue in, bills out, what's overdue\nboth ways, and 3 things to fix next month."
+   }
+  ],
+  "credit": [
+   "Claude for Small Business by Anthropic (claude.com/resources/tutorials/using-claude-for-your-small-business)"
+  ],
+  "number": 6,
+  "ar": {
+   "title": "Claude <span class=\"em\">للأعمال الصغيرة.</span>",
+   "lead": "إضافة Anthropic لأصحاب الأعمال: الفواتير المتأخرة والعقود والعملاء المحتملون وحسابات نهاية الشهر، متصلة بالأدوات التي تدفع لها أصلًا.",
+   "inside": "كيف تثبّتها في تطبيق Claude لسطح المكتب، وأي الأدوات تربط أولًا، وأول ثلاث مهام تعطيها إياها.",
+   "what": [
+    "Claude for Small Business إضافة رسمية من Anthropic لتطبيق Claude على سطح المكتب. تجمع مسارات عمل جاهزة للأعمال الإدارية التي يضيع فيها وقت أصحاب الأعمال: متابعة الفواتير، ومراجعة العقود، وفرز العملاء المحتملين، وإقفال الشهر.",
+    "هي تصيغ وتجهّز، وأنت توافق قبل إرسال أي شيء."
+   ],
+   "prereqs": [
+    "تطبيق Claude لسطح المكتب باشتراك مدفوع",
+    "بيانات الدخول للأدوات التي ستربطها (المحاسبة والمدفوعات وإدارة العملاء)"
+   ],
+   "warn": "قائمة الأدوات المدعومة تتغير. تحقّق داخل الإضافة من الأدوات التي تدعمها اليوم قبل أن تبني خطتك على أداة معينة.",
+   "steps": [
+    {
+     "h": "ثبّتها",
+     "p": "في تطبيق Claude لسطح المكتب: Customize ثم Plugins ثم Browse، وابحث عن Small Business ثم Install. إذا عرضت أمر إعداد أولي، فشغّله أولًا."
+    },
+    {
+     "h": "اربط أدواتك",
+     "p": "ابدأ بالمحاسبة (QuickBooks أو ما يشبهه) والمدفوعات (PayPal أو Stripe). أضف نظام إدارة العملاء (HubSpot) بعد الأسبوع الأول."
+    },
+    {
+     "h": "اكتب / لترى مسارات العمل",
+     "p": "في محادثة جديدة اكتب / وتصفّح أوامر الإضافة."
+    }
+   ],
+   "prompts": [
+    "1. الفواتير",
+    "2. العقود",
+    "3. نهاية الشهر"
+   ]
+  },
+  "slug": "small-business-plugin"
+ },
+ {
+  "kw": "UI",
+  "title": "Stop shipping <span class=\"em\">cheap-looking</span> sites.",
+  "lead": "Claude Code builds working sites. These three things make them look like an agency built them.",
+  "inside": "A design-system skill, a component library, and the reference-screenshot method. Install steps and the prompt that ties them together.",
+  "what": [
+   "Out of the box, AI-built sites all look alike: same gradient, same cards, same fonts. The fix is to give Claude design rules, real components and a visual target."
+  ],
+  "prereqs": [
+   "Claude Code installed",
+   "A screenshot of a site whose look you like"
+  ],
+  "warn": "Copy the feel of the reference, not its logo, images or text.",
+  "steps": [
+   {
+    "h": "Install UI UX Pro Max",
+    "p": "A free design-intelligence skill: design systems, color, type, accessibility checks.",
+    "code": "/plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill\n/plugin install ui-ux-pro-max@ui-ux-pro-max-skill"
+   },
+   {
+    "h": "Use 21st.dev components",
+    "p": "Browse 21st.dev, open a component you like, copy its prompt, and paste it into Claude Code.",
+    "code": "21st.dev"
+   },
+   {
+    "h": "Give it a reference",
+    "p": "Save the screenshot in your project folder as reference.png.",
+    "code": ""
+   }
+  ],
+  "prompts": [
+   {
+    "h": "The build prompt",
+    "code": "Use the ui-ux-pro-max skill. Build the landing page for [business].\nMatch the spacing, type scale and mood of reference.png. Don't copy its content or logo.\nOne accent color: [hex]. Show me the design system before you write code."
+   },
+   {
+    "h": "Polish pass",
+    "code": "Review the page like a senior designer. List the 10 things that make it look template-made,\nthen fix them."
+   }
+  ],
+  "credit": [
+   "UI UX Pro Max by nextlevelbuilder (github.com/nextlevelbuilder/ui-ux-pro-max-skill)",
+   "21st.dev component library"
+  ],
+  "number": 7,
+  "ar": {
+   "title": "توقّف عن إطلاق مواقع <span class=\"em\">تبدو رخيصة.</span>",
+   "lead": "يبني Claude Code مواقع تعمل. هذه الأشياء الثلاثة تجعلها تبدو كأن وكالة تصميم بنتها.",
+   "inside": "مهارة لأنظمة التصميم، ومكتبة مكوّنات، وطريقة الصورة المرجعية. مع خطوات التثبيت والأمر الذي يجمعها معًا.",
+   "what": [
+    "المواقع المبنية بالذكاء الاصطناعي تتشابه افتراضيًا: التدرّج اللوني نفسه والبطاقات نفسها والخطوط نفسها. الحل أن تعطي Claude قواعد تصميم ومكوّنات حقيقية وهدفًا بصريًا واضحًا."
+   ],
+   "prereqs": [
+    "Claude Code مثبّت",
+    "لقطة شاشة لموقع يعجبك شكله"
+   ],
+   "warn": "اقتبس الإحساس العام من المرجع، لا شعاره ولا صوره ولا نصوصه.",
+   "steps": [
+    {
+     "h": "ثبّت UI UX Pro Max",
+     "p": "مهارة مجانية لذكاء التصميم: أنظمة التصميم والألوان والخطوط وفحوص سهولة الوصول."
+    },
+    {
+     "h": "استخدم مكوّنات 21st.dev",
+     "p": "تصفّح 21st.dev، وافتح مكوّنًا يعجبك، وانسخ الأمر الخاص به، ثم الصقه في Claude Code."
+    },
+    {
+     "h": "أعطه مرجعًا",
+     "p": "احفظ لقطة الشاشة في مجلد المشروع باسم reference.png."
+    }
+   ],
+   "prompts": [
+    "أمر البناء",
+    "مراجعة التحسين"
+   ]
+  },
+  "slug": "pro-ui-design"
+ },
+ {
+  "kw": "PROMPT",
+  "title": "Build your own <span class=\"em\">prompt builder.</span>",
+  "lead": "Write half a sentence in Arabic. Get back a full, detailed prompt for images, video, writing or code.",
+  "inside": "The instructions block, and where to paste it in Claude, ChatGPT and Gemini.",
+  "what": [
+   "Most bad AI output starts with a bad prompt. Instead of learning prompt engineering, make an assistant whose only job is to write prompts for you."
+  ],
+  "prereqs": [
+   "Claude, ChatGPT or Gemini (any plan)"
+  ],
+  "warn": "Tell it which tool the prompt is for. A Midjourney prompt and a Claude Code prompt look nothing alike.",
+  "steps": [
+   {
+    "h": "Create the assistant",
+    "p": "Claude: Projects → New project. ChatGPT: Projects → New project (or a custom GPT). Gemini: Gems → New Gem. Name it Prompt Builder.",
+    "code": ""
+   },
+   {
+    "h": "Paste the instructions",
+    "p": "Use the block below as its instructions.",
+    "code": ""
+   }
+  ],
+  "prompts": [
+   {
+    "h": "Instructions block",
+    "code": "You write prompts. I'll give you a rough idea (often in Lebanese Arabic) and the tool it's for.\n1. Ask me up to 3 short questions if something important is missing.\n2. Write one complete prompt in English: role, goal, context, constraints, output format.\n3. For image or video tools add subject, setting, lighting, lens, style and aspect ratio.\n4. Return only the prompt in a code block, then one line on what to change for a different result."
+   },
+   {
+    "h": "Use it",
+    "code": "badde soura la product bi studio, khalfiyye bayda, la Instagram. tool: Nano Banana"
+   }
+  ],
+  "credit": [],
+  "number": 8,
+  "ar": {
+   "title": "ابنِ <span class=\"em\">مولّد الأوامر</span> الخاص بك.",
+   "lead": "اكتب نصف جملة بالعربية، واحصل على أمر كامل ومفصّل للصور أو الفيديو أو الكتابة أو البرمجة.",
+   "inside": "نص التعليمات، وأين تلصقه في Claude وChatGPT وGemini.",
+   "what": [
+    "معظم النتائج الضعيفة تبدأ بأمر ضعيف. بدل أن تتعلم هندسة الأوامر، أنشئ مساعدًا مهمته الوحيدة كتابة الأوامر لك."
+   ],
+   "prereqs": [
+    "Claude أو ChatGPT أو Gemini (أي اشتراك)"
+   ],
+   "warn": "أخبره بالأداة التي سيُستخدم فيها الأمر، فأمر Midjourney يختلف تمامًا عن أمر Claude Code.",
+   "steps": [
+    {
+     "h": "أنشئ المساعد",
+     "p": "في Claude: Projects ثم New project. في ChatGPT: Projects ثم New project (أو GPT مخصص). في Gemini: Gems ثم New Gem. سمّه Prompt Builder."
+    },
+    {
+     "h": "الصق التعليمات",
+     "p": "استخدم النص أدناه كتعليمات له."
+    }
+   ],
+   "prompts": [
+    "نص التعليمات",
+    "طريقة الاستخدام"
+   ]
+  },
+  "slug": "prompt-builder"
+ },
+ {
+  "kw": "MARKETING",
+  "title": "A marketing team, <span class=\"em\">installed.</span>",
+  "lead": "Dozens of free marketing skills for Claude Code: CRO, copywriting, SEO, analytics, landing pages.",
+  "inside": "Install the library, the 3 skills to try first, and the prompts that audit your sales page.",
+  "what": [
+   "marketingskills is a free community library by Corey Haines. Each skill is a Markdown file of frameworks Claude loads when the task calls for it: conversion audits, page copy, SEO, pricing pages, email."
+  ],
+  "prereqs": [
+   "Claude Code installed",
+   "Node.js (for the npx install)",
+   "A live page you want to improve"
+  ],
+  "warn": "It's community-written, not official Anthropic. Skim each SKILL.md you install. It's plain text, two minutes each.",
+  "steps": [
+   {
+    "h": "Install the library",
+    "p": "Install all of it, or pick skills when it asks.",
+    "code": "npx skills add coreyhaines31/marketingskills"
+   },
+   {
+    "h": "Restart Claude Code and check",
+    "p": "Ask Claude which marketing skills it can see.",
+    "code": "What marketing skills do you have installed? One line each."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Sales page audit",
+    "code": "Audit [URL] for conversion. Why would a visitor leave without buying?\nRank the top 10 fixes by expected impact and effort."
+   },
+   {
+    "h": "2. Rewrite the hero",
+    "code": "Rewrite the headline, subheadline and CTA for [URL]. Give 3 options.\nAudience: [who]. Offer: [what]. Plain words, no hype."
+   },
+   {
+    "h": "3. SEO quick wins",
+    "code": "List the 10 easiest SEO fixes for [URL]: titles, meta, headings, internal links, speed."
+   }
+  ],
+  "credit": [
+   "marketingskills by Corey Haines (github.com/coreyhaines31/marketingskills)"
+  ],
+  "number": 9,
+  "ar": {
+   "title": "فريق تسويق <span class=\"em\">مثبّت لديك.</span>",
+   "lead": "عشرات مهارات التسويق المجانية لـ Claude Code: تحسين معدل التحويل، وكتابة الإعلانات، وتحسين محركات البحث، والتحليلات، وصفحات الهبوط.",
+   "inside": "ثبّت المكتبة، وجرّب أول ثلاث مهارات، واستخدم الأوامر التي تراجع صفحة المبيعات لديك.",
+   "what": [
+    "marketingskills مكتبة مجتمعية مجانية من Corey Haines. كل مهارة ملف Markdown يحتوي أطرًا يحمّلها Claude عندما تتطلبها المهمة: مراجعات التحويل، ونصوص الصفحات، وتحسين محركات البحث، وصفحات الأسعار، والبريد الإلكتروني."
+   ],
+   "prereqs": [
+    "Claude Code مثبّت",
+    "Node.js (لأمر npx)",
+    "صفحة منشورة تريد تحسينها"
+   ],
+   "warn": "المكتبة من كتابة المجتمع وليست رسمية من Anthropic. تصفّح كل ملف SKILL.md قبل تثبيته، فهو نص عادي يُقرأ في دقيقتين.",
+   "steps": [
+    {
+     "h": "ثبّت المكتبة",
+     "p": "ثبّتها كلها، أو اختر المهارات عندما تسألك."
+    },
+    {
+     "h": "أعد تشغيل Claude Code وتحقق",
+     "p": "اسأل Claude عن مهارات التسويق التي يراها."
+    }
+   ],
+   "prompts": [
+    "1. مراجعة صفحة المبيعات",
+    "2. إعادة كتابة العنوان الرئيسي",
+    "3. مكاسب سريعة في محركات البحث"
+   ]
+  },
+  "slug": "marketing-skills"
+ },
+ {
+  "kw": "CODES",
+  "title": "5 Claude Code commands <span class=\"em\">worth knowing.</span>",
+  "lead": "Built into Claude Code, free, and most people never use them.",
+  "inside": "/init, plan mode, /compact, /resume and /agents: what each does and when to reach for it.",
+  "what": [
+   "These come with Claude Code. Nothing to install. Type / in any session to see the full list."
+  ],
+  "prereqs": [
+   "Claude Code installed"
+  ],
+  "warn": "Commands change between versions. If one is missing, update Claude Code and type / to see the current list.",
+  "steps": [
+   {
+    "h": "/init",
+    "p": "Reads your project and writes a CLAUDE.md: what the project is, how it's organized, how to run it. Run it once per project, then edit the file yourself.",
+    "code": "/init"
+   },
+   {
+    "h": "Plan mode (Shift+Tab)",
+    "p": "Press Shift+Tab until you see plan mode. Claude researches and proposes a plan without touching files. Approve it, then it builds.",
+    "code": "Shift+Tab"
+   },
+   {
+    "h": "/compact",
+    "p": "Long chat getting slow or forgetful? It summarizes the conversation and keeps going with the important parts.",
+    "code": "/compact keep the decisions and the open to-dos"
+   },
+   {
+    "h": "/resume",
+    "p": "Closed the terminal? Pick a past session and continue where you stopped.",
+    "code": "/resume"
+   },
+   {
+    "h": "/agents",
+    "p": "Create subagents, each with its own job and instructions, that Claude can hand work to in parallel.",
+    "code": "/agents"
+   }
+  ],
+  "prompts": [],
+  "credit": [
+   "Claude Code by Anthropic (docs.claude.com)"
+  ],
+  "number": 10,
+  "ar": {
+   "title": "5 أوامر في Claude Code <span class=\"em\">تستحق المعرفة.</span>",
+   "lead": "مدمجة في Claude Code ومجانية، ومعظم الناس لا يستخدمونها أبدًا.",
+   "inside": "‏/init ووضع التخطيط و‏/compact و‏/resume و‏/agents: ماذا يفعل كل منها ومتى تستخدمه.",
+   "what": [
+    "هذه الأوامر تأتي مع Claude Code ولا تحتاج إلى تثبيت. اكتب / في أي جلسة لترى القائمة كاملة."
+   ],
+   "prereqs": [
+    "Claude Code مثبّت"
+   ],
+   "warn": "تتغير الأوامر بين الإصدارات. إذا لم تجد أمرًا، حدّث Claude Code واكتب / لترى القائمة الحالية.",
+   "steps": [
+    {
+     "h": "/init",
+     "p": "يقرأ مشروعك ويكتب ملف CLAUDE.md: ما المشروع، وكيف هو منظّم، وكيف يُشغَّل. شغّله مرة واحدة لكل مشروع، ثم عدّل الملف بنفسك."
+    },
+    {
+     "h": "وضع التخطيط (Shift+Tab)",
+     "p": "اضغط Shift+Tab حتى يظهر plan mode. يبحث Claude ويقترح خطة دون أن يلمس الملفات، ثم يبني بعد موافقتك."
+    },
+    {
+     "h": "/compact",
+     "p": "هل أصبحت المحادثة طويلة وبطيئة أو بدأ ينسى؟ يلخّص المحادثة ويكمل بالأجزاء المهمة."
+    },
+    {
+     "h": "/resume",
+     "p": "أغلقت الطرفية؟ اختر جلسة سابقة وأكمل من حيث توقفت."
+    },
+    {
+     "h": "/agents",
+     "p": "أنشئ وكلاء فرعيين، لكل منهم مهمته وتعليماته، يسلّمهم Claude العمل بالتوازي."
+    }
+   ],
+   "prompts": []
+  },
+  "slug": "claude-code-commands"
+ },
+ {
+  "kw": "PLAYBOOK",
+  "title": "One agent. <span class=\"em\">A playbook per job.</span>",
+  "lead": "Stop building 15 agents that half work. Build one that has a written playbook for every job you hand it.",
+  "inside": "The interview prompt, the playbook template, and the folder setup that makes it get better every run.",
+  "what": [
+   "Separate agents for every task means separate context and separate bugs. One agent that reads a playbook before each job is simpler to fix and improves as you edit the playbook."
+  ],
+  "prereqs": [
+   "Claude Code (or a Claude Project)",
+   "One job you do every week"
+  ],
+  "warn": "Start with one playbook. Run it 3 times, fix it after each run, then write the next.",
+  "steps": [
+   {
+    "h": "Make the folders",
+    "p": "One project folder for your business.",
+    "code": "business/\n  CLAUDE.md        # who you are, rules, which playbook to use when\n  playbooks/       # one .md per job\n  toolbox/         # templates, approved scripts, past outputs"
+   },
+   {
+    "h": "Interview yourself",
+    "p": "Run the interview prompt for one job.",
+    "code": ""
+   },
+   {
+    "h": "Point CLAUDE.md at it",
+    "p": "Add one line per playbook.",
+    "code": "Before any [job], read playbooks/[job].md and use files from toolbox/."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "Interview",
+    "code": "Interview me about how I do [job], one question at a time, until you could do it without me.\nAsk about inputs, steps, tools, quality checks, and mistakes I've made before."
+   },
+   {
+    "h": "Write the playbook",
+    "code": "Turn the interview into playbooks/[job].md with: goal, inputs, steps, templates to use,\nquality checklist, and never-do rules. Keep it under one page."
+   },
+   {
+    "h": "After every run",
+    "code": "What went wrong or took too long this time? Update the playbook so it doesn't happen again."
+   }
+  ],
+  "credit": [],
+  "number": 11,
+  "ar": {
+   "title": "وكيل واحد. <span class=\"em\">ودليل تشغيل لكل مهمة.</span>",
+   "lead": "توقّف عن بناء 15 وكيلًا يعمل نصفها فقط. ابنِ وكيلًا واحدًا لديه دليل تشغيل مكتوب لكل مهمة تعطيه إياها.",
+   "inside": "أمر المقابلة، وقالب دليل التشغيل، وتنظيم المجلدات الذي يجعله يتحسن مع كل تشغيل.",
+   "what": [
+    "وكيل منفصل لكل مهمة يعني سياقًا منفصلًا وأخطاء منفصلة. أما وكيل واحد يقرأ دليل التشغيل قبل كل مهمة فهو أسهل في الإصلاح، ويتحسن كلما عدّلت الدليل."
+   ],
+   "prereqs": [
+    "Claude Code (أو Project في Claude)",
+    "مهمة واحدة تؤديها كل أسبوع"
+   ],
+   "warn": "ابدأ بدليل واحد. شغّله 3 مرات وأصلحه بعد كل مرة، ثم اكتب الدليل التالي.",
+   "steps": [
+    {
+     "h": "أنشئ المجلدات",
+     "p": "مجلد مشروع واحد لعملك."
+    },
+    {
+     "h": "أجرِ مقابلة مع نفسك",
+     "p": "شغّل أمر المقابلة لمهمة واحدة."
+    },
+    {
+     "h": "اربط CLAUDE.md بالدليل",
+     "p": "أضف سطرًا واحدًا لكل دليل."
+    }
+   ],
+   "prompts": [
+    "المقابلة",
+    "كتابة الدليل",
+    "بعد كل تشغيل"
+   ]
+  },
+  "slug": "one-agent-playbooks"
+ },
+ {
+  "kw": "POST",
+  "title": "Post everywhere <span class=\"em\">from Claude.</span>",
+  "lead": "One video, four platforms, zero apps open. Claude schedules it through Zernio and waits for your OK.",
+  "inside": "Connect your accounts in Zernio, plug its MCP into Claude, and the prompts for captions and scheduling.",
+  "what": [
+   "Zernio is a social media API with a hosted MCP server. Connect your accounts once and Claude can post, schedule and pull analytics across Instagram, TikTok, YouTube, Facebook, LinkedIn and more."
+  ],
+  "prereqs": [
+   "A Zernio account (check current pricing)",
+   "Your social accounts",
+   "Claude desktop or Claude Code"
+  ],
+  "warn": "Always ask for a draft and approve before it publishes. A wrong caption on four platforms at once is four problems.",
+  "steps": [
+   {
+    "h": "Connect accounts",
+    "p": "Sign up at zernio.com and connect each profile you post to.",
+    "code": ""
+   },
+   {
+    "h": "Get your API key",
+    "p": "Create a key in Zernio's dashboard. Keep it private.",
+    "code": ""
+   },
+   {
+    "h": "Add the MCP",
+    "p": "Follow Zernio's MCP setup page for your app. The hosted server lives at:",
+    "code": "https://mcp.zernio.com/mcp"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "Captions",
+    "code": "Write a caption for each platform for this video: [topic]. Instagram and TikTok in Lebanese Arabic\nwith a comment keyword, YouTube with a searchable title, Facebook short. Show me first."
+   },
+   {
+    "h": "Schedule",
+    "code": "Schedule [file] to Instagram, TikTok, YouTube Shorts and Facebook tomorrow at 21:00 Beirut time\nwith the approved captions. Confirm the list back before you schedule."
+   }
+  ],
+  "credit": [
+   "Zernio (zernio.com)"
+  ],
+  "number": 12,
+  "ar": {
+   "title": "انشر في كل المنصات <span class=\"em\">من Claude.</span>",
+   "lead": "فيديو واحد وأربع منصات دون فتح أي تطبيق. يجدول Claude النشر عبر Zernio وينتظر موافقتك.",
+   "inside": "اربط حساباتك في Zernio، وأضف خادم MCP الخاص به إلى Claude، ثم استخدم أوامر الكتابة والجدولة.",
+   "what": [
+    "Zernio واجهة برمجية لوسائل التواصل الاجتماعي مع خادم MCP مستضاف. اربط حساباتك مرة واحدة، فيستطيع Claude النشر والجدولة وسحب الإحصاءات عبر Instagram وTikTok وYouTube وFacebook وLinkedIn وغيرها."
+   ],
+   "prereqs": [
+    "حساب Zernio (راجع الأسعار الحالية)",
+    "حساباتك على المنصات",
+    "تطبيق Claude لسطح المكتب أو Claude Code"
+   ],
+   "warn": "اطلب دائمًا مسودة ووافق عليها قبل النشر. نص خاطئ على أربع منصات في وقت واحد يعني أربع مشكلات.",
+   "steps": [
+    {
+     "h": "اربط الحسابات",
+     "p": "سجّل في zernio.com واربط كل حساب تنشر عليه."
+    },
+    {
+     "h": "احصل على مفتاح API",
+     "p": "أنشئ مفتاحًا من لوحة تحكم Zernio واحتفظ به سرًا."
+    },
+    {
+     "h": "أضف خادم MCP",
+     "p": "اتبع صفحة إعداد MCP في Zernio للتطبيق الذي تستخدمه. الخادم المستضاف على العنوان:"
+    }
+   ],
+   "prompts": [
+    "النصوص المرافقة",
+    "الجدولة"
+   ]
+  },
+  "slug": "auto-posting"
+ },
+ {
+  "kw": "MOTION",
+  "title": "Your website as a <span class=\"em\">launch video.</span>",
+  "lead": "One free skill turns a site or project into a short animated launch video, rendered in code.",
+  "inside": "Install brag, the two commands, and how to get the format you want.",
+  "what": [
+   "brag is a free Claude Code skill by latent-spaces. It plans a storyboard, writes the animation as code and renders an mp4. /brag works on a project folder; /brag-slim also takes a website URL."
+  ],
+  "prereqs": [
+   "Claude Code installed",
+   "Your website URL or project folder"
+  ],
+  "warn": "Renders take a few minutes and use a fair amount of tokens. Start with one short video.",
+  "steps": [
+   {
+    "h": "Install",
+    "p": "Inside Claude Code:",
+    "code": "/plugin marketplace add latent-spaces/brag\n/plugin install brag@brag"
+   },
+   {
+    "h": "Run it",
+    "p": "From a site URL, or inside a project folder:",
+    "code": "/brag-slim https://yoursite.com\n/brag"
+   },
+   {
+    "h": "Find the output",
+    "p": "It writes a brag-output folder with the storyboard and the mp4.",
+    "code": "brag-output/brag.mp4"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "Ask for the format",
+    "code": "Make it 9:16 for Reels, 20 seconds, our brand color [hex], and end on the URL."
+   }
+  ],
+  "credit": [
+   "brag by latent-spaces (github.com/latent-spaces/brag)"
+  ],
+  "number": 13,
+  "ar": {
+   "title": "موقعك على شكل <span class=\"em\">فيديو إطلاق.</span>",
+   "lead": "مهارة مجانية واحدة تحوّل موقعًا أو مشروعًا إلى فيديو إطلاق قصير متحرك، يُنتَج بالبرمجة.",
+   "inside": "ثبّت brag، واستخدم الأمرين، واحصل على المقاس الذي تريده.",
+   "what": [
+    "brag مهارة مجانية لـ Claude Code من latent-spaces. تخطط لوحة القصة، وتكتب الحركة كبرمجة، وتنتج ملف mp4. يعمل الأمر ‏/brag على مجلد مشروع، بينما يقبل ‏/brag-slim رابط موقع أيضًا."
+   ],
+   "prereqs": [
+    "Claude Code مثبّت",
+    "رابط موقعك أو مجلد مشروعك"
+   ],
+   "warn": "يستغرق الإنتاج بضع دقائق ويستهلك قدرًا لا بأس به من الرموز. ابدأ بفيديو قصير واحد.",
+   "steps": [
+    {
+     "h": "التثبيت",
+     "p": "داخل Claude Code:"
+    },
+    {
+     "h": "التشغيل",
+     "p": "من رابط موقع، أو من داخل مجلد مشروع:"
+    },
+    {
+     "h": "اعثر على الناتج",
+     "p": "تنشئ مجلدًا باسم brag-output فيه لوحة القصة وملف mp4."
+    }
+   ],
+   "prompts": [
+    "اطلب المقاس"
+   ]
+  },
+  "slug": "website-to-video"
+ },
+ {
+  "kw": "LEAN",
+  "title": "The lean <span class=\"em\">Claude Code</span> setup.",
+  "lead": "Delete most of the skills you downloaded. One good CLAUDE.md does more than fifty of them.",
+  "inside": "The audit prompt, a CLAUDE.md template for business owners, and the rule for when a skill is actually worth it.",
+  "what": [
+   "Models improve faster than people write skills, so many installed skills fix problems that no longer exist. Too much setup also gets ignored. Context about you and your business is what Claude is usually missing."
+  ],
+  "prereqs": [
+   "Claude Code installed"
+  ],
+  "warn": "Don't delete blind. Run the audit, read the list, then remove.",
+  "steps": [
+   {
+    "h": "Audit what you have",
+    "p": "Run the audit prompt in your main project.",
+    "code": ""
+   },
+   {
+    "h": "Write your CLAUDE.md",
+    "p": "Fill this in and save it at the root of your project.",
+    "code": "# [Business name]\n## What we do\n[one paragraph: offer, price, who buys]\n## Customers\n[who they are, what they struggle with]\n## Voice\n[how we write + 3 real examples]\n## Tools\n[the actual stack: CRM, payments, site]\n## Rules\n[never do / always do]"
+   },
+   {
+    "h": "The skill rule",
+    "p": "Make a skill only after you've done the same job by hand 3 times and know the steps.",
+    "code": ""
+   }
+  ],
+  "prompts": [
+   {
+    "h": "Audit",
+    "code": "List every skill, plugin and MCP you can see. For each: what it does, when you last\nneeded it in this project, and whether a plain request would work just as well.\nRecommend keep, merge or remove. Don't change anything yet."
+   }
+  ],
+  "credit": [],
+  "number": 14,
+  "ar": {
+   "title": "إعداد <span class=\"em\">Claude Code</span> الخفيف.",
+   "lead": "احذف معظم المهارات التي نزّلتها. ملف CLAUDE.md واحد جيد يفيدك أكثر من خمسين مهارة.",
+   "inside": "أمر المراجعة، وقالب CLAUDE.md لأصحاب الأعمال، والقاعدة التي تحدد متى تستحق المهارة فعلًا.",
+   "what": [
+    "تتطور النماذج أسرع مما يكتب الناس المهارات، لذلك تعالج كثير من المهارات المثبّتة مشكلات لم تعد موجودة. كما أن الإعداد الزائد يُتجاهَل. ما ينقص Claude عادة هو السياق عنك وعن عملك."
+   ],
+   "prereqs": [
+    "Claude Code مثبّت"
+   ],
+   "warn": "لا تحذف دون مراجعة. شغّل أمر المراجعة واقرأ القائمة، ثم احذف.",
+   "steps": [
+    {
+     "h": "راجع ما لديك",
+     "p": "شغّل أمر المراجعة في مشروعك الرئيسي."
+    },
+    {
+     "h": "اكتب ملف CLAUDE.md",
+     "p": "املأ هذا القالب واحفظه في جذر مشروعك."
+    },
+    {
+     "h": "قاعدة المهارات",
+     "p": "لا تنشئ مهارة إلا بعد أن تؤدي المهمة نفسها يدويًا 3 مرات وتعرف خطواتها."
+    }
+   ],
+   "prompts": [
+    "المراجعة"
+   ]
+  },
+  "slug": "lean-setup"
+ },
+ {
+  "kw": "PHONE",
+  "slug": "phone-agent",
+  "number": 15,
+  "title": "Let Claude Code <span class=\"em\">use your phone.</span>",
+  "lead": "Google's free, open-source Artemis turns plain instructions into real taps on an Android phone, and plugs into Claude Code through its own MCP server.",
+  "inside": "Install Artemis, connect an Android phone or emulator, hook it into Claude Code, and run your first phone tasks.",
+  "what": [
+   "Artemis is an open-source project on Google's GitHub (Apache 2.0). You describe a task in plain words and it drives a real Android device: opening apps, tapping through screens, filling forms, changing settings, then reporting back with logs.",
+   "It ships with an MCP server, so Claude Code can hand it phone tasks in the middle of a bigger job: test your app on a real device, or take the boring daily phone chores off your hands."
+  ],
+  "prereqs": [
+   "An Android phone with USB debugging on, or an Android emulator (iPhone is not supported)",
+   "A Mac, Linux or Windows computer with git and Python 3.12+",
+   "Claude Code installed",
+   "An API key for a vision-capable model (the setup asks which one)"
+  ],
+  "warn": "It really taps and types on the device, so it can change settings, send messages or create accounts. Start on an emulator or a spare phone and keep banking and payment apps off it. The 99% success rate is Google's own benchmark number.",
+  "steps": [
+   {
+    "h": "Turn on USB debugging",
+    "p": "On the phone: Settings, About phone, tap Build number 7 times. Then Settings, Developer options, turn on USB debugging. Plug it into your computer and accept the prompt. No spare phone? Start an emulator in Android Studio instead.",
+    "code": ""
+   },
+   {
+    "h": "Install Artemis",
+    "p": "The start script installs anything missing (ADB, scrcpy, FFmpeg, uv). On Windows, run start.bat instead.",
+    "code": "git clone https://github.com/google/artemis.git && cd artemis\n./start.sh"
+   },
+   {
+    "h": "Run the first-time setup",
+    "p": "It walks you through your model and API key, and can set up the MCP connection for you.",
+    "code": "uv run artemis init"
+   },
+   {
+    "h": "Connect it to Claude Code",
+    "p": "This registers the MCP server and adds its usage rules at ~/.claude/rules/artemis.md. Restart Claude Code after.",
+    "code": "uv run artemis mcp --install claude"
+   },
+   {
+    "h": "Check that it works",
+    "p": "doctor checks the device, tools and credentials and tells you what to fix. Then run one task straight from the terminal.",
+    "code": "uv run artemis doctor\nuv run artemis run \"Open Settings, find Battery and tell me current level\" --profile flash"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "First task from Claude Code",
+    "code": "Use the Artemis MCP. On the connected Android phone, open Settings, find Battery,\nand tell me the current level and which app used the most battery today."
+   },
+   {
+    "h": "Test your own app",
+    "code": "Use Artemis on the connected phone. Open [your app], go through sign-up and the first\npurchase screen with test data, and report every step with a screenshot plus anything that looked broken."
+   },
+   {
+    "h": "A daily phone chore",
+    "code": "Use Artemis. Open [app] on the phone, check [what you need], and give me a one-line summary.\nDon't change settings or send anything without asking me first."
+   }
+  ],
+  "credit": [
+   "Artemis by Google (github.com/google/artemis, Apache 2.0)"
+  ],
+  "ar": {
+   "title": "دع Claude Code <span class=\"em\">يستخدم هاتفك.</span>",
+   "lead": "أداة Artemis المجانية ومفتوحة المصدر من Google تحوّل التعليمات العادية إلى لمسات حقيقية على هاتف Android، وتتصل بـ Claude Code عبر خادم MCP خاص بها.",
+   "inside": "ثبّت Artemis، واربط هاتف Android أو محاكيًا، ثم صِله بـ Claude Code وشغّل أولى مهام الهاتف.",
+   "what": [
+    "Artemis مشروع مفتوح المصدر على حساب Google في GitHub بترخيص Apache 2.0. تصف المهمة بكلمات عادية فيتحكم في جهاز Android حقيقي: يفتح التطبيقات، وينتقل بين الشاشات، ويملأ النماذج، ويغيّر الإعدادات، ثم يعود إليك بالنتيجة والسجلات.",
+    "يأتي مع خادم MCP، فيستطيع Claude Code أن يسلّمه مهام الهاتف في منتصف عمل أكبر: اختبار تطبيقك على جهاز حقيقي، أو إنجاز المهام اليومية المملة على الهاتف بدلًا منك."
+   ],
+   "prereqs": [
+    "هاتف Android مفعّل فيه تصحيح USB، أو محاكي Android (لا يدعم iPhone)",
+    "حاسوب Mac أو Linux أو Windows عليه git وPython 3.12 أو أحدث",
+    "Claude Code مثبّت",
+    "مفتاح API لنموذج يدعم الرؤية (يسألك الإعداد عن النموذج)"
+   ],
+   "warn": "الأداة تلمس الشاشة وتكتب فعلًا على الجهاز، لذلك قد تغيّر الإعدادات أو ترسل رسائل أو تنشئ حسابات. ابدأ بمحاكٍ أو هاتف احتياطي، وأبعد تطبيقات البنوك والدفع عنه. نسبة النجاح 99% رقم تعلنه Google من اختبارها الخاص.",
+   "steps": [
+    {
+     "h": "فعّل تصحيح USB",
+     "p": "على الهاتف: الإعدادات ثم حول الهاتف، واضغط على رقم الإصدار 7 مرات. ثم الإعدادات ثم خيارات المطوّر، وفعّل تصحيح USB. صِل الهاتف بالحاسوب ووافق على الطلب. إن لم يكن لديك هاتف احتياطي، شغّل محاكيًا من Android Studio."
+    },
+    {
+     "h": "ثبّت Artemis",
+     "p": "يثبّت سكربت البدء ما ينقصك تلقائيًا (ADB وscrcpy وFFmpeg وuv). على Windows شغّل start.bat بدلًا منه."
+    },
+    {
+     "h": "شغّل الإعداد الأولي",
+     "p": "يرشدك إلى اختيار النموذج وإدخال مفتاح API، ويمكنه إعداد اتصال MCP نيابة عنك."
+    },
+    {
+     "h": "اربطه بـ Claude Code",
+     "p": "يسجّل هذا الأمر خادم MCP ويضيف قواعد الاستخدام في ~/.claude/rules/artemis.md. أعد تشغيل Claude Code بعده."
+    },
+    {
+     "h": "تحقّق من أنه يعمل",
+     "p": "يفحص الأمر doctor الجهاز والأدوات وبيانات الاعتماد ويخبرك بما يجب إصلاحه. ثم شغّل مهمة واحدة مباشرة من الطرفية."
+    }
+   ],
+   "prompts": [
+    "أول مهمة من Claude Code",
+    "اختبر تطبيقك",
+    "مهمة يومية على الهاتف"
+   ]
+  }
+ },
+ {
+  "kw": "GRAPH",
+  "slug": "graphify",
+  "number": 16,
+  "title": "Stop Claude Code from <span class=\"em\">re-reading everything.</span>",
+  "lead": "Graphify turns your project into a knowledge graph once, so every new Claude Code session navigates the map instead of burning tokens on raw files.",
+  "inside": "Install Graphify, build the graph for your project, keep it updated, and the prompts that make Claude use the graph first.",
+  "what": [
+   "Every new Claude Code session starts by reading files to understand your project, and on a big repo that eats thousands of tokens before you ask anything. Graphify is a free /graphify skill that scans the project once and builds a knowledge graph of code, docs, configs and PDFs: what connects to what, and why.",
+   "After that, Claude answers codebase questions by querying the graph instead of opening file after file. It also writes a GRAPH_REPORT.md and an interactive graph.html so you can see your own project's map."
+  ],
+  "prereqs": [
+   "Claude Code installed",
+   "Python 3.10 or newer",
+   "A project big enough to matter (dozens of files, not five)"
+  ],
+  "warn": "Savings depend on size. Graphify's own test showed 71.5x fewer tokens per question on a 52-file project, 5.4x on 4 files, and about 1x on a tiny one. Code is parsed locally, but docs and images go through Claude to extract, so that part does use tokens.",
+  "steps": [
+   {
+    "h": "Install it",
+    "p": "The package name has a double y, the command doesn't. If pip complains about an externally managed environment on Mac, use pipx install graphifyy instead, then run graphify install.",
+    "code": "pip install graphifyy && graphify install"
+   },
+   {
+    "h": "Build the graph",
+    "p": "Open Claude Code in your project's root folder and run it once. It writes a graphify-out folder with graph.html, GRAPH_REPORT.md and graph.json, and prints a token benchmark at the end.",
+    "code": "/graphify ."
+   },
+   {
+    "h": "Keep it fresh",
+    "p": "After big changes, update the graph instead of rebuilding it from zero.",
+    "code": "/graphify . --update"
+   },
+   {
+    "h": "Ask the graph directly",
+    "p": "Query, trace a path between two things, or get one piece explained.",
+    "code": "/graphify query \"how does checkout talk to the payment provider?\"\n/graphify path \"Checkout\" \"PaymentClient\"\n/graphify explain \"OrderService\""
+   }
+  ],
+  "prompts": [
+   {
+    "h": "Map a project you just opened",
+    "code": "Read graphify-out/GRAPH_REPORT.md and give me a one-page map of this project:\nthe main modules, how data flows, and the 5 files I should read first."
+   },
+   {
+    "h": "Plan a change safely",
+    "code": "Before you edit anything, use /graphify query and /graphify path to find everything\nthat touches [feature]. Then propose a plan and list every file you'd change."
+   },
+   {
+    "h": "Make it the default (add to CLAUDE.md)",
+    "code": "For questions about how this codebase fits together, query the graphify graph first\n(/graphify query) before opening raw files. Run /graphify . --update after large changes."
+   }
+  ],
+  "credit": [
+   "graphify by Graphify-Labs (github.com/Graphify-Labs/graphify)"
+  ],
+  "ar": {
+   "title": "أوقف Claude Code عن <span class=\"em\">إعادة قراءة كل شيء.</span>",
+   "lead": "يحوّل Graphify مشروعك إلى خريطة معرفية مرة واحدة، فتتنقّل كل جلسة جديدة في Claude Code عبر الخريطة بدل استهلاك الرموز على قراءة الملفات الخام.",
+   "inside": "ثبّت Graphify، وابنِ الخريطة لمشروعك، وحدّثها باستمرار، واستخدم الأوامر التي تجعل Claude يعود إلى الخريطة أولًا.",
+   "what": [
+    "تبدأ كل جلسة جديدة في Claude Code بقراءة الملفات لفهم مشروعك، وفي المشاريع الكبيرة يستهلك ذلك آلاف الرموز قبل أن تسأل أي سؤال. Graphify مهارة مجانية تُستدعى بالأمر /graphify، تفحص المشروع مرة واحدة وتبني خريطة معرفية للكود والوثائق والإعدادات وملفات PDF: ما الذي يرتبط بماذا ولماذا.",
+    "بعد ذلك يجيب Claude عن أسئلة المشروع بالاستعلام من الخريطة بدل فتح الملفات واحدًا تلو الآخر. ويكتب أيضًا ملف GRAPH_REPORT.md وصفحة graph.html تفاعلية لترى خريطة مشروعك بنفسك."
+   ],
+   "prereqs": [
+    "Claude Code مثبّت",
+    "Python 3.10 أو أحدث",
+    "مشروع كبير بما يكفي ليُحدث فرقًا (عشرات الملفات، لا خمسة)"
+   ],
+   "warn": "يعتمد التوفير على حجم المشروع. أظهر اختبار Graphify نفسه استهلاكًا أقل بـ 71.5 مرة لكل سؤال في مشروع من 52 ملفًا، وأقل بـ 5.4 مرة في 4 ملفات، وفرقًا شبه معدوم في مشروع صغير جدًا. يُحلَّل الكود محليًا، أما الوثائق والصور فتمر عبر Claude لاستخراج محتواها، فيستهلك هذا الجزء رموزًا.",
+   "steps": [
+    {
+     "h": "ثبّت الأداة",
+     "p": "اسم الحزمة فيه حرفا y، أما الأمر فلا. إذا ظهر خطأ externally managed environment على Mac، استخدم pipx install graphifyy بدلًا منه، ثم شغّل graphify install."
+    },
+    {
+     "h": "ابنِ الخريطة",
+     "p": "افتح Claude Code في المجلد الرئيسي لمشروعك وشغّل الأمر مرة واحدة. ينشئ مجلد graphify-out فيه graph.html وGRAPH_REPORT.md وgraph.json، ويعرض في النهاية مقارنة لاستهلاك الرموز."
+    },
+    {
+     "h": "حدّثها باستمرار",
+     "p": "بعد التغييرات الكبيرة، حدّث الخريطة بدل بنائها من الصفر."
+    },
+    {
+     "h": "اسأل الخريطة مباشرة",
+     "p": "استعلم، أو تتبّع المسار بين عنصرين، أو اطلب شرح جزء محدد."
+    }
+   ],
+   "prompts": [
+    "ارسم خريطة لمشروع فتحته للتو",
+    "خطّط لتعديل بأمان",
+    "اجعلها الطريقة الافتراضية (أضفها إلى CLAUDE.md)"
+   ]
+  }
+ },
+ {
+  "kw": "APP",
+  "slug": "reverse-engineer",
+  "number": 17,
+  "title": "See how <span class=\"em\">any app works</span> with Claude Code.",
+  "lead": "REA is a free MCP server that lets Claude Code open up an app, trace a feature back to the code that runs it, and help you build something similar in your own project.",
+  "inside": "Install REA the safe way, connect it to Claude Code, and the prompts for learning from apps and auditing your own.",
+  "what": [
+   "REA (Reverse Engineer Anything) is an open-source MCP server and CLI, MIT licensed. It gives Claude Code the tools to inspect apps without their source code: JavaScript and Electron apps, .NET assemblies, Android APKs, native binaries, websites and saved network captures. It returns modules, routes, pseudocode and request logs, with the evidence for each finding.",
+   "It runs on your machine and hands the results to your agent. The best use for a business owner: understand how a feature you like works, then have Claude build your own version of it, or audit an app you paid someone to build."
+  ],
+  "prereqs": [
+   "Claude Code installed",
+   "Node.js 22 or newer, plus npm",
+   "For deep analysis of native apps: Ghidra (free) or Hopper / IDA (paid)",
+   "An app you own, an open-source project, or one you're allowed to examine"
+  ],
+  "warn": "Use it on software you own, open-source projects, or apps you're authorized to examine. REA's own terms rule out cracking, stolen keys and bypassing licenses, and trial versions stay under the vendor's terms. Copycat repos exist: install only from github.com/morluto/rea, rea.tools or the rea-agents npm package.",
+  "steps": [
+   {
+    "h": "Check your Node version",
+    "p": "REA needs Node.js 22.x (22.23.4 or later), 24.x (24.22.1 or later) or 26.12.1 or later. If yours is older, update it from nodejs.org first.",
+    "code": "node --version"
+   },
+   {
+    "h": "Run the setup",
+    "p": "Pick Claude Code when it asks which agents to set up, review the changes it proposes, approve them, then restart Claude Code. It registers the MCP server for you.",
+    "code": "npx rea-agents setup"
+   },
+   {
+    "h": "Optional: the terminal CLI",
+    "p": "Useful if you want to run analyses outside Claude Code.",
+    "code": "npm install --global rea-agents\nrea --help"
+   },
+   {
+    "h": "Keep it updated",
+    "p": "The project moves fast. Update before a big analysis.",
+    "code": "rea update"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "Learn a feature, build your own",
+    "code": "Use REA to understand how [feature] works in [app]. Show me the evidence for each finding,\nthen build a similar feature for my project in [folder]."
+   },
+   {
+    "h": "Audit an app you paid for",
+    "code": "Use REA on my app at [path]. Map its modules, routes and network calls,\nand list anything that looks insecure, slow or wasteful, with the evidence."
+   },
+   {
+    "h": "Understand a web flow",
+    "code": "Use REA on this saved HAR file: [path]. Explain what each request does\nand which ones I'd need to rebuild this flow in my own app."
+   }
+  ],
+  "credit": [
+   "REA by morluto (github.com/morluto/rea, MIT)",
+   "Official site: rea.tools"
+  ],
+  "ar": {
+   "title": "اكتشف كيف <span class=\"em\">يعمل أي تطبيق</span> باستخدام Claude Code.",
+   "lead": "REA خادم MCP مجاني يتيح لـ Claude Code فتح أي تطبيق، وتتبّع ميزة معينة حتى الكود الذي يشغّلها، ومساعدتك على بناء شيء مشابه في مشروعك.",
+   "inside": "ثبّت REA بالطريقة الآمنة، واربطه بـ Claude Code، واستخدم الأوامر الخاصة بالتعلّم من التطبيقات ومراجعة تطبيقاتك.",
+   "what": [
+    "REA (Reverse Engineer Anything) خادم MCP وأداة سطر أوامر مفتوحا المصدر بترخيص MIT. يمنح Claude Code أدوات فحص التطبيقات دون الحاجة إلى كودها المصدري: تطبيقات JavaScript وElectron، وملفات .NET، وتطبيقات Android بصيغة APK، والبرامج المترجمة، والمواقع، وتسجيلات الشبكة المحفوظة. ويعيد إليك الوحدات والمسارات والشيفرة الوصفية وسجلات الطلبات، مع الدليل على كل نتيجة.",
+    "يعمل على جهازك ويسلّم النتائج إلى الوكيل الذي تستخدمه. أفضل استخدام لصاحب العمل: فهم طريقة عمل ميزة تعجبك ثم جعل Claude يبني نسختك الخاصة منها، أو مراجعة تطبيق دفعت لأحد مقابل بنائه."
+   ],
+   "prereqs": [
+    "Claude Code مثبّت",
+    "Node.js الإصدار 22 أو أحدث، مع npm",
+    "للتحليل العميق للبرامج المترجمة: Ghidra (مجاني) أو Hopper أو IDA (مدفوعان)",
+    "تطبيق تملكه، أو مشروع مفتوح المصدر، أو تطبيق مسموح لك بفحصه"
+   ],
+   "warn": "استخدمه على برامج تملكها، أو مشاريع مفتوحة المصدر، أو تطبيقات مصرّح لك بفحصها. شروط REA نفسها تمنع كسر الحماية واستخدام المفاتيح المسروقة وتجاوز التراخيص، وتبقى النسخ التجريبية خاضعة لشروط الشركة المالكة. توجد مستودعات مقلّدة، فثبّته فقط من github.com/morluto/rea أو rea.tools أو حزمة rea-agents على npm.",
+   "steps": [
+    {
+     "h": "تحقّق من إصدار Node",
+     "p": "يحتاج REA إلى Node.js الإصدار 22.x (22.23.4 أو أحدث) أو 24.x (24.22.1 أو أحدث) أو 26.12.1 أو أحدث. إذا كان إصدارك أقدم، حدّثه من nodejs.org أولًا."
+    },
+    {
+     "h": "شغّل الإعداد",
+     "p": "اختر Claude Code عندما يسألك عن الوكلاء، وراجع التغييرات المقترحة ووافق عليها، ثم أعد تشغيل Claude Code. يسجّل الإعداد خادم MCP نيابة عنك."
+    },
+    {
+     "h": "اختياري: أداة الطرفية",
+     "p": "مفيدة إذا أردت تشغيل التحليلات خارج Claude Code."
+    },
+    {
+     "h": "حافظ على تحديثه",
+     "p": "المشروع يتطور بسرعة، فحدّثه قبل أي تحليل كبير."
+    }
+   ],
+   "prompts": [
+    "تعلّم ميزة وابنِ نسختك",
+    "راجع تطبيقًا دفعت مقابله",
+    "افهم مسار عمل على موقع"
+   ]
+  }
+ }
+]
