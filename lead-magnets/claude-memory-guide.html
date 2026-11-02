@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stop re-explaining yourself. Give Claude a second brain | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E9EDF3; --paper:#FAFAF8; --white:#FFFFFF; --ink:#0B1220; --muted:#5A6478; --line:#E2E6EE;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F3F6FB;
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Instrument Serif','Times New Roman',serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(11,18,32,.06),0 12px 40px rgba(11,18,32,.08);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-weight:800;font-size:54px;line-height:1.02;letter-spacing:-.03em;text-wrap:balance}
+h2{font-weight:800;font-size:34px;line-height:1.08;letter-spacing:-.02em;margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--blue);letter-spacing:0}
+h1 .em{font-size:1.1em} h2 .em{font-size:1.08em}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--blue-soft);border:1px solid var(--blue-line);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--blue);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--ink)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:16px;padding:34px 40px;background-color:var(--blue-soft);
+  background-image:radial-gradient(rgba(8,102,255,.22) 1.2px,transparent 1.3px);background-size:16px 16px;border:1px solid var(--blue-line)}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(8,102,255,.12),0 2px 6px rgba(11,18,32,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:var(--line);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--line)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;display:grid;place-items:center;font-size:17px}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-size:40px;font-weight:800;color:var(--blue);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.step h2{font-size:24px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.prompt{margin-bottom:8px}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--blue);color:#fff;border-radius:16px;padding:28px 30px}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-size:26px;letter-spacing:-.02em;text-transform:none;margin:0 0 8px;font-weight:800}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+}</style>
+</head>
+<body>
+<div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip"><span class="l-en">Comment</span><span class="l-ar">اكتب</span> · MEMORY</span></div>
+  <div class="eyebrow"><span class="l-en">Field guide · No. 34</span><span class="l-ar">دليل عملي · رقم 34</span></div>
+  <h1><span class="l-en">Stop re-explaining yourself. Give Claude <span class="em">a second brain</span>.</span><span class="l-ar">توقّف عن إعادة الشرح. امنح Claude <span class="em">ذاكرة ثانية</span>.</span></h1>
+  <p class="lead"><span class="l-en">Connect Claude Code to Google's NotebookLM through the notebooklm-py repo. A wrap-up skill saves each session, and the next session asks the notebook what it needs.</span><span class="l-ar">اربط Claude Code بأداة NotebookLM من Google عبر مستودع notebooklm-py. مهارة wrap-up تحفظ كل جلسة، والجلسة التالية تسأل الدفتر عمّا تحتاجه.</span></p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Prompt</span></div><pre>uv tool install "notebooklm-py[browser]"<span class="caret"></span></pre><div class="note"><span class="l-en">Step 01 of this guide. Copy it as is.</span><span class="l-ar">الخطوة 01 من هذا الدليل. انسخها كما هي.</span></div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0"><span class="l-en">Inside</span><span class="l-ar">في هذا الدليل</span></h3><p><span class="l-en">Install notebooklm-py, log in to Google, build a /wrap-up skill that saves every session to one notebook, and make Claude check that notebook before it starts.</span><span class="l-ar">ثبّت notebooklm-py، وسجّل الدخول إلى Google، وابنِ مهارة /wrap-up تحفظ كل جلسة في دفتر واحد، واجعل Claude يراجع هذا الدفتر قبل أن يبدأ.</span></p></div>
+    <div class="by"><div class="mono-k">K</div><div><b><span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Stop re-explaining yourself. Give Claude a second brain</span><span class="l-ar">توقّف عن إعادة الشرح. امنح Claude ذاكرة ثانية</span></span><span>MEMORY</span></div>
+  <div class="eyebrow"><span class="l-en">01 · What this is</span><span class="l-ar">01 · ما هذا</span></div>
+  <h2><span class="l-en">What you're <span class="em">setting up.</span></span><span class="l-ar">ما الذي <span class="em">ستُعدّه.</span></span></h2>
+  <p><span class="l-en">Every new Claude chat starts from zero, so you keep pasting the same context and paying for the same tokens. NotebookLM is Google's research notebook: you load sources into it and ask questions, and it answers from those sources with citations. notebooklm-py is a free, open source Python library and CLI that lets Claude Code add sources to a notebook and ask it questions from the terminal.</span><span class="l-ar">كل محادثة جديدة مع Claude تبدأ من الصفر، فتعيد لصق السياق نفسه وتدفع ثمن الـ tokens نفسها. NotebookLM هو دفتر البحث من Google: تضيف إليه مصادرك وتطرح الأسئلة، فيجيب منها مع ذكر المراجع. وnotebooklm-py مكتبة Python وأداة سطر أوامر مجانية ومفتوحة المصدر تتيح لـ Claude Code إضافة المصادر إلى دفتر وطرح الأسئلة عليه من الطرفية.</span></p>
+  <p><span class="l-en">The setup is simple. At the end of a session, a /wrap-up skill writes a short summary (decisions, open tasks, what changed) and uploads it to one memory notebook. At the start of the next one, Claude asks the notebook and pulls only what it needs, instead of you loading the whole history back in. It's for people who run Claude Code on the same projects every day.</span><span class="l-ar">الفكرة بسيطة. في نهاية الجلسة تكتب مهارة /wrap-up ملخصًا قصيرًا (القرارات، والمهام المفتوحة، وما تغيّر) وترفعه إلى دفتر ذاكرة واحد. وفي بداية الجلسة التالية يسأل Claude الدفتر ويأخذ فقط ما يحتاجه، بدل أن تعيد تحميل السجل كله. هذا الدليل لمن يستخدم Claude Code على المشاريع نفسها كل يوم.</span></p>
+  <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">Claude Code installed</li><li class="l-en">Python 3.10 or newer, plus uv (or pipx) to install the CLI</li><li class="l-en">A Google account that can open NotebookLM</li><li class="l-en">Ten minutes, and one real project to test it on</li><li class="l-ar">Claude Code مثبّت</li><li class="l-ar">Python الإصدار 3.10 أو أحدث، مع uv (أو pipx) لتثبيت الأداة</li><li class="l-ar">حساب Google يستطيع فتح NotebookLM</li><li class="l-ar">عشر دقائق، ومشروع حقيقي واحد لتجربته</li></ul>
+  <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">notebooklm-py is an unofficial library. It isn't from Google, it uses undocumented Google APIs that can break without notice, and heavy use can get rate limited. It logs in with your own Google account through a browser and saves those login cookies on your machine (under ~/.notebooklm), so treat that folder like a password: don't commit it, sync it or share it. Consider a separate Google account for this, and never use the optional master token option on your main account. Your session summaries are stored in your Google account, so leave client secrets and keys out of them.</span><span class="l-ar">notebooklm-py مكتبة غير رسمية. ليست من Google، وتستخدم واجهات Google غير موثّقة قد تتعطل دون إشعار، والاستخدام المكثف قد يخضع لحدود. تسجّل الدخول بحساب Google الخاص بك عبر المتصفح وتحفظ ملفات تعريف الارتباط الخاصة بالدخول على جهازك (داخل ~/.notebooklm)، فتعامل مع هذا المجلد ككلمة مرور: لا ترفعه إلى مستودع ولا تزامنه ولا تشاركه. فكّر في استخدام حساب Google منفصل لهذا، ولا تستخدم خيار master token الاختياري على حسابك الأساسي أبدًا. تُحفظ ملخصات جلساتك في حسابك على Google، فلا تضع فيها أسرار العملاء أو المفاتيح.</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 05</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Stop re-explaining yourself. Give Claude a second brain</span><span class="l-ar">توقّف عن إعادة الشرح. امنح Claude ذاكرة ثانية</span></span><span>MEMORY</span></div>
+  <div class="eyebrow"><span class="l-en">02 · The steps</span><span class="l-ar">02 · الخطوات</span></div><h2><span class="l-en">Set it up, <span class="em">step by step.</span></span><span class="l-ar">الإعداد <span class="em">خطوة بخطوة.</span></span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2><span class="l-en">Install notebooklm-py</span><span class="l-ar">ثبّت notebooklm-py</span></h2><p><span class="l-en">This installs the notebooklm command. No uv? Use pipx install "notebooklm-py[browser]" instead, or plain pip inside a virtualenv.</span><span class="l-ar">يثبّت هذا الأمر أداة notebooklm. لا تملك uv؟ استخدم pipx install "notebooklm-py[browser]" بدلًا منه، أو pip داخل بيئة افتراضية.</span></p><pre>uv tool install "notebooklm-py[browser]"</pre></div></div>
+  <div class="step"><div class="num">02</div><div>
+    <h2><span class="l-en">Log in to Google</span><span class="l-ar">سجّل الدخول إلى Google</span></h2><p><span class="l-en">A browser window opens and you sign in to Google. The first run downloads Chromium for this, so give it a minute. The second line checks the login works.</span><span class="l-ar">تفتح نافذة متصفح وتسجّل الدخول إلى Google. التشغيل الأول ينزّل Chromium لهذا الغرض، فامنحه دقيقة. السطر الثاني يتحقق من أن الدخول يعمل.</span></p><pre>notebooklm login
+notebooklm auth check --test --json</pre></div></div>
+  <div class="step"><div class="num">03</div><div>
+    <h2><span class="l-en">Install the skill and make your memory notebook</span><span class="l-ar">ثبّت المهارة وأنشئ دفتر الذاكرة</span></h2><p><span class="l-en">The first line installs the repo's own skill so Claude Code knows how to drive the CLI. The second creates one notebook for your session memory and makes it the active one. Copy the notebook ID it prints.</span><span class="l-ar">السطر الأول يثبّت مهارة المستودع نفسه ليعرف Claude Code كيف يشغّل الأداة. والثاني ينشئ دفترًا واحدًا لذاكرة جلساتك ويجعله الدفتر النشط. انسخ معرّف الدفتر الذي يظهر.</span></p><pre>notebooklm skill install
+notebooklm create "Claude Memory" --use</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 05</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Stop re-explaining yourself. Give Claude a second brain</span><span class="l-ar">توقّف عن إعادة الشرح. امنح Claude ذاكرة ثانية</span></span><span>MEMORY</span></div>
+  
+  <div class="step"><div class="num">04</div><div>
+    <h2><span class="l-en">Build the /wrap-up skill</span><span class="l-ar">ابنِ مهارة /wrap-up</span></h2><p><span class="l-en">Open Claude Code in your project and paste prompt 1. It writes the skill for you. Run /wrap-up at the end of a real session and check the summary shows up as a source in your notebook.</span><span class="l-ar">افتح Claude Code في مشروعك والصق الموجّه رقم 1. سيكتب المهارة لك. شغّل /wrap-up في نهاية جلسة حقيقية وتأكد أن الملخص ظهر كمصدر في دفترك.</span></p></div></div>
+  <div class="step"><div class="num">05</div><div>
+    <h2><span class="l-en">Make Claude check the notebook first</span><span class="l-ar">اجعل Claude يراجع الدفتر أولًا</span></h2><p><span class="l-en">Paste prompt 2 so Claude adds a short rule to your CLAUDE.md. From then on every new session starts by asking the notebook for recent decisions and open tasks. Note: the repo README says Google renamed NotebookLM to Gemini Notebook in July 2026, and notebooklm.google.com now redirects to notebook.google.com. The CLI and commands keep the notebooklm name.</span><span class="l-ar">الصق الموجّه رقم 2 ليضيف Claude قاعدة قصيرة إلى ملف CLAUDE.md. بعدها تبدأ كل جلسة جديدة بسؤال الدفتر عن آخر القرارات والمهام المفتوحة. ملاحظة: يذكر ملف README في المستودع أن Google غيّرت اسم NotebookLM إلى Gemini Notebook في يوليو 2026، وأن notebooklm.google.com يحوّل الآن إلى notebook.google.com. أما الأداة وأوامرها فتحتفظ باسم notebooklm.</span></p></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 05</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Stop re-explaining yourself. Give Claude a second brain</span><span class="l-ar">توقّف عن إعادة الشرح. امنح Claude ذاكرة ثانية</span></span><span>MEMORY</span></div>
+  <div class="eyebrow"><span class="l-en">03 · Copy and paste</span><span class="l-ar">03 · انسخ والصق</span></div><h2><span class="l-en">Your <span class="em">prompts.</span></span><span class="l-ar">أوامرك <span class="em">الجاهزة.</span></span></h2><p class="muted l-ar">انسخ الأوامر والنصوص كما هي باللغة الإنجليزية، فهي تعمل بدقة أكبر.</p>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">1. Build the /wrap-up skill</span><span class="l-ar">1. ابنِ مهارة /wrap-up</span></h4><pre>Build me a skill called wrap-up in ~/.claude/skills/wrap-up/SKILL.md.
+When I run /wrap-up it should:
+1. Write a short summary of this session: project name, date, decisions made, what changed (files, tools), open tasks, and anything I said to remember.
+2. Save it as a markdown file in ~/claude-memory/ named YYYY-MM-DD-project.md.
+3. Run: notebooklm use &lt;MY_NOTEBOOK_ID&gt; then notebooklm source add &lt;that file&gt;
+4. Confirm the upload worked.
+Never include API keys, passwords or client secrets in the summary.
+Use the notebooklm skill and check notebooklm --help if a command fails.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">2. Query the notebook first (CLAUDE.md line)</span><span class="l-ar">2. راجع الدفتر أولًا (سطر CLAUDE.md)</span></h4><pre>Add this rule to my CLAUDE.md:
+"Start of every session: run notebooklm use &lt;MY_NOTEBOOK_ID&gt;, then notebooklm ask "What are the latest decisions and open tasks for [this project]?" Use the answer as context. Only ask the notebook for what the task needs, don't load full history."</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">3. Pull one thing mid-session</span><span class="l-ar">3. استرجع معلومة واحدة أثناء الجلسة</span></h4><pre>Before you change anything, ask my memory notebook what we decided last time about [topic] and why.
+Quote the answer and the date, then continue.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 05</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Stop re-explaining yourself. Give Claude a second brain</span><span class="l-ar">توقّف عن إعادة الشرح. امنح Claude ذاكرة ثانية</span></span><span>MEMORY</span></div>
+  <div class="eyebrow"><span class="l-en">Done</span><span class="l-ar">تم</span></div>
+  <h2><span class="l-en">That's the <span class="em">whole setup.</span></span><span class="l-ar">هذا هو <span class="em">الإعداد كاملًا.</span></span></h2>
+  <p class="lead"><span class="l-en">Run it once this week on something real. Then tell me what it did: DM me on Instagram, I read them.</span><span class="l-ar">جرّبه هذا الأسبوع على عمل حقيقي، ثم أخبرني بالنتيجة عبر رسالة على إنستغرام، فأنا أقرأ الرسائل بنفسي.</span></p>
+  <h3><span class="l-en">Credit</span><span class="l-ar">المصادر</span></h3><ul><li>notebooklm-py by teng-lin, MIT license, unofficial (github.com/teng-lin/notebooklm-py)</li><li>NotebookLM by Google (notebooklm.google.com)</li><li>Claude Code skills by Anthropic</li></ul>
+  <div class="cta">
+    <div class="k"><span class="l-en">Built by</span><span class="l-ar">إعداد</span> <span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></div>
+    <h3><span class="l-en">Want it built for you?</span><span class="l-ar">تريد أن نبنيه لك؟</span></h3>
+    <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
+    <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
+  </div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 05</span></div>
+</section>
+<script>
+(function(){
+  var root=document.documentElement;
+  function set(l){root.dataset.lang=l;root.lang=l;root.dir=l==="ar"?"rtl":"ltr";
+    document.querySelectorAll(".lang-toggle button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
+    try{localStorage.setItem("karemops-guide-lang",l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem("karemops-guide-lang")}catch(e){}
+  set(location.hash==="#ar"?"ar":location.hash==="#en"?"en":(saved||"en"));
+  document.querySelector(".lang-toggle").addEventListener("click",function(e){var b=e.target.closest("button");if(b)set(b.dataset.l)});
+})();
+</script>
+</body>
+</html>

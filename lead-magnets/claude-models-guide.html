@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fable, Opus, Sonnet or Haiku: which one to use | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E9EDF3; --paper:#FAFAF8; --white:#FFFFFF; --ink:#0B1220; --muted:#5A6478; --line:#E2E6EE;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F3F6FB;
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Instrument Serif','Times New Roman',serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(11,18,32,.06),0 12px 40px rgba(11,18,32,.08);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-weight:800;font-size:54px;line-height:1.02;letter-spacing:-.03em;text-wrap:balance}
+h2{font-weight:800;font-size:34px;line-height:1.08;letter-spacing:-.02em;margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--blue);letter-spacing:0}
+h1 .em{font-size:1.1em} h2 .em{font-size:1.08em}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--blue-soft);border:1px solid var(--blue-line);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--blue);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--ink)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:16px;padding:34px 40px;background-color:var(--blue-soft);
+  background-image:radial-gradient(rgba(8,102,255,.22) 1.2px,transparent 1.3px);background-size:16px 16px;border:1px solid var(--blue-line)}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(8,102,255,.12),0 2px 6px rgba(11,18,32,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:var(--line);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--line)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;display:grid;place-items:center;font-size:17px}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-size:40px;font-weight:800;color:var(--blue);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.step h2{font-size:24px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.prompt{margin-bottom:8px}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--blue);color:#fff;border-radius:16px;padding:28px 30px}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-size:26px;letter-spacing:-.02em;text-transform:none;margin:0 0 8px;font-weight:800}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+}</style>
+</head>
+<body>
+<div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip"><span class="l-en">Comment</span><span class="l-ar">اكتب</span> · MODEL</span></div>
+  <div class="eyebrow"><span class="l-en">Field guide · No. 26</span><span class="l-ar">دليل عملي · رقم 26</span></div>
+  <h1><span class="l-en">Fable, Opus, Sonnet or Haiku: <span class="em">which one</span> to use.</span><span class="l-ar">Fable أم Opus أم Sonnet أم Haiku: <span class="em">أيّها تستخدم</span>.</span></h1>
+  <p class="lead"><span class="l-en">A one-page cheat sheet for the four Claude models, the effort dial, and what each choice costs you in tokens.</span><span class="l-ar">ورقة مرجعية من صفحة واحدة لنماذج Claude الأربعة، ومؤشر الجهد، وكم يكلّفك كل خيار من الرموز (tokens).</span></p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Prompt</span></div><pre>Haiku   quick checks: "Is this French correct?", sort, tag, extract
+Sonnet  daily work: emails, rewrites, summaries, simple code
+Opus    deep work: full competitor research, strategy, real builds
+Fable   the hardest, longest jobs: "Build me an app from my photos"<span class="caret"></span></pre><div class="note"><span class="l-en">Step 01 of this guide. Copy it as is.</span><span class="l-ar">الخطوة 01 من هذا الدليل. انسخها كما هي.</span></div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0"><span class="l-en">Inside</span><span class="l-ar">في هذا الدليل</span></h3><p><span class="l-en">Pick the right model for each task, switch it in Claude chat and Claude Code, and turn the effort dial down when you want speed and fewer tokens.</span><span class="l-ar">اختر النموذج المناسب لكل مهمة، وبدّله في محادثة Claude وفي Claude Code، واخفض مستوى الجهد حين تريد سرعة أكبر واستهلاكًا أقل للرموز.</span></p></div>
+    <div class="by"><div class="mono-k">K</div><div><b><span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Fable, Opus, Sonnet or Haiku: which one to use</span><span class="l-ar">Fable أم Opus أم Sonnet أم Haiku: أيّها تستخدم</span></span><span>MODEL</span></div>
+  <div class="eyebrow"><span class="l-en">01 · What this is</span><span class="l-ar">01 · ما هذا</span></div>
+  <h2><span class="l-en">What you're <span class="em">setting up.</span></span><span class="l-ar">ما الذي <span class="em">ستُعدّه.</span></span></h2>
+  <p><span class="l-en">Claude comes in four model classes. Think of them like school: Haiku is middle school, Sonnet is high school, Opus is university, Fable is a PhD. The higher you go, the harder the work it can take on and the longer it runs without making mistakes. The current lineup is Claude Haiku 5.5, Claude Sonnet 5.5, Claude Opus 5.5 and Claude Fable 5.1.</span><span class="l-ar">يأتي Claude في أربع فئات من النماذج. فكّر فيها كمراحل الدراسة: Haiku في المرحلة المتوسطة، وSonnet في الثانوية، وOpus في الجامعة، وFable في الدكتوراه. كلما صعدت، استطاع النموذج تولّي عمل أصعب والاستمرار مدة أطول دون أخطاء. التشكيلة الحالية هي Claude Haiku 5.5 وClaude Sonnet 5.5 وClaude Opus 5.5 وClaude Fable 5.1.</span></p>
+  <p><span class="l-en">On top of the model there's a second knob: effort. Effort decides how much work Claude puts into each answer: how long it thinks, how much it reads and how much it double checks. Model sets the price of each token. Effort sets how many tokens get spent. There's no fixed rule here, so use this sheet as a starting point and test it on your own work.</span><span class="l-ar">وفوق النموذج يوجد مؤشر ثانٍ: الجهد (effort). يحدد الجهد مقدار العمل الذي يبذله Claude في كل إجابة: كم يفكر، وكم يقرأ، وكم يراجع. النموذج يحدد سعر كل رمز، والجهد يحدد عدد الرموز المستهلكة. لا توجد قاعدة ثابتة، فاعتبر هذه الورقة نقطة بداية وجرّبها على عملك أنت.</span></p>
+  <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">A Claude account (claude.ai, the desktop app or the mobile app)</li><li class="l-en">Claude Code, if you want the slash commands in steps 03 and 05</li><li class="l-en">Fable may not show in every plan's picker. If you don't see it, open "More models". If it's still missing, your plan doesn't include it</li><li class="l-ar">حساب Claude (claude.ai أو تطبيق سطح المكتب أو تطبيق الجوال)</li><li class="l-ar">Claude Code، إذا أردت أوامر الخطوتين 03 و05</li><li class="l-ar">قد لا يظهر Fable في قائمة كل الخطط. إن لم تجده فافتح «More models»، وإن بقي غائبًا فخطتك لا تشمله</li></ul>
+  <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">Bigger model plus higher effort means more tokens, every single time. On the API you pay per token. On a Pro or Max plan you burn through your usage limit faster. Don't leave Fable on Max for quick questions. Low effort makes Claude faster and lighter on tokens; it also makes it more likely to ask you for context instead of digging. If it skips files or stops double checking, raise the effort.</span><span class="l-ar">نموذج أكبر مع جهد أعلى يعني رموزًا أكثر في كل مرة. على الـ API تدفع لكل رمز، وعلى خطة Pro أو Max تستهلك حد الاستخدام أسرع. لا تترك Fable على مستوى Max للأسئلة السريعة. الجهد المنخفض يجعل Claude أسرع وأخف استهلاكًا، ويجعله أيضًا أميل إلى سؤالك عن السياق بدل البحث بنفسه. إن تخطى ملفات أو توقف عن المراجعة فارفع الجهد.</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Fable, Opus, Sonnet or Haiku: which one to use</span><span class="l-ar">Fable أم Opus أم Sonnet أم Haiku: أيّها تستخدم</span></span><span>MODEL</span></div>
+  <div class="eyebrow"><span class="l-en">02 · The steps</span><span class="l-ar">02 · الخطوات</span></div><h2><span class="l-en">Set it up, <span class="em">step by step.</span></span><span class="l-ar">الإعداد <span class="em">خطوة بخطوة.</span></span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2><span class="l-en">Pick by task</span><span class="l-ar">اختر حسب المهمة</span></h2><p><span class="l-en">Start one level lower than you think you need. Move up only when the answer comes back wrong while Claude already has the right context.</span><span class="l-ar">ابدأ بمستوى أقل مما تظن أنك تحتاجه، وانتقل إلى الأعلى فقط إذا جاءت الإجابة خاطئة رغم أن Claude يملك السياق الصحيح.</span></p><pre>Haiku   quick checks: "Is this French correct?", sort, tag, extract
+Sonnet  daily work: emails, rewrites, summaries, simple code
+Opus    deep work: full competitor research, strategy, real builds
+Fable   the hardest, longest jobs: "Build me an app from my photos"</pre></div></div>
+  <div class="step"><div class="num">02</div><div>
+    <h2><span class="l-en">Switch the model in Claude chat</span><span class="l-ar">بدّل النموذج في محادثة Claude</span></h2><p><span class="l-en">Click the model name next to the send button and choose a model. Click "More models" if the one you want isn't listed. You can switch mid-chat, it applies from Claude's next reply.</span><span class="l-ar">اضغط على اسم النموذج بجانب زر الإرسال واختر نموذجًا. اضغط «More models» إن لم يكن النموذج الذي تريده ظاهرًا. يمكنك التبديل أثناء المحادثة، ويسري التغيير من الرد التالي.</span></p></div></div>
+  <div class="step"><div class="num">03</div><div>
+    <h2><span class="l-en">Switch the model in Claude Code</span><span class="l-ar">بدّل النموذج في Claude Code</span></h2><p><span class="l-en">Type /model with a name. /model on its own opens the picker. In the picker, Enter saves it as your default and s switches for this session only.</span><span class="l-ar">اكتب ‎/model متبوعًا بالاسم. ‎/model وحده يفتح قائمة الاختيار. في القائمة، Enter يحفظه كخيارك الافتراضي، وs يبدّله لهذه الجلسة فقط.</span></p><pre>/model haiku
+/model sonnet
+/model opus
+/model fable</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Fable, Opus, Sonnet or Haiku: which one to use</span><span class="l-ar">Fable أم Opus أم Sonnet أم Haiku: أيّها تستخدم</span></span><span>MODEL</span></div>
+  
+  <div class="step"><div class="num">04</div><div>
+    <h2><span class="l-en">Turn the effort dial in Claude chat</span><span class="l-ar">حرّك مؤشر الجهد في محادثة Claude</span></h2><p><span class="l-en">Click the model name next to the send button, then Effort, then pick a level: Low, Medium, High, Extra high or Max. Each model marks one level as Default. Stay on Default unless you have a reason. Thinking is a separate toggle in the same menu.</span><span class="l-ar">اضغط على اسم النموذج بجانب زر الإرسال، ثم Effort، ثم اختر مستوى: Low أو Medium أو High أو Extra high أو Max. كل نموذج يحدد مستوى واحدًا بعلامة Default، فابقَ عليه ما لم يكن لديك سبب. التفكير (Thinking) خيار منفصل في القائمة نفسها.</span></p></div></div>
+  <div class="step"><div class="num">05</div><div>
+    <h2><span class="l-en">Set effort in Claude Code</span><span class="l-ar">اضبط الجهد في Claude Code</span></h2><p><span class="l-en">Low and medium for quick passes, high and xhigh for hard tasks, max for the toughest ones. /effort status shows where you are, /effort auto goes back to the model's default. Max only lasts for the current session.</span><span class="l-ar">low وmedium للمرور السريع، وhigh وxhigh للمهام الصعبة، وmax لأصعبها. ‎/effort status يعرض المستوى الحالي، و‎/effort auto يعيدك إلى الافتراضي. مستوى max يسري على الجلسة الحالية فقط.</span></p><pre>/effort low
+/effort medium
+/effort high
+/effort status
+/effort auto</pre></div></div>
+  <div class="step"><div class="num">06</div><div>
+    <h2><span class="l-en">Do the token math</span><span class="l-ar">احسب كلفة الرموز</span></h2><p><span class="l-en">Anthropic's API prices per million tokens, input / output. Fable costs 2.5x Opus per token, Opus costs 2x Sonnet. A bigger model can still finish a long job in fewer steps, so judge cost per finished task, not per token.</span><span class="l-ar">أسعار Anthropic على الـ API لكل مليون رمز، إدخال / إخراج. Fable أغلى من Opus بمرتين ونصف لكل رمز، وOpus ضعف Sonnet. لكن النموذج الأكبر قد ينهي مهمة طويلة بخطوات أقل، فاحسب الكلفة لكل مهمة منجزة لا لكل رمز.</span></p><pre>Fable 5.1   $10 in  /  $50 out
+Opus 5.5    $4 in   /  $20 out
+Sonnet 5.5  $2 in   /  $10 out
+Haiku 5.5   from $0.10 in  /  from $0.50 out</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Fable, Opus, Sonnet or Haiku: which one to use</span><span class="l-ar">Fable أم Opus أم Sonnet أم Haiku: أيّها تستخدم</span></span><span>MODEL</span></div>
+  <div class="eyebrow"><span class="l-en">03 · Copy and paste</span><span class="l-ar">03 · انسخ والصق</span></div><h2><span class="l-en">Your <span class="em">prompts.</span></span><span class="l-ar">أوامرك <span class="em">الجاهزة.</span></span></h2><p class="muted l-ar">انسخ الأوامر والنصوص كما هي باللغة الإنجليزية، فهي تعمل بدقة أكبر.</p>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">Haiku: the quick check</span><span class="l-ar">Haiku: الفحص السريع</span></h4><pre>Is this French correct? Fix anything wrong and explain each fix in one line:
+[paste your text]</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">Sonnet: the daily task</span><span class="l-ar">Sonnet: مهمة يومية</span></h4><pre>Rewrite this email to a client so it's shorter and clearer.
+Keep my tone and every number in it:
+[paste the email]</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">Opus: the deep research</span><span class="l-ar">Opus: البحث المعمّق</span></h4><pre>Do full research on my 5 biggest competitors in [your market].
+For each: what they sell, their prices, how they get clients, and the gap in their offer.
+End with 3 moves I should make this month.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Fable, Opus, Sonnet or Haiku: which one to use</span><span class="l-ar">Fable أم Opus أم Sonnet أم Haiku: أيّها تستخدم</span></span><span>MODEL</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">Fable: the big build (in Claude Code)</span><span class="l-ar">Fable: المشروع الكبير (في Claude Code)</span></h4><pre>Build me a simple web app that puts every photo in [folder path] on a world map,
+using the location saved in each photo. Plan it first, then build it and test it.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">Not sure? Ask Claude to pick</span><span class="l-ar">لست متأكدًا؟ دع Claude يختار</span></h4><pre>Here's my task: [describe it].
+Which Claude model and effort level fits it best: Haiku, Sonnet, Opus or Fable,
+and low, medium or high? Give me one pick and one line on why.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Fable, Opus, Sonnet or Haiku: which one to use</span><span class="l-ar">Fable أم Opus أم Sonnet أم Haiku: أيّها تستخدم</span></span><span>MODEL</span></div>
+  <div class="eyebrow"><span class="l-en">Done</span><span class="l-ar">تم</span></div>
+  <h2><span class="l-en">That's the <span class="em">whole setup.</span></span><span class="l-ar">هذا هو <span class="em">الإعداد كاملًا.</span></span></h2>
+  <p class="lead"><span class="l-en">This week, run one task you do every week on two different models. Compare the answers and the time. That one test teaches you more than any chart.</span><span class="l-ar">هذا الأسبوع، نفّذ مهمة تكررها كل أسبوع على نموذجين مختلفين، وقارن الإجابة والوقت. هذه التجربة الواحدة تعلّمك أكثر من أي جدول.</span></p>
+  <h3><span class="l-en">Credit</span><span class="l-ar">المصادر</span></h3><ul><li>Models overview and pricing by Anthropic (platform.claude.com/docs/en/about-claude/models)</li><li>Effort and model settings in Claude Code by Anthropic (code.claude.com/docs/en/model-config)</li><li>Changing model, effort and thinking in Claude by Anthropic (support.claude.com/en/articles/8664678)</li></ul>
+  <div class="cta">
+    <div class="k"><span class="l-en">Built by</span><span class="l-ar">إعداد</span> <span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></div>
+    <h3><span class="l-en">Want it built for you?</span><span class="l-ar">تريد أن نبنيه لك؟</span></h3>
+    <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
+    <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
+  </div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 06</span></div>
+</section>
+<script>
+(function(){
+  var root=document.documentElement;
+  function set(l){root.dataset.lang=l;root.lang=l;root.dir=l==="ar"?"rtl":"ltr";
+    document.querySelectorAll(".lang-toggle button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
+    try{localStorage.setItem("karemops-guide-lang",l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem("karemops-guide-lang")}catch(e){}
+  set(location.hash==="#ar"?"ar":location.hash==="#en"?"en":(saved||"en"));
+  document.querySelector(".lang-toggle").addEventListener("click",function(e){var b=e.target.closest("button");if(b)set(b.dataset.l)});
+})();
+</script>
+</body>
+</html>

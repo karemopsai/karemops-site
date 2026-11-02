@@ -1376,5 +1376,1469 @@
     "افهم مسار عمل على موقع"
    ]
   }
+ },
+ {
+  "kw": "TEAM",
+  "slug": "four-claudes",
+  "number": 24,
+  "title": "Four Claudes. <span class=\"em\">One job each</span>.",
+  "lead": "Chat to think, Cowork to do, Code to build, Design to make. What each one is for, which plan has it, and three prompts to start each one today.",
+  "inside": "Open all four, know which one to reach for, and run three real prompts in each.",
+  "what": [
+   "Most people open Claude, type a question, read the answer and close it. That's Chat, and it's one of four. Cowork takes a task and does it across your files, inbox and tools. Claude Code builds things: websites, dashboards, automations. Claude Design turns a description into a deck, a one-pager or an app mock-up you can click through.",
+   "This guide is for business owners who already ask Claude questions and want to know where the rest of the work happens. Each step below is one Claude: what it's for, where to find it and which plan you need."
+  ],
+  "prereqs": [
+   "A Claude account (Chat and Design work on the free plan)",
+   "A paid plan (Pro or higher) for Cowork and Claude Code",
+   "The Claude Desktop app from claude.ai/download, for the full Cowork experience and the Code tab",
+   "One real task from your week to test each one on"
+  ],
+  "warn": "Anthropic ships changes to these apps every few weeks. Some accounts now see Chat and Cowork merged into one message box, and Claude Design is moving from its own site into regular Claude conversations. If a button or tab here has moved, look in the left sidebar or under Customize. Cowork and Code can edit files and act in your connected tools, so start them on a copy or a test folder.",
+  "steps": [
+   {
+    "h": "Claude Chat: think",
+    "p": "Your smart friend for research, writing and ideas. It answers and helps you think, but it won't go off and do the work. Open claude.ai or the app and type. Works on every plan, including free."
+   },
+   {
+    "h": "Claude Cowork: do",
+    "p": "This is where Claude starts doing. It sorts files, goes through your inbox and drafts replies, updates spreadsheets. In the Claude Desktop app, pick Cowork in the message box, then describe the task. If you don't see a Chat / Cowork choice, your account has the merged version and any conversation can take a Cowork task. Paid plans only."
+   },
+   {
+    "h": "Claude Code: build",
+    "p": "The engineer. Tell it what to build, a website, a dashboard, an automation, and it writes and runs the code. Easiest start: the Code tab in Claude Desktop, then pick a folder. Prefer the terminal? Install it with the command below (on Windows PowerShell use irm https://claude.ai/install.ps1 | iex), then type claude. Paid plans only.",
+    "code": "curl -fsSL https://claude.ai/install.sh | bash\nclaude"
+   },
+   {
+    "h": "Claude Design: make",
+    "p": "Describe a deck, a one-pager or an app and it builds the whole mock-up. You comment on parts of it, edit the text and export to PPTX, PDF or HTML. Start at claude.ai/design (Anthropic says that standalone site stays open until December 14, 2026, and Design also works inside regular Claude conversations). Anthropic's product page lists it on every plan, including free."
+   },
+   {
+    "h": "Hand the design to Code",
+    "p": "When the mock-up looks right, give it to Claude Code to build for real. Inside Claude Code, the /design command works with your design projects. If you don't see it in your version, export the design as HTML and tell Claude Code to build from that file.",
+    "code": "/design"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "Chat 1. Think it through",
+    "code": "I run [your business]. I want to [goal] in the next 90 days.\nAsk me 5 questions first, then give me a plan with the 3 moves that matter most."
+   },
+   {
+    "h": "Chat 2. Research",
+    "code": "Explain [topic] like I'm a busy business owner, not an expert.\nWhat do I need to know, what's hype, and what should I do about it this month?"
+   },
+   {
+    "h": "Chat 3. Write",
+    "code": "Here's a rough draft of [email / post / offer]: [paste].\nMake it shorter and clearer. Keep my words where you can. Give me 2 versions."
+   },
+   {
+    "h": "Cowork 1. Sort files",
+    "code": "Go through the folder [folder name]. Rename the files so I can find them by\nclient and date, and sort them into subfolders. Show me the plan before you move anything."
+   },
+   {
+    "h": "Cowork 2. Inbox",
+    "code": "Go through my inbox from the last 3 days. List anything urgent,\nthen draft a reply to each one. Don't send anything."
+   },
+   {
+    "h": "Cowork 3. Spreadsheet",
+    "code": "Open [spreadsheet]. Clean it up: remove duplicates, fix the formatting,\nand add a summary tab with totals by [column]."
+   },
+   {
+    "h": "Code 1. Website",
+    "code": "Build me a one-page website for [business]. Sections: what we do, 3 services,\nreviews, and a contact form. Make it look good on a phone. Run it so I can see it."
+   },
+   {
+    "h": "Code 2. Dashboard",
+    "code": "Here's a CSV of my sales: [file]. Build a simple dashboard that shows\nrevenue by month, top products and repeat customers. Open it in my browser."
+   },
+   {
+    "h": "Code 3. Automation",
+    "code": "Write a script that takes every new file in [folder], pulls out [the fields I need],\nand adds a row to [spreadsheet]. Explain how to run it in plain words."
+   },
+   {
+    "h": "Design 1. Pitch deck",
+    "code": "Make a 10-slide pitch deck for [business] for [audience].\nOne idea per slide, big numbers, very little text."
+   },
+   {
+    "h": "Design 2. One-pager",
+    "code": "Make a one-page sales sheet for [offer]: the problem, what you get,\nthe price, and how to book. Clean and modern, with room for my logo."
+   },
+   {
+    "h": "Design 3. App mock-up",
+    "code": "Mock up a phone app for [idea]. Home screen, a booking screen\nand a profile screen, all clickable so I can test the flow."
+   }
+  ],
+  "credit": [
+   "Claude Chat, Cowork, Claude Code and Claude Design by Anthropic (claude.com)",
+   "Download Claude Desktop: claude.ai/download",
+   "Claude Code install docs: code.claude.com/docs/en/setup",
+   "Cowork help: support.claude.com (Get started with Cowork)",
+   "Claude Design: claude.com/product/design"
+  ],
+  "ar": {
+   "title": "أربع نسخ من Claude. <span class=\"em\">لكل واحدة مهمة</span>.",
+   "lead": "Chat للتفكير، وCowork للتنفيذ، وCode للبناء، وDesign للتصميم. ما الغرض من كل واحدة، وأي خطة تتضمنها، وثلاثة أوامر لتبدأ بكل واحدة اليوم.",
+   "inside": "افتح النسخ الأربع، واعرف متى تلجأ إلى كل واحدة، ونفّذ ثلاثة أوامر حقيقية في كل منها.",
+   "what": [
+    "معظم الناس يفتحون Claude، ويكتبون سؤالًا، ويقرؤون الجواب ثم يغلقونه. هذا هو Chat، وهو واحد من أربعة. Cowork يأخذ المهمة وينفذها في ملفاتك وبريدك وأدواتك. Claude Code يبني الأشياء: مواقع ولوحات متابعة وأتمتة. Claude Design يحوّل الوصف إلى عرض تقديمي أو صفحة تعريفية أو نموذج تطبيق قابل للنقر.",
+    "هذا الدليل لأصحاب الأعمال الذين يطرحون أسئلتهم على Claude ويريدون معرفة أين يجري باقي العمل. كل خطوة أدناه تخص نسخة واحدة: ما الغرض منها، وأين تجدها، وأي خطة تحتاج."
+   ],
+   "prereqs": [
+    "حساب Claude (يعمل Chat وDesign على الخطة المجانية)",
+    "خطة مدفوعة (Pro أو أعلى) لاستخدام Cowork وClaude Code",
+    "تطبيق Claude Desktop من claude.ai/download، لتجربة Cowork الكاملة وتبويب Code",
+    "مهمة حقيقية واحدة من أسبوعك لتجرّب عليها كل نسخة"
+   ],
+   "warn": "تطلق Anthropic تغييرات على هذه التطبيقات كل بضعة أسابيع. بعض الحسابات أصبحت ترى Chat وCowork مدمجين في مربع رسائل واحد، وClaude Design ينتقل من موقعه المستقل إلى محادثات Claude العادية. إذا تغيّر مكان زر أو تبويب، فابحث في الشريط الجانبي الأيسر أو تحت Customize. يستطيع Cowork وCode تعديل الملفات والتصرف في أدواتك المتصلة، فابدأ بنسخة احتياطية أو مجلد للتجربة.",
+   "steps": [
+    {
+     "h": "Claude Chat: للتفكير",
+     "p": "صديقك الذكي للبحث والكتابة والأفكار. يجيب ويساعدك على التفكير، لكنه لا ينفذ العمل بنفسه. افتح claude.ai أو التطبيق واكتب. يعمل على كل الخطط، ومنها المجانية."
+    },
+    {
+     "h": "Claude Cowork: للتنفيذ",
+     "p": "هنا يبدأ Claude بالعمل الفعلي. يرتّب الملفات، ويمر على بريدك ويكتب مسودات الردود، ويحدّث جداول البيانات. في تطبيق Claude Desktop اختر Cowork في مربع الرسائل ثم صف المهمة. إذا لم تجد خيار Chat و Cowork، فحسابك يعمل بالنسخة المدمجة وأي محادثة تستطيع تنفيذ مهمة Cowork. للخطط المدفوعة فقط."
+    },
+    {
+     "h": "Claude Code: للبناء",
+     "p": "المهندس. أخبره بما تريد بناءه، موقعًا أو لوحة متابعة أو أتمتة، فيكتب الكود ويشغّله. أسهل بداية: تبويب Code في Claude Desktop ثم اختر مجلدًا. إذا كنت تفضّل الطرفية، فثبّته بالأمر أدناه (على Windows PowerShell استخدم irm https://claude.ai/install.ps1 | iex) ثم اكتب claude. للخطط المدفوعة فقط."
+    },
+    {
+     "h": "Claude Design: للتصميم",
+     "p": "صف عرضًا تقديميًا أو صفحة تعريفية أو تطبيقًا، فيبني لك النموذج كاملًا. تعلّق على أجزائه، وتعدّل النص، وتصدّره بصيغة PPTX أو PDF أو HTML. ابدأ من claude.ai/design (تقول Anthropic إن هذا الموقع المستقل يبقى متاحًا حتى 14 ديسمبر 2026، ويعمل Design أيضًا داخل محادثات Claude العادية). صفحة المنتج لدى Anthropic تذكر أنه متاح على كل الخطط، ومنها المجانية."
+    },
+    {
+     "h": "سلّم التصميم إلى Code",
+     "p": "عندما يصبح النموذج كما تريد، أعطه لـ Claude Code ليبنيه فعليًا. داخل Claude Code يعمل الأمر /design مع مشاريع التصميم الخاصة بك. إذا لم يظهر في نسختك، صدّر التصميم بصيغة HTML واطلب من Claude Code البناء انطلاقًا من ذلك الملف."
+    }
+   ],
+   "prompts": [
+    "Chat 1. فكّر في المسألة",
+    "Chat 2. البحث",
+    "Chat 3. الكتابة",
+    "Cowork 1. ترتيب الملفات",
+    "Cowork 2. البريد الوارد",
+    "Cowork 3. جدول البيانات",
+    "Code 1. موقع إلكتروني",
+    "Code 2. لوحة متابعة",
+    "Code 3. أتمتة",
+    "Design 1. عرض تقديمي للمستثمرين",
+    "Design 2. صفحة تعريفية",
+    "Design 3. نموذج تطبيق"
+   ]
+  },
+  "date_en": "2 Nov 2026",
+  "date_ar": "2 نوفمبر 2026"
+ },
+ {
+  "kw": "META",
+  "slug": "meta-ads-claude",
+  "number": 25,
+  "title": "Ask Claude about your ads. <span class=\"em\">Skip Ads Manager</span>.",
+  "lead": "Meta built its own MCP server for ads. Plug it into Claude once and your ad account becomes a conversation: live numbers, plain answers.",
+  "inside": "Connect Meta's official Ads MCP to Claude, lock down anything that spends money, and run five reporting questions on your real account.",
+  "what": [
+   "The Ads MCP server is Meta's own connector, hosted at mcp.facebook.com/ads. Once Claude is connected, it reads your campaigns, ad sets and ads straight from the account and answers questions like which campaign got the cheapest lead last week. It can also create and edit campaigns, ad sets and ads, change budgets, manage custom audiences and catalogs, and set up A/B tests.",
+   "It's for business owners and marketers who run Meta ads and are tired of clicking through Ads Manager columns to answer one question. Start with reporting. Let it touch budgets only after you trust what it reads."
+  ],
+  "prereqs": [
+   "A Claude account (custom connectors work on every plan, Free is limited to one custom connector)",
+   "A Facebook profile with access to the ad account you want to use, ideally admin",
+   "Owner access on Team or Enterprise plans, or ask your Owner to add the connector first",
+   "Optional: a Meta developer app if you want it inside Claude Code (step 5)"
+  ],
+  "warn": "This connector has write access to a real ad account. It can create campaigns, edit ad sets and change budgets, and it gets every business portfolio your Facebook profile can see, client accounts included. Only select the portfolios you need, set every tool that creates, edits, deletes or changes a budget to Needs approval, and read each budget change before you approve it. Early testers report new campaigns arrive paused, but check Ads Manager before anything goes live. Meta is rolling access out gradually, so some accounts can connect but not pull data yet.",
+  "steps": [
+   {
+    "h": "Add the connector",
+    "p": "In Claude go to Customize > Connectors, click + and pick Add custom connector. Name it Meta Ads (or Facebook) and paste this URL, then click Add.",
+    "code": "https://mcp.facebook.com/ads"
+   },
+   {
+    "h": "Connect and pick your accounts",
+    "p": "The connector shows up but isn't live yet. Click Connect, sign in through Facebook Login, and select only the business portfolios you actually want Claude to see. Skip client portfolios unless you have their OK."
+   },
+   {
+    "h": "Put spending behind approval",
+    "p": "Open the connector in Customize > Connectors. Claude lets you set each tool to Always allow, Needs approval or Blocked. Leave reporting tools on Always allow and set anything that creates, edits, deletes or changes budgets to Needs approval. If the screen looks different, look for the tool permissions on the connector page."
+   },
+   {
+    "h": "Turn it on and test",
+    "p": "Start a new chat, click + > Connectors and make sure Meta Ads is toggled on. Then ask it this, since Meta's own docs say to ask the agent which tools you can use.",
+    "code": "Which Meta ads tools can you access, and which ad accounts can you see? List them, don't change anything."
+   },
+   {
+    "h": "Optional: Claude Code",
+    "p": "Meta documents a Claude Code setup too. It needs a Meta developer app (developers.facebook.com/apps) with the Create & manage ads with ads MCP server use case added. Replace &lt;META_APP_ID&gt; with your app ID, then run /mcp inside Claude Code to log in. Note: approval toggles you set on claude.ai may not carry over to Claude Code, so keep Claude Code in its normal ask-before-acting mode.",
+    "code": "claude mcp add --transport http --client-id <META_APP_ID> meta-ads https://mcp.facebook.com/ads"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Cheapest lead",
+    "code": "Which campaign got the cheapest cost per lead in the last 7 days?\nShow spend, leads and cost per lead for every active campaign in a table, cheapest first."
+   },
+   {
+    "h": "2. Budget with no results",
+    "code": "Which ad sets spent money in the last 7 days with zero or almost zero results?\nRank them by spend and tell me what you'd pause. Don't change anything yet."
+   },
+   {
+    "h": "3. Weekly report",
+    "code": "Write my weekly ads report for the last 7 days vs the 7 days before.\nSpend, results, cost per result, CTR and frequency per campaign, plus the 3 changes that moved the numbers most."
+   },
+   {
+    "h": "4. Tired creatives",
+    "code": "Find ads where frequency is above 3 or CTR dropped more than 30% over the last 14 days.\nList them with the numbers so I know which creatives need replacing."
+   },
+   {
+    "h": "5. Budget changes (approval rule)",
+    "code": "Suggest budget changes for my active ad sets based on the last 14 days.\nRule: propose only. Show the current budget, the new budget and the reason for each.\nDo not change any budget, status or campaign until I reply 'approved' to that exact line."
+   }
+  ],
+  "credit": [
+   "Ads MCP server by Meta (developers.facebook.com/documentation/ads-commerce/ads-ai-connectors)",
+   "Custom connectors in Claude by Anthropic (support.claude.com)"
+  ],
+  "ar": {
+   "title": "اسأل Claude عن إعلاناتك. <span class=\"em\">بدل Ads Manager</span>.",
+   "lead": "أطلقت Meta خادم MCP رسميًا للإعلانات. اربطه بـ Claude مرة واحدة ويصبح حسابك الإعلاني محادثة: أرقام مباشرة وإجابات واضحة.",
+   "inside": "اربط خادم Ads MCP الرسمي من Meta بـ Claude، واحمِ كل ما يصرف المال، ثم اطرح خمسة أسئلة تقارير على حسابك الحقيقي.",
+   "what": [
+    "خادم Ads MCP هو الموصل الرسمي من Meta، ومستضاف على mcp.facebook.com/ads. بعد ربطه يقرأ Claude حملاتك ومجموعاتك الإعلانية وإعلاناتك من الحساب مباشرة، ويجيب عن أسئلة مثل: أي حملة حققت أرخص عميل محتمل الأسبوع الماضي؟ ويستطيع أيضًا إنشاء الحملات والمجموعات والإعلانات وتعديلها، وتغيير الميزانيات، وإدارة الجماهير المخصصة والكتالوجات، وإعداد اختبارات A/B.",
+    "هذا الدليل لأصحاب الأعمال والمسوقين الذين يديرون إعلانات Meta وتعبوا من التنقل بين أعمدة Ads Manager للإجابة عن سؤال واحد. ابدأ بالتقارير، ولا تسمح له بلمس الميزانيات إلا بعد أن تثق بما يقرأه."
+   ],
+   "prereqs": [
+    "حساب Claude (الموصلات المخصصة متاحة في كل الخطط، والخطة المجانية تسمح بموصل مخصص واحد فقط)",
+    "حساب Facebook لديه صلاحية على الحساب الإعلاني الذي تريده، ويُفضّل أن تكون صلاحية مسؤول",
+    "صلاحية المالك في خطط Team أو Enterprise، أو اطلب من المالك إضافة الموصل أولًا",
+    "اختياري: تطبيق مطوّر على Meta إذا أردته داخل Claude Code (الخطوة 5)"
+   ],
+   "warn": "لهذا الموصل صلاحية كتابة على حساب إعلاني حقيقي. يستطيع إنشاء الحملات وتعديل المجموعات الإعلانية وتغيير الميزانيات، ويحصل على كل محافظ الأعمال التي يراها حسابك على Facebook، بما فيها حسابات العملاء. اختر المحافظ التي تحتاجها فقط، واجعل كل أداة تنشئ أو تعدّل أو تحذف أو تغيّر الميزانية على وضع Needs approval، واقرأ كل تغيير في الميزانية قبل الموافقة عليه. يذكر من جرّبوه أن الحملات الجديدة تُنشأ متوقفة، لكن تحقق من Ads Manager قبل أن يُنشر أي شيء. تطرح Meta الوصول تدريجيًا، لذا قد تتمكن بعض الحسابات من الربط دون سحب البيانات بعد.",
+   "steps": [
+    {
+     "h": "أضف الموصل",
+     "p": "في Claude افتح Customize ثم Connectors، واضغط + واختر Add custom connector. سمّه Meta Ads (أو Facebook) والصق هذا الرابط، ثم اضغط Add."
+    },
+    {
+     "h": "اتصل واختر حساباتك",
+     "p": "يظهر الموصل لكنه غير مفعّل بعد. اضغط Connect، وسجّل الدخول عبر Facebook Login، واختر فقط محافظ الأعمال التي تريد أن يراها Claude. تجاوز محافظ العملاء ما لم يوافقوا."
+    },
+    {
+     "h": "ضع الصرف خلف الموافقة",
+     "p": "افتح الموصل من Customize ثم Connectors. يتيح لك Claude ضبط كل أداة على Always allow أو Needs approval أو Blocked. اترك أدوات التقارير على Always allow، واضبط كل ما ينشئ أو يعدّل أو يحذف أو يغيّر الميزانيات على Needs approval. إذا بدت الشاشة مختلفة فابحث عن صلاحيات الأدوات في صفحة الموصل."
+    },
+    {
+     "h": "فعّله وجرّبه",
+     "p": "افتح محادثة جديدة، واضغط + ثم Connectors وتأكد أن Meta Ads مفعّل. ثم اطرح هذا السؤال، فوثائق Meta نفسها تنصح بسؤال الوكيل عن الأدوات المتاحة لك."
+    },
+    {
+     "h": "اختياري: Claude Code",
+     "p": "توثّق Meta طريقة الإعداد في Claude Code أيضًا. تحتاج إلى تطبيق مطوّر على Meta (developers.facebook.com/apps) مضافًا إليه حالة الاستخدام Create & manage ads with ads MCP server. استبدل &lt;META_APP_ID&gt; بمعرّف تطبيقك، ثم شغّل /mcp داخل Claude Code لتسجيل الدخول. ملاحظة: إعدادات الموافقة التي ضبطتها على claude.ai قد لا تنتقل إلى Claude Code، فأبقِ Claude Code على وضعه العادي الذي يسأل قبل التنفيذ."
+    }
+   ],
+   "prompts": [
+    "1. أرخص عميل محتمل",
+    "2. ميزانية بلا نتائج",
+    "3. التقرير الأسبوعي",
+    "4. إعلانات استُهلكت",
+    "5. تغييرات الميزانية (قاعدة الموافقة)"
+   ]
+  },
+  "date_en": "2 Nov 2026",
+  "date_ar": "2 نوفمبر 2026"
+ },
+ {
+  "kw": "MODEL",
+  "slug": "claude-models",
+  "number": 26,
+  "title": "Fable, Opus, Sonnet or Haiku: <span class=\"em\">which one</span> to use.",
+  "lead": "A one-page cheat sheet for the four Claude models, the effort dial, and what each choice costs you in tokens.",
+  "inside": "Pick the right model for each task, switch it in Claude chat and Claude Code, and turn the effort dial down when you want speed and fewer tokens.",
+  "what": [
+   "Claude comes in four model classes. Think of them like school: Haiku is middle school, Sonnet is high school, Opus is university, Fable is a PhD. The higher you go, the harder the work it can take on and the longer it runs without making mistakes. The current lineup is Claude Haiku 5.5, Claude Sonnet 5.5, Claude Opus 5.5 and Claude Fable 5.1.",
+   "On top of the model there's a second knob: effort. Effort decides how much work Claude puts into each answer: how long it thinks, how much it reads and how much it double checks. Model sets the price of each token. Effort sets how many tokens get spent. There's no fixed rule here, so use this sheet as a starting point and test it on your own work."
+  ],
+  "prereqs": [
+   "A Claude account (claude.ai, the desktop app or the mobile app)",
+   "Claude Code, if you want the slash commands in steps 03 and 05",
+   "Fable may not show in every plan's picker. If you don't see it, open \"More models\". If it's still missing, your plan doesn't include it"
+  ],
+  "warn": "Bigger model plus higher effort means more tokens, every single time. On the API you pay per token. On a Pro or Max plan you burn through your usage limit faster. Don't leave Fable on Max for quick questions. Low effort makes Claude faster and lighter on tokens; it also makes it more likely to ask you for context instead of digging. If it skips files or stops double checking, raise the effort.",
+  "steps": [
+   {
+    "h": "Pick by task",
+    "p": "Start one level lower than you think you need. Move up only when the answer comes back wrong while Claude already has the right context.",
+    "code": "Haiku   quick checks: \"Is this French correct?\", sort, tag, extract\nSonnet  daily work: emails, rewrites, summaries, simple code\nOpus    deep work: full competitor research, strategy, real builds\nFable   the hardest, longest jobs: \"Build me an app from my photos\""
+   },
+   {
+    "h": "Switch the model in Claude chat",
+    "p": "Click the model name next to the send button and choose a model. Click \"More models\" if the one you want isn't listed. You can switch mid-chat, it applies from Claude's next reply."
+   },
+   {
+    "h": "Switch the model in Claude Code",
+    "p": "Type /model with a name. /model on its own opens the picker. In the picker, Enter saves it as your default and s switches for this session only.",
+    "code": "/model haiku\n/model sonnet\n/model opus\n/model fable"
+   },
+   {
+    "h": "Turn the effort dial in Claude chat",
+    "p": "Click the model name next to the send button, then Effort, then pick a level: Low, Medium, High, Extra high or Max. Each model marks one level as Default. Stay on Default unless you have a reason. Thinking is a separate toggle in the same menu."
+   },
+   {
+    "h": "Set effort in Claude Code",
+    "p": "Low and medium for quick passes, high and xhigh for hard tasks, max for the toughest ones. /effort status shows where you are, /effort auto goes back to the model's default. Max only lasts for the current session.",
+    "code": "/effort low\n/effort medium\n/effort high\n/effort status\n/effort auto"
+   },
+   {
+    "h": "Do the token math",
+    "p": "Anthropic's API prices per million tokens, input / output. Fable costs 2.5x Opus per token, Opus costs 2x Sonnet. A bigger model can still finish a long job in fewer steps, so judge cost per finished task, not per token.",
+    "code": "Fable 5.1   $10 in  /  $50 out\nOpus 5.5    $4 in   /  $20 out\nSonnet 5.5  $2 in   /  $10 out\nHaiku 5.5   from $0.10 in  /  from $0.50 out"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "Haiku: the quick check",
+    "code": "Is this French correct? Fix anything wrong and explain each fix in one line:\n[paste your text]"
+   },
+   {
+    "h": "Sonnet: the daily task",
+    "code": "Rewrite this email to a client so it's shorter and clearer.\nKeep my tone and every number in it:\n[paste the email]"
+   },
+   {
+    "h": "Opus: the deep research",
+    "code": "Do full research on my 5 biggest competitors in [your market].\nFor each: what they sell, their prices, how they get clients, and the gap in their offer.\nEnd with 3 moves I should make this month."
+   },
+   {
+    "h": "Fable: the big build (in Claude Code)",
+    "code": "Build me a simple web app that puts every photo in [folder path] on a world map,\nusing the location saved in each photo. Plan it first, then build it and test it."
+   },
+   {
+    "h": "Not sure? Ask Claude to pick",
+    "code": "Here's my task: [describe it].\nWhich Claude model and effort level fits it best: Haiku, Sonnet, Opus or Fable,\nand low, medium or high? Give me one pick and one line on why."
+   }
+  ],
+  "credit": [
+   "Models overview and pricing by Anthropic (platform.claude.com/docs/en/about-claude/models)",
+   "Effort and model settings in Claude Code by Anthropic (code.claude.com/docs/en/model-config)",
+   "Changing model, effort and thinking in Claude by Anthropic (support.claude.com/en/articles/8664678)"
+  ],
+  "payoff": "This week, run one task you do every week on two different models. Compare the answers and the time. That one test teaches you more than any chart.",
+  "ar": {
+   "title": "Fable أم Opus أم Sonnet أم Haiku: <span class=\"em\">أيّها تستخدم</span>.",
+   "lead": "ورقة مرجعية من صفحة واحدة لنماذج Claude الأربعة، ومؤشر الجهد، وكم يكلّفك كل خيار من الرموز (tokens).",
+   "inside": "اختر النموذج المناسب لكل مهمة، وبدّله في محادثة Claude وفي Claude Code، واخفض مستوى الجهد حين تريد سرعة أكبر واستهلاكًا أقل للرموز.",
+   "what": [
+    "يأتي Claude في أربع فئات من النماذج. فكّر فيها كمراحل الدراسة: Haiku في المرحلة المتوسطة، وSonnet في الثانوية، وOpus في الجامعة، وFable في الدكتوراه. كلما صعدت، استطاع النموذج تولّي عمل أصعب والاستمرار مدة أطول دون أخطاء. التشكيلة الحالية هي Claude Haiku 5.5 وClaude Sonnet 5.5 وClaude Opus 5.5 وClaude Fable 5.1.",
+    "وفوق النموذج يوجد مؤشر ثانٍ: الجهد (effort). يحدد الجهد مقدار العمل الذي يبذله Claude في كل إجابة: كم يفكر، وكم يقرأ، وكم يراجع. النموذج يحدد سعر كل رمز، والجهد يحدد عدد الرموز المستهلكة. لا توجد قاعدة ثابتة، فاعتبر هذه الورقة نقطة بداية وجرّبها على عملك أنت."
+   ],
+   "prereqs": [
+    "حساب Claude (claude.ai أو تطبيق سطح المكتب أو تطبيق الجوال)",
+    "Claude Code، إذا أردت أوامر الخطوتين 03 و05",
+    "قد لا يظهر Fable في قائمة كل الخطط. إن لم تجده فافتح «More models»، وإن بقي غائبًا فخطتك لا تشمله"
+   ],
+   "warn": "نموذج أكبر مع جهد أعلى يعني رموزًا أكثر في كل مرة. على الـ API تدفع لكل رمز، وعلى خطة Pro أو Max تستهلك حد الاستخدام أسرع. لا تترك Fable على مستوى Max للأسئلة السريعة. الجهد المنخفض يجعل Claude أسرع وأخف استهلاكًا، ويجعله أيضًا أميل إلى سؤالك عن السياق بدل البحث بنفسه. إن تخطى ملفات أو توقف عن المراجعة فارفع الجهد.",
+   "steps": [
+    {
+     "h": "اختر حسب المهمة",
+     "p": "ابدأ بمستوى أقل مما تظن أنك تحتاجه، وانتقل إلى الأعلى فقط إذا جاءت الإجابة خاطئة رغم أن Claude يملك السياق الصحيح."
+    },
+    {
+     "h": "بدّل النموذج في محادثة Claude",
+     "p": "اضغط على اسم النموذج بجانب زر الإرسال واختر نموذجًا. اضغط «More models» إن لم يكن النموذج الذي تريده ظاهرًا. يمكنك التبديل أثناء المحادثة، ويسري التغيير من الرد التالي."
+    },
+    {
+     "h": "بدّل النموذج في Claude Code",
+     "p": "اكتب ‎/model متبوعًا بالاسم. ‎/model وحده يفتح قائمة الاختيار. في القائمة، Enter يحفظه كخيارك الافتراضي، وs يبدّله لهذه الجلسة فقط."
+    },
+    {
+     "h": "حرّك مؤشر الجهد في محادثة Claude",
+     "p": "اضغط على اسم النموذج بجانب زر الإرسال، ثم Effort، ثم اختر مستوى: Low أو Medium أو High أو Extra high أو Max. كل نموذج يحدد مستوى واحدًا بعلامة Default، فابقَ عليه ما لم يكن لديك سبب. التفكير (Thinking) خيار منفصل في القائمة نفسها."
+    },
+    {
+     "h": "اضبط الجهد في Claude Code",
+     "p": "low وmedium للمرور السريع، وhigh وxhigh للمهام الصعبة، وmax لأصعبها. ‎/effort status يعرض المستوى الحالي، و‎/effort auto يعيدك إلى الافتراضي. مستوى max يسري على الجلسة الحالية فقط."
+    },
+    {
+     "h": "احسب كلفة الرموز",
+     "p": "أسعار Anthropic على الـ API لكل مليون رمز، إدخال / إخراج. Fable أغلى من Opus بمرتين ونصف لكل رمز، وOpus ضعف Sonnet. لكن النموذج الأكبر قد ينهي مهمة طويلة بخطوات أقل، فاحسب الكلفة لكل مهمة منجزة لا لكل رمز."
+    }
+   ],
+   "prompts": [
+    "Haiku: الفحص السريع",
+    "Sonnet: مهمة يومية",
+    "Opus: البحث المعمّق",
+    "Fable: المشروع الكبير (في Claude Code)",
+    "لست متأكدًا؟ دع Claude يختار"
+   ],
+   "payoff": "هذا الأسبوع، نفّذ مهمة تكررها كل أسبوع على نموذجين مختلفين، وقارن الإجابة والوقت. هذه التجربة الواحدة تعلّمك أكثر من أي جدول."
+  },
+  "date_en": "2 Nov 2026",
+  "date_ar": "2 نوفمبر 2026"
+ },
+ {
+  "kw": "HARVEY",
+  "slug": "harvey-sales-agent",
+  "number": 27,
+  "title": "A sales agent that finds <span class=\"em\">customers</span> while you work.",
+  "lead": "Harvey is a free, open-source sales agent that runs on your Claude subscription. It finds businesses that fit, researches each one, writes the cold email and handles the replies. You approve every email before it goes out.",
+  "inside": "Clone Harvey, let Claude Code set it up for your business, find your first list of prospects, and approve your first emails from the dashboard.",
+  "what": [
+   "Harvey runs on your own computer in a loop. Every 15 minutes by default it wakes up, checks what needs doing, does it and goes back to sleep. It finds businesses (the default source is OpenStreetMap, which is free), reads their websites, finds who makes the decision, and writes a short cold email that mentions something specific about them. When people reply, it sorts the replies and drafts your answers. Everything sits in one dashboard on your machine.",
+   "Model calls go through your Claude Pro or Max plan in Claude Code, so there's no API bill. It keeps working as long as it's running on your computer. It's for service businesses and agencies selling to other businesses who are ready to send cold email properly: a separate domain, a warmed-up inbox, and someone (you) reading every email before it sends."
+  ],
+  "prereqs": [
+   "Claude Code, logged in to a Claude Pro or Max plan (run claude login)",
+   "Python 3.11 or newer (check with python3 --version; Macs ship 3.9, so install 3.13 first)",
+   "A Gmail / Google Workspace or Microsoft 365 inbox on a separate domain, not your main one",
+   "A warmup service running on that inbox for 2 to 4 weeks before real sends",
+   "Your website, so Harvey can learn what you sell"
+  ],
+  "warn": "Never send from your main domain. Buy a separate one (like getyourbrand.com), set up SPF, DKIM and DMARC, and warm the inbox for 2 to 4 weeks before Harvey sends anything. Then start at 10 to 20 emails a day. Keep approval mode on (it's the default) and read every email before you press approve: you are the sender, not Harvey. Skip the approve-all button. Set your postal address and keep the opt-out line, cold email law cares about both. The free lead source costs nothing, but the paid ones do, and Harvey uses your Claude plan's limit all day, so check your plan's terms and limits before you leave it running. LinkedIn automation is off by default. Keep it off.",
+  "steps": [
+   {
+    "h": "Clone it and open Claude Code",
+    "p": "Run this in your terminal. It downloads Harvey and opens Claude Code inside the folder.",
+    "code": "git clone https://github.com/ethanplusai/harvey.git\ncd harvey\nclaude"
+   },
+   {
+    "h": "Let Claude set it up",
+    "p": "The repo ships a CLAUDE.md that turns Claude Code into a setup wizard. Say this line. It checks what's missing, installs it, asks you questions and trains Harvey on your product.",
+    "code": "set up Harvey for me"
+   },
+   {
+    "h": "Teach it what you sell",
+    "p": "If the wizard didn't already do it, point Harvey at your website. It writes your product, targeting and company into harvey.local.yaml. If the harvey command isn't found, activate the environment first.",
+    "code": "source .venv/bin/activate\nharvey train https://your-company.com"
+   },
+   {
+    "h": "Pick what makes a good prospect, then find them",
+    "p": "Harvey collects nothing until you confirm which signals matter (running ads, no online booking, stale blog and so on). Confirm the free ones, then run discovery on the free source. Want a paid source later? Run harvey discover --estimate first to see the cost.",
+    "code": "harvey signals --confirm free\nharvey discover"
+   },
+   {
+    "h": "Check your domain before anything sends",
+    "p": "This checks SPF, DKIM and DMARC, domain age, blocklists and warmup, and ends with READY or NOT READY. If it says NOT READY, wait. Sending early is how a domain ends up in spam for good.",
+    "code": "harvey warmup"
+   },
+   {
+    "h": "Open the dashboard and approve",
+    "p": "The dashboard prints a private link to 127.0.0.1:5555. Start the loop, then work the Outbox one email at a time: A to approve, E to edit, R to reject. Need to stop everything? harvey sending pause.",
+    "code": "harvey dashboard\nharvey run"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Set it up for my business",
+    "code": "Set up Harvey for me.\nI sell [your service] to [type of business] in [city or country]. My website is [your website].\nMy sending inbox is on [your separate domain], not my main domain.\nKeep approval mode on. Explain each setting before you change it."
+   },
+   {
+    "h": "2. Sharpen the targeting",
+    "code": "Read harvey.local.yaml and the signals I confirmed.\nMy best customers so far are [describe 2 or 3 real customers].\nSuggest which signals to confirm and which cohort to build first, and tell me why each one fits.\nDon't change anything until I say yes."
+   },
+   {
+    "h": "3. Make the emails sound like me",
+    "code": "Read skills/email_frameworks.md.\nHere are 3 emails I wrote myself: [paste them].\nWrite a skills/email_rules.md file that matches how I write, and point writer.email_rules at it in my config.\nShow me the file and the config change before you save anything."
+   }
+  ],
+  "credit": [
+   "Harvey by ethanplusai, MIT license (github.com/ethanplusai/harvey)"
+  ],
+  "ar": {
+   "title": "وكيل مبيعات يجد لك <span class=\"em\">العملاء</span> بينما تعمل.",
+   "lead": "Harvey وكيل مبيعات مجاني ومفتوح المصدر يعمل على اشتراكك في Claude. يبحث عن الشركات المناسبة، ويدرس كل واحدة منها، ويكتب رسالة البريد الأولى، ويتابع الردود. وأنت توافق على كل رسالة قبل إرسالها.",
+   "inside": "انسخ Harvey، ودع Claude Code يجهّزه لعملك، واعثر على أول قائمة من العملاء المحتملين، ووافق على أول رسائلك من لوحة التحكم.",
+   "what": [
+    "يعمل Harvey على جهازك في حلقة متكررة. كل 15 دقيقة افتراضيًا يستيقظ، ويرى ما المطلوب، وينفذه ثم يعود للانتظار. يبحث عن الشركات (المصدر الافتراضي هو OpenStreetMap وهو مجاني)، ويقرأ مواقعها، ويحدد صاحب القرار، ويكتب رسالة قصيرة تذكر شيئًا محددًا عن كل شركة. وعندما تصل الردود يصنّفها ويجهّز لك مسودات الإجابة. كل ذلك في لوحة تحكم واحدة على جهازك.",
+    "تمر استدعاءات النموذج عبر اشتراك Claude Pro أو Max في Claude Code، فلا توجد فاتورة API. ويستمر في العمل ما دام يعمل على جهازك. هذا الدليل لأصحاب الخدمات والوكالات التي تبيع لشركات أخرى، والمستعدين لإرسال البريد البارد بالطريقة الصحيحة: نطاق منفصل، وصندوق بريد مُحمّى، وشخص (أنت) يقرأ كل رسالة قبل إرسالها."
+   ],
+   "prereqs": [
+    "Claude Code مسجّل الدخول باشتراك Claude Pro أو Max (نفّذ claude login)",
+    "Python 3.11 أو أحدث (تحقق بالأمر python3 --version؛ أجهزة Mac تأتي بالإصدار 3.9، فثبّت 3.13 أولًا)",
+    "صندوق بريد Gmail أو Google Workspace أو Microsoft 365 على نطاق منفصل، لا على نطاقك الرئيسي",
+    "خدمة تحمية (warmup) تعمل على هذا الصندوق من أسبوعين إلى أربعة أسابيع قبل الإرسال الفعلي",
+    "موقعك الإلكتروني، ليتعلم Harvey ما تبيعه"
+   ],
+   "warn": "لا ترسل أبدًا من نطاقك الرئيسي. اشترِ نطاقًا منفصلًا (مثل getyourbrand.com)، واضبط SPF وDKIM وDMARC، وحمِّ الصندوق من أسبوعين إلى أربعة أسابيع قبل أن يرسل Harvey أي شيء. ثم ابدأ بعشر إلى عشرين رسالة يوميًا. أبقِ وضع الموافقة مفعّلًا (وهو الافتراضي) واقرأ كل رسالة قبل الضغط على الموافقة: أنت المرسل لا Harvey. تجنّب زر الموافقة على الكل. أضف عنوانك البريدي وأبقِ سطر إلغاء الاشتراك، فقوانين البريد البارد تشترط الاثنين. مصدر العملاء المجاني لا يكلف شيئًا، لكن المصادر المدفوعة تكلف، وHarvey يستهلك من حد اشتراكك في Claude طوال اليوم، فراجع شروط اشتراكك وحدوده قبل تركه يعمل. أتمتة LinkedIn معطّلة افتراضيًا، فأبقِها كذلك.",
+   "steps": [
+    {
+     "h": "انسخ المستودع وافتح Claude Code",
+     "p": "نفّذ هذا في الطرفية. يحمّل Harvey ويفتح Claude Code داخل المجلد."
+    },
+    {
+     "h": "دع Claude يجهّزه",
+     "p": "يأتي المستودع بملف CLAUDE.md يحوّل Claude Code إلى معالج إعداد. اكتب هذه الجملة. يتحقق مما ينقص، ويثبّته، ويطرح عليك أسئلة، ويدرّب Harvey على منتجك."
+    },
+    {
+     "h": "علّمه ما تبيعه",
+     "p": "إذا لم يقم المعالج بذلك، فوجّه Harvey إلى موقعك. يكتب منتجك وجمهورك وشركتك في ملف harvey.local.yaml. وإذا لم يُعثر على الأمر harvey، ففعّل البيئة أولًا."
+    },
+    {
+     "h": "حدّد صفات العميل المناسب ثم ابحث عنه",
+     "p": "لا يجمع Harvey أي بيانات حتى تؤكد الإشارات المهمة لك (شركات تعلن حاليًا، أو بلا حجز إلكتروني، أو مدونة متوقفة وغيرها). أكّد الإشارات المجانية، ثم شغّل البحث على المصدر المجاني. تريد مصدرًا مدفوعًا لاحقًا؟ نفّذ harvey discover --estimate أولًا لترى التكلفة."
+    },
+    {
+     "h": "افحص نطاقك قبل أي إرسال",
+     "p": "يفحص هذا الأمر SPF وDKIM وDMARC وعمر النطاق والقوائم السوداء والتحمية، ثم يعطيك READY أو NOT READY. إذا ظهر NOT READY فانتظر. الإرسال المبكر هو ما يرمي النطاق في البريد المزعج نهائيًا."
+    },
+    {
+     "h": "افتح لوحة التحكم ووافق",
+     "p": "تطبع لوحة التحكم رابطًا خاصًا إلى 127.0.0.1:5555. شغّل الحلقة، ثم راجع صندوق الصادر رسالة رسالة: A للموافقة، وE للتعديل، وR للرفض. تريد إيقاف كل شيء؟ نفّذ harvey sending pause."
+    }
+   ],
+   "prompts": [
+    "1. جهّزه لعملي",
+    "2. حسّن الاستهداف",
+    "3. اجعل الرسائل بأسلوبي"
+   ]
+  },
+  "date_en": "2 Nov 2026",
+  "date_ar": "2 نوفمبر 2026"
+ },
+ {
+  "kw": "COWORK",
+  "slug": "claude-cowork",
+  "number": 28,
+  "title": "Skip the chat. <span class=\"em\">Start with Cowork</span>.",
+  "lead": "Chat answers questions. Cowork does the work: it reads your inbox, drafts the replies and follows your process. The full setup, step by step.",
+  "inside": "Install Claude Desktop, connect Gmail and your other tools, run five inbox prompts, and teach Claude your first process as a skill.",
+  "what": [
+   "Cowork is the part of Claude that takes a task and gets it done. You connect your tools once (Gmail, Google Drive, Calendar, Slack), describe what you want, check Claude's plan, and let it run. It reads, sorts and drafts, and you review before anything goes out.",
+   "Skills are the next level. You write your process down once, like how you put together a proposal, and from then on Claude follows it every time you ask. This guide is for business owners who spend hours a week in their inbox and on the same documents over and over."
+  ],
+  "prereqs": [
+   "A paid Claude plan (Pro or higher). Cowork isn't on the free plan",
+   "Claude Desktop for Mac or Windows from claude.ai/download (Cowork also runs on web and mobile, but desktop is the full version)",
+   "Your Gmail or Google Workspace login, plus any other tools you want to connect",
+   "One process you repeat every week, written down roughly, for your first skill"
+  ],
+  "warn": "Once Gmail is connected, Claude can act inside your inbox, and the Gmail connector has been getting the ability to send, reply and forward. Set the mode selector in the chat box to Manual so Claude asks before every action, and keep \"Don't send anything\" in your prompts. Only one Google account connects at a time. On Team and Enterprise plans an owner has to switch connectors on first.",
+  "steps": [
+   {
+    "h": "Download Claude Desktop",
+    "p": "Go to claude.ai/download, install the app for your computer and sign in with your Claude account."
+   },
+   {
+    "h": "Pick Cowork, not Chat",
+    "p": "In the message box, select Cowork (bottom left). Chat is for asking, Cowork is for doing. If you don't see a Chat / Cowork choice at all, your account has the newer merged version and any conversation can take a Cowork task, so skip this."
+   },
+   {
+    "h": "Connect Gmail",
+    "p": "Click the + in the chat box and go to connectors, or open Customize > Connectors in the left sidebar. Find Gmail, click Connect and sign in with Google. Claude can now read your inbox. If the menu has moved, search for Connectors under Customize or Settings."
+   },
+   {
+    "h": "Add your other tools",
+    "p": "Same move for Google Drive, Google Calendar, Slack or whatever else you use. Each one is a click and a sign-in. Connect only the tools you'll actually give Claude tasks in."
+   },
+   {
+    "h": "Set the safety mode",
+    "p": "Find the mode selector in the chat box and pick Manual while you're learning. Claude asks before each action and you click Allow or Deny. Auto lets Claude approve read-only actions and decide on the rest. Skip the mode called Skip on anything that touches your email."
+   },
+   {
+    "h": "Teach it your first skill",
+    "p": "Make sure Settings > Capabilities has code execution and file creation on (newer layouts call it Create and edit files). Then use the skill prompt at the end of this guide: Claude asks you questions and builds the skill. If it hands you a ZIP file, upload it in Customize > Skills: click +, then Create skill, then Upload a skill, and switch it on."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. What's urgent",
+    "code": "Go through my inbox and tell me if there's anything urgent.\nList each one with who sent it, what they need, and by when.\nDon't send anything."
+   },
+   {
+    "h": "2. Draft the replies",
+    "code": "Find every email from the last 7 days that's waiting on a reply from me.\nDraft a reply to each one in my tone: short and direct.\nSave them as drafts. Don't send anything."
+   },
+   {
+    "h": "3. Pricing questions",
+    "code": "Find every email asking about my prices or services.\nDraft a reply to each using this info: [paste your prices and offer].\nDon't send anything. Show me the list when you're done."
+   },
+   {
+    "h": "4. Follow-ups",
+    "code": "Find emails I sent in the last 14 days that got no reply.\nDraft a short, friendly follow-up for each one. Don't send anything."
+   },
+   {
+    "h": "5. Clean the inbox",
+    "code": "Look at my newsletters and promo emails from the last 30 days.\nTell me which senders I never open, so I can unsubscribe.\nDon't delete or archive anything."
+   },
+   {
+    "h": "6. Build your first skill",
+    "code": "I want to make a skill for how I write proposals.\nWhenever I say \"draft a proposal\", you should: find my notes from the meeting with that client,\nuse my template [paste template], and write it in my tone.\nAsk me questions until you have everything, then build the skill."
+   }
+  ],
+  "credit": [
+   "Claude Cowork and Claude Desktop by Anthropic (claude.ai/download)",
+   "Get started with Cowork: support.claude.com/en/articles/13345190",
+   "Google Workspace connectors: support.claude.com/en/articles/10166901",
+   "Skills in Claude: support.claude.com/en/articles/12512180"
+  ],
+  "ar": {
+   "title": "تجاوز المحادثة. <span class=\"em\">ابدأ بـ Cowork</span>.",
+   "lead": "Chat يجيب عن الأسئلة. Cowork ينجز العمل: يقرأ بريدك، ويكتب مسودات الردود، ويتبع طريقتك في العمل. الإعداد الكامل خطوة بخطوة.",
+   "inside": "ثبّت Claude Desktop، واربط Gmail وأدواتك الأخرى، ونفّذ خمسة أوامر على بريدك، وعلّم Claude أول طريقة عمل لك على شكل مهارة.",
+   "what": [
+    "Cowork هو الجزء من Claude الذي يأخذ المهمة وينجزها. تربط أدواتك مرة واحدة (Gmail وGoogle Drive وCalendar وSlack)، وتصف ما تريد، وتراجع خطة Claude، ثم تتركه يعمل. يقرأ ويرتّب ويكتب المسودات، وأنت تراجع قبل أن يخرج أي شيء.",
+    "المهارات هي المستوى التالي. تكتب طريقتك في العمل مرة واحدة، مثل طريقة إعدادك للعروض، ومن بعدها يتبعها Claude في كل مرة تطلب. هذا الدليل لأصحاب الأعمال الذين يقضون ساعات كل أسبوع في البريد وفي المستندات نفسها مرة بعد مرة."
+   ],
+   "prereqs": [
+    "خطة Claude مدفوعة (Pro أو أعلى)، فـ Cowork غير متاح في الخطة المجانية",
+    "تطبيق Claude Desktop لنظام Mac أو Windows من claude.ai/download (يعمل Cowork أيضًا على الويب والهاتف، لكن تطبيق سطح المكتب هو النسخة الكاملة)",
+    "بيانات دخول Gmail أو Google Workspace، وأي أدوات أخرى تريد ربطها",
+    "طريقة عمل واحدة تكررها كل أسبوع، مكتوبة بشكل تقريبي، لتكون أول مهارة لك"
+   ],
+   "warn": "بعد ربط Gmail يستطيع Claude التصرف داخل بريدك، وموصل Gmail بدأ يكتسب القدرة على الإرسال والرد وإعادة التوجيه. اضبط محدد الوضع في مربع المحادثة على Manual ليطلب Claude إذنك قبل كل إجراء، وأبقِ عبارة \"Don't send anything\" في أوامرك. يمكن ربط حساب Google واحد فقط في كل مرة. في خطط Team وEnterprise يجب أن يفعّل المالك الموصلات أولًا.",
+   "steps": [
+    {
+     "h": "نزّل Claude Desktop",
+     "p": "ادخل إلى claude.ai/download، وثبّت التطبيق على جهازك، وسجّل الدخول بحساب Claude."
+    },
+    {
+     "h": "اختر Cowork وليس Chat",
+     "p": "في مربع الرسائل اختر Cowork (أسفل اليسار). Chat للسؤال وCowork للتنفيذ. إذا لم تجد خيار Chat و Cowork أصلًا، فحسابك يعمل بالنسخة المدمجة الأحدث وأي محادثة تستطيع تنفيذ مهمة Cowork، فتجاوز هذه الخطوة."
+    },
+    {
+     "h": "اربط Gmail",
+     "p": "اضغط + في مربع المحادثة وانتقل إلى الموصلات، أو افتح Customize ثم Connectors من الشريط الجانبي الأيسر. ابحث عن Gmail واضغط Connect وسجّل الدخول بحساب Google. أصبح Claude قادرًا على قراءة بريدك. إذا تغيّر مكان القائمة، فابحث عن Connectors تحت Customize أو Settings."
+    },
+    {
+     "h": "أضف أدواتك الأخرى",
+     "p": "الخطوات نفسها مع Google Drive وGoogle Calendar وSlack وأي أداة أخرى تستخدمها. كل أداة تحتاج نقرة وتسجيل دخول. اربط فقط الأدوات التي ستكلّف Claude بمهام فيها فعلًا."
+    },
+    {
+     "h": "اضبط وضع الأمان",
+     "p": "ابحث عن محدد الوضع في مربع المحادثة واختر Manual أثناء التعلّم. يطلب Claude إذنك قبل كل إجراء وتضغط Allow أو Deny. وضع Auto يسمح لـ Claude بالموافقة على إجراءات القراءة فقط ويقرر في الباقي. تجنّب الوضع المسمى Skip في أي شيء يمس بريدك."
+    },
+    {
+     "h": "علّمه أول مهارة",
+     "p": "تأكد أن خيار تنفيذ الكود وإنشاء الملفات مفعّل في Settings ثم Capabilities (في الواجهات الأحدث اسمه Create and edit files). ثم استخدم أمر المهارة في آخر هذا الدليل: يطرح Claude عليك أسئلة ويبني المهارة. إذا أعطاك ملف ZIP، فارفعه من Customize ثم Skills: اضغط + ثم Create skill ثم Upload a skill، وفعّله."
+    }
+   ],
+   "prompts": [
+    "1. ما العاجل",
+    "2. كتابة مسودات الردود",
+    "3. أسئلة الأسعار",
+    "4. رسائل المتابعة",
+    "5. تنظيف البريد",
+    "6. ابنِ أول مهارة لك"
+   ]
+  },
+  "date_en": "2 Nov 2026",
+  "date_ar": "2 نوفمبر 2026"
+ },
+ {
+  "kw": "AGENCY",
+  "slug": "agency-agents",
+  "number": 29,
+  "title": "A full <span class=\"em\">AI agency</span> inside Claude Code.",
+  "lead": "The Agency is a free GitHub repo with 230+ specialist agents for Claude Code: sales, marketing, design, engineering, support, finance. Install the three a service business needs and run real client work through them.",
+  "inside": "Copy three sales agents into Claude Code, call each one by name on a real prospect, and run one job where Claude hands the work from agent to agent and checks each step.",
+  "what": [
+   "Each agent in the repo is one Markdown file with a job, a personality, a process and a definition of done. Claude Code reads them as subagents: put the file in ~/.claude/agents and you can say \"use the Proposal Strategist agent\" in any project. The repo covers sales, marketing, paid media, design, engineering, testing, support and finance, plus an Agents Orchestrator that runs a full build from plan to QA.",
+   "It's for service business owners who already use Claude Code and want specialists instead of one general chat. Don't install all 230. For a service business, start with three: Sales Outreach writes your cold emails and follow-ups, Discovery Coach preps your sales calls, and Proposal Strategist writes the proposal after the call."
+  ],
+  "prereqs": [
+   "Claude Code installed and logged in",
+   "git, to clone the repo (or download it as a ZIP from GitHub)",
+   "One real prospect or client to test on",
+   "A Claude plan with room to spare: every agent you call uses its own context"
+  ],
+  "warn": "Agents cost tokens. Each agent file is a long set of instructions, and every agent you call starts its own context, so a job that passes through three agents uses several times what one chat would. The Agents Orchestrator retries a failed task up to 3 times, so it can burn through your limit on a big build. The second gotcha is overlap: the repo has several agents that do nearly the same job (Outbound Strategist and Sales Outreach both write outbound sequences). Install everything and Claude has to pick between look-alike descriptions, and it will sometimes pick the wrong one. Keep a small set, name the agent you want in the prompt, and read the output before it goes to a client.",
+  "steps": [
+   {
+    "h": "Clone the repo",
+    "p": "Run this in your terminal. You only need the files, nothing gets installed yet.",
+    "code": "git clone https://github.com/msitarzewski/agency-agents.git\ncd agency-agents"
+   },
+   {
+    "h": "Copy only the three you'll use",
+    "p": "Claude Code loads agents from ~/.claude/agents. These are the three for a service business: Sales Outreach (cold email and follow-ups), Discovery Coach (call prep) and Proposal Strategist (the proposal).",
+    "code": "mkdir -p ~/.claude/agents\ncp specialized/sales-outreach.md sales/sales-discovery-coach.md sales/sales-proposal-strategist.md ~/.claude/agents/"
+   },
+   {
+    "h": "Check they loaded",
+    "p": "Close Claude Code and open a new session, then open the agents menu. You should see Sales Outreach, Discovery Coach and Proposal Strategist in the list.",
+    "code": "/agents"
+   },
+   {
+    "h": "Call one by name",
+    "p": "Name the agent at the start of your prompt so Claude doesn't guess. Start with the first prompt on the next page on a real prospect, and judge the agent by what it gives you."
+   },
+   {
+    "h": "Run one job across all three",
+    "p": "Use the third prompt: Claude acts as the project lead, hands each part to the right agent and checks every output before it moves on. The repo's own Agents Orchestrator (specialized/agents-orchestrator.md) does this for software builds: plan, UX, a dev and QA loop, then a final check. Add it, with the engineering and testing agents it calls, when you have a real build job."
+   },
+   {
+    "h": "Swap, don't stack",
+    "p": "Browse the roster in the README when you need a new skill (paid media, SEO, support). Add one, and remove one you stopped using, so you stay at a handful. To remove an agent, delete its file.",
+    "code": "rm ~/.claude/agents/sales-discovery-coach.md"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Cold email sequence",
+    "code": "Use the Sales Outreach agent.\nI sell [your service] to [type of business] in [city or country].\nWrite a 3-email cold sequence for [prospect name] at [company], website [their website].\nUnder 80 words each, one question per email, no link in the first email, and mention one specific thing from their website."
+   },
+   {
+    "h": "2. Call prep, then proposal",
+    "code": "Use the Discovery Coach agent to prep my call with [company] on [day].\nWhat I know so far: [your notes].\nGive me 8 questions in order and the one thing I must find out before I hang up.\nAfter the call I'll paste my notes. Then use the Proposal Strategist agent to turn them into a one-page proposal with two pricing options."
+   },
+   {
+    "h": "3. Run it like an agency",
+    "code": "Act as the project lead for this client job: [describe the job].\nHand the outreach to the Sales Outreach agent, the call prep to the Discovery Coach agent and the proposal to the Proposal Strategist agent.\nBefore moving to the next step, check each output against my brief and fix what doesn't match.\nStop after each step and show me what you have."
+   }
+  ],
+  "credit": [
+   "The Agency (agency-agents) by Michael Sitarzewski / msitarzewski and contributors, MIT license (github.com/msitarzewski/agency-agents)"
+  ],
+  "ar": {
+   "title": "<span class=\"em\">وكالة ذكاء اصطناعي</span> كاملة داخل Claude Code.",
+   "lead": "The Agency مستودع مجاني على GitHub يضم أكثر من 230 وكيلًا متخصصًا لـ Claude Code: مبيعات وتسويق وتصميم وبرمجة ودعم عملاء ومالية. ثبّت الثلاثة التي يحتاجها عمل خدمي، وشغّل عليها عمل عملاء حقيقيًا.",
+   "inside": "انسخ ثلاثة وكلاء مبيعات إلى Claude Code، واستدعِ كل واحد باسمه على عميل محتمل حقيقي، ونفّذ مهمة واحدة يمرر فيها Claude العمل من وكيل إلى آخر ويراجع كل خطوة.",
+   "what": [
+    "كل وكيل في المستودع ملف Markdown واحد فيه مهمة وشخصية وطريقة عمل وتعريف لما يعنيه إنجاز المهمة. يقرأها Claude Code كوكلاء فرعيين: ضع الملف في ~/.claude/agents وستتمكن من قول \"use the Proposal Strategist agent\" في أي مشروع. يغطي المستودع المبيعات والتسويق والإعلانات المدفوعة والتصميم والبرمجة والاختبار والدعم والمالية، إضافة إلى Agents Orchestrator الذي يدير مشروع بناء كاملًا من التخطيط حتى الاختبار.",
+    "هذا الدليل لأصحاب الأعمال الخدمية الذين يستخدمون Claude Code ويريدون متخصصين بدل محادثة عامة واحدة. لا تثبّت الـ 230 كلها. ابدأ بثلاثة: Sales Outreach يكتب رسائل البريد البارد والمتابعة، وDiscovery Coach يجهّزك لمكالمات المبيعات، وProposal Strategist يكتب العرض بعد المكالمة."
+   ],
+   "prereqs": [
+    "Claude Code مثبّت ومسجّل الدخول",
+    "git لنسخ المستودع (أو حمّله كملف ZIP من GitHub)",
+    "عميل محتمل أو عميل حقيقي واحد للتجربة",
+    "اشتراك Claude فيه هامش كافٍ: كل وكيل تستدعيه يستخدم سياقًا خاصًا به"
+   ],
+   "warn": "الوكلاء يستهلكون التوكنز. كل ملف وكيل مجموعة تعليمات طويلة، وكل وكيل تستدعيه يبدأ سياقًا خاصًا به، فالمهمة التي تمر عبر ثلاثة وكلاء تستهلك أضعاف ما تستهلكه محادثة واحدة. ويعيد Agents Orchestrator المحاولة حتى 3 مرات للمهمة الفاشلة، فقد يستنفد حدك في مشروع بناء كبير. المشكلة الثانية هي التداخل: في المستودع عدة وكلاء يؤدون المهمة نفسها تقريبًا (Outbound Strategist وSales Outreach كلاهما يكتب سلاسل رسائل). إذا ثبّت كل شيء فسيضطر Claude إلى الاختيار بين أوصاف متشابهة، وسيختار الوكيل الخطأ أحيانًا. احتفظ بمجموعة صغيرة، وسمِّ الوكيل الذي تريده في الطلب، واقرأ النتيجة قبل أن تصل إلى العميل.",
+   "steps": [
+    {
+     "h": "انسخ المستودع",
+     "p": "نفّذ هذا في الطرفية. تحتاج الملفات فقط، ولن يُثبَّت شيء بعد."
+    },
+    {
+     "h": "انسخ الثلاثة التي ستستخدمها فقط",
+     "p": "يحمّل Claude Code الوكلاء من ~/.claude/agents. هذه الثلاثة المناسبة لعمل خدمي: Sales Outreach (البريد البارد والمتابعة)، وDiscovery Coach (التحضير للمكالمات)، وProposal Strategist (كتابة العرض)."
+    },
+    {
+     "h": "تأكد أنها حُمّلت",
+     "p": "أغلق Claude Code وافتح جلسة جديدة، ثم افتح قائمة الوكلاء. يجب أن ترى Sales Outreach وDiscovery Coach وProposal Strategist في القائمة."
+    },
+    {
+     "h": "استدعِ الوكيل باسمه",
+     "p": "اذكر اسم الوكيل في بداية طلبك حتى لا يخمّن Claude. ابدأ بالأمر الأول في الصفحة التالية على عميل محتمل حقيقي، واحكم على الوكيل بما يقدمه لك."
+    },
+    {
+     "h": "نفّذ مهمة واحدة عبر الثلاثة",
+     "p": "استخدم الأمر الثالث: يتولى Claude دور قائد المشروع، ويسلّم كل جزء للوكيل المناسب، ويراجع كل نتيجة قبل الانتقال. ويقوم Agents Orchestrator الموجود في المستودع (specialized/agents-orchestrator.md) بهذا لمشاريع البرمجة: تخطيط، ثم تجربة المستخدم، ثم حلقة تطوير واختبار، ثم فحص نهائي. أضفه مع وكلاء البرمجة والاختبار الذين يستدعيهم حين يكون لديك مشروع بناء حقيقي."
+    },
+    {
+     "h": "استبدل ولا تكدّس",
+     "p": "تصفّح قائمة الوكلاء في ملف README حين تحتاج مهارة جديدة (إعلانات مدفوعة، تحسين محركات البحث، دعم العملاء). أضف واحدًا واحذف واحدًا توقفت عن استخدامه، لتبقى عند عدد قليل. لحذف وكيل، احذف ملفه."
+    }
+   ],
+   "prompts": [
+    "1. سلسلة رسائل بريد بارد",
+    "2. التحضير للمكالمة ثم العرض",
+    "3. أدِرها كوكالة"
+   ]
+  },
+  "date_en": "2 Nov 2026",
+  "date_ar": "2 نوفمبر 2026"
+ },
+ {
+  "kw": "SETUP",
+  "slug": "claude-one-day-setup",
+  "number": 30,
+  "title": "Set up Claude <span class=\"em\">in one day</span>.",
+  "lead": "If Claude still feels like ChatGPT from 2022, you're missing five things: a skill, a scheduled task, an artifact, a plugin and the Chrome extension.",
+  "inside": "Turn on all five, with one starter example for each that you can run today.",
+  "what": [
+   "Most people use Claude as a chat box: question in, answer out. These five features change that. A skill makes Claude do a task the same way every time. A scheduled task runs on its own, like a brief every morning at 8. An artifact is a working tool Claude builds for you and you can share by link. A plugin installs a ready set of skills and connectors in one go. The Chrome extension puts Claude next to the page you're on so it can act on it.",
+   "It's for business owners who pay for Claude and still use it like a search bar. Give it one afternoon and Claude starts doing real work for you every day."
+  ],
+  "prereqs": [
+   "A paid Claude plan (Pro or higher). Skills and artifacts work on free, but scheduled tasks, Cowork plugins and Claude in Chrome need a paid plan",
+   "Claude Desktop from claude.ai/download, for scheduled tasks and plugins",
+   "Google Chrome on a computer (the extension doesn't run on other Chromium browsers or on phones)",
+   "Gmail and Calendar connected, if you want the morning brief to read them"
+  ],
+  "warn": "Claude in Chrome clicks and types on real websites while signed in as you. Anthropic calls it \"still risky\" even with its safety checks. Keep it off banking and payment pages, and check its work before anything gets submitted. On Team and Enterprise plans, published artifacts are visible only inside your company unless an owner turns on external sharing.",
+  "steps": [
+   {
+    "h": "A skill",
+    "p": "Teaches Claude to do a task the same way every time. First open Settings > Capabilities and switch on code execution and file creation (newer layouts call it Create and edit files). Then go to Customize > Skills: Anthropic's own skills for Word, Excel, PowerPoint and PDF are there, plus example skills you can toggle on. Pick one or two you'll actually use. More public skills: github.com/anthropics/skills."
+   },
+   {
+    "h": "A scheduled task",
+    "p": "In Cowork, type /schedule after your prompt, or click Scheduled in the left sidebar, then New task. Set it to daily at 8:00 and Claude sends you a morning brief on its own. Anthropic's current help page says scheduled tasks run in the cloud, so your computer can be asleep. If yours says the desktop app has to be open, leave it open."
+   },
+   {
+    "h": "An artifact",
+    "p": "Ask Claude to build a tool, like a tracker, a calculator or a dashboard. It appears in a panel next to the chat and works right there. To share it, click Publish or Share and copy the link. On Free, Pro and Max you can share it publicly. On Team and Enterprise it stays inside your company by default."
+   },
+   {
+    "h": "A plugin",
+    "p": "A plugin bundles skills and connectors for one kind of work, so you don't set each one up separately. Open Customize in the left sidebar, go to Plugins, click Browse plugins, then Install on the one that fits your work. Some ask you to sign in to a tool. Plugins you add also work in chat and Claude Code."
+   },
+   {
+    "h": "The Chrome extension",
+    "p": "Open the Chrome Web Store, find Claude in Chrome (by Anthropic) and click Add to Chrome. Sign in, then click the puzzle piece icon and pin Claude to your toolbar. Click the Claude icon to open the side panel. Claude sees the page you're on and can act on it: your CRM, forms, bookings."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Use a skill",
+    "code": "Here are my notes from this week: [paste].\nTurn them into a 5-slide PowerPoint for my team: what we did, the numbers, and next week's plan."
+   },
+   {
+    "h": "2. Morning brief (schedule it daily at 8:00)",
+    "code": "Every morning, check my Gmail and Google Calendar.\nGive me: today's meetings, emails that need a reply today, and anything urgent.\nKeep it under 10 lines. Don't send or reply to anything."
+   },
+   {
+    "h": "3. Build an artifact",
+    "code": "Build me a client tracker as an artifact. Columns: name, service, price,\nstatus (lead, call booked, paid), and next follow-up date.\nAdd a total of paid revenue at the top."
+   },
+   {
+    "h": "4. Pick a plugin",
+    "code": "I run [your business] and spend most of my week on [main tasks].\nLook at the plugins I can install and tell me the 2 that would save me the most time, and why."
+   },
+   {
+    "h": "5. Claude in Chrome",
+    "code": "Look at this page. Fill in the form with the details below,\nthen stop before submitting so I can check it:\n[paste details]"
+   }
+  ],
+  "credit": [
+   "Skills, scheduled tasks, artifacts, plugins and Claude in Chrome by Anthropic (claude.com)",
+   "Skills: support.claude.com/en/articles/12512180 and github.com/anthropics/skills",
+   "Scheduled tasks: support.claude.com/en/articles/13854387",
+   "Plugins: support.claude.com/en/articles/13837440",
+   "Claude in Chrome: support.claude.com/en/articles/12012173 and the Chrome Web Store listing"
+  ],
+  "ar": {
+   "title": "جهّز Claude <span class=\"em\">في يوم واحد</span>.",
+   "lead": "إذا كان Claude ما زال يبدو مثل ChatGPT عام 2022، فأنت تفتقد خمسة أشياء: مهارة، ومهمة مجدولة، وartifact، وإضافة plugin، وإضافة Chrome.",
+   "inside": "فعّل الخمسة كلها، مع مثال أول لكل واحدة تستطيع تشغيله اليوم.",
+   "what": [
+    "يستخدم معظم الناس Claude كمربع محادثة: سؤال يدخل وجواب يخرج. هذه الميزات الخمس تغيّر ذلك. المهارة تجعل Claude ينفذ المهمة بالطريقة نفسها كل مرة. المهمة المجدولة تعمل وحدها، مثل ملخص كل صباح عند الساعة 8. الـ artifact أداة عاملة يبنيها لك Claude وتشاركها برابط. الـ plugin يثبّت مجموعة جاهزة من المهارات والموصلات دفعة واحدة. وإضافة Chrome تضع Claude بجانب الصفحة التي تتصفحها ليتصرف فيها.",
+    "هذا الدليل لأصحاب الأعمال الذين يدفعون اشتراك Claude وما زالوا يستخدمونه كشريط بحث. خصّص له فترة بعد ظهر واحدة، وسيبدأ Claude بإنجاز عمل حقيقي لك كل يوم."
+   ],
+   "prereqs": [
+    "خطة Claude مدفوعة (Pro أو أعلى). المهارات والـ artifacts تعمل على الخطة المجانية، لكن المهام المجدولة وإضافات Cowork وClaude in Chrome تحتاج خطة مدفوعة",
+    "تطبيق Claude Desktop من claude.ai/download، للمهام المجدولة والإضافات",
+    "متصفح Google Chrome على الكمبيوتر (لا تعمل الإضافة على متصفحات Chromium الأخرى ولا على الهاتف)",
+    "Gmail وCalendar مربوطان، إذا أردت أن يقرأهما ملخص الصباح"
+   ],
+   "warn": "يضغط Claude in Chrome ويكتب على مواقع حقيقية وهو مسجّل الدخول باسمك. تصفه Anthropic بأنه \"still risky\" رغم فحوص الأمان. أبعده عن صفحات البنوك والدفع، وراجع عمله قبل إرسال أي شيء. في خطط Team وEnterprise تبقى الـ artifacts المنشورة مرئية داخل شركتك فقط ما لم يفعّل المالك المشاركة الخارجية.",
+   "steps": [
+    {
+     "h": "مهارة",
+     "p": "تعلّم Claude تنفيذ المهمة بالطريقة نفسها كل مرة. افتح أولًا Settings ثم Capabilities وفعّل تنفيذ الكود وإنشاء الملفات (في الواجهات الأحدث اسمه Create and edit files). ثم انتقل إلى Customize ثم Skills: ستجد مهارات Anthropic لملفات Word وExcel وPowerPoint وPDF، ومهارات أمثلة يمكنك تفعيلها. اختر واحدة أو اثنتين ستستخدمهما فعلًا. مهارات عامة أخرى: github.com/anthropics/skills."
+    },
+    {
+     "h": "مهمة مجدولة",
+     "p": "في Cowork اكتب /schedule بعد أمرك، أو اضغط Scheduled في الشريط الجانبي الأيسر ثم New task. اضبطها يوميًا عند الساعة 8:00 فيرسل لك Claude ملخص الصباح وحده. تقول صفحة المساعدة الحالية لدى Anthropic إن المهام المجدولة تعمل في السحابة، فيمكن أن يكون جهازك في وضع السكون. إذا ظهر لديك أن تطبيق سطح المكتب يجب أن يبقى مفتوحًا، فاتركه مفتوحًا."
+    },
+    {
+     "h": "Artifact",
+     "p": "اطلب من Claude بناء أداة، مثل جدول متابعة أو آلة حاسبة أو لوحة متابعة. تظهر في لوحة بجانب المحادثة وتعمل هناك مباشرة. لمشاركتها اضغط Publish أو Share وانسخ الرابط. في خطط Free وPro وMax يمكنك مشاركتها علنًا. في خطط Team وEnterprise تبقى داخل شركتك افتراضيًا."
+    },
+    {
+     "h": "Plugin",
+     "p": "الـ plugin يجمع مهارات وموصلات لنوع واحد من العمل، فلا تحتاج إلى إعداد كل واحدة على حدة. افتح Customize من الشريط الجانبي الأيسر، وانتقل إلى Plugins، واضغط Browse plugins، ثم Install على الإضافة المناسبة لعملك. بعضها يطلب منك تسجيل الدخول إلى أداة. الإضافات التي تثبّتها تعمل أيضًا في المحادثة وفي Claude Code."
+    },
+    {
+     "h": "إضافة Chrome",
+     "p": "افتح Chrome Web Store، وابحث عن Claude in Chrome (من Anthropic) واضغط Add to Chrome. سجّل الدخول، ثم اضغط أيقونة قطعة الأحجية وثبّت Claude في شريط الأدوات. اضغط أيقونة Claude لفتح اللوحة الجانبية. يرى Claude الصفحة التي أنت عليها ويستطيع التصرف فيها: نظام إدارة العملاء، والنماذج، والحجوزات."
+    }
+   ],
+   "prompts": [
+    "1. استخدم مهارة",
+    "2. ملخص الصباح (جدوله يوميًا عند 8:00)",
+    "3. ابنِ artifact",
+    "4. اختر plugin",
+    "5. Claude in Chrome"
+   ]
+  },
+  "date_en": "2 Nov 2026",
+  "date_ar": "2 نوفمبر 2026"
+ },
+ {
+  "kw": "COUNCIL",
+  "slug": "ai-council",
+  "number": 31,
+  "hero": 1,
+  "title": "Stop asking AI to agree. <span class=\"em\">Run a council</span>.",
+  "lead": "One copy-paste prompt that turns a single Claude chat into five advisors who argue, review each other blind, and hand the call to a chairman.",
+  "inside": "Run the council prompt on a real decision, save it so it's one click away next time, and know when to use Karpathy's full multi-model version instead.",
+  "what": [
+   "A Stanford-led study published in Science in March 2026 tested 11 AI models, Claude, ChatGPT and Gemini among them, and found they backed the user 49% more often than humans did on the same advice questions. Ask a chatbot if your idea is good and you mostly get your own opinion back.",
+   "The fix comes from Andrej Karpathy's LLM Council, an open-source app that sends your question to several AI models, has them rank each other's answers without knowing who wrote what, then lets a chairman model write the final answer. This guide adapts that idea to one Claude chat: five advisors with different jobs (the contrarian, the first-principles thinker, the expansionist, the outsider and the executor), a blind review, and a chairman who makes the call and gives you next steps."
+  ],
+  "prereqs": [
+   "A Claude account. Use the strongest model your plan has (Opus or Fable) with effort on High",
+   "A real decision you're stuck on: pricing, a hire, an offer, a big spend",
+   "The context Claude needs: your numbers, your constraints, what you've already tried",
+   "Optional: Claude Code, to save the council as a skill (step 04)"
+  ],
+  "warn": "In one chat, all five advisors are the same model playing different roles, and the \"blind\" review is the model judging answers it wrote itself. That still beats one agreeable answer, but it's a thinking tool, not five independent opinions. For truly separate models, run Karpathy's app (step 05). And the council only knows what you tell it: hide the bad numbers and you get a confident wrong answer.",
+  "steps": [
+   {
+    "h": "Open a fresh chat and paste the council prompt",
+    "p": "New chat on Opus or Fable, effort on High. Paste the whole prompt and replace the brackets with your decision and context. Real numbers make sharper advisors.",
+    "code": "You are running an LLM Council on my decision. Don't just agree with me.\nSTAGE 1, ADVISORS. Answer once as each advisor, max 120 words each:\n1. Contrarian: looks only for what could fail.\n2. First-Principles Thinker: breaks my assumptions, rebuilds from basics.\n3. Expansionist: finds the upside I'm missing.\n4. Outsider: knows nothing about my industry, asks the obvious questions.\n5. Executor: only cares what I do Monday morning.\nLabel the answers A to E in random order, no advisor names.\nSTAGE 2, BLIND REVIEW. Each advisor ranks the other four by letter only\nand names the biggest flaw in the top one.\nSTAGE 3, CHAIRMAN. Reveal who wrote what. Give one clear verdict\n(no \"it depends\"), the 3 reasons, the biggest risk and how to cover it,\nand next steps for this week, Monday first.\nMY DECISION: [your question]\nCONTEXT: [numbers, constraints, what you tried, what you're leaning toward]"
+   },
+   {
+    "h": "Read the chairman's call, then push back",
+    "p": "Act on the chairman's verdict. Feels off? Use the \"Make the chairman defend it\" prompt."
+   },
+   {
+    "h": "Save it as a Claude Project",
+    "p": "Create a Project called Council and paste the step 01 prompt into its instructions, minus the last two lines. Every new chat inside it runs as a council."
+   },
+   {
+    "h": "Or save it as a skill in Claude Code",
+    "p": "Create the folder, then make a SKILL.md file inside it with the lines below at the top and the step 01 prompt underneath. Restart Claude Code and type /council followed by your decision.",
+    "code": "mkdir -p ~/.claude/skills/council\n\n---\nname: council\ndescription: Run a 5-advisor council with blind review and a chairman verdict on a decision.\n---"
+   },
+   {
+    "h": "Want the real multi-model version?",
+    "p": "Karpathy's app sends your question to different AI models through OpenRouter (you choose which ones in backend/config.py), which needs a paid API key in a .env file. You'll need uv and Node.js installed. He says it was a weekend project he won't support, so treat it as a playground.",
+    "code": "git clone https://github.com/karpathy/llm-council.git\ncd llm-council\nuv sync\ncd frontend && npm install && cd ..\necho \"OPENROUTER_API_KEY=your-key\" > .env\n./start.sh"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "Quick council (two minutes)",
+    "code": "Run a quick council on this: [your question].\nGive me one sharp line each from a Contrarian, a First-Principles Thinker, an Expansionist,\nan Outsider and an Executor. Then a Chairman's verdict and the one thing I do first.\nDo not just agree with me."
+   },
+   {
+    "h": "Make the chairman defend it",
+    "code": "Chairman, steelman the option you rejected.\nWhat would have to be true for it to be the right call?\nThen tell me if your verdict still stands, and what single number would change it."
+   },
+   {
+    "h": "Example: pricing an offer",
+    "code": "MY DECISION: Should I price my done-for-you service at [price A] or [price B] a month?\nCONTEXT: I have [number] clients, they pay [current price], my costs per client are [cost],\nmy competitors charge [range], and I need [target] a month by [date]. I'm leaning toward [option]."
+   }
+  ],
+  "credit": [
+   "LLM Council by Andrej Karpathy (github.com/karpathy/llm-council). The one-chat version in this guide is an adaptation, not his tool",
+   "\"Sycophantic AI decreases prosocial intentions and promotes dependence\", Stanford-led study in Science, March 2026 (news.stanford.edu)"
+  ],
+  "payoff": "Run the council once this week on a decision you've been sitting on. Do the first Monday step it gives you. Then DM me what it said, I read them.",
+  "ar": {
+   "title": "توقّف عن طلب الموافقة من الذكاء الاصطناعي. <span class=\"em\">شكّل مجلسًا</span>.",
+   "lead": "أمر واحد تنسخه وتلصقه، يحوّل محادثة Claude واحدة إلى خمسة مستشارين يتجادلون، ويراجعون إجابات بعضهم دون معرفة كاتبها، ثم يسلّمون القرار إلى رئيس المجلس.",
+   "inside": "شغّل أمر المجلس على قرار حقيقي، واحفظه ليكون جاهزًا في المرة القادمة، واعرف متى تستخدم نسخة Karpathy الكاملة متعددة النماذج.",
+   "what": [
+    "اختبرت دراسة قادتها جامعة Stanford ونُشرت في مجلة Science في مارس 2026 أحد عشر نموذج ذكاء اصطناعي، منها Claude وChatGPT وGemini، ووجدت أنها أيّدت المستخدم أكثر بنسبة 49% مما فعل البشر في أسئلة النصيحة نفسها. اسأل روبوت محادثة إن كانت فكرتك جيدة، وغالبًا ستسمع رأيك أنت.",
+    "الحل مستوحى من مشروع LLM Council لـ Andrej Karpathy، وهو تطبيق مفتوح المصدر يرسل سؤالك إلى عدة نماذج، ويجعلها تقيّم إجابات بعضها دون معرفة كاتبها، ثم يكتب نموذج يرأس المجلس الإجابة النهائية. يكيّف هذا الدليل الفكرة لمحادثة Claude واحدة: خمسة مستشارين بأدوار مختلفة (المعارض، ومفكر المبادئ الأولى، والتوسّعي، والغريب عن المجال، والمنفّذ)، ثم مراجعة عمياء، ثم رئيس مجلس يتخذ القرار ويعطيك الخطوات التالية."
+   ],
+   "prereqs": [
+    "حساب Claude. استخدم أقوى نموذج في خطتك (Opus أو Fable) مع ضبط الجهد على High",
+    "قرار حقيقي متردد فيه: تسعير، أو توظيف، أو عرض، أو إنفاق كبير",
+    "السياق الذي يحتاجه Claude: أرقامك، وقيودك، وما جرّبته من قبل",
+    "اختياري: Claude Code، لحفظ المجلس كمهارة (الخطوة 04)"
+   ],
+   "warn": "في محادثة واحدة، المستشارون الخمسة هم النموذج نفسه يؤدي أدوارًا مختلفة، والمراجعة «العمياء» هي النموذج يحكم على إجابات كتبها بنفسه. هذا أفضل من إجابة واحدة موافقة، لكنه أداة تفكير وليس خمسة آراء مستقلة. للحصول على نماذج منفصلة فعلًا، شغّل تطبيق Karpathy (الخطوة 05). والمجلس لا يعرف إلا ما تخبره به: إن أخفيت الأرقام السيئة فستحصل على إجابة واثقة وخاطئة.",
+   "steps": [
+    {
+     "h": "افتح محادثة جديدة والصق أمر المجلس",
+     "p": "محادثة جديدة على Opus أو Fable مع الجهد على High. الصق الأمر كاملًا واستبدل ما بين الأقواس بقرارك وسياقه. الأرقام الحقيقية تجعل آراء المستشارين أدق."
+    },
+    {
+     "h": "اقرأ قرار رئيس المجلس ثم ناقشه",
+     "p": "اعمل بحكم رئيس المجلس. إن بدا لك غير مقنع، استخدم أمر «اجعل رئيس المجلس يدافع عن قراره»."
+    },
+    {
+     "h": "احفظه كمشروع في Claude",
+     "p": "أنشئ مشروعًا (Project) باسم Council والصق أمر الخطوة 01 في تعليماته دون السطرين الأخيرين. كل محادثة جديدة داخله تعمل كمجلس."
+    },
+    {
+     "h": "أو احفظه كمهارة في Claude Code",
+     "p": "أنشئ المجلد، ثم أنشئ داخله ملف SKILL.md يبدأ بالأسطر أدناه وتحتها أمر الخطوة 01. أعد تشغيل Claude Code واكتب ‎/council متبوعًا بقرارك."
+    },
+    {
+     "h": "تريد النسخة الحقيقية متعددة النماذج؟",
+     "p": "يرسل تطبيق Karpathy سؤالك إلى نماذج ذكاء اصطناعي مختلفة عبر OpenRouter (تختارها في ملف backend/config.py)، ويحتاج مفتاح API مدفوعًا في ملف ‎.env. ستحتاج إلى تثبيت uv وNode.js. يقول إنه مشروع عطلة نهاية أسبوع لن يدعمه، فتعامل معه كمساحة للتجربة."
+    }
+   ],
+   "prompts": [
+    "مجلس سريع (دقيقتان)",
+    "اجعل رئيس المجلس يدافع عن قراره",
+    "مثال: تسعير عرض"
+   ],
+   "payoff": "شغّل المجلس مرة هذا الأسبوع على قرار تؤجله، ونفّذ أول خطة ليوم الاثنين يعطيك إياها. ثم راسلني بما قاله، أنا أقرأ الرسائل."
+  },
+  "date_en": "2 Nov 2026",
+  "date_ar": "2 نوفمبر 2026"
+ },
+ {
+  "kw": "INSTA",
+  "slug": "instagram-skills",
+  "number": 32,
+  "title": "13 free Claude skills that <span class=\"em\">write your Instagram</span>.",
+  "lead": "instagram-agent-skill is 13 free Claude skills that write your Reels, captions, comments, replies and DMs, find what's going viral in your niche, and plan your week. Claude writes, you hit post.",
+  "inside": "Install the 13 skills, teach them your voice, find the reels that are working in your niche, and turn them into scripts you can film this week.",
+  "what": [
+   "It's an open-source pack of Claude skills by Jake Schincariol, MIT licensed, no signup, no API key. Each one is a slash command in Claude Code. /ig-reel turns one idea into a Reel: three hooks scored against 26 hook formulas, a script, on-screen text and a timed beat sheet. /ig-viral finds the reels beating their account's usual views in your niche and tells you why they worked. /ig-plan builds your week, /ig-profile scores your profile out of 100, /ig-comment and /ig-reply handle the conversation, and /ig-human cleans the AI tells out of every draft.",
+   "The full list: /ig-reel, /ig-viral, /ig-caption, /ig-carousel, /ig-story, /ig-profile, /ig-plan, /ig-human, /ig-comment, /ig-reply, /ig-dm, /ig-repurpose and /ig-audit. It's built for business owners who know their clients are on Instagram but don't have the time to figure out what to post every day."
+  ],
+  "prereqs": [
+   "Claude Code installed (it also works as a plugin, or by pasting a single SKILL.md into a Claude chat, without the helper scripts)",
+   "Python 3 on your computer, for the five small helper scripts (no extra installs, no internet access)",
+   "A few captions or scripts you wrote yourself, so it learns how you talk",
+   "For /ig-viral: a browser Claude can use (like Claude in Chrome) and 6 to 12 accounts in your niche"
+  ],
+  "warn": "These skills draft everything but never post anything by themselves, on purpose. You read it, you copy it, you post it manually. Posting bots, browser automation and third-party auto-posting tools break Instagram's Terms of Use and get accounts flagged or shut down. /ig-viral reads public posts through your own browser at human speed and never asks for your password. Keep it that way: don't give any tool your Instagram login.",
+  "steps": [
+   {
+    "h": "Install it in Claude Code",
+    "p": "Open Claude Code and paste this. Claude installs the 13 skills and checks that /ig-reel works.",
+    "code": "https://github.com/Jakeschincariol/instagram-agent-skill\n\nInstall this skill, then confirm /ig-reel works."
+   },
+   {
+    "h": "Or install it by hand",
+    "p": "Same result from your terminal. Or run /plugin marketplace add Jakeschincariol/instagram-agent-skill and then /plugin install instagram-agent inside Claude Code.",
+    "code": "git clone https://github.com/Jakeschincariol/instagram-agent-skill.git\ncp -r instagram-agent-skill/skills/ig-* ~/.claude/skills/"
+   },
+   {
+    "h": "Teach it your voice (10 minutes, don't skip)",
+    "p": "The skills read your voice profile from ~/.claude/instagram/voice.md (there's a template in the repo at templates/voice.md). Skip it and every script sounds like everyone else's. The fast way is to give it things you wrote yourself.",
+    "code": "Here are 3 of my captions or Reel scripts:\n[paste 1]\n[paste 2]\n[paste 3]\nUse the template in templates/voice.md and write my ~/.claude/instagram/voice.md from these."
+   },
+   {
+    "h": "Find what's going viral in your niche",
+    "p": "Give it 6 to 12 accounts close to your size, or let it suggest some for you to approve. It ranks their reels by how far each one beats that account's usual views, names the hook formula, and saves the winners to a swipe file that /ig-reel and /ig-plan read.",
+    "code": "/ig-viral"
+   },
+   {
+    "h": "Turn a winner into your Reel",
+    "p": "Bring one idea. You get three hooks scored before you film, the script, the on-screen text and a beat sheet with timings.",
+    "code": "/ig-reel"
+   },
+   {
+    "h": "Plan the week, then fix your profile",
+    "p": "/ig-plan writes what to post, which format, when, and the 10 accounts worth engaging with. Run /ig-profile once: it scores your profile against a 12-part rubric and rewrites the weakest parts first.",
+    "code": "/ig-plan\n/ig-profile"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "Find the winners in your niche",
+    "code": "/ig-viral My niche is [what you do] for [who you serve].\nHere are the accounts to study: [@handle1, @handle2, @handle3...].\nShow me the top reels and the hook formulas behind them."
+   },
+   {
+    "h": "Script a Reel from a client win",
+    "code": "/ig-reel Last month I [result, with the real number] for a [type of business]\nby [what you actually did]. Make it a 30 second Reel for business owners with the same problem."
+   },
+   {
+    "h": "One video, a week of posts",
+    "code": "/ig-repurpose Here's the transcript of my latest video or podcast: [paste].\nTurn it into a week of Reels and carousels that each stand on their own."
+   },
+   {
+    "h": "Your FAQ as a carousel",
+    "code": "/ig-carousel The 5 questions my clients ask before they buy [service]:\n[list them]. Make a carousel that answers them."
+   },
+   {
+    "h": "Captions that get read",
+    "code": "/ig-caption Here's my Reel script: [paste].\nWrite the caption, and show me exactly what people see before they tap \"more\"."
+   },
+   {
+    "h": "Turn comments into clients",
+    "code": "/ig-reply Here are the comments under my last Reel: [paste].\nSort them, flag anyone who could be a client, and draft the replies, leads first."
+   },
+   {
+    "h": "The DM after someone comments your keyword",
+    "code": "/ig-dm People comment [KEYWORD] on my Reel to get [free resource].\nWrite the DM that delivers it, and two follow-ups that start a real conversation."
+   },
+   {
+    "h": "See what's actually working",
+    "code": "/ig-audit Here are my last 10 posts with views, reach, likes, comments, saves and sends: [paste].\nRank them and tell me what to do more of."
+   }
+  ],
+  "credit": [
+   "instagram-agent-skill by Jake Schincariol (github.com/Jakeschincariol/instagram-agent-skill, MIT)"
+  ],
+  "payoff": "Run /ig-viral and /ig-reel once this week on your own niche, film the script, and post it yourself. One real Reel beats a month of saved tips.",
+  "ar": {
+   "title": "13 مهارة مجانية لـ Claude <span class=\"em\">تكتب لك Instagram</span>.",
+   "lead": "instagram-agent-skill مجموعة من 13 مهارة مجانية لـ Claude تكتب مقاطع Reels والتعليقات المرافقة والتعليقات والردود والرسائل، وتكتشف ما ينتشر في مجالك، وتخطط أسبوعك. Claude يكتب، وأنت تنشر.",
+   "inside": "ثبّت المهارات الثلاث عشرة، وعلّمها أسلوبك، واعثر على المقاطع الناجحة في مجالك، وحوّلها إلى نصوص تصوّرها هذا الأسبوع.",
+   "what": [
+    "هي حزمة مفتوحة المصدر من مهارات Claude من إعداد Jake Schincariol، بترخيص MIT، بلا تسجيل ولا مفتاح API. كل مهارة أمر داخل Claude Code. ‎/ig-reel يحوّل فكرة واحدة إلى مقطع Reel: ثلاث افتتاحيات مقيّمة وفق 26 صيغة، ونص، وكتابة على الشاشة، وخطة مشاهد موقّتة. ‎/ig-viral يجد المقاطع التي تتجاوز مشاهداتها المعتاد لحساباتها في مجالك ويشرح سبب نجاحها. ‎/ig-plan يبني أسبوعك، و‎/ig-profile يقيّم ملفك من 100، و‎/ig-comment و‎/ig-reply يتوليان التفاعل، و‎/ig-human يزيل علامات الكتابة الآلية من كل مسودة.",
+    "القائمة الكاملة: ‎/ig-reel و‎/ig-viral و‎/ig-caption و‎/ig-carousel و‎/ig-story و‎/ig-profile و‎/ig-plan و‎/ig-human و‎/ig-comment و‎/ig-reply و‎/ig-dm و‎/ig-repurpose و‎/ig-audit. صُممت لأصحاب الأعمال الذين يعرفون أن عملاءهم على Instagram لكن ليس لديهم وقت لمعرفة ماذا ينشرون كل يوم."
+   ],
+   "prereqs": [
+    "Claude Code مثبّت (ويعمل أيضًا كإضافة، أو بلصق ملف SKILL.md واحد في محادثة Claude، دون الأدوات المساعدة)",
+    "Python 3 على جهازك، لتشغيل الأدوات المساعدة الخمس (بلا تثبيتات إضافية ولا اتصال بالإنترنت)",
+    "بعض التعليقات المرافقة أو النصوص التي كتبتها بنفسك، ليتعلم طريقة كلامك",
+    "من أجل ‎/ig-viral: متصفح يستطيع Claude استخدامه (مثل Claude in Chrome) ومن 6 إلى 12 حسابًا في مجالك"
+   ],
+   "warn": "هذه المهارات تكتب المسودات كلها لكنها لا تنشر شيئًا بنفسها، وهذا مقصود. أنت تقرأ، وتنسخ، وتنشر يدويًا. روبوتات النشر وأتمتة المتصفح وأدوات النشر التلقائي الخارجية تخالف شروط استخدام Instagram وتؤدي إلى تعليق الحسابات أو إغلاقها. ‎/ig-viral يقرأ المنشورات العامة عبر متصفحك بسرعة إنسان عادي ولا يطلب كلمة مرورك أبدًا. حافظ على ذلك: لا تعطِ أي أداة بيانات دخولك إلى Instagram.",
+   "steps": [
+    {
+     "h": "ثبّتها في Claude Code",
+     "p": "افتح Claude Code والصق هذا النص. سيثبّت Claude المهارات الثلاث عشرة ويتأكد من أن ‎/ig-reel يعمل."
+    },
+    {
+     "h": "أو ثبّتها يدويًا",
+     "p": "النتيجة نفسها من الطرفية. أو شغّل ‎/plugin marketplace add Jakeschincariol/instagram-agent-skill ثم ‎/plugin install instagram-agent داخل Claude Code."
+    },
+    {
+     "h": "علّمها أسلوبك (10 دقائق، لا تتخطَّ هذه الخطوة)",
+     "p": "تقرأ المهارات أسلوبك من ملف ‎~/.claude/instagram/voice.md (يوجد قالب في المستودع في templates/voice.md). إن تخطيته ستبدو نصوصك مثل نصوص الجميع. الطريقة الأسرع أن تعطيه نصوصًا كتبتها بنفسك."
+    },
+    {
+     "h": "اعثر على ما ينتشر في مجالك",
+     "p": "أعطه من 6 إلى 12 حسابًا قريبًا من حجمك، أو دعه يقترح حسابات توافق عليها. يرتب مقاطعها حسب مقدار تجاوز كل مقطع للمشاهدات المعتادة لحسابه، ويسمّي صيغة الافتتاحية، ويحفظ الأفضل في ملف مرجعي يقرأه ‎/ig-reel و‎/ig-plan."
+    },
+    {
+     "h": "حوّل المقطع الناجح إلى Reel خاص بك",
+     "p": "أحضر فكرة واحدة، وستحصل على ثلاث افتتاحيات مقيّمة قبل التصوير، والنص، والكتابة على الشاشة، وخطة مشاهد بالتوقيت."
+    },
+    {
+     "h": "خطّط الأسبوع، ثم حسّن ملفك",
+     "p": "‎/ig-plan يكتب ماذا تنشر، وبأي شكل، ومتى، وأهم 10 حسابات تتفاعل معها. شغّل ‎/ig-profile مرة واحدة: يقيّم ملفك وفق معيار من 12 جزءًا ويعيد كتابة الأجزاء الأضعف أولًا."
+    }
+   ],
+   "prompts": [
+    "اعثر على المقاطع الناجحة في مجالك",
+    "اكتب Reel من نجاح مع عميل",
+    "فيديو واحد، منشورات أسبوع كامل",
+    "أسئلة عملائك في منشور شرائح",
+    "تعليقات مرافقة تُقرأ فعلًا",
+    "حوّل التعليقات إلى عملاء",
+    "الرسالة بعد أن يكتب أحدهم كلمتك المفتاحية",
+    "اعرف ما الذي ينجح فعلًا"
+   ],
+   "payoff": "شغّل ‎/ig-viral و‎/ig-reel مرة هذا الأسبوع على مجالك أنت، وصوّر النص، وانشره بنفسك. مقطع Reel حقيقي واحد أفضل من شهر من حفظ النصائح."
+  },
+  "date_en": "2 Nov 2026",
+  "date_ar": "2 نوفمبر 2026"
+ },
+ {
+  "kw": "REACH",
+  "slug": "agent-reach",
+  "number": 33,
+  "title": "Give Claude Code the <span class=\"em\">whole internet</span>.",
+  "lead": "Agent Reach is a free, open-source tool that lets Claude Code search and read X, Reddit, YouTube, GitHub and the web from one command line, without paying for platform API keys.",
+  "inside": "Install Agent Reach with one sentence, add the platforms you care about on a secondary account, and run five research prompts on your own market.",
+  "what": [
+   "Claude Code can already search the web, but it can't get behind a login, read a YouTube video's subtitles or pull a clean Reddit thread with its comments. Agent Reach installs and tests the tools for each platform and gives Claude one command for all of them. Web, YouTube, GitHub, V2EX and Bilibili work right after install. Reddit and LinkedIn job search are optional add-ons, and X, Facebook and Instagram are marked experimental: they work, but they can break when the platform changes.",
+   "It's for business owners who want real research instead of guesses: what customers complain about, which videos win in your niche, what people ask for in your city. It's read-only, so it searches and reads. It never posts, comments, likes or sends messages."
+  ],
+  "prereqs": [
+   "Claude Code (or another agent that can run commands)",
+   "Permission for the agent to run commands; it installs a small tool called uv if it's missing",
+   "Chrome, logged in to the platforms you want to read (ideally on secondary accounts)",
+   "Optional: a Groq or OpenAI key, only for YouTube speech-to-text (subtitles work without one)"
+  ],
+  "warn": "Platforms that need a login (Reddit, X, Facebook, Instagram) reuse the login from your Chrome. Agent Reach copies that one site's login into its own background browser. It never reads your saved passwords, but the login it copies is usually your main account, and platforms can restrict accounts used for automation. Switch each platform to a secondary account before you use it. X, Facebook and Instagram are experimental and can stop working at any time. Install only from the GitHub link below: the package called agent-reach on PyPI is a different project. Never paste an API key into the chat; run agent-reach configure groq-key in your own terminal instead.",
+  "steps": [
+   {
+    "h": "Paste one line into Claude Code",
+    "p": "This is the official install line from the README. The same line also upgrades it later.",
+    "code": "Install Agent Reach: https://raw.githubusercontent.com/Panniantong/Agent-Reach/main/docs/install.md"
+   },
+   {
+    "h": "Let it finish",
+    "p": "Claude may ask to run commands and to install uv. Say yes. When it's done it tells you which platforms already work (web, YouTube, GitHub, V2EX, Bilibili) and which ones you can add."
+   },
+   {
+    "h": "Add the platforms you need",
+    "p": "Just say it in plain words. Claude installs what each platform needs. Reddit is optional and needs a login. X is experimental.",
+    "code": "Add Reddit\nAdd Twitter"
+   },
+   {
+    "h": "Switch to a secondary account",
+    "p": "Before the first real search on a login platform, ask Claude to switch accounts. A login window opens and you sign in yourself with the secondary account. Claude never logs in for you or asks for your password.",
+    "code": "Switch my Reddit login to a different account"
+   },
+   {
+    "h": "Check what works",
+    "p": "Ask for the status any time. It lists each platform, whether it works now, and anything that broke since last time. You can also run the command yourself in the terminal.",
+    "code": "agent-reach channels"
+   },
+   {
+    "h": "Run your first research job",
+    "p": "Use the prompts on the next pages on your own business. Ask for sources with links every time, so you can check what Claude found before you act on it."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. What customers hate about a competitor",
+    "code": "Use Agent Reach to search Reddit for posts and comments about [competitor name] from the last 6 months.\nList the 10 most common complaints, with a short quote and the link for each.\nThen tell me which complaints my business [what you do] could fix."
+   },
+   {
+    "h": "2. The best 5 YouTube videos on a topic",
+    "code": "Use Agent Reach to search YouTube for [topic].\nPick the 5 best videos by views and relevance, pull their subtitles, and give me for each one: the title, the link, the hook in the first 15 seconds and the 3 main points."
+   },
+   {
+    "h": "3. What people say on X",
+    "code": "Use Agent Reach to search X for recent posts about [topic or brand].\nGroup what people say into themes, and give me 2 example posts with links for each theme.\nTell me which theme has the most frustration."
+   },
+   {
+    "h": "4. Find a free tool before you pay",
+    "code": "Use Agent Reach to search GitHub for open-source tools that do [the job you need].\nCompare the top 5 by stars, last update and how easy the README makes setup.\nRecommend one and tell me what could go wrong with it."
+   },
+   {
+    "h": "5. What my market is asking for",
+    "code": "Use Agent Reach to search Reddit and the web for people asking for [your service] or complaining about [the problem you solve], ideally in [city or country].\nList the exact words they use, with links.\nThen write me 5 hooks for short videos using their words, not mine."
+   }
+  ],
+  "credit": [
+   "Agent Reach by Panniantong, MIT license (github.com/Panniantong/Agent-Reach)"
+  ],
+  "ar": {
+   "title": "امنح Claude Code <span class=\"em\">الإنترنت كله</span>.",
+   "lead": "Agent Reach أداة مجانية ومفتوحة المصدر تتيح لـ Claude Code البحث والقراءة في X وReddit وYouTube وGitHub والويب من سطر أوامر واحد، دون أن تدفع ثمن مفاتيح API للمنصات.",
+   "inside": "ثبّت Agent Reach بجملة واحدة، وأضف المنصات التي تهمك بحساب ثانوي، ونفّذ خمسة أوامر بحث على سوقك.",
+   "what": [
+    "يستطيع Claude Code البحث في الويب أصلًا، لكنه لا يستطيع تجاوز صفحات تسجيل الدخول، ولا قراءة ترجمة فيديو على YouTube، ولا جلب نقاش كامل من Reddit مع تعليقاته. يثبّت Agent Reach أدوات كل منصة ويختبرها، ويعطي Claude أمرًا واحدًا لها جميعًا. تعمل الويب وYouTube وGitHub وV2EX وBilibili مباشرة بعد التثبيت. أما Reddit والبحث عن الوظائف في LinkedIn فإضافات اختيارية، وX وFacebook وInstagram تجريبية: تعمل، لكنها قد تتعطل حين تغيّر المنصة شيئًا.",
+    "هذا الدليل لأصحاب الأعمال الذين يريدون بحثًا حقيقيًا بدل التخمين: مما يشتكي العملاء، وأي الفيديوهات تنجح في مجالك، وماذا يطلب الناس في مدينتك. الأداة للقراءة فقط، فهي تبحث وتقرأ ولا تنشر ولا تعلّق ولا تضع إعجابًا ولا ترسل رسائل."
+   ],
+   "prereqs": [
+    "Claude Code (أو أي وكيل آخر يستطيع تنفيذ الأوامر)",
+    "السماح للوكيل بتنفيذ الأوامر؛ سيثبّت أداة صغيرة اسمها uv إن لم تكن موجودة",
+    "متصفح Chrome مسجّل الدخول إلى المنصات التي تريد قراءتها (ويفضّل بحسابات ثانوية)",
+    "اختياري: مفتاح Groq أو OpenAI، فقط لتحويل كلام فيديوهات YouTube إلى نص (الترجمات تعمل دونه)"
+   ],
+   "warn": "المنصات التي تتطلب تسجيل الدخول (Reddit وX وFacebook وInstagram) تعيد استخدام تسجيل دخولك في Chrome. ينسخ Agent Reach تسجيل الدخول لهذا الموقع وحده إلى متصفحه الخاص في الخلفية. لا يقرأ كلمات المرور المحفوظة، لكن الحساب المنسوخ يكون غالبًا حسابك الرئيسي، والمنصات قد تقيّد الحسابات المستخدمة في الأتمتة. بدّل كل منصة إلى حساب ثانوي قبل استخدامها. وX وFacebook وInstagram تجريبية وقد تتوقف في أي وقت. ثبّت فقط من رابط GitHub أدناه: الحزمة المسماة agent-reach على PyPI مشروع مختلف. ولا تلصق أي مفتاح API في المحادثة، بل نفّذ agent-reach configure groq-key في الطرفية بنفسك.",
+   "steps": [
+    {
+     "h": "الصق سطرًا واحدًا في Claude Code",
+     "p": "هذا سطر التثبيت الرسمي من ملف README، وهو نفسه يحدّث الأداة لاحقًا."
+    },
+    {
+     "h": "دعه يُكمل",
+     "p": "قد يطلب Claude الإذن بتنفيذ الأوامر وتثبيت uv، فوافق. عند الانتهاء يخبرك بالمنصات التي تعمل الآن (الويب وYouTube وGitHub وV2EX وBilibili) وتلك التي يمكنك إضافتها."
+    },
+    {
+     "h": "أضف المنصات التي تحتاجها",
+     "p": "قلها بكلمات بسيطة، وسيثبّت Claude ما تحتاجه كل منصة. Reddit اختيارية وتتطلب تسجيل الدخول، وX تجريبية."
+    },
+    {
+     "h": "انتقل إلى حساب ثانوي",
+     "p": "قبل أول بحث حقيقي على منصة تتطلب تسجيل الدخول، اطلب من Claude تبديل الحساب. تُفتح نافذة تسجيل دخول وتسجّل أنت بنفسك بالحساب الثانوي. لا يسجّل Claude الدخول نيابة عنك ولا يطلب كلمة مرورك."
+    },
+    {
+     "h": "تحقق مما يعمل",
+     "p": "اطلب الحالة في أي وقت. ستظهر لك كل منصة، وهل تعمل الآن، وما تعطل منذ آخر مرة. ويمكنك أيضًا تنفيذ الأمر بنفسك في الطرفية."
+    },
+    {
+     "h": "نفّذ أول مهمة بحث",
+     "p": "استخدم الأوامر في الصفحات التالية على عملك. اطلب المصادر مع الروابط في كل مرة، لتتحقق مما وجده Claude قبل أن تبني عليه قرارًا."
+    }
+   ],
+   "prompts": [
+    "1. ما الذي يكرهه العملاء في منافسك",
+    "2. أفضل 5 فيديوهات على YouTube في موضوع ما",
+    "3. ماذا يقول الناس على X",
+    "4. ابحث عن أداة مجانية قبل أن تدفع",
+    "5. ماذا يطلب سوقك"
+   ]
+  },
+  "date_en": "2 Nov 2026",
+  "date_ar": "2 نوفمبر 2026"
+ },
+ {
+  "kw": "MEMORY",
+  "slug": "claude-memory",
+  "number": 34,
+  "title": "Stop re-explaining yourself. Give Claude <span class=\"em\">a second brain</span>.",
+  "lead": "Connect Claude Code to Google's NotebookLM through the notebooklm-py repo. A wrap-up skill saves each session, and the next session asks the notebook what it needs.",
+  "inside": "Install notebooklm-py, log in to Google, build a /wrap-up skill that saves every session to one notebook, and make Claude check that notebook before it starts.",
+  "what": [
+   "Every new Claude chat starts from zero, so you keep pasting the same context and paying for the same tokens. NotebookLM is Google's research notebook: you load sources into it and ask questions, and it answers from those sources with citations. notebooklm-py is a free, open source Python library and CLI that lets Claude Code add sources to a notebook and ask it questions from the terminal.",
+   "The setup is simple. At the end of a session, a /wrap-up skill writes a short summary (decisions, open tasks, what changed) and uploads it to one memory notebook. At the start of the next one, Claude asks the notebook and pulls only what it needs, instead of you loading the whole history back in. It's for people who run Claude Code on the same projects every day."
+  ],
+  "prereqs": [
+   "Claude Code installed",
+   "Python 3.10 or newer, plus uv (or pipx) to install the CLI",
+   "A Google account that can open NotebookLM",
+   "Ten minutes, and one real project to test it on"
+  ],
+  "warn": "notebooklm-py is an unofficial library. It isn't from Google, it uses undocumented Google APIs that can break without notice, and heavy use can get rate limited. It logs in with your own Google account through a browser and saves those login cookies on your machine (under ~/.notebooklm), so treat that folder like a password: don't commit it, sync it or share it. Consider a separate Google account for this, and never use the optional master token option on your main account. Your session summaries are stored in your Google account, so leave client secrets and keys out of them.",
+  "steps": [
+   {
+    "h": "Install notebooklm-py",
+    "p": "This installs the notebooklm command. No uv? Use pipx install \"notebooklm-py[browser]\" instead, or plain pip inside a virtualenv.",
+    "code": "uv tool install \"notebooklm-py[browser]\""
+   },
+   {
+    "h": "Log in to Google",
+    "p": "A browser window opens and you sign in to Google. The first run downloads Chromium for this, so give it a minute. The second line checks the login works.",
+    "code": "notebooklm login\nnotebooklm auth check --test --json"
+   },
+   {
+    "h": "Install the skill and make your memory notebook",
+    "p": "The first line installs the repo's own skill so Claude Code knows how to drive the CLI. The second creates one notebook for your session memory and makes it the active one. Copy the notebook ID it prints.",
+    "code": "notebooklm skill install\nnotebooklm create \"Claude Memory\" --use"
+   },
+   {
+    "h": "Build the /wrap-up skill",
+    "p": "Open Claude Code in your project and paste prompt 1. It writes the skill for you. Run /wrap-up at the end of a real session and check the summary shows up as a source in your notebook."
+   },
+   {
+    "h": "Make Claude check the notebook first",
+    "p": "Paste prompt 2 so Claude adds a short rule to your CLAUDE.md. From then on every new session starts by asking the notebook for recent decisions and open tasks. Note: the repo README says Google renamed NotebookLM to Gemini Notebook in July 2026, and notebooklm.google.com now redirects to notebook.google.com. The CLI and commands keep the notebooklm name."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Build the /wrap-up skill",
+    "code": "Build me a skill called wrap-up in ~/.claude/skills/wrap-up/SKILL.md.\nWhen I run /wrap-up it should:\n1. Write a short summary of this session: project name, date, decisions made, what changed (files, tools), open tasks, and anything I said to remember.\n2. Save it as a markdown file in ~/claude-memory/ named YYYY-MM-DD-project.md.\n3. Run: notebooklm use <MY_NOTEBOOK_ID> then notebooklm source add <that file>\n4. Confirm the upload worked.\nNever include API keys, passwords or client secrets in the summary.\nUse the notebooklm skill and check notebooklm --help if a command fails."
+   },
+   {
+    "h": "2. Query the notebook first (CLAUDE.md line)",
+    "code": "Add this rule to my CLAUDE.md:\n\"Start of every session: run notebooklm use <MY_NOTEBOOK_ID>, then notebooklm ask \"What are the latest decisions and open tasks for [this project]?\" Use the answer as context. Only ask the notebook for what the task needs, don't load full history.\""
+   },
+   {
+    "h": "3. Pull one thing mid-session",
+    "code": "Before you change anything, ask my memory notebook what we decided last time about [topic] and why.\nQuote the answer and the date, then continue."
+   }
+  ],
+  "credit": [
+   "notebooklm-py by teng-lin, MIT license, unofficial (github.com/teng-lin/notebooklm-py)",
+   "NotebookLM by Google (notebooklm.google.com)",
+   "Claude Code skills by Anthropic"
+  ],
+  "ar": {
+   "title": "توقّف عن إعادة الشرح. امنح Claude <span class=\"em\">ذاكرة ثانية</span>.",
+   "lead": "اربط Claude Code بأداة NotebookLM من Google عبر مستودع notebooklm-py. مهارة wrap-up تحفظ كل جلسة، والجلسة التالية تسأل الدفتر عمّا تحتاجه.",
+   "inside": "ثبّت notebooklm-py، وسجّل الدخول إلى Google، وابنِ مهارة /wrap-up تحفظ كل جلسة في دفتر واحد، واجعل Claude يراجع هذا الدفتر قبل أن يبدأ.",
+   "what": [
+    "كل محادثة جديدة مع Claude تبدأ من الصفر، فتعيد لصق السياق نفسه وتدفع ثمن الـ tokens نفسها. NotebookLM هو دفتر البحث من Google: تضيف إليه مصادرك وتطرح الأسئلة، فيجيب منها مع ذكر المراجع. وnotebooklm-py مكتبة Python وأداة سطر أوامر مجانية ومفتوحة المصدر تتيح لـ Claude Code إضافة المصادر إلى دفتر وطرح الأسئلة عليه من الطرفية.",
+    "الفكرة بسيطة. في نهاية الجلسة تكتب مهارة /wrap-up ملخصًا قصيرًا (القرارات، والمهام المفتوحة، وما تغيّر) وترفعه إلى دفتر ذاكرة واحد. وفي بداية الجلسة التالية يسأل Claude الدفتر ويأخذ فقط ما يحتاجه، بدل أن تعيد تحميل السجل كله. هذا الدليل لمن يستخدم Claude Code على المشاريع نفسها كل يوم."
+   ],
+   "prereqs": [
+    "Claude Code مثبّت",
+    "Python الإصدار 3.10 أو أحدث، مع uv (أو pipx) لتثبيت الأداة",
+    "حساب Google يستطيع فتح NotebookLM",
+    "عشر دقائق، ومشروع حقيقي واحد لتجربته"
+   ],
+   "warn": "notebooklm-py مكتبة غير رسمية. ليست من Google، وتستخدم واجهات Google غير موثّقة قد تتعطل دون إشعار، والاستخدام المكثف قد يخضع لحدود. تسجّل الدخول بحساب Google الخاص بك عبر المتصفح وتحفظ ملفات تعريف الارتباط الخاصة بالدخول على جهازك (داخل ~/.notebooklm)، فتعامل مع هذا المجلد ككلمة مرور: لا ترفعه إلى مستودع ولا تزامنه ولا تشاركه. فكّر في استخدام حساب Google منفصل لهذا، ولا تستخدم خيار master token الاختياري على حسابك الأساسي أبدًا. تُحفظ ملخصات جلساتك في حسابك على Google، فلا تضع فيها أسرار العملاء أو المفاتيح.",
+   "steps": [
+    {
+     "h": "ثبّت notebooklm-py",
+     "p": "يثبّت هذا الأمر أداة notebooklm. لا تملك uv؟ استخدم pipx install \"notebooklm-py[browser]\" بدلًا منه، أو pip داخل بيئة افتراضية."
+    },
+    {
+     "h": "سجّل الدخول إلى Google",
+     "p": "تفتح نافذة متصفح وتسجّل الدخول إلى Google. التشغيل الأول ينزّل Chromium لهذا الغرض، فامنحه دقيقة. السطر الثاني يتحقق من أن الدخول يعمل."
+    },
+    {
+     "h": "ثبّت المهارة وأنشئ دفتر الذاكرة",
+     "p": "السطر الأول يثبّت مهارة المستودع نفسه ليعرف Claude Code كيف يشغّل الأداة. والثاني ينشئ دفترًا واحدًا لذاكرة جلساتك ويجعله الدفتر النشط. انسخ معرّف الدفتر الذي يظهر."
+    },
+    {
+     "h": "ابنِ مهارة /wrap-up",
+     "p": "افتح Claude Code في مشروعك والصق الموجّه رقم 1. سيكتب المهارة لك. شغّل /wrap-up في نهاية جلسة حقيقية وتأكد أن الملخص ظهر كمصدر في دفترك."
+    },
+    {
+     "h": "اجعل Claude يراجع الدفتر أولًا",
+     "p": "الصق الموجّه رقم 2 ليضيف Claude قاعدة قصيرة إلى ملف CLAUDE.md. بعدها تبدأ كل جلسة جديدة بسؤال الدفتر عن آخر القرارات والمهام المفتوحة. ملاحظة: يذكر ملف README في المستودع أن Google غيّرت اسم NotebookLM إلى Gemini Notebook في يوليو 2026، وأن notebooklm.google.com يحوّل الآن إلى notebook.google.com. أما الأداة وأوامرها فتحتفظ باسم notebooklm."
+    }
+   ],
+   "prompts": [
+    "1. ابنِ مهارة /wrap-up",
+    "2. راجع الدفتر أولًا (سطر CLAUDE.md)",
+    "3. استرجع معلومة واحدة أثناء الجلسة"
+   ]
+  },
+  "date_en": "2 Nov 2026",
+  "date_ar": "2 نوفمبر 2026"
+ },
+ {
+  "kw": "START",
+  "slug": "claude-day-one",
+  "number": 35,
+  "title": "Switching to Claude? <span class=\"em\">Do these 3</span> on day one.",
+  "lead": "Memory so Claude knows you (with everything ChatGPT already learned), one connector for your apps, and Anthropic's free courses turned into a skill.",
+  "inside": "Turn on memory, move your ChatGPT memory over, connect your apps through Composio, and get Claude to build you a skill from the free courses.",
+  "what": [
+   "Most people switch from ChatGPT, open a blank chat, and start explaining who they are from scratch. Three settings fix that. Memory lets Claude remember you and your work across chats, and the import tool brings over what ChatGPT already knows. A Composio connector lets Claude reach apps like Gmail, Notion and HubSpot. Anthropic's free courses teach you how to use it properly, and Claude can turn the useful parts into a skill for you.",
+   "It's for anyone in their first week on Claude who wants it working for them on day one instead of week six."
+  ],
+  "prereqs": [
+   "A Claude account on claude.ai or Claude Desktop (memory import works on every plan)",
+   "Your ChatGPT account, for the memory export",
+   "A free Composio account (sign up when the connector asks you to)",
+   "Ten minutes"
+  ],
+  "warn": "Memory import is experimental: Anthropic says Claude may not keep everything, and it focuses on work details, so check what landed. Read the ChatGPT export before you paste it and delete anything sensitive. Free Claude plans allow one custom connector, so Composio uses your slot. Composio gets access to every app you connect to it: connect only what you'll use, and check its pricing on composio.dev since plans can change.",
+  "steps": [
+   {
+    "h": "Turn on memory",
+    "p": "Go to Settings > Your Claude and turn on Memory from chats. On paid plans also turn on Search and reference chats so Claude can look up past conversations. Older layouts put these under Settings > Capabilities or Settings > Memory: same toggles, different page."
+   },
+   {
+    "h": "Bring your ChatGPT memory",
+    "p": "Paste this into ChatGPT. Copy the code block it gives back, then in Claude go to Settings > Your Claude, click Start import, paste it, and click Add to memory. Anthropic also has a ready-made prompt at claude.com/import-memory.",
+    "code": "I'm moving to another AI assistant and need to export my data.\nList every memory you have stored about me, plus anything you've learned about my work, business, preferences and writing style.\nPut it all in one code block, one item per line, in this format:\n[date saved, if available] - memory content"
+   },
+   {
+    "h": "Connect your apps with Composio",
+    "p": "In Claude go to Customize > Connectors, click + and pick Add custom connector. Name it Composio, paste this URL, click Add, then sign in. Connect only the apps you'll actually use (Gmail, Notion, HubSpot and so on). Composio says it supports over 1,500 apps. If the URL changes, get the current one from composio.dev/claude.",
+    "code": "https://connect.composio.dev/mcp"
+   },
+   {
+    "h": "Take the free courses",
+    "p": "Anthropic's courses live at anthropic.skilljar.com (Claude 101, Claude Code 101, AI Fluency, MCP and more). They're free to sign up for, and Anthropic says it issues completion certificates. Anthropic's newer hub is academy.claude.com. Copy the course link into Claude with prompt 1 below."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Turn the courses into a skill",
+    "code": "Here are Anthropic's free Claude courses: https://anthropic.skilljar.com\nUsing what you know about me and my work, pick the lessons that would help me most and tell me why.\nThen turn the key takeaways into a skill I can save and reuse: a SKILL.md with when to use it and the exact steps."
+   },
+   {
+    "h": "2. Check the memory import",
+    "code": "What do you remember about me and my work?\nList it, and flag anything that looks wrong or out of date so I can fix it."
+   },
+   {
+    "h": "3. First Composio task",
+    "code": "Using Composio, go through my Gmail from the last 7 days.\nList every email that needs a reply from me, who it's from, and a one-line draft reply for each. Don't send anything."
+   }
+  ],
+  "credit": [
+   "Memory and memory import by Anthropic (support.claude.com, claude.com/import-memory)",
+   "Composio connector by Composio (composio.dev/claude)",
+   "Anthropic Academy courses by Anthropic (anthropic.skilljar.com)"
+  ],
+  "ar": {
+   "title": "تنتقل إلى Claude؟ <span class=\"em\">افعل هذه الثلاثة</span> في اليوم الأول.",
+   "lead": "ذاكرة تجعل Claude يعرفك (مع كل ما تعلّمه ChatGPT عنك)، وموصل واحد لتطبيقاتك، ودورات Anthropic المجانية محوّلة إلى skill.",
+   "inside": "فعّل الذاكرة، وانقل ذاكرة ChatGPT، واربط تطبيقاتك عبر Composio، واجعل Claude يبني لك skill من الدورات المجانية.",
+   "what": [
+    "ينتقل معظم الناس من ChatGPT، فيفتحون محادثة فارغة ويبدؤون بشرح من هم من الصفر. ثلاثة إعدادات تحل ذلك. الذاكرة تجعل Claude يتذكرك ويتذكر عملك عبر المحادثات، وأداة الاستيراد تنقل ما يعرفه ChatGPT عنك. موصل Composio يتيح لـ Claude الوصول إلى تطبيقات مثل Gmail وNotion وHubSpot. ودورات Anthropic المجانية تعلّمك استخدامه بالشكل الصحيح، ويستطيع Claude تحويل الأجزاء المفيدة منها إلى skill لك.",
+    "هذا الدليل لكل من في أسبوعه الأول مع Claude ويريد أن يعمل لصالحه من اليوم الأول بدل الأسبوع السادس."
+   ],
+   "prereqs": [
+    "حساب Claude على claude.ai أو Claude Desktop (استيراد الذاكرة متاح في كل الخطط)",
+    "حسابك على ChatGPT، لتصدير الذاكرة",
+    "حساب Composio مجاني (سجّل عندما يطلب الموصل ذلك)",
+    "عشر دقائق"
+   ],
+   "warn": "استيراد الذاكرة ميزة تجريبية: تقول Anthropic إن Claude قد لا يحتفظ بكل شيء، وإنه يركز على تفاصيل العمل، فتحقق مما وصل. اقرأ ما يصدّره ChatGPT قبل لصقه واحذف أي معلومات حساسة. الخطة المجانية في Claude تسمح بموصل مخصص واحد، وComposio سيأخذ هذه الخانة. يحصل Composio على صلاحية كل تطبيق تربطه به، فاربط فقط ما ستستخدمه، وراجع أسعاره على composio.dev لأن الخطط قد تتغير.",
+   "steps": [
+    {
+     "h": "فعّل الذاكرة",
+     "p": "اذهب إلى Settings ثم Your Claude وفعّل Memory from chats. في الخطط المدفوعة فعّل أيضًا Search and reference chats ليتمكن Claude من البحث في محادثاتك السابقة. في الواجهات الأقدم تجد هذه الخيارات تحت Settings ثم Capabilities أو Settings ثم Memory: الخيارات نفسها في صفحة مختلفة."
+    },
+    {
+     "h": "انقل ذاكرة ChatGPT",
+     "p": "الصق هذا في ChatGPT. انسخ كتلة الكود التي يعيدها، ثم في Claude اذهب إلى Settings ثم Your Claude واضغط Start import، والصقها، ثم اضغط Add to memory. لدى Anthropic أيضًا موجّه جاهز على claude.com/import-memory."
+    },
+    {
+     "h": "اربط تطبيقاتك عبر Composio",
+     "p": "في Claude افتح Customize ثم Connectors، واضغط + واختر Add custom connector. سمّه Composio والصق هذا الرابط، واضغط Add ثم سجّل الدخول. اربط فقط التطبيقات التي ستستخدمها فعلًا (Gmail وNotion وHubSpot وغيرها). يقول Composio إنه يدعم أكثر من 1,500 تطبيق. إذا تغيّر الرابط فخذ الرابط الحالي من composio.dev/claude."
+    },
+    {
+     "h": "خذ الدورات المجانية",
+     "p": "دورات Anthropic موجودة على anthropic.skilljar.com (Claude 101 وClaude Code 101 وAI Fluency وMCP وغيرها). التسجيل فيها مجاني، وتقول Anthropic إنها تمنح شهادات إتمام. والمنصة الأحدث لـ Anthropic هي academy.claude.com. انسخ رابط الدورات إلى Claude مع الموجّه رقم 1 أدناه."
+    }
+   ],
+   "prompts": [
+    "1. حوّل الدورات إلى skill",
+    "2. تحقق من استيراد الذاكرة",
+    "3. أول مهمة عبر Composio"
+   ]
+  },
+  "date_en": "2 Nov 2026",
+  "date_ar": "2 نوفمبر 2026"
  }
 ]

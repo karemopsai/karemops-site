@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Set up Claude in one day | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E9EDF3; --paper:#FAFAF8; --white:#FFFFFF; --ink:#0B1220; --muted:#5A6478; --line:#E2E6EE;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F3F6FB;
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Instrument Serif','Times New Roman',serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(11,18,32,.06),0 12px 40px rgba(11,18,32,.08);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-weight:800;font-size:54px;line-height:1.02;letter-spacing:-.03em;text-wrap:balance}
+h2{font-weight:800;font-size:34px;line-height:1.08;letter-spacing:-.02em;margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--blue);letter-spacing:0}
+h1 .em{font-size:1.1em} h2 .em{font-size:1.08em}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--blue-soft);border:1px solid var(--blue-line);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--blue);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--ink)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:16px;padding:34px 40px;background-color:var(--blue-soft);
+  background-image:radial-gradient(rgba(8,102,255,.22) 1.2px,transparent 1.3px);background-size:16px 16px;border:1px solid var(--blue-line)}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(8,102,255,.12),0 2px 6px rgba(11,18,32,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:var(--line);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--line)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;display:grid;place-items:center;font-size:17px}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-size:40px;font-weight:800;color:var(--blue);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.step h2{font-size:24px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.prompt{margin-bottom:8px}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--blue);color:#fff;border-radius:16px;padding:28px 30px}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-size:26px;letter-spacing:-.02em;text-transform:none;margin:0 0 8px;font-weight:800}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+}</style>
+</head>
+<body>
+<div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip"><span class="l-en">Comment</span><span class="l-ar">اكتب</span> · SETUP</span></div>
+  <div class="eyebrow"><span class="l-en">Field guide · No. 30</span><span class="l-ar">دليل عملي · رقم 30</span></div>
+  <h1><span class="l-en">Set up Claude <span class="em">in one day</span>.</span><span class="l-ar">جهّز Claude <span class="em">في يوم واحد</span>.</span></h1>
+  <p class="lead"><span class="l-en">If Claude still feels like ChatGPT from 2022, you're missing five things: a skill, a scheduled task, an artifact, a plugin and the Chrome extension.</span><span class="l-ar">إذا كان Claude ما زال يبدو مثل ChatGPT عام 2022، فأنت تفتقد خمسة أشياء: مهارة، ومهمة مجدولة، وartifact، وإضافة plugin، وإضافة Chrome.</span></p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Prompt</span></div><pre>Here are my notes from this week: [paste].
+Turn them into a 5-slide PowerPoint for my team: what we did, the numbers, and next week's plan.<span class="caret"></span></pre><div class="note"><span class="l-en">The first prompt in this guide. Copy it as is.</span><span class="l-ar">أول أمر في هذا الدليل. انسخه كما هو.</span></div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0"><span class="l-en">Inside</span><span class="l-ar">في هذا الدليل</span></h3><p><span class="l-en">Turn on all five, with one starter example for each that you can run today.</span><span class="l-ar">فعّل الخمسة كلها، مع مثال أول لكل واحدة تستطيع تشغيله اليوم.</span></p></div>
+    <div class="by"><div class="mono-k">K</div><div><b><span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Set up Claude in one day</span><span class="l-ar">جهّز Claude في يوم واحد</span></span><span>SETUP</span></div>
+  <div class="eyebrow"><span class="l-en">01 · What this is</span><span class="l-ar">01 · ما هذا</span></div>
+  <h2><span class="l-en">What you're <span class="em">setting up.</span></span><span class="l-ar">ما الذي <span class="em">ستُعدّه.</span></span></h2>
+  <p><span class="l-en">Most people use Claude as a chat box: question in, answer out. These five features change that. A skill makes Claude do a task the same way every time. A scheduled task runs on its own, like a brief every morning at 8. An artifact is a working tool Claude builds for you and you can share by link. A plugin installs a ready set of skills and connectors in one go. The Chrome extension puts Claude next to the page you're on so it can act on it.</span><span class="l-ar">يستخدم معظم الناس Claude كمربع محادثة: سؤال يدخل وجواب يخرج. هذه الميزات الخمس تغيّر ذلك. المهارة تجعل Claude ينفذ المهمة بالطريقة نفسها كل مرة. المهمة المجدولة تعمل وحدها، مثل ملخص كل صباح عند الساعة 8. الـ artifact أداة عاملة يبنيها لك Claude وتشاركها برابط. الـ plugin يثبّت مجموعة جاهزة من المهارات والموصلات دفعة واحدة. وإضافة Chrome تضع Claude بجانب الصفحة التي تتصفحها ليتصرف فيها.</span></p>
+  <p><span class="l-en">It's for business owners who pay for Claude and still use it like a search bar. Give it one afternoon and Claude starts doing real work for you every day.</span><span class="l-ar">هذا الدليل لأصحاب الأعمال الذين يدفعون اشتراك Claude وما زالوا يستخدمونه كشريط بحث. خصّص له فترة بعد ظهر واحدة، وسيبدأ Claude بإنجاز عمل حقيقي لك كل يوم.</span></p>
+  <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">A paid Claude plan (Pro or higher). Skills and artifacts work on free, but scheduled tasks, Cowork plugins and Claude in Chrome need a paid plan</li><li class="l-en">Claude Desktop from claude.ai/download, for scheduled tasks and plugins</li><li class="l-en">Google Chrome on a computer (the extension doesn't run on other Chromium browsers or on phones)</li><li class="l-en">Gmail and Calendar connected, if you want the morning brief to read them</li><li class="l-ar">خطة Claude مدفوعة (Pro أو أعلى). المهارات والـ artifacts تعمل على الخطة المجانية، لكن المهام المجدولة وإضافات Cowork وClaude in Chrome تحتاج خطة مدفوعة</li><li class="l-ar">تطبيق Claude Desktop من claude.ai/download، للمهام المجدولة والإضافات</li><li class="l-ar">متصفح Google Chrome على الكمبيوتر (لا تعمل الإضافة على متصفحات Chromium الأخرى ولا على الهاتف)</li><li class="l-ar">Gmail وCalendar مربوطان، إذا أردت أن يقرأهما ملخص الصباح</li></ul>
+  <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">Claude in Chrome clicks and types on real websites while signed in as you. Anthropic calls it "still risky" even with its safety checks. Keep it off banking and payment pages, and check its work before anything gets submitted. On Team and Enterprise plans, published artifacts are visible only inside your company unless an owner turns on external sharing.</span><span class="l-ar">يضغط Claude in Chrome ويكتب على مواقع حقيقية وهو مسجّل الدخول باسمك. تصفه Anthropic بأنه "still risky" رغم فحوص الأمان. أبعده عن صفحات البنوك والدفع، وراجع عمله قبل إرسال أي شيء. في خطط Team وEnterprise تبقى الـ artifacts المنشورة مرئية داخل شركتك فقط ما لم يفعّل المالك المشاركة الخارجية.</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Set up Claude in one day</span><span class="l-ar">جهّز Claude في يوم واحد</span></span><span>SETUP</span></div>
+  <div class="eyebrow"><span class="l-en">02 · The steps</span><span class="l-ar">02 · الخطوات</span></div><h2><span class="l-en">Set it up, <span class="em">step by step.</span></span><span class="l-ar">الإعداد <span class="em">خطوة بخطوة.</span></span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2><span class="l-en">A skill</span><span class="l-ar">مهارة</span></h2><p><span class="l-en">Teaches Claude to do a task the same way every time. First open Settings > Capabilities and switch on code execution and file creation (newer layouts call it Create and edit files). Then go to Customize > Skills: Anthropic's own skills for Word, Excel, PowerPoint and PDF are there, plus example skills you can toggle on. Pick one or two you'll actually use. More public skills: github.com/anthropics/skills.</span><span class="l-ar">تعلّم Claude تنفيذ المهمة بالطريقة نفسها كل مرة. افتح أولًا Settings ثم Capabilities وفعّل تنفيذ الكود وإنشاء الملفات (في الواجهات الأحدث اسمه Create and edit files). ثم انتقل إلى Customize ثم Skills: ستجد مهارات Anthropic لملفات Word وExcel وPowerPoint وPDF، ومهارات أمثلة يمكنك تفعيلها. اختر واحدة أو اثنتين ستستخدمهما فعلًا. مهارات عامة أخرى: github.com/anthropics/skills.</span></p></div></div>
+  <div class="step"><div class="num">02</div><div>
+    <h2><span class="l-en">A scheduled task</span><span class="l-ar">مهمة مجدولة</span></h2><p><span class="l-en">In Cowork, type /schedule after your prompt, or click Scheduled in the left sidebar, then New task. Set it to daily at 8:00 and Claude sends you a morning brief on its own. Anthropic's current help page says scheduled tasks run in the cloud, so your computer can be asleep. If yours says the desktop app has to be open, leave it open.</span><span class="l-ar">في Cowork اكتب /schedule بعد أمرك، أو اضغط Scheduled في الشريط الجانبي الأيسر ثم New task. اضبطها يوميًا عند الساعة 8:00 فيرسل لك Claude ملخص الصباح وحده. تقول صفحة المساعدة الحالية لدى Anthropic إن المهام المجدولة تعمل في السحابة، فيمكن أن يكون جهازك في وضع السكون. إذا ظهر لديك أن تطبيق سطح المكتب يجب أن يبقى مفتوحًا، فاتركه مفتوحًا.</span></p></div></div>
+  <div class="step"><div class="num">03</div><div>
+    <h2><span class="l-en">An artifact</span><span class="l-ar">Artifact</span></h2><p><span class="l-en">Ask Claude to build a tool, like a tracker, a calculator or a dashboard. It appears in a panel next to the chat and works right there. To share it, click Publish or Share and copy the link. On Free, Pro and Max you can share it publicly. On Team and Enterprise it stays inside your company by default.</span><span class="l-ar">اطلب من Claude بناء أداة، مثل جدول متابعة أو آلة حاسبة أو لوحة متابعة. تظهر في لوحة بجانب المحادثة وتعمل هناك مباشرة. لمشاركتها اضغط Publish أو Share وانسخ الرابط. في خطط Free وPro وMax يمكنك مشاركتها علنًا. في خطط Team وEnterprise تبقى داخل شركتك افتراضيًا.</span></p></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Set up Claude in one day</span><span class="l-ar">جهّز Claude في يوم واحد</span></span><span>SETUP</span></div>
+  
+  <div class="step"><div class="num">04</div><div>
+    <h2><span class="l-en">A plugin</span><span class="l-ar">Plugin</span></h2><p><span class="l-en">A plugin bundles skills and connectors for one kind of work, so you don't set each one up separately. Open Customize in the left sidebar, go to Plugins, click Browse plugins, then Install on the one that fits your work. Some ask you to sign in to a tool. Plugins you add also work in chat and Claude Code.</span><span class="l-ar">الـ plugin يجمع مهارات وموصلات لنوع واحد من العمل، فلا تحتاج إلى إعداد كل واحدة على حدة. افتح Customize من الشريط الجانبي الأيسر، وانتقل إلى Plugins، واضغط Browse plugins، ثم Install على الإضافة المناسبة لعملك. بعضها يطلب منك تسجيل الدخول إلى أداة. الإضافات التي تثبّتها تعمل أيضًا في المحادثة وفي Claude Code.</span></p></div></div>
+  <div class="step"><div class="num">05</div><div>
+    <h2><span class="l-en">The Chrome extension</span><span class="l-ar">إضافة Chrome</span></h2><p><span class="l-en">Open the Chrome Web Store, find Claude in Chrome (by Anthropic) and click Add to Chrome. Sign in, then click the puzzle piece icon and pin Claude to your toolbar. Click the Claude icon to open the side panel. Claude sees the page you're on and can act on it: your CRM, forms, bookings.</span><span class="l-ar">افتح Chrome Web Store، وابحث عن Claude in Chrome (من Anthropic) واضغط Add to Chrome. سجّل الدخول، ثم اضغط أيقونة قطعة الأحجية وثبّت Claude في شريط الأدوات. اضغط أيقونة Claude لفتح اللوحة الجانبية. يرى Claude الصفحة التي أنت عليها ويستطيع التصرف فيها: نظام إدارة العملاء، والنماذج، والحجوزات.</span></p></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Set up Claude in one day</span><span class="l-ar">جهّز Claude في يوم واحد</span></span><span>SETUP</span></div>
+  <div class="eyebrow"><span class="l-en">03 · Copy and paste</span><span class="l-ar">03 · انسخ والصق</span></div><h2><span class="l-en">Your <span class="em">prompts.</span></span><span class="l-ar">أوامرك <span class="em">الجاهزة.</span></span></h2><p class="muted l-ar">انسخ الأوامر والنصوص كما هي باللغة الإنجليزية، فهي تعمل بدقة أكبر.</p>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">1. Use a skill</span><span class="l-ar">1. استخدم مهارة</span></h4><pre>Here are my notes from this week: [paste].
+Turn them into a 5-slide PowerPoint for my team: what we did, the numbers, and next week's plan.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">2. Morning brief (schedule it daily at 8:00)</span><span class="l-ar">2. ملخص الصباح (جدوله يوميًا عند 8:00)</span></h4><pre>Every morning, check my Gmail and Google Calendar.
+Give me: today's meetings, emails that need a reply today, and anything urgent.
+Keep it under 10 lines. Don't send or reply to anything.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">3. Build an artifact</span><span class="l-ar">3. ابنِ artifact</span></h4><pre>Build me a client tracker as an artifact. Columns: name, service, price,
+status (lead, call booked, paid), and next follow-up date.
+Add a total of paid revenue at the top.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Set up Claude in one day</span><span class="l-ar">جهّز Claude في يوم واحد</span></span><span>SETUP</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">4. Pick a plugin</span><span class="l-ar">4. اختر plugin</span></h4><pre>I run [your business] and spend most of my week on [main tasks].
+Look at the plugins I can install and tell me the 2 that would save me the most time, and why.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">5. Claude in Chrome</span><span class="l-ar">5. Claude in Chrome</span></h4><pre>Look at this page. Fill in the form with the details below,
+then stop before submitting so I can check it:
+[paste details]</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Set up Claude in one day</span><span class="l-ar">جهّز Claude في يوم واحد</span></span><span>SETUP</span></div>
+  <div class="eyebrow"><span class="l-en">Done</span><span class="l-ar">تم</span></div>
+  <h2><span class="l-en">That's the <span class="em">whole setup.</span></span><span class="l-ar">هذا هو <span class="em">الإعداد كاملًا.</span></span></h2>
+  <p class="lead"><span class="l-en">Run it once this week on something real. Then tell me what it did: DM me on Instagram, I read them.</span><span class="l-ar">جرّبه هذا الأسبوع على عمل حقيقي، ثم أخبرني بالنتيجة عبر رسالة على إنستغرام، فأنا أقرأ الرسائل بنفسي.</span></p>
+  <h3><span class="l-en">Credit</span><span class="l-ar">المصادر</span></h3><ul><li>Skills, scheduled tasks, artifacts, plugins and Claude in Chrome by Anthropic (claude.com)</li><li>Skills: support.claude.com/en/articles/12512180 and github.com/anthropics/skills</li><li>Scheduled tasks: support.claude.com/en/articles/13854387</li><li>Plugins: support.claude.com/en/articles/13837440</li><li>Claude in Chrome: support.claude.com/en/articles/12012173 and the Chrome Web Store listing</li></ul>
+  <div class="cta">
+    <div class="k"><span class="l-en">Built by</span><span class="l-ar">إعداد</span> <span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></div>
+    <h3><span class="l-en">Want it built for you?</span><span class="l-ar">تريد أن نبنيه لك؟</span></h3>
+    <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
+    <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
+  </div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 06</span></div>
+</section>
+<script>
+(function(){
+  var root=document.documentElement;
+  function set(l){root.dataset.lang=l;root.lang=l;root.dir=l==="ar"?"rtl":"ltr";
+    document.querySelectorAll(".lang-toggle button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
+    try{localStorage.setItem("karemops-guide-lang",l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem("karemops-guide-lang")}catch(e){}
+  set(location.hash==="#ar"?"ar":location.hash==="#en"?"en":(saved||"en"));
+  document.querySelector(".lang-toggle").addEventListener("click",function(e){var b=e.target.closest("button");if(b)set(b.dataset.l)});
+})();
+</script>
+</body>
+</html>

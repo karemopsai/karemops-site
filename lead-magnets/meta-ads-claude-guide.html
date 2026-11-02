@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ask Claude about your ads. Skip Ads Manager | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E9EDF3; --paper:#FAFAF8; --white:#FFFFFF; --ink:#0B1220; --muted:#5A6478; --line:#E2E6EE;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F3F6FB;
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Instrument Serif','Times New Roman',serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(11,18,32,.06),0 12px 40px rgba(11,18,32,.08);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-weight:800;font-size:54px;line-height:1.02;letter-spacing:-.03em;text-wrap:balance}
+h2{font-weight:800;font-size:34px;line-height:1.08;letter-spacing:-.02em;margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--blue);letter-spacing:0}
+h1 .em{font-size:1.1em} h2 .em{font-size:1.08em}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--blue-soft);border:1px solid var(--blue-line);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--blue);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--ink)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:16px;padding:34px 40px;background-color:var(--blue-soft);
+  background-image:radial-gradient(rgba(8,102,255,.22) 1.2px,transparent 1.3px);background-size:16px 16px;border:1px solid var(--blue-line)}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(8,102,255,.12),0 2px 6px rgba(11,18,32,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:var(--line);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--line)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;display:grid;place-items:center;font-size:17px}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-size:40px;font-weight:800;color:var(--blue);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.step h2{font-size:24px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.prompt{margin-bottom:8px}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--blue);color:#fff;border-radius:16px;padding:28px 30px}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-size:26px;letter-spacing:-.02em;text-transform:none;margin:0 0 8px;font-weight:800}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+}</style>
+</head>
+<body>
+<div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip"><span class="l-en">Comment</span><span class="l-ar">اكتب</span> · META</span></div>
+  <div class="eyebrow"><span class="l-en">Field guide · No. 25</span><span class="l-ar">دليل عملي · رقم 25</span></div>
+  <h1><span class="l-en">Ask Claude about your ads. <span class="em">Skip Ads Manager</span>.</span><span class="l-ar">اسأل Claude عن إعلاناتك. <span class="em">بدل Ads Manager</span>.</span></h1>
+  <p class="lead"><span class="l-en">Meta built its own MCP server for ads. Plug it into Claude once and your ad account becomes a conversation: live numbers, plain answers.</span><span class="l-ar">أطلقت Meta خادم MCP رسميًا للإعلانات. اربطه بـ Claude مرة واحدة ويصبح حسابك الإعلاني محادثة: أرقام مباشرة وإجابات واضحة.</span></p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Claude Code</span></div><pre><span class="p">&gt;</span> https://mcp.facebook.com/ads<span class="caret"></span></pre><div class="note"><span class="l-en">Step 01 of this guide. Copy it as is.</span><span class="l-ar">الخطوة 01 من هذا الدليل. انسخها كما هي.</span></div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0"><span class="l-en">Inside</span><span class="l-ar">في هذا الدليل</span></h3><p><span class="l-en">Connect Meta's official Ads MCP to Claude, lock down anything that spends money, and run five reporting questions on your real account.</span><span class="l-ar">اربط خادم Ads MCP الرسمي من Meta بـ Claude، واحمِ كل ما يصرف المال، ثم اطرح خمسة أسئلة تقارير على حسابك الحقيقي.</span></p></div>
+    <div class="by"><div class="mono-k">K</div><div><b><span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Ask Claude about your ads. Skip Ads Manager</span><span class="l-ar">اسأل Claude عن إعلاناتك. بدل Ads Manager</span></span><span>META</span></div>
+  <div class="eyebrow"><span class="l-en">01 · What this is</span><span class="l-ar">01 · ما هذا</span></div>
+  <h2><span class="l-en">What you're <span class="em">setting up.</span></span><span class="l-ar">ما الذي <span class="em">ستُعدّه.</span></span></h2>
+  <p><span class="l-en">The Ads MCP server is Meta's own connector, hosted at mcp.facebook.com/ads. Once Claude is connected, it reads your campaigns, ad sets and ads straight from the account and answers questions like which campaign got the cheapest lead last week. It can also create and edit campaigns, ad sets and ads, change budgets, manage custom audiences and catalogs, and set up A/B tests.</span><span class="l-ar">خادم Ads MCP هو الموصل الرسمي من Meta، ومستضاف على mcp.facebook.com/ads. بعد ربطه يقرأ Claude حملاتك ومجموعاتك الإعلانية وإعلاناتك من الحساب مباشرة، ويجيب عن أسئلة مثل: أي حملة حققت أرخص عميل محتمل الأسبوع الماضي؟ ويستطيع أيضًا إنشاء الحملات والمجموعات والإعلانات وتعديلها، وتغيير الميزانيات، وإدارة الجماهير المخصصة والكتالوجات، وإعداد اختبارات A/B.</span></p>
+  <p><span class="l-en">It's for business owners and marketers who run Meta ads and are tired of clicking through Ads Manager columns to answer one question. Start with reporting. Let it touch budgets only after you trust what it reads.</span><span class="l-ar">هذا الدليل لأصحاب الأعمال والمسوقين الذين يديرون إعلانات Meta وتعبوا من التنقل بين أعمدة Ads Manager للإجابة عن سؤال واحد. ابدأ بالتقارير، ولا تسمح له بلمس الميزانيات إلا بعد أن تثق بما يقرأه.</span></p>
+  <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">A Claude account (custom connectors work on every plan, Free is limited to one custom connector)</li><li class="l-en">A Facebook profile with access to the ad account you want to use, ideally admin</li><li class="l-en">Owner access on Team or Enterprise plans, or ask your Owner to add the connector first</li><li class="l-en">Optional: a Meta developer app if you want it inside Claude Code (step 5)</li><li class="l-ar">حساب Claude (الموصلات المخصصة متاحة في كل الخطط، والخطة المجانية تسمح بموصل مخصص واحد فقط)</li><li class="l-ar">حساب Facebook لديه صلاحية على الحساب الإعلاني الذي تريده، ويُفضّل أن تكون صلاحية مسؤول</li><li class="l-ar">صلاحية المالك في خطط Team أو Enterprise، أو اطلب من المالك إضافة الموصل أولًا</li><li class="l-ar">اختياري: تطبيق مطوّر على Meta إذا أردته داخل Claude Code (الخطوة 5)</li></ul>
+  <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">This connector has write access to a real ad account. It can create campaigns, edit ad sets and change budgets, and it gets every business portfolio your Facebook profile can see, client accounts included. Only select the portfolios you need, set every tool that creates, edits, deletes or changes a budget to Needs approval, and read each budget change before you approve it. Early testers report new campaigns arrive paused, but check Ads Manager before anything goes live. Meta is rolling access out gradually, so some accounts can connect but not pull data yet.</span><span class="l-ar">لهذا الموصل صلاحية كتابة على حساب إعلاني حقيقي. يستطيع إنشاء الحملات وتعديل المجموعات الإعلانية وتغيير الميزانيات، ويحصل على كل محافظ الأعمال التي يراها حسابك على Facebook، بما فيها حسابات العملاء. اختر المحافظ التي تحتاجها فقط، واجعل كل أداة تنشئ أو تعدّل أو تحذف أو تغيّر الميزانية على وضع Needs approval، واقرأ كل تغيير في الميزانية قبل الموافقة عليه. يذكر من جرّبوه أن الحملات الجديدة تُنشأ متوقفة، لكن تحقق من Ads Manager قبل أن يُنشر أي شيء. تطرح Meta الوصول تدريجيًا، لذا قد تتمكن بعض الحسابات من الربط دون سحب البيانات بعد.</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Ask Claude about your ads. Skip Ads Manager</span><span class="l-ar">اسأل Claude عن إعلاناتك. بدل Ads Manager</span></span><span>META</span></div>
+  <div class="eyebrow"><span class="l-en">02 · The steps</span><span class="l-ar">02 · الخطوات</span></div><h2><span class="l-en">Set it up, <span class="em">step by step.</span></span><span class="l-ar">الإعداد <span class="em">خطوة بخطوة.</span></span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2><span class="l-en">Add the connector</span><span class="l-ar">أضف الموصل</span></h2><p><span class="l-en">In Claude go to Customize > Connectors, click + and pick Add custom connector. Name it Meta Ads (or Facebook) and paste this URL, then click Add.</span><span class="l-ar">في Claude افتح Customize ثم Connectors، واضغط + واختر Add custom connector. سمّه Meta Ads (أو Facebook) والصق هذا الرابط، ثم اضغط Add.</span></p><pre>https://mcp.facebook.com/ads</pre></div></div>
+  <div class="step"><div class="num">02</div><div>
+    <h2><span class="l-en">Connect and pick your accounts</span><span class="l-ar">اتصل واختر حساباتك</span></h2><p><span class="l-en">The connector shows up but isn't live yet. Click Connect, sign in through Facebook Login, and select only the business portfolios you actually want Claude to see. Skip client portfolios unless you have their OK.</span><span class="l-ar">يظهر الموصل لكنه غير مفعّل بعد. اضغط Connect، وسجّل الدخول عبر Facebook Login، واختر فقط محافظ الأعمال التي تريد أن يراها Claude. تجاوز محافظ العملاء ما لم يوافقوا.</span></p></div></div>
+  <div class="step"><div class="num">03</div><div>
+    <h2><span class="l-en">Put spending behind approval</span><span class="l-ar">ضع الصرف خلف الموافقة</span></h2><p><span class="l-en">Open the connector in Customize > Connectors. Claude lets you set each tool to Always allow, Needs approval or Blocked. Leave reporting tools on Always allow and set anything that creates, edits, deletes or changes budgets to Needs approval. If the screen looks different, look for the tool permissions on the connector page.</span><span class="l-ar">افتح الموصل من Customize ثم Connectors. يتيح لك Claude ضبط كل أداة على Always allow أو Needs approval أو Blocked. اترك أدوات التقارير على Always allow، واضبط كل ما ينشئ أو يعدّل أو يحذف أو يغيّر الميزانيات على Needs approval. إذا بدت الشاشة مختلفة فابحث عن صلاحيات الأدوات في صفحة الموصل.</span></p></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Ask Claude about your ads. Skip Ads Manager</span><span class="l-ar">اسأل Claude عن إعلاناتك. بدل Ads Manager</span></span><span>META</span></div>
+  
+  <div class="step"><div class="num">04</div><div>
+    <h2><span class="l-en">Turn it on and test</span><span class="l-ar">فعّله وجرّبه</span></h2><p><span class="l-en">Start a new chat, click + > Connectors and make sure Meta Ads is toggled on. Then ask it this, since Meta's own docs say to ask the agent which tools you can use.</span><span class="l-ar">افتح محادثة جديدة، واضغط + ثم Connectors وتأكد أن Meta Ads مفعّل. ثم اطرح هذا السؤال، فوثائق Meta نفسها تنصح بسؤال الوكيل عن الأدوات المتاحة لك.</span></p><pre>Which Meta ads tools can you access, and which ad accounts can you see? List them, don't change anything.</pre></div></div>
+  <div class="step"><div class="num">05</div><div>
+    <h2><span class="l-en">Optional: Claude Code</span><span class="l-ar">اختياري: Claude Code</span></h2><p><span class="l-en">Meta documents a Claude Code setup too. It needs a Meta developer app (developers.facebook.com/apps) with the Create & manage ads with ads MCP server use case added. Replace &lt;META_APP_ID&gt; with your app ID, then run /mcp inside Claude Code to log in. Note: approval toggles you set on claude.ai may not carry over to Claude Code, so keep Claude Code in its normal ask-before-acting mode.</span><span class="l-ar">توثّق Meta طريقة الإعداد في Claude Code أيضًا. تحتاج إلى تطبيق مطوّر على Meta (developers.facebook.com/apps) مضافًا إليه حالة الاستخدام Create & manage ads with ads MCP server. استبدل &lt;META_APP_ID&gt; بمعرّف تطبيقك، ثم شغّل /mcp داخل Claude Code لتسجيل الدخول. ملاحظة: إعدادات الموافقة التي ضبطتها على claude.ai قد لا تنتقل إلى Claude Code، فأبقِ Claude Code على وضعه العادي الذي يسأل قبل التنفيذ.</span></p><pre>claude mcp add --transport http --client-id &lt;META_APP_ID&gt; meta-ads https://mcp.facebook.com/ads</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Ask Claude about your ads. Skip Ads Manager</span><span class="l-ar">اسأل Claude عن إعلاناتك. بدل Ads Manager</span></span><span>META</span></div>
+  <div class="eyebrow"><span class="l-en">03 · Copy and paste</span><span class="l-ar">03 · انسخ والصق</span></div><h2><span class="l-en">Your <span class="em">prompts.</span></span><span class="l-ar">أوامرك <span class="em">الجاهزة.</span></span></h2><p class="muted l-ar">انسخ الأوامر والنصوص كما هي باللغة الإنجليزية، فهي تعمل بدقة أكبر.</p>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">1. Cheapest lead</span><span class="l-ar">1. أرخص عميل محتمل</span></h4><pre>Which campaign got the cheapest cost per lead in the last 7 days?
+Show spend, leads and cost per lead for every active campaign in a table, cheapest first.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">2. Budget with no results</span><span class="l-ar">2. ميزانية بلا نتائج</span></h4><pre>Which ad sets spent money in the last 7 days with zero or almost zero results?
+Rank them by spend and tell me what you'd pause. Don't change anything yet.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">3. Weekly report</span><span class="l-ar">3. التقرير الأسبوعي</span></h4><pre>Write my weekly ads report for the last 7 days vs the 7 days before.
+Spend, results, cost per result, CTR and frequency per campaign, plus the 3 changes that moved the numbers most.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Ask Claude about your ads. Skip Ads Manager</span><span class="l-ar">اسأل Claude عن إعلاناتك. بدل Ads Manager</span></span><span>META</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">4. Tired creatives</span><span class="l-ar">4. إعلانات استُهلكت</span></h4><pre>Find ads where frequency is above 3 or CTR dropped more than 30% over the last 14 days.
+List them with the numbers so I know which creatives need replacing.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">5. Budget changes (approval rule)</span><span class="l-ar">5. تغييرات الميزانية (قاعدة الموافقة)</span></h4><pre>Suggest budget changes for my active ad sets based on the last 14 days.
+Rule: propose only. Show the current budget, the new budget and the reason for each.
+Do not change any budget, status or campaign until I reply 'approved' to that exact line.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Ask Claude about your ads. Skip Ads Manager</span><span class="l-ar">اسأل Claude عن إعلاناتك. بدل Ads Manager</span></span><span>META</span></div>
+  <div class="eyebrow"><span class="l-en">Done</span><span class="l-ar">تم</span></div>
+  <h2><span class="l-en">That's the <span class="em">whole setup.</span></span><span class="l-ar">هذا هو <span class="em">الإعداد كاملًا.</span></span></h2>
+  <p class="lead"><span class="l-en">Run it once this week on something real. Then tell me what it did: DM me on Instagram, I read them.</span><span class="l-ar">جرّبه هذا الأسبوع على عمل حقيقي، ثم أخبرني بالنتيجة عبر رسالة على إنستغرام، فأنا أقرأ الرسائل بنفسي.</span></p>
+  <h3><span class="l-en">Credit</span><span class="l-ar">المصادر</span></h3><ul><li>Ads MCP server by Meta (developers.facebook.com/documentation/ads-commerce/ads-ai-connectors)</li><li>Custom connectors in Claude by Anthropic (support.claude.com)</li></ul>
+  <div class="cta">
+    <div class="k"><span class="l-en">Built by</span><span class="l-ar">إعداد</span> <span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></div>
+    <h3><span class="l-en">Want it built for you?</span><span class="l-ar">تريد أن نبنيه لك؟</span></h3>
+    <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
+    <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
+  </div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 06</span></div>
+</section>
+<script>
+(function(){
+  var root=document.documentElement;
+  function set(l){root.dataset.lang=l;root.lang=l;root.dir=l==="ar"?"rtl":"ltr";
+    document.querySelectorAll(".lang-toggle button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
+    try{localStorage.setItem("karemops-guide-lang",l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem("karemops-guide-lang")}catch(e){}
+  set(location.hash==="#ar"?"ar":location.hash==="#en"?"en":(saved||"en"));
+  document.querySelector(".lang-toggle").addEventListener("click",function(e){var b=e.target.closest("button");if(b)set(b.dataset.l)});
+})();
+</script>
+</body>
+</html>

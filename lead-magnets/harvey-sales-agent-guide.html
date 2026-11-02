@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A sales agent that finds customers while you work | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E9EDF3; --paper:#FAFAF8; --white:#FFFFFF; --ink:#0B1220; --muted:#5A6478; --line:#E2E6EE;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F3F6FB;
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Instrument Serif','Times New Roman',serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(11,18,32,.06),0 12px 40px rgba(11,18,32,.08);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-weight:800;font-size:54px;line-height:1.02;letter-spacing:-.03em;text-wrap:balance}
+h2{font-weight:800;font-size:34px;line-height:1.08;letter-spacing:-.02em;margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--blue);letter-spacing:0}
+h1 .em{font-size:1.1em} h2 .em{font-size:1.08em}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--blue-soft);border:1px solid var(--blue-line);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--blue);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--ink)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:16px;padding:34px 40px;background-color:var(--blue-soft);
+  background-image:radial-gradient(rgba(8,102,255,.22) 1.2px,transparent 1.3px);background-size:16px 16px;border:1px solid var(--blue-line)}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(8,102,255,.12),0 2px 6px rgba(11,18,32,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:var(--line);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--line)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;display:grid;place-items:center;font-size:17px}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-size:40px;font-weight:800;color:var(--blue);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.step h2{font-size:24px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.prompt{margin-bottom:8px}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--blue);color:#fff;border-radius:16px;padding:28px 30px}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-size:26px;letter-spacing:-.02em;text-transform:none;margin:0 0 8px;font-weight:800}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+}</style>
+</head>
+<body>
+<div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip"><span class="l-en">Comment</span><span class="l-ar">اكتب</span> · HARVEY</span></div>
+  <div class="eyebrow"><span class="l-en">Field guide · No. 27</span><span class="l-ar">دليل عملي · رقم 27</span></div>
+  <h1><span class="l-en">A sales agent that finds <span class="em">customers</span> while you work.</span><span class="l-ar">وكيل مبيعات يجد لك <span class="em">العملاء</span> بينما تعمل.</span></h1>
+  <p class="lead"><span class="l-en">Harvey is a free, open-source sales agent that runs on your Claude subscription. It finds businesses that fit, researches each one, writes the cold email and handles the replies. You approve every email before it goes out.</span><span class="l-ar">Harvey وكيل مبيعات مجاني ومفتوح المصدر يعمل على اشتراكك في Claude. يبحث عن الشركات المناسبة، ويدرس كل واحدة منها، ويكتب رسالة البريد الأولى، ويتابع الردود. وأنت توافق على كل رسالة قبل إرسالها.</span></p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Claude Code</span></div><pre><span class="p">&gt;</span> git clone https://github.com/ethanplusai/harvey.git
+cd harvey
+claude<span class="caret"></span></pre><div class="note"><span class="l-en">Step 01 of this guide. Copy it as is.</span><span class="l-ar">الخطوة 01 من هذا الدليل. انسخها كما هي.</span></div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0"><span class="l-en">Inside</span><span class="l-ar">في هذا الدليل</span></h3><p><span class="l-en">Clone Harvey, let Claude Code set it up for your business, find your first list of prospects, and approve your first emails from the dashboard.</span><span class="l-ar">انسخ Harvey، ودع Claude Code يجهّزه لعملك، واعثر على أول قائمة من العملاء المحتملين، ووافق على أول رسائلك من لوحة التحكم.</span></p></div>
+    <div class="by"><div class="mono-k">K</div><div><b><span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">A sales agent that finds customers while you work</span><span class="l-ar">وكيل مبيعات يجد لك العملاء بينما تعمل</span></span><span>HARVEY</span></div>
+  <div class="eyebrow"><span class="l-en">01 · What this is</span><span class="l-ar">01 · ما هذا</span></div>
+  <h2><span class="l-en">What you're <span class="em">setting up.</span></span><span class="l-ar">ما الذي <span class="em">ستُعدّه.</span></span></h2>
+  <p><span class="l-en">Harvey runs on your own computer in a loop. Every 15 minutes by default it wakes up, checks what needs doing, does it and goes back to sleep. It finds businesses (the default source is OpenStreetMap, which is free), reads their websites, finds who makes the decision, and writes a short cold email that mentions something specific about them. When people reply, it sorts the replies and drafts your answers. Everything sits in one dashboard on your machine.</span><span class="l-ar">يعمل Harvey على جهازك في حلقة متكررة. كل 15 دقيقة افتراضيًا يستيقظ، ويرى ما المطلوب، وينفذه ثم يعود للانتظار. يبحث عن الشركات (المصدر الافتراضي هو OpenStreetMap وهو مجاني)، ويقرأ مواقعها، ويحدد صاحب القرار، ويكتب رسالة قصيرة تذكر شيئًا محددًا عن كل شركة. وعندما تصل الردود يصنّفها ويجهّز لك مسودات الإجابة. كل ذلك في لوحة تحكم واحدة على جهازك.</span></p>
+  <p><span class="l-en">Model calls go through your Claude Pro or Max plan in Claude Code, so there's no API bill. It keeps working as long as it's running on your computer. It's for service businesses and agencies selling to other businesses who are ready to send cold email properly: a separate domain, a warmed-up inbox, and someone (you) reading every email before it sends.</span><span class="l-ar">تمر استدعاءات النموذج عبر اشتراك Claude Pro أو Max في Claude Code، فلا توجد فاتورة API. ويستمر في العمل ما دام يعمل على جهازك. هذا الدليل لأصحاب الخدمات والوكالات التي تبيع لشركات أخرى، والمستعدين لإرسال البريد البارد بالطريقة الصحيحة: نطاق منفصل، وصندوق بريد مُحمّى، وشخص (أنت) يقرأ كل رسالة قبل إرسالها.</span></p>
+  <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">Claude Code, logged in to a Claude Pro or Max plan (run claude login)</li><li class="l-en">Python 3.11 or newer (check with python3 --version; Macs ship 3.9, so install 3.13 first)</li><li class="l-en">A Gmail / Google Workspace or Microsoft 365 inbox on a separate domain, not your main one</li><li class="l-en">A warmup service running on that inbox for 2 to 4 weeks before real sends</li><li class="l-en">Your website, so Harvey can learn what you sell</li><li class="l-ar">Claude Code مسجّل الدخول باشتراك Claude Pro أو Max (نفّذ claude login)</li><li class="l-ar">Python 3.11 أو أحدث (تحقق بالأمر python3 --version؛ أجهزة Mac تأتي بالإصدار 3.9، فثبّت 3.13 أولًا)</li><li class="l-ar">صندوق بريد Gmail أو Google Workspace أو Microsoft 365 على نطاق منفصل، لا على نطاقك الرئيسي</li><li class="l-ar">خدمة تحمية (warmup) تعمل على هذا الصندوق من أسبوعين إلى أربعة أسابيع قبل الإرسال الفعلي</li><li class="l-ar">موقعك الإلكتروني، ليتعلم Harvey ما تبيعه</li></ul>
+  <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">Never send from your main domain. Buy a separate one (like getyourbrand.com), set up SPF, DKIM and DMARC, and warm the inbox for 2 to 4 weeks before Harvey sends anything. Then start at 10 to 20 emails a day. Keep approval mode on (it's the default) and read every email before you press approve: you are the sender, not Harvey. Skip the approve-all button. Set your postal address and keep the opt-out line, cold email law cares about both. The free lead source costs nothing, but the paid ones do, and Harvey uses your Claude plan's limit all day, so check your plan's terms and limits before you leave it running. LinkedIn automation is off by default. Keep it off.</span><span class="l-ar">لا ترسل أبدًا من نطاقك الرئيسي. اشترِ نطاقًا منفصلًا (مثل getyourbrand.com)، واضبط SPF وDKIM وDMARC، وحمِّ الصندوق من أسبوعين إلى أربعة أسابيع قبل أن يرسل Harvey أي شيء. ثم ابدأ بعشر إلى عشرين رسالة يوميًا. أبقِ وضع الموافقة مفعّلًا (وهو الافتراضي) واقرأ كل رسالة قبل الضغط على الموافقة: أنت المرسل لا Harvey. تجنّب زر الموافقة على الكل. أضف عنوانك البريدي وأبقِ سطر إلغاء الاشتراك، فقوانين البريد البارد تشترط الاثنين. مصدر العملاء المجاني لا يكلف شيئًا، لكن المصادر المدفوعة تكلف، وHarvey يستهلك من حد اشتراكك في Claude طوال اليوم، فراجع شروط اشتراكك وحدوده قبل تركه يعمل. أتمتة LinkedIn معطّلة افتراضيًا، فأبقِها كذلك.</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 05</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">A sales agent that finds customers while you work</span><span class="l-ar">وكيل مبيعات يجد لك العملاء بينما تعمل</span></span><span>HARVEY</span></div>
+  <div class="eyebrow"><span class="l-en">02 · The steps</span><span class="l-ar">02 · الخطوات</span></div><h2><span class="l-en">Set it up, <span class="em">step by step.</span></span><span class="l-ar">الإعداد <span class="em">خطوة بخطوة.</span></span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2><span class="l-en">Clone it and open Claude Code</span><span class="l-ar">انسخ المستودع وافتح Claude Code</span></h2><p><span class="l-en">Run this in your terminal. It downloads Harvey and opens Claude Code inside the folder.</span><span class="l-ar">نفّذ هذا في الطرفية. يحمّل Harvey ويفتح Claude Code داخل المجلد.</span></p><pre>git clone https://github.com/ethanplusai/harvey.git
+cd harvey
+claude</pre></div></div>
+  <div class="step"><div class="num">02</div><div>
+    <h2><span class="l-en">Let Claude set it up</span><span class="l-ar">دع Claude يجهّزه</span></h2><p><span class="l-en">The repo ships a CLAUDE.md that turns Claude Code into a setup wizard. Say this line. It checks what's missing, installs it, asks you questions and trains Harvey on your product.</span><span class="l-ar">يأتي المستودع بملف CLAUDE.md يحوّل Claude Code إلى معالج إعداد. اكتب هذه الجملة. يتحقق مما ينقص، ويثبّته، ويطرح عليك أسئلة، ويدرّب Harvey على منتجك.</span></p><pre>set up Harvey for me</pre></div></div>
+  <div class="step"><div class="num">03</div><div>
+    <h2><span class="l-en">Teach it what you sell</span><span class="l-ar">علّمه ما تبيعه</span></h2><p><span class="l-en">If the wizard didn't already do it, point Harvey at your website. It writes your product, targeting and company into harvey.local.yaml. If the harvey command isn't found, activate the environment first.</span><span class="l-ar">إذا لم يقم المعالج بذلك، فوجّه Harvey إلى موقعك. يكتب منتجك وجمهورك وشركتك في ملف harvey.local.yaml. وإذا لم يُعثر على الأمر harvey، ففعّل البيئة أولًا.</span></p><pre>source .venv/bin/activate
+harvey train https://your-company.com</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 05</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">A sales agent that finds customers while you work</span><span class="l-ar">وكيل مبيعات يجد لك العملاء بينما تعمل</span></span><span>HARVEY</span></div>
+  
+  <div class="step"><div class="num">04</div><div>
+    <h2><span class="l-en">Pick what makes a good prospect, then find them</span><span class="l-ar">حدّد صفات العميل المناسب ثم ابحث عنه</span></h2><p><span class="l-en">Harvey collects nothing until you confirm which signals matter (running ads, no online booking, stale blog and so on). Confirm the free ones, then run discovery on the free source. Want a paid source later? Run harvey discover --estimate first to see the cost.</span><span class="l-ar">لا يجمع Harvey أي بيانات حتى تؤكد الإشارات المهمة لك (شركات تعلن حاليًا، أو بلا حجز إلكتروني، أو مدونة متوقفة وغيرها). أكّد الإشارات المجانية، ثم شغّل البحث على المصدر المجاني. تريد مصدرًا مدفوعًا لاحقًا؟ نفّذ harvey discover --estimate أولًا لترى التكلفة.</span></p><pre>harvey signals --confirm free
+harvey discover</pre></div></div>
+  <div class="step"><div class="num">05</div><div>
+    <h2><span class="l-en">Check your domain before anything sends</span><span class="l-ar">افحص نطاقك قبل أي إرسال</span></h2><p><span class="l-en">This checks SPF, DKIM and DMARC, domain age, blocklists and warmup, and ends with READY or NOT READY. If it says NOT READY, wait. Sending early is how a domain ends up in spam for good.</span><span class="l-ar">يفحص هذا الأمر SPF وDKIM وDMARC وعمر النطاق والقوائم السوداء والتحمية، ثم يعطيك READY أو NOT READY. إذا ظهر NOT READY فانتظر. الإرسال المبكر هو ما يرمي النطاق في البريد المزعج نهائيًا.</span></p><pre>harvey warmup</pre></div></div>
+  <div class="step"><div class="num">06</div><div>
+    <h2><span class="l-en">Open the dashboard and approve</span><span class="l-ar">افتح لوحة التحكم ووافق</span></h2><p><span class="l-en">The dashboard prints a private link to 127.0.0.1:5555. Start the loop, then work the Outbox one email at a time: A to approve, E to edit, R to reject. Need to stop everything? harvey sending pause.</span><span class="l-ar">تطبع لوحة التحكم رابطًا خاصًا إلى 127.0.0.1:5555. شغّل الحلقة، ثم راجع صندوق الصادر رسالة رسالة: A للموافقة، وE للتعديل، وR للرفض. تريد إيقاف كل شيء؟ نفّذ harvey sending pause.</span></p><pre>harvey dashboard
+harvey run</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 05</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">A sales agent that finds customers while you work</span><span class="l-ar">وكيل مبيعات يجد لك العملاء بينما تعمل</span></span><span>HARVEY</span></div>
+  <div class="eyebrow"><span class="l-en">03 · Copy and paste</span><span class="l-ar">03 · انسخ والصق</span></div><h2><span class="l-en">Your <span class="em">prompts.</span></span><span class="l-ar">أوامرك <span class="em">الجاهزة.</span></span></h2><p class="muted l-ar">انسخ الأوامر والنصوص كما هي باللغة الإنجليزية، فهي تعمل بدقة أكبر.</p>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">1. Set it up for my business</span><span class="l-ar">1. جهّزه لعملي</span></h4><pre>Set up Harvey for me.
+I sell [your service] to [type of business] in [city or country]. My website is [your website].
+My sending inbox is on [your separate domain], not my main domain.
+Keep approval mode on. Explain each setting before you change it.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">2. Sharpen the targeting</span><span class="l-ar">2. حسّن الاستهداف</span></h4><pre>Read harvey.local.yaml and the signals I confirmed.
+My best customers so far are [describe 2 or 3 real customers].
+Suggest which signals to confirm and which cohort to build first, and tell me why each one fits.
+Don't change anything until I say yes.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">3. Make the emails sound like me</span><span class="l-ar">3. اجعل الرسائل بأسلوبي</span></h4><pre>Read skills/email_frameworks.md.
+Here are 3 emails I wrote myself: [paste them].
+Write a skills/email_rules.md file that matches how I write, and point writer.email_rules at it in my config.
+Show me the file and the config change before you save anything.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 05</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">A sales agent that finds customers while you work</span><span class="l-ar">وكيل مبيعات يجد لك العملاء بينما تعمل</span></span><span>HARVEY</span></div>
+  <div class="eyebrow"><span class="l-en">Done</span><span class="l-ar">تم</span></div>
+  <h2><span class="l-en">That's the <span class="em">whole setup.</span></span><span class="l-ar">هذا هو <span class="em">الإعداد كاملًا.</span></span></h2>
+  <p class="lead"><span class="l-en">Run it once this week on something real. Then tell me what it did: DM me on Instagram, I read them.</span><span class="l-ar">جرّبه هذا الأسبوع على عمل حقيقي، ثم أخبرني بالنتيجة عبر رسالة على إنستغرام، فأنا أقرأ الرسائل بنفسي.</span></p>
+  <h3><span class="l-en">Credit</span><span class="l-ar">المصادر</span></h3><ul><li>Harvey by ethanplusai, MIT license (github.com/ethanplusai/harvey)</li></ul>
+  <div class="cta">
+    <div class="k"><span class="l-en">Built by</span><span class="l-ar">إعداد</span> <span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></div>
+    <h3><span class="l-en">Want it built for you?</span><span class="l-ar">تريد أن نبنيه لك؟</span></h3>
+    <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
+    <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
+  </div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 05</span></div>
+</section>
+<script>
+(function(){
+  var root=document.documentElement;
+  function set(l){root.dataset.lang=l;root.lang=l;root.dir=l==="ar"?"rtl":"ltr";
+    document.querySelectorAll(".lang-toggle button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
+    try{localStorage.setItem("karemops-guide-lang",l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem("karemops-guide-lang")}catch(e){}
+  set(location.hash==="#ar"?"ar":location.hash==="#en"?"en":(saved||"en"));
+  document.querySelector(".lang-toggle").addEventListener("click",function(e){var b=e.target.closest("button");if(b)set(b.dataset.l)});
+})();
+</script>
+</body>
+</html>

@@ -202,7 +202,7 @@ for (const g of guides) {
 
   <div class="eyebrow">${g.legacy ? "Free field guide" : t(`Field guide · No. ${String(g.number).padStart(2, "0")} · Comment ${g.kw}`, `دليل عملي · رقم ${String(g.number).padStart(2, "0")} · اكتب ${g.kw}`)}</div>
   <h1>${t(g.title, a.title)}</h1>
-  <p class="meta">${t("By Karem AlMoayyad", "إعداد كريم المؤيد")}<span class="dot"></span>${t(DATE_EN, DATE_AR)}<span class="dot"></span>${BI ? t("Free guide · EN + Arabic", "دليل مجاني · عربي وإنجليزي") : "Free guide"}</p>
+  <p class="meta">${t("By Karem AlMoayyad", "إعداد كريم المؤيد")}<span class="dot"></span>${t(g.date_en || DATE_EN, g.date_ar || DATE_AR)}<span class="dot"></span>${BI ? t("Free guide · EN + Arabic", "دليل مجاني · عربي وإنجليزي") : "Free guide"}</p>
   <p class="lede">${t(g.lead, a.lead)}</p>
 
   <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>${h.label}</span></div><pre>${h.body}<span class="caret"></span></pre></div></div>
