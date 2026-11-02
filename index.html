@@ -724,84 +724,12 @@
   // href points to the guide's PDF/HTML in /lead-magnets/ (or wherever you host it)
   const GUIDES = [
     {
-      title: "Four Claudes. One job each",
+      title: "Switching to Claude? Do these 3 on day one",
       badge: "NEW",
-      desc: "Chat to think, Cowork to do, Code to build, Design to make. What each one is for, which plan has it, and three prompts to start each one today.",
-      thumb: "Four\nClaudes",
-      pdp: "four-claudes",
-      href: "lead-magnets/four-claudes-guide.html"
-    },
-    {
-      title: "Ask Claude about your ads. Skip Ads Manager",
-      badge: "NEW",
-      desc: "Meta built its own MCP server for ads. Plug it into Claude once and your ad account becomes a conversation: live numbers, plain answers.",
-      thumb: "Meta Ads\nConnector",
-      pdp: "meta-ads-claude",
-      href: "lead-magnets/meta-ads-claude-guide.html"
-    },
-    {
-      title: "Fable, Opus, Sonnet or Haiku: which one to use",
-      badge: "NEW",
-      desc: "A one-page cheat sheet for the four Claude models, the effort dial, and what each choice costs you in tokens.",
-      thumb: "Which\nModel",
-      pdp: "claude-models",
-      href: "lead-magnets/claude-models-guide.html"
-    },
-    {
-      title: "A sales agent that finds customers while you work",
-      badge: "NEW",
-      desc: "Harvey is a free, open-source sales agent that runs on your Claude subscription. It finds businesses that fit, researches each one, writes the cold email and handles the replies. You approve every email before it goes out.",
-      thumb: "Sales\nAgent",
-      pdp: "harvey-sales-agent",
-      href: "lead-magnets/harvey-sales-agent-guide.html"
-    },
-    {
-      title: "Skip the chat. Start with Cowork",
-      badge: "NEW",
-      desc: "Chat answers questions. Cowork does the work: it reads your inbox, drafts the replies and follows your process. The full setup, step by step.",
-      thumb: "Start With\nCowork",
-      pdp: "claude-cowork",
-      href: "lead-magnets/claude-cowork-guide.html"
-    },
-    {
-      title: "A full AI agency inside Claude Code",
-      badge: "NEW",
-      desc: "The Agency is a free GitHub repo with 230+ specialist agents for Claude Code: sales, marketing, design, engineering, support, finance. Install the three a service business needs and run real client work through them.",
-      thumb: "AI\nAgency",
-      pdp: "agency-agents",
-      href: "lead-magnets/agency-agents-guide.html"
-    },
-    {
-      title: "Set up Claude in one day",
-      badge: "NEW",
-      desc: "If Claude still feels like ChatGPT from 2022, you're missing five things: a skill, a scheduled task, an artifact, a plugin and the Chrome extension.",
-      thumb: "One-Day\nSetup",
-      pdp: "claude-one-day-setup",
-      href: "lead-magnets/claude-one-day-setup-guide.html"
-    },
-    {
-      title: "Stop asking AI to agree. Run a council",
-      badge: "NEW",
-      desc: "One copy-paste prompt that turns a single Claude chat into five advisors who argue, review each other blind, and hand the call to a chairman.",
-      thumb: "AI\nCouncil",
-      pdp: "ai-council",
-      href: "lead-magnets/ai-council-guide.html"
-    },
-    {
-      title: "13 free Claude skills that write your Instagram",
-      badge: "NEW",
-      desc: "instagram-agent-skill is 13 free Claude skills that write your Reels, captions, comments, replies and DMs, find what's going viral in your niche, and plan your week. Claude writes, you hit post.",
-      thumb: "Instagram\nSkills",
-      pdp: "instagram-skills",
-      href: "lead-magnets/instagram-skills-guide.html"
-    },
-    {
-      title: "Give Claude Code the whole internet",
-      badge: "NEW",
-      desc: "Agent Reach is a free, open-source tool that lets Claude Code search and read X, Reddit, YouTube, GitHub and the web from one command line, without paying for platform API keys.",
-      thumb: "Agent\nReach",
-      pdp: "agent-reach",
-      href: "lead-magnets/agent-reach-guide.html"
+      desc: "Memory so Claude knows you (with everything ChatGPT already learned), one connector for your apps, and Anthropic's free courses turned into a skill.",
+      thumb: "Day One\nSetup",
+      pdp: "claude-day-one",
+      href: "lead-magnets/claude-day-one-guide.html"
     },
     {
       title: "Stop re-explaining yourself. Give Claude a second brain",
@@ -812,12 +740,132 @@
       href: "lead-magnets/claude-memory-guide.html"
     },
     {
-      title: "Switching to Claude? Do these 3 on day one",
+      title: "Give Claude Code the whole internet",
       badge: "NEW",
-      desc: "Memory so Claude knows you (with everything ChatGPT already learned), one connector for your apps, and Anthropic's free courses turned into a skill.",
-      thumb: "Day One\nSetup",
-      pdp: "claude-day-one",
-      href: "lead-magnets/claude-day-one-guide.html"
+      desc: "Agent Reach is a free, open-source tool that lets Claude Code search and read X, Reddit, YouTube, GitHub and the web from one command line, without paying for platform API keys.",
+      thumb: "Agent\nReach",
+      pdp: "agent-reach",
+      href: "lead-magnets/agent-reach-guide.html"
+    },
+    {
+      title: "13 free Claude skills that write your Instagram",
+      badge: "NEW",
+      desc: "instagram-agent-skill is 13 free Claude skills that write your Reels, captions, comments, replies and DMs, find what's going viral in your niche, and plan your week. Claude writes, you hit post.",
+      thumb: "Instagram\nSkills",
+      pdp: "instagram-skills",
+      href: "lead-magnets/instagram-skills-guide.html"
+    },
+    {
+      title: "Stop asking AI to agree. Run a council",
+      badge: "NEW",
+      desc: "One copy-paste prompt that turns a single Claude chat into five advisors who argue, review each other blind, and hand the call to a chairman.",
+      thumb: "AI\nCouncil",
+      pdp: "ai-council",
+      href: "lead-magnets/ai-council-guide.html"
+    },
+    {
+      title: "Set up Claude in one day",
+      badge: "NEW",
+      desc: "If Claude still feels like ChatGPT from 2022, you're missing five things: a skill, a scheduled task, an artifact, a plugin and the Chrome extension.",
+      thumb: "One-Day\nSetup",
+      pdp: "claude-one-day-setup",
+      href: "lead-magnets/claude-one-day-setup-guide.html"
+    },
+    {
+      title: "A full AI agency inside Claude Code",
+      badge: "NEW",
+      desc: "The Agency is a free GitHub repo with 230+ specialist agents for Claude Code: sales, marketing, design, engineering, support, finance. Install the three a service business needs and run real client work through them.",
+      thumb: "AI\nAgency",
+      pdp: "agency-agents",
+      href: "lead-magnets/agency-agents-guide.html"
+    },
+    {
+      title: "Skip the chat. Start with Cowork",
+      badge: "NEW",
+      desc: "Chat answers questions. Cowork does the work: it reads your inbox, drafts the replies and follows your process. The full setup, step by step.",
+      thumb: "Start With\nCowork",
+      pdp: "claude-cowork",
+      href: "lead-magnets/claude-cowork-guide.html"
+    },
+    {
+      title: "A sales agent that finds customers while you work",
+      badge: "NEW",
+      desc: "Harvey is a free, open-source sales agent that runs on your Claude subscription. It finds businesses that fit, researches each one, writes the cold email and handles the replies. You approve every email before it goes out.",
+      thumb: "Sales\nAgent",
+      pdp: "harvey-sales-agent",
+      href: "lead-magnets/harvey-sales-agent-guide.html"
+    },
+    {
+      title: "Fable, Opus, Sonnet or Haiku: which one to use",
+      badge: "NEW",
+      desc: "A one-page cheat sheet for the four Claude models, the effort dial, and what each choice costs you in tokens.",
+      thumb: "Which\nModel",
+      pdp: "claude-models",
+      href: "lead-magnets/claude-models-guide.html"
+    },
+    {
+      title: "Ask Claude about your ads. Skip Ads Manager",
+      badge: "NEW",
+      desc: "Meta built its own MCP server for ads. Plug it into Claude once and your ad account becomes a conversation: live numbers, plain answers.",
+      thumb: "Meta Ads\nConnector",
+      pdp: "meta-ads-claude",
+      href: "lead-magnets/meta-ads-claude-guide.html"
+    },
+    {
+      title: "Four Claudes. One job each",
+      badge: "NEW",
+      desc: "Chat to think, Cowork to do, Code to build, Design to make. What each one is for, which plan has it, and three prompts to start each one today.",
+      thumb: "Four\nClaudes",
+      pdp: "four-claudes",
+      href: "lead-magnets/four-claudes-guide.html"
+    },
+    {
+      title: "Turn Claude Code into a whole team",
+      badge: "NEW",
+      desc: "Ruflo (it used to be called Claude Flow) adds a team of specialized agents to Claude Code: planners, coders, testers and reviewers that share one memory and work in parallel.",
+      thumb: "Agent\nTeam",
+      pdp: "ruflo-team",
+      href: "lead-magnets/ruflo-team-guide.html"
+    },
+    {
+      title: "Give Claude its own WhatsApp number",
+      badge: "NEW",
+      desc: "Kapso connects Claude Code to the WhatsApp API. Install their skills, describe the agent you want, and Claude builds a WhatsApp bot that answers and books for you.",
+      thumb: "WhatsApp\nNumber",
+      pdp: "claude-whatsapp",
+      href: "lead-magnets/claude-whatsapp-guide.html"
+    },
+    {
+      title: "Stop feeding Claude raw PDFs",
+      badge: "NEW",
+      desc: "MarkItDown is a free Microsoft tool that turns PDFs, Word, Excel and PowerPoint files into clean text before Claude reads them. Fewer tokens, better answers.",
+      thumb: "PDF\nTokens",
+      pdp: "markitdown-pdfs",
+      href: "lead-magnets/markitdown-pdfs-guide.html"
+    },
+    {
+      title: "Stop asking Claude how. Let it do the work",
+      badge: "NEW",
+      desc: "Four connectors that plug Claude into real tools: Perplexity for research, Firecrawl for website data, Playwright for a browser, PostHog for your analytics.",
+      thumb: "4\nConnectors",
+      pdp: "claude-connectors",
+      href: "lead-magnets/claude-connectors-guide.html"
+    },
+    {
+      title: "5 free tools that make Claude Code design like a pro",
+      badge: "NEW",
+      desc: "Taste, Impeccable, Playwright CLI, Awesome Design MD and img2threejs. Five open-source tools that stop Claude Code from building sites that look AI-made.",
+      thumb: "Design\nTools",
+      pdp: "claude-design-tools",
+      href: "lead-magnets/claude-design-tools-guide.html"
+    },
+    {
+      title: "Let Claude Code write your LinkedIn",
+      badge: "NEW",
+      desc: "linkedin-agent-skill is 11 free Claude skills that write your posts, comments, replies and DMs, score your profile and plan your week. You read it, you paste it, you post.",
+      thumb: "LinkedIn\nWriter",
+      pdp: "claude-linkedin",
+      href: "lead-magnets/claude-linkedin-guide.html"
     },
     {
       title: "See how any app works with Claude Code",

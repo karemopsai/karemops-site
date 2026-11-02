@@ -2840,5 +2840,734 @@
   },
   "date_en": "2 Nov 2026",
   "date_ar": "2 نوفمبر 2026"
+ },
+ {
+  "kw": "LINKEDIN",
+  "slug": "claude-linkedin",
+  "number": 18,
+  "title": "Let Claude Code <span class=\"em\">write your LinkedIn</span>.",
+  "lead": "linkedin-agent-skill is 11 free Claude skills that write your posts, comments, replies and DMs, score your profile and plan your week. You read it, you paste it, you post.",
+  "inside": "Install the 11 skills, teach them your voice, fix your profile, and use the prompts that turn LinkedIn into a lead source for your business.",
+  "what": [
+   "It's an open-source pack of Claude skills by Jake Schincariol, MIT licensed, no signup, no API key. Each one is a slash command in Claude Code: /li-post writes a post from 21 hook formulas, /li-comment and /li-reply handle the conversation, /li-profile scores your profile out of 100, /li-plan builds your week, /li-dm writes outreach, and /li-human strips the AI tells out of every draft before you see it.",
+   "It's built for business owners who know LinkedIn is where their clients are but don't have an hour a day to write. You bring the ideas and the real numbers. Claude does the drafting, and nothing goes live until you paste it yourself."
+  ],
+  "prereqs": [
+   "Claude Code installed (it also works as a plugin, or by pasting a single SKILL.md into a Claude chat)",
+   "Python 3 on your computer, for the humanizer scripts",
+   "Three of your own LinkedIn posts or messages, so it learns how you write",
+   "Your real numbers: clients, results, prices. It won't invent them"
+  ],
+  "warn": "These skills don't post for you, on purpose. Automating LinkedIn with a bot or browser tool breaks LinkedIn's User Agreement and gets accounts restricted, so every skill ends with a copy-ready block you paste. The humanizer's 5 checks run on your machine and are a guide, not a promise: nobody can honestly sell you \"undetectable\".",
+  "steps": [
+   {
+    "h": "Install it in Claude Code",
+    "p": "Open Claude Code and paste this. Claude installs the 11 skills and checks that /li-post works.",
+    "code": "https://github.com/Jakeschincariol/linkedin-agent-skill\n\nInstall this skill, then confirm /li-post works."
+   },
+   {
+    "h": "Or install it by hand",
+    "p": "Same result, done from your terminal. Or run /plugin marketplace add Jakeschincariol/linkedin-agent-skill and then /plugin install linkedin-agent inside Claude Code.",
+    "code": "git clone https://github.com/Jakeschincariol/linkedin-agent-skill.git\ncp -r linkedin-agent-skill/skills/li-* ~/.claude/skills/"
+   },
+   {
+    "h": "Teach it your voice (10 minutes, don't skip)",
+    "p": "Every skill reads one file: ~/.claude/linkedin/voice.md. Skip it and everything sounds like everyone else. The fast way is to give it three posts you wrote yourself.",
+    "code": "Here are three of my LinkedIn posts:\n[paste post 1]\n[paste post 2]\n[paste post 3]\nWrite my ~/.claude/linkedin/voice.md from these."
+   },
+   {
+    "h": "Fix your profile first",
+    "p": "Run it once before you post anything. It scores your profile against a 12-part rubric out of 100 and rewrites the parts that lost points, worst first. Paste in your headline, About section and experience when it asks.",
+    "code": "/li-profile"
+   },
+   {
+    "h": "Plan the week",
+    "p": "It writes ~/.claude/linkedin/plan.md: what to post, which day, and the 10 people worth engaging with. Tell it who your clients are.",
+    "code": "/li-plan"
+   },
+   {
+    "h": "Write a post, then clean it",
+    "p": "/li-post gives you three hook options and one full draft, already humanized. Run /li-human on anything you wrote somewhere else to strip em dashes, stock AI words and invisible characters, and see the score.",
+    "code": "/li-post\n/li-human"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "Turn a client win into a post",
+    "code": "/li-post Last month we [result, with the real number] for a [type of business]\nby [what you actually did]. Write it for business owners who have the same problem."
+   },
+   {
+    "h": "One video, a week of posts",
+    "code": "/li-repurpose Here's the transcript of my latest video: [paste].\nTurn it into 5 LinkedIn posts that each stand on their own."
+   },
+   {
+    "h": "Find the leads in your comments",
+    "code": "/li-reply Here are the comments under my last post: [paste].\nSort them, flag anyone who could be a client, and write the replies, leads first."
+   },
+   {
+    "h": "Reach out without sounding like a bot",
+    "code": "/li-dm I want to connect with [name], [role] at [company].\nThey posted about [topic]. I help [who] with [what]. Write the invite note and the first message."
+   },
+   {
+    "h": "Comment your way into your niche",
+    "code": "/li-comment Here's a post from someone my clients follow: [paste].\nWrite a comment that adds something useful, no \"great post\"."
+   },
+   {
+    "h": "See what's actually working",
+    "code": "/li-audit Here are my last 10 posts with impressions, reactions and comments: [paste].\nRank them by engagement rate and tell me what to do more of."
+   },
+   {
+    "h": "Your FAQ as a carousel",
+    "code": "/li-carousel The 5 questions my clients ask before they buy [service]:\n[list them]. Make a carousel that answers them."
+   },
+   {
+    "h": "Clear your inbox",
+    "code": "/li-inbox Here are my unread LinkedIn messages: [paste].\nSort them into leads, recruiters, peers and spam, and draft replies to the leads."
+   }
+  ],
+  "credit": [
+   "linkedin-agent-skill by Jake Schincariol (github.com/Jakeschincariol/linkedin-agent-skill, MIT)",
+   "Full write-up: opusjake.ai/r/linkedin-agent"
+  ],
+  "payoff": "Fix your profile and post once this week, with a real number from your business in it. That one post does more than a month of saving tips.",
+  "ar": {
+   "title": "دع Claude Code <span class=\"em\">يكتب لك LinkedIn</span>.",
+   "lead": "linkedin-agent-skill مجموعة من 11 مهارة مجانية لـ Claude تكتب منشوراتك وتعليقاتك وردودك ورسائلك، وتقيّم ملفك الشخصي، وتخطط أسبوعك. أنت تقرأ، وتنسخ، وتنشر بنفسك.",
+   "inside": "ثبّت المهارات الإحدى عشرة، وعلّمها أسلوبك في الكتابة، وحسّن ملفك الشخصي، واستخدم الأوامر التي تحوّل LinkedIn إلى مصدر عملاء لعملك.",
+   "what": [
+    "هي حزمة مفتوحة المصدر من مهارات Claude من إعداد Jake Schincariol، بترخيص MIT، بلا تسجيل ولا مفتاح API. كل مهارة أمر داخل Claude Code: ‎/li-post يكتب منشورًا من 21 صيغة افتتاحية، و‎/li-comment و‎/li-reply يتوليان التعليقات والردود، و‎/li-profile يقيّم ملفك من 100، و‎/li-plan يبني خطة أسبوعك، و‎/li-dm يكتب رسائل التواصل، و‎/li-human يزيل علامات الكتابة الآلية من كل مسودة قبل أن تراها.",
+    "صُممت لأصحاب الأعمال الذين يعرفون أن عملاءهم على LinkedIn لكن ليس لديهم ساعة يوميًا للكتابة. أنت تأتي بالأفكار والأرقام الحقيقية، وClaude يكتب المسودات، ولا يُنشر شيء حتى تنسخه وتنشره بنفسك."
+   ],
+   "prereqs": [
+    "Claude Code مثبّت (ويعمل أيضًا كإضافة، أو بلصق ملف SKILL.md واحد في محادثة Claude)",
+    "Python 3 على جهازك، لتشغيل أدوات إزالة علامات الكتابة الآلية",
+    "ثلاثة منشورات أو رسائل كتبتها بنفسك على LinkedIn، ليتعلم أسلوبك",
+    "أرقامك الحقيقية: العملاء والنتائج والأسعار. لن يخترعها لك"
+   ],
+   "warn": "هذه المهارات لا تنشر بالنيابة عنك، وهذا مقصود. أتمتة LinkedIn بروبوت أو أداة متصفح تخالف اتفاقية المستخدم وتؤدي إلى تقييد الحسابات، لذلك تنتهي كل مهارة بنص جاهز تنسخه بنفسك. الفحوصات الخمسة تعمل على جهازك وهي مؤشر وليست ضمانًا: لا أحد يستطيع أن يعدك بصدق بنص «لا يُكتشف».",
+   "steps": [
+    {
+     "h": "ثبّتها في Claude Code",
+     "p": "افتح Claude Code والصق هذا النص. سيثبّت Claude المهارات الإحدى عشرة ويتأكد من أن ‎/li-post يعمل."
+    },
+    {
+     "h": "أو ثبّتها يدويًا",
+     "p": "النتيجة نفسها من الطرفية. أو شغّل ‎/plugin marketplace add Jakeschincariol/linkedin-agent-skill ثم ‎/plugin install linkedin-agent داخل Claude Code."
+    },
+    {
+     "h": "علّمها أسلوبك (10 دقائق، لا تتخطَّ هذه الخطوة)",
+     "p": "كل المهارات تقرأ ملفًا واحدًا: ‎~/.claude/linkedin/voice.md. إن تخطيته ستبدو كتابتك مثل كتابة الجميع. الطريقة الأسرع أن تعطيه ثلاثة منشورات كتبتها بنفسك."
+    },
+    {
+     "h": "حسّن ملفك الشخصي أولًا",
+     "p": "شغّله مرة واحدة قبل أن تنشر أي شيء. يقيّم ملفك وفق معيار من 12 جزءًا من 100، ويعيد كتابة الأجزاء الأضعف أولًا. الصق العنوان وقسم «نبذة» والخبرات عندما يطلبها."
+    },
+    {
+     "h": "خطّط أسبوعك",
+     "p": "يكتب ملف ‎~/.claude/linkedin/plan.md: ماذا تنشر، وفي أي يوم، وأهم 10 أشخاص تتفاعل معهم. أخبره من هم عملاؤك."
+    },
+    {
+     "h": "اكتب منشورًا ثم نظّفه",
+     "p": "‎/li-post يعطيك ثلاث افتتاحيات ومسودة كاملة منظّفة مسبقًا. شغّل ‎/li-human على أي نص كتبته في مكان آخر لإزالة الشرطات الطويلة والكلمات الآلية المكررة والرموز المخفية، ورؤية النتيجة."
+    }
+   ],
+   "prompts": [
+    "حوّل نجاحًا مع عميل إلى منشور",
+    "فيديو واحد، منشورات أسبوع كامل",
+    "اعثر على العملاء في تعليقاتك",
+    "تواصل دون أن تبدو كروبوت",
+    "علّق لتدخل مجال تخصصك",
+    "اعرف ما الذي ينجح فعلًا",
+    "أسئلة عملائك في منشور شرائح",
+    "رتّب صندوق رسائلك"
+   ]
+  },
+  "date_en": "2 Nov 2026",
+  "date_ar": "2 نوفمبر 2026"
+ },
+ {
+  "kw": "DESIGN",
+  "slug": "claude-design-tools",
+  "number": 19,
+  "title": "5 free tools that make Claude Code <span class=\"em\">design like a pro</span>.",
+  "lead": "Taste, Impeccable, Playwright CLI, Awesome Design MD and img2threejs. Five open-source tools that stop Claude Code from building sites that look AI-made.",
+  "inside": "Install all five, give Claude a real design system to copy, let it test its own pages in a browser, and run the prompts that take a page from template to agency level.",
+  "what": [
+   "Out of the box, Claude Code builds pages that all look the same: purple gradients, centered hero, three cards. These five tools fix that from different angles. Taste gives it design rules. Impeccable gives it a design system plus commands like /impeccable critique and /impeccable polish. Playwright CLI lets it open real browsers and screenshot what it built. Awesome Design MD hands it the design language of real sites like Stripe, Linear and Notion. img2threejs turns a photo of an object into a 3D model written in code.",
+   "It's for business owners who build their own landing pages, offers and client sites with Claude Code and want them to look like someone paid an agency. All five are free."
+  ],
+  "prereqs": [
+   "Claude Code installed",
+   "Node.js 22 or newer (Taste needs 22+, the others run on 18+)",
+   "Chrome, Edge or Chromium on your computer",
+   "Python 3.10+ and Git, only if you want img2threejs",
+   "A project folder with a page you want to improve"
+  ],
+  "warn": "Don't stack every rule at once on a small page. Pick one design direction (one DESIGN.md), then let Taste and Impeccable work inside it. img2threejs is the heaviest of the five: it runs many build passes, so expect it to use a lot of your Claude limit on detailed objects.",
+  "steps": [
+   {
+    "h": "Install Taste",
+    "p": "Design rules so Claude stops shipping generic AI layouts. Run this inside Claude Code:",
+    "code": "/plugin marketplace add Leonxlnx/taste-skill\n/plugin install taste-skill@taste-skill"
+   },
+   {
+    "h": "Install Impeccable",
+    "p": "From your project folder, in your terminal. Then open Claude Code and run /impeccable init once so it learns what the product is.",
+    "code": "npx impeccable install"
+   },
+   {
+    "h": "Install Playwright CLI",
+    "p": "Lets Claude open browsers, click through your site and take screenshots to check its own work.",
+    "code": "npm install -g @playwright/cli@latest\nplaywright-cli install --skills"
+   },
+   {
+    "h": "Grab a DESIGN.md from a real site",
+    "p": "Go to getdesign.md, pick a site whose look you like (Stripe, Linear, Notion, Vercel and 80+ more), and save its DESIGN.md in your project folder. Then tell Claude to follow it.",
+    "code": "Read DESIGN.md in this folder and rebuild my landing page so it follows that design system: fonts, spacing, buttons and layout."
+   },
+   {
+    "h": "Install img2threejs",
+    "p": "Turns a photo of an object into a 3D model built in Three.js code. Restart Claude Code after installing.",
+    "code": "npx --yes img2threejs@latest install\nnpx --yes img2threejs@latest doctor"
+   },
+   {
+    "h": "Check your work like a designer",
+    "p": "Once a page is built, run Impeccable's review and polish passes on it.",
+    "code": "/impeccable critique\n/impeccable polish"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Redesign one page",
+    "code": "Using the Taste skill and the DESIGN.md in this folder, redesign index.html.\nKeep all the copy. Change layout, type, spacing and buttons only.\nShow me the before and after."
+   },
+   {
+    "h": "2. Let Claude test it",
+    "code": "Use playwright-cli to open the page at desktop and phone width.\nScreenshot both, list anything broken or ugly, then fix it and screenshot again."
+   },
+   {
+    "h": "3. A 3D hero for your product",
+    "code": "Use img2threejs on product.jpg.\nBuild it as a Three.js model I can drop into my landing page hero, slowly rotating."
+   }
+  ],
+  "credit": [
+   "Taste by Leonxlnx (github.com/Leonxlnx/taste-skill, MIT)",
+   "Impeccable by Paul Bakaus (github.com/pbakaus/impeccable, impeccable.style)",
+   "Playwright CLI by Microsoft (github.com/microsoft/playwright-cli)",
+   "Awesome DESIGN.md by VoltAgent (github.com/VoltAgent/awesome-design-md, getdesign.md)",
+   "img2threejs by hoainho (github.com/hoainho/img2threejs, Apache 2.0)"
+  ],
+  "ar": {
+   "title": "خمس أدوات مجانية تجعل Claude Code <span class=\"em\">يصمّم كالمحترفين</span>.",
+   "lead": "Taste وImpeccable وPlaywright CLI وAwesome Design MD وimg2threejs. خمس أدوات مفتوحة المصدر تمنع Claude Code من بناء مواقع يبدو عليها أنها مصنوعة بالذكاء الاصطناعي.",
+   "inside": "ثبّت الأدوات الخمس، وأعطِ Claude نظام تصميم حقيقيًا ليتبعه، ودعه يختبر صفحاته بنفسه في المتصفح، ثم استخدم الأوامر التي ترفع الصفحة من مستوى القالب إلى مستوى الوكالات.",
+   "what": [
+    "يبني Claude Code افتراضيًا صفحات متشابهة: تدرجات بنفسجية، وعنوان في المنتصف، وثلاث بطاقات. هذه الأدوات الخمس تعالج ذلك من زوايا مختلفة. Taste يعطيه قواعد تصميم. Impeccable يعطيه نظام تصميم وأوامر مثل /impeccable critique و/impeccable polish. Playwright CLI يتيح له فتح متصفحات حقيقية وتصوير ما بناه. Awesome Design MD يزوّده بلغة تصميم مواقع حقيقية مثل Stripe وLinear وNotion. أما img2threejs فيحوّل صورة أي غرض إلى نموذج ثلاثي الأبعاد مكتوب بالكود.",
+    "هذا الدليل لأصحاب الأعمال الذين يبنون صفحاتهم وعروضهم ومواقع عملائهم بـ Claude Code ويريدون أن تبدو وكأن وكالة صمّمتها. الأدوات الخمس مجانية."
+   ],
+   "prereqs": [
+    "Claude Code مثبّت",
+    "Node.js الإصدار 22 أو أحدث (Taste يحتاج 22، والباقي يعمل على 18)",
+    "متصفح Chrome أو Edge أو Chromium على جهازك",
+    "Python 3.10 أو أحدث وGit، فقط إذا أردت img2threejs",
+    "مجلد مشروع فيه صفحة تريد تحسينها"
+   ],
+   "warn": "لا تكدّس كل القواعد دفعة واحدة على صفحة صغيرة. اختر اتجاه تصميم واحدًا (ملف DESIGN.md واحد)، ثم دع Taste وImpeccable يعملان ضمنه. أداة img2threejs هي الأثقل بين الخمس، إذ تنفّذ مراحل بناء كثيرة، فتوقّع أن تستهلك جزءًا كبيرًا من حدّ استخدامك لـ Claude مع الأغراض المفصّلة.",
+   "steps": [
+    {
+     "h": "ثبّت Taste",
+     "p": "قواعد تصميم تمنع Claude من تقديم تخطيطات عامة متكررة. نفّذ هذا داخل Claude Code:"
+    },
+    {
+     "h": "ثبّت Impeccable",
+     "p": "من مجلد مشروعك، في الطرفية. ثم افتح Claude Code ونفّذ /impeccable init مرة واحدة ليفهم طبيعة المنتج."
+    },
+    {
+     "h": "ثبّت Playwright CLI",
+     "p": "يتيح لـ Claude فتح المتصفحات والتنقل في موقعك والتقاط صور للتحقق من عمله بنفسه."
+    },
+    {
+     "h": "خذ ملف DESIGN.md من موقع حقيقي",
+     "p": "ادخل إلى getdesign.md، واختر موقعًا يعجبك شكله (Stripe أو Linear أو Notion أو Vercel وأكثر من 80 غيرها)، واحفظ ملف DESIGN.md الخاص به في مجلد مشروعك. ثم اطلب من Claude أن يتبعه."
+    },
+    {
+     "h": "ثبّت img2threejs",
+     "p": "يحوّل صورة غرض إلى نموذج ثلاثي الأبعاد مبني بكود Three.js. أعد تشغيل Claude Code بعد التثبيت."
+    },
+    {
+     "h": "راجع عملك كما يفعل المصمم",
+     "p": "بعد بناء الصفحة، شغّل مراجعة Impeccable ثم مرحلة التحسين النهائي."
+    }
+   ],
+   "prompts": [
+    "1. أعد تصميم صفحة واحدة",
+    "2. دع Claude يختبرها",
+    "3. واجهة ثلاثية الأبعاد لمنتجك"
+   ]
+  },
+  "date_en": "2 Nov 2026",
+  "date_ar": "2 نوفمبر 2026"
+ },
+ {
+  "kw": "CONNECT",
+  "slug": "claude-connectors",
+  "number": 20,
+  "title": "Stop asking Claude how. <span class=\"em\">Let it do the work</span>.",
+  "lead": "Four connectors that plug Claude into real tools: Perplexity for research, Firecrawl for website data, Playwright for a browser, PostHog for your analytics.",
+  "inside": "Connect all four to Claude Code, then run one real task with each: competitor research, a pricing table, a signup test and a funnel check.",
+  "what": [
+   "On its own, Claude explains how to do things. Connected to tools through MCP, it does them. Perplexity searches the live web and answers with sources. Firecrawl scrapes any website into clean text or a table. Playwright opens a real browser, clicks buttons and fills forms. PostHog reads your product analytics so you can ask questions instead of digging through dashboards.",
+   "It's for business owners who already use Claude for questions and want it to start handling the research, checking and reporting they do by hand every week."
+  ],
+  "prereqs": [
+   "Claude Code installed (Claude Desktop works too, through Settings > Connectors)",
+   "Node.js 18 or newer, for Playwright",
+   "A Perplexity API key from console.perplexity.ai (paid per use)",
+   "A Firecrawl account if you want the full tool set (scrape, search and parse work keyless on a free, rate-limited tier)",
+   "A PostHog project with real data, for the analytics part"
+  ],
+  "warn": "Every connector you add can act with your accounts. Keep API keys in your Claude settings or terminal, never paste them into a chat. Playwright clicks real buttons on real sites: point it at your own staging or signup page, not at forms where a click sends money or messages.",
+  "steps": [
+   {
+    "h": "Connect Perplexity",
+    "p": "Live web research with sources. Replace YOUR_API_KEY with your key from console.perplexity.ai.",
+    "code": "claude mcp add --transport http perplexity https://api.perplexity.ai/mcp --header \"Authorization: Bearer YOUR_API_KEY\""
+   },
+   {
+    "h": "Connect Firecrawl",
+    "p": "Pulls data off any website. This hosted endpoint works without a key on the free tier. Sign up at firecrawl.dev for crawl, map and higher limits.",
+    "code": "claude mcp add --transport http firecrawl https://mcp.firecrawl.dev/v2/mcp"
+   },
+   {
+    "h": "Connect Playwright",
+    "p": "Gives Claude its own browser to click, type and test.",
+    "code": "claude mcp add playwright npx @playwright/mcp@latest"
+   },
+   {
+    "h": "Connect PostHog",
+    "p": "The PostHog wizard installs the MCP into Claude Code and logs you in to the right region.",
+    "code": "npx @posthog/wizard mcp add"
+   },
+   {
+    "h": "Check they're live",
+    "p": "Restart Claude Code, then list your servers. All four should show as connected.",
+    "code": "claude mcp list"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Competitor research (Perplexity)",
+    "code": "Find my 5 biggest competitors in [your market].\nFor each: what they sell, their price, and the gap in their offer.\nCite a source for every claim."
+   },
+   {
+    "h": "2. Pricing table (Firecrawl)",
+    "code": "Scrape the pricing pages of [site 1], [site 2] and [site 3].\nPut every plan, price and main feature in one table, then tell me where my pricing sits."
+   },
+   {
+    "h": "3. Signup test (Playwright)",
+    "code": "Open [my site] and go through the signup flow like a new customer.\nReport every step that is broken, slow or confusing, with a screenshot."
+   },
+   {
+    "h": "4. Funnel check (PostHog)",
+    "code": "Look at my signup funnel for the last 30 days.\nWhere is the biggest drop-off, and what should I check first to fix it?"
+   }
+  ],
+  "credit": [
+   "Perplexity MCP server by Perplexity (github.com/perplexityai/modelcontextprotocol)",
+   "Firecrawl MCP server by Firecrawl (github.com/firecrawl/firecrawl-mcp-server)",
+   "Playwright MCP by Microsoft (github.com/microsoft/playwright-mcp)",
+   "PostHog MCP by PostHog (posthog.com/docs/model-context-protocol)"
+  ],
+  "ar": {
+   "title": "توقّف عن سؤال Claude كيف. <span class=\"em\">دعه ينجز العمل</span>.",
+   "lead": "أربع موصلات تربط Claude بأدوات حقيقية: Perplexity للبحث، وFirecrawl لبيانات المواقع، وPlaywright للمتصفح، وPostHog لتحليلاتك.",
+   "inside": "اربط الموصلات الأربعة بـ Claude Code، ثم نفّذ مهمة حقيقية بكل واحد منها: بحث عن المنافسين، وجدول أسعار، واختبار للتسجيل، وفحص لمسار التحويل.",
+   "what": [
+    "يشرح Claude وحده كيف تُنجز الأمور. أما حين يرتبط بالأدوات عبر MCP فإنه ينجزها. Perplexity يبحث في الويب مباشرة ويجيب مع ذكر المصادر. Firecrawl يستخرج محتوى أي موقع كنص نظيف أو جدول. Playwright يفتح متصفحًا حقيقيًا ويضغط الأزرار ويملأ النماذج. PostHog يقرأ تحليلات منتجك لتطرح أسئلتك بدل البحث في لوحات المتابعة.",
+    "هذا الدليل لأصحاب الأعمال الذين يستخدمون Claude للأسئلة ويريدون أن يتولى البحث والتحقق وإعداد التقارير التي يقومون بها يدويًا كل أسبوع."
+   ],
+   "prereqs": [
+    "Claude Code مثبّت (ويعمل Claude Desktop أيضًا من الإعدادات ثم الموصلات)",
+    "Node.js الإصدار 18 أو أحدث، من أجل Playwright",
+    "مفتاح API من Perplexity عبر console.perplexity.ai (مدفوع حسب الاستخدام)",
+    "حساب Firecrawl إذا أردت كل الأدوات (الاستخراج والبحث والتحليل تعمل دون مفتاح على مستوى مجاني محدود)",
+    "مشروع PostHog فيه بيانات حقيقية، لقسم التحليلات"
+   ],
+   "warn": "كل موصل تضيفه يستطيع التصرف بحساباتك. احفظ مفاتيح API في إعدادات Claude أو في الطرفية، ولا تلصقها في المحادثة أبدًا. يضغط Playwright أزرارًا حقيقية على مواقع حقيقية، فوجّهه إلى صفحة الاختبار أو صفحة التسجيل الخاصة بك، لا إلى نماذج يؤدي الضغط فيها إلى دفع أموال أو إرسال رسائل.",
+   "steps": [
+    {
+     "h": "اربط Perplexity",
+     "p": "بحث مباشر في الويب مع المصادر. استبدل YOUR_API_KEY بمفتاحك من console.perplexity.ai."
+    },
+    {
+     "h": "اربط Firecrawl",
+     "p": "يستخرج البيانات من أي موقع. يعمل هذا الرابط المستضاف دون مفتاح على المستوى المجاني. سجّل في firecrawl.dev للحصول على أدوات الزحف والخرائط وحدود أعلى."
+    },
+    {
+     "h": "اربط Playwright",
+     "p": "يعطي Claude متصفحًا خاصًا به ليضغط ويكتب ويختبر."
+    },
+    {
+     "h": "اربط PostHog",
+     "p": "معالج PostHog يثبّت خادم MCP في Claude Code ويسجّل دخولك إلى المنطقة الصحيحة."
+    },
+    {
+     "h": "تأكد أنها تعمل",
+     "p": "أعد تشغيل Claude Code، ثم اعرض قائمة الخوادم. يجب أن تظهر الأربعة متصلة."
+    }
+   ],
+   "prompts": [
+    "1. بحث عن المنافسين (Perplexity)",
+    "2. جدول الأسعار (Firecrawl)",
+    "3. اختبار التسجيل (Playwright)",
+    "4. فحص مسار التحويل (PostHog)"
+   ]
+  },
+  "date_en": "2 Nov 2026",
+  "date_ar": "2 نوفمبر 2026"
+ },
+ {
+  "kw": "TOKENS",
+  "slug": "markitdown-pdfs",
+  "number": 21,
+  "title": "Stop feeding Claude <span class=\"em\">raw PDFs</span>.",
+  "lead": "MarkItDown is a free Microsoft tool that turns PDFs, Word, Excel and PowerPoint files into clean text before Claude reads them. Fewer tokens, better answers.",
+  "inside": "Install MarkItDown, convert your first file, measure the token difference yourself, and connect it to Claude so every file gets converted on its own.",
+  "what": [
+   "When you upload a PDF, Claude reads each page as text and as an image, with all the layout around it. A long report can use tens of thousands of tokens before you ask your first question, and that's what eats your limit. MarkItDown strips the file down to clean markdown: headings, lists, tables and text. It handles PDF, Word, Excel, PowerPoint, images, HTML, CSV and even YouTube links.",
+   "It's for anyone who works with contracts, reports, invoices, decks or spreadsheets in Claude every day and keeps hitting the usage limit. It's open source, MIT licensed, and made by Microsoft."
+  ],
+  "prereqs": [
+   "Python 3.10 or newer",
+   "Claude Code (for the one-line connection) or Claude Desktop (uses Docker)",
+   "One real PDF of yours to test on, ideally 15 to 20 pages"
+  ],
+  "warn": "MarkItDown keeps the words and drops the visuals. Charts, diagrams and photos turn into little or nothing. If the visuals are the point of the file (a pitch deck, a design brief), upload the original instead. Savings depend on the file: text-heavy reports save the most, short or image-heavy files save less.",
+  "steps": [
+   {
+    "h": "Install MarkItDown",
+    "p": "In your terminal. The [all] part adds support for every file type.",
+    "code": "pip install 'markitdown[all]'"
+   },
+   {
+    "h": "Convert your first file",
+    "p": "Point it at any PDF, Word, Excel or PowerPoint file. It writes a clean .md file next to it.",
+    "code": "markitdown report.pdf -o report.md"
+   },
+   {
+    "h": "Measure the difference",
+    "p": "In Claude Code, have it read the PDF and run /context to see how many tokens it took. Run /clear, do the same with the .md file, and compare. That number is your real saving.",
+    "code": "Read report.pdf\n/context\n/clear\nRead report.md\n/context"
+   },
+   {
+    "h": "Connect it to Claude Code",
+    "p": "Install the MCP server and register it. Now Claude converts files itself before reading them.",
+    "code": "pip install markitdown-mcp\nclaude mcp add markitdown -- markitdown-mcp"
+   },
+   {
+    "h": "Or connect it to Claude Desktop",
+    "p": "Microsoft recommends Docker for Claude Desktop. Build the image from the markitdown-mcp folder of the repo, then follow the claude_desktop_config.json example in its README.",
+    "code": "git clone https://github.com/microsoft/markitdown.git\ncd markitdown/packages/markitdown-mcp\ndocker build -t markitdown-mcp:latest ."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Read a file the cheap way",
+    "code": "Use markitdown to convert contract.pdf to markdown first.\nThen summarize the payment terms, the notice period and anything unusual."
+   },
+   {
+    "h": "2. Convert a whole folder",
+    "code": "Convert every PDF, docx and xlsx in this folder to markdown with markitdown.\nSave each one next to the original with the same name and a .md extension."
+   },
+   {
+    "h": "3. Make it the default",
+    "code": "Add a rule to my CLAUDE.md: before reading any PDF, Word, Excel or PowerPoint file, convert it with markitdown and read the markdown instead.\nOnly read the original if the file is mostly charts or images."
+   }
+  ],
+  "credit": [
+   "MarkItDown by Microsoft (github.com/microsoft/markitdown, MIT)",
+   "markitdown-mcp by Microsoft (github.com/microsoft/markitdown/tree/main/packages/markitdown-mcp)"
+  ],
+  "ar": {
+   "title": "توقّف عن إعطاء Claude <span class=\"em\">ملفات PDF خامًا</span>.",
+   "lead": "MarkItDown أداة مجانية من Microsoft تحوّل ملفات PDF وWord وExcel وPowerPoint إلى نص نظيف قبل أن يقرأها Claude. استهلاك أقل للـ tokens وإجابات أفضل.",
+   "inside": "ثبّت MarkItDown، وحوّل أول ملف، وقِس الفرق في الـ tokens بنفسك، ثم اربطه بـ Claude ليتحول كل ملف تلقائيًا.",
+   "what": [
+    "حين ترفع ملف PDF، يقرأ Claude كل صفحة كنص وكصورة، مع كل التنسيق المحيط بها. قد يستهلك تقرير طويل عشرات الآلاف من الـ tokens قبل أن تطرح سؤالك الأول، وهذا ما يستنزف حدّ استخدامك. يجرّد MarkItDown الملف إلى نص markdown نظيف: عناوين وقوائم وجداول ونصوص. ويدعم PDF وWord وExcel وPowerPoint والصور وHTML وCSV وحتى روابط YouTube.",
+    "هذا الدليل لكل من يعمل يوميًا على عقود وتقارير وفواتير وعروض تقديمية وجداول داخل Claude ويصطدم باستمرار بحد الاستخدام. الأداة مفتوحة المصدر بترخيص MIT ومن تطوير Microsoft."
+   ],
+   "prereqs": [
+    "Python الإصدار 3.10 أو أحدث",
+    "Claude Code (للربط بسطر واحد) أو Claude Desktop (يستخدم Docker)",
+    "ملف PDF حقيقي من ملفاتك للتجربة، ويفضّل أن يكون من 15 إلى 20 صفحة"
+   ],
+   "warn": "يحتفظ MarkItDown بالكلمات ويُسقط العناصر المرئية. الرسوم البيانية والمخططات والصور تتحول إلى القليل أو لا شيء. إذا كانت العناصر المرئية هي جوهر الملف (عرض استثماري أو موجز تصميم)، فارفع الملف الأصلي. ويتفاوت التوفير حسب الملف: التقارير النصية الطويلة توفّر أكثر، والملفات القصيرة أو المليئة بالصور توفّر أقل.",
+   "steps": [
+    {
+     "h": "ثبّت MarkItDown",
+     "p": "في الطرفية. الجزء [all] يضيف دعم جميع أنواع الملفات."
+    },
+    {
+     "h": "حوّل أول ملف",
+     "p": "وجّهه إلى أي ملف PDF أو Word أو Excel أو PowerPoint، فيكتب ملف .md نظيفًا بجانبه."
+    },
+    {
+     "h": "قِس الفرق",
+     "p": "في Claude Code، اطلب منه قراءة ملف PDF ثم نفّذ /context لترى عدد الـ tokens المستهلكة. نفّذ /clear، وكرّر الأمر مع ملف .md، ثم قارن. هذا الرقم هو توفيرك الحقيقي."
+    },
+    {
+     "h": "اربطه بـ Claude Code",
+     "p": "ثبّت خادم MCP وسجّله. سيحوّل Claude الملفات بنفسه قبل قراءتها."
+    },
+    {
+     "h": "أو اربطه بـ Claude Desktop",
+     "p": "توصي Microsoft باستخدام Docker مع Claude Desktop. ابنِ الصورة من مجلد markitdown-mcp في المستودع، ثم اتبع مثال claude_desktop_config.json في ملف README الخاص به."
+    }
+   ],
+   "prompts": [
+    "1. اقرأ الملف بالطريقة الأوفر",
+    "2. حوّل مجلدًا كاملًا",
+    "3. اجعلها القاعدة الافتراضية"
+   ]
+  },
+  "date_en": "2 Nov 2026",
+  "date_ar": "2 نوفمبر 2026"
+ },
+ {
+  "kw": "WHATSAPP",
+  "slug": "claude-whatsapp",
+  "number": 22,
+  "title": "Give Claude its own <span class=\"em\">WhatsApp number</span>.",
+  "lead": "Kapso connects Claude Code to the WhatsApp API. Install their skills, describe the agent you want, and Claude builds a WhatsApp bot that answers and books for you.",
+  "inside": "Set up a free Kapso account, test on their sandbox number, install the WhatsApp skills in Claude Code and build a booking agent that offers open slots and confirms them.",
+  "what": [
+   "Kapso is a WhatsApp platform for developers. It handles the WhatsApp Business connection, the webhooks and the message sending, and it publishes agent skills so Claude Code knows how to use all of it. You tell Claude what the agent should do in plain English and it writes and deploys the workflow.",
+   "It's for clinics, salons, agencies and any business where customers already message on WhatsApp and someone has to reply at night. The free plan includes 2,000 WhatsApp messages a month, which is enough to build and test before you pay anything."
+  ],
+  "prereqs": [
+   "Claude Code installed",
+   "Node.js 20 or newer (for the skills installer and Kapso's scripts)",
+   "A free Kapso account at app.kapso.ai, and an API key from it",
+   "Your own phone with WhatsApp, to test on the sandbox",
+   "For a real business number later: a Facebook Business account and a number that isn't already on WhatsApp and can receive SMS"
+  ],
+  "warn": "WhatsApp has strict rules and Meta enforces them. Only message people who opted in (they messaged you first or agreed to hear from you). After 24 hours with no reply from the customer, you can only send Meta-approved templates, not free text. Break this and the number gets flagged or banned. The skills are marked alpha by Kapso, so test on the sandbox before any customer sees it.",
+  "steps": [
+   {
+    "h": "Create your Kapso account",
+    "p": "Sign up at app.kapso.ai, create a project and copy your API key. The free plan gives you 2,000 messages a month and a free pre-verified number for setup."
+   },
+   {
+    "h": "Install the WhatsApp skills",
+    "p": "Run this in your terminal and pick Claude Code when it asks which agent. It adds four skills: integrate-whatsapp, automate-whatsapp, observe-whatsapp and integrate-whatsapp-calling.",
+    "code": "npx skills add gokapso/agent-skills"
+   },
+   {
+    "h": "Give Claude your key",
+    "p": "Add these to your terminal (or your shell profile) so the skills can talk to Kapso. Replace your-api-key with the key from step 1.",
+    "code": "export KAPSO_API_BASE_URL=\"https://api.kapso.ai\"\nexport KAPSO_API_KEY=\"your-api-key\""
+   },
+   {
+    "h": "Test on the sandbox number",
+    "p": "In Kapso go to WhatsApp, then Sandbox, click Add Test Number and enter your own WhatsApp number. Send the 6-character code from your phone to activate it (it's case-sensitive). Now you can chat with your agent before you connect a real number."
+   },
+   {
+    "h": "Build the agent with Claude",
+    "p": "Open Claude Code in an empty folder and paste the booking prompt from the next page. Claude uses the Kapso skills to build the workflow and connect it to the sandbox. Message the sandbox from your phone and check every reply."
+   },
+   {
+    "h": "Connect your real number",
+    "p": "When it works, connect your business number. Kapso generates a Meta setup link: log in with Facebook, add the number and verify it by SMS. Then point the agent at that number instead of the sandbox."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Booking agent",
+    "code": "Use the Kapso WhatsApp skills to build a WhatsApp agent for my business, [business name].\nIt answers in [Arabic and English], greets the customer, and helps them book an appointment.\nOpen hours: [days and hours]. Each slot is [30] minutes.\nWhen someone asks for a time, offer the 3 nearest open slots, confirm the one they pick, and send a confirmation message.\nIf they ask anything you can't answer, say a person will reply in the morning and flag the chat for me.\nConnect it to my Kapso sandbox so I can test it from my phone."
+   },
+   {
+    "h": "2. FAQ replies",
+    "code": "Add an FAQ step to my WhatsApp agent.\nHere are my prices, location and the 10 questions customers ask most: [paste them].\nAnswer only from this list. If the question isn't covered, hand it over to me."
+   },
+   {
+    "h": "3. Reminder template",
+    "code": "Create a WhatsApp message template I can submit to Meta for approval:\nan appointment reminder sent 24 hours before, with the customer's name, the date and time, and a reply option to confirm or reschedule.\nKeep it short and in [Arabic]."
+   },
+   {
+    "h": "4. Check what broke",
+    "code": "Use the observe-whatsapp skill to check my agent's last 24 hours.\nShow me failed deliveries, webhook errors and any chat where the agent didn't answer, and tell me what to fix first."
+   }
+  ],
+  "credit": [
+   "Kapso, WhatsApp API platform (kapso.com, docs.kapso.ai)",
+   "Kapso agent skills by Kapso (github.com/gokapso/agent-skills)",
+   "WhatsApp Business messaging rules by Meta"
+  ],
+  "ar": {
+   "title": "امنح Claude <span class=\"em\">رقم واتساب</span> خاصًا به.",
+   "lead": "تربط Kapso برنامج Claude Code بواجهة WhatsApp البرمجية. ثبّت المهارات، وصِف الوكيل الذي تريده، وسيبني Claude روبوت واتساب يرد ويحجز نيابةً عنك.",
+   "inside": "أنشئ حسابًا مجانيًا في Kapso، وجرّب على رقم الاختبار، وثبّت مهارات واتساب في Claude Code، وابنِ وكيل حجز يعرض المواعيد المتاحة ويؤكدها.",
+   "what": [
+    "Kapso منصة واتساب للمطورين. تتولى ربط حساب WhatsApp Business والـ webhooks وإرسال الرسائل، وتنشر مهارات جاهزة ليعرف Claude Code كيف يستخدم كل ذلك. تخبر Claude بما يجب أن يفعله الوكيل بلغة عادية، فيكتب سير العمل وينشره.",
+    "هذا الدليل للعيادات والصالونات والوكالات وكل عمل يراسله الزبائن على واتساب ويحتاج إلى من يرد ليلًا. تتضمن الخطة المجانية 2,000 رسالة واتساب شهريًا، وهذا يكفي للبناء والتجربة قبل أن تدفع شيئًا."
+   ],
+   "prereqs": [
+    "Claude Code مثبّت",
+    "Node.js الإصدار 20 أو أحدث (لأداة تثبيت المهارات وسكربتات Kapso)",
+    "حساب مجاني في Kapso عبر app.kapso.ai، ومفتاح API منه",
+    "هاتفك الشخصي مع واتساب، للتجربة على رقم الاختبار",
+    "لاحقًا لرقم العمل الحقيقي: حساب Facebook Business ورقم غير مسجّل على واتساب ويستقبل الرسائل النصية"
+   ],
+   "warn": "لواتساب قواعد صارمة تطبّقها Meta. راسل فقط من وافق على ذلك (راسلك أولًا أو وافق على تلقي رسائلك). بعد 24 ساعة دون رد من الزبون، لا يمكنك إرسال إلا قوالب وافقت عليها Meta، لا نصوصًا حرة. مخالفة ذلك تعرّض الرقم للتقييد أو الحظر. المهارات ما زالت في مرحلة تجريبية بحسب Kapso، فجرّبها على رقم الاختبار قبل أن يراها أي زبون.",
+   "steps": [
+    {
+     "h": "أنشئ حسابك في Kapso",
+     "p": "سجّل في app.kapso.ai، وأنشئ مشروعًا وانسخ مفتاح API. تمنحك الخطة المجانية 2,000 رسالة شهريًا ورقمًا مجانيًا موثّقًا مسبقًا لعملية الإعداد."
+    },
+    {
+     "h": "ثبّت مهارات واتساب",
+     "p": "نفّذ هذا الأمر في الطرفية واختر Claude Code عندما يسألك عن الوكيل. يضيف أربع مهارات: integrate-whatsapp وautomate-whatsapp وobserve-whatsapp وintegrate-whatsapp-calling."
+    },
+    {
+     "h": "أعطِ Claude مفتاحك",
+     "p": "أضف هذين السطرين إلى الطرفية (أو إلى ملف إعدادات الـ shell) لتتمكن المهارات من الاتصال بـ Kapso. استبدل your-api-key بالمفتاح من الخطوة الأولى."
+    },
+    {
+     "h": "جرّب على رقم الاختبار",
+     "p": "في Kapso اذهب إلى WhatsApp ثم Sandbox، واضغط Add Test Number وأدخل رقم واتساب الخاص بك. أرسل الرمز المكوّن من 6 أحرف من هاتفك لتفعيله (يميّز بين الأحرف الكبيرة والصغيرة). الآن يمكنك محادثة وكيلك قبل ربط رقم حقيقي."
+    },
+    {
+     "h": "ابنِ الوكيل مع Claude",
+     "p": "افتح Claude Code في مجلد فارغ والصق أمر الحجز من الصفحة التالية. يستخدم Claude مهارات Kapso لبناء سير العمل وربطه برقم الاختبار. راسل رقم الاختبار من هاتفك وتحقق من كل رد."
+    },
+    {
+     "h": "اربط رقمك الحقيقي",
+     "p": "عندما يعمل كل شيء، اربط رقم عملك. تنشئ Kapso رابط إعداد من Meta: سجّل الدخول بفيسبوك، وأضف الرقم ووثّقه برسالة نصية. ثم وجّه الوكيل إلى هذا الرقم بدل رقم الاختبار."
+    }
+   ],
+   "prompts": [
+    "1. وكيل الحجز",
+    "2. الردود على الأسئلة الشائعة",
+    "3. قالب التذكير",
+    "4. افحص ما تعطّل"
+   ]
+  },
+  "date_en": "2 Nov 2026",
+  "date_ar": "2 نوفمبر 2026"
+ },
+ {
+  "kw": "FLOW",
+  "slug": "ruflo-team",
+  "number": 23,
+  "title": "Turn Claude Code into a <span class=\"em\">whole team</span>.",
+  "lead": "Ruflo (it used to be called Claude Flow) adds a team of specialized agents to Claude Code: planners, coders, testers and reviewers that share one memory and work in parallel.",
+  "inside": "Install Ruflo in Claude Code, open its console, and run one real build where several agents split the work instead of one agent doing everything in a row.",
+  "what": [
+   "Ruflo is a free, open-source layer that sits around Claude Code. It ships close to 100 specialized agents, a shared memory that persists between sessions, and routing that sends each task to a suitable model. Once it's installed you keep using Claude Code normally, and its hooks coordinate the agents in the background.",
+   "It's for people who already use Claude Code on real work and keep hitting the limit of one agent: long builds, big refactors, research plus build plus testing in one go. If you're still learning Claude Code, skip this for now and come back when one agent stops being enough."
+  ],
+  "prereqs": [
+   "Claude Code, version 2.1.287 or newer for the plugin route (run claude --version)",
+   "Node.js, for the npx route",
+   "A real project to run it on (a website, a script, a dashboard)",
+   "A Claude plan with room to spare: several agents at once use more of your limit than one"
+  ],
+  "warn": "More agents means more usage. A swarm burns through your Claude limit faster than a single chat, so start on a small task and watch it. Ruflo's mods run with your account's permissions and aren't sandboxed: read what a mod does before you install it. Its default control level is read plus ask, keep it there until you trust it.",
+  "steps": [
+   {
+    "h": "Add the Ruflo marketplace",
+    "p": "Inside Claude Code, add Ruflo's plugin marketplace.",
+    "code": "/plugin marketplace add ruvnet/ruflo"
+   },
+   {
+    "h": "Install the core plugin",
+    "p": "ruflo-core is the base. ruflo-console adds the control panel. Reload so Claude Code picks them up.",
+    "code": "/plugin install ruflo-core@ruflo\n/plugin install ruflo-console@ruflo\n/reload-plugins"
+   },
+   {
+    "h": "Open the console",
+    "p": "This shows your agents, memory and what's running. If the names have changed, run /plugin and browse the ruflo marketplace.",
+    "code": "/ruflo"
+   },
+   {
+    "h": "Or use the CLI route",
+    "p": "Prefer the terminal? Run the setup wizard inside your project folder instead of the plugin steps. It asks a few questions and sets everything up.",
+    "code": "npx ruflo@latest init wizard"
+   },
+   {
+    "h": "Run one real task",
+    "p": "Use Claude Code as usual and give it a task big enough to split, like the first prompt on the next page. Ruflo's hooks hand the planning, building, testing and review to different agents. Watch the console while it runs."
+   },
+   {
+    "h": "Keep it small at first",
+    "p": "Check your Claude usage after the first run. If it ate more than the task was worth, use Ruflo only for the big jobs and plain Claude Code for everything else."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Build with a team",
+    "code": "Build a landing page for [my business] with a booking form.\nSplit the work across agents: one plans the sections, one writes the code, one tests it on mobile, and one reviews it for security issues in the form.\nShow me the plan before anyone writes code."
+   },
+   {
+    "h": "2. Research, then build",
+    "code": "Use one agent to research the pricing pages of [competitor 1], [competitor 2] and [competitor 3].\nUse a second agent to turn that research into a pricing section for my site.\nSave what you learned about my market to memory so we can use it next session."
+   },
+   {
+    "h": "3. Review my project",
+    "code": "Run a review of this project with separate agents for code quality, security and performance.\nEach agent lists its top 3 problems. Then merge the lists and tell me what to fix first."
+   }
+  ],
+  "credit": [
+   "Ruflo (formerly Claude Flow) by Reuven Cohen / ruvnet, MIT license (github.com/ruvnet/ruflo)"
+  ],
+  "ar": {
+   "title": "حوّل Claude Code إلى <span class=\"em\">فريق كامل</span>.",
+   "lead": "يضيف Ruflo (كان اسمه Claude Flow سابقًا) فريقًا من الوكلاء المتخصصين إلى Claude Code: من يخطط ومن يبرمج ومن يختبر ومن يراجع، يتشاركون ذاكرة واحدة ويعملون في الوقت نفسه.",
+   "inside": "ثبّت Ruflo في Claude Code، وافتح لوحة التحكم، ونفّذ مشروعًا حقيقيًا يتقاسم فيه عدة وكلاء العمل بدل أن يؤديه وكيل واحد خطوة بخطوة.",
+   "what": [
+    "Ruflo طبقة مجانية مفتوحة المصدر تعمل حول Claude Code. تضم قرابة 100 وكيل متخصص، وذاكرة مشتركة تبقى بين الجلسات، وتوجيهًا يرسل كل مهمة إلى النموذج المناسب. بعد التثبيت تستمر في استخدام Claude Code كالمعتاد، وتنسّق الـ hooks عمل الوكلاء في الخلفية.",
+    "هذا الدليل لمن يستخدم Claude Code في عمل حقيقي ويصطدم بحدود الوكيل الواحد: مشاريع طويلة، وإعادة هيكلة كبيرة، وبحث وبناء واختبار دفعة واحدة. إذا كنت ما زلت تتعلم Claude Code، فأجّل هذا وعُد إليه حين لا يعود وكيل واحد كافيًا."
+   ],
+   "prereqs": [
+    "Claude Code الإصدار 2.1.287 أو أحدث لطريقة الإضافات (نفّذ claude --version)",
+    "Node.js، لطريقة npx",
+    "مشروع حقيقي تجرّبه عليه (موقع أو سكربت أو لوحة متابعة)",
+    "اشتراك Claude فيه هامش كافٍ: عدة وكلاء معًا يستهلكون من حدّك أكثر من وكيل واحد"
+   ],
+   "warn": "وكلاء أكثر يعني استهلاكًا أكثر. فريق الوكلاء يستنفد حد Claude أسرع من محادثة واحدة، فابدأ بمهمة صغيرة وراقب الاستهلاك. إضافات Ruflo تعمل بصلاحيات حسابك وليست معزولة: اقرأ ما تفعله أي إضافة قبل تثبيتها. مستوى التحكم الافتراضي هو القراءة مع طلب الإذن، فأبقِه كذلك حتى تثق به.",
+   "steps": [
+    {
+     "h": "أضف متجر Ruflo",
+     "p": "داخل Claude Code، أضف متجر إضافات Ruflo."
+    },
+    {
+     "h": "ثبّت الإضافة الأساسية",
+     "p": "ruflo-core هي الأساس، وruflo-console تضيف لوحة التحكم. أعد التحميل ليتعرّف عليها Claude Code."
+    },
+    {
+     "h": "افتح لوحة التحكم",
+     "p": "تعرض وكلاءك والذاكرة وما يعمل الآن. إذا تغيّرت الأسماء، نفّذ /plugin وتصفّح متجر ruflo."
+    },
+    {
+     "h": "أو استخدم طريقة الطرفية",
+     "p": "تفضّل الطرفية؟ شغّل معالج الإعداد داخل مجلد مشروعك بدل خطوات الإضافات. يطرح عليك بعض الأسئلة ويجهّز كل شيء."
+    },
+    {
+     "h": "نفّذ مهمة حقيقية",
+     "p": "استخدم Claude Code كالمعتاد وأعطه مهمة كبيرة بما يكفي لتقسيمها، مثل الأمر الأول في الصفحة التالية. توزّع hooks الخاصة بـ Ruflo التخطيط والبناء والاختبار والمراجعة على وكلاء مختلفين. راقب لوحة التحكم أثناء العمل."
+    },
+    {
+     "h": "ابدأ صغيرًا",
+     "p": "راجع استهلاكك في Claude بعد أول تشغيل. إذا استهلك أكثر مما تستحقه المهمة، فاستخدم Ruflo للمشاريع الكبيرة فقط وClaude Code العادي لكل ما عداها."
+    }
+   ],
+   "prompts": [
+    "1. ابنِ مع فريق",
+    "2. ابحث ثم ابنِ",
+    "3. راجع مشروعي"
+   ]
+  },
+  "date_en": "2 Nov 2026",
+  "date_ar": "2 نوفمبر 2026"
  }
 ]
