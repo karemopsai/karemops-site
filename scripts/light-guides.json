@@ -2747,16 +2747,16 @@
   "slug": "claude-day-one",
   "number": 35,
   "title": "Switching to Claude? <span class=\"em\">Do these 3</span> on day one.",
-  "lead": "Memory so Claude knows you (with everything ChatGPT already learned), one connector for your apps, and Anthropic's free courses turned into a skill.",
-  "inside": "Turn on memory, move your ChatGPT memory over, connect your apps through Composio, and get Claude to build you a skill from the free courses.",
+  "lead": "Memory so Claude knows you (with everything ChatGPT already learned), Anthropic's free courses turned into a skill, and a bonus connector for your apps.",
+  "inside": "Turn on memory, move your ChatGPT memory over, and get Claude to build you a skill from the free courses. Bonus: connect your apps through Composio.",
   "what": [
-   "Most people switch from ChatGPT, open a blank chat, and start explaining who they are from scratch. Three settings fix that. Memory lets Claude remember you and your work across chats, and the import tool brings over what ChatGPT already knows. A Composio connector lets Claude reach apps like Gmail, Notion and HubSpot. Anthropic's free courses teach you how to use it properly, and Claude can turn the useful parts into a skill for you.",
+   "Most people switch from ChatGPT, open a blank chat, and start explaining who they are from scratch. Three settings fix that. Memory lets Claude remember you and your work across chats, and the import tool brings over what ChatGPT already knows. Anthropic's free courses teach you how to use it properly, and Claude can turn the useful parts into a skill for you. As a bonus, a Composio connector lets Claude reach apps like Gmail, Notion and HubSpot.",
    "It's for anyone in their first week on Claude who wants it working for them on day one instead of week six."
   ],
   "prereqs": [
    "A Claude account on claude.ai or Claude Desktop (memory import works on every plan)",
    "Your ChatGPT account, for the memory export",
-   "A free Composio account (sign up when the connector asks you to)",
+   "A free Composio account, only for the bonus step",
    "Ten minutes"
   ],
   "warn": "Memory import is experimental: Anthropic says Claude may not keep everything, and it focuses on work details, so check what landed. Read the ChatGPT export before you paste it and delete anything sensitive. Free Claude plans allow one custom connector, so Composio uses your slot. Composio gets access to every app you connect to it: connect only what you'll use, and check its pricing on composio.dev since plans can change.",
@@ -2771,13 +2771,14 @@
     "code": "I'm moving to another AI assistant and need to export my data.\nList every memory you have stored about me, plus anything you've learned about my work, business, preferences and writing style.\nPut it all in one code block, one item per line, in this format:\n[date saved, if available] - memory content"
    },
    {
-    "h": "Connect your apps with Composio",
-    "p": "In Claude go to Customize > Connectors, click + and pick Add custom connector. Name it Composio, paste this URL, click Add, then sign in. Connect only the apps you'll actually use (Gmail, Notion, HubSpot and so on). Composio says it supports over 1,500 apps. If the URL changes, get the current one from composio.dev/claude.",
-    "code": "https://connect.composio.dev/mcp"
-   },
-   {
     "h": "Take the free courses",
     "p": "Anthropic's courses live at anthropic.skilljar.com (Claude 101, Claude Code 101, AI Fluency, MCP and more). They're free to sign up for, and Anthropic says it issues completion certificates. Anthropic's newer hub is academy.claude.com. Copy the course link into Claude with prompt 1 below."
+   },
+   {
+    "num": "+1",
+    "h": "Bonus: Connect your apps with Composio",
+    "p": "In Claude go to Customize > Connectors, click + and pick Add custom connector. Name it Composio, paste this URL, click Add, then sign in. Connect only the apps you'll actually use (Gmail, Notion, HubSpot and so on). Composio says it supports over 1,500 apps. If the URL changes, get the current one from composio.dev/claude.",
+    "code": "https://connect.composio.dev/mcp"
    }
   ],
   "prompts": [
@@ -2801,16 +2802,16 @@
   ],
   "ar": {
    "title": "تنتقل إلى Claude؟ <span class=\"em\">افعل هذه الثلاثة</span> في اليوم الأول.",
-   "lead": "ذاكرة تجعل Claude يعرفك (مع كل ما تعلّمه ChatGPT عنك)، وموصل واحد لتطبيقاتك، ودورات Anthropic المجانية محوّلة إلى skill.",
-   "inside": "فعّل الذاكرة، وانقل ذاكرة ChatGPT، واربط تطبيقاتك عبر Composio، واجعل Claude يبني لك skill من الدورات المجانية.",
+   "lead": "ذاكرة تجعل Claude يعرفك (مع كل ما تعلّمه ChatGPT عنك)، ودورات Anthropic المجانية محوّلة إلى skill، وموصل إضافي لتطبيقاتك.",
+   "inside": "فعّل الذاكرة، وانقل ذاكرة ChatGPT، واجعل Claude يبني لك skill من الدورات المجانية. خطوة إضافية: اربط تطبيقاتك عبر Composio.",
    "what": [
-    "ينتقل معظم الناس من ChatGPT، فيفتحون محادثة فارغة ويبدؤون بشرح من هم من الصفر. ثلاثة إعدادات تحل ذلك. الذاكرة تجعل Claude يتذكرك ويتذكر عملك عبر المحادثات، وأداة الاستيراد تنقل ما يعرفه ChatGPT عنك. موصل Composio يتيح لـ Claude الوصول إلى تطبيقات مثل Gmail وNotion وHubSpot. ودورات Anthropic المجانية تعلّمك استخدامه بالشكل الصحيح، ويستطيع Claude تحويل الأجزاء المفيدة منها إلى skill لك.",
+    "ينتقل معظم الناس من ChatGPT، فيفتحون محادثة فارغة ويبدؤون بشرح من هم من الصفر. ثلاثة إعدادات تحل ذلك. الذاكرة تجعل Claude يتذكرك ويتذكر عملك عبر المحادثات، وأداة الاستيراد تنقل ما يعرفه ChatGPT عنك. ودورات Anthropic المجانية تعلّمك استخدامه بالشكل الصحيح، ويستطيع Claude تحويل الأجزاء المفيدة منها إلى skill لك. وكخطوة إضافية، موصل Composio يتيح لـ Claude الوصول إلى تطبيقات مثل Gmail وNotion وHubSpot.",
     "هذا الدليل لكل من في أسبوعه الأول مع Claude ويريد أن يعمل لصالحه من اليوم الأول بدل الأسبوع السادس."
    ],
    "prereqs": [
     "حساب Claude على claude.ai أو Claude Desktop (استيراد الذاكرة متاح في كل الخطط)",
     "حسابك على ChatGPT، لتصدير الذاكرة",
-    "حساب Composio مجاني (سجّل عندما يطلب الموصل ذلك)",
+    "حساب Composio مجاني، للخطوة الإضافية فقط",
     "عشر دقائق"
    ],
    "warn": "استيراد الذاكرة ميزة تجريبية: تقول Anthropic إن Claude قد لا يحتفظ بكل شيء، وإنه يركز على تفاصيل العمل، فتحقق مما وصل. اقرأ ما يصدّره ChatGPT قبل لصقه واحذف أي معلومات حساسة. الخطة المجانية في Claude تسمح بموصل مخصص واحد، وComposio سيأخذ هذه الخانة. يحصل Composio على صلاحية كل تطبيق تربطه به، فاربط فقط ما ستستخدمه، وراجع أسعاره على composio.dev لأن الخطط قد تتغير.",
@@ -2824,12 +2825,12 @@
      "p": "الصق هذا في ChatGPT. انسخ كتلة الكود التي يعيدها، ثم في Claude اذهب إلى Settings ثم Your Claude واضغط Start import، والصقها، ثم اضغط Add to memory. لدى Anthropic أيضًا موجّه جاهز على claude.com/import-memory."
     },
     {
-     "h": "اربط تطبيقاتك عبر Composio",
-     "p": "في Claude افتح Customize ثم Connectors، واضغط + واختر Add custom connector. سمّه Composio والصق هذا الرابط، واضغط Add ثم سجّل الدخول. اربط فقط التطبيقات التي ستستخدمها فعلًا (Gmail وNotion وHubSpot وغيرها). يقول Composio إنه يدعم أكثر من 1,500 تطبيق. إذا تغيّر الرابط فخذ الرابط الحالي من composio.dev/claude."
-    },
-    {
      "h": "خذ الدورات المجانية",
      "p": "دورات Anthropic موجودة على anthropic.skilljar.com (Claude 101 وClaude Code 101 وAI Fluency وMCP وغيرها). التسجيل فيها مجاني، وتقول Anthropic إنها تمنح شهادات إتمام. والمنصة الأحدث لـ Anthropic هي academy.claude.com. انسخ رابط الدورات إلى Claude مع الموجّه رقم 1 أدناه."
+    },
+    {
+     "h": "إضافي: اربط تطبيقاتك عبر Composio",
+     "p": "في Claude افتح Customize ثم Connectors، واضغط + واختر Add custom connector. سمّه Composio والصق هذا الرابط، واضغط Add ثم سجّل الدخول. اربط فقط التطبيقات التي ستستخدمها فعلًا (Gmail وNotion وHubSpot وغيرها). يقول Composio إنه يدعم أكثر من 1,500 تطبيق. إذا تغيّر الرابط فخذ الرابط الحالي من composio.dev/claude."
     }
    ],
    "prompts": [

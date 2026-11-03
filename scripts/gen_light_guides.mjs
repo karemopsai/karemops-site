@@ -158,6 +158,8 @@ for (const g of guides) {
   const h = hero(g);
   const insideEn = [...g.steps.map((s) => s.h), ...(g.prompts.length ? [`${g.prompts.length} copy-paste prompts: ${g.prompts.map((p) => p.h).join(", ")}`] : [])];
   const insideAr = !BI ? [] : [...a.steps.map((s) => s.h), ...(g.prompts.length ? [`${g.prompts.length} أوامر جاهزة للنسخ: ${a.prompts.join("، ")}`] : [])];
+  // a step can carry its own label (e.g. "+1" for a bonus step); the prompts line takes the next number
+  const insideN = [...g.steps.map((s, i) => s.num ?? String(i + 1).padStart(2, "0")), String(g.steps.filter((s) => !s.num).length + 1).padStart(2, "0")];
   // gate script: same endpoint + logic, guide title/href swapped, href follows the chosen language
   let gs = gateScript.replace(/const GUIDE = \{[\s\S]*?\};/, `const L = (en, ar) => document.documentElement.dataset.lang === "ar" ? ar : en;\n  const GUIDE = window.GUIDE = {\n    title: ${JSON.stringify(titleEn)},\n    base: ${JSON.stringify(href)},\n    href: ${JSON.stringify(href)} + (document.documentElement.dataset.lang === "ar" ? "#ar" : "")\n  };`);
   if (gs === gateScript) throw new Error("GUIDE anchor missing in gate script");
@@ -214,7 +216,7 @@ for (const g of guides) {
 
   <div class="section">
     <h2>${t("What's inside", "في هذا الدليل")}</h2>
-    <ul class="inside">${insideEn.map((x, i) => `<li class="l-en"><span class="n">${String(i + 1).padStart(2, "0")}</span><span>${x}</span></li>`).join("")}${insideAr.map((x, i) => `<li class="l-ar"><span class="n">${String(i + 1).padStart(2, "0")}</span><span>${x}</span></li>`).join("")}</ul>
+    <ul class="inside">${insideEn.map((x, i) => `<li class="l-en"><span class="n">${insideN[i]}</span><span>${x}</span></li>`).join("")}${insideAr.map((x, i) => `<li class="l-ar"><span class="n">${insideN[i]}</span><span>${x}</span></li>`).join("")}</ul>
     <div class="callout"><strong>${t("Heads up:", "تنبيه:")}</strong> ${t(g.warn, a.warn)}</div>
   </div>
 
