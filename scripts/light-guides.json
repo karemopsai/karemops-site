@@ -3570,5 +3570,127 @@
   },
   "date_en": "2 Nov 2026",
   "date_ar": "2 نوفمبر 2026"
+ },
+ {
+  "kw": "ANIMATE",
+  "slug": "animated-reels",
+  "number": 36,
+  "title": "Make a reel with <span class=\"em\">zero filmed frames.</span>",
+  "lead": "Claude Code writes the whole reel in code with HyperFrames, HeyGen's free open-source tool. You give it one sentence and your voice, it gives you an MP4.",
+  "inside": "Install HyperFrames, give Claude Code one sentence, time every scene to your voiceover, fix things by just asking, check the frames, and render a 9:16 MP4 on your own laptop.",
+  "what": [
+   "HyperFrames turns a web page into a video. Every scene is plain HTML, the motion is GSAP (a JavaScript animation library), and the renderer plays it in a hidden Chrome window frame by frame and saves it with FFmpeg. Same file in, same video out, every time. Because the whole reel is code, Claude Code can write it, read it back and change it. No video AI, no stock footage, no credits per render.",
+   "It's for business owners and creators who want animated reels (a restaurant ad, an apartment listing, a gym promo, even a short film) without filming or paying an editor for every small change."
+  ],
+  "prereqs": [
+   "Claude Code installed and logged in (any paid Claude plan)",
+   "Node.js 22 or newer and FFmpeg on your computer (Mac, Windows or Linux)",
+   "A voiceover you recorded on your phone (m4a, mp3 or wav), 20 to 60 seconds",
+   "Your logo and brand colors, if it's for a business",
+   "About 30 minutes for the first reel"
+  ],
+  "warn": "HyperFrames itself is free (Apache 2.0, no per-render fees), but Claude Code uses your plan's limits, and a long reel with many edits eats a lot of them. You don't need the HyperFrames Studio Pro plan, cloud rendering or a HeyGen account for anything in this guide. The first run downloads a Chrome build and the speech-to-text model, so give it a few minutes. If you have a GEMINI_API_KEY set, snapshot also sends your frames to Gemini for a written review. Commands here are checked against HyperFrames v0.8.139. If one fails, run npx hyperframes --help and use the current name.",
+  "steps": [
+   {
+    "h": "Install the basics",
+    "p": "Install Node.js 22+ from nodejs.org and FFmpeg (on a Mac with Homebrew: brew install ffmpeg). Then run doctor. It checks Node, FFmpeg and Chrome and tells you exactly what's missing.",
+    "code": "npx hyperframes doctor"
+   },
+   {
+    "h": "Add HyperFrames to Claude Code",
+    "p": "These two lines install HeyGen's official plugin, which teaches Claude Code how to write HyperFrames scenes, time them, check them and render. Run them in your terminal, or type the same thing inside Claude Code as /plugin marketplace add heygen-com/hyperframes, then /plugin install hyperframes@hyperframes.",
+    "code": "claude plugin marketplace add heygen-com/hyperframes\nclaude plugin install hyperframes@hyperframes"
+   },
+   {
+    "h": "Start the project with your voice",
+    "p": "Record the voiceover first: everything gets timed to it. Then start a vertical project and hand it the audio. HyperFrames transcribes it into word-level timestamps, so Claude knows the exact second every word lands. Recording in Arabic? The comment line in the code shows the two flags to add.",
+    "code": "npx hyperframes init my-reel --resolution portrait --audio vo.m4a\n# Arabic voiceover? add this to the end of the line above: --language ar --model large\ncd my-reel\nclaude"
+   },
+   {
+    "h": "Give it one sentence",
+    "p": "Inside Claude Code, paste prompt 1 from the next page. Claude plans the scenes, writes each one as HTML, animates it with GSAP and lines every animation up with your words. You'll see it create files like index.html: that file is your reel. Then open the live preview in your browser. It reloads every time Claude saves.",
+    "code": "npx hyperframes preview"
+   },
+   {
+    "h": "Edit by talking, then check the frames",
+    "p": "Don't like something? Say it like you'd say it to an editor: \"make the logo bigger\", \"make it blue\", \"slow down the second scene\". Claude edits the code in seconds and the preview updates. Before you render, run check (catches broken scenes, text off screen, low contrast) and snapshot (saves PNGs of the moments you pick into a snapshots folder).",
+    "code": "npx hyperframes check\nnpx hyperframes snapshot --at 2,6,12"
+   },
+   {
+    "h": "Render the MP4",
+    "p": "One command renders the final 1080x1920 video on your own machine. delivery is the high-quality setting. Watch it once on your phone before you post: that's how your audience sees it.",
+    "code": "npx hyperframes render --quality delivery -o renders/my-reel.mp4"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. The one sentence (plus the details that matter)",
+    "code": "Using the hyperframes skill, make a 30-second vertical reel about my restaurant.\nRestaurant: [name], in [city]. We're known for [dish]. Offer: [offer].\nBrand colors: [hex codes]. Logo: logo.png in this folder.\nTime every scene to my voiceover transcript so each line appears on the word I say it.\nPlan the scenes first and show me the plan before you write any code."
+   },
+   {
+    "h": "2. Edit by talking",
+    "code": "Make the logo bigger and make the background blue.\nIn scene 2, slow the text down so it lands with my voice.\nThen run npx hyperframes check, fix anything it reports, and snapshot the frames you changed so I can see them."
+   },
+   {
+    "h": "3. Same reel, new style",
+    "code": "Keep my voiceover and timing, but rebuild the visuals for a different style:\n[an apartment listing / a gym promo / a rainy short film].\nShow me 3 snapshots before you touch the rest, then render it to renders/style-2.mp4."
+   }
+  ],
+  "credit": [
+   "HyperFrames by HeyGen, open source under Apache 2.0 (github.com/heygen-com/hyperframes, docs at hyperframes.heygen.com)",
+   "GSAP animation library by GreenSock (gsap.com)",
+   "Claude Code by Anthropic (claude.com/claude-code)"
+  ],
+  "payoff": "Record 30 seconds of your voice this week and let Claude Code animate it. Your first reel is the hardest one.",
+  "ar": {
+   "title": "اصنع ريل <span class=\"em\">دون تصوير أي لقطة.</span>",
+   "lead": "يكتب Claude Code الريل كاملًا بالكود عبر HyperFrames، الأداة المجانية مفتوحة المصدر من HeyGen. تعطيه جملة واحدة وصوتك، فيعطيك ملف MP4.",
+   "inside": "ثبّت HyperFrames، وأعطِ Claude Code جملة واحدة، واضبط كل مشهد على تعليقك الصوتي، وعدّل ما تريد بمجرد أن تطلب، وافحص اللقطات، ثم صدّر ملف MP4 عموديًا من حاسوبك.",
+   "what": [
+    "تحوّل HyperFrames صفحة ويب إلى فيديو. كل مشهد هو HTML عادي، والحركة مكتوبة بـ GSAP (مكتبة حركة بلغة JavaScript)، ثم يشغّل المُصيِّر الصفحة في نافذة Chrome مخفية لقطة بلقطة ويحفظها عبر FFmpeg. الملف نفسه يعطي الفيديو نفسه في كل مرة. ولأن الريل كله كود، يستطيع Claude Code أن يكتبه ويقرأه ويغيّره. لا ذكاء اصطناعي للفيديو، ولا لقطات جاهزة، ولا رصيد يُستهلك مع كل تصدير.",
+    "هذا الدليل لأصحاب الأعمال وصنّاع المحتوى الذين يريدون ريلز متحركة (إعلان مطعم، أو عرض شقة، أو ترويج لنادٍ رياضي، أو حتى فيلم قصير) دون تصوير، ودون الدفع لمحرر مقابل كل تعديل صغير."
+   ],
+   "prereqs": [
+    "Claude Code مثبّت ومسجّل الدخول فيه (أي خطة Claude مدفوعة)",
+    "Node.js بالإصدار 22 أو أحدث وFFmpeg على جهازك (Mac أو Windows أو Linux)",
+    "تعليق صوتي سجّلته على هاتفك (m4a أو mp3 أو wav)، مدته بين 20 و60 ثانية",
+    "شعارك وألوان علامتك التجارية، إن كان الريل لنشاط تجاري",
+    "نحو 30 دقيقة للريل الأول"
+   ],
+   "warn": "أداة HyperFrames نفسها مجانية (رخصة Apache 2.0، دون رسوم على كل تصدير)، لكن Claude Code يستهلك من حدود خطتك، والريل الطويل مع تعديلات كثيرة يستهلك الكثير منها. لا تحتاج إلى خطة HyperFrames Studio Pro ولا إلى التصدير السحابي ولا إلى حساب HeyGen لأي خطوة في هذا الدليل. التشغيل الأول ينزّل نسخة من Chrome ونموذج تحويل الكلام إلى نص، فامنحه بضع دقائق. إذا كان لديك مفتاح Gemini مضبوط على جهازك، فإن أمر snapshot يرسل لقطاتك أيضًا إلى Gemini لمراجعة مكتوبة. الأوامر هنا مُختبرة على HyperFrames الإصدار 0.8.139، وإذا فشل أمر فاطلب من Claude Code أن يتحقق من الاسم الحالي عبر help.",
+   "steps": [
+    {
+     "h": "ثبّت الأساسيات",
+     "p": "ثبّت Node.js بالإصدار 22 أو أحدث من موقع nodejs.org، وثبّت FFmpeg (على Mac يمكنك تثبيته عبر Homebrew). ثم شغّل أمر doctor في الكود أدناه، فهو يفحص Node وFFmpeg وChrome ويخبرك بالضبط بما ينقصك."
+    },
+    {
+     "h": "أضف HyperFrames إلى Claude Code",
+     "p": "هذان السطران يثبّتان الإضافة الرسمية من HeyGen، وهي تعلّم Claude Code كيف يكتب مشاهد HyperFrames ويضبط توقيتها ويفحصها ويصدّرها. شغّلهما في الطرفية، أو اكتب الأمرين نفسيهما داخل Claude Code بعد إضافة شرطة مائلة في أولهما وحذف كلمة claude."
+    },
+    {
+     "h": "ابدأ المشروع بصوتك",
+     "p": "سجّل التعليق الصوتي أولًا، لأن كل شيء يُضبط عليه. ثم أنشئ مشروعًا عموديًا وأعطه الملف الصوتي. تحوّل HyperFrames الصوت إلى نص مع توقيت لكل كلمة، فيعرف Claude الثانية التي تُقال فيها كل كلمة. تسجّل بالعربية؟ سطر التعليق في الكود يبيّن الخيارين اللذين تضيفهما."
+    },
+    {
+     "h": "أعطِه جملة واحدة",
+     "p": "داخل Claude Code، الصق الموجّه رقم 1 من الصفحة التالية. يخطط Claude للمشاهد، ويكتب كل مشهد بـ HTML، ويحرّكه بـ GSAP، ويضبط كل حركة على كلماتك. سترى ملفات مثل index.html: هذا الملف هو الريل. ثم افتح المعاينة المباشرة في متصفحك، وهي تتحدّث كلما حفظ Claude."
+    },
+    {
+     "h": "عدّل بالكلام ثم افحص اللقطات",
+     "p": "لم يعجبك شيء؟ قله كما تقوله لمحرر: كبّر الشعار، أو اجعل الخلفية زرقاء، أو أبطئ المشهد الثاني (يمكنك الكتابة بالعربية أو الإنجليزية). يعدّل Claude الكود في ثوانٍ وتتحدّث المعاينة. قبل التصدير شغّل أمر check، فهو يكشف المشاهد المعطلة والنص الخارج عن الشاشة والتباين الضعيف، ثم أمر snapshot الذي يحفظ صور PNG للحظات التي تختارها في مجلد snapshots."
+    },
+    {
+     "h": "صدّر ملف MP4",
+     "p": "أمر واحد يصدّر الفيديو النهائي بدقة 1080x1920 على جهازك. خيار delivery هو إعداد الجودة العالية. شاهد الفيديو مرة على هاتفك قبل النشر، فهكذا سيراه جمهورك."
+    }
+   ],
+   "prompts": [
+    "1. الجملة الواحدة (مع التفاصيل المهمة)",
+    "2. عدّل بالكلام",
+    "3. الريل نفسه بأسلوب جديد"
+   ]
+  },
+  "date_en": "9 Nov 2026",
+  "date_ar": "9 نوفمبر 2026"
  }
 ]

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Make a reel with zero filmed frames | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E9EDF3; --paper:#FAFAF8; --white:#FFFFFF; --ink:#0B1220; --muted:#5A6478; --line:#E2E6EE;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F3F6FB;
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Instrument Serif','Times New Roman',serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(11,18,32,.06),0 12px 40px rgba(11,18,32,.08);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-weight:800;font-size:54px;line-height:1.02;letter-spacing:-.03em;text-wrap:balance}
+h2{font-weight:800;font-size:34px;line-height:1.08;letter-spacing:-.02em;margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--blue);letter-spacing:0}
+h1 .em{font-size:1.1em} h2 .em{font-size:1.08em}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--blue-soft);border:1px solid var(--blue-line);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--blue);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--ink)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:16px;padding:34px 40px;background-color:var(--blue-soft);
+  background-image:radial-gradient(rgba(8,102,255,.22) 1.2px,transparent 1.3px);background-size:16px 16px;border:1px solid var(--blue-line)}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(8,102,255,.12),0 2px 6px rgba(11,18,32,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:var(--line);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--line)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;display:grid;place-items:center;font-size:17px}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-size:40px;font-weight:800;color:var(--blue);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.step h2{font-size:24px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.prompt{margin-bottom:8px}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--blue);color:#fff;border-radius:16px;padding:28px 30px}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-size:26px;letter-spacing:-.02em;text-transform:none;margin:0 0 8px;font-weight:800}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+}</style>
+</head>
+<body>
+<div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip"><span class="l-en">Comment</span><span class="l-ar">اكتب</span> · ANIMATE</span></div>
+  <div class="eyebrow"><span class="l-en">Field guide · No. 36</span><span class="l-ar">دليل عملي · رقم 36</span></div>
+  <h1><span class="l-en">Make a reel with <span class="em">zero filmed frames.</span></span><span class="l-ar">اصنع ريل <span class="em">دون تصوير أي لقطة.</span></span></h1>
+  <p class="lead"><span class="l-en">Claude Code writes the whole reel in code with HyperFrames, HeyGen's free open-source tool. You give it one sentence and your voice, it gives you an MP4.</span><span class="l-ar">يكتب Claude Code الريل كاملًا بالكود عبر HyperFrames، الأداة المجانية مفتوحة المصدر من HeyGen. تعطيه جملة واحدة وصوتك، فيعطيك ملف MP4.</span></p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Claude Code</span></div><pre><span class="p">&gt;</span> npx hyperframes doctor<span class="caret"></span></pre><div class="note"><span class="l-en">Step 01 of this guide. Copy it as is.</span><span class="l-ar">الخطوة 01 من هذا الدليل. انسخها كما هي.</span></div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0"><span class="l-en">Inside</span><span class="l-ar">في هذا الدليل</span></h3><p><span class="l-en">Install HyperFrames, give Claude Code one sentence, time every scene to your voiceover, fix things by just asking, check the frames, and render a 9:16 MP4 on your own laptop.</span><span class="l-ar">ثبّت HyperFrames، وأعطِ Claude Code جملة واحدة، واضبط كل مشهد على تعليقك الصوتي، وعدّل ما تريد بمجرد أن تطلب، وافحص اللقطات، ثم صدّر ملف MP4 عموديًا من حاسوبك.</span></p></div>
+    <div class="by"><div class="mono-k">K</div><div><b><span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Make a reel with zero filmed frames</span><span class="l-ar">اصنع ريل دون تصوير أي لقطة</span></span><span>ANIMATE</span></div>
+  <div class="eyebrow"><span class="l-en">01 · What this is</span><span class="l-ar">01 · ما هذا</span></div>
+  <h2><span class="l-en">What you're <span class="em">setting up.</span></span><span class="l-ar">ما الذي <span class="em">ستُعدّه.</span></span></h2>
+  <p><span class="l-en">HyperFrames turns a web page into a video. Every scene is plain HTML, the motion is GSAP (a JavaScript animation library), and the renderer plays it in a hidden Chrome window frame by frame and saves it with FFmpeg. Same file in, same video out, every time. Because the whole reel is code, Claude Code can write it, read it back and change it. No video AI, no stock footage, no credits per render.</span><span class="l-ar">تحوّل HyperFrames صفحة ويب إلى فيديو. كل مشهد هو HTML عادي، والحركة مكتوبة بـ GSAP (مكتبة حركة بلغة JavaScript)، ثم يشغّل المُصيِّر الصفحة في نافذة Chrome مخفية لقطة بلقطة ويحفظها عبر FFmpeg. الملف نفسه يعطي الفيديو نفسه في كل مرة. ولأن الريل كله كود، يستطيع Claude Code أن يكتبه ويقرأه ويغيّره. لا ذكاء اصطناعي للفيديو، ولا لقطات جاهزة، ولا رصيد يُستهلك مع كل تصدير.</span></p>
+  <p><span class="l-en">It's for business owners and creators who want animated reels (a restaurant ad, an apartment listing, a gym promo, even a short film) without filming or paying an editor for every small change.</span><span class="l-ar">هذا الدليل لأصحاب الأعمال وصنّاع المحتوى الذين يريدون ريلز متحركة (إعلان مطعم، أو عرض شقة، أو ترويج لنادٍ رياضي، أو حتى فيلم قصير) دون تصوير، ودون الدفع لمحرر مقابل كل تعديل صغير.</span></p>
+  <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">Claude Code installed and logged in (any paid Claude plan)</li><li class="l-en">Node.js 22 or newer and FFmpeg on your computer (Mac, Windows or Linux)</li><li class="l-en">A voiceover you recorded on your phone (m4a, mp3 or wav), 20 to 60 seconds</li><li class="l-en">Your logo and brand colors, if it's for a business</li><li class="l-en">About 30 minutes for the first reel</li><li class="l-ar">Claude Code مثبّت ومسجّل الدخول فيه (أي خطة Claude مدفوعة)</li><li class="l-ar">Node.js بالإصدار 22 أو أحدث وFFmpeg على جهازك (Mac أو Windows أو Linux)</li><li class="l-ar">تعليق صوتي سجّلته على هاتفك (m4a أو mp3 أو wav)، مدته بين 20 و60 ثانية</li><li class="l-ar">شعارك وألوان علامتك التجارية، إن كان الريل لنشاط تجاري</li><li class="l-ar">نحو 30 دقيقة للريل الأول</li></ul>
+  <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">HyperFrames itself is free (Apache 2.0, no per-render fees), but Claude Code uses your plan's limits, and a long reel with many edits eats a lot of them. You don't need the HyperFrames Studio Pro plan, cloud rendering or a HeyGen account for anything in this guide. The first run downloads a Chrome build and the speech-to-text model, so give it a few minutes. If you have a GEMINI_API_KEY set, snapshot also sends your frames to Gemini for a written review. Commands here are checked against HyperFrames v0.8.139. If one fails, run npx hyperframes --help and use the current name.</span><span class="l-ar">أداة HyperFrames نفسها مجانية (رخصة Apache 2.0، دون رسوم على كل تصدير)، لكن Claude Code يستهلك من حدود خطتك، والريل الطويل مع تعديلات كثيرة يستهلك الكثير منها. لا تحتاج إلى خطة HyperFrames Studio Pro ولا إلى التصدير السحابي ولا إلى حساب HeyGen لأي خطوة في هذا الدليل. التشغيل الأول ينزّل نسخة من Chrome ونموذج تحويل الكلام إلى نص، فامنحه بضع دقائق. إذا كان لديك مفتاح Gemini مضبوط على جهازك، فإن أمر snapshot يرسل لقطاتك أيضًا إلى Gemini لمراجعة مكتوبة. الأوامر هنا مُختبرة على HyperFrames الإصدار 0.8.139، وإذا فشل أمر فاطلب من Claude Code أن يتحقق من الاسم الحالي عبر help.</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 05</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Make a reel with zero filmed frames</span><span class="l-ar">اصنع ريل دون تصوير أي لقطة</span></span><span>ANIMATE</span></div>
+  <div class="eyebrow"><span class="l-en">02 · The steps</span><span class="l-ar">02 · الخطوات</span></div><h2><span class="l-en">Set it up, <span class="em">step by step.</span></span><span class="l-ar">الإعداد <span class="em">خطوة بخطوة.</span></span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2><span class="l-en">Install the basics</span><span class="l-ar">ثبّت الأساسيات</span></h2><p><span class="l-en">Install Node.js 22+ from nodejs.org and FFmpeg (on a Mac with Homebrew: brew install ffmpeg). Then run doctor. It checks Node, FFmpeg and Chrome and tells you exactly what's missing.</span><span class="l-ar">ثبّت Node.js بالإصدار 22 أو أحدث من موقع nodejs.org، وثبّت FFmpeg (على Mac يمكنك تثبيته عبر Homebrew). ثم شغّل أمر doctor في الكود أدناه، فهو يفحص Node وFFmpeg وChrome ويخبرك بالضبط بما ينقصك.</span></p><pre>npx hyperframes doctor</pre></div></div>
+  <div class="step"><div class="num">02</div><div>
+    <h2><span class="l-en">Add HyperFrames to Claude Code</span><span class="l-ar">أضف HyperFrames إلى Claude Code</span></h2><p><span class="l-en">These two lines install HeyGen's official plugin, which teaches Claude Code how to write HyperFrames scenes, time them, check them and render. Run them in your terminal, or type the same thing inside Claude Code as /plugin marketplace add heygen-com/hyperframes, then /plugin install hyperframes@hyperframes.</span><span class="l-ar">هذان السطران يثبّتان الإضافة الرسمية من HeyGen، وهي تعلّم Claude Code كيف يكتب مشاهد HyperFrames ويضبط توقيتها ويفحصها ويصدّرها. شغّلهما في الطرفية، أو اكتب الأمرين نفسيهما داخل Claude Code بعد إضافة شرطة مائلة في أولهما وحذف كلمة claude.</span></p><pre>claude plugin marketplace add heygen-com/hyperframes
+claude plugin install hyperframes@hyperframes</pre></div></div>
+  <div class="step"><div class="num">03</div><div>
+    <h2><span class="l-en">Start the project with your voice</span><span class="l-ar">ابدأ المشروع بصوتك</span></h2><p><span class="l-en">Record the voiceover first: everything gets timed to it. Then start a vertical project and hand it the audio. HyperFrames transcribes it into word-level timestamps, so Claude knows the exact second every word lands. Recording in Arabic? The comment line in the code shows the two flags to add.</span><span class="l-ar">سجّل التعليق الصوتي أولًا، لأن كل شيء يُضبط عليه. ثم أنشئ مشروعًا عموديًا وأعطه الملف الصوتي. تحوّل HyperFrames الصوت إلى نص مع توقيت لكل كلمة، فيعرف Claude الثانية التي تُقال فيها كل كلمة. تسجّل بالعربية؟ سطر التعليق في الكود يبيّن الخيارين اللذين تضيفهما.</span></p><pre>npx hyperframes init my-reel --resolution portrait --audio vo.m4a
+# Arabic voiceover? add this to the end of the line above: --language ar --model large
+cd my-reel
+claude</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 05</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Make a reel with zero filmed frames</span><span class="l-ar">اصنع ريل دون تصوير أي لقطة</span></span><span>ANIMATE</span></div>
+  
+  <div class="step"><div class="num">04</div><div>
+    <h2><span class="l-en">Give it one sentence</span><span class="l-ar">أعطِه جملة واحدة</span></h2><p><span class="l-en">Inside Claude Code, paste prompt 1 from the next page. Claude plans the scenes, writes each one as HTML, animates it with GSAP and lines every animation up with your words. You'll see it create files like index.html: that file is your reel. Then open the live preview in your browser. It reloads every time Claude saves.</span><span class="l-ar">داخل Claude Code، الصق الموجّه رقم 1 من الصفحة التالية. يخطط Claude للمشاهد، ويكتب كل مشهد بـ HTML، ويحرّكه بـ GSAP، ويضبط كل حركة على كلماتك. سترى ملفات مثل index.html: هذا الملف هو الريل. ثم افتح المعاينة المباشرة في متصفحك، وهي تتحدّث كلما حفظ Claude.</span></p><pre>npx hyperframes preview</pre></div></div>
+  <div class="step"><div class="num">05</div><div>
+    <h2><span class="l-en">Edit by talking, then check the frames</span><span class="l-ar">عدّل بالكلام ثم افحص اللقطات</span></h2><p><span class="l-en">Don't like something? Say it like you'd say it to an editor: "make the logo bigger", "make it blue", "slow down the second scene". Claude edits the code in seconds and the preview updates. Before you render, run check (catches broken scenes, text off screen, low contrast) and snapshot (saves PNGs of the moments you pick into a snapshots folder).</span><span class="l-ar">لم يعجبك شيء؟ قله كما تقوله لمحرر: كبّر الشعار، أو اجعل الخلفية زرقاء، أو أبطئ المشهد الثاني (يمكنك الكتابة بالعربية أو الإنجليزية). يعدّل Claude الكود في ثوانٍ وتتحدّث المعاينة. قبل التصدير شغّل أمر check، فهو يكشف المشاهد المعطلة والنص الخارج عن الشاشة والتباين الضعيف، ثم أمر snapshot الذي يحفظ صور PNG للحظات التي تختارها في مجلد snapshots.</span></p><pre>npx hyperframes check
+npx hyperframes snapshot --at 2,6,12</pre></div></div>
+  <div class="step"><div class="num">06</div><div>
+    <h2><span class="l-en">Render the MP4</span><span class="l-ar">صدّر ملف MP4</span></h2><p><span class="l-en">One command renders the final 1080x1920 video on your own machine. delivery is the high-quality setting. Watch it once on your phone before you post: that's how your audience sees it.</span><span class="l-ar">أمر واحد يصدّر الفيديو النهائي بدقة 1080x1920 على جهازك. خيار delivery هو إعداد الجودة العالية. شاهد الفيديو مرة على هاتفك قبل النشر، فهكذا سيراه جمهورك.</span></p><pre>npx hyperframes render --quality delivery -o renders/my-reel.mp4</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 05</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Make a reel with zero filmed frames</span><span class="l-ar">اصنع ريل دون تصوير أي لقطة</span></span><span>ANIMATE</span></div>
+  <div class="eyebrow"><span class="l-en">03 · Copy and paste</span><span class="l-ar">03 · انسخ والصق</span></div><h2><span class="l-en">Your <span class="em">prompts.</span></span><span class="l-ar">أوامرك <span class="em">الجاهزة.</span></span></h2><p class="muted l-ar">انسخ الأوامر والنصوص كما هي باللغة الإنجليزية، فهي تعمل بدقة أكبر.</p>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">1. The one sentence (plus the details that matter)</span><span class="l-ar">1. الجملة الواحدة (مع التفاصيل المهمة)</span></h4><pre>Using the hyperframes skill, make a 30-second vertical reel about my restaurant.
+Restaurant: [name], in [city]. We're known for [dish]. Offer: [offer].
+Brand colors: [hex codes]. Logo: logo.png in this folder.
+Time every scene to my voiceover transcript so each line appears on the word I say it.
+Plan the scenes first and show me the plan before you write any code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">2. Edit by talking</span><span class="l-ar">2. عدّل بالكلام</span></h4><pre>Make the logo bigger and make the background blue.
+In scene 2, slow the text down so it lands with my voice.
+Then run npx hyperframes check, fix anything it reports, and snapshot the frames you changed so I can see them.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">3. Same reel, new style</span><span class="l-ar">3. الريل نفسه بأسلوب جديد</span></h4><pre>Keep my voiceover and timing, but rebuild the visuals for a different style:
+[an apartment listing / a gym promo / a rainy short film].
+Show me 3 snapshots before you touch the rest, then render it to renders/style-2.mp4.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 05</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Make a reel with zero filmed frames</span><span class="l-ar">اصنع ريل دون تصوير أي لقطة</span></span><span>ANIMATE</span></div>
+  <div class="eyebrow"><span class="l-en">Done</span><span class="l-ar">تم</span></div>
+  <h2><span class="l-en">That's the <span class="em">whole setup.</span></span><span class="l-ar">هذا هو <span class="em">الإعداد كاملًا.</span></span></h2>
+  <p class="lead"><span class="l-en">Record 30 seconds of your voice this week and let Claude Code animate it. Your first reel is the hardest one.</span><span class="l-ar">جرّبه هذا الأسبوع على عمل حقيقي، ثم أخبرني بالنتيجة عبر رسالة على إنستغرام، فأنا أقرأ الرسائل بنفسي.</span></p>
+  <h3><span class="l-en">Credit</span><span class="l-ar">المصادر</span></h3><ul><li>HyperFrames by HeyGen, open source under Apache 2.0 (github.com/heygen-com/hyperframes, docs at hyperframes.heygen.com)</li><li>GSAP animation library by GreenSock (gsap.com)</li><li>Claude Code by Anthropic (claude.com/claude-code)</li></ul>
+  <div class="cta">
+    <div class="k"><span class="l-en">Built by</span><span class="l-ar">إعداد</span> <span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></div>
+    <h3><span class="l-en">Want it built for you?</span><span class="l-ar">تريد أن نبنيه لك؟</span></h3>
+    <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
+    <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
+  </div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 05</span></div>
+</section>
+<script>
+(function(){
+  var root=document.documentElement;
+  function set(l){root.dataset.lang=l;root.lang=l;root.dir=l==="ar"?"rtl":"ltr";
+    document.querySelectorAll(".lang-toggle button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
+    try{localStorage.setItem("karemops-guide-lang",l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem("karemops-guide-lang")}catch(e){}
+  set(location.hash==="#ar"?"ar":location.hash==="#en"?"en":(saved||"en"));
+  document.querySelector(".lang-toggle").addEventListener("click",function(e){var b=e.target.closest("button");if(b)set(b.dataset.l)});
+})();
+</script>
+</body>
+</html>
