@@ -3692,5 +3692,165 @@
   },
   "date_en": "9 Nov 2026",
   "date_ar": "9 نوفمبر 2026"
+ },
+ {
+  "kw": "WEEKLY",
+  "slug": "ai-weekly-nov-13",
+  "style": "club",
+  "number": 40,
+  "hero": "prompt",
+  "date_en": "13 Nov 2026",
+  "date_ar": "13 نوفمبر 2026",
+  "title": "8 AI updates this week, <span class=\"em\">for owners.</span>",
+  "lead": "Everything that shipped from Nov 2 to 12 that touches a business: Claude, ChatGPT, Meta, Amazon. One line each on what it means for you, a source for every item, and 3 you can skip.",
+  "inside": "Read the 8 updates in two minutes, check each one at its source, skip the 3 that don't matter, and try one thing in Claude Sheets this week.",
+  "heads": {
+   "whatH": "This week, <span class=\"em\">filtered.</span>",
+   "stepsEyebrow": "02 · The 8 updates",
+   "stepsH": "What shipped, <span class=\"em\">and what it means.</span>",
+   "promptsEyebrow": "03 · Try it this week",
+   "promptsH": "Three prompts <span class=\"em\">to run.</span>",
+   "payH": "That's the <span class=\"em\">whole week.</span>"
+  },
+  "what": [
+   "A short list of the AI news from Nov 2 to 12, 2026 that a business owner can act on. Every item links to where it was announced, so you can check it yourself before you change anything. A new list comes out every Friday.",
+   "It's for owners who use ChatGPT or Claude for basic questions and don't have time to read the news. Read the bold line, then the 'For you' line, and move on."
+  ],
+  "prereqs": [
+   "Nothing to install to read it",
+   "A paid Claude plan if you want to try Claude Sheets (it's in beta on all paid plans)",
+   "Claude Code, only for prompt 2 (the key check)",
+   "About 2 minutes to read, 10 to try one thing"
+  ],
+  "warn": "Several of these are betas or limited rollouts, so you may not see them in your account yet. Availability changes fast: check the source link before you plan around any of them. Using Claude Sheets counts toward your normal Claude plan limits.",
+  "steps": [
+   {
+    "h": "Claude got Sheets and Whiteboards",
+    "p": "Anthropic launched Claude Sheets and Claude Whiteboards in beta on Nov 10, on all paid plans, on web, desktop and mobile. Claude Dashboards also became generally available as Claude Data. For you: your numbers and your planning can live where you already ask Claude things. Source: claude.com/resources/articles/sheets-whiteboards-data"
+   },
+   {
+    "h": "Anthropic shipped Fable 5.2",
+    "p": "Anthropic released Fable 5.2 on Nov 9, its top model for the hardest, most open-ended technical work. Anthropic itself says to start with Opus 5.5 for most tasks. For you: most jobs still belong on Opus 5.5. Use Fable when a job is too big for it. Source: anthropic.com/claude-fable-and-mythos-5-2"
+   },
+   {
+    "h": "ChatGPT can now answer your shoppers",
+    "p": "OpenAI launched Businesses in ChatGPT in beta on Nov 10. Businesses claim their listing in Business Hub, and verified ones can add product feeds with prices and stock. Eligible US ecommerce and online services companies can launch a Business Agent that answers customers inside ChatGPT. For you: if you sell online in the US, claim your business in Business Hub. Source: openai.com/index/introducing-businesses-chatgpt"
+   },
+   {
+    "h": "A warning for Claude Code users",
+    "p": "Security firm Apiiro checked 104,185 public copies of Claude Code settings files on GitHub and found 1,122 holding real passwords and API keys (published Nov 2). When you click \"Yes, and don't ask again\" on a command, the whole command can be saved to .claude/settings.local.json, key included. For you: if you ever did that on a command with a key in it, check your .claude/settings files today, add them to .gitignore, and run prompt 2. Source: apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again"
+   },
+   {
+    "h": "Publish a site straight from your AI",
+    "p": "Automattic, the company behind WordPress.com, launched Spacefast on Nov 9: a new hosting service, open to everyone, with a free personal plan, for sites and apps built by AI assistants and coding agents like Claude, ChatGPT and Cursor. For you: Claude Code builds the page and you publish it without a developer. Source: automattic.com/2026/11/09/meet-spacefast"
+   },
+   {
+    "h": "Meta's Muse app builds mini-apps for you",
+    "p": "Meta added Spaces to its Muse app on Nov 6: you describe a mini-app, like a gift tracker, a planner or a word game, and Muse builds it for you. For you: your customers will expect to build their own tools just by talking. Source: about.fb.com/news/2026/11/introducing-spaces-customize-muse-app"
+   },
+   {
+    "h": "Alexa now shops by text message",
+    "p": "Amazon started inviting a subset of US customers on Nov 6 to text Alexa for Shopping. It shows up as a contact called Alexa Shopping and can find products, place orders and track prices, with more customers in the coming weeks. For you: buying is moving into chat on every platform. Source: aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop"
+   },
+   {
+    "h": "Claude Meetings for teams",
+    "p": "Anthropic is rolling out Claude Meetings in beta on Team and Enterprise plans. Claude joins the call, says it's there, and starts the work while people talk. For you: only if your team is already on Claude Team. Source: claude.com/resources/articles/claude-meetings"
+   },
+   {
+    "h": "3 you can ignore this week",
+    "p": "Perplexity Teammates, Nov 5: always-on agents, only for Max subscribers ($200 a month). CrowdStrike buying Fiddler AI, Nov 3: enterprise AI security. Grok 4.8: Elon Musk said on Nov 10 it finished pretraining, but it isn't broadly out yet. Sources: perplexity.ai help center, crowdstrike.com press release, decrypt.co"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Your first Claude Sheet",
+    "code": "Make me a sheet from this data: [paste last month's sales, one row per order or per day].\nCompare it with the month before: [paste the previous month, or say 'no data'].\nTell me the 3 biggest changes in plain words and chart the biggest one."
+   },
+   {
+    "h": "2. The Claude Code key check",
+    "code": "Check this repo for API keys, tokens and passwords, including .claude/settings.local.json and every past commit.\nTell me if .claude/settings.local.json and .env are in .gitignore.\nShow only the first 6 characters of anything you find. Don't change or push anything yet."
+   },
+   {
+    "h": "3. Which update matters to me",
+    "code": "My business: [what you sell, who buys, where you sell].\nHere are this week's AI updates: [paste the 8 headlines].\nPick the one that matters most for me this month, say why in 2 lines, and give me the first step."
+   }
+  ],
+  "credit": [
+   "Anthropic: Claude Whiteboards, Sheets and Data (claude.com, 10 Nov 2026); Claude Fable and Mythos 5.2 (anthropic.com, 9 Nov 2026); Claude Meetings (claude.com, 12 Nov 2026)",
+   "OpenAI: Introducing businesses in ChatGPT (openai.com, 10 Nov 2026)",
+   "Apiiro: coding agents leaking secrets on GitHub (apiiro.com, 2 Nov 2026)",
+   "Automattic: Meet Spacefast (automattic.com, 9 Nov 2026)",
+   "Meta: Introducing Spaces in the Muse app (about.fb.com, 6 Nov 2026)",
+   "Amazon: Alexa for Shopping text to shop (aboutamazon.com, 6 Nov 2026)",
+   "Perplexity Teammates (perplexity.ai), CrowdStrike to acquire Fiddler (crowdstrike.com, 3 Nov 2026), Grok 4.8 (Decrypt, 10 Nov 2026)"
+  ],
+  "payoff": "Pick one update, try it this week, skip the rest. A new list lands every Friday: comment WEEKLY on the next one.",
+  "ar": {
+   "title": "8 تحديثات في الذكاء الاصطناعي هذا الأسبوع <span class=\"em\">لأصحاب الأعمال.</span>",
+   "lead": "كل ما صدر بين 2 و12 نوفمبر ويمسّ عملك: Claude وChatGPT وMeta وAmazon. سطر واحد لكل تحديث عمّا يعنيه لك، مع مصدر لكل خبر، و3 أخبار يمكنك تجاهلها.",
+   "inside": "اقرأ التحديثات الثمانية في دقيقتين، وتحقّق من كل واحد في مصدره، وتجاهل الثلاثة التي لا تهمّك، وجرّب شيئًا واحدًا في Claude Sheets هذا الأسبوع.",
+   "heads": {
+    "whatH": "هذا الأسبوع <span class=\"em\">بعد التصفية.</span>",
+    "stepsEyebrow": "02 · التحديثات الثمانية",
+    "stepsH": "ما الذي صدر <span class=\"em\">وماذا يعني لك.</span>",
+    "promptsEyebrow": "03 · جرّبه هذا الأسبوع",
+    "promptsH": "ثلاثة أوامر <span class=\"em\">لتشغيلها.</span>",
+    "payH": "هذا هو <span class=\"em\">الأسبوع كاملًا.</span>"
+   },
+   "what": [
+    "قائمة قصيرة بأخبار الذكاء الاصطناعي بين 2 و12 نوفمبر 2026 التي يستطيع صاحب العمل أن يتصرّف بناءً عليها. لكل خبر رابط إلى المكان الذي أُعلن فيه، لتتحقق بنفسك قبل أن تغيّر أي شيء. تصدر قائمة جديدة كل يوم جمعة.",
+    "هذه القائمة لأصحاب الأعمال الذين يستخدمون ChatGPT أو Claude لأسئلة بسيطة ولا يجدون وقتًا لمتابعة الأخبار. اقرأ العنوان، ثم سطر «ماذا يعني لك»، وانتقل إلى التالي."
+   ],
+   "prereqs": [
+    "لا تحتاج إلى تثبيت أي شيء لقراءتها",
+    "اشتراك Claude مدفوع إذا أردت تجربة Claude Sheets (متاح بنسخة تجريبية على كل الخطط المدفوعة)",
+    "Claude Code للأمر 2 فقط (فحص المفاتيح)",
+    "نحو دقيقتين للقراءة و10 دقائق لتجربة شيء واحد"
+   ],
+   "warn": "عدد من هذه الميزات نسخ تجريبية أو تُطرح تدريجيًا، لذلك قد لا تظهر في حسابك بعد. التوفر يتغيّر بسرعة: راجع رابط المصدر قبل أن تبني خطتك على أيٍّ منها. استخدام Claude Sheets يُحتسب من حدود خطتك المعتادة في Claude.",
+   "steps": [
+    {
+     "h": "Claude حصل على Sheets وWhiteboards",
+     "p": "أطلقت Anthropic في 10 نوفمبر Claude Sheets وClaude Whiteboards بنسخة تجريبية على كل الخطط المدفوعة، على الويب وسطح المكتب والهاتف. وأصبحت Claude Dashboards متاحة للجميع باسم Claude Data. ماذا يعني لك: أرقامك وتخطيطك يمكن أن يكونا في المكان نفسه الذي تسأل فيه Claude. المصدر: claude.com/resources/articles/sheets-whiteboards-data"
+    },
+    {
+     "h": "Anthropic أطلقت Fable 5.2",
+     "p": "أصدرت Anthropic في 9 نوفمبر نموذج Fable 5.2، أقوى نماذجها للأعمال التقنية الأصعب والأكثر انفتاحًا. وتنصح Anthropic نفسها بالبدء بـ Opus 5.5 لمعظم المهام. ماذا يعني لك: معظم الأعمال مكانها Opus 5.5. استخدم Fable عندما يكون العمل أكبر منه. المصدر: anthropic.com/claude-fable-and-mythos-5-2"
+    },
+    {
+     "h": "ChatGPT يستطيع الآن الرد على زبائنك",
+     "p": "أطلقت OpenAI في 10 نوفمبر ميزة Businesses in ChatGPT بنسخة تجريبية. تطالب الأعمال بصفحتها في Business Hub، ويمكن للأعمال الموثّقة إضافة قوائم منتجات بالأسعار والمخزون. ويمكن لشركات التجارة الإلكترونية والخدمات الإلكترونية المؤهلة في الولايات المتحدة إطلاق Business Agent يرد على العملاء داخل ChatGPT. ماذا يعني لك: إن كنت تبيع عبر الإنترنت في الولايات المتحدة، فطالب بصفحة عملك في Business Hub. المصدر: openai.com/index/introducing-businesses-chatgpt"
+    },
+    {
+     "h": "تحذير لمستخدمي Claude Code",
+     "p": "فحصت شركة الأمن Apiiro ما مجموعه 104,185 نسخة عامة من ملفات إعدادات Claude Code على GitHub، ووجدت أن 1,122 منها تحتوي على كلمات مرور ومفاتيح API حقيقية (نُشر في 2 نوفمبر). عند الضغط على «Yes, and don't ask again» لأمر ما، قد يُحفظ الأمر كاملًا في ملف .claude/settings.local.json ومعه المفتاح. ماذا يعني لك: إن فعلت ذلك يومًا مع أمر يحتوي على مفتاح، فافحص ملفات .claude/settings اليوم، وأضفها إلى .gitignore، وشغّل الأمر 2. المصدر: apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again"
+    },
+    {
+     "h": "انشر موقعًا مباشرة من أداة الذكاء الاصطناعي",
+     "p": "أطلقت Automattic، الشركة المالكة لـ WordPress.com، في 9 نوفمبر خدمة Spacefast: خدمة استضافة جديدة مفتوحة للجميع مع خطة شخصية مجانية، للمواقع والتطبيقات التي تبنيها أدوات الذكاء الاصطناعي ووكلاء البرمجة مثل Claude وChatGPT وCursor. ماذا يعني لك: Claude Code يبني الصفحة وأنت تنشرها بدون مطوّر. المصدر: automattic.com/2026/11/09/meet-spacefast"
+    },
+    {
+     "h": "تطبيق Muse من Meta يبني لك تطبيقات صغيرة",
+     "p": "أضافت Meta في 6 نوفمبر ميزة Spaces إلى تطبيق Muse: تصف تطبيقًا صغيرًا، مثل متتبّع هدايا أو مخطّط أو لعبة كلمات، فيبنيه Muse لك. ماذا يعني لك: سيتوقع عملاؤك أن يبنوا أدواتهم بمجرد الكلام. المصدر: about.fb.com/news/2026/11/introducing-spaces-customize-muse-app"
+    },
+    {
+     "h": "Alexa تتسوّق الآن عبر الرسائل النصية",
+     "p": "بدأت Amazon في 6 نوفمبر دعوة مجموعة من العملاء في الولايات المتحدة لمراسلة Alexa for Shopping نصيًا. تظهر كجهة اتصال باسم Alexa Shopping وتستطيع البحث عن المنتجات وتنفيذ الطلبات ومتابعة الأسعار، على أن تصل إلى عملاء أكثر في الأسابيع القادمة. ماذا يعني لك: الشراء ينتقل إلى المحادثة على كل المنصات. المصدر: aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop"
+    },
+    {
+     "h": "Claude Meetings للفرق",
+     "p": "تطرح Anthropic ميزة Claude Meetings بنسخة تجريبية على خطط Team وEnterprise. ينضم Claude إلى الاجتماع ويعلن عن وجوده ويبدأ العمل أثناء الحديث. ماذا يعني لك: تهمّك فقط إذا كان فريقك يستخدم Claude Team. المصدر: claude.com/resources/articles/claude-meetings"
+    },
+    {
+     "h": "3 أخبار يمكنك تجاهلها هذا الأسبوع",
+     "p": "Perplexity Teammates، في 5 نوفمبر: وكلاء يعملون باستمرار، لمشتركي Max فقط (200 دولار شهريًا). استحواذ CrowdStrike على Fiddler AI، في 3 نوفمبر: أمن الذكاء الاصطناعي للشركات الكبرى. Grok 4.8: قال Elon Musk في 10 نوفمبر إن مرحلة التدريب الأولي انتهت، لكنه لم يُطرح على نطاق واسع بعد. المصادر: مركز مساعدة perplexity.ai وبيان CrowdStrike الصحفي وdecrypt.co"
+    }
+   ],
+   "prompts": [
+    "1. أول جدول لك في Claude Sheets",
+    "2. فحص المفاتيح في Claude Code",
+    "3. أي تحديث يهمّني"
+   ]
+  }
  }
 ]

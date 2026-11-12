@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8 AI updates this week, for owners | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E7E0D2; --paper:#FBF7EF; --white:#FFFFFF; --ink:#1A1714; --navy:#0E1A33; --muted:#4A4438; --line:#E4DACA;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F6F0E4; --cream:#F2EAD9; --brass:#B08D57;
+  --repp:repeating-linear-gradient(135deg,#0E1A33 0 11px,#0866FF 11px 17px,#0E1A33 17px 28px,#FBF7EF 28px 30px);
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Cormorant Garamond',Georgia,serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(14,26,51,.06),0 12px 40px rgba(14,26,51,.10);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--brass);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--brass);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-family:var(--serif);font-weight:600;font-size:64px;line-height:1;letter-spacing:-.01em;color:var(--navy);text-wrap:balance}
+h2{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.05;letter-spacing:-.01em;color:var(--navy);margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--blue);letter-spacing:0}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--cream);border:0;border-top:1.5px solid var(--brass);border-radius:0;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--navy);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--navy)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:0;padding:34px 40px;background-color:var(--cream);
+  border:1px solid var(--line);outline:1px solid var(--brass);outline-offset:6px}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(14,26,51,.12),0 2px 6px rgba(14,26,51,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:var(--navy);font-size:11px;color:var(--paper)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:rgba(251,247,239,.35);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--brass)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:34px;height:auto;display:block}
+.cover::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
+.step h2{font-size:30px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.prompt{margin-bottom:8px}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--navy);color:#fff;border-radius:0;padding:34px 30px 28px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-family:var(--serif);font-size:32px;letter-spacing:0;text-transform:none;margin:0 0 8px;font-weight:600}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px;color:#4D92FF}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3;font-family:var(--arab);font-weight:800}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+}</style>
+</head>
+<body>
+<div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip"><span class="l-en">Comment</span><span class="l-ar">اكتب</span> · WEEKLY</span></div>
+  <div class="eyebrow"><span class="l-en">Field guide · No. 40</span><span class="l-ar">دليل عملي · رقم 40</span></div>
+  <h1><span class="l-en">8 AI updates this week, <span class="em">for owners.</span></span><span class="l-ar">8 تحديثات في الذكاء الاصطناعي هذا الأسبوع <span class="em">لأصحاب الأعمال.</span></span></h1>
+  <p class="lead"><span class="l-en">Everything that shipped from Nov 2 to 12 that touches a business: Claude, ChatGPT, Meta, Amazon. One line each on what it means for you, a source for every item, and 3 you can skip.</span><span class="l-ar">كل ما صدر بين 2 و12 نوفمبر ويمسّ عملك: Claude وChatGPT وMeta وAmazon. سطر واحد لكل تحديث عمّا يعنيه لك، مع مصدر لكل خبر، و3 أخبار يمكنك تجاهلها.</span></p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Prompt</span></div><pre>Make me a sheet from this data: [paste last month's sales, one row per order or per day].
+Compare it with the month before: [paste the previous month, or say 'no data'].
+Tell me the 3 biggest changes in plain words and chart the biggest one.<span class="caret"></span></pre><div class="note"><span class="l-en">The first prompt in this guide. Copy it as is.</span><span class="l-ar">أول أمر في هذا الدليل. انسخه كما هو.</span></div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0"><span class="l-en">Inside</span><span class="l-ar">في هذا الدليل</span></h3><p><span class="l-en">Read the 8 updates in two minutes, check each one at its source, skip the 3 that don't matter, and try one thing in Claude Sheets this week.</span><span class="l-ar">اقرأ التحديثات الثمانية في دقيقتين، وتحقّق من كل واحد في مصدره، وتجاهل الثلاثة التي لا تهمّك، وجرّب شيئًا واحدًا في Claude Sheets هذا الأسبوع.</span></p></div>
+    <div class="by"><svg class="mono-k" viewBox="0 0 120 150" aria-label="Karemops crest"><ellipse cx="60" cy="75" rx="57" ry="72" fill="none" stroke="#B08D57" stroke-width="3"/><ellipse cx="60" cy="75" rx="49" ry="64" fill="none" stroke="#B08D57" stroke-width="1.4"/><text x="60" y="98" text-anchor="middle" style="font:600 68px 'Cormorant Garamond',Georgia,serif;fill:#0866FF">K</text></svg><div><b><span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">8 AI updates this week, for owners</span><span class="l-ar">8 تحديثات في الذكاء الاصطناعي هذا الأسبوع لأصحاب الأعمال</span></span><span>WEEKLY</span></div>
+  <div class="eyebrow"><span class="l-en">01 · What this is</span><span class="l-ar">01 · ما هذا</span></div>
+  <h2><span class="l-en">This week, <span class="em">filtered.</span></span><span class="l-ar">هذا الأسبوع <span class="em">بعد التصفية.</span></span></h2>
+  <p><span class="l-en">A short list of the AI news from Nov 2 to 12, 2026 that a business owner can act on. Every item links to where it was announced, so you can check it yourself before you change anything. A new list comes out every Friday.</span><span class="l-ar">قائمة قصيرة بأخبار الذكاء الاصطناعي بين 2 و12 نوفمبر 2026 التي يستطيع صاحب العمل أن يتصرّف بناءً عليها. لكل خبر رابط إلى المكان الذي أُعلن فيه، لتتحقق بنفسك قبل أن تغيّر أي شيء. تصدر قائمة جديدة كل يوم جمعة.</span></p>
+  <p><span class="l-en">It's for owners who use ChatGPT or Claude for basic questions and don't have time to read the news. Read the bold line, then the 'For you' line, and move on.</span><span class="l-ar">هذه القائمة لأصحاب الأعمال الذين يستخدمون ChatGPT أو Claude لأسئلة بسيطة ولا يجدون وقتًا لمتابعة الأخبار. اقرأ العنوان، ثم سطر «ماذا يعني لك»، وانتقل إلى التالي.</span></p>
+  <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">Nothing to install to read it</li><li class="l-en">A paid Claude plan if you want to try Claude Sheets (it's in beta on all paid plans)</li><li class="l-en">Claude Code, only for prompt 2 (the key check)</li><li class="l-en">About 2 minutes to read, 10 to try one thing</li><li class="l-ar">لا تحتاج إلى تثبيت أي شيء لقراءتها</li><li class="l-ar">اشتراك Claude مدفوع إذا أردت تجربة Claude Sheets (متاح بنسخة تجريبية على كل الخطط المدفوعة)</li><li class="l-ar">Claude Code للأمر 2 فقط (فحص المفاتيح)</li><li class="l-ar">نحو دقيقتين للقراءة و10 دقائق لتجربة شيء واحد</li></ul>
+  <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">Several of these are betas or limited rollouts, so you may not see them in your account yet. Availability changes fast: check the source link before you plan around any of them. Using Claude Sheets counts toward your normal Claude plan limits.</span><span class="l-ar">عدد من هذه الميزات نسخ تجريبية أو تُطرح تدريجيًا، لذلك قد لا تظهر في حسابك بعد. التوفر يتغيّر بسرعة: راجع رابط المصدر قبل أن تبني خطتك على أيٍّ منها. استخدام Claude Sheets يُحتسب من حدود خطتك المعتادة في Claude.</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">8 AI updates this week, for owners</span><span class="l-ar">8 تحديثات في الذكاء الاصطناعي هذا الأسبوع لأصحاب الأعمال</span></span><span>WEEKLY</span></div>
+  <div class="eyebrow"><span class="l-en">02 · The 8 updates</span><span class="l-ar">02 · التحديثات الثمانية</span></div><h2><span class="l-en">What shipped, <span class="em">and what it means.</span></span><span class="l-ar">ما الذي صدر <span class="em">وماذا يعني لك.</span></span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2><span class="l-en">Claude got Sheets and Whiteboards</span><span class="l-ar">Claude حصل على Sheets وWhiteboards</span></h2><p><span class="l-en">Anthropic launched Claude Sheets and Claude Whiteboards in beta on Nov 10, on all paid plans, on web, desktop and mobile. Claude Dashboards also became generally available as Claude Data. For you: your numbers and your planning can live where you already ask Claude things. Source: claude.com/resources/articles/sheets-whiteboards-data</span><span class="l-ar">أطلقت Anthropic في 10 نوفمبر Claude Sheets وClaude Whiteboards بنسخة تجريبية على كل الخطط المدفوعة، على الويب وسطح المكتب والهاتف. وأصبحت Claude Dashboards متاحة للجميع باسم Claude Data. ماذا يعني لك: أرقامك وتخطيطك يمكن أن يكونا في المكان نفسه الذي تسأل فيه Claude. المصدر: claude.com/resources/articles/sheets-whiteboards-data</span></p></div></div>
+  <div class="step"><div class="num">02</div><div>
+    <h2><span class="l-en">Anthropic shipped Fable 5.2</span><span class="l-ar">Anthropic أطلقت Fable 5.2</span></h2><p><span class="l-en">Anthropic released Fable 5.2 on Nov 9, its top model for the hardest, most open-ended technical work. Anthropic itself says to start with Opus 5.5 for most tasks. For you: most jobs still belong on Opus 5.5. Use Fable when a job is too big for it. Source: anthropic.com/claude-fable-and-mythos-5-2</span><span class="l-ar">أصدرت Anthropic في 9 نوفمبر نموذج Fable 5.2، أقوى نماذجها للأعمال التقنية الأصعب والأكثر انفتاحًا. وتنصح Anthropic نفسها بالبدء بـ Opus 5.5 لمعظم المهام. ماذا يعني لك: معظم الأعمال مكانها Opus 5.5. استخدم Fable عندما يكون العمل أكبر منه. المصدر: anthropic.com/claude-fable-and-mythos-5-2</span></p></div></div>
+  <div class="step"><div class="num">03</div><div>
+    <h2><span class="l-en">ChatGPT can now answer your shoppers</span><span class="l-ar">ChatGPT يستطيع الآن الرد على زبائنك</span></h2><p><span class="l-en">OpenAI launched Businesses in ChatGPT in beta on Nov 10. Businesses claim their listing in Business Hub, and verified ones can add product feeds with prices and stock. Eligible US ecommerce and online services companies can launch a Business Agent that answers customers inside ChatGPT. For you: if you sell online in the US, claim your business in Business Hub. Source: openai.com/index/introducing-businesses-chatgpt</span><span class="l-ar">أطلقت OpenAI في 10 نوفمبر ميزة Businesses in ChatGPT بنسخة تجريبية. تطالب الأعمال بصفحتها في Business Hub، ويمكن للأعمال الموثّقة إضافة قوائم منتجات بالأسعار والمخزون. ويمكن لشركات التجارة الإلكترونية والخدمات الإلكترونية المؤهلة في الولايات المتحدة إطلاق Business Agent يرد على العملاء داخل ChatGPT. ماذا يعني لك: إن كنت تبيع عبر الإنترنت في الولايات المتحدة، فطالب بصفحة عملك في Business Hub. المصدر: openai.com/index/introducing-businesses-chatgpt</span></p></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">8 AI updates this week, for owners</span><span class="l-ar">8 تحديثات في الذكاء الاصطناعي هذا الأسبوع لأصحاب الأعمال</span></span><span>WEEKLY</span></div>
+  
+  <div class="step"><div class="num">04</div><div>
+    <h2><span class="l-en">A warning for Claude Code users</span><span class="l-ar">تحذير لمستخدمي Claude Code</span></h2><p><span class="l-en">Security firm Apiiro checked 104,185 public copies of Claude Code settings files on GitHub and found 1,122 holding real passwords and API keys (published Nov 2). When you click "Yes, and don't ask again" on a command, the whole command can be saved to .claude/settings.local.json, key included. For you: if you ever did that on a command with a key in it, check your .claude/settings files today, add them to .gitignore, and run prompt 2. Source: apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again</span><span class="l-ar">فحصت شركة الأمن Apiiro ما مجموعه 104,185 نسخة عامة من ملفات إعدادات Claude Code على GitHub، ووجدت أن 1,122 منها تحتوي على كلمات مرور ومفاتيح API حقيقية (نُشر في 2 نوفمبر). عند الضغط على «Yes, and don't ask again» لأمر ما، قد يُحفظ الأمر كاملًا في ملف .claude/settings.local.json ومعه المفتاح. ماذا يعني لك: إن فعلت ذلك يومًا مع أمر يحتوي على مفتاح، فافحص ملفات .claude/settings اليوم، وأضفها إلى .gitignore، وشغّل الأمر 2. المصدر: apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again</span></p></div></div>
+  <div class="step"><div class="num">05</div><div>
+    <h2><span class="l-en">Publish a site straight from your AI</span><span class="l-ar">انشر موقعًا مباشرة من أداة الذكاء الاصطناعي</span></h2><p><span class="l-en">Automattic, the company behind WordPress.com, launched Spacefast on Nov 9: a new hosting service, open to everyone, with a free personal plan, for sites and apps built by AI assistants and coding agents like Claude, ChatGPT and Cursor. For you: Claude Code builds the page and you publish it without a developer. Source: automattic.com/2026/11/09/meet-spacefast</span><span class="l-ar">أطلقت Automattic، الشركة المالكة لـ WordPress.com، في 9 نوفمبر خدمة Spacefast: خدمة استضافة جديدة مفتوحة للجميع مع خطة شخصية مجانية، للمواقع والتطبيقات التي تبنيها أدوات الذكاء الاصطناعي ووكلاء البرمجة مثل Claude وChatGPT وCursor. ماذا يعني لك: Claude Code يبني الصفحة وأنت تنشرها بدون مطوّر. المصدر: automattic.com/2026/11/09/meet-spacefast</span></p></div></div>
+  <div class="step"><div class="num">06</div><div>
+    <h2><span class="l-en">Meta's Muse app builds mini-apps for you</span><span class="l-ar">تطبيق Muse من Meta يبني لك تطبيقات صغيرة</span></h2><p><span class="l-en">Meta added Spaces to its Muse app on Nov 6: you describe a mini-app, like a gift tracker, a planner or a word game, and Muse builds it for you. For you: your customers will expect to build their own tools just by talking. Source: about.fb.com/news/2026/11/introducing-spaces-customize-muse-app</span><span class="l-ar">أضافت Meta في 6 نوفمبر ميزة Spaces إلى تطبيق Muse: تصف تطبيقًا صغيرًا، مثل متتبّع هدايا أو مخطّط أو لعبة كلمات، فيبنيه Muse لك. ماذا يعني لك: سيتوقع عملاؤك أن يبنوا أدواتهم بمجرد الكلام. المصدر: about.fb.com/news/2026/11/introducing-spaces-customize-muse-app</span></p></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">8 AI updates this week, for owners</span><span class="l-ar">8 تحديثات في الذكاء الاصطناعي هذا الأسبوع لأصحاب الأعمال</span></span><span>WEEKLY</span></div>
+  
+  <div class="step"><div class="num">07</div><div>
+    <h2><span class="l-en">Alexa now shops by text message</span><span class="l-ar">Alexa تتسوّق الآن عبر الرسائل النصية</span></h2><p><span class="l-en">Amazon started inviting a subset of US customers on Nov 6 to text Alexa for Shopping. It shows up as a contact called Alexa Shopping and can find products, place orders and track prices, with more customers in the coming weeks. For you: buying is moving into chat on every platform. Source: aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop</span><span class="l-ar">بدأت Amazon في 6 نوفمبر دعوة مجموعة من العملاء في الولايات المتحدة لمراسلة Alexa for Shopping نصيًا. تظهر كجهة اتصال باسم Alexa Shopping وتستطيع البحث عن المنتجات وتنفيذ الطلبات ومتابعة الأسعار، على أن تصل إلى عملاء أكثر في الأسابيع القادمة. ماذا يعني لك: الشراء ينتقل إلى المحادثة على كل المنصات. المصدر: aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop</span></p></div></div>
+  <div class="step"><div class="num">08</div><div>
+    <h2><span class="l-en">Claude Meetings for teams</span><span class="l-ar">Claude Meetings للفرق</span></h2><p><span class="l-en">Anthropic is rolling out Claude Meetings in beta on Team and Enterprise plans. Claude joins the call, says it's there, and starts the work while people talk. For you: only if your team is already on Claude Team. Source: claude.com/resources/articles/claude-meetings</span><span class="l-ar">تطرح Anthropic ميزة Claude Meetings بنسخة تجريبية على خطط Team وEnterprise. ينضم Claude إلى الاجتماع ويعلن عن وجوده ويبدأ العمل أثناء الحديث. ماذا يعني لك: تهمّك فقط إذا كان فريقك يستخدم Claude Team. المصدر: claude.com/resources/articles/claude-meetings</span></p></div></div>
+  <div class="step"><div class="num">09</div><div>
+    <h2><span class="l-en">3 you can ignore this week</span><span class="l-ar">3 أخبار يمكنك تجاهلها هذا الأسبوع</span></h2><p><span class="l-en">Perplexity Teammates, Nov 5: always-on agents, only for Max subscribers ($200 a month). CrowdStrike buying Fiddler AI, Nov 3: enterprise AI security. Grok 4.8: Elon Musk said on Nov 10 it finished pretraining, but it isn't broadly out yet. Sources: perplexity.ai help center, crowdstrike.com press release, decrypt.co</span><span class="l-ar">Perplexity Teammates، في 5 نوفمبر: وكلاء يعملون باستمرار، لمشتركي Max فقط (200 دولار شهريًا). استحواذ CrowdStrike على Fiddler AI، في 3 نوفمبر: أمن الذكاء الاصطناعي للشركات الكبرى. Grok 4.8: قال Elon Musk في 10 نوفمبر إن مرحلة التدريب الأولي انتهت، لكنه لم يُطرح على نطاق واسع بعد. المصادر: مركز مساعدة perplexity.ai وبيان CrowdStrike الصحفي وdecrypt.co</span></p></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">8 AI updates this week, for owners</span><span class="l-ar">8 تحديثات في الذكاء الاصطناعي هذا الأسبوع لأصحاب الأعمال</span></span><span>WEEKLY</span></div>
+  <div class="eyebrow"><span class="l-en">03 · Try it this week</span><span class="l-ar">03 · جرّبه هذا الأسبوع</span></div><h2><span class="l-en">Three prompts <span class="em">to run.</span></span><span class="l-ar">ثلاثة أوامر <span class="em">لتشغيلها.</span></span></h2><p class="muted l-ar">انسخ الأوامر والنصوص كما هي باللغة الإنجليزية، فهي تعمل بدقة أكبر.</p>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">1. Your first Claude Sheet</span><span class="l-ar">1. أول جدول لك في Claude Sheets</span></h4><pre>Make me a sheet from this data: [paste last month's sales, one row per order or per day].
+Compare it with the month before: [paste the previous month, or say 'no data'].
+Tell me the 3 biggest changes in plain words and chart the biggest one.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">2. The Claude Code key check</span><span class="l-ar">2. فحص المفاتيح في Claude Code</span></h4><pre>Check this repo for API keys, tokens and passwords, including .claude/settings.local.json and every past commit.
+Tell me if .claude/settings.local.json and .env are in .gitignore.
+Show only the first 6 characters of anything you find. Don't change or push anything yet.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">3. Which update matters to me</span><span class="l-ar">3. أي تحديث يهمّني</span></h4><pre>My business: [what you sell, who buys, where you sell].
+Here are this week's AI updates: [paste the 8 headlines].
+Pick the one that matters most for me this month, say why in 2 lines, and give me the first step.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">8 AI updates this week, for owners</span><span class="l-ar">8 تحديثات في الذكاء الاصطناعي هذا الأسبوع لأصحاب الأعمال</span></span><span>WEEKLY</span></div>
+  <div class="eyebrow"><span class="l-en">Done</span><span class="l-ar">تم</span></div>
+  <h2><span class="l-en">That's the <span class="em">whole week.</span></span><span class="l-ar">هذا هو <span class="em">الأسبوع كاملًا.</span></span></h2>
+  <p class="lead"><span class="l-en">Pick one update, try it this week, skip the rest. A new list lands every Friday: comment WEEKLY on the next one.</span><span class="l-ar">جرّبه هذا الأسبوع على عمل حقيقي، ثم أخبرني بالنتيجة عبر رسالة على إنستغرام، فأنا أقرأ الرسائل بنفسي.</span></p>
+  <h3><span class="l-en">Credit</span><span class="l-ar">المصادر</span></h3><ul><li>Anthropic: Claude Whiteboards, Sheets and Data (claude.com, 10 Nov 2026); Claude Fable and Mythos 5.2 (anthropic.com, 9 Nov 2026); Claude Meetings (claude.com, 12 Nov 2026)</li><li>OpenAI: Introducing businesses in ChatGPT (openai.com, 10 Nov 2026)</li><li>Apiiro: coding agents leaking secrets on GitHub (apiiro.com, 2 Nov 2026)</li><li>Automattic: Meet Spacefast (automattic.com, 9 Nov 2026)</li><li>Meta: Introducing Spaces in the Muse app (about.fb.com, 6 Nov 2026)</li><li>Amazon: Alexa for Shopping text to shop (aboutamazon.com, 6 Nov 2026)</li><li>Perplexity Teammates (perplexity.ai), CrowdStrike to acquire Fiddler (crowdstrike.com, 3 Nov 2026), Grok 4.8 (Decrypt, 10 Nov 2026)</li></ul>
+  <div class="cta">
+    <div class="k"><span class="l-en">Built by</span><span class="l-ar">إعداد</span> <span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></div>
+    <h3><span class="l-en">Want it built for you?</span><span class="l-ar">تريد أن نبنيه لك؟</span></h3>
+    <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
+    <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
+  </div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 06</span></div>
+</section>
+<script>
+(function(){
+  var root=document.documentElement;
+  function set(l){root.dataset.lang=l;root.lang=l;root.dir=l==="ar"?"rtl":"ltr";
+    document.querySelectorAll(".lang-toggle button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
+    try{localStorage.setItem("karemops-guide-lang",l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem("karemops-guide-lang")}catch(e){}
+  set(location.hash==="#ar"?"ar":location.hash==="#en"?"en":(saved||"en"));
+  document.querySelector(".lang-toggle").addEventListener("click",function(e){var b=e.target.closest("button");if(b)set(b.dataset.l)});
+})();
+</script>
+</body>
+</html>

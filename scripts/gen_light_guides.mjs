@@ -125,6 +125,49 @@ html[data-lang="ar"] .eyebrow,html[data-lang="ar"] h2,html[data-lang="ar"] .cta 
 html[data-lang="ar"] .lede,html[data-lang="ar"] .what p,html[data-lang="ar"] .inside li{line-height:1.85}
 .ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}`;
 
+// The Club (design system v3, 2026-11-09). Only guides with "style": "club" in light-guides.json use it;
+// every other page renders exactly as before. Appended after CSS so it overrides the v2 rules.
+const CLUB_CSS = `
+:root{--canvas:#E7E0D2;--paper:#FBF7EF;--ink:#1A1714;--navy:#0E1A33;--muted:#4A4438;--subtle:#7A7262;--line:#E4DACA;
+--code:#F6F0E4;--cream:#F2EAD9;--brass:#B08D57;--serif:'Cormorant Garamond',Georgia,serif;
+--repp:repeating-linear-gradient(135deg,#0E1A33 0 11px,#0866FF 11px 17px,#0E1A33 17px 28px,#FBF7EF 28px 30px)}
+.repp{height:8px;background:var(--repp)}
+.wordmark{color:var(--navy)}
+.nav{border-bottom:1px solid var(--brass);padding:6px 0 16px;margin-bottom:30px}
+.lang{background:var(--paper);border-color:var(--line)}
+.eyebrow{font-weight:700;letter-spacing:.16em;font-size:11px}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(40px,7vw,62px);line-height:1;letter-spacing:-.01em;color:var(--navy)}
+.em{font-family:var(--serif);font-style:italic;font-weight:600;font-size:1em}
+.meta .dot{background:var(--brass)}
+.stage{border-radius:0;padding:30px;background:var(--cream);background-image:none;border:1px solid var(--line);outline:1px solid var(--brass);outline-offset:6px;margin:36px 6px 0}
+.win{border-radius:12px;border:0;box-shadow:0 14px 34px rgba(14,26,51,.16),0 2px 6px rgba(14,26,51,.08)}
+.win .bar{background:var(--navy);color:var(--paper);border-bottom:0}
+.win .bar i{background:rgba(251,247,239,.28)}
+h2{font-family:var(--serif);font-weight:600;font-size:32px;letter-spacing:-.01em;text-transform:none;color:var(--navy);line-height:1.1}
+.inside{border-top:1px solid var(--brass)}
+.inside .n{font-family:var(--serif);font-weight:600;font-size:22px;line-height:1.1}
+.callout{background:var(--cream);border:0;border-top:1.5px solid var(--brass);border-radius:0}
+.gate{border-radius:0;border:1px solid var(--line);border-top:1.5px solid var(--brass);box-shadow:none}
+.gate .lock{border-radius:0;background:var(--cream)}
+.gate h3,.cta h3{font-family:var(--serif);font-weight:600;font-size:30px;letter-spacing:-.01em;line-height:1.1}
+.gate h3{color:var(--navy)}
+#gate-form input{border-radius:999px;padding:13px 18px;background:#fff}
+#gate-form button{border-radius:999px;padding:13px 22px}
+#gate-form button:hover{filter:none;background:#1E7AFF}
+.cta{background:var(--navy);border-radius:0;position:relative;overflow:hidden;padding:36px 28px 28px}
+.cta::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.cta .k{color:#4D92FF;opacity:1;font-weight:700;letter-spacing:.16em}
+.pill{border-radius:999px;background:transparent;border:1px solid rgba(176,141,87,.7)}
+.book{background:var(--blue);color:#fff;border-radius:999px}
+.book:hover{background:#1E7AFF}
+footer{border-top:1px solid var(--brass)}
+.kf-crest{display:block;margin:0 auto 14px;width:40px;height:50px}
+.kf-socials a{border-color:var(--line);background:var(--paper)}
+html[data-lang="ar"] h1,html[data-lang="ar"] h2,html[data-lang="ar"] .gate h3,html[data-lang="ar"] .cta h3,html[data-lang="ar"] .inside .n{font-family:var(--arab);font-weight:700}
+html[data-lang="ar"] h1{font-size:clamp(32px,6vw,48px);line-height:1.3}
+html[data-lang="ar"] h2{font-size:26px}html[data-lang="ar"] .gate h3,html[data-lang="ar"] .cta h3{font-size:24px;line-height:1.35}`;
+const CREST = `<svg class="kf-crest" viewBox="0 0 120 150" aria-label="Karemops crest"><ellipse cx="60" cy="75" rx="57" ry="72" fill="none" stroke="#B08D57" stroke-width="3"/><ellipse cx="60" cy="75" rx="49" ry="64" fill="none" stroke="#B08D57" stroke-width="1.4"/><text x="60" y="98" text-anchor="middle" style="font:600 68px 'Cormorant Garamond',Georgia,serif;fill:#0866FF">K</text></svg>`;
+
 function hero(g) {
   const si = typeof g.hero === "number" ? g.hero - 1 : g.hero === "prompt" && g.prompts.length ? -1 : g.steps.findIndex((s) => s.code && s.code.trim().length >= 6 && s.code.length < 400);
   const src = si >= 0 ? g.steps[si] : g.prompts[0] || { code: "" };
@@ -152,6 +195,7 @@ const LANG_SCRIPT = `<script>
 for (const g of guides) {
   if (ONLY === "legacy" && !g.legacy) continue;
   BI = !!g.ar;
+  const CLUB = g.style === "club";
   const a = g.ar || { what: [], steps: [], prompts: [] };
   const titleEn = plain(g.title).replace(/\.$/, "");
   const href = `${BASE}/lead-magnets/${g.guideFile || g.slug + "-guide.html"}`;
@@ -189,11 +233,11 @@ for (const g of guides) {
 <meta property="og:image" content="${BASE}/lead-magnets/banner.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
-<style>${CSS}</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800${CLUB ? "&family=Cormorant+Garamond:ital,wght@0,600;1,600" : "&family=Instrument+Serif:ital@0;1"}&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>${CSS}${CLUB ? CLUB_CSS : ""}</style>
 </head>
 <body>
-<div class="container">
+${CLUB ? `<div class="repp"></div>\n` : ""}<div class="container">
   <nav class="nav">
     <a href="${BASE}/" class="wordmark">karemops<i>.ai</i></a>
     <div class="navr">
@@ -241,7 +285,7 @@ for (const g of guides) {
 </div>
 
 <footer>
-  <div class="kf-brand"><img src="/avatar.jpg" alt="Karem" /><span>KAREMOPS.AI · KAREM ALMOAYYAD</span></div>
+  ${CLUB ? CREST : ""}<div class="kf-brand"><img src="/avatar.jpg" alt="Karem" /><span>KAREMOPS.AI · KAREM ALMOAYYAD</span></div>
   <div class="kf-contact">${t("Contact", "تواصل")}: <a href="mailto:Karem@karemopsai.com" class="ltr">Karem@karemopsai.com</a></div>
   ${socials}
 </footer>
