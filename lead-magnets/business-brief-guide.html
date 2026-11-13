@@ -70,6 +70,9 @@ html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
 .step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
 .step h2{font-size:30px;margin-bottom:6px}
 .step p{color:var(--muted);margin-bottom:6px}
+.shot{margin:10px 0 2px;border:1px solid var(--line);border-top:1.5px solid var(--brass);background:var(--white);padding:6px}
+.shot img,.shot video{display:block;width:100%;height:auto;max-height:3.3in;object-fit:contain;background:var(--white)}
+.shot figcaption{font-size:10.5px;color:var(--muted);padding:6px 2px 0;letter-spacing:.02em}
 .prompt{margin-bottom:8px}
 .prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
 /* payoff */
@@ -129,7 +132,7 @@ Never promise [what you can't: discounts, deadlines, results].<span class="caret
   <p><span class="l-en">After that, each document is one line: paste the input (a transcript, notes, the week's numbers, reviews) and say what to turn it into. The brief carries your business, the line carries the job. That's why the output sounds like you.</span><span class="l-ar">بعد ذلك تصبح كل وثيقة سطرًا واحدًا: الصق المادة الخام (نصًا مفرغًا أو ملاحظات أو أرقام الأسبوع أو مراجعات العملاء) واكتب ما تريد تحويلها إليه. الملخص يحمل عملك، والسطر يحمل المهمة. لهذا تبدو النتيجة بصوتك أنت.</span></p>
   <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">A Claude account. Projects work on every plan, Free included (Free is capped at 5 projects)</li><li class="l-en">Claude on the web or the Claude Desktop app</li><li class="l-en">15 minutes to fill in the brief</li><li class="l-en">One real input to test with: last week's call notes, a voice memo transcript or a few customer reviews</li><li class="l-ar">حساب Claude. المشاريع متاحة في كل الخطط، ومنها الخطة المجانية (الحد فيها 5 مشاريع)</li><li class="l-ar">Claude على الويب أو تطبيق Claude Desktop</li><li class="l-ar">15 دقيقة لملء الملخص</li><li class="l-ar">مادة حقيقية واحدة للتجربة: ملاحظات مكالمة الأسبوع الماضي، أو نص مفرغ لتسجيل صوتي، أو بعض مراجعات العملاء</li></ul>
   <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">The brief tells Claude to use only your facts, but it can still get a price, a date or a name wrong. Read every document before it goes to a customer, and never let it promise a discount, a deadline or a result you didn't write in. If a prompt keeps missing, fix the brief, not the line.</span><span class="l-ar">يطلب الملخص من Claude أن يستخدم معلوماتك فقط، لكنه قد يخطئ في سعر أو تاريخ أو اسم. اقرأ كل وثيقة قبل أن تصل إلى العميل، ولا تسمح لها أن تعِد بخصم أو موعد أو نتيجة لم تكتبها أنت. إذا أخطأ أمر ما مرة بعد مرة، فعدّل الملخص وليس السطر.</span></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 08</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 10</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">One brief. Ten documents. One line each</span><span class="l-ar">ملخص واحد. عشر وثائق. سطر واحد لكل منها</span></span><span>BRIEF</span></div>
@@ -143,20 +146,30 @@ Sign every message as [your name and role].
 Never promise [what you can't: discounts, deadlines, results].
 Use only facts from my input and this brief. Never invent prices, dates, names or numbers.
 If something is missing, ask me before you write.</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 10</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">One brief. Ten documents. One line each</span><span class="l-ar">ملخص واحد. عشر وثائق. سطر واحد لكل منها</span></span><span>BRIEF</span></div>
+  
   <div class="step"><div class="num">02</div><div>
-    <h2><span class="l-en">Put it in a Claude Project</span><span class="l-ar">ضعه في مشروع على Claude</span></h2><p><span class="l-en">In Claude, open Projects from the left sidebar (or go to claude.ai/projects) and click + New Project. Name it after your business. Inside the project, click Set project instructions, paste your filled-in brief and click Save instructions. Claude now applies it to every chat in that project.</span><span class="l-ar">في Claude افتح Projects من الشريط الجانبي الأيسر (أو ادخل إلى claude.ai/projects) واضغط + New Project. سمّه باسم عملك. داخل المشروع اضغط Set project instructions، والصق الملخص بعد ملئه، ثم اضغط Save instructions. يطبّقه Claude الآن على كل محادثة في هذا المشروع.</span></p></div></div>
+    <h2><span class="l-en">Put it in a Claude Project</span><span class="l-ar">ضعه في مشروع على Claude</span></h2><p><span class="l-en">In Claude, open Projects from the left sidebar (or go to claude.ai/projects) and click + New Project. Name it after your business. Inside the project, click Set project instructions, paste your filled-in brief and click Save instructions. Claude now applies it to every chat in that project.</span><span class="l-ar">في Claude افتح Projects من الشريط الجانبي الأيسر (أو ادخل إلى claude.ai/projects) واضغط + New Project. سمّه باسم عملك. داخل المشروع اضغط Set project instructions، والصق الملخص بعد ملئه، ثم اضغط Save instructions. يطبّقه Claude الآن على كل محادثة في هذا المشروع.</span></p><figure class="shot loop"><video poster="assets/business-brief/loop-brief.png" autoplay muted loop playsinline preload="metadata" aria-label="Claude: Projects, + New project, named Cedar Dental, Create project, then Set project instructions"><source src="assets/business-brief/loop-brief.webm" type="video/webm"><source src="assets/business-brief/loop-brief.mp4" type="video/mp4"></video><figcaption>Projects → + New project → name it → Create project → Set project instructions. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 10</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">One brief. Ten documents. One line each</span><span class="l-ar">ملخص واحد. عشر وثائق. سطر واحد لكل منها</span></span><span>BRIEF</span></div>
+  
   <div class="step"><div class="num">03</div><div>
-    <h2><span class="l-en">Add the files Claude should know</span><span class="l-ar">أضف الملفات التي يجب أن يعرفها Claude</span></h2><p><span class="l-en">Optional, and worth it. In the project knowledge panel on the right, click + and add your price list, a past proposal you liked and your FAQ. Claude uses them as context in every chat in the project, so the facts come from your files and not from memory.</span><span class="l-ar">خطوة اختيارية لكنها تستحق. في لوحة معرفة المشروع على اليمين اضغط + وأضف قائمة أسعارك، وعرضًا سابقًا أعجبك، وأسئلتك الشائعة. يستخدمها Claude سياقًا في كل محادثة داخل المشروع، فتأتي المعلومات من ملفاتك لا من ذاكرته.</span></p></div></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 08</span></div>
+    <h2><span class="l-en">Add the files Claude should know</span><span class="l-ar">أضف الملفات التي يجب أن يعرفها Claude</span></h2><p><span class="l-en">Optional, and worth it. In the project knowledge panel on the right, click + and add your price list, a past proposal you liked and your FAQ. Claude uses them as context in every chat in the project, so the facts come from your files and not from memory.</span><span class="l-ar">خطوة اختيارية لكنها تستحق. في لوحة معرفة المشروع على اليمين اضغط + وأضف قائمة أسعارك، وعرضًا سابقًا أعجبك، وأسئلتك الشائعة. يستخدمها Claude سياقًا في كل محادثة داخل المشروع، فتأتي المعلومات من ملفاتك لا من ذاكرته.</span></p><figure class="shot"><img src="assets/_shared/claude/project-knowledge.png" alt="Project page with Project knowledge + circled and 3 files listed" loading="lazy"><figcaption>Project knowledge → + → add your price list, a past proposal and your FAQ. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 10</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">One brief. Ten documents. One line each</span><span class="l-ar">ملخص واحد. عشر وثائق. سطر واحد لكل منها</span></span><span>BRIEF</span></div>
   
   <div class="step"><div class="num">04</div><div>
-    <h2><span class="l-en">Run one line per document</span><span class="l-ar">سطر واحد لكل وثيقة</span></h2><p><span class="l-en">Start a new chat inside the project. Paste the input, then the one-line prompt for the document you need from the next pages. One document per chat keeps the inputs from mixing. If something is missing, Claude asks, because the brief tells it to.</span><span class="l-ar">ابدأ محادثة جديدة داخل المشروع. الصق المادة الخام، ثم الأمر ذا السطر الواحد للوثيقة التي تحتاجها من الصفحات التالية. وثيقة واحدة في كل محادثة تمنع اختلاط المواد. إذا نقصت معلومة سيسألك Claude، لأن الملخص يطلب منه ذلك.</span></p></div></div>
+    <h2><span class="l-en">Run one line per document</span><span class="l-ar">سطر واحد لكل وثيقة</span></h2><p><span class="l-en">Start a new chat inside the project. Paste the input, then the one-line prompt for the document you need from the next pages. One document per chat keeps the inputs from mixing. If something is missing, Claude asks, because the brief tells it to.</span><span class="l-ar">ابدأ محادثة جديدة داخل المشروع. الصق المادة الخام، ثم الأمر ذا السطر الواحد للوثيقة التي تحتاجها من الصفحات التالية. وثيقة واحدة في كل محادثة تمنع اختلاط المواد. إذا نقصت معلومة سيسألك Claude، لأن الملخص يطلب منه ذلك.</span></p><figure class="shot"><img src="assets/business-brief/shot-one-line.png" alt="Chat in the Cedar Dental project with call notes pasted and a one-line prompt, send circled" loading="lazy"><figcaption>Paste the input, add the one line, send. Recreated screen.</figcaption></figure></div></div>
   <div class="step"><div class="num">05</div><div>
     <h2><span class="l-en">Check it, then fix the brief</span><span class="l-ar">راجع النتيجة ثم حسّن الملخص</span></h2><p><span class="l-en">Read every document before it leaves: prices, dates, names, promises. When you keep correcting the same thing (too long, too formal, wrong sign-off), add one line to the brief and save it again. Every chat after that comes out fixed.</span><span class="l-ar">اقرأ كل وثيقة قبل إرسالها: الأسعار والتواريخ والأسماء والوعود. عندما تجد نفسك تصحح الشيء نفسه مرارًا (طويلة جدًا، رسمية جدًا، توقيع خاطئ)، أضف سطرًا واحدًا إلى الملخص واحفظه من جديد. كل محادثة بعدها ستخرج مصححة.</span></p></div></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 08</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 10</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">One brief. Ten documents. One line each</span><span class="l-ar">ملخص واحد. عشر وثائق. سطر واحد لكل منها</span></span><span>BRIEF</span></div>
@@ -173,7 +186,7 @@ Turn these notes into a follow-up that confirms what we agreed and the next step
 [paste the rows from your sheet]
 
 Write a 5-line report for my [partner / manager]. What went up, what went down, one thing to fix.</pre></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 08</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 10</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">One brief. Ten documents. One line each</span><span class="l-ar">ملخص واحد. عشر وثائق. سطر واحد لكل منها</span></span><span>BRIEF</span></div>
@@ -190,7 +203,7 @@ Turn this into numbered steps a new hire can follow without asking me.</pre></di
 [paste the thread]
 
 Read this thread, tell me what the customer actually wants in one line, then draft the reply.</pre></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 08</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 10</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">One brief. Ten documents. One line each</span><span class="l-ar">ملخص واحد. عشر وثائق. سطر واحد لكل منها</span></span><span>BRIEF</span></div>
@@ -208,7 +221,7 @@ Write a reply that owns the mistake, says what we'll do and by when. No discount
 [paste the post]
 
 Turn this into one LinkedIn post: one idea, a first line that stops the scroll, no hashtags.</pre></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 08</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">08 / 10</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">One brief. Ten documents. One line each</span><span class="l-ar">ملخص واحد. عشر وثائق. سطر واحد لكل منها</span></span><span>BRIEF</span></div>
@@ -219,7 +232,7 @@ My notes from the meeting:
 [paste your notes]
 
 Turn this agenda and my notes into a recap the client can forward to their boss.</pre></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 08</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">09 / 10</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">One brief. Ten documents. One line each</span><span class="l-ar">ملخص واحد. عشر وثائق. سطر واحد لكل منها</span></span><span>BRIEF</span></div>
@@ -233,7 +246,7 @@ Turn this agenda and my notes into a recap the client can forward to their boss.
     <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
     <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
   </div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">08 / 08</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">10 / 10</span></div>
 </section>
 <script>
 (function(){

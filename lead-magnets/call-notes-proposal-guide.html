@@ -70,6 +70,9 @@ html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
 .step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
 .step h2{font-size:30px;margin-bottom:6px}
 .step p{color:var(--muted);margin-bottom:6px}
+.shot{margin:10px 0 2px;border:1px solid var(--line);border-top:1.5px solid var(--brass);background:var(--white);padding:6px}
+.shot img,.shot video{display:block;width:100%;height:auto;max-height:3.3in;object-fit:contain;background:var(--white)}
+.shot figcaption{font-size:10.5px;color:var(--muted);padding:6px 2px 0;letter-spacing:.02em}
 .prompt{margin-bottom:8px}
 .prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
 /* payoff */
@@ -126,30 +129,40 @@ html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
   <p>Claude can read your notes and your price list and write the proposal as a Word doc, on any plan. The last line of the prompt is the one that pays: it tells Claude to flag anything you didn't price, so you see it before you send.</p>
   <h3>You need</h3><ul><li class="l-en">A Claude account with file creation switched on (Settings, then Capabilities)</li><li class="l-en">Your price list (a PDF, a sheet or plain text)</li><li class="l-en">One past proposal you liked</li><li class="l-en">Your notes or the transcript from the call</li></ul>
   <div class="callout"><strong>Heads up:</strong> Read the flags and every price before you send. Claude uses only what's in your price list if you tell it to, but it can still misread a line. Never send a proposal you haven't read top to bottom.</div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 05</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 07</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span>Call notes in. Proposal out. Nothing unpriced</span><span>PROPOSAL</span></div>
   <div class="eyebrow">02 · The steps</div><h2>Set it up, <span class="em">step by step.</span></h2>
   <div class="step"><div class="num">01</div><div>
-    <h2>Make a Proposals Project</h2><p>Go to claude.ai/projects and click + New Project. Name it Proposals.</p></div></div>
+    <h2>Make a Proposals Project</h2><p>Go to claude.ai/projects and click + New Project. Name it Proposals.</p><figure class="shot"><img src="assets/call-notes-proposal/shot-new-project.png" alt="Create a personal project dialog with Proposals typed and Create project circled" loading="lazy"><figcaption>Projects → + New project → name it Proposals → Create project. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>Call notes in. Proposal out. Nothing unpriced</span><span>PROPOSAL</span></div>
+  
   <div class="step"><div class="num">02</div><div>
-    <h2>Add your price list and a past proposal</h2><p>In the project knowledge panel, click + and upload your price list and one past proposal you liked. Claude uses the first for numbers and the second for layout and tone.</p></div></div>
+    <h2>Add your price list and a past proposal</h2><p>In the project knowledge panel, click + and upload your price list and one past proposal you liked. Claude uses the first for numbers and the second for layout and tone.</p><figure class="shot"><img src="assets/_shared/claude/project-knowledge.png" alt="Project page with Project knowledge + circled and 3 files listed" loading="lazy"><figcaption>Project knowledge → + → upload your price list and a past proposal. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>Call notes in. Proposal out. Nothing unpriced</span><span>PROPOSAL</span></div>
+  
   <div class="step"><div class="num">03</div><div>
     <h2>Set the instructions</h2><p>Click Set project instructions and paste this. It applies to every chat in the project.</p><pre>You write proposals for [business name].
 Use only the prices in the price list file. Never invent a price, a discount or a deadline.
 Follow the layout of the past proposal file.
-Always end with a list called FLAGS: anything the client asked for that isn't on my price list, and anything in the notes that's unclear.</pre></div></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 05</span></div>
+Always end with a list called FLAGS: anything the client asked for that isn't on my price list, and anything in the notes that's unclear.</pre><figure class="shot"><img src="assets/_shared/claude/project-instructions.png" alt="Set project instructions box with Save instructions circled" loading="lazy"><figcaption>Set project instructions → paste → Save instructions. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 07</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span>Call notes in. Proposal out. Nothing unpriced</span><span>PROPOSAL</span></div>
   
   <div class="step"><div class="num">04</div><div>
-    <h2>After every call, one prompt</h2><p>Start a new chat in the project, paste or upload your call notes, and send the main prompt from the next page. You get a Word doc and a list of flags.</p></div></div>
+    <h2>After every call, one prompt</h2><p>Start a new chat in the project, paste or upload your call notes, and send the main prompt from the next page. You get a Word doc and a list of flags.</p><figure class="shot loop"><video poster="assets/call-notes-proposal/loop-proposal.png" autoplay muted loop playsinline preload="metadata" aria-label="Claude chat: call notes pasted, the proposal prompt sent, a Word doc and a FLAGS line come back"><source src="assets/call-notes-proposal/loop-proposal.webm" type="video/webm"><source src="assets/call-notes-proposal/loop-proposal.mp4" type="video/mp4"></video><figcaption>Notes + the prompt in, a Word doc and the FLAGS out. Recreated screen.</figcaption></figure></div></div>
   <div class="step"><div class="num">05</div><div>
     <h2>Price the flags, then send</h2><p>Go through the FLAGS list. Add a price, cut the item, or ask the client. Then ask Claude to update the doc and send it yourself.</p></div></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 05</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 07</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span>Call notes in. Proposal out. Nothing unpriced</span><span>PROPOSAL</span></div>
@@ -160,7 +173,7 @@ Always end with a list called FLAGS: anything the client asked for that isn't on
   <div class="prompt"><h4><span class="tag">PROMPT</span>2. Add the flagged item</h4><pre>Add [item] at [price] to the proposal, update the total and give me the new Word doc.</pre></div>
   <div class="prompt"><h4><span class="tag">PROMPT</span>3. The cover email</h4><pre>Write a short email to send with this proposal. Remind them of the one problem they told me about on the call and the next step. Under 100 words.</pre></div>
   <div class="prompt"><h4><span class="tag">PROMPT</span>4. Check before you send</h4><pre>Read the proposal like the client would. List anything unclear, any price that doesn't match the price list, and any promise I didn't make on the call.</pre></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 05</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 07</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span>Call notes in. Proposal out. Nothing unpriced</span><span>PROPOSAL</span></div>
@@ -174,7 +187,7 @@ Always end with a list called FLAGS: anything the client asked for that isn't on
     <p>AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</p>
     <div class="h"><span class="ltr">@karemops.ai</span> · Instagram · TikTok · LinkedIn</div>
   </div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 05</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 07</span></div>
 </section>
 
 </body>

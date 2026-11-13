@@ -70,6 +70,9 @@ html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
 .step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
 .step h2{font-size:30px;margin-bottom:6px}
 .step p{color:var(--muted);margin-bottom:6px}
+.shot{margin:10px 0 2px;border:1px solid var(--line);border-top:1.5px solid var(--brass);background:var(--white);padding:6px}
+.shot img,.shot video{display:block;width:100%;height:auto;max-height:3.3in;object-fit:contain;background:var(--white)}
+.shot figcaption{font-size:10.5px;color:var(--muted);padding:6px 2px 0;letter-spacing:.02em}
 .prompt{margin-bottom:8px}
 .prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
 /* payoff */
@@ -124,27 +127,37 @@ html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
   <p>The setup takes one afternoon. After that it's 3 uploads and one message. The report compares this week with last week and flags anything that dropped, so you read 9 tiles instead of 3 spreadsheets.</p>
   <h3>You need</h3><ul><li class="l-en">A Claude account with file creation switched on (Settings, then Capabilities)</li><li class="l-en">Your sales export (Shopify, your POS, or an invoice sheet)</li><li class="l-en">Your leads export (Airtable or GoHighLevel)</li><li class="l-en">Your Meta ad spend export from Ads Manager</li><li class="l-en">Optional: the Google Calendar connector, for tile 9</li></ul>
   <div class="callout"><strong>Heads up:</strong> Check the first 2 reports against your own numbers before you trust them. Claude can match the wrong column or miss a refund. Keep the column names the same every week, so it reads the files the same way.</div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 07</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 09</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span>Your Monday report, built by Claude</span><span>REPORT</span></div>
   <div class="eyebrow">02 · The steps</div><h2>Set it up, <span class="em">step by step.</span></h2>
   <div class="step"><div class="num">01</div><div>
-    <h2>Export the 3 files</h2><p>Sales for the last 2 weeks, leads for the last 2 weeks (in Airtable, open the view and download it as CSV; GoHighLevel exports contacts as CSV), and ad spend by day from Meta Ads Manager. Same date range in all three.</p></div></div>
-  <div class="step"><div class="num">02</div><div>
-    <h2>Make a Report Project</h2><p>Go to claude.ai/projects, click + New Project and call it Monday Report. Click Set project instructions and paste the report prompt from the next pages. Now you never have to type it again.</p></div></div>
-  <div class="step"><div class="num">03</div><div>
-    <h2>Upload and send one line</h2><p>Start a new chat in the project, upload the 3 CSVs and send: "Build this week's report." Claude builds the 9 tiles as a PDF and flags anything that dropped more than 10%.</p></div></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 07</span></div>
+    <h2>Export the 3 files</h2><p>Sales for the last 2 weeks, leads for the last 2 weeks (in Airtable, open the view and download it as CSV; GoHighLevel exports contacts as CSV), and ad spend by day from Meta Ads Manager. Same date range in all three.</p><figure class="shot"><img src="assets/monday-report/shot-airtable-csv.png" alt="Airtable grid view menu with Download CSV circled" loading="lazy"><figcaption>Airtable: the view menu → Download CSV. Sample base. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 09</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span>Your Monday report, built by Claude</span><span>REPORT</span></div>
   
+  <div class="step"><div class="num">02</div><div>
+    <h2>Make a Report Project</h2><p>Go to claude.ai/projects, click + New Project and call it Monday Report. Click Set project instructions and paste the report prompt from the next pages. Now you never have to type it again.</p><figure class="shot"><img src="assets/_shared/claude/project-instructions.png" alt="Set project instructions box with Save instructions circled" loading="lazy"><figcaption>Paste the report prompt into Set project instructions → Save instructions. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 09</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>Your Monday report, built by Claude</span><span>REPORT</span></div>
+  
+  <div class="step"><div class="num">03</div><div>
+    <h2>Upload and send one line</h2><p>Start a new chat in the project, upload the 3 CSVs and send: "Build this week's report." Claude builds the 9 tiles as a PDF and flags anything that dropped more than 10%.</p><figure class="shot loop"><video poster="assets/monday-report/loop-report.png" autoplay muted loop playsinline preload="metadata" aria-label="Claude chat in the Monday Report project: 3 CSVs attached, the line sent, a 9-tile PDF report appears"><source src="assets/monday-report/loop-report.webm" type="video/webm"><source src="assets/monday-report/loop-report.mp4" type="video/mp4"></video><figcaption>3 CSVs in, one line, the 9-tile PDF out. Sample numbers. Recreated screen.</figcaption></figure></div></div>
   <div class="step"><div class="num">04</div><div>
     <h2>Fix it once</h2><p>If a tile is wrong (wrong column, wrong week), tell Claude in the same chat, then update the project instructions so it doesn't happen again. Do this for 2 weeks.</p></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 09</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>Your Monday report, built by Claude</span><span>REPORT</span></div>
+  
   <div class="step"><div class="num">05</div><div>
-    <h2>Every Monday</h2><p>Export, upload, send the line. Read the flags first. If you want tile 9 (calls you haven't prepped), switch on the Google Calendar connector in the chat with + then Connectors.</p></div></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 07</span></div>
+    <h2>Every Monday</h2><p>Export, upload, send the line. Read the flags first. If you want tile 9 (calls you haven't prepped), switch on the Google Calendar connector in the chat with + then Connectors.</p><figure class="shot"><img src="assets/_shared/claude/plus-connectors.png" alt="Claude + menu, Connectors submenu with Gmail, Google Calendar and Google Drive" loading="lazy"><figcaption>+ → Connectors → switch on Google Calendar for tile 9. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 09</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span>Your Monday report, built by Claude</span><span>REPORT</span></div>
@@ -153,7 +166,7 @@ html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
   <div class="prompt"><h4><span class="tag">PROMPT</span>Tile 1. Sales this week</h4><pre>Total sales this week and last week, and the % change.</pre></div>
   <div class="prompt"><h4><span class="tag">PROMPT</span>Tile 2. New leads</h4><pre>New leads this week, split by source. Which source grew most?</pre></div>
   <div class="prompt"><h4><span class="tag">PROMPT</span>Tile 3. Calls booked</h4><pre>How many leads have a booked call this week?</pre></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 07</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 09</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span>Your Monday report, built by Claude</span><span>REPORT</span></div>
@@ -162,14 +175,14 @@ html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
   <div class="prompt"><h4><span class="tag">PROMPT</span>Tile 5. Best seller</h4><pre>Top product or service by units and by revenue this week.</pre></div>
   <div class="prompt"><h4><span class="tag">PROMPT</span>Tile 6. Ad spend vs sales</h4><pre>Ad spend this week next to sales this week. Sales per $1 spent.</pre></div>
   <div class="prompt"><h4><span class="tag">PROMPT</span>Tile 7. Unpaid invoices</h4><pre>List invoices still unpaid, oldest first, with the total.</pre></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 07</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 09</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span>Your Monday report, built by Claude</span><span>REPORT</span></div>
   
   <div class="prompt"><h4><span class="tag">PROMPT</span>Tile 8. Top complaint</h4><pre>From the notes or reviews column, the most common complaint this week, with a count.</pre></div>
   <div class="prompt"><h4><span class="tag">PROMPT</span>Tile 9. Next week's prep</h4><pre>Check my Google Calendar for next week. List sales calls that have no notes or agenda yet.</pre></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 07</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">08 / 09</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span>Your Monday report, built by Claude</span><span>REPORT</span></div>
@@ -183,7 +196,7 @@ html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
     <p>AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</p>
     <div class="h"><span class="ltr">@karemops.ai</span> · Instagram · TikTok · LinkedIn</div>
   </div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 07</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">09 / 09</span></div>
 </section>
 
 </body>
