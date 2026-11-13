@@ -4329,7 +4329,7 @@
    "inside": "املأ الملخص، واجعله تعليمات مشروعك على Claude، ثم استخدم الأوامر العشرة ذات السطر الواحد التي تحوّل ملاحظاتك وأرقامك ونصوصك المفرغة إلى وثائق جاهزة.",
    "what": [
     "يكتب معظم الناس أمرًا جديدًا في كل مرة ويشرحون عملهم من البداية. الملخص يحل هذه المشكلة. فيه من أنت، وما تبيعه، ومن يشتري منك، وكيف تتكلم، وما لا تعِد به أبدًا. تكتبه مرة واحدة وتضعه في تعليمات مشروع على Claude، فيقرؤه Claude في كل محادثة داخل هذا المشروع.",
-    "بعد ذلك تصبح كل وثيقة سطرًا واحدًا: الصق المادة الخام (نصًا مفرغًا أو ملاحظات أو أرقام الأسبوع أو مراجعات العملاء) واكتب ما تريد تحويلها إليه. الملخص يحمل عملك، والسطر يحمل المهمة. لهذا تبدو النتيجة بصوتك أنت."
+    "بعد ذلك تصبح كل وثيقة سطرًا واح��ًا: الصق المادة الخام (نصًا مفرغًا أو ملاحظات أو أرقام الأسبوع أو مراجعات العملاء) واكتب ما تريد تحويلها إليه. الملخص يحمل عملك، والسطر يحمل المهمة. لهذا تبدو النتيجة بصوتك أنت."
    ],
    "prereqs": [
     "حساب Claude. المشاريع متاحة في كل الخطط، ومنها الخطة المجانية (الحد فيها 5 مشاريع)",
@@ -5065,5 +5065,614 @@
    "steps": 2,
    "prompts": 3
   }
+ },
+ {
+  "kw": "MAP",
+  "slug": "claude-owner-map",
+  "style": "club",
+  "url": "https://www.karemopsai.com/guides/claude-owner-map",
+  "dm_url": "https://www.karemopsai.com/guides/claude-owner-map?via=dm",
+  "number": 49,
+  "hero": "prompt",
+  "date_en": "13 Nov 2026",
+  "title": "18 jobs Claude can do in your <span class=\"em\">business.</span>",
+  "lead": "Six departments, three jobs each, and the exact line to type for every one. Seventeen run in the normal Claude app. One needs Claude Code.",
+  "inside": "Switch on the 3 features the map needs, then run the 18 copy-paste prompts: sales, marketing, admin, money, customers and reporting.",
+  "what": [
+   "Most owners use Claude for one thing: rewriting an email. The map shows the rest. Every job on it uses a feature Anthropic lists on its own help pages: web search, file creation (Word, Excel, PDF), Projects, and the Gmail, Calendar and Drive connectors.",
+   "Don't run all 18 this week. Pick the department that eats most of your week, run its 3 jobs every day for 7 days, and only then move to the next one. That's how a job becomes a habit and not a demo."
+  ],
+  "prereqs": [
+   "A Claude account. File creation, Projects and the Google connectors are on every plan, Free included",
+   "Claude on the web or the Claude Desktop app",
+   "Your Gmail, Google Calendar and Google Drive (for the admin and customer jobs)",
+   "A paid plan only for job 18 (the dashboard), which runs in Claude Code"
+  ],
+  "warn": "Claude asks before it sends an email by default. Keep that on. Read every proposal, reply and figure before it reaches a customer: Claude can misread a PDF or a number. On a Team or Enterprise plan, the owner has to switch on web search, file creation and the connectors for the workspace first (Organization settings).",
+  "steps": [
+   {
+    "h": "Turn on file creation",
+    "p": "In Claude, open Settings, then Capabilities, and switch on Code execution and file creation (in the newer layout it's called Create and edit files). This is what lets Claude hand you a Word doc, an Excel sheet or a PDF. Files can be up to 30MB each."
+   },
+   {
+    "h": "Connect Gmail, Calendar and Drive",
+    "p": "In a chat, click the + button, hover over Connectors and switch on Gmail, Google Calendar and Google Drive. The first time, Claude asks you to sign in with your Google account. You can switch each one off from the same menu."
+   },
+   {
+    "h": "Switch on web search when you need it",
+    "p": "For jobs 1 and 6, click + in the chat and pick Web search. A checkmark shows it's on. Claude then reads live pages and gives you the links it used."
+   },
+   {
+    "h": "Make one Project per department",
+    "p": "Go to claude.ai/projects, click + New Project and name it (Sales, Marketing). Click Set project instructions and paste 3 lines about your business: what you sell, who buys, how you talk. Add your price list and a few past emails to the project knowledge. Free plans can have 5 projects."
+   },
+   {
+    "h": "Pick one branch for 7 days",
+    "p": "Choose the department that takes most of your week. Run its 3 prompts from the next pages every day for 7 days. When they feel normal, move to the next branch."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "Sales 1. Research the prospect",
+    "code": "Search the web for [company name] in [city]. Tell me what they sell, who runs it, any news from the last 6 months and 3 questions I should ask on our call. List your sources."
+   },
+   {
+    "h": "Sales 2. Proposal as a Word doc",
+    "code": "Here are my call notes:\n[paste notes]\n\nTurn them into a proposal as a Word doc. Use only the prices in my price list. Flag anything I didn't price."
+   },
+   {
+    "h": "Sales 3. Follow-up in Gmail",
+    "code": "Find my last email thread with [client name] in Gmail and draft a follow-up that confirms what we agreed and the next step. Save it as a draft. Don't send it."
+   },
+   {
+    "h": "Marketing 4. Posts in your voice",
+    "code": "Using the examples in this project, write 3 LinkedIn posts about [topic]. One idea each, short lines, no hashtags."
+   },
+   {
+    "h": "Marketing 5. Ad copy from reviews",
+    "code": "Here are [20] customer reviews:\n[paste reviews]\n\nPull the phrases customers repeat and write 5 ad headlines in their words."
+   },
+   {
+    "h": "Marketing 6. What competitors posted",
+    "code": "Search the web for what [competitor 1], [competitor 2] and [competitor 3] posted or announced this week. One line each, with the link."
+   },
+   {
+    "h": "Admin 7. Find a slot and book it",
+    "code": "Find a free 30-minute slot next week when I and [name, email] are both available, then create the event called [title]. Show me the slot before you book it."
+   },
+   {
+    "h": "Admin 8. Find the lost file",
+    "code": "Search my Google Drive for the [file you need, e.g. supplier contract from March]. Give me the file name, the link and when it was last changed."
+   },
+   {
+    "h": "Admin 9. SOP from your notes",
+    "code": "Here are my notes on how I [task]:\n[paste notes]\n\nTurn them into numbered steps a new hire can follow without asking me."
+   },
+   {
+    "h": "Money 10. Invoices into one table",
+    "code": "I'm uploading [8] invoice PDFs. Put them in one Excel sheet: supplier, invoice number, date, amount, due date. Add a total at the bottom."
+   },
+   {
+    "h": "Money 11. Sales chart from a CSV",
+    "code": "Here's my sales export as a CSV. Chart sales by week for the last 3 months and tell me in 3 lines what changed."
+   },
+   {
+    "h": "Money 12. Price list to spreadsheet",
+    "code": "Here's my price list:\n[paste or upload it]\n\nTurn it into an Excel sheet: item, price, unit, notes. One row per item."
+   },
+   {
+    "h": "Customers 13. FAQ answers from your files",
+    "code": "Using only the files in this project, answer this customer question: [paste question]. If the answer isn't in the files, say so."
+   },
+   {
+    "h": "Customers 14. Reply drafts",
+    "code": "Find the unanswered customer emails in my Gmail from the last 3 days and draft a reply to each. Save them as drafts. Don't send anything."
+   },
+   {
+    "h": "Customers 15. Top complaints",
+    "code": "Here are my reviews as a CSV:\n[upload file]\n\nGroup the complaints, count each group and list the top 5 with one real quote each."
+   },
+   {
+    "h": "Reporting 16. Weekly report as a PDF",
+    "code": "Here are this week's sales and leads exports. Build a one-page weekly report as a PDF: totals, change from last week, and 3 things to fix."
+   },
+   {
+    "h": "Reporting 17. What's waiting on you",
+    "code": "Check my Gmail and Google Calendar. List what's waiting on me this week: emails I haven't answered, meetings with no prep and anything due."
+   },
+   {
+    "h": "Reporting 18. Sales dashboard (Claude Code)",
+    "code": "Build a one-page sales dashboard from sales.csv in this folder. Show sales by week, top 5 products and new vs repeat customers. Make it an HTML file I can open in my browser."
+   }
+  ],
+  "perPage": {
+   "steps": 3,
+   "prompts": 4
+  },
+  "credit": [
+   "Features from Anthropic's Help Center (support.claude.com): file creation, Projects, web search and the Google Workspace connectors. Claude Code from code.claude.com",
+   "Map and prompts written by Karem AlMoayyad for Karemops.ai"
+  ],
+  "payoff": "Pick your heaviest department tonight. Run its 3 jobs tomorrow morning, before you open your inbox."
+ },
+ {
+  "kw": "PROCESS",
+  "slug": "write-it-down",
+  "style": "club",
+  "url": "https://www.karemopsai.com/guides/write-it-down",
+  "dm_url": "https://www.karemopsai.com/guides/write-it-down?via=dm",
+  "number": 50,
+  "hero": 2,
+  "date_en": "13 Nov 2026",
+  "title": "Write down how your business runs. <span class=\"em\">Then</span> add AI.",
+  "lead": "Claude follows what you give it. Give it a messy process and you get the same mess, faster. This is the one-page process doc to write first.",
+  "inside": "List the jobs you repeat, write 3 lines for each, fill in the one-page template, and let Claude find the gaps before you hand anything off.",
+  "what": [
+   "Most owners want the automation first: the follow-ups, the reports, the DM replies. Then it breaks on day 2, because nobody wrote down what the job is. Claude can't guess what's in your head, and neither can a new hire.",
+   "The fix is boring and it works. For every job you repeat, write what comes in, what you do with it and what goes out. The jobs you can write cleanly are the ones to hand off first, to Claude or to a person."
+  ],
+  "prereqs": [
+   "A notes app or a Google Doc",
+   "30 minutes for your first 10 jobs",
+   "A Claude account (any plan) for the gap check in step 4",
+   "Optional: a voice memo app, if talking is easier than typing"
+  ],
+  "warn": "Don't automate a job you haven't run by hand from the doc at least once. If you skip a step when you follow your own doc, the doc is wrong. Fix it before Claude or anyone else uses it.",
+  "steps": [
+   {
+    "h": "List the jobs you repeat",
+    "p": "Go through last week: your sent emails, your DMs, your calendar. Write every job you did more than once. Answering price questions, sending invoices, booking calls, posting. Aim for 10 to 20."
+   },
+   {
+    "h": "Write 3 lines for each job",
+    "p": "What comes in (a DM, an invoice, a form). What you do with it. What goes out (a reply, a file, a booking). If you can't write the 3 lines, the job isn't clear yet. Mark it and move on.",
+    "code": "Job: [name]\nComes in: [what arrives, and where]\nI do: [the steps, in order]\nGoes out: [what leaves, and to whom]"
+   },
+   {
+    "h": "Fill in the one-page doc",
+    "p": "For the 3 jobs that cost you the most time, fill in the full template below. One page each. Use your real tools by name: Gmail, Airtable, GoHighLevel, WhatsApp.",
+    "code": "JOB: [name]\nOWNER: [who does it today]\nTRIGGER: [what starts it]\nINPUT: [what arrives and where]\nSTEPS:\n1. [first thing you do]\n2. [next]\n3. [next]\nOUTPUT: [what leaves, to whom]\nTOOLS: [apps you touch]\nRULES: [prices, limits, what you never do]\nDONE WHEN: [how you know it's finished]\nWHEN IT GOES WRONG: [the usual problem and the fix]"
+   },
+   {
+    "h": "Let Claude find the gaps",
+    "p": "Paste one filled doc into Claude with the first prompt on the next page. It asks the questions a new hire would ask. Answer them in the doc, not in the chat."
+   },
+   {
+    "h": "Hand off the cleanest one",
+    "p": "Rank your jobs with the last prompt. Hand off the one with the clearest doc first. Run it from the doc for a week, fix what breaks, then pick the next."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Find the gaps",
+    "code": "Here's how I do [job]:\n[paste the doc]\n\nYou're a new hire doing this for the first time. List every question you'd have to ask me before you could do it alone."
+   },
+   {
+    "h": "2. Voice memo to doc",
+    "code": "Here's a transcript of me explaining how I [job]:\n[paste transcript]\n\nTurn it into this template: JOB, TRIGGER, INPUT, STEPS, OUTPUT, TOOLS, RULES, DONE WHEN. Leave a field empty if I didn't say it."
+   },
+   {
+    "h": "3. Interview me",
+    "code": "Interview me about how I [job]. Ask one question at a time. When you have enough, write the one-page process doc."
+   },
+   {
+    "h": "4. Rank what to hand off",
+    "code": "Here are my process docs:\n[paste them]\n\nRank them by how clearly they're written and how often the job happens. Tell me which one to hand off first, and why."
+   }
+  ],
+  "perPage": {
+   "steps": 2,
+   "prompts": 3
+  },
+  "credit": [
+   "Process doc template and prompts written by Karem AlMoayyad for Karemops.ai"
+  ],
+  "payoff": "Tonight, write the 3 lines for 10 jobs. Tomorrow, hand off the cleanest one."
+ },
+ {
+  "kw": "EMAIL",
+  "slug": "ai-email-giveaways",
+  "style": "club",
+  "url": "https://www.karemopsai.com/guides/ai-email-giveaways",
+  "dm_url": "https://www.karemopsai.com/guides/ai-email-giveaways?via=dm",
+  "number": 51,
+  "hero": "prompt",
+  "date_en": "13 Nov 2026",
+  "title": "10 giveaways that tell clients <span class=\"em\">AI</span> wrote it.",
+  "lead": "The checklist to run before you hit send, with the fix for each one, plus the prompt that checks your draft for you.",
+  "inside": "The 10 giveaways with a before and after for each, then 3 prompts: check a draft, fix it, and stop the giveaways at the source.",
+  "what": [
+   "Readers have seen enough AI text to spot it. One giveaway is fine. Three in one email and the reader stops trusting the rest, including your price.",
+   "Most of these are habits AI models fall into: long dashes, \"it's not just X, it's Y\", lists of three, words like \"delve\". Delete them and the email reads like a person wrote it, because a person checked it."
+  ],
+  "prereqs": [
+   "The email, post or proposal you're about to send",
+   "Any Claude plan for the check prompts",
+   "2 minutes per email"
+  ],
+  "warn": "This list catches patterns, not facts. A clean-sounding email can still have a wrong price or name. Read it for facts after you fix the style.",
+  "heads": {
+   "stepsEyebrow": "The checklist",
+   "stepsH": "Delete this. Write that."
+  },
+  "steps": [
+   {
+    "h": "1. Long dashes mid-sentence",
+    "p": "Delete the long dash (the one between two words, like this example: fast—cheap). Use a period or a comma. \"We ship fast. Most orders land in 2 days.\""
+   },
+   {
+    "h": "2. \"It's not just X, it's Y\"",
+    "p": "Say the real thing. Not \"It's not just a tool, it's a partner\" but \"It answers your DMs at night.\""
+   },
+   {
+    "h": "3. Three things in a row",
+    "p": "Lists of three for rhythm (\"fast, simple and powerful\") sound written by a machine. Two is fine. One real detail is better."
+   },
+   {
+    "h": "4. \"Delve\", \"seamless\", \"leverage\"",
+    "p": "Swap for plain words: \"look at\", \"smooth\", \"use\". Same for \"robust\", \"pivotal\", \"showcase\" and \"foster\"."
+   },
+   {
+    "h": "5. \"Let's dive in\"",
+    "p": "Delete the warm-up. Start with the point: \"Here's the quote for the April job.\""
+   },
+   {
+    "h": "6. \"Great question!\"",
+    "p": "Answer the question. Praise before an answer reads as filler, and clients notice."
+   },
+   {
+    "h": "7. \"Honestly?\" \"Here's the thing\"",
+    "p": "Fake-candid openers. Just say it: \"The deadline won't work. Can we do the 14th?\""
+   },
+   {
+    "h": "8. \"At its core\"",
+    "p": "Write the actual claim. \"At its core, our service is about trust\" becomes \"We answer within 2 hours.\""
+   },
+   {
+    "h": "9. \"Serves as\", \"boasts\"",
+    "p": "Use \"is\" and \"has\". \"The office boasts parking\" becomes \"The office has parking.\""
+   },
+   {
+    "h": "10. \"In order to\", \"due to the fact that\"",
+    "p": "Use \"to\" and \"because\". Shorter, and it sounds like you talking."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Check my draft",
+    "code": "Check this email for these AI giveaways: long dashes mid-sentence, \"it's not just X, it's Y\", lists of three, words like delve, seamless, leverage, robust, \"let's dive in\", \"great question\", \"honestly?\", \"here's the thing\", \"at its core\", \"serves as\", \"boasts\", \"in order to\", \"due to the fact that\".\nQuote each one you find and give the fix. Don't rewrite the rest.\n\n[paste email]"
+   },
+   {
+    "h": "2. Fix it in my voice",
+    "code": "Rewrite this email with those giveaways removed. Keep my words where they're fine, keep it the same length or shorter, and don't add anything I didn't say.\n\n[paste email]"
+   },
+   {
+    "h": "3. Stop them at the source",
+    "code": "Add this to your project instructions:\nNever use long dashes. Never write \"it's not just X, it's Y\". Don't list three things for rhythm. Never use: delve, seamless, leverage, robust, pivotal, showcase, foster. No warm-up openers, no praise before answers. Use \"is\" and \"has\", not \"serves as\" or \"boasts\"."
+   }
+  ],
+  "perPage": {
+   "steps": 5,
+   "prompts": 3
+  },
+  "credit": [
+   "Checklist and prompts written by Karem AlMoayyad for Karemops.ai, from common patterns in AI-written text"
+  ],
+  "payoff": "Before your next send, run prompt 1 on it. Then put prompt 3 in your project so the next draft comes out clean."
+ },
+ {
+  "kw": "SYSTEMS",
+  "slug": "three-ai-systems",
+  "style": "club",
+  "url": "https://www.karemopsai.com/guides/three-ai-systems",
+  "dm_url": "https://www.karemopsai.com/guides/three-ai-systems?via=dm",
+  "number": 52,
+  "hero": "prompt",
+  "date_en": "13 Nov 2026",
+  "title": "3 AI systems I'd install in an <span class=\"em\">$8K/mo</span> business.",
+  "lead": "Content, ads and numbers. What each system does, what goes into it, what it needs from you, and which one to build first.",
+  "inside": "How the Content System, the Ad System and the numbers dashboard work, the stack behind each (Airtable, Claude Code, N8N, Supabase), and a starter prompt for each.",
+  "what": [
+   "Most owners buy AI tools one at a time and none of them talk to each other. A system is different: ideas go in one end, finished work comes out the other, and the same place holds every step. Your team still runs it. The system decides what to make and drafts it, so nobody starts from a blank page.",
+   "All three are built with Claude Code. Start with the one that matches your biggest leak: no content going out, ads you can't read, or numbers you only see at the end of the month."
+  ],
+  "prereqs": [
+   "Claude Code (paid Claude plan) to build them",
+   "An Airtable account (the free plan is enough to start)",
+   "N8N (cloud or self-hosted) to move work between steps",
+   "Access to your Meta ad account, for systems 2 and 3",
+   "One person on your team who will run it every week"
+  ],
+  "warn": "A system is only as good as what you feed it. If nobody approves the scripts or checks the dashboard, it stops working in 3 weeks. Pick the owner before you build. And keep a person on every ad launch: Claude drafts, a person presses publish.",
+  "heads": {
+   "stepsEyebrow": "The 3 systems",
+   "stepsH": "What each one does"
+  },
+  "steps": [
+   {
+    "h": "System 1: Content",
+    "p": "An Airtable base holds every idea, script and post. Claude Code pulls what competitors posted and turns the winners into angles. It writes scripts and carousel outlines in your voice. N8N moves each approved piece into a publishing queue. Your team films, checks and posts. Needs from you: a voice doc, 3 competitors, and 30 minutes a week to approve."
+   },
+   {
+    "h": "System 2: Ads",
+    "p": "First, your Meta ad account gets cleaned up: one campaign structure, clear names, and the pixel and Conversions API checked. Then a Claude Code engine scrapes competitor ads from the Meta Ad Library, writes ad briefs from what's working, and preps launches. Needs from you: access to the ad account, your offer, and a person who makes the creatives."
+   },
+   {
+    "h": "System 3: Numbers",
+    "p": "One page that shows where your funnel breaks, refreshed every week. Ad spend, leads, calls and sales sit side by side, so you see which step leaks. The data lives in Supabase and the page is built with Claude Code. Needs from you: access to your ad account and wherever your leads and sales live (GoHighLevel, Airtable, Shopify)."
+   },
+   {
+    "h": "Build one first",
+    "p": "No content going out? Build System 1. Spending on ads but can't tell what works? Build System 3, then 2. Never build all three at once. Each one needs 2 to 4 weeks of use before it runs smoothly."
+   },
+   {
+    "h": "Give it an owner",
+    "p": "Write down who runs it, what they check each week and where they flag problems. Without an owner, every system turns back into a pile of tools."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Content: the Airtable base",
+    "code": "I'm building a content system in Airtable. Design the base: one table for ideas, one for scripts, one for posts, linked to each other. Give me every field, its type and the status values from idea to posted. Then write it as a setup checklist I can follow."
+   },
+   {
+    "h": "2. Ads: the brief from competitors",
+    "code": "Here are [10] competitor ads from the Meta Ad Library (copy and what the visual shows):\n[paste them]\n\nGroup them by angle, tell me which angles show up most, and write 3 ad briefs for my offer: [your offer]. Hook, angle, what the visual shows, call to action."
+   },
+   {
+    "h": "3. Numbers: the one-page dashboard",
+    "code": "In this folder are 3 CSV exports: ads.csv, leads.csv, sales.csv. Build a one-page HTML dashboard: spend, leads, cost per lead, calls, sales, by week. Highlight the step where the drop is biggest. Tell me which columns you matched between files."
+   }
+  ],
+  "perPage": {
+   "steps": 2,
+   "prompts": 3
+  },
+  "credit": [
+   "Systems and prompts by Karem AlMoayyad for Karemops.ai. Tools named: Claude Code (Anthropic), Airtable, N8N, Supabase, Meta Ad Library"
+  ],
+  "payoff": "Pick the one leak that costs you most this month. Build that system first, and give it an owner before you start."
+ },
+ {
+  "kw": "REPORT",
+  "slug": "monday-report",
+  "style": "club",
+  "url": "https://www.karemopsai.com/guides/monday-report",
+  "dm_url": "https://www.karemopsai.com/guides/monday-report?via=dm",
+  "number": 53,
+  "hero": "prompt",
+  "date_en": "13 Nov 2026",
+  "title": "Your Monday report, built by <span class=\"em\">Claude.</span>",
+  "lead": "Three files you already export, one Claude Project, and one message every Monday. Here are the 9 tiles and the prompts behind them.",
+  "inside": "Export 3 CSVs, set up the Project once, then send one line every Monday. Includes the full report prompt and a prompt for each of the 9 tiles.",
+  "what": [
+   "Most owners build the weekly report by hand, or don't build it at all and find the problem a month late. Claude can read CSV files, analyse them and hand back a PDF or an Excel file. That's on every plan.",
+   "The setup takes one afternoon. After that it's 3 uploads and one message. The report compares this week with last week and flags anything that dropped, so you read 9 tiles instead of 3 spreadsheets."
+  ],
+  "prereqs": [
+   "A Claude account with file creation switched on (Settings, then Capabilities)",
+   "Your sales export (Shopify, your POS, or an invoice sheet)",
+   "Your leads export (Airtable or GoHighLevel)",
+   "Your Meta ad spend export from Ads Manager",
+   "Optional: the Google Calendar connector, for tile 9"
+  ],
+  "warn": "Check the first 2 reports against your own numbers before you trust them. Claude can match the wrong column or miss a refund. Keep the column names the same every week, so it reads the files the same way.",
+  "steps": [
+   {
+    "h": "Export the 3 files",
+    "p": "Sales for the last 2 weeks, leads for the last 2 weeks (in Airtable, open the view and download it as CSV; GoHighLevel exports contacts as CSV), and ad spend by day from Meta Ads Manager. Same date range in all three."
+   },
+   {
+    "h": "Make a Report Project",
+    "p": "Go to claude.ai/projects, click + New Project and call it Monday Report. Click Set project instructions and paste the report prompt from the next pages. Now you never have to type it again."
+   },
+   {
+    "h": "Upload and send one line",
+    "p": "Start a new chat in the project, upload the 3 CSVs and send: \"Build this week's report.\" Claude builds the 9 tiles as a PDF and flags anything that dropped more than 10%."
+   },
+   {
+    "h": "Fix it once",
+    "p": "If a tile is wrong (wrong column, wrong week), tell Claude in the same chat, then update the project instructions so it doesn't happen again. Do this for 2 weeks."
+   },
+   {
+    "h": "Every Monday",
+    "p": "Export, upload, send the line. Read the flags first. If you want tile 9 (calls you haven't prepped), switch on the Google Calendar connector in the chat with + then Connectors."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "The report prompt (project instructions)",
+    "code": "Every week I upload 3 CSVs: sales, leads, ad spend. Build a one-page PDF report with 9 tiles: sales this week vs last week, new leads and their source, calls booked, close rate, best seller, ad spend vs sales, unpaid invoices, top customer complaint, and next week's calls I haven't prepped. Compare every number with last week. Flag anything that dropped more than 10% in red at the top. If a file is missing a column you need, say which one."
+   },
+   {
+    "h": "Tile 1. Sales this week",
+    "code": "Total sales this week and last week, and the % change."
+   },
+   {
+    "h": "Tile 2. New leads",
+    "code": "New leads this week, split by source. Which source grew most?"
+   },
+   {
+    "h": "Tile 3. Calls booked",
+    "code": "How many leads have a booked call this week?"
+   },
+   {
+    "h": "Tile 4. Close rate",
+    "code": "Of the calls held this week, how many became sales? Show it as a %."
+   },
+   {
+    "h": "Tile 5. Best seller",
+    "code": "Top product or service by units and by revenue this week."
+   },
+   {
+    "h": "Tile 6. Ad spend vs sales",
+    "code": "Ad spend this week next to sales this week. Sales per $1 spent."
+   },
+   {
+    "h": "Tile 7. Unpaid invoices",
+    "code": "List invoices still unpaid, oldest first, with the total."
+   },
+   {
+    "h": "Tile 8. Top complaint",
+    "code": "From the notes or reviews column, the most common complaint this week, with a count."
+   },
+   {
+    "h": "Tile 9. Next week's prep",
+    "code": "Check my Google Calendar for next week. List sales calls that have no notes or agenda yet."
+   }
+  ],
+  "perPage": {
+   "steps": 3,
+   "prompts": 4
+  },
+  "credit": [
+   "File creation, CSV analysis and Projects from Anthropic's Help Center (support.claude.com)",
+   "Report prompts written by Karem AlMoayyad for Karemops.ai"
+  ],
+  "payoff": "This Friday, export the 3 files and set up the project. Monday morning, send one line."
+ },
+ {
+  "kw": "PROPOSAL",
+  "slug": "call-notes-proposal",
+  "style": "club",
+  "url": "https://www.karemopsai.com/guides/call-notes-proposal",
+  "dm_url": "https://www.karemopsai.com/guides/call-notes-proposal?via=dm",
+  "number": 54,
+  "hero": "prompt",
+  "date_en": "13 Nov 2026",
+  "title": "Call notes in. Proposal out. <span class=\"em\">Nothing</span> unpriced.",
+  "lead": "A Claude Project that knows your prices, and one prompt that turns any call into a Word doc proposal and flags the work you forgot to price.",
+  "inside": "Set up a Proposals Project with your price list and a past proposal, then run the prompt after every call. Includes 3 follow-up prompts.",
+  "what": [
+   "Writing a proposal after a call takes most owners an evening. And the costly part isn't the time: it's the extra the client asked for on the call that never made it onto the price list, so you do it for free.",
+   "Claude can read your notes and your price list and write the proposal as a Word doc, on any plan. The last line of the prompt is the one that pays: it tells Claude to flag anything you didn't price, so you see it before you send."
+  ],
+  "prereqs": [
+   "A Claude account with file creation switched on (Settings, then Capabilities)",
+   "Your price list (a PDF, a sheet or plain text)",
+   "One past proposal you liked",
+   "Your notes or the transcript from the call"
+  ],
+  "warn": "Read the flags and every price before you send. Claude uses only what's in your price list if you tell it to, but it can still misread a line. Never send a proposal you haven't read top to bottom.",
+  "steps": [
+   {
+    "h": "Make a Proposals Project",
+    "p": "Go to claude.ai/projects and click + New Project. Name it Proposals."
+   },
+   {
+    "h": "Add your price list and a past proposal",
+    "p": "In the project knowledge panel, click + and upload your price list and one past proposal you liked. Claude uses the first for numbers and the second for layout and tone."
+   },
+   {
+    "h": "Set the instructions",
+    "p": "Click Set project instructions and paste this. It applies to every chat in the project.",
+    "code": "You write proposals for [business name].\nUse only the prices in the price list file. Never invent a price, a discount or a deadline.\nFollow the layout of the past proposal file.\nAlways end with a list called FLAGS: anything the client asked for that isn't on my price list, and anything in the notes that's unclear."
+   },
+   {
+    "h": "After every call, one prompt",
+    "p": "Start a new chat in the project, paste or upload your call notes, and send the main prompt from the next page. You get a Word doc and a list of flags."
+   },
+   {
+    "h": "Price the flags, then send",
+    "p": "Go through the FLAGS list. Add a price, cut the item, or ask the client. Then ask Claude to update the doc and send it yourself."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. The proposal",
+    "code": "Turn these call notes into a proposal. Use only the prices in my price list. Word doc. Flag anything I didn't price.\n\n[paste call notes]"
+   },
+   {
+    "h": "2. Add the flagged item",
+    "code": "Add [item] at [price] to the proposal, update the total and give me the new Word doc."
+   },
+   {
+    "h": "3. The cover email",
+    "code": "Write a short email to send with this proposal. Remind them of the one problem they told me about on the call and the next step. Under 100 words."
+   },
+   {
+    "h": "4. Check before you send",
+    "code": "Read the proposal like the client would. List anything unclear, any price that doesn't match the price list, and any promise I didn't make on the call."
+   }
+  ],
+  "perPage": {
+   "steps": 3,
+   "prompts": 4
+  },
+  "credit": [
+   "File creation and Projects from Anthropic's Help Center (support.claude.com)",
+   "Project setup and prompts written by Karem AlMoayyad for Karemops.ai"
+  ],
+  "payoff": "Set up the project tonight. After your next call, the proposal goes out the same day, with nothing left unpriced."
+ },
+ {
+  "kw": "FRIDAY",
+  "slug": "black-friday-inbox",
+  "style": "club",
+  "url": "https://www.karemopsai.com/guides/black-friday-inbox",
+  "dm_url": "https://www.karemopsai.com/guides/black-friday-inbox?via=dm",
+  "number": 55,
+  "hero": "prompt",
+  "date_en": "13 Nov 2026",
+  "title": "50 Black Friday DMs. <span class=\"em\">One</span> Claude Project.",
+  "lead": "Black Friday is Friday 27 November. Set this up before Thursday night and you answer in seconds instead of losing the sale to a slow reply.",
+  "inside": "A Claude Project for the sale, the 10 answers written before anyone asks, Meta Business Suite FAQs and keyword replies, and a fast way to answer the rest.",
+  "what": [
+   "On a sale day the same 10 questions arrive 50 times: is it on all sizes, do you ship here, when does the code end. Every slow reply is a sale that goes somewhere else.",
+   "Claude doesn't read your Instagram DMs, so the setup splits the work. Claude writes the answers from your sale details. Meta Business Suite sends the common ones by itself. For everything else, you paste the DM into Claude and send its draft."
+  ],
+  "prereqs": [
+   "A Claude account (any plan; Projects are on Free too)",
+   "Your Instagram business account or Facebook Page connected to Meta Business Suite",
+   "Your Black Friday details: prices, the code, dates, shipping, returns",
+   "10 real replies you've sent customers before (for your voice)"
+  ],
+  "warn": "Meta's keyword replies only fire on an exact match and are case-sensitive, and they wait 15 minutes in case you reply yourself. If you've switched on Meta Business Agent, Meta pauses away messages and instant replies. Check every price and date in the answers before Friday.",
+  "steps": [
+   {
+    "h": "Make a Claude Project for the sale",
+    "p": "Go to claude.ai/projects, click + New Project and name it Black Friday. Upload one file with your sale prices, the code and when it ends, shipping, and returns. Add 10 replies you've sent before, so the answers sound like you."
+   },
+   {
+    "h": "Write the answers before anyone asks",
+    "p": "Start a chat in the project and send prompt 1 from the next page. You get the 10 questions customers will DM most, each with a short reply in your voice. Fix any fact that's off."
+   },
+   {
+    "h": "Put the top ones in Meta Business Suite",
+    "p": "In Business Suite, open Inbox, then automations. Use the Frequently asked questions template for the top questions, and Custom keywords (desktop only) for words like \"shipping\" or \"code\". Keywords match exactly and are case-sensitive, so add the spellings people use. Automations work across Messenger, Instagram and WhatsApp accounts you've connected."
+   },
+   {
+    "h": "Paste in anything that doesn't fit",
+    "p": "When a DM doesn't match, copy it into the Black Friday project with prompt 2. Claude drafts the reply from your sale file. You read it and send it."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. The 10 answers",
+    "code": "Using my sale file and my past replies, write the 10 questions customers will DM me most this week, and a reply to each in my voice, under 300 characters. Use only facts from the sale file."
+   },
+   {
+    "h": "2. Answer this DM",
+    "code": "A customer sent this:\n[paste the DM]\n\nDraft my reply from the sale file, in my voice, under 300 characters. If the answer isn't in the file, tell me what's missing."
+   },
+   {
+    "h": "3. The keyword list",
+    "code": "For each of the 10 questions, list the words a customer would type in a DM, including short and misspelled versions (ship, shiping, delivery). Max 5 per question."
+   },
+   {
+    "h": "4. Friday night recap",
+    "code": "Here are the DMs I answered by hand today:\n[paste them]\n\nWhich questions came up most that my FAQs didn't cover? Write a reply for each so I can add them for Saturday."
+   }
+  ],
+  "perPage": {
+   "steps": 2,
+   "prompts": 4
+  },
+  "credit": [
+   "Inbox automations from Meta's Business Help Center: About Inbox automations in Meta Business Suite",
+   "Claude Projects from Anthropic's Help Center (support.claude.com)",
+   "Setup and prompts written by Karem AlMoayyad for Karemops.ai"
+  ],
+  "payoff": "Set up the project by Wednesday. On Thursday night, switch on the automations and test them with a DM from a friend."
  }
 ]

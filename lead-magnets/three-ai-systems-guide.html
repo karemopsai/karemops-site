@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3 AI systems I'd install in an $8K/mo business | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E7E0D2; --paper:#FBF7EF; --white:#FFFFFF; --ink:#1A1714; --navy:#0E1A33; --muted:#4A4438; --line:#E4DACA;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F6F0E4; --cream:#F2EAD9; --brass:#B08D57;
+  --repp:repeating-linear-gradient(135deg,#0E1A33 0 11px,#0866FF 11px 17px,#0E1A33 17px 28px,#FBF7EF 28px 30px);
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Cormorant Garamond',Georgia,serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(14,26,51,.06),0 12px 40px rgba(14,26,51,.10);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--brass);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--brass);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-family:var(--serif);font-weight:600;font-size:64px;line-height:1;letter-spacing:-.01em;color:var(--navy);text-wrap:balance}
+h2{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.05;letter-spacing:-.01em;color:var(--navy);margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--blue);letter-spacing:0}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--cream);border:0;border-top:1.5px solid var(--brass);border-radius:0;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--navy);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--navy)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:0;padding:34px 40px;background-color:var(--cream);
+  border:1px solid var(--line);outline:1px solid var(--brass);outline-offset:6px}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(14,26,51,.12),0 2px 6px rgba(14,26,51,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:var(--navy);font-size:11px;color:var(--paper)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:rgba(251,247,239,.35);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--brass)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:34px;height:auto;display:block}
+.cover::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
+.step h2{font-size:30px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.prompt{margin-bottom:8px}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--navy);color:#fff;border-radius:0;padding:34px 30px 28px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-family:var(--serif);font-size:32px;letter-spacing:0;text-transform:none;margin:0 0 8px;font-weight:600}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px;color:#4D92FF}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3;font-family:var(--arab);font-weight:800}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+}</style>
+</head>
+<body>
+
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip">Comment · SYSTEMS</span></div>
+  <div class="eyebrow">Field guide · No. 52</div>
+  <h1>3 AI systems I'd install in an <span class="em">$8K/mo</span> business.</h1>
+  <p class="lead">Content, ads and numbers. What each system does, what goes into it, what it needs from you, and which one to build first.</p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Prompt</span></div><pre>I'm building a content system in Airtable. Design the base: one table for ideas, one for scripts, one for posts, linked to each other. Give me every field, its type and the status values from idea to posted. Then write it as a setup checklist I can follow.<span class="caret"></span></pre><div class="note">The first prompt in this guide. Copy it as is.</div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0">Inside</h3><p>How the Content System, the Ad System and the numbers dashboard work, the stack behind each (Airtable, Claude Code, N8N, Supabase), and a starter prompt for each.</p></div>
+    <div class="by"><svg class="mono-k" viewBox="0 0 120 150" aria-label="Karemops crest"><ellipse cx="60" cy="75" rx="57" ry="72" fill="none" stroke="#B08D57" stroke-width="3"/><ellipse cx="60" cy="75" rx="49" ry="64" fill="none" stroke="#B08D57" stroke-width="1.4"/><text x="60" y="98" text-anchor="middle" style="font:600 68px 'Cormorant Garamond',Georgia,serif;fill:#0866FF">K</text></svg><div><b>Karem AlMoayyad</b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>3 AI systems I'd install in an $8K/mo business</span><span>SYSTEMS</span></div>
+  <div class="eyebrow">01 · What this is</div>
+  <h2>What you're <span class="em">setting up.</span></h2>
+  <p>Most owners buy AI tools one at a time and none of them talk to each other. A system is different: ideas go in one end, finished work comes out the other, and the same place holds every step. Your team still runs it. The system decides what to make and drafts it, so nobody starts from a blank page.</p>
+  <p>All three are built with Claude Code. Start with the one that matches your biggest leak: no content going out, ads you can't read, or numbers you only see at the end of the month.</p>
+  <h3>You need</h3><ul><li class="l-en">Claude Code (paid Claude plan) to build them</li><li class="l-en">An Airtable account (the free plan is enough to start)</li><li class="l-en">N8N (cloud or self-hosted) to move work between steps</li><li class="l-en">Access to your Meta ad account, for systems 2 and 3</li><li class="l-en">One person on your team who will run it every week</li></ul>
+  <div class="callout"><strong>Heads up:</strong> A system is only as good as what you feed it. If nobody approves the scripts or checks the dashboard, it stops working in 3 weeks. Pick the owner before you build. And keep a person on every ad launch: Claude drafts, a person presses publish.</div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>3 AI systems I'd install in an $8K/mo business</span><span>SYSTEMS</span></div>
+  <div class="eyebrow">The 3 systems</div><h2>What each one does</h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2>System 1: Content</h2><p>An Airtable base holds every idea, script and post. Claude Code pulls what competitors posted and turns the winners into angles. It writes scripts and carousel outlines in your voice. N8N moves each approved piece into a publishing queue. Your team films, checks and posts. Needs from you: a voice doc, 3 competitors, and 30 minutes a week to approve.</p></div></div>
+  <div class="step"><div class="num">02</div><div>
+    <h2>System 2: Ads</h2><p>First, your Meta ad account gets cleaned up: one campaign structure, clear names, and the pixel and Conversions API checked. Then a Claude Code engine scrapes competitor ads from the Meta Ad Library, writes ad briefs from what's working, and preps launches. Needs from you: access to the ad account, your offer, and a person who makes the creatives.</p></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>3 AI systems I'd install in an $8K/mo business</span><span>SYSTEMS</span></div>
+  
+  <div class="step"><div class="num">03</div><div>
+    <h2>System 3: Numbers</h2><p>One page that shows where your funnel breaks, refreshed every week. Ad spend, leads, calls and sales sit side by side, so you see which step leaks. The data lives in Supabase and the page is built with Claude Code. Needs from you: access to your ad account and wherever your leads and sales live (GoHighLevel, Airtable, Shopify).</p></div></div>
+  <div class="step"><div class="num">04</div><div>
+    <h2>Build one first</h2><p>No content going out? Build System 1. Spending on ads but can't tell what works? Build System 3, then 2. Never build all three at once. Each one needs 2 to 4 weeks of use before it runs smoothly.</p></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>3 AI systems I'd install in an $8K/mo business</span><span>SYSTEMS</span></div>
+  
+  <div class="step"><div class="num">05</div><div>
+    <h2>Give it an owner</h2><p>Write down who runs it, what they check each week and where they flag problems. Without an owner, every system turns back into a pile of tools.</p></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>3 AI systems I'd install in an $8K/mo business</span><span>SYSTEMS</span></div>
+  <div class="eyebrow">03 · Copy and paste</div><h2>Your <span class="em">prompts.</span></h2>
+  <div class="prompt"><h4><span class="tag">PROMPT</span>1. Content: the Airtable base</h4><pre>I'm building a content system in Airtable. Design the base: one table for ideas, one for scripts, one for posts, linked to each other. Give me every field, its type and the status values from idea to posted. Then write it as a setup checklist I can follow.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span>2. Ads: the brief from competitors</h4><pre>Here are [10] competitor ads from the Meta Ad Library (copy and what the visual shows):
+[paste them]
+
+Group them by angle, tell me which angles show up most, and write 3 ad briefs for my offer: [your offer]. Hook, angle, what the visual shows, call to action.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span>3. Numbers: the one-page dashboard</h4><pre>In this folder are 3 CSV exports: ads.csv, leads.csv, sales.csv. Build a one-page HTML dashboard: spend, leads, cost per lead, calls, sales, by week. Highlight the step where the drop is biggest. Tell me which columns you matched between files.</pre></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>3 AI systems I'd install in an $8K/mo business</span><span>SYSTEMS</span></div>
+  <div class="eyebrow">Done</div>
+  <h2>That's the <span class="em">whole setup.</span></h2>
+  <p class="lead">Pick the one leak that costs you most this month. Build that system first, and give it an owner before you start.</p>
+  <h3>Credit</h3><ul><li>Systems and prompts by Karem AlMoayyad for Karemops.ai. Tools named: Claude Code (Anthropic), Airtable, N8N, Supabase, Meta Ad Library</li></ul>
+  <div class="cta">
+    <div class="k">Built by Karem AlMoayyad</div>
+    <h3>Want it built for you?</h3>
+    <p>AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</p>
+    <div class="h"><span class="ltr">@karemops.ai</span> · Instagram · TikTok · LinkedIn</div>
+  </div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 06</span></div>
+</section>
+
+</body>
+</html>

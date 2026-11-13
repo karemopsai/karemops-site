@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Write down how your business runs. Then add AI | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E7E0D2; --paper:#FBF7EF; --white:#FFFFFF; --ink:#1A1714; --navy:#0E1A33; --muted:#4A4438; --line:#E4DACA;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F6F0E4; --cream:#F2EAD9; --brass:#B08D57;
+  --repp:repeating-linear-gradient(135deg,#0E1A33 0 11px,#0866FF 11px 17px,#0E1A33 17px 28px,#FBF7EF 28px 30px);
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Cormorant Garamond',Georgia,serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(14,26,51,.06),0 12px 40px rgba(14,26,51,.10);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--brass);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--brass);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-family:var(--serif);font-weight:600;font-size:64px;line-height:1;letter-spacing:-.01em;color:var(--navy);text-wrap:balance}
+h2{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.05;letter-spacing:-.01em;color:var(--navy);margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--blue);letter-spacing:0}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--cream);border:0;border-top:1.5px solid var(--brass);border-radius:0;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--navy);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--navy)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:0;padding:34px 40px;background-color:var(--cream);
+  border:1px solid var(--line);outline:1px solid var(--brass);outline-offset:6px}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(14,26,51,.12),0 2px 6px rgba(14,26,51,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:var(--navy);font-size:11px;color:var(--paper)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:rgba(251,247,239,.35);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--brass)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:34px;height:auto;display:block}
+.cover::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
+.step h2{font-size:30px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.prompt{margin-bottom:8px}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--navy);color:#fff;border-radius:0;padding:34px 30px 28px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-family:var(--serif);font-size:32px;letter-spacing:0;text-transform:none;margin:0 0 8px;font-weight:600}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px;color:#4D92FF}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3;font-family:var(--arab);font-weight:800}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+}</style>
+</head>
+<body>
+
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip">Comment · PROCESS</span></div>
+  <div class="eyebrow">Field guide · No. 50</div>
+  <h1>Write down how your business runs. <span class="em">Then</span> add AI.</h1>
+  <p class="lead">Claude follows what you give it. Give it a messy process and you get the same mess, faster. This is the one-page process doc to write first.</p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Prompt</span></div><pre>Job: [name]
+Comes in: [what arrives, and where]
+I do: [the steps, in order]
+Goes out: [what leaves, and to whom]<span class="caret"></span></pre><div class="note">Step 02 of this guide. Copy it as is.</div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0">Inside</h3><p>List the jobs you repeat, write 3 lines for each, fill in the one-page template, and let Claude find the gaps before you hand anything off.</p></div>
+    <div class="by"><svg class="mono-k" viewBox="0 0 120 150" aria-label="Karemops crest"><ellipse cx="60" cy="75" rx="57" ry="72" fill="none" stroke="#B08D57" stroke-width="3"/><ellipse cx="60" cy="75" rx="49" ry="64" fill="none" stroke="#B08D57" stroke-width="1.4"/><text x="60" y="98" text-anchor="middle" style="font:600 68px 'Cormorant Garamond',Georgia,serif;fill:#0866FF">K</text></svg><div><b>Karem AlMoayyad</b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>Write down how your business runs. Then add AI</span><span>PROCESS</span></div>
+  <div class="eyebrow">01 · What this is</div>
+  <h2>What you're <span class="em">setting up.</span></h2>
+  <p>Most owners want the automation first: the follow-ups, the reports, the DM replies. Then it breaks on day 2, because nobody wrote down what the job is. Claude can't guess what's in your head, and neither can a new hire.</p>
+  <p>The fix is boring and it works. For every job you repeat, write what comes in, what you do with it and what goes out. The jobs you can write cleanly are the ones to hand off first, to Claude or to a person.</p>
+  <h3>You need</h3><ul><li class="l-en">A notes app or a Google Doc</li><li class="l-en">30 minutes for your first 10 jobs</li><li class="l-en">A Claude account (any plan) for the gap check in step 4</li><li class="l-en">Optional: a voice memo app, if talking is easier than typing</li></ul>
+  <div class="callout"><strong>Heads up:</strong> Don't automate a job you haven't run by hand from the doc at least once. If you skip a step when you follow your own doc, the doc is wrong. Fix it before Claude or anyone else uses it.</div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>Write down how your business runs. Then add AI</span><span>PROCESS</span></div>
+  <div class="eyebrow">02 · The steps</div><h2>Set it up, <span class="em">step by step.</span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2>List the jobs you repeat</h2><p>Go through last week: your sent emails, your DMs, your calendar. Write every job you did more than once. Answering price questions, sending invoices, booking calls, posting. Aim for 10 to 20.</p></div></div>
+  <div class="step"><div class="num">02</div><div>
+    <h2>Write 3 lines for each job</h2><p>What comes in (a DM, an invoice, a form). What you do with it. What goes out (a reply, a file, a booking). If you can't write the 3 lines, the job isn't clear yet. Mark it and move on.</p><pre>Job: [name]
+Comes in: [what arrives, and where]
+I do: [the steps, in order]
+Goes out: [what leaves, and to whom]</pre></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>Write down how your business runs. Then add AI</span><span>PROCESS</span></div>
+  
+  <div class="step"><div class="num">03</div><div>
+    <h2>Fill in the one-page doc</h2><p>For the 3 jobs that cost you the most time, fill in the full template below. One page each. Use your real tools by name: Gmail, Airtable, GoHighLevel, WhatsApp.</p><pre>JOB: [name]
+OWNER: [who does it today]
+TRIGGER: [what starts it]
+INPUT: [what arrives and where]
+STEPS:
+1. [first thing you do]
+2. [next]
+3. [next]
+OUTPUT: [what leaves, to whom]
+TOOLS: [apps you touch]
+RULES: [prices, limits, what you never do]
+DONE WHEN: [how you know it's finished]
+WHEN IT GOES WRONG: [the usual problem and the fix]</pre></div></div>
+  <div class="step"><div class="num">04</div><div>
+    <h2>Let Claude find the gaps</h2><p>Paste one filled doc into Claude with the first prompt on the next page. It asks the questions a new hire would ask. Answer them in the doc, not in the chat.</p></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>Write down how your business runs. Then add AI</span><span>PROCESS</span></div>
+  
+  <div class="step"><div class="num">05</div><div>
+    <h2>Hand off the cleanest one</h2><p>Rank your jobs with the last prompt. Hand off the one with the clearest doc first. Run it from the doc for a week, fix what breaks, then pick the next.</p></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>Write down how your business runs. Then add AI</span><span>PROCESS</span></div>
+  <div class="eyebrow">03 · Copy and paste</div><h2>Your <span class="em">prompts.</span></h2>
+  <div class="prompt"><h4><span class="tag">PROMPT</span>1. Find the gaps</h4><pre>Here's how I do [job]:
+[paste the doc]
+
+You're a new hire doing this for the first time. List every question you'd have to ask me before you could do it alone.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span>2. Voice memo to doc</h4><pre>Here's a transcript of me explaining how I [job]:
+[paste transcript]
+
+Turn it into this template: JOB, TRIGGER, INPUT, STEPS, OUTPUT, TOOLS, RULES, DONE WHEN. Leave a field empty if I didn't say it.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span>3. Interview me</h4><pre>Interview me about how I [job]. Ask one question at a time. When you have enough, write the one-page process doc.</pre></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>Write down how your business runs. Then add AI</span><span>PROCESS</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span>4. Rank what to hand off</h4><pre>Here are my process docs:
+[paste them]
+
+Rank them by how clearly they're written and how often the job happens. Tell me which one to hand off first, and why.</pre></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span>Write down how your business runs. Then add AI</span><span>PROCESS</span></div>
+  <div class="eyebrow">Done</div>
+  <h2>That's the <span class="em">whole setup.</span></h2>
+  <p class="lead">Tonight, write the 3 lines for 10 jobs. Tomorrow, hand off the cleanest one.</p>
+  <h3>Credit</h3><ul><li>Process doc template and prompts written by Karem AlMoayyad for Karemops.ai</li></ul>
+  <div class="cta">
+    <div class="k">Built by Karem AlMoayyad</div>
+    <h3>Want it built for you?</h3>
+    <p>AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</p>
+    <div class="h"><span class="ltr">@karemops.ai</span> · Instagram · TikTok · LinkedIn</div>
+  </div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 07</span></div>
+</section>
+
+</body>
+</html>
