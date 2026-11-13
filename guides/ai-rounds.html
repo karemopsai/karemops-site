@@ -60,7 +60,7 @@ h2{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
 .gate p{color:var(--muted);font-size:14.5px;line-height:1.6;margin-bottom:16px}
 #gate-form{display:flex;gap:10px;flex-wrap:wrap}
 #gate-form input{flex:1 1 220px;min-width:0;font:15px var(--sans);padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
-#gate-form button{flex:0 0 auto;font:700 15px var(--sans),var(--arab);padding:13px 20px;border:0;border-radius:10px;background:var(--blue);color:#fff;cursor:pointer}
+#gate-form button,#gate-form .gate-open-btn{text-decoration:none;display:inline-block;flex:0 0 auto;font:700 15px var(--sans),var(--arab);padding:13px 20px;border:0;border-radius:10px;background:var(--blue);color:#fff;cursor:pointer}
 #gate-form button:hover{filter:brightness(1.08)}
 .cta{margin-top:24px;background:var(--blue);color:#fff;border-radius:16px;padding:28px}
 .cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
@@ -109,7 +109,7 @@ h2{font-family:var(--serif);font-weight:600;font-size:32px;letter-spacing:-.01em
 .gate h3,.cta h3{font-family:var(--serif);font-weight:600;font-size:30px;letter-spacing:-.01em;line-height:1.1}
 .gate h3{color:var(--navy)}
 #gate-form input{border-radius:999px;padding:13px 18px;background:#fff}
-#gate-form button{border-radius:999px;padding:13px 22px}
+#gate-form button,#gate-form .gate-open-btn{border-radius:999px;padding:13px 22px}
 #gate-form button:hover{filter:none;background:#1E7AFF}
 .cta{background:var(--navy);border-radius:0;position:relative;overflow:hidden;padding:36px 28px 28px}
 .cta::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
@@ -270,7 +270,17 @@ Write my reply. Context: [who this person is to my business and what I want from
 
   // If we already have their email, swap the form for a one-click download
   const savedEmail = localStorage.getItem('karemops_email') || sessionStorage.getItem('karemops_email');
-  if (savedEmail) {
+  let DM = false, dmUrl = false;
+  try { dmUrl = new URLSearchParams(location.search).get('via') === 'dm'; } catch (e) { /* ignore */ }
+  try { if (dmUrl) sessionStorage.setItem('karemops_via', 'dm'); DM = dmUrl || sessionStorage.getItem('karemops_via') === 'dm'; } catch (e) { DM = dmUrl; }
+  if (DM) {
+    gate.classList.add('gate-open');
+    const lk = gate.querySelector('.lock'); if (lk) lk.textContent = '🔓';
+    gateTitle.textContent = L("Your guide is open", "الدليل مفتوح لك");
+    gateCopy.textContent = L("Thanks for the follow. No email needed, it's yours.", "شكرًا على المتابعة. لا حاجة لبريدك، الدليل لك.");
+    gateForm.innerHTML = `<a id="gate-submit" class="gate-open-btn" href="${GUIDE.href}">${L("Open the guide →", "افتح الدليل ←")}</a>`;
+    if (dmUrl) location.replace(GUIDE.href);
+  } else if (savedEmail) {
     gateTitle.textContent = L("You're already in. Grab the guide", "أنت مسجّل بالفعل. افتح الدليل");
     gateCopy.textContent = L(`We've got you (${savedEmail}). Click to open.`, `معنا بريدك (${savedEmail}). اضغط لفتح الدليل.`);
     gateForm.innerHTML = `<button type="submit" id="gate-submit">${L("Open the guide →", "افتح الدليل ←")}</button>`;

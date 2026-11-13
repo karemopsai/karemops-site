@@ -99,7 +99,7 @@ h2{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
 .gate p{color:var(--muted);font-size:14.5px;line-height:1.6;margin-bottom:16px}
 #gate-form{display:flex;gap:10px;flex-wrap:wrap}
 #gate-form input{flex:1 1 220px;min-width:0;font:15px var(--sans);padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
-#gate-form button{flex:0 0 auto;font:700 15px var(--sans),var(--arab);padding:13px 20px;border:0;border-radius:10px;background:var(--blue);color:#fff;cursor:pointer}
+#gate-form button,#gate-form .gate-open-btn{text-decoration:none;display:inline-block;flex:0 0 auto;font:700 15px var(--sans),var(--arab);padding:13px 20px;border:0;border-radius:10px;background:var(--blue);color:#fff;cursor:pointer}
 #gate-form button:hover{filter:brightness(1.08)}
 .cta{margin-top:24px;background:var(--blue);color:#fff;border-radius:16px;padding:28px}
 .cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
@@ -152,7 +152,7 @@ h2{font-family:var(--serif);font-weight:600;font-size:32px;letter-spacing:-.01em
 .gate h3,.cta h3{font-family:var(--serif);font-weight:600;font-size:30px;letter-spacing:-.01em;line-height:1.1}
 .gate h3{color:var(--navy)}
 #gate-form input{border-radius:999px;padding:13px 18px;background:#fff}
-#gate-form button{border-radius:999px;padding:13px 22px}
+#gate-form button,#gate-form .gate-open-btn{border-radius:999px;padding:13px 22px}
 #gate-form button:hover{filter:none;background:#1E7AFF}
 .cta{background:var(--navy);border-radius:0;position:relative;overflow:hidden;padding:36px 28px 28px}
 .cta::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
@@ -219,6 +219,22 @@ for (const g of guides) {
     ['`<button type="submit">Open the guide →</button>`', '`<button type="submit">${L("Open the guide →", "افتح الدليل ←")}</button>`'],
   ];
   for (const [a1, b1] of swaps) { if (!gs.includes(a1)) throw new Error("gate text anchor missing: " + a1); gs = gs.split(a1).join(b1); }
+  // DM link (?via=dm, sent by ManyChat after someone follows + comments): no email form, straight to the guide.
+  // Remembered in sessionStorage so the page stays open (no form) if they come back to it in the same tab.
+  // Bio / site / search visitors (no param) keep the email gate exactly as before.
+  const dmAnchor = "  if (savedEmail) {";
+  if (!gs.includes(dmAnchor)) throw new Error("savedEmail anchor missing in gate script");
+  gs = gs.replace(dmAnchor, `  let DM = false, dmUrl = false;
+  try { dmUrl = new URLSearchParams(location.search).get('via') === 'dm'; } catch (e) { /* ignore */ }
+  try { if (dmUrl) sessionStorage.setItem('karemops_via', 'dm'); DM = dmUrl || sessionStorage.getItem('karemops_via') === 'dm'; } catch (e) { DM = dmUrl; }
+  if (DM) {
+    gate.classList.add('gate-open');
+    const lk = gate.querySelector('.lock'); if (lk) lk.textContent = '🔓';
+    gateTitle.textContent = L("Your guide is open", "الدليل مفتوح لك");
+    gateCopy.textContent = L("Thanks for the follow. No email needed, it's yours.", "شكرًا على المتابعة. لا حاجة لبريدك، الدليل لك.");
+    gateForm.innerHTML = \`<a id="gate-submit" class="gate-open-btn" href="\${GUIDE.href}">\${L("Open the guide →", "افتح الدليل ←")}</a>\`;
+    if (dmUrl) location.replace(GUIDE.href);
+  } else if (savedEmail) {`);
   const html = `<!DOCTYPE html>
 <html lang="en" data-lang="en" dir="ltr">
 <head>
