@@ -70,6 +70,9 @@ html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
 .step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
 .step h2{font-size:30px;margin-bottom:6px}
 .step p{color:var(--muted);margin-bottom:6px}
+.shot{margin:10px 0 2px;border:1px solid var(--line);border-top:1.5px solid var(--brass);background:var(--white);padding:6px}
+.shot img,.shot video{display:block;width:100%;height:auto;max-height:3.3in;object-fit:contain;background:var(--white)}
+.shot figcaption{font-size:10.5px;color:var(--muted);padding:6px 2px 0;letter-spacing:.02em}
 .prompt{margin-bottom:8px}
 .prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
 /* payoff */
@@ -127,7 +130,7 @@ Goes out: [what leaves, and to whom]<span class="caret"></span></pre><div class=
   <p>The fix is boring and it works. For every job you repeat, write what comes in, what you do with it and what goes out. The jobs you can write cleanly are the ones to hand off first, to Claude or to a person.</p>
   <h3>You need</h3><ul><li class="l-en">A notes app or a Google Doc</li><li class="l-en">30 minutes for your first 10 jobs</li><li class="l-en">A Claude account (any plan) for the gap check in step 4</li><li class="l-en">Optional: a voice memo app, if talking is easier than typing</li></ul>
   <div class="callout"><strong>Heads up:</strong> Don't automate a job you haven't run by hand from the doc at least once. If you skip a step when you follow your own doc, the doc is wrong. Fix it before Claude or anyone else uses it.</div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 07</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 06</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span>Write down how your business runs. Then add AI</span><span>PROCESS</span></div>
@@ -138,8 +141,8 @@ Goes out: [what leaves, and to whom]<span class="caret"></span></pre><div class=
     <h2>Write 3 lines for each job</h2><p>What comes in (a DM, an invoice, a form). What you do with it. What goes out (a reply, a file, a booking). If you can't write the 3 lines, the job isn't clear yet. Mark it and move on.</p><pre>Job: [name]
 Comes in: [what arrives, and where]
 I do: [the steps, in order]
-Goes out: [what leaves, and to whom]</pre></div></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 07</span></div>
+Goes out: [what leaves, and to whom]</pre><figure class="shot loop"><video poster="assets/write-it-down/loop-3lines.png" autoplay muted loop playsinline preload="metadata" aria-label="The 3-line template filled in for one job: answer price DMs"><source src="assets/write-it-down/loop-3lines.webm" type="video/webm"><source src="assets/write-it-down/loop-3lines.mp4" type="video/mp4"></video><figcaption>One job in 3 lines.</figcaption></figure></div></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 06</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span>Write down how your business runs. Then add AI</span><span>PROCESS</span></div>
@@ -160,14 +163,9 @@ DONE WHEN: [how you know it's finished]
 WHEN IT GOES WRONG: [the usual problem and the fix]</pre></div></div>
   <div class="step"><div class="num">04</div><div>
     <h2>Let Claude find the gaps</h2><p>Paste one filled doc into Claude with the first prompt on the next page. It asks the questions a new hire would ask. Answer them in the doc, not in the chat.</p></div></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 07</span></div>
-</section>
-
-<section class="page"><div class="run"><b>karemops.ai</b><span>Write down how your business runs. Then add AI</span><span>PROCESS</span></div>
-  
   <div class="step"><div class="num">05</div><div>
     <h2>Hand off the cleanest one</h2><p>Rank your jobs with the last prompt. Hand off the one with the clearest doc first. Run it from the doc for a week, fix what breaks, then pick the next.</p></div></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 07</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 06</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span>Write down how your business runs. Then add AI</span><span>PROCESS</span></div>
@@ -181,7 +179,7 @@ You're a new hire doing this for the first time. List every question you'd have 
 
 Turn it into this template: JOB, TRIGGER, INPUT, STEPS, OUTPUT, TOOLS, RULES, DONE WHEN. Leave a field empty if I didn't say it.</pre></div>
   <div class="prompt"><h4><span class="tag">PROMPT</span>3. Interview me</h4><pre>Interview me about how I [job]. Ask one question at a time. When you have enough, write the one-page process doc.</pre></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 07</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 06</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span>Write down how your business runs. Then add AI</span><span>PROCESS</span></div>
@@ -190,7 +188,7 @@ Turn it into this template: JOB, TRIGGER, INPUT, STEPS, OUTPUT, TOOLS, RULES, DO
 [paste them]
 
 Rank them by how clearly they're written and how often the job happens. Tell me which one to hand off first, and why.</pre></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 07</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 06</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span>Write down how your business runs. Then add AI</span><span>PROCESS</span></div>
@@ -204,7 +202,7 @@ Rank them by how clearly they're written and how often the job happens. Tell me 
     <p>AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</p>
     <div class="h"><span class="ltr">@karemops.ai</span> · Instagram · TikTok · LinkedIn</div>
   </div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 07</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 06</span></div>
 </section>
 
 </body>

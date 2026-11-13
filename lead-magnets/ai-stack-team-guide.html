@@ -70,6 +70,9 @@ html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
 .step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
 .step h2{font-size:30px;margin-bottom:6px}
 .step p{color:var(--muted);margin-bottom:6px}
+.shot{margin:10px 0 2px;border:1px solid var(--line);border-top:1.5px solid var(--brass);background:var(--white);padding:6px}
+.shot img,.shot video{display:block;width:100%;height:auto;max-height:3.3in;object-fit:contain;background:var(--white)}
+.shot figcaption{font-size:10.5px;color:var(--muted);padding:6px 2px 0;letter-spacing:.02em}
 .prompt{margin-bottom:8px}
 .prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
 /* payoff */
@@ -128,7 +131,7 @@ Then give me the first 5 setup steps for that one tool.<span class="caret"></spa
   <p><span class="l-en">It's for owners who already use Claude or ChatGPT for basic questions and want the rest of the business to run on the same logic. Every tool here is a public product you can sign up for today. You don't need all 12. You need the one for the job you hate doing most.</span><span class="l-ar">هذا الدليل لأصحاب الأعمال الذين يستخدمون Claude أو ChatGPT لأسئلة بسيطة ويريدون أن يعمل باقي عملهم بالمنطق نفسه. كل أداة هنا منتج متاح للعموم تستطيع الاشتراك فيه اليوم. لا تحتاج الأدوات الاثنتي عشرة كلها. تحتاج الأداة التي تتولى المهمة التي تكرهها أكثر من غيرها.</span></p>
   <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">A Claude account. The Gmail and Google Calendar connectors work on every plan, Claude Code needs a paid plan (Pro or above)</li><li class="l-en">A Google account with Gmail and Google Calendar</li><li class="l-en">An Instagram business or creator account if you hire ManyChat</li><li class="l-en">A list of the 3 jobs that eat most of your week</li><li class="l-en">Check each tool's own pricing page before you sign up. Prices and free plans change</li><li class="l-ar">حساب Claude. موصّلا Gmail وGoogle Calendar يعملان على كل الخطط، أما Claude Code فيحتاج خطة مدفوعة (Pro أو أعلى)</li><li class="l-ar">حساب Google فيه Gmail وGoogle Calendar</li><li class="l-ar">حساب Instagram تجاري أو حساب صانع محتوى إن وظّفت ManyChat</li><li class="l-ar">قائمة بالمهام الثلاث التي تستهلك معظم أسبوعك</li><li class="l-ar">راجع صفحة الأسعار الخاصة بكل أداة قبل الاشتراك. الأسعار والخطط المجانية تتغيّر</li></ul>
   <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">Every hire is a subscription and a login that can see your data. The Gmail connector can send, reply and forward, not only draft, so keep the default where Claude asks for your approval before each one. ManyChat and Instantly send messages in your name: test every flow on yourself before it touches a real lead. And don't hire the next tool until the last one runs without you.</span><span class="l-ar">كل تعيين هو اشتراك وحساب دخول يستطيع رؤية بياناتك. يستطيع موصّل Gmail الإرسال والرد وإعادة التوجيه، لا كتابة المسودات فقط، لذا أبقِ الإعداد الافتراضي الذي يطلب فيه Claude موافقتك قبل كل إجراء. يرسل ManyChat وInstantly رسائل باسمك: جرّب كل مسار على نفسك قبل أن يصل إلى عميل حقيقي. ولا توظّف الأداة التالية قبل أن تعمل الأداة السابقة من دونك.</span></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 06</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 08</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Run your AI stack like a 12-person admin team</span><span class="l-ar">أدِر أدوات الذكاء الاصطناعي كفريق إداري من 12 شخصًا</span></span><span>HIRES</span></div>
@@ -141,7 +144,12 @@ FRONT DESK     Gmail, Google Calendar
 SALES          GoHighLevel, Instantly
 MARKETING      ManyChat, Higgsfield
 OPERATIONS     Airtable, n8n, Claude Code
-RECORDS        Fireflies, Loom</pre></div></div>
+RECORDS        Fireflies, Loom</pre><figure class="shot loop"><video poster="assets/ai-stack-team/loop-org.png" autoplay muted loop playsinline preload="metadata" aria-label="Animated org chart: Claude as chief of staff, 5 departments, 11 tools with their jobs"><source src="assets/ai-stack-team/loop-org.webm" type="video/webm"><source src="assets/ai-stack-team/loop-org.mp4" type="video/mp4"></video><figcaption>The org chart: Claude on top, 5 departments, 11 tools, one job each.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 08</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Run your AI stack like a 12-person admin team</span><span class="l-ar">أدِر أدوات الذكاء الاصطناعي كفريق إداري من 12 شخصًا</span></span><span>HIRES</span></div>
+  
   <div class="step"><div class="num">02</div><div>
     <h2><span class="l-en">Job descriptions: the top and the front desk</span><span class="l-ar">الأوصاف الوظيفية: القمة والاستقبال</span></h2><p><span class="l-en">Gmail and Calendar don't need a new subscription. You connect them inside Claude, so Claude does the reading and drafting.</span><span class="l-ar">لا يحتاج Gmail وCalendar إلى اشتراك جديد. تربطهما داخل Claude، فيتولى Claude القراءة وكتابة المسودات.</span></p><pre>Claude, Chief of Staff:
   drafts, plans and reads what the other 11 produce.
@@ -151,7 +159,7 @@ Gmail, Inbox Manager:
 
 Google Calendar, Scheduler:
   Claude finds free time and creates the events.</pre></div></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 06</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 08</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Run your AI stack like a 12-person admin team</span><span class="l-ar">أدِر أدوات الذكاء الاصطناعي كفريق إداري من 12 شخصًا</span></span><span>HIRES</span></div>
@@ -168,6 +176,11 @@ ManyChat, DM Receptionist:
 
 Higgsfield, Photographer:
   product shots and post images without a shoot.</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 08</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Run your AI stack like a 12-person admin team</span><span class="l-ar">أدِر أدوات الذكاء الاصطناعي كفريق إداري من 12 شخصًا</span></span><span>HIRES</span></div>
+  
   <div class="step"><div class="num">04</div><div>
     <h2><span class="l-en">Job descriptions: operations and records</span><span class="l-ar">الأوصاف الوظيفية: العمليات والسجلات</span></h2><p><span class="l-en">Operations is where the team talks to itself. Records is what stops you explaining the same thing twice.</span><span class="l-ar">قسم العمليات هو المكان الذي يتواصل فيه الفريق مع نفسه. وقسم السجلات هو ما يمنعك من شرح الأمر نفسه مرتين.</span></p><pre>Airtable, Office Manager:
   clients, content and orders in one base.
@@ -183,13 +196,13 @@ Fireflies, Note Taker:
 
 Loom, Trainer:
   records the how-to once so nobody asks twice.</pre></div></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 06</span></div>
+  <div class="step"><div class="num">05</div><div>
+    <h2><span class="l-en">How the team talks</span><span class="l-ar">كيف يتواصل الفريق</span></h2><p><span class="l-en">One lead, start to finish: someone comments your keyword, ManyChat sends the DM, n8n adds them to Airtable and GoHighLevel, and Claude drafts the follow-up in Gmail for you to approve. You only see the last step.</span><span class="l-ar">عميل محتمل واحد من البداية إلى النهاية: يكتب أحدهم الكلمة المفتاحية في التعليقات، فيرسل ManyChat الرسالة الخاصة، ويضيفه n8n إلى Airtable وGoHighLevel، ثم يكتب Claude مسودة المتابعة في Gmail لتوافق عليها. أنت لا ترى إلا الخطوة الأخيرة.</span></p></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 08</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Run your AI stack like a 12-person admin team</span><span class="l-ar">أدِر أدوات الذكاء الاصطناعي كفريق إداري من 12 شخصًا</span></span><span>HIRES</span></div>
   
-  <div class="step"><div class="num">05</div><div>
-    <h2><span class="l-en">How the team talks</span><span class="l-ar">كيف يتواصل الفريق</span></h2><p><span class="l-en">One lead, start to finish: someone comments your keyword, ManyChat sends the DM, n8n adds them to Airtable and GoHighLevel, and Claude drafts the follow-up in Gmail for you to approve. You only see the last step.</span><span class="l-ar">عميل محتمل واحد من البداية إلى النهاية: يكتب أحدهم الكلمة المفتاحية في التعليقات، فيرسل ManyChat الرسالة الخاصة، ويضيفه n8n إلى Airtable وGoHighLevel، ثم يكتب Claude مسودة المتابعة في Gmail لتوافق عليها. أنت لا ترى إلا الخطوة الأخيرة.</span></p></div></div>
   <div class="step"><div class="num">06</div><div>
     <h2><span class="l-en">The setup order</span><span class="l-ar">ترتيب التجهيز</span></h2><p><span class="l-en">Default order, built so each hire has something to work with. If one job is bleeding money right now, jump straight to that tool, then come back to this list. Missing DMs: ManyChat. Drowning in email: Gmail with Claude. Leads going cold: GoHighLevel. Same copy-paste every day: n8n.</span><span class="l-ar">هذا هو الترتيب الافتراضي، وهو مبني بحيث يجد كل تعيين ما يعمل عليه. إن كانت هناك مهمة تستنزف المال الآن، فابدأ مباشرة بأداتها ثم عُد إلى هذه القائمة. رسائل خاصة تضيع: ManyChat. بريد يغرقك: Gmail مع Claude. عملاء يبردون: GoHighLevel. نسخ ولصق متكرر كل يوم: n8n.</span></p><pre>1. Claude (your chief of staff)
 2. Gmail + Google Calendar connectors
@@ -202,7 +215,7 @@ Loom, Trainer:
 9. Instantly (only once your offer converts)
 10. Higgsfield (images)
 11. Claude Code (dashboards on top of it all)</pre></div></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 06</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 08</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Run your AI stack like a 12-person admin team</span><span class="l-ar">أدِر أدوات الذكاء الاصطناعي كفريق إداري من 12 شخصًا</span></span><span>HIRES</span></div>
@@ -224,7 +237,7 @@ Keep it to one page.</pre></div>
 Give each one a job title from this org chart: Front desk, Sales, Marketing, Operations, Records.
 Flag every tool with no clear job, every 2 tools doing the same job, and the job I have no tool for.
 End with what to cancel and what to add, in that order.</pre></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 06</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 08</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Run your AI stack like a 12-person admin team</span><span class="l-ar">أدِر أدوات الذكاء الاصطناعي كفريق إداري من 12 شخصًا</span></span><span>HIRES</span></div>
@@ -238,7 +251,7 @@ End with what to cancel and what to add, in that order.</pre></div>
     <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
     <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
   </div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 06</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">08 / 08</span></div>
 </section>
 <script>
 (function(){

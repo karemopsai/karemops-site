@@ -70,6 +70,9 @@ html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
 .step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
 .step h2{font-size:30px;margin-bottom:6px}
 .step p{color:var(--muted);margin-bottom:6px}
+.shot{margin:10px 0 2px;border:1px solid var(--line);border-top:1.5px solid var(--brass);background:var(--white);padding:6px}
+.shot img,.shot video{display:block;width:100%;height:auto;max-height:3.3in;object-fit:contain;background:var(--white)}
+.shot figcaption{font-size:10.5px;color:var(--muted);padding:6px 2px 0;letter-spacing:.02em}
 .prompt{margin-bottom:8px}
 .prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
 /* payoff */
@@ -124,16 +127,16 @@ html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
   <p>All three are built with Claude Code. Start with the one that matches your biggest leak: no content going out, ads you can't read, or numbers you only see at the end of the month.</p>
   <h3>You need</h3><ul><li class="l-en">Claude Code (paid Claude plan) to build them</li><li class="l-en">An Airtable account (the free plan is enough to start)</li><li class="l-en">N8N (cloud or self-hosted) to move work between steps</li><li class="l-en">Access to your Meta ad account, for systems 2 and 3</li><li class="l-en">One person on your team who will run it every week</li></ul>
   <div class="callout"><strong>Heads up:</strong> A system is only as good as what you feed it. If nobody approves the scripts or checks the dashboard, it stops working in 3 weeks. Pick the owner before you build. And keep a person on every ad launch: Claude drafts, a person presses publish.</div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 06</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 05</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span>3 AI systems I'd install in an $8K/mo business</span><span>SYSTEMS</span></div>
   <div class="eyebrow">The 3 systems</div><h2>What each one does</h2>
   <div class="step"><div class="num">01</div><div>
-    <h2>System 1: Content</h2><p>An Airtable base holds every idea, script and post. Claude Code pulls what competitors posted and turns the winners into angles. It writes scripts and carousel outlines in your voice. N8N moves each approved piece into a publishing queue. Your team films, checks and posts. Needs from you: a voice doc, 3 competitors, and 30 minutes a week to approve.</p></div></div>
+    <h2>System 1: Content</h2><p>An Airtable base holds every idea, script and post. Claude Code pulls what competitors posted and turns the winners into angles. It writes scripts and carousel outlines in your voice. N8N moves each approved piece into a publishing queue. Your team films, checks and posts. Needs from you: a voice doc, 3 competitors, and 30 minutes a week to approve.</p><figure class="shot loop"><video poster="assets/three-ai-systems/loop-systems.png" autoplay muted loop playsinline preload="metadata" aria-label="Three lanes light up: content, ads and numbers, ending on a one-page dashboard with the leak in red"><source src="assets/three-ai-systems/loop-systems.webm" type="video/webm"><source src="assets/three-ai-systems/loop-systems.mp4" type="video/mp4"></video><figcaption>Content, ads, numbers: what flows where, and where the leak shows.</figcaption></figure></div></div>
   <div class="step"><div class="num">02</div><div>
     <h2>System 2: Ads</h2><p>First, your Meta ad account gets cleaned up: one campaign structure, clear names, and the pixel and Conversions API checked. Then a Claude Code engine scrapes competitor ads from the Meta Ad Library, writes ad briefs from what's working, and preps launches. Needs from you: access to the ad account, your offer, and a person who makes the creatives.</p></div></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 06</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 05</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span>3 AI systems I'd install in an $8K/mo business</span><span>SYSTEMS</span></div>
@@ -142,14 +145,9 @@ html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
     <h2>System 3: Numbers</h2><p>One page that shows where your funnel breaks, refreshed every week. Ad spend, leads, calls and sales sit side by side, so you see which step leaks. The data lives in Supabase and the page is built with Claude Code. Needs from you: access to your ad account and wherever your leads and sales live (GoHighLevel, Airtable, Shopify).</p></div></div>
   <div class="step"><div class="num">04</div><div>
     <h2>Build one first</h2><p>No content going out? Build System 1. Spending on ads but can't tell what works? Build System 3, then 2. Never build all three at once. Each one needs 2 to 4 weeks of use before it runs smoothly.</p></div></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 06</span></div>
-</section>
-
-<section class="page"><div class="run"><b>karemops.ai</b><span>3 AI systems I'd install in an $8K/mo business</span><span>SYSTEMS</span></div>
-  
   <div class="step"><div class="num">05</div><div>
     <h2>Give it an owner</h2><p>Write down who runs it, what they check each week and where they flag problems. Without an owner, every system turns back into a pile of tools.</p></div></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 06</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 05</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span>3 AI systems I'd install in an $8K/mo business</span><span>SYSTEMS</span></div>
@@ -160,7 +158,7 @@ html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
 
 Group them by angle, tell me which angles show up most, and write 3 ad briefs for my offer: [your offer]. Hook, angle, what the visual shows, call to action.</pre></div>
   <div class="prompt"><h4><span class="tag">PROMPT</span>3. Numbers: the one-page dashboard</h4><pre>In this folder are 3 CSV exports: ads.csv, leads.csv, sales.csv. Build a one-page HTML dashboard: spend, leads, cost per lead, calls, sales, by week. Highlight the step where the drop is biggest. Tell me which columns you matched between files.</pre></div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 06</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 05</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span>3 AI systems I'd install in an $8K/mo business</span><span>SYSTEMS</span></div>
@@ -174,7 +172,7 @@ Group them by angle, tell me which angles show up most, and write 3 ad briefs fo
     <p>AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</p>
     <div class="h"><span class="ltr">@karemops.ai</span> · Instagram · TikTok · LinkedIn</div>
   </div>
-  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 06</span></div>
+  <div class="foot"><span>Field guide · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 05</span></div>
 </section>
 
 </body>
