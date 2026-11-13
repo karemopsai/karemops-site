@@ -70,6 +70,9 @@ html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
 .step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
 .step h2{font-size:30px;margin-bottom:6px}
 .step p{color:var(--muted);margin-bottom:6px}
+.shot{margin:10px 0 2px;border:1px solid var(--line);border-top:1.5px solid var(--brass);background:var(--white);padding:6px}
+.shot img,.shot video{display:block;width:100%;height:auto;max-height:3.3in;object-fit:contain;background:var(--white)}
+.shot figcaption{font-size:10.5px;color:var(--muted);padding:6px 2px 0;letter-spacing:.02em}
 .prompt{margin-bottom:8px}
 .prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
 /* payoff */
@@ -129,22 +132,22 @@ The goal of the reply: [say yes / say no / book a call / hold my price].<span cl
   <p><span class="l-en">It's for owners who pay for one of these, or are about to, and want to stop guessing. You run 3 jobs: one email, one proposal, one messy spreadsheet. Same prompt, same file, a fresh chat in each app, and you score the first answer.</span><span class="l-ar">هذا الدليل لأصحاب الأعمال المشتركين في أحد هذه التطبيقات، أو على وشك الاشتراك، ويريدون التوقف عن التخمين. ستنفّذ ثلاث مهام: رسالة بريد إلكتروني، وعرض سعر، وجدول بيانات غير مرتب. الأمر نفسه والملف نفسه ومحادثة جديدة في كل تطبيق، ثم تقيّم الإجابة الأولى.</span></p>
   <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">An account on chatgpt.com, claude.ai and gemini.google.com. Free plans work for a first pass, paid plans give the fairest result</li><li class="l-en">One real email you need to answer this week, plus 2 emails you wrote yourself</li><li class="l-en">Notes for one real proposal or quote you need to send</li><li class="l-en">One messy spreadsheet or CSV export: sales, leads or expenses</li><li class="l-en">About 2 hours</li><li class="l-ar">حساب على chatgpt.com وclaude.ai وgemini.google.com. الخطط المجانية تكفي لجولة أولى، والخطط المدفوعة تعطي النتيجة الأعدل</li><li class="l-ar">رسالة بريد حقيقية عليك الرد عليها هذا الأسبوع، ورسالتان كتبتهما بنفسك</li><li class="l-ar">ملاحظات لعرض سعر حقيقي عليك إرساله</li><li class="l-ar">جدول بيانات أو ملف CSV غير مرتب: مبيعات أو عملاء محتملون أو مصاريف</li><li class="l-ar">نحو ساعتين</li></ul>
   <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">Strip anything private before you upload: client names you can't share, card numbers, staff salaries. Free plans hit their limits fast and may give you a lighter model, so a loss on Free doesn't prove much. Prices here are US list prices checked on 13 Nov 2026. Check each pricing page before you pay, they change.</span><span class="l-ar">احذف أي معلومة خاصة قبل رفع الملفات: أسماء العملاء التي لا يجوز مشاركتها، وأرقام البطاقات، ورواتب الموظفين. الخطط المجانية تصل إلى حدودها بسرعة وقد تعطيك نموذجًا أخف، لذا فالخسارة على الخطة المجانية لا تثبت الكثير. الأسعار هنا أسعار أمريكية رسمية تم التحقق منها في 13 نوفمبر 2026. راجع صفحة الأسعار لكل تطبيق قبل الدفع، فهي تتغير.</span></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 06</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 07</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">ChatGPT, Claude or Gemini? Let your own work pick</span><span class="l-ar">ChatGPT أم Claude أم Gemini؟ دع عملك يختار</span></span><span>ROUNDS</span></div>
   <div class="eyebrow"><span class="l-en">02 · The steps</span><span class="l-ar">02 · الخطوات</span></div><h2><span class="l-en">Set it up, <span class="em">step by step.</span></span><span class="l-ar">الإعداد <span class="em">خطوة بخطوة.</span></span></h2>
   <div class="step"><div class="num">01</div><div>
-    <h2><span class="l-en">Open three fresh chats</span><span class="l-ar">افتح ثلاث محادثات جديدة</span></h2><p><span class="l-en">Log in to ChatGPT, Claude and Gemini in three browser tabs and start a new chat in each. Don't use a Project, a Gem or saved instructions yet. Every app starts from zero, so the test is fair.</span><span class="l-ar">سجّل الدخول إلى ChatGPT وClaude وGemini في ثلاث علامات تبويب، وابدأ محادثة جديدة في كل منها. لا تستخدم Project أو Gem أو تعليمات محفوظة بعد. يبدأ كل تطبيق من الصفر، فيكون الاختبار عادلًا.</span></p></div></div>
+    <h2><span class="l-en">Open three fresh chats</span><span class="l-ar">افتح ثلاث محادثات جديدة</span></h2><p><span class="l-en">Log in to ChatGPT, Claude and Gemini in three browser tabs and start a new chat in each. Don't use a Project, a Gem or saved instructions yet. Every app starts from zero, so the test is fair.</span><span class="l-ar">سجّل الدخول إلى ChatGPT وClaude وGemini في ثلاث علامات تبويب، وابدأ محادثة جديدة في كل منها. لا تستخدم Project أو Gem أو تعليمات محفوظة بعد. يبدأ كل تطبيق من الصفر، فيكون الاختبار عادلًا.</span></p><figure class="shot"><img src="assets/ai-rounds/shot-three-tabs.png" alt="One browser with three tabs: ChatGPT, Claude, Gemini" loading="lazy"><figcaption>Three tabs, three fresh chats. Recreated screen.</figcaption></figure></div></div>
   <div class="step"><div class="num">02</div><div>
     <h2><span class="l-en">Pick 3 jobs from your real week</span><span class="l-ar">اختر ثلاث مهام من أسبوعك الحقيقي</span></h2><p><span class="l-en">One email you need to reply to, one proposal or quote you need to send, one spreadsheet that's a mess. Real jobs only. A made-up test only tells you which app is good at made-up tests.</span><span class="l-ar">رسالة بريد عليك الرد عليها، وعرض سعر عليك إرساله، وجدول بيانات غير مرتب. مهام حقيقية فقط. الاختبار المصطنع يخبرك فقط أي تطبيق يتقن الاختبارات المصطنعة.</span></p></div></div>
-  <div class="step"><div class="num">03</div><div>
-    <h2><span class="l-en">Paste the same prompt in all three</span><span class="l-ar">الصق الأمر نفسه في التطبيقات الثلاثة</span></h2><p><span class="l-en">Use the prompts on the next pages. Fill in the [brackets] once, then paste the exact same text and attach the exact same file in each tab. No follow-ups, no fixing. You're judging the first answer.</span><span class="l-ar">استخدم الأوامر في الصفحات التالية. املأ ما بين [الأقواس] مرة واحدة، ثم الصق النص نفسه تمامًا وأرفق الملف نفسه في كل علامة تبويب. لا أسئلة متابعة ولا تصحيح. أنت تقيّم الإجابة الأولى.</span></p></div></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 06</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 07</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">ChatGPT, Claude or Gemini? Let your own work pick</span><span class="l-ar">ChatGPT أم Claude أم Gemini؟ دع عملك يختار</span></span><span>ROUNDS</span></div>
   
+  <div class="step"><div class="num">03</div><div>
+    <h2><span class="l-en">Paste the same prompt in all three</span><span class="l-ar">الصق الأمر نفسه في التطبيقات الثلاثة</span></h2><p><span class="l-en">Use the prompts on the next pages. Fill in the [brackets] once, then paste the exact same text and attach the exact same file in each tab. No follow-ups, no fixing. You're judging the first answer.</span><span class="l-ar">استخدم الأوامر في الصفحات التالية. املأ ما بين [الأقواس] مرة واحدة، ثم الصق النص نفسه تمامًا وأرفق الملف نفسه في كل علامة تبويب. لا أسئلة متابعة ولا تصحيح. أنت تقيّم الإجابة الأولى.</span></p><figure class="shot loop"><video poster="assets/ai-rounds/loop-same-prompt.png" autoplay muted loop playsinline preload="metadata" aria-label="The same prompt pasted into ChatGPT, Claude and Gemini in turn"><source src="assets/ai-rounds/loop-same-prompt.webm" type="video/webm"><source src="assets/ai-rounds/loop-same-prompt.mp4" type="video/mp4"></video><figcaption>The same prompt, word for word, in each tab. Recreated screen.</figcaption></figure></div></div>
   <div class="step"><div class="num">04</div><div>
     <h2><span class="l-en">Fill in the scorecard</span><span class="l-ar">املأ بطاقة التقييم</span></h2><p><span class="l-en">Copy this into your notes. Score each line from 1 to 5, then total each column. Check every number in the spreadsheet answers against the real file before you score it.</span><span class="l-ar">انسخ البطاقة إلى ملاحظاتك كما هي. قيّم كل سطر من 1 إلى 5، ثم اجمع كل عمود. تحقّق من كل رقم في إجابات جدول البيانات مقابل الملف الحقيقي قبل أن تضع الدرجة.</span></p><pre>Score 1 to 5. 5 = I'd send it as is.
 
@@ -158,11 +161,16 @@ Sheet: useful for me    __       __      __
 TOTAL                   __       __      __
 
 Winner: ________   Runner-up: ________</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">ChatGPT, Claude or Gemini? Let your own work pick</span><span class="l-ar">ChatGPT أم Claude أم Gemini؟ دع عملك يختار</span></span><span>ROUNDS</span></div>
+  
   <div class="step"><div class="num">05</div><div>
     <h2><span class="l-en">Settle a close score on how you work</span><span class="l-ar">احسم التعادل حسب طريقة عملك</span></h2><p><span class="l-en">If your whole business runs in Gmail, Google Calendar and Drive, try Gemini inside Gmail (it comes with Google AI Pro) on the email job. If you want images, voice and quick questions on your phone, test that in ChatGPT. If you want to build systems like dashboards or N8N workflows, try one small build in Claude Code (paid Claude plans).</span><span class="l-ar">إذا كان عملك كله يدور في Gmail وGoogle Calendar وDrive، فجرّب Gemini داخل Gmail (متاح مع Google AI Pro) في مهمة البريد. إذا كنت تريد الصور والصوت والأسئلة السريعة على هاتفك، فاختبر ذلك في ChatGPT. إذا كنت تريد بناء أنظمة مثل لوحات المتابعة أو سير عمل N8N، فجرّب بناءً صغيرًا في Claude Code (ضمن خطط Claude المدفوعة).</span></p></div></div>
   <div class="step"><div class="num">06</div><div>
     <h2><span class="l-en">Pay for one, for 30 days</span><span class="l-ar">ادفع لتطبيق واحد لمدة 30 يومًا</span></h2><p><span class="l-en">Keep the winner and cancel the rest. Now load it with your business: a Claude Project, a ChatGPT Project or a Gemini Gem with your files and instructions. After 30 days, run the same 3 prompts on new jobs. If it still wins, it stays.</span><span class="l-ar">احتفظ بالفائز وألغِ الباقي. ثم زوّده بمعلومات عملك: Project في Claude أو Project في ChatGPT أو Gem في Gemini، مع ملفاتك وتعليماتك. بعد 30 يومًا، شغّل الأوامر الثلاثة نفسها على مهام جديدة. إذا بقي الفائز، فهو يستحق مكانه.</span></p></div></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 06</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 07</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">ChatGPT, Claude or Gemini? Let your own work pick</span><span class="l-ar">ChatGPT أم Claude أم Gemini؟ دع عملك يختار</span></span><span>ROUNDS</span></div>
@@ -185,7 +193,7 @@ Price: [your price]. Timeline: [how many weeks].
 Use only the facts I gave you. If something is missing, write [ASK] in the text instead of inventing it.
 Structure: their problem in 2 lines, what I'll do, what they get, price and timeline, next step.
 Plain words, no buzzwords.</pre></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 06</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 07</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">ChatGPT, Claude or Gemini? Let your own work pick</span><span class="l-ar">ChatGPT أم Claude أم Gemini؟ دع عملك يختار</span></span><span>ROUNDS</span></div>
@@ -196,7 +204,7 @@ Plain words, no buzzwords.</pre></div>
 3. Give me the 3 numbers I should look at this week and why, and name the rows you used.
 4. Give me a cleaned version as a file I can download, or as a table if you can't make files.
 If you're not sure about something, say so. Don't guess numbers.</pre></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 06</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 07</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">ChatGPT, Claude or Gemini? Let your own work pick</span><span class="l-ar">ChatGPT أم Claude أم Gemini؟ دع عملك يختار</span></span><span>ROUNDS</span></div>
@@ -210,7 +218,7 @@ If you're not sure about something, say so. Don't guess numbers.</pre></div>
     <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
     <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
   </div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 06</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 07</span></div>
 </section>
 <script>
 (function(){

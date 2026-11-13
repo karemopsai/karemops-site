@@ -70,6 +70,9 @@ html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
 .step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
 .step h2{font-size:30px;margin-bottom:6px}
 .step p{color:var(--muted);margin-bottom:6px}
+.shot{margin:10px 0 2px;border:1px solid var(--line);border-top:1.5px solid var(--brass);background:var(--white);padding:6px}
+.shot img,.shot video{display:block;width:100%;height:auto;max-height:3.3in;object-fit:contain;background:var(--white)}
+.shot figcaption{font-size:10.5px;color:var(--muted);padding:6px 2px 0;letter-spacing:.02em}
 .prompt{margin-bottom:8px}
 .prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
 /* payoff */
@@ -124,7 +127,7 @@ html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
   <p><span class="l-en">It's for owners on Pro who keep hearing they need Max or Ultra, and owners on Free deciding if Pro is worth it. One normal work week and a simple log settle it.</span><span class="l-ar">هذا الدليل لأصحاب الأعمال على خطة Pro الذين يسمعون باستمرار أنهم يحتاجون إلى Max أو Ultra، ولمن هم على الخطة المجانية ويتساءلون إن كانت Pro تستحق. أسبوع عمل عادي وسجلّ بسيط يحسمان الأمر.</span></p>
   <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">A Claude Pro plan. On Free, upgrade to Pro monthly for the test week: Free doesn't include Claude Code</li><li class="l-en">A normal work week, not a holiday week</li><li class="l-en">A notes app or a sheet for the log</li><li class="l-en">Claude Code installed, if you build with it</li><li class="l-ar">اشتراك Claude Pro. إن كنت على الخطة المجانية فاشترك في Pro شهريًا لأسبوع الاختبار، لأن الخطة المجانية لا تشمل Claude Code</li><li class="l-ar">أسبوع عمل عادي، وليس أسبوع عطلة</li><li class="l-ar">تطبيق ملاحظات أو جدول بيانات للسجلّ</li><li class="l-ar">Claude Code مثبّت، إن كنت تبني به</li></ul>
   <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">No plan is unlimited. Ultra still has a weekly limit, and only verified accounts lose the 5-hour one. Your use in the Claude app and in Claude Code counts toward the same limits. Plans and multipliers change, so re-read claude.com/pricing the day you pay.</span><span class="l-ar">لا توجد خطة بلا حدود. خطة Ultra لها حد أسبوعي أيضًا، والحسابات الموثّقة وحدها يُلغى عنها حد الساعات الخمس. استخدامك في تطبيق Claude وفي Claude Code يُحتسب من الحدود نفسها. الخطط والمضاعفات تتغير، لذا راجع claude.com/pricing يوم الدفع.</span></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 06</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 07</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Pick your Claude plan in one week</span><span class="l-ar">اختر خطة Claude المناسبة في أسبوع واحد</span></span><span>BILL</span></div>
@@ -137,9 +140,14 @@ Pro    $20/mo           1x                         $240
 Max    $100/mo          5x Pro, 5-hour + weekly    $1,200
 Ultra  $200/mo          10x Pro weekly,            $2,400
                         no 5-hour limit (verified)</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Pick your Claude plan in one week</span><span class="l-ar">اختر خطة Claude المناسبة في أسبوع واحد</span></span><span>BILL</span></div>
+  
   <div class="step"><div class="num">02</div><div>
-    <h2><span class="l-en">Find your usage meter</span><span class="l-ar">اعثر على عدّاد الاستخدام</span></h2><p><span class="l-en">On claude.ai open Settings, then Usage (claude.ai/settings/usage). It shows how much of your limits you've used and when they reset. Inside Claude Code, type /usage. Check it at the end of every day of the test.</span><span class="l-ar">في claude.ai افتح Settings ثم Usage (claude.ai/settings/usage). تعرض الصفحة مقدار ما استخدمته من حدودك ومتى تتجدد. داخل Claude Code اكتب /usage. راجعه في نهاية كل يوم من أيام الاختبار.</span></p><pre>/usage</pre></div></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 06</span></div>
+    <h2><span class="l-en">Find your usage meter</span><span class="l-ar">اعثر على عدّاد الاستخدام</span></h2><p><span class="l-en">On claude.ai open Settings, then Usage (claude.ai/settings/usage). It shows how much of your limits you've used and when they reset. Inside Claude Code, type /usage. Check it at the end of every day of the test.</span><span class="l-ar">في claude.ai افتح Settings ثم Usage (claude.ai/settings/usage). تعرض الصفحة مقدار ما استخدمته من حدودك ومتى تتجدد. داخل Claude Code اكتب /usage. راجعه في نهاية كل يوم من أيام الاختبار.</span></p><pre>/usage</pre><figure class="shot"><img src="assets/_shared/claude/settings-usage.png" alt="Claude Settings, Usage, with the current session meter circled" loading="lazy"><figcaption>Settings → Usage: your current session and weekly limit. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 07</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Pick your Claude plan in one week</span><span class="l-ar">اختر خطة Claude المناسبة في أسبوع واحد</span></span><span>BILL</span></div>
@@ -159,19 +167,19 @@ Sun |            |      |                  |
 Total limit hits this week: __
 Hits before lunch: __
 Hit the weekly limit? yes / no
-Hits on Claude Code work that saves real hours: __</pre></div></div>
-  <div class="step"><div class="num">04</div><div>
-    <h2><span class="l-en">Read your result</span><span class="l-ar">اقرأ نتيجتك</span></h2><p><span class="l-en">0 to 2 hits: stay on Pro and pay yearly, that saves $40 a year. 3 or more hits, mostly before lunch on Claude Code work that saves you real hours: go up to Max. Already on Max and still hitting it 3 times a week: then Ultra. Mostly chatting and writing, never hit Max's limit: Ultra is wasted on you. Go one plan up, never two.</span><span class="l-ar">من 0 إلى 2 مرة: ابقَ على Pro وادفع سنويًا، فهذا يوفّر 40 دولارًا في السنة. 3 مرات أو أكثر، معظمها قبل الظهر في عمل على Claude Code يوفّر لك ساعات حقيقية: انتقل إلى Max. إن كنت على Max وما زلت تصل إلى الحد 3 مرات في الأسبوع: عندها Ultra. إن كان استخدامك في الغالب محادثة وكتابة ولم تصل يومًا إلى حد Max: فخطة Ultra هدر عليك. ارتقِ خطة واحدة فقط، لا خطتين.</span></p></div></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 06</span></div>
+Hits on Claude Code work that saves real hours: __</pre><figure class="shot loop"><video poster="assets/claude-plans-bill/loop-usage.png" autoplay muted loop playsinline preload="metadata" aria-label="Claude Code: /usage typed, the usage readout appears"><source src="assets/claude-plans-bill/loop-usage.webm" type="video/webm"><source src="assets/claude-plans-bill/loop-usage.mp4" type="video/mp4"></video><figcaption>In Claude Code, type /usage. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 07</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Pick your Claude plan in one week</span><span class="l-ar">اختر خطة Claude المناسبة في أسبوع واحد</span></span><span>BILL</span></div>
   
+  <div class="step"><div class="num">04</div><div>
+    <h2><span class="l-en">Read your result</span><span class="l-ar">اقرأ نتيجتك</span></h2><p><span class="l-en">0 to 2 hits: stay on Pro and pay yearly, that saves $40 a year. 3 or more hits, mostly before lunch on Claude Code work that saves you real hours: go up to Max. Already on Max and still hitting it 3 times a week: then Ultra. Mostly chatting and writing, never hit Max's limit: Ultra is wasted on you. Go one plan up, never two.</span><span class="l-ar">من 0 إلى 2 مرة: ابقَ على Pro وادفع سنويًا، فهذا يوفّر 40 دولارًا في السنة. 3 مرات أو أكثر، معظمها قبل الظهر في عمل على Claude Code يوفّر لك ساعات حقيقية: انتقل إلى Max. إن كنت على Max وما زلت تصل إلى الحد 3 مرات في الأسبوع: عندها Ultra. إن كان استخدامك في الغالب محادثة وكتابة ولم تصل يومًا إلى حد Max: فخطة Ultra هدر عليك. ارتقِ خطة واحدة فقط، لا خطتين.</span></p></div></div>
   <div class="step"><div class="num">05</div><div>
     <h2><span class="l-en">One heavy week? Try usage credits first</span><span class="l-ar">أسبوع مزدحم واحد؟ جرّب رصيد الاستخدام أولًا</span></h2><p><span class="l-en">In Settings, Usage you can turn on usage credits. When you hit a limit, Claude keeps working on pay-as-you-go at API rates until the monthly spend cap you set. For a one-off busy week that can cost less than moving up a plan for the whole month.</span><span class="l-ar">من Settings ثم Usage يمكنك تفعيل usage credits. عندما تصل إلى الحد، يواصل Claude العمل بالدفع حسب الاستخدام وبأسعار الـ API حتى سقف الإنفاق الشهري الذي تحدده. لأسبوع مزدحم واحد قد يكلّف ذلك أقل من الانتقال إلى خطة أعلى لشهر كامل.</span></p></div></div>
   <div class="step"><div class="num">06</div><div>
     <h2><span class="l-en">Re-test every 3 months</span><span class="l-ar">أعد الاختبار كل 3 أشهر</span></h2><p><span class="l-en">Your usage grows as you build more. Run the same week again each quarter. If you stopped hitting the limit, go back down a plan.</span><span class="l-ar">يزداد استخدامك كلما بنيت أكثر. كرّر أسبوع الاختبار نفسه كل ربع سنة. إذا توقفت عن الوصول إلى الحد، فانزل خطة واحدة.</span></p></div></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 06</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 07</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Pick your Claude plan in one week</span><span class="l-ar">اختر خطة Claude المناسبة في أسبوع واحد</span></span><span>BILL</span></div>
@@ -190,7 +198,7 @@ Tell me which plan I should be on, in one line, and show the math. Then list whi
 [list the tasks from your log]
 For each one, tell me how to get the same result with less usage: a fresh chat instead of one long thread, a Project instead of re-uploading the same files, a shorter prompt, or splitting a big job into parts.
 Give me the 3 changes that save the most, in order.</pre></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 06</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 07</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Pick your Claude plan in one week</span><span class="l-ar">اختر خطة Claude المناسبة في أسبوع واحد</span></span><span>BILL</span></div>
@@ -204,7 +212,7 @@ Give me the 3 changes that save the most, in order.</pre></div>
     <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
     <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
   </div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 06</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 07</span></div>
 </section>
 <script>
 (function(){

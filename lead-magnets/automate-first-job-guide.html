@@ -70,6 +70,9 @@ html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
 .step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
 .step h2{font-size:30px;margin-bottom:6px}
 .step p{color:var(--muted);margin-bottom:6px}
+.shot{margin:10px 0 2px;border:1px solid var(--line);border-top:1.5px solid var(--brass);background:var(--white);padding:6px}
+.shot img,.shot video{display:block;width:100%;height:auto;max-height:3.3in;object-fit:contain;background:var(--white)}
+.shot figcaption{font-size:10.5px;color:var(--muted);padding:6px 2px 0;letter-spacing:.02em}
 .prompt{margin-bottom:8px}
 .prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
 /* payoff */
@@ -129,7 +132,7 @@ B2: =COUNTIF(Log!B:B, A2)<span class="caret"></span></pre><div class="note"><spa
   <p><span class="l-en">Here's what a finished one looks like, the missed-DM job: someone comments a keyword, ManyChat sends them the guide, N8N adds the lead to Airtable and GoHighLevel, and Gmail sends the follow-up 2 days later. Nobody presses start. Your first job doesn't have to be this one. The log decides.</span><span class="l-ar">هكذا تبدو مهمة مكتملة، مهمة الرسائل الفائتة: يكتب أحدهم كلمة مفتاحية في التعليقات، فيرسل له ManyChat الدليل، ويضيف N8N العميل المحتمل إلى Airtable وGoHighLevel، ثم يرسل Gmail رسالة المتابعة بعد يومين. لا أحد يضغط زر البدء. ليس شرطًا أن تكون مهمتك الأولى هي هذه. السجل هو الذي يقرر.</span></p>
   <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">A Google Sheet for the task log (the exact columns are in step 1)</li><li class="l-en">A paid Claude plan (Pro or higher) with Claude Code installed</li><li class="l-en">An N8N account, on n8n Cloud or self-hosted</li><li class="l-en">Logins for the tools the job touches, e.g. Gmail, Airtable, GoHighLevel, ManyChat</li><li class="l-en">One week of honest logging before you build anything</li><li class="l-ar">جدول Google Sheets لسجل المهام (الأعمدة بالضبط في الخطوة 1)</li><li class="l-ar">خطة Claude مدفوعة (Pro أو أعلى) مع تثبيت Claude Code</li><li class="l-ar">حساب N8N، على n8n Cloud أو على خادمك الخاص</li><li class="l-ar">بيانات الدخول إلى الأدوات التي تلمسها المهمة، مثل Gmail وAirtable وGoHighLevel وManyChat</li><li class="l-ar">أسبوع واحد من التسجيل الصادق قبل أن تبني أي شيء</li></ul>
   <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">The 3 mistakes that kill this: picking the fun job instead of the big one, skipping the 10 tests, and letting the automation talk money with customers. Keep prices, refunds and discounts with a human. And don't guess your hours: if you didn't measure it, you didn't save time.</span><span class="l-ar">ثلاثة أخطاء تُفشل هذا كله: اختيار المهمة الممتعة بدل المهمة الكبيرة، وتخطّي الاختبارات العشرة، وترك الأتمتة تتحدث مع العملاء عن المال. أبقِ الأسعار والاسترداد والخصومات في يد إنسان. ولا تخمّن ساعاتك: إن لم تقِسها، فأنت لم توفّر وقتًا.</span></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 07</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 09</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Automate the first job in your business</span><span class="l-ar">أتمِت أول مهمة في عملك</span></span><span>HOURS</span></div>
@@ -141,7 +144,12 @@ Date | Task | Minutes | What starts it | Tools used | Notes
 Tab "Totals":
 Task | Times this week | Total minutes
 B2: =COUNTIF(Log!B:B, A2)
-C2: =SUMIF(Log!B:B, A2, Log!C:C)</pre></div></div>
+C2: =SUMIF(Log!B:B, A2, Log!C:C)</pre><figure class="shot"><img src="assets/automate-first-job/shot-sheet-log.png" alt="Google Sheet Task log, Log tab circled, sample rows" loading="lazy"><figcaption>The Log tab with the 6 columns. Sample rows. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 09</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Automate the first job in your business</span><span class="l-ar">أتمِت أول مهمة في عملك</span></span><span>HOURS</span></div>
+  
   <div class="step"><div class="num">02</div><div>
     <h2><span class="l-en">Break it into steps</span><span class="l-ar">فكّكها إلى خطوات</span></h2><p><span class="l-en">Write the job like you're training someone new. Fill in this template for the winning task. If you can't write it, AI can't do it.</span><span class="l-ar">اكتب المهمة كأنك تدرّب موظفًا جديدًا. املأ هذا القالب للمهمة الفائزة. إن لم تستطع كتابتها، فلن يستطيع الذكاء الاصطناعي تنفيذها.</span></p><pre>Job: [name]
 What comes in: [the email, form, DM or file that starts it]
@@ -149,26 +157,31 @@ What I check: [every decision, in order]
 What goes out: [the reply, record or file at the end]
 Tools: [Gmail, Airtable, GoHighLevel...]
 A human steps in when: [money, complaints, anything unsure]</pre></div></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 07</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 09</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Automate the first job in your business</span><span class="l-ar">أتمِت أول مهمة في عملك</span></span><span>HOURS</span></div>
   
   <div class="step"><div class="num">03</div><div>
-    <h2><span class="l-en">Let Claude Code build it</span><span class="l-ar">دع Claude Code يبنيها</span></h2><p><span class="l-en">Open Claude Code in an empty folder and paste prompt 2 from the prompts pages with your filled-in template. Ask it to build the flow as an N8N workflow file and to explain each part back to you. If you can't follow the explanation, ask again until you can. You'll be the one fixing it.</span><span class="l-ar">افتح Claude Code في مجلد فارغ والصق الأمر 2 من صفحات الأوامر مع القالب بعد ملئه. اطلب منه أن يبني المسار كملف workflow لـ N8N وأن يشرح لك كل جزء. إن لم تفهم الشرح، اطلبه مرة أخرى حتى تفهم. أنت من سيصلحه لاحقًا.</span></p></div></div>
-  <div class="step"><div class="num">04</div><div>
-    <h2><span class="l-en">Make it run on its own</span><span class="l-ar">اجعلها تعمل وحدها</span></h2><p><span class="l-en">In N8N, import the file (Import from File in the workflow menu), connect your credentials on each node, and set the trigger: an n8n Form Trigger for a new form, a Webhook for a new DM from ManyChat, or a Schedule Trigger for every Monday at 9. Then hit Publish (older versions call it Active). If you have to press start, it isn't automated yet.</span><span class="l-ar">في N8N استورد الملف (Import from File من قائمة الـ workflow)، واربط بيانات الدخول في كل عقدة، واضبط المُشغّل: n8n Form Trigger لنموذج جديد، أو Webhook لرسالة جديدة من ManyChat، أو Schedule Trigger لكل يوم اثنين الساعة 9. ثم اضغط Publish (الإصدارات الأقدم تسميه Active). إن كان عليك أن تضغط زر البدء، فهي ليست مؤتمتة بعد.</span></p></div></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 07</span></div>
+    <h2><span class="l-en">Let Claude Code build it</span><span class="l-ar">دع Claude Code يبنيها</span></h2><p><span class="l-en">Open Claude Code in an empty folder and paste prompt 2 from the prompts pages with your filled-in template. Ask it to build the flow as an N8N workflow file and to explain each part back to you. If you can't follow the explanation, ask again until you can. You'll be the one fixing it.</span><span class="l-ar">افتح Claude Code في مجلد فارغ والصق الأمر 2 من صفحات الأوامر مع القالب بعد ملئه. اطلب منه أن يبني المسار كملف workflow لـ N8N وأن يشرح لك كل جزء. إن لم تفهم الشرح، اطلبه مرة أخرى حتى تفهم. أنت من سيصلحه لاحقًا.</span></p><figure class="shot loop"><video poster="assets/automate-first-job/loop-build.png" autoplay muted loop playsinline preload="metadata" aria-label="Claude Code builds the N8N workflow file and explains each node"><source src="assets/automate-first-job/loop-build.webm" type="video/webm"><source src="assets/automate-first-job/loop-build.mp4" type="video/mp4"></video><figcaption>Paste the prompt, Claude Code writes the workflow file and explains it. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 09</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Automate the first job in your business</span><span class="l-ar">أتمِت أول مهمة في عملك</span></span><span>HOURS</span></div>
   
+  <div class="step"><div class="num">04</div><div>
+    <h2><span class="l-en">Make it run on its own</span><span class="l-ar">اجعلها تعمل وحدها</span></h2><p><span class="l-en">In N8N, import the file (Import from File in the workflow menu), connect your credentials on each node, and set the trigger: an n8n Form Trigger for a new form, a Webhook for a new DM from ManyChat, or a Schedule Trigger for every Monday at 9. Then hit Publish (older versions call it Active). If you have to press start, it isn't automated yet.</span><span class="l-ar">في N8N استورد الملف (Import from File من قائمة الـ workflow)، واربط بيانات الدخول في كل عقدة، واضبط المُشغّل: n8n Form Trigger لنموذج جديد، أو Webhook لرسالة جديدة من ManyChat، أو Schedule Trigger لكل يوم اثنين الساعة 9. ثم اضغط Publish (الإصدارات الأقدم تسميه Active). إن كان عليك أن تضغط زر البدء، فهي ليست مؤتمتة بعد.</span></p><figure class="shot"><img src="assets/automate-first-job/shot-n8n-import.png" alt="n8n workflow menu with Import from File circled" loading="lazy"><figcaption>n8n: the workflow menu (···) → Import from File. Recreated screen.</figcaption></figure></div></div>
   <div class="step"><div class="num">05</div><div>
     <h2><span class="l-en">Test it 10 times</span><span class="l-ar">اختبرها 10 مرات</span></h2><p><span class="l-en">Run it on 10 real cases before any customer sees it. Log every run in a third tab. Every wrong output gets a row, and you fix the step that caused it, then run that case again.</span><span class="l-ar">شغّلها على 10 حالات حقيقية قبل أن يراها أي عميل. سجّل كل تشغيل في تبويب ثالث. كل نتيجة خاطئة تأخذ صفًا، وتصلح الخطوة التي سببتها، ثم تعيد تشغيل الحالة نفسها.</span></p><pre>Tab "Tests":
 Case | Input | What should happen | What happened | Step to fix | Fixed?</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 09</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Automate the first job in your business</span><span class="l-ar">أتمِت أول مهمة في عملك</span></span><span>HOURS</span></div>
+  
   <div class="step"><div class="num">06</div><div>
     <h2><span class="l-en">Measure it</span><span class="l-ar">قِسها</span></h2><p><span class="l-en">One week after it goes live, log the same way as step 1. Write the before and after minutes on one line. The minutes you got back are the only number that matters, and that line decides your next job: back to step 1 with the next biggest total.</span><span class="l-ar">بعد أسبوع من التشغيل الفعلي، سجّل بالطريقة نفسها كما في الخطوة 1. اكتب دقائق قبل وبعد في سطر واحد. الدقائق التي استعدتها هي الرقم الوحيد المهم، وهذا السطر يحدد مهمتك التالية: عُد إلى الخطوة 1 مع صاحبة ثاني أكبر مجموع.</span></p><pre>Job | Minutes per week before | Minutes per week after | Minutes saved</pre></div></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 07</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 09</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Automate the first job in your business</span><span class="l-ar">أتمِت أول مهمة في عملك</span></span><span>HOURS</span></div>
@@ -192,7 +205,7 @@ What it did: [paste the output]
 What it should have done: [one line]
 
 Find the node that caused it, fix it, and tell me what you changed.</pre></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 07</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 09</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Automate the first job in your business</span><span class="l-ar">أتمِت أول مهمة في عملك</span></span><span>HOURS</span></div>
@@ -202,7 +215,7 @@ Find the node that caused it, fix it, and tell me what you changed.</pre></div>
 
 For the job [job name], give me minutes per week before, after, and saved.
 Then rank what's left in the log so I know my next job.</pre></div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 07</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">08 / 09</span></div>
 </section>
 
 <section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Automate the first job in your business</span><span class="l-ar">أتمِت أول مهمة في عملك</span></span><span>HOURS</span></div>
@@ -216,7 +229,7 @@ Then rank what's left in the log so I know my next job.</pre></div>
     <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
     <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
   </div>
-  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 07</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">09 / 09</span></div>
 </section>
 <script>
 (function(){
