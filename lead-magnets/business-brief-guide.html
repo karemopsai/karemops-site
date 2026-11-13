@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One brief. Ten documents. One line each | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E7E0D2; --paper:#FBF7EF; --white:#FFFFFF; --ink:#1A1714; --navy:#0E1A33; --muted:#4A4438; --line:#E4DACA;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F6F0E4; --cream:#F2EAD9; --brass:#B08D57;
+  --repp:repeating-linear-gradient(135deg,#0E1A33 0 11px,#0866FF 11px 17px,#0E1A33 17px 28px,#FBF7EF 28px 30px);
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Cormorant Garamond',Georgia,serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(14,26,51,.06),0 12px 40px rgba(14,26,51,.10);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--brass);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--brass);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-family:var(--serif);font-weight:600;font-size:64px;line-height:1;letter-spacing:-.01em;color:var(--navy);text-wrap:balance}
+h2{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.05;letter-spacing:-.01em;color:var(--navy);margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--blue);letter-spacing:0}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--cream);border:0;border-top:1.5px solid var(--brass);border-radius:0;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--navy);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--navy)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:0;padding:34px 40px;background-color:var(--cream);
+  border:1px solid var(--line);outline:1px solid var(--brass);outline-offset:6px}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(14,26,51,.12),0 2px 6px rgba(14,26,51,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:var(--navy);font-size:11px;color:var(--paper)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:rgba(251,247,239,.35);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--brass)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:34px;height:auto;display:block}
+.cover::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
+.step h2{font-size:30px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.prompt{margin-bottom:8px}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--navy);color:#fff;border-radius:0;padding:34px 30px 28px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-family:var(--serif);font-size:32px;letter-spacing:0;text-transform:none;margin:0 0 8px;font-weight:600}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px;color:#4D92FF}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3;font-family:var(--arab);font-weight:800}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+}</style>
+</head>
+<body>
+<div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip"><span class="l-en">Comment</span><span class="l-ar">اكتب</span> · BRIEF</span></div>
+  <div class="eyebrow"><span class="l-en">Field guide · No. 44</span><span class="l-ar">دليل عملي · رقم 44</span></div>
+  <h1><span class="l-en">One brief. Ten documents. <span class="em">One line each.</span></span><span class="l-ar">ملخص واحد. عشر وثائق. <span class="em">سطر واحد لكل منها.</span></span></h1>
+  <p class="lead"><span class="l-en">Write your business brief once, paste it into a Claude Project, and every proposal, follow-up and report after that takes one line.</span><span class="l-ar">اكتب ملخص عملك مرة واحدة، والصقه في مشروع على Claude، وبعدها يحتاج كل عرض ورسالة متابعة وتقرير إلى سطر واحد فقط.</span></p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Prompt</span></div><pre>You write for [business name], a [type of business] in [city or country].
+We sell [main offer] to [who buys it] at [price or price range].
+Customers pick us because [the real reason, in their words].
+Our voice is [how you talk, e.g. short, warm, no jargon]. Write in [language].
+Sign every message as [your name and role].
+Never promise [what you can't: discounts, deadlines, results].<span class="caret"></span></pre><div class="note"><span class="l-en">Step 01 of this guide. Copy it as is.</span><span class="l-ar">الخطوة 01 من هذا الدليل. انسخها كما هي.</span></div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0"><span class="l-en">Inside</span><span class="l-ar">في هذا الدليل</span></h3><p><span class="l-en">Fill in the brief, set it as your Claude Project's instructions, and run the 10 one-line prompts that turn your notes, numbers and transcripts into finished documents.</span><span class="l-ar">املأ الملخص، واجعله تعليمات مشروعك على Claude، ثم استخدم الأوامر العشرة ذات السطر الواحد التي تحوّل ملاحظاتك وأرقامك ونصوصك المفرغة إلى وثائق جاهزة.</span></p></div>
+    <div class="by"><svg class="mono-k" viewBox="0 0 120 150" aria-label="Karemops crest"><ellipse cx="60" cy="75" rx="57" ry="72" fill="none" stroke="#B08D57" stroke-width="3"/><ellipse cx="60" cy="75" rx="49" ry="64" fill="none" stroke="#B08D57" stroke-width="1.4"/><text x="60" y="98" text-anchor="middle" style="font:600 68px 'Cormorant Garamond',Georgia,serif;fill:#0866FF">K</text></svg><div><b><span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">One brief. Ten documents. One line each</span><span class="l-ar">ملخص واحد. عشر وثائق. سطر واحد لكل منها</span></span><span>BRIEF</span></div>
+  <div class="eyebrow"><span class="l-en">01 · What this is</span><span class="l-ar">01 · ما هذا</span></div>
+  <h2><span class="l-en">What you're <span class="em">setting up.</span></span><span class="l-ar">ما الذي <span class="em">ستُعدّه.</span></span></h2>
+  <p><span class="l-en">Most people write a new prompt every time and explain their business from zero. The brief fixes that. It holds who you are, what you sell, who buys it, how you talk and what you never promise. You write it once and put it in a Claude Project's instructions, so Claude reads it in every chat inside that project.</span><span class="l-ar">يكتب معظم الناس أمرًا جديدًا في كل مرة ويشرحون عملهم من البداية. الملخص يحل هذه المشكلة. فيه من أنت، وما تبيعه، ومن يشتري منك، وكيف تتكلم، وما لا تعِد به أبدًا. تكتبه مرة واحدة وتضعه في تعليمات مشروع على Claude، فيقرؤه Claude في كل محادثة داخل هذا المشروع.</span></p>
+  <p><span class="l-en">After that, each document is one line: paste the input (a transcript, notes, the week's numbers, reviews) and say what to turn it into. The brief carries your business, the line carries the job. That's why the output sounds like you.</span><span class="l-ar">بعد ذلك تصبح كل وثيقة سطرًا واحدًا: الصق المادة الخام (نصًا مفرغًا أو ملاحظات أو أرقام الأسبوع أو مراجعات العملاء) واكتب ما تريد تحويلها إليه. الملخص يحمل عملك، والسطر يحمل المهمة. لهذا تبدو النتيجة بصوتك أنت.</span></p>
+  <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">A Claude account. Projects work on every plan, Free included (Free is capped at 5 projects)</li><li class="l-en">Claude on the web or the Claude Desktop app</li><li class="l-en">15 minutes to fill in the brief</li><li class="l-en">One real input to test with: last week's call notes, a voice memo transcript or a few customer reviews</li><li class="l-ar">حساب Claude. المشاريع متاحة في كل الخطط، ومنها الخطة المجانية (الحد فيها 5 مشاريع)</li><li class="l-ar">Claude على الويب أو تطبيق Claude Desktop</li><li class="l-ar">15 دقيقة لملء الملخص</li><li class="l-ar">مادة حقيقية واحدة للتجربة: ملاحظات مكالمة الأسبوع الماضي، أو نص مفرغ لتسجيل صوتي، أو بعض مراجعات العملاء</li></ul>
+  <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">The brief tells Claude to use only your facts, but it can still get a price, a date or a name wrong. Read every document before it goes to a customer, and never let it promise a discount, a deadline or a result you didn't write in. If a prompt keeps missing, fix the brief, not the line.</span><span class="l-ar">يطلب الملخص من Claude أن يستخدم معلوماتك فقط، لكنه قد يخطئ في سعر أو تاريخ أو اسم. اقرأ كل وثيقة قبل أن تصل إلى العميل، ولا تسمح لها أن تعِد بخصم أو موعد أو نتيجة لم تكتبها أنت. إذا أخطأ أمر ما مرة بعد مرة، فعدّل الملخص وليس السطر.</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 08</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">One brief. Ten documents. One line each</span><span class="l-ar">ملخص واحد. عشر وثائق. سطر واحد لكل منها</span></span><span>BRIEF</span></div>
+  <div class="eyebrow"><span class="l-en">02 · The steps</span><span class="l-ar">02 · الخطوات</span></div><h2><span class="l-en">Set it up, <span class="em">step by step.</span></span><span class="l-ar">الإعداد <span class="em">خطوة بخطوة.</span></span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2><span class="l-en">Fill in the brief</span><span class="l-ar">املأ الملخص</span></h2><p><span class="l-en">Copy this into a note and replace every [bracket] with your real answer. Be specific: "short, warm, no jargon" beats "professional". The last three lines stop Claude from making things up, keep them as they are.</span><span class="l-ar">انسخ هذا النص إلى ملاحظة واستبدل كل [قوس] بإجابتك الحقيقية. كن محددًا: عبارة "قصير، ودود، بلا مصطلحات" أفضل من "احترافي". الأسطر الثلاثة الأخيرة تمنع Claude من اختلاق المعلومات، فاتركها كما هي.</span></p><pre>You write for [business name], a [type of business] in [city or country].
+We sell [main offer] to [who buys it] at [price or price range].
+Customers pick us because [the real reason, in their words].
+Our voice is [how you talk, e.g. short, warm, no jargon]. Write in [language].
+Sign every message as [your name and role].
+Never promise [what you can't: discounts, deadlines, results].
+Use only facts from my input and this brief. Never invent prices, dates, names or numbers.
+If something is missing, ask me before you write.</pre></div></div>
+  <div class="step"><div class="num">02</div><div>
+    <h2><span class="l-en">Put it in a Claude Project</span><span class="l-ar">ضعه في مشروع على Claude</span></h2><p><span class="l-en">In Claude, open Projects from the left sidebar (or go to claude.ai/projects) and click + New Project. Name it after your business. Inside the project, click Set project instructions, paste your filled-in brief and click Save instructions. Claude now applies it to every chat in that project.</span><span class="l-ar">في Claude افتح Projects من الشريط الجانبي الأيسر (أو ادخل إلى claude.ai/projects) واضغط + New Project. سمّه باسم عملك. داخل المشروع اضغط Set project instructions، والصق الملخص بعد ملئه، ثم اضغط Save instructions. يطبّقه Claude الآن على كل محادثة في هذا المشروع.</span></p></div></div>
+  <div class="step"><div class="num">03</div><div>
+    <h2><span class="l-en">Add the files Claude should know</span><span class="l-ar">أضف الملفات التي يجب أن يعرفها Claude</span></h2><p><span class="l-en">Optional, and worth it. In the project knowledge panel on the right, click + and add your price list, a past proposal you liked and your FAQ. Claude uses them as context in every chat in the project, so the facts come from your files and not from memory.</span><span class="l-ar">خطوة اختيارية لكنها تستحق. في لوحة معرفة المشروع على اليمين اضغط + وأضف قائمة أسعارك، وعرضًا سابقًا أعجبك، وأسئلتك الشائعة. يستخدمها Claude سياقًا في كل محادثة داخل المشروع، فتأتي المعلومات من ملفاتك لا من ذاكرته.</span></p></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 08</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">One brief. Ten documents. One line each</span><span class="l-ar">ملخص واحد. عشر وثائق. سطر واحد لكل منها</span></span><span>BRIEF</span></div>
+  
+  <div class="step"><div class="num">04</div><div>
+    <h2><span class="l-en">Run one line per document</span><span class="l-ar">سطر واحد لكل وثيقة</span></h2><p><span class="l-en">Start a new chat inside the project. Paste the input, then the one-line prompt for the document you need from the next pages. One document per chat keeps the inputs from mixing. If something is missing, Claude asks, because the brief tells it to.</span><span class="l-ar">ابدأ محادثة جديدة داخل المشروع. الصق المادة الخام، ثم الأمر ذا السطر الواحد للوثيقة التي تحتاجها من الصفحات التالية. وثيقة واحدة في كل محادثة تمنع اختلاط المواد. إذا نقصت معلومة سيسألك Claude، لأن الملخص يطلب منه ذلك.</span></p></div></div>
+  <div class="step"><div class="num">05</div><div>
+    <h2><span class="l-en">Check it, then fix the brief</span><span class="l-ar">راجع النتيجة ثم حسّن الملخص</span></h2><p><span class="l-en">Read every document before it leaves: prices, dates, names, promises. When you keep correcting the same thing (too long, too formal, wrong sign-off), add one line to the brief and save it again. Every chat after that comes out fixed.</span><span class="l-ar">اقرأ كل وثيقة قبل إرسالها: الأسعار والتواريخ والأسماء والوعود. عندما تجد نفسك تصحح الشيء نفسه مرارًا (طويلة جدًا، رسمية جدًا، توقيع خاطئ)، أضف سطرًا واحدًا إلى الملخص واحفظه من جديد. كل محادثة بعدها ستخرج مصححة.</span></p></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 08</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">One brief. Ten documents. One line each</span><span class="l-ar">ملخص واحد. عشر وثائق. سطر واحد لكل منها</span></span><span>BRIEF</span></div>
+  <div class="eyebrow"><span class="l-en">03 · Copy and paste</span><span class="l-ar">03 · انسخ والصق</span></div><h2><span class="l-en">Your <span class="em">prompts.</span></span><span class="l-ar">أوامرك <span class="em">الجاهزة.</span></span></h2><p class="muted l-ar">انسخ الأوامر والنصوص كما هي باللغة الإنجليزية، فهي تعمل بدقة أكبر.</p>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">1. Voice note to proposal</span><span class="l-ar">1. من تسجيل صوتي إلى عرض سعر</span></h4><pre>Here's my voice note transcript from the sales call with [client name]:
+[paste the transcript]
+
+Turn this into a proposal with scope, timeline and price.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">2. Call notes to follow-up email</span><span class="l-ar">2. من ملاحظات المكالمة إلى رسالة متابعة</span></h4><pre>My notes from the call with [client name]:
+[paste your notes]
+
+Turn these notes into a follow-up that confirms what we agreed and the next step, under 120 words.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">3. Spreadsheet to weekly report</span><span class="l-ar">3. من جدول البيانات إلى تقرير أسبوعي</span></h4><pre>This week's numbers:
+[paste the rows from your sheet]
+
+Write a 5-line report for my [partner / manager]. What went up, what went down, one thing to fix.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 08</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">One brief. Ten documents. One line each</span><span class="l-ar">ملخص واحد. عشر وثائق. سطر واحد لكل منها</span></span><span>BRIEF</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">4. Reviews to ad copy</span><span class="l-ar">4. من المراجعات إلى نص إعلاني</span></h4><pre>Here are [20] customer reviews:
+[paste the reviews]
+
+Pull the exact phrases customers repeat and write 3 ad headlines using their words.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">5. Loom transcript to SOP</span><span class="l-ar">5. من نص فيديو Loom إلى دليل إجراءات</span></h4><pre>Transcript of my Loom showing how I [name the task]:
+[paste the transcript]
+
+Turn this into numbered steps a new hire can follow without asking me.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">6. Messy DM thread to clear reply</span><span class="l-ar">6. من محادثة رسائل مشوشة إلى رد واضح</span></h4><pre>The DM thread with [customer name]:
+[paste the thread]
+
+Read this thread, tell me what the customer actually wants in one line, then draft the reply.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 08</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">One brief. Ten documents. One line each</span><span class="l-ar">ملخص واحد. عشر وثائق. سطر واحد لكل منها</span></span><span>BRIEF</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">7. Price list to FAQ</span><span class="l-ar">7. من قائمة الأسعار إلى أسئلة شائعة</span></h4><pre>Our price list:
+[paste the price list]
+
+Write the 10 questions customers ask about these prices, with answers that use only this list.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">8. Complaint to apology</span><span class="l-ar">8. من شكوى إلى اعتذار</span></h4><pre>The complaint:
+[paste the message]
+What went wrong on our side: [one line]
+
+Write a reply that owns the mistake, says what we'll do and by when. No discounts unless I say so.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">9. Old blog post to LinkedIn post</span><span class="l-ar">9. من مقال قديم إلى منشور LinkedIn</span></h4><pre>My old post:
+[paste the post]
+
+Turn this into one LinkedIn post: one idea, a first line that stops the scroll, no hashtags.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 08</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">One brief. Ten documents. One line each</span><span class="l-ar">ملخص واحد. عشر وثائق. سطر واحد لكل منها</span></span><span>BRIEF</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">10. Meeting agenda to client recap</span><span class="l-ar">10. من جدول أعمال الاجتماع إلى ملخص للعميل</span></h4><pre>The agenda:
+[paste the agenda]
+My notes from the meeting:
+[paste your notes]
+
+Turn this agenda and my notes into a recap the client can forward to their boss.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 08</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">One brief. Ten documents. One line each</span><span class="l-ar">ملخص واحد. عشر وثائق. سطر واحد لكل منها</span></span><span>BRIEF</span></div>
+  <div class="eyebrow"><span class="l-en">Done</span><span class="l-ar">تم</span></div>
+  <h2><span class="l-en">That's the <span class="em">whole setup.</span></span><span class="l-ar">هذا هو <span class="em">الإعداد كاملًا.</span></span></h2>
+  <p class="lead"><span class="l-en">Fill in the brief tonight. Tomorrow, paste your next call notes and send the follow-up before lunch.</span><span class="l-ar">جرّبه هذا الأسبوع على عمل حقيقي، ثم أخبرني بالنتيجة عبر رسالة على إنستغرام، فأنا أقرأ الرسائل بنفسي.</span></p>
+  <h3><span class="l-en">Credit</span><span class="l-ar">المصادر</span></h3><ul><li>Claude Projects and project instructions by Anthropic. Setup steps from Anthropic's Help Center: How can I create and manage projects? (support.claude.com)</li><li>Brief and prompts written by Karem AlMoayyad for Karemops.ai</li></ul>
+  <div class="cta">
+    <div class="k"><span class="l-en">Built by</span><span class="l-ar">إعداد</span> <span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></div>
+    <h3><span class="l-en">Want it built for you?</span><span class="l-ar">تريد أن نبنيه لك؟</span></h3>
+    <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
+    <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
+  </div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">08 / 08</span></div>
+</section>
+<script>
+(function(){
+  var root=document.documentElement;
+  function set(l){root.dataset.lang=l;root.lang=l;root.dir=l==="ar"?"rtl":"ltr";
+    document.querySelectorAll(".lang-toggle button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
+    try{localStorage.setItem("karemops-guide-lang",l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem("karemops-guide-lang")}catch(e){}
+  set(location.hash==="#ar"?"ar":location.hash==="#en"?"en":(saved||"en"));
+  document.querySelector(".lang-toggle").addEventListener("click",function(e){var b=e.target.closest("button");if(b)set(b.dataset.l)});
+})();
+</script>
+</body>
+</html>

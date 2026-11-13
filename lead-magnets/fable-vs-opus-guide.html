@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fable 5.2 vs Opus 5.5: the bill | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E7E0D2; --paper:#FBF7EF; --white:#FFFFFF; --ink:#1A1714; --navy:#0E1A33; --muted:#4A4438; --line:#E4DACA;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F6F0E4; --cream:#F2EAD9; --brass:#B08D57;
+  --repp:repeating-linear-gradient(135deg,#0E1A33 0 11px,#0866FF 11px 17px,#0E1A33 17px 28px,#FBF7EF 28px 30px);
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Cormorant Garamond',Georgia,serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(14,26,51,.06),0 12px 40px rgba(14,26,51,.10);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--brass);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--brass);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-family:var(--serif);font-weight:600;font-size:64px;line-height:1;letter-spacing:-.01em;color:var(--navy);text-wrap:balance}
+h2{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.05;letter-spacing:-.01em;color:var(--navy);margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--blue);letter-spacing:0}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--cream);border:0;border-top:1.5px solid var(--brass);border-radius:0;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--navy);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--navy)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:0;padding:34px 40px;background-color:var(--cream);
+  border:1px solid var(--line);outline:1px solid var(--brass);outline-offset:6px}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(14,26,51,.12),0 2px 6px rgba(14,26,51,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:var(--navy);font-size:11px;color:var(--paper)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:rgba(251,247,239,.35);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--brass)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:34px;height:auto;display:block}
+.cover::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
+.step h2{font-size:30px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.prompt{margin-bottom:8px}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--navy);color:#fff;border-radius:0;padding:34px 30px 28px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-family:var(--serif);font-size:32px;letter-spacing:0;text-transform:none;margin:0 0 8px;font-weight:600}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px;color:#4D92FF}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3;font-family:var(--arab);font-weight:800}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+}</style>
+</head>
+<body>
+<div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip"><span class="l-en">Comment</span><span class="l-ar">اكتب</span> · FABLE</span></div>
+  <div class="eyebrow"><span class="l-en">Field guide · No. 47</span><span class="l-ar">دليل عملي · رقم 47</span></div>
+  <h1><span class="l-en">Fable 5.2 vs Opus 5.5: <span class="em">the bill.</span></span><span class="l-ar">Fable 5.2 مقابل Opus 5.5: <span class="em">الفاتورة.</span></span></h1>
+  <p class="lead"><span class="l-en">Same 7 builds, same prompts, first try in Claude Code. Opus 5.5 cost $16.37. Fable 5.2 cost $39.29. Here's the full bill, 7 build prompts to rerun it, the two-command setup that ran all 7 for $25.81, and how to test it on your own work.</span><span class="l-ar">سبعة مشاريع بناء، الأوامر نفسها، المحاولة الأولى في Claude Code. كلّف Opus 5.5 مبلغ 16.37 دولارًا، وكلّف Fable 5.2 مبلغ 39.29 دولارًا. في هذا الدليل الفاتورة كاملة، و7 أوامر بناء لتكرار الاختبار، والإعداد بأمرين الذي نفّذ المشاريع السبعة بـ 25.81 دولارًا، وطريقة اختباره على عملك أنت.</span></p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Claude Code</span></div><pre><span class="p">&gt;</span> /model opus<span class="caret"></span></pre><div class="note"><span class="l-en">Step 03 of this guide. Copy it as is.</span><span class="l-ar">الخطوة 03 من هذا الدليل. انسخها كما هي.</span></div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0"><span class="l-en">Inside</span><span class="l-ar">في هذا الدليل</span></h3><p><span class="l-en">Read the cost of every run, get 7 build prompts, set up Opus as the builder with Fable as the advisor, run one build on the first try, then run it on Fable alone and compare the bill.</span><span class="l-ar">اطّلع على تكلفة كل تشغيل، وخذ 7 أوامر بناء، واجعل Opus يبني وFable يعمل مستشارًا، ونفّذ مشروعًا واحدًا من المحاولة الأولى، ثم نفّذه على Fable وحده وقارن الفاتورتين.</span></p></div>
+    <div class="by"><svg class="mono-k" viewBox="0 0 120 150" aria-label="Karemops crest"><ellipse cx="60" cy="75" rx="57" ry="72" fill="none" stroke="#B08D57" stroke-width="3"/><ellipse cx="60" cy="75" rx="49" ry="64" fill="none" stroke="#B08D57" stroke-width="1.4"/><text x="60" y="98" text-anchor="middle" style="font:600 68px 'Cormorant Garamond',Georgia,serif;fill:#0866FF">K</text></svg><div><b><span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Fable 5.2 vs Opus 5.5: the bill</span><span class="l-ar">Fable 5.2 مقابل Opus 5.5: الفاتورة</span></span><span>FABLE</span></div>
+  <div class="eyebrow"><span class="l-en">01 · What this is</span><span class="l-ar">01 · ما هذا</span></div>
+  <h2><span class="l-en">What you're <span class="em">setting up.</span></span><span class="l-ar">ما الذي <span class="em">ستُعدّه.</span></span></h2>
+  <p><span class="l-en">Charlie Hills gave Claude's two top models the same 7 build prompts in Claude Code on Nov 10, 2026. One shot each, no fixes. Every prompt asked for a single self-contained HTML file built with Three.js: a black hole, robot arms solving a Rubik's cube, a 3D shooter, a smart speaker, a product configurator, a sales globe and a retro shooter. Fable's versions looked richer on almost every one. On the one build that needed real logic, the Rubik's cube, only Opus wrote a real solver.</span><span class="l-ar">أعطى Charlie Hills أقوى نموذجين لدى Claude الأوامر السبعة نفسها في Claude Code بتاريخ 10 نوفمبر 2026، محاولة واحدة لكلٍّ منها بلا أي تصحيح. طلب كل أمر ملف HTML واحدًا مستقلًا مبنيًا بـ Three.js: ثقب أسود، وذراعان آليتان تحلّان مكعب روبيك، ولعبة تصويب ثلاثية الأبعاد، ومكبّر صوت ذكي، وأداة لتخصيص منتج، وكرة أرضية للمبيعات، ولعبة تصويب بطابع قديم. بدت نسخ Fable أغنى في كل المشاريع تقريبًا. وفي المشروع الوحيد الذي احتاج منطقًا حقيقيًا، مكعب روبيك، كان Opus الوحيد الذي كتب حلًّا فعليًا.</span></p>
+  <p><span class="l-en">The gap comes from two places. Per token, Fable 5.2 costs twice what Opus 5.5 does on the API ($8 in and $40 out per million tokens, against $4 and $20). And on the 4 builds Charlie timed, Fable also ran longer. His fix is to run both: Opus builds, Fable checks the hard parts. That setup ran all 7 for $25.81.</span><span class="l-ar">يأتي الفرق من مصدرين. سعر Fable 5.2 لكل رمز (token) ضعف سعر Opus 5.5 عبر API: ثمانية دولارات للإدخال وأربعون للإخراج لكل مليون رمز، مقابل أربعة دولارات للإدخال وعشرين للإخراج لدى Opus. وفي المشاريع الأربعة التي قاس Charlie وقتها، استغرق Fable وقتًا أطول أيضًا. والحل الذي يقترحه هو تشغيل الاثنين معًا: Opus يبني وFable يراجع الأجزاء الصعبة. نفّذ هذا الإعداد المشاريع السبعة بـ 25.81 دولارًا.</span></p>
+  <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">Claude Code v2.1.321 or later (Fable 5.2 needs it)</li><li class="l-en">Fable access. Max, Ultra and Team or Enterprise premium seats use plan limits, capped at 50% of the weekly limit. Pro and standard seats bill Fable to usage credits, except Pro's launch window, which ends Nov 16, 2026 at 11:59 pm PT</li><li class="l-en">Claude Code signed in through Anthropic directly (a Claude plan or an API key). The advisor doesn't run on Amazon Bedrock, Google Cloud or Microsoft Foundry</li><li class="l-en">One build prompt to test with: one of Charlie's 7, or a real job from your business</li><li class="l-ar">Claude Code بالإصدار v2.1.321 أو أحدث (يحتاجه Fable 5.2)</li><li class="l-ar">إمكانية استخدام Fable. خطط Max وUltra والمقاعد المميزة في Team وEnterprise تستخدم حدود الخطة بسقف 50% من الحد الأسبوعي. أما Pro والمقاعد العادية فتحتسب Fable من رصيد الاستخدام الإضافي، باستثناء فترة إطلاق Pro التي تنتهي في 16 نوفمبر 2026 الساعة 11:59 مساءً بتوقيت المحيط الهادئ</li><li class="l-ar">Claude Code مسجّل الدخول عبر Anthropic مباشرة (خطة Claude أو مفتاح API). لا يعمل المستشار على Amazon Bedrock أو Google Cloud أو Microsoft Foundry</li><li class="l-ar">أمر بناء واحد للاختبار: أحد أوامر Charlie السبعة، أو مهمة حقيقية من عملك</li></ul>
+  <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">These numbers are one run per build, from one person, priced at API rates. Your bill will be different, so treat it as a direction, not a quote. On a plan, Fable eats your weekly limit faster than other models, and on Pro after Nov 16 it bills usage credits. In non-interactive mode (claude -p) Claude Code bills those credits without asking. Check /usage after every run.</span><span class="l-ar">هذه الأرقام من تشغيل واحد لكل مشروع، ومن شخص واحد، ومحسوبة بأسعار API. فاتورتك ستختلف، فاعتبرها مؤشرًا لا عرض سعر. على الخطط، يستهلك Fable حدّك الأسبوعي أسرع من النماذج الأخرى، وعلى Pro بعد 16 نوفمبر يُحتسب من رصيد الاستخدام الإضافي. وفي الوضع غير التفاعلي (claude -p) يحتسب Claude Code هذا الرصيد دون أن يسألك. راجع /usage بعد كل تشغيل.</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 08</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Fable 5.2 vs Opus 5.5: the bill</span><span class="l-ar">Fable 5.2 مقابل Opus 5.5: الفاتورة</span></span><span>FABLE</span></div>
+  <div class="eyebrow"><span class="l-en">02 · The steps</span><span class="l-ar">02 · الخطوات</span></div><h2><span class="l-en">Set it up, <span class="em">step by step.</span></span><span class="l-ar">الإعداد <span class="em">خطوة بخطوة.</span></span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2><span class="l-en">Update Claude Code</span><span class="l-ar">حدّث Claude Code</span></h2><p><span class="l-en">Fable 5.2 needs Claude Code v2.1.321 or later. Update, then check the version before you start.</span><span class="l-ar">يحتاج Fable 5.2 إلى Claude Code بالإصدار v2.1.321 أو أحدث. حدّثه، ثم تحقق من الإصدار قبل أن تبدأ.</span></p><pre>claude update
+claude --version</pre></div></div>
+  <div class="step"><div class="num">02</div><div>
+    <h2><span class="l-en">Read the bill</span><span class="l-ar">اقرأ الفاتورة</span></h2><p><span class="l-en">Charlie's numbers, one shot each, no fixes. Build times were published for the first 4 builds only. His exact prompts aren't public, so prompts 1 to 7 in this guide are our own versions of the same 7 builds. Your bill will land close to his, not on the cent.</span><span class="l-ar">أرقام Charlie، محاولة واحدة لكل مشروع بلا تصحيح. نُشرت أوقات البناء لأول أربعة مشاريع فقط. أوامره الأصلية غير منشورة، لذلك الأوامر من 1 إلى 7 في هذا الدليل نسخنا الخاصة من المشاريع السبعة نفسها. ستقترب فاتورتك من فاتورته، لكنها لن تطابقها بالسنت.</span></p><pre>Build                 Opus 5.5        Fable 5.2        Gap
+Black hole            $0.92  5.1 min  $2.78  8.2 min   3.0x
+Robot arms            $2.88 16.7 min  $7.25 27.7 min   2.5x
+3D shooter            $2.31 12.4 min  $5.32 14.8 min   2.3x
+Smart speaker         $2.33 13.3 min  $4.51 13.6 min   1.9x
+Product configurator  $3.28           $6.60            2.0x
+Sales globe           $1.15           $3.40            3.0x
+Retro shooter         $3.50           $9.43            2.7x
+All 7 builds          $16.37          $39.29           2.4x
+
+Opus builds, Fable advises: $25.81 for all 7</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 08</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Fable 5.2 vs Opus 5.5: the bill</span><span class="l-ar">Fable 5.2 مقابل Opus 5.5: الفاتورة</span></span><span>FABLE</span></div>
+  
+  <div class="step"><div class="num">03</div><div>
+    <h2><span class="l-en">Put Opus on the build</span><span class="l-ar">اجعل Opus يبني</span></h2><p><span class="l-en">Open Claude Code in an empty folder and set Opus 5.5 as the main model. Opus does the building.</span><span class="l-ar">افتح Claude Code في مجلد فارغ واجعل Opus 5.5 النموذج الرئيسي. Opus هو من يبني.</span></p><pre>/model opus</pre></div></div>
+  <div class="step"><div class="num">04</div><div>
+    <h2><span class="l-en">Turn on Fable as the advisor</span><span class="l-ar">فعّل Fable مستشارًا</span></h2><p><span class="l-en">Claude now calls Fable at the hard moments: before it picks an approach, when an error keeps coming back, and before it says it's done. You'll see an Advising line when it does. If Claude Code points you to /model fable instead, your plan needs a one-time OK to bill Fable to usage credits: accept it there, switch back with /model opus, then run /advisor fable again.</span><span class="l-ar">سيستدعي Claude الآن Fable في اللحظات الصعبة: قبل أن يختار طريقة العمل، وعندما يتكرر خطأ ما، وقبل أن يعلن انتهاءه. سترى سطر Advising عندما يحدث ذلك. إذا وجّهك Claude Code إلى /model fable بدلًا من ذلك، فخطتك تحتاج موافقة لمرة واحدة على احتساب Fable من رصيد الاستخدام الإضافي: وافق هناك، ثم عُد بـ /model opus، ثم شغّل /advisor fable مرة أخرى.</span></p><pre>/advisor fable</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 08</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Fable 5.2 vs Opus 5.5: the bill</span><span class="l-ar">Fable 5.2 مقابل Opus 5.5: الفاتورة</span></span><span>FABLE</span></div>
+  
+  <div class="step"><div class="num">05</div><div>
+    <h2><span class="l-en">Paste one prompt, take the first try</span><span class="l-ar">الصق أمرًا واحدًا وخذ المحاولة الأولى</span></h2><p><span class="l-en">Paste one of prompts 1 to 7 once and let it finish. No fixes, no follow-ups, or the comparison means nothing. When it's done, open the file it built, then run /usage and write down what the session used.</span><span class="l-ar">الصق أحد الأوامر من 1 إلى 7 مرة واحدة واتركه حتى ينتهي. لا تصحيح ولا أسئلة متابعة، وإلا تفقد المقارنة معناها. عندما ينتهي، افتح الملف الذي بناه، ثم شغّل /usage وسجّل ما استهلكته الجلسة.</span></p><pre>/usage</pre></div></div>
+  <div class="step"><div class="num">06</div><div>
+    <h2><span class="l-en">Run it on Fable alone and compare</span><span class="l-ar">نفّذه على Fable وحده وقارن</span></h2><p><span class="l-en">Turn the advisor off, start a fresh session in a new folder, switch to Fable and paste the exact same prompt. First try again. Put both results side by side and compare the build and the bill. Then decide which jobs earn Fable and which ones Opus handles fine.</span><span class="l-ar">أوقف المستشار، وابدأ جلسة جديدة في مجلد جديد، وانتقل إلى Fable، والصق الأمر نفسه تمامًا. المحاولة الأولى مجددًا. ضع النتيجتين جنبًا إلى جنب وقارن البناء والفاتورة. ثم قرّر أي المهام تستحق Fable وأيها يكفيها Opus.</span></p><pre>/advisor off
+/model fable</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 08</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Fable 5.2 vs Opus 5.5: the bill</span><span class="l-ar">Fable 5.2 مقابل Opus 5.5: الفاتورة</span></span><span>FABLE</span></div>
+  <div class="eyebrow"><span class="l-en">03 · Copy and paste</span><span class="l-ar">03 · انسخ والصق</span></div><h2><span class="l-en">Your <span class="em">prompts.</span></span><span class="l-ar">أوامرك <span class="em">الجاهزة.</span></span></h2><p class="muted l-ar">انسخ الأوامر والنصوص كما هي باللغة الإنجليزية، فهي تعمل بدقة أكبر.</p>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">1. Black hole</span><span class="l-ar">1. الثقب الأسود</span></h4><pre>Build a single self-contained HTML file with Three.js: a black hole with a glowing, swirling accretion disk and light bending around it.
+I can orbit with the mouse and zoom with the scroll wheel.
+Put everything in one index.html I can open in the browser, no build step.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">2. Robot arms</span><span class="l-ar">2. الذراعان الآليتان</span></h4><pre>Build a single self-contained HTML file with Three.js: two robot arms that solve a scrambled Rubik's cube, animated move by move.
+Add a Scramble button and a Solve button. The cube must end fully solved.
+Put everything in one index.html I can open in the browser, no build step.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">3. 3D shooter</span><span class="l-ar">3. لعبة التصويب ثلاثية الأبعاد</span></h4><pre>Build a single self-contained HTML file with Three.js: a playable third-person cover shooter.
+WASD to move, mouse to aim, click to shoot, crates to hide behind, enemies that shoot back, health and score on screen.
+Put everything in one index.html I can open in the browser, no build step.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 08</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Fable 5.2 vs Opus 5.5: the bill</span><span class="l-ar">Fable 5.2 مقابل Opus 5.5: الفاتورة</span></span><span>FABLE</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">4. Smart speaker</span><span class="l-ar">4. السمّاعة الذكية</span></h4><pre>Build a single self-contained HTML file with Three.js: a smart speaker that assembles itself part by part (base, drivers, fabric mesh, top ring with lights), then turns slowly.
+Add a Replay button.
+Put everything in one index.html I can open in the browser, no build step.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">5. Product configurator</span><span class="l-ar">5. أداة تخصيص المنتج</span></h4><pre>Build a single self-contained HTML file with Three.js: a 3D product configurator for a sneaker.
+Colour swatches and 3 materials change the model live, the price updates with each option, and I can rotate it with the mouse.
+Put everything in one index.html I can open in the browser, no build step.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">6. Sales globe</span><span class="l-ar">6. كرة المبيعات الأرضية</span></h4><pre>Build a single self-contained HTML file with Three.js: a 3D globe that shows sales by city as glowing bars, with sample data for 20 cities.
+Hovering a bar shows the city and the revenue. The globe turns slowly on its own.
+Put everything in one index.html I can open in the browser, no build step.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 08</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Fable 5.2 vs Opus 5.5: the bill</span><span class="l-ar">Fable 5.2 مقابل Opus 5.5: الفاتورة</span></span><span>FABLE</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">7. Retro shooter</span><span class="l-ar">7. لعبة التصويب الكلاسيكية</span></h4><pre>Build a single self-contained HTML file with a canvas: a retro arcade space shooter with a pixel-art ship.
+Waves of enemies, power-ups, score, 3 lives, a game over screen and a restart key.
+Put everything in one index.html I can open in the browser, no build step.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">8. Judge the two builds</span><span class="l-ar">8. قيّم النسختين</span></h4><pre>I ran the same prompt on two models. Their builds are in [folder A] and [folder B].
+Open both files and compare them on: does it work, does it do everything the prompt asked, and how good does it look.
+List what each one got wrong. Don't tell me which model made which.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">9. Turn a real job into a test</span><span class="l-ar">9. حوّل مهمة حقيقية إلى اختبار</span></h4><pre>Here's a task I do in my business every week: [describe it].
+Turn it into one prompt I can paste into Claude Code and run once, with no fixes, on two different models.
+Spell out exactly what done looks like, so I can judge both results the same way.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 08</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Fable 5.2 vs Opus 5.5: the bill</span><span class="l-ar">Fable 5.2 مقابل Opus 5.5: الفاتورة</span></span><span>FABLE</span></div>
+  <div class="eyebrow"><span class="l-en">Done</span><span class="l-ar">تم</span></div>
+  <h2><span class="l-en">That's the <span class="em">whole setup.</span></span><span class="l-ar">هذا هو <span class="em">الإعداد كاملًا.</span></span></h2>
+  <p class="lead"><span class="l-en">Run one build on Opus with Fable advising this week, then the same prompt on Fable alone. Your own bill tells you more than anyone's test.</span><span class="l-ar">جرّبه هذا الأسبوع على عمل حقيقي، ثم أخبرني بالنتيجة عبر رسالة على إنستغرام، فأنا أقرأ الرسائل بنفسي.</span></p>
+  <h3><span class="l-en">Credit</span><span class="l-ar">المصادر</span></h3><ul><li>Test, builds, costs and the advisor setup by Charlie Hills (instagram.com/charliehills, post of Nov 10, 2026: instagram.com/p/DfjNsCyCFXQ)</li><li>Model prices from Anthropic's pricing page (platform.claude.com/docs/en/about-claude/pricing)</li><li>Advisor setup from the Claude Code docs (code.claude.com/docs/en/advisor)</li><li>Fable plan rules from Anthropic's Help Center: Claude Fable models on your plan (support.claude.com)</li></ul>
+  <div class="cta">
+    <div class="k"><span class="l-en">Built by</span><span class="l-ar">إعداد</span> <span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></div>
+    <h3><span class="l-en">Want it built for you?</span><span class="l-ar">تريد أن نبنيه لك؟</span></h3>
+    <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
+    <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
+  </div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">08 / 08</span></div>
+</section>
+<script>
+(function(){
+  var root=document.documentElement;
+  function set(l){root.dataset.lang=l;root.lang=l;root.dir=l==="ar"?"rtl":"ltr";
+    document.querySelectorAll(".lang-toggle button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
+    try{localStorage.setItem("karemops-guide-lang",l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem("karemops-guide-lang")}catch(e){}
+  set(location.hash==="#ar"?"ar":location.hash==="#en"?"en":(saved||"en"));
+  document.querySelector(".lang-toggle").addEventListener("click",function(e){var b=e.target.closest("button");if(b)set(b.dataset.l)});
+})();
+</script>
+</body>
+</html>

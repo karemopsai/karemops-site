@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learn Claude in this order, one hour a day | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E7E0D2; --paper:#FBF7EF; --white:#FFFFFF; --ink:#1A1714; --navy:#0E1A33; --muted:#4A4438; --line:#E4DACA;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F6F0E4; --cream:#F2EAD9; --brass:#B08D57;
+  --repp:repeating-linear-gradient(135deg,#0E1A33 0 11px,#0866FF 11px 17px,#0E1A33 17px 28px,#FBF7EF 28px 30px);
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Cormorant Garamond',Georgia,serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(14,26,51,.06),0 12px 40px rgba(14,26,51,.10);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--brass);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--brass);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-family:var(--serif);font-weight:600;font-size:64px;line-height:1;letter-spacing:-.01em;color:var(--navy);text-wrap:balance}
+h2{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.05;letter-spacing:-.01em;color:var(--navy);margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--blue);letter-spacing:0}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--cream);border:0;border-top:1.5px solid var(--brass);border-radius:0;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--navy);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--navy)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:0;padding:34px 40px;background-color:var(--cream);
+  border:1px solid var(--line);outline:1px solid var(--brass);outline-offset:6px}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(14,26,51,.12),0 2px 6px rgba(14,26,51,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:var(--navy);font-size:11px;color:var(--paper)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:rgba(251,247,239,.35);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--brass)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:34px;height:auto;display:block}
+.cover::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
+.step h2{font-size:30px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.prompt{margin-bottom:8px}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--navy);color:#fff;border-radius:0;padding:34px 30px 28px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-family:var(--serif);font-size:32px;letter-spacing:0;text-transform:none;margin:0 0 8px;font-weight:600}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px;color:#4D92FF}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3;font-family:var(--arab);font-weight:800}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+}</style>
+</head>
+<body>
+<div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip"><span class="l-en">Comment</span><span class="l-ar">اكتب</span> · ROADMAP</span></div>
+  <div class="eyebrow"><span class="l-en">Field guide · No. 48</span><span class="l-ar">دليل عملي · رقم 48</span></div>
+  <h1><span class="l-en">Learn Claude in this order, <span class="em">one hour a day.</span></span><span class="l-ar">تعلّم Claude بهذا الترتيب، <span class="em">ساعة واحدة يوميًا.</span></span></h1>
+  <p class="lead"><span class="l-en">If I ran an $8K a month business and had one hour a day, I'd learn one tool, Claude, in 6 steps. One step a week, a free source for each, and one prompt per step to start with.</span><span class="l-ar">لو كنت أدير عملًا يحقق 8 آلاف دولار شهريًا ولديّ ساعة واحدة يوميًا، لتعلّمت أداة واحدة هي Claude، في 6 خطوات. خطوة كل أسبوع، ومصدر مجاني لكل خطوة، وأمر واحد لكل خطوة لتبدأ به.</span></p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Prompt</span></div><pre>Here's an email I need to send: [paste your draft, or describe it in 2 lines].
+Rewrite it so it's short, direct and sounds like me, not like a template.
+Give me 2 subject lines to choose from.<span class="caret"></span></pre><div class="note"><span class="l-en">The first prompt in this guide. Copy it as is.</span><span class="l-ar">أول أمر في هذا الدليل. انسخه كما هو.</span></div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0"><span class="l-en">Inside</span><span class="l-ar">في هذا الدليل</span></h3><p><span class="l-en">Write with Claude, give it your business in a Project, get real files out of it, connect Gmail and Calendar, build your first thing in Claude Code, then hand it a full job.</span><span class="l-ar">اكتب مع Claude، وأعطه تفاصيل عملك في Project، واطلب منه ملفات حقيقية، واربط Gmail وCalendar، وابنِ أول شيء لك في Claude Code، ثم سلّمه عملًا كاملًا.</span></p></div>
+    <div class="by"><svg class="mono-k" viewBox="0 0 120 150" aria-label="Karemops crest"><ellipse cx="60" cy="75" rx="57" ry="72" fill="none" stroke="#B08D57" stroke-width="3"/><ellipse cx="60" cy="75" rx="49" ry="64" fill="none" stroke="#B08D57" stroke-width="1.4"/><text x="60" y="98" text-anchor="middle" style="font:600 68px 'Cormorant Garamond',Georgia,serif;fill:#0866FF">K</text></svg><div><b><span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Learn Claude in this order, one hour a day</span><span class="l-ar">تعلّم Claude بهذا الترتيب، ساعة واحدة يوميًا</span></span><span>ROADMAP</span></div>
+  <div class="eyebrow"><span class="l-en">01 · What this is</span><span class="l-ar">01 · ما هذا</span></div>
+  <h2><span class="l-en">What you're <span class="em">setting up.</span></span><span class="l-ar">ما الذي <span class="em">ستُعدّه.</span></span></h2>
+  <p><span class="l-en">Most owners stall because they start with the hardest thing they saw online: agents, five apps at once, coding. Then they quit in a week. This is the opposite: one tool, Claude, learned in order, each step built on the one before.</span><span class="l-ar">يتوقف معظم أصحاب الأعمال لأنهم يبدؤون بأصعب ما رأوه على الإنترنت: الوكلاء، وخمسة تطبيقات دفعة واحدة، والبرمجة. ثم يستسلمون خلال أسبوع. هذا الدليل عكس ذلك: أداة واحدة هي Claude، تتعلّمها بالترتيب، وكل خطوة مبنية على التي قبلها.</span></p>
+  <p><span class="l-en">One step a week. Week 1 writing, week 2 your business, week 3 files, week 4 your tools, week 5 Claude Code, week 6 a full job handed off. An hour a day is enough. Every source linked here is free.</span><span class="l-ar">خطوة واحدة كل أسبوع. الأسبوع الأول الكتابة، والثاني عملك، والثالث الملفات، والرابع أدواتك، والخامس Claude Code، والسادس تسليم عمل كامل. ساعة يوميًا تكفي. كل مصدر مذكور هنا مجاني.</span></p>
+  <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">A Claude account. Steps 1 to 4 work on the Free plan</li><li class="l-en">Claude Pro or higher for step 5 (Claude Code needs a paid plan)</li><li class="l-en">A Gmail and Google Calendar account for step 4</li><li class="l-en">One hour a day for 6 weeks</li><li class="l-ar">حساب Claude. الخطوات من 1 إلى 4 تعمل على الخطة المجانية</li><li class="l-ar">Claude Pro أو أعلى للخطوة 5 (يحتاج Claude Code إلى خطة مدفوعة)</li><li class="l-ar">حساب Gmail وGoogle Calendar للخطوة 4</li><li class="l-ar">ساعة يوميًا لمدة 6 أسابيع</li></ul>
+  <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">Skip these for now: comparing 20 AI tools, adding more apps before Claude has done the job once, and courses that cost more than a month of Claude Pro. And don't jump to step 6 first. That's where most people start, and quit.</span><span class="l-ar">تجاهل هذه الأمور الآن: المقارنة بين 20 أداة ذكاء اصطناعي، وإضافة تطبيقات أكثر قبل أن ينجز Claude العمل مرة واحدة، والدورات التي تكلّف أكثر من شهر من Claude Pro. ولا تقفز إلى الخطوة 6 أولًا، فمن هناك يبدأ معظم الناس ثم يستسلمون.</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Learn Claude in this order, one hour a day</span><span class="l-ar">تعلّم Claude بهذا الترتيب، ساعة واحدة يوميًا</span></span><span>ROADMAP</span></div>
+  <div class="eyebrow"><span class="l-en">02 · The 6 steps</span><span class="l-ar">02 · الخطوات الست</span></div><h2><span class="l-en">Learn it <span class="em">in this order.</span></span><span class="l-ar">تعلّمه <span class="em">بهذا الترتيب.</span></span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2><span class="l-en">Use Claude for your real writing</span><span class="l-ar">استخدم Claude لكتاباتك الحقيقية</span></h2><p><span class="l-en">Week 1. Emails, proposals, replies to customers. Only real work, no test prompts. Paste what you'd normally write and ask Claude to draft it or tighten it. Free source: the Claude 101 course on Claude Academy, academy.claude.com</span><span class="l-ar">الأسبوع 1. الرسائل والعروض والردود على العملاء. عمل حقيقي فقط، بلا أوامر تجريبية. الصق ما كنت ستكتبه عادة واطلب من Claude أن يكتب المسودة أو يختصرها. مصدر مجاني: دورة Claude 101 على Claude Academy، academy.claude.com</span></p></div></div>
+  <div class="step"><div class="num">02</div><div>
+    <h2><span class="l-en">Give it your business</span><span class="l-ar">أعطه تفاصيل عملك</span></h2><p><span class="l-en">Week 2. Go to claude.ai/projects, click + New Project and name it after your business. Click Set project instructions and paste prompt 2. Then use the + button to add your offer, your prices, 5 emails you've sent and your FAQ. Now every chat in that project starts from your business, not from zero. Free accounts get up to 5 projects. Free source: support.claude.com/en/articles/9519177</span><span class="l-ar">الأسبوع 2. ادخل إلى claude.ai/projects واضغط + New Project وسمّه باسم عملك. اضغط Set project instructions والصق الأمر 2. ثم استخدم زر + لإضافة عرضك وأسعارك و5 رسائل أرسلتها والأسئلة الشائعة. الآن تبدأ كل محادثة في هذا المشروع من عملك، لا من الصفر. الحسابات المجانية تحصل على 5 مشاريع كحد أقصى. مصدر مجاني: support.claude.com/en/articles/9519177</span></p></div></div>
+  <div class="step"><div class="num">03</div><div>
+    <h2><span class="l-en">Ask for the file, not the answer</span><span class="l-ar">اطلب الملف لا الإجابة</span></h2><p><span class="l-en">Week 3. Stop copying replies into Word. Turn on file creation in Settings, Capabilities (newer layouts call it Create and edit files), then ask for the file itself: the proposal as a Word doc, the price list as an Excel sheet, the pitch as a PowerPoint, the invoice as a PDF. It works on every Claude plan, Free included. Free source: support.claude.com/en/articles/12111783</span><span class="l-ar">الأسبوع 3. توقّف عن نسخ الردود إلى Word. فعّل إنشاء الملفات من Settings ثم Capabilities (في الواجهات الأحدث اسمها Create and edit files)، ثم اطلب الملف نفسه: العرض كملف Word، وقائمة الأسعار كجدول Excel، والعرض التقديمي كملف PowerPoint، والفاتورة كملف PDF. يعمل ذلك على كل خطط Claude بما فيها المجانية. مصدر مجاني: support.claude.com/en/articles/12111783</span></p></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Learn Claude in this order, one hour a day</span><span class="l-ar">تعلّم Claude بهذا الترتيب، ساعة واحدة يوميًا</span></span><span>ROADMAP</span></div>
+  
+  <div class="step"><div class="num">04</div><div>
+    <h2><span class="l-en">Connect your tools</span><span class="l-ar">اربط أدواتك</span></h2><p><span class="l-en">Week 4. In a chat, click +, hover over Connectors and switch on Gmail and Google Calendar, then sign in with your Google account. Claude can search your email, draft replies and check your calendar. By default it asks before it sends anything. Then ask it what's waiting on you this week. Free source: support.claude.com/en/articles/10166901</span><span class="l-ar">الأسبوع 4. في أي محادثة اضغط + ومرّر المؤشر فوق Connectors وفعّل Gmail وGoogle Calendar، ثم سجّل الدخول بحساب Google. يستطيع Claude البحث في بريدك وكتابة مسودات الردود ومراجعة تقويمك، ويطلب موافقتك قبل إرسال أي شيء افتراضيًا. ثم اسأله عمّا ينتظرك هذا الأسبوع. مصدر مجاني: support.claude.com/en/articles/10166901</span></p></div></div>
+  <div class="step"><div class="num">05</div><div>
+    <h2><span class="l-en">Claude Code on your laptop</span><span class="l-ar">Claude Code على جهازك</span></h2><p><span class="l-en">Week 5. This is where it stops being a chat and starts building. Install it with the command below (Mac or Linux), or open the Claude desktop app and click the Code tab. It needs a paid plan. Ask it for one simple thing: a page, a tracker, a dashboard from your sales sheet. Free sources: code.claude.com/docs and the Claude Code 101 course on academy.claude.com</span><span class="l-ar">الأسبوع 5. هنا يتوقف عن كونه محادثة ويبدأ في البناء. ثبّته بالأمر أدناه (Mac أو Linux)، أو افتح تطبيق Claude على سطح المكتب واضغط تبويب Code. يحتاج إلى خطة مدفوعة. اطلب منه شيئًا واحدًا بسيطًا: صفحة، أو متتبّعًا، أو لوحة متابعة من جدول مبيعاتك. مصادر مجانية: code.claude.com/docs ودورة Claude Code 101 على academy.claude.com</span></p><pre>curl -fsSL https://claude.ai/install.sh | bash
+cd your-project-folder
+claude</pre></div></div>
+  <div class="step"><div class="num">06</div><div>
+    <h2><span class="l-en">Hand off a full job</span><span class="l-ar">سلّمه عملًا كاملًا</span></h2><p><span class="l-en">Week 6. Claude Code plus your connected tools can run a whole job end to end: the weekly report as a finished file, the follow-ups drafted, the lead list cleaned. Pick the job you do every week, run prompt 6, and check the result before anything goes out. Free source: code.claude.com/docs/en/quickstart</span><span class="l-ar">الأسبوع 6. يستطيع Claude Code مع أدواتك المتصلة أن ينجز عملًا كاملًا من البداية إلى النهاية: التقرير الأسبوعي كملف جاهز، ومسودات المتابعة، وقائمة العملاء المحتملين بعد تنظيفها. اختر العمل الذي تكرره كل أسبوع، وشغّل الأمر 6، وراجع النتيجة قبل أن يخرج أي شيء. مصدر مجاني: code.claude.com/docs/en/quickstart</span></p></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Learn Claude in this order, one hour a day</span><span class="l-ar">تعلّم Claude بهذا الترتيب، ساعة واحدة يوميًا</span></span><span>ROADMAP</span></div>
+  <div class="eyebrow"><span class="l-en">03 · Copy and paste</span><span class="l-ar">03 · انسخ والصق</span></div><h2><span class="l-en">One prompt <span class="em">per step.</span></span><span class="l-ar">أمر واحد <span class="em">لكل خطوة.</span></span></h2><p class="muted l-ar">انسخ الأوامر والنصوص كما هي باللغة الإنجليزية، فهي تعمل بدقة أكبر.</p>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">1. Your real writing</span><span class="l-ar">1. كتاباتك الحقيقية</span></h4><pre>Here's an email I need to send: [paste your draft, or describe it in 2 lines].
+Rewrite it so it's short, direct and sounds like me, not like a template.
+Give me 2 subject lines to choose from.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">2. Project instructions</span><span class="l-ar">2. تعليمات المشروع</span></h4><pre>You work for [business name]. We sell [offer] to [who buys] at [prices].
+Write like the emails in this project's files: [3 words for your tone].
+If a question needs a fact that isn't in the files, ask me instead of guessing.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">3. Ask for the file</span><span class="l-ar">3. اطلب الملف</span></h4><pre>Make a proposal as a Word document for [client name]: scope [3 bullet points], price [amount], timeline [weeks].
+Use our offer and prices from this project.
+Then make our price list as an Excel sheet.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Learn Claude in this order, one hour a day</span><span class="l-ar">تعلّم Claude بهذا الترتيب، ساعة واحدة يوميًا</span></span><span>ROADMAP</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">4. What's waiting on me</span><span class="l-ar">4. ما الذي ينتظرني</span></h4><pre>Look at my Gmail and Google Calendar for this week.
+List the emails that still need a reply from me and the meetings I need to prepare for.
+Draft replies for the top 3, but don't send anything.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">5. Your first build</span><span class="l-ar">5. أول شيء تبنيه</span></h4><pre>Here's my sales sheet: [file name].csv.
+Build me a one-page dashboard in a single index.html: revenue by week, top 5 products, this month vs last month.
+Tell me how to open it.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">6. Hand off a full job</span><span class="l-ar">6. سلّمه عملًا كاملًا</span></h4><pre>Every Monday I make [the job, e.g. the weekly report] from [where the data lives].
+Do it end to end and give me the finished file as [Excel or PDF] with [the sections I need].
+Write the steps you took in a file called job-steps.md so we can run it the same way next week.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Learn Claude in this order, one hour a day</span><span class="l-ar">تعلّم Claude بهذا الترتيب، ساعة واحدة يوميًا</span></span><span>ROADMAP</span></div>
+  <div class="eyebrow"><span class="l-en">Done</span><span class="l-ar">تم</span></div>
+  <h2><span class="l-en">That's the <span class="em">whole path.</span></span><span class="l-ar">هذا هو <span class="em">المسار كاملًا.</span></span></h2>
+  <p class="lead"><span class="l-en">Start step 1 today with one real email. One step a week, and in 6 weeks Claude is doing a full job for you.</span><span class="l-ar">جرّبه هذا الأسبوع على عمل حقيقي، ثم أخبرني بالنتيجة عبر رسالة على إنستغرام، فأنا أقرأ الرسائل بنفسي.</span></p>
+  <h3><span class="l-en">Credit</span><span class="l-ar">المصادر</span></h3><ul><li>Claude Academy free courses: Claude 101 and Claude Code 101 (academy.claude.com)</li><li>Claude Help Center: Projects (support.claude.com/en/articles/9519177)</li><li>Claude Help Center: Create and edit files with Claude (support.claude.com/en/articles/12111783)</li><li>Claude Help Center: Use Google Workspace connectors (support.claude.com/en/articles/10166901)</li><li>Claude Code docs: overview and quickstart (code.claude.com/docs)</li></ul>
+  <div class="cta">
+    <div class="k"><span class="l-en">Built by</span><span class="l-ar">إعداد</span> <span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></div>
+    <h3><span class="l-en">Want it built for you?</span><span class="l-ar">تريد أن نبنيه لك؟</span></h3>
+    <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
+    <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
+  </div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 06</span></div>
+</section>
+<script>
+(function(){
+  var root=document.documentElement;
+  function set(l){root.dataset.lang=l;root.lang=l;root.dir=l==="ar"?"rtl":"ltr";
+    document.querySelectorAll(".lang-toggle button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
+    try{localStorage.setItem("karemops-guide-lang",l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem("karemops-guide-lang")}catch(e){}
+  set(location.hash==="#ar"?"ar":location.hash==="#en"?"en":(saved||"en"));
+  document.querySelector(".lang-toggle").addEventListener("click",function(e){var b=e.target.closest("button");if(b)set(b.dataset.l)});
+})();
+</script>
+</body>
+</html>

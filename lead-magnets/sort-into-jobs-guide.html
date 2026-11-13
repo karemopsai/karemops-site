@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sort every job in your business into 3 piles | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E7E0D2; --paper:#FBF7EF; --white:#FFFFFF; --ink:#1A1714; --navy:#0E1A33; --muted:#4A4438; --line:#E4DACA;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F6F0E4; --cream:#F2EAD9; --brass:#B08D57;
+  --repp:repeating-linear-gradient(135deg,#0E1A33 0 11px,#0866FF 11px 17px,#0E1A33 17px 28px,#FBF7EF 28px 30px);
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Cormorant Garamond',Georgia,serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(14,26,51,.06),0 12px 40px rgba(14,26,51,.10);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--brass);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--brass);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-family:var(--serif);font-weight:600;font-size:64px;line-height:1;letter-spacing:-.01em;color:var(--navy);text-wrap:balance}
+h2{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.05;letter-spacing:-.01em;color:var(--navy);margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--blue);letter-spacing:0}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--cream);border:0;border-top:1.5px solid var(--brass);border-radius:0;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--navy);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--navy)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:0;padding:34px 40px;background-color:var(--cream);
+  border:1px solid var(--line);outline:1px solid var(--brass);outline-offset:6px}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(14,26,51,.12),0 2px 6px rgba(14,26,51,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:var(--navy);font-size:11px;color:var(--paper)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:rgba(251,247,239,.35);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--brass)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:34px;height:auto;display:block}
+.cover::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
+.step h2{font-size:30px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.prompt{margin-bottom:8px}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--navy);color:#fff;border-radius:0;padding:34px 30px 28px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-family:var(--serif);font-size:32px;letter-spacing:0;text-transform:none;margin:0 0 8px;font-weight:600}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px;color:#4D92FF}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3;font-family:var(--arab);font-weight:800}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+}</style>
+</head>
+<body>
+<div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip"><span class="l-en">Comment</span><span class="l-ar">اكتب</span> · SORT</span></div>
+  <div class="eyebrow"><span class="l-en">Field guide · No. 46</span><span class="l-ar">دليل عملي · رقم 46</span></div>
+  <h1><span class="l-en">Sort every job in your business into <span class="em">3 piles.</span></span><span class="l-ar">صنّف كل مهمة في عملك ضمن <span class="em">3 أكوام.</span></span></h1>
+  <p class="lead"><span class="l-en">AI now, AI with you, you only. One sheet, 5 departments, one honest afternoon. At the end you know exactly which jobs Claude or N8N can take off your plate this week.</span><span class="l-ar">الذكاء الاصطناعي الآن، الذكاء الاصطناعي معك، أنت فقط. جدول واحد، 5 أقسام، وفترة بعد ظهر واحدة بصدق. في النهاية ستعرف بالضبط أي المهام يستطيع Claude أو N8N أن يأخذها منك هذا الأسبوع.</span></p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Prompt</span></div><pre>Department | Job | Tag | What comes in | What you do | What goes out | Tool | Status
+
+Department: Sales, Marketing, Delivery, Admin, Money
+Tag: AI now, AI with you, You only
+Tool: Claude, N8N, or blank
+Status: Listed, Written down, Handed off<span class="caret"></span></pre><div class="note"><span class="l-en">Step 01 of this guide. Copy it as is.</span><span class="l-ar">الخطوة 01 من هذا الدليل. انسخها كما هي.</span></div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0"><span class="l-en">Inside</span><span class="l-ar">في هذا الدليل</span></h3><p><span class="l-en">Build the sorting sheet in Airtable or a Google Sheet, start from the 18 example jobs, tag every repeat job you do, write down the blue ones and hand off the first one this week.</span><span class="l-ar">ابنِ جدول التصنيف في Airtable أو Google Sheet، وابدأ من المهام الثماني عشرة الموضوعة كأمثلة، وصنّف كل مهمة تكررها، ثم اكتب خطوات المهام الزرقاء وسلّم أولاها هذا الأسبوع.</span></p></div>
+    <div class="by"><svg class="mono-k" viewBox="0 0 120 150" aria-label="Karemops crest"><ellipse cx="60" cy="75" rx="57" ry="72" fill="none" stroke="#B08D57" stroke-width="3"/><ellipse cx="60" cy="75" rx="49" ry="64" fill="none" stroke="#B08D57" stroke-width="1.4"/><text x="60" y="98" text-anchor="middle" style="font:600 68px 'Cormorant Garamond',Georgia,serif;fill:#0866FF">K</text></svg><div><b><span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Sort every job in your business into 3 piles</span><span class="l-ar">صنّف كل مهمة في عملك ضمن 3 أكوام</span></span><span>SORT</span></div>
+  <div class="eyebrow"><span class="l-en">01 · What this is</span><span class="l-ar">01 · ما هذا</span></div>
+  <h2><span class="l-en">What you're <span class="em">setting up.</span></span><span class="l-ar">ما الذي <span class="em">ستُعدّه.</span></span></h2>
+  <p><span class="l-en">Your business isn't roles. It's a list of small jobs. "Marketing" isn't a job. "Reply to comments on yesterday's post" is. This sheet puts every repeat job you do in one place, grouped under 5 departments: Sales, Marketing, Delivery, Admin and Money.</span><span class="l-ar">عملك ليس أدوارًا، بل قائمة من المهام الصغيرة. "التسويق" ليس مهمة. "الرد على تعليقات منشور الأمس" مهمة. يجمع هذا الجدول كل مهمة تكررها في مكان واحد، موزعة على 5 أقسام: المبيعات، والتسويق، والتنفيذ، والإدارة، والمال.</span></p>
+  <p><span class="l-en">Each job gets one of 3 tags. AI now: Claude or N8N can do it today with your files. AI with you: it drafts, you decide. You only: trust, money and taste. The AI now jobs are the ones you're still doing by hand that could be off your plate this week. The example rows are examples. Your own tags depend on your business.</span><span class="l-ar">تحصل كل مهمة على واحد من 3 وسوم. الذكاء الاصطناعي الآن (AI now): يستطيع Claude أو N8N تنفيذها اليوم بملفاتك. الذكاء الاصطناعي معك (AI with you): يكتب المسودة وأنت تقرر. أنت فقط (You only): الثقة والمال والذوق. مهام AI now هي التي ما زلت تنفذها بيدك ويمكن أن ترفعها عن كاهلك هذا الأسبوع. الصفوف الموجودة أمثلة فقط، ووسومك الحقيقية تعتمد على طبيعة عملك.</span></p>
+  <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">Airtable or a Google Sheet (both free to start)</li><li class="l-en">One afternoon, phone on silent</li><li class="l-en">Your calendar, inbox and last month's to-do list open, so you list what you really do and not what you think you do</li><li class="l-en">A Claude account for the prompts at the end (any plan works)</li><li class="l-ar">Airtable أو Google Sheet (كلاهما مجاني للبداية)</li><li class="l-ar">فترة بعد ظهر واحدة والهاتف على الوضع الصامت</li><li class="l-ar">تقويمك وبريدك وقائمة مهام الشهر الماضي مفتوحة أمامك، لتسجّل ما تفعله فعلًا لا ما تظن أنك تفعله</li><li class="l-ar">حساب Claude لاستخدام الأوامر في آخر الدليل (أي خطة تكفي)</li></ul>
+  <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">Be honest with the tags. If a wrong answer would cost you a client or money, the job is AI with you or you only, never AI now. And don't hand off ten jobs at once: one a week, and check its output every day for the first week before you stop looking.</span><span class="l-ar">كن صادقًا في الوسوم. إذا كانت الإجابة الخاطئة قد تكلفك عميلًا أو مالًا، فالمهمة AI with you أو You only، ولا تكون AI now أبدًا. ولا تسلّم عشر مهام دفعة واحدة: مهمة واحدة في الأسبوع، وراجع نتيجتها كل يوم في الأسبوع الأول قبل أن تتوقف عن المراجعة.</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Sort every job in your business into 3 piles</span><span class="l-ar">صنّف كل مهمة في عملك ضمن 3 أكوام</span></span><span>SORT</span></div>
+  <div class="eyebrow"><span class="l-en">02 · The steps</span><span class="l-ar">02 · الخطوات</span></div><h2><span class="l-en">Set it up, <span class="em">step by step.</span></span><span class="l-ar">الإعداد <span class="em">خطوة بخطوة.</span></span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2><span class="l-en">Build the sheet</span><span class="l-ar">ابنِ الجدول</span></h2><p><span class="l-en">Copy these 8 columns into a new Airtable base or Google Sheet. In Airtable, make Department and Tag single select fields. In Google Sheets, select those two columns and add a dropdown (Insert, then Dropdown) with the 5 departments and the 3 tags, so nobody types "AI-now" and breaks your filters.</span><span class="l-ar">انسخ هذه الأعمدة الثمانية إلى قاعدة جديدة في Airtable أو إلى Google Sheet. في Airtable اجعل عمودي Department وTag من نوع single select. في Google Sheets حدّد العمودين وأضف قائمة منسدلة (Insert ثم Dropdown) بالأقسام الخمسة والوسوم الثلاثة، حتى لا يكتب أحد "AI-now" فتتعطل الفلاتر.</span></p><pre>Department | Job | Tag | What comes in | What you do | What goes out | Tool | Status
+
+Department: Sales, Marketing, Delivery, Admin, Money
+Tag: AI now, AI with you, You only
+Tool: Claude, N8N, or blank
+Status: Listed, Written down, Handed off</pre></div></div>
+  <div class="step"><div class="num">02</div><div>
+    <h2><span class="l-en">List every job you repeat</span><span class="l-ar">سجّل كل مهمة تكررها</span></h2><p><span class="l-en">One afternoon. Go through your calendar, sent emails, WhatsApp and last month's to-dos, and add a row for anything you did more than once. Don't tag yet, just list. If a row says "marketing" or "admin", break it down until each row is one action.</span><span class="l-ar">فترة بعد ظهر واحدة. راجع تقويمك ورسائلك المرسلة وWhatsApp ومهام الشهر الماضي، وأضف صفًا لكل شيء فعلته أكثر من مرة. لا تضع الوسوم بعد، سجّل فقط. إذا كان صف ما يقول "تسويق" أو "إدارة"، فقسّمه حتى يصبح كل صف إجراءً واحدًا.</span></p></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Sort every job in your business into 3 piles</span><span class="l-ar">صنّف كل مهمة في عملك ضمن 3 أكوام</span></span><span>SORT</span></div>
+  
+  <div class="step"><div class="num">03</div><div>
+    <h2><span class="l-en">Check your rows against the examples</span><span class="l-ar">قارن صفوفك بالأمثلة</span></h2><p><span class="l-en">These 18 example rows show how small each job should be and how the tags work. Paste them under your list, keep the ones that match your business, and delete the rest. One row per repeat job, small enough to explain in one sentence.</span><span class="l-ar">تُظهر هذه الصفوف الثمانية عشر كم يجب أن تكون كل مهمة صغيرة وكيف تعمل الوسوم. الصقها تحت قائمتك، واحتفظ بما يطابق عملك واحذف الباقي. صف واحد لكل مهمة متكررة، وصغيرة بما يكفي لتشرحها في جملة واحدة.</span></p><pre>Sales | Log new leads | AI now
+Sales | Write the follow-up | AI with you
+Sales | Send the quote | AI with you
+Sales | The closing call | You only
+Marketing | Turn a video into captions | AI now
+Marketing | Write the post | AI with you
+Marketing | Answer keyword DMs | AI now
+Marketing | Pick what to post about | You only
+Delivery | Send the onboarding form | AI now
+Delivery | Write the weekly client update | AI with you
+Delivery | The work only you know how to do | You only
+Admin | Sort the inbox | AI with you
+Admin | Book meetings | AI with you
+Admin | Name and file documents | AI now
+Admin | Hiring | You only
+Money | Chase late invoices | AI with you
+Money | Make the monthly numbers sheet | AI now
+Money | Set prices | You only</pre></div></div>
+  <div class="step"><div class="num">04</div><div>
+    <h2><span class="l-en">Tag each one</span><span class="l-ar">ضع وسمًا لكل مهمة</span></h2><p><span class="l-en">Go row by row and pick one tag. AI now means Claude or an N8N flow can do it end to end with the files you already have. AI with you means it drafts and you approve before anything leaves. You only means trust, money or taste. When you're unsure, pick the safer tag. You can move a job to AI now later, once it has proven itself.</span><span class="l-ar">مرّ على الصفوف واحدًا واحدًا واختر وسمًا واحدًا. AI now يعني أن Claude أو سير عمل في N8N يستطيع تنفيذ المهمة من أولها إلى آخرها بالملفات المتوفرة لديك. AI with you يعني أنه يكتب المسودة وأنت توافق قبل أن يخرج أي شيء. You only يعني الثقة أو المال أو الذوق. عند الشك اختر الوسم الأكثر أمانًا، ويمكنك نقل المهمة إلى AI now لاحقًا بعد أن تثبت جدارتها.</span></p></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Sort every job in your business into 3 piles</span><span class="l-ar">صنّف كل مهمة في عملك ضمن 3 أكوام</span></span><span>SORT</span></div>
+  
+  <div class="step"><div class="num">05</div><div>
+    <h2><span class="l-en">Write the blue ones down</span><span class="l-ar">اكتب خطوات المهام الزرقاء</span></h2><p><span class="l-en">Filter the sheet to AI now. For each of those jobs, fill in the three middle columns: what comes in, what you do, what goes out. Write it like you're training a new hire on their first day. That page is what Claude will follow, so the more exact it is, the less you fix later.</span><span class="l-ar">صفِّ الجدول على AI now. لكل مهمة منها املأ الأعمدة الثلاثة الوسطى: ما الذي يدخل، وما الذي تفعله، وما الذي يخرج. اكتبها كأنك تدرّب موظفًا جديدًا في يومه الأول. هذه الصفحة هي ما سيتبعه Claude، وكلما كانت أدق قلّ ما تصلحه لاحقًا.</span></p><pre>Job: Log new leads
+What comes in: a new form entry or a DM with a name and a phone number
+What you do: add them to the CRM, tag the source, set a follow-up date for tomorrow
+What goes out: one new contact in GoHighLevel with source and follow-up date filled in</pre></div></div>
+  <div class="step"><div class="num">06</div><div>
+    <h2><span class="l-en">Hand off one this week</span><span class="l-ar">سلّم مهمة واحدة هذا الأسبوع</span></h2><p><span class="l-en">Not all of them. Pick the AI now job that eats the most time and is the easiest to check. Give it to Claude (a Claude Project with your written steps) or build it as an N8N flow. Set Status to Handed off. Check the output every day this week. Next week, the next one.</span><span class="l-ar">ليس كلها. اختر مهمة AI now التي تستهلك أكثر وقت وتسهل مراجعتها. سلّمها إلى Claude (مشروع Claude Project فيه خطواتك المكتوبة) أو ابنها كسير عمل في N8N. غيّر Status إلى Handed off. راجع النتيجة كل يوم هذا الأسبوع، وفي الأسبوع القادم انتقل إلى المهمة التالية.</span></p></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Sort every job in your business into 3 piles</span><span class="l-ar">صنّف كل مهمة في عملك ضمن 3 أكوام</span></span><span>SORT</span></div>
+  <div class="eyebrow"><span class="l-en">03 · Copy and paste</span><span class="l-ar">03 · انسخ والصق</span></div><h2><span class="l-en">Your <span class="em">prompts.</span></span><span class="l-ar">أوامرك <span class="em">الجاهزة.</span></span></h2><p class="muted l-ar">انسخ الأوامر والنصوص كما هي باللغة الإنجليزية، فهي تعمل بدقة أكبر.</p>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">1. Turn a brain dump into rows</span><span class="l-ar">1. حوّل أفكارك المبعثرة إلى صفوف</span></h4><pre>I run a [type of business]. Below is everything I did in the last month, pasted from my calendar, inbox and to-do list.
+[paste it]
+
+Turn it into a list of small repeat jobs, one action per line, grouped under: Sales, Marketing, Delivery, Admin, Money.
+Format each line as: Department | Job
+Don't tag them yet. Ask me about anything you can't place.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">2. Check my tags</span><span class="l-ar">2. راجع وسومي</span></h4><pre>Here is my job list with tags (AI now, AI with you, You only):
+[paste your rows]
+
+Rules: AI now means Claude or an N8N flow can do it end to end with my files. AI with you means AI drafts and I approve. You only means trust, money or taste.
+Flag every job I tagged AI now where a wrong answer could cost me a client or money, and tell me why.
+Then list jobs I tagged You only that AI could at least draft.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Sort every job in your business into 3 piles</span><span class="l-ar">صنّف كل مهمة في عملك ضمن 3 أكوام</span></span><span>SORT</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">3. Write the steps for one blue job</span><span class="l-ar">3. اكتب خطوات مهمة زرقاء واحدة</span></h4><pre>I want to hand this job to you: [job name].
+What comes in: [describe it]
+What I do now: [describe it in your own words]
+What goes out: [describe it]
+
+Interview me one question at a time until you can do this job without me.
+Then write the steps as numbered instructions I can save in a Claude Project, plus a short checklist I can use to check your output.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">4. Pick the first handoff</span><span class="l-ar">4. اختر أول مهمة تسلّمها</span></h4><pre>Here are my AI now jobs with how often I do each one and roughly how long it takes:
+[paste the rows]
+
+Rank them by hours saved per month and by how easy the output is to check.
+Pick one to hand off this week and tell me whether it fits a Claude Project or an N8N flow better, and why.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Sort every job in your business into 3 piles</span><span class="l-ar">صنّف كل مهمة في عملك ضمن 3 أكوام</span></span><span>SORT</span></div>
+  <div class="eyebrow"><span class="l-en">Done</span><span class="l-ar">تم</span></div>
+  <h2><span class="l-en">That's the <span class="em">whole setup.</span></span><span class="l-ar">هذا هو <span class="em">الإعداد كاملًا.</span></span></h2>
+  <p class="lead"><span class="l-en">Block one afternoon this week, fill the sheet, and count your AI now jobs. Then hand off one before Friday.</span><span class="l-ar">جرّبه هذا الأسبوع على عمل حقيقي، ثم أخبرني بالنتيجة عبر رسالة على إنستغرام، فأنا أقرأ الرسائل بنفسي.</span></p>
+  <h3><span class="l-en">Credit</span><span class="l-ar">المصادر</span></h3><ul><li>Sorting method and example jobs by Karemops.ai</li><li>Built for Airtable (airtable.com), Google Sheets (sheets.google.com), Claude (claude.com) and N8N (n8n.io)</li></ul>
+  <div class="cta">
+    <div class="k"><span class="l-en">Built by</span><span class="l-ar">إعداد</span> <span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></div>
+    <h3><span class="l-en">Want it built for you?</span><span class="l-ar">تريد أن نبنيه لك؟</span></h3>
+    <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
+    <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
+  </div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 07</span></div>
+</section>
+<script>
+(function(){
+  var root=document.documentElement;
+  function set(l){root.dataset.lang=l;root.lang=l;root.dir=l==="ar"?"rtl":"ltr";
+    document.querySelectorAll(".lang-toggle button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
+    try{localStorage.setItem("karemops-guide-lang",l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem("karemops-guide-lang")}catch(e){}
+  set(location.hash==="#ar"?"ar":location.hash==="#en"?"en":(saved||"en"));
+  document.querySelector(".lang-toggle").addEventListener("click",function(e){var b=e.target.closest("button");if(b)set(b.dataset.l)});
+})();
+</script>
+</body>
+</html>

@@ -3852,5 +3852,1218 @@
     "3. أي تحديث يهمّني"
    ]
   }
+ },
+ {
+  "kw": "ROUNDS",
+  "slug": "ai-rounds",
+  "style": "club",
+  "number": 39,
+  "hero": "prompt",
+  "date_en": "13 Nov 2026",
+  "date_ar": "13 نوفمبر 2026",
+  "title": "ChatGPT, Claude or Gemini? Let your own work <span class=\"em\">pick.</span>",
+  "lead": "All three cost about $20 a month, so price won't decide it. Give them the same 3 jobs from your real week and keep the one whose answers you'd send without editing.",
+  "inside": "Set up a fair test, run 3 copy-paste prompts on ChatGPT, Claude and Gemini, fill in the scorecard, and pick one plan with your own work as proof.",
+  "what": [
+   "This is the test behind my 5 rounds carousel. ChatGPT Plus, Claude Pro and Google AI Pro sit at $20, $20 and $19.99 a month in the US, before tax. My scorecard went to Claude because I write and build all day. Yours can land somewhere else, and one afternoon tells you.",
+   "It's for owners who pay for one of these, or are about to, and want to stop guessing. You run 3 jobs: one email, one proposal, one messy spreadsheet. Same prompt, same file, a fresh chat in each app, and you score the first answer."
+  ],
+  "prereqs": [
+   "An account on chatgpt.com, claude.ai and gemini.google.com. Free plans work for a first pass, paid plans give the fairest result",
+   "One real email you need to answer this week, plus 2 emails you wrote yourself",
+   "Notes for one real proposal or quote you need to send",
+   "One messy spreadsheet or CSV export: sales, leads or expenses",
+   "About 2 hours"
+  ],
+  "warn": "Strip anything private before you upload: client names you can't share, card numbers, staff salaries. Free plans hit their limits fast and may give you a lighter model, so a loss on Free doesn't prove much. Prices here are US list prices checked on 13 Nov 2026. Check each pricing page before you pay, they change.",
+  "steps": [
+   {
+    "h": "Open three fresh chats",
+    "p": "Log in to ChatGPT, Claude and Gemini in three browser tabs and start a new chat in each. Don't use a Project, a Gem or saved instructions yet. Every app starts from zero, so the test is fair."
+   },
+   {
+    "h": "Pick 3 jobs from your real week",
+    "p": "One email you need to reply to, one proposal or quote you need to send, one spreadsheet that's a mess. Real jobs only. A made-up test only tells you which app is good at made-up tests."
+   },
+   {
+    "h": "Paste the same prompt in all three",
+    "p": "Use the prompts on the next pages. Fill in the [brackets] once, then paste the exact same text and attach the exact same file in each tab. No follow-ups, no fixing. You're judging the first answer."
+   },
+   {
+    "h": "Fill in the scorecard",
+    "p": "Copy this into your notes. Score each line from 1 to 5, then total each column. Check every number in the spreadsheet answers against the real file before you score it.",
+    "code": "Score 1 to 5. 5 = I'd send it as is.\n\n                      ChatGPT  Claude  Gemini\nEmail: sounds like me   __       __      __\nEmail: send as is       __       __      __\nProposal: facts right   __       __      __\nProposal: send as is    __       __      __\nSheet: numbers right    __       __      __\nSheet: useful for me    __       __      __\nTOTAL                   __       __      __\n\nWinner: ________   Runner-up: ________"
+   },
+   {
+    "h": "Settle a close score on how you work",
+    "p": "If your whole business runs in Gmail, Google Calendar and Drive, try Gemini inside Gmail (it comes with Google AI Pro) on the email job. If you want images, voice and quick questions on your phone, test that in ChatGPT. If you want to build systems like dashboards or N8N workflows, try one small build in Claude Code (paid Claude plans)."
+   },
+   {
+    "h": "Pay for one, for 30 days",
+    "p": "Keep the winner and cancel the rest. Now load it with your business: a Claude Project, a ChatGPT Project or a Gemini Gem with your files and instructions. After 30 days, run the same 3 prompts on new jobs. If it still wins, it stays."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. The email",
+    "code": "Here is an email I received:\n\"\"\"\n[paste the email]\n\"\"\"\nWrite my reply. Context: [who this person is to my business and what I want from them].\nThe goal of the reply: [say yes / say no / book a call / hold my price].\nKeep it under 120 words. Sound like a busy owner, not a template. No filler openers or sign-offs.\nMatch the tone of these 2 emails I wrote myself:\n\"\"\"\n[paste 2 of your old emails]\n\"\"\""
+   },
+   {
+    "h": "2. The proposal",
+    "code": "Write a one-page proposal for [client name or type of client].\nThe job: [what they need, in your words].\nWhat I'm offering: [deliverables].\nPrice: [your price]. Timeline: [how many weeks].\nUse only the facts I gave you. If something is missing, write [ASK] in the text instead of inventing it.\nStructure: their problem in 2 lines, what I'll do, what they get, price and timeline, next step.\nPlain words, no buzzwords."
+   },
+   {
+    "h": "3. The messy spreadsheet",
+    "code": "I attached [describe the file, e.g. 6 months of sales exported from Shopify].\n1. Tell me what's in it in 3 lines: columns, date range, number of rows.\n2. List every problem: duplicates, blanks, wrong formats, totals that don't add up.\n3. Give me the 3 numbers I should look at this week and why, and name the rows you used.\n4. Give me a cleaned version as a file I can download, or as a table if you can't make files.\nIf you're not sure about something, say so. Don't guess numbers."
+   }
+  ],
+  "credit": [
+   "ChatGPT by OpenAI (chatgpt.com), plans at chatgpt.com/pricing",
+   "Claude by Anthropic (claude.ai), plans at claude.com/pricing",
+   "Gemini and Google AI Pro by Google (gemini.google.com), plans at gemini.google/subscriptions"
+  ],
+  "payoff": "Run the 3 prompts this week on real jobs. Keep the app whose answers you'd hit send on, and stop paying for the other two.",
+  "ar": {
+   "title": "ChatGPT أم Claude أم Gemini؟ دع عملك <span class=\"em\">يختار.</span>",
+   "lead": "الثلاثة تكلّف نحو 20 دولارًا شهريًا، فالسعر لن يحسم الاختيار. أعطها المهام الثلاث نفسها من أسبوعك الحقيقي، واحتفظ بالتطبيق الذي ترسل إجاباته دون تعديل.",
+   "inside": "جهّز اختبارًا عادلًا، وشغّل ثلاثة أوامر جاهزة للنسخ على ChatGPT وClaude وGemini، واملأ بطاقة التقييم، ثم اختر اشتراكًا واحدًا بناءً على عملك أنت.",
+   "what": [
+    "هذا هو الاختبار الذي يقف خلف منشور الجولات الخمس. أسعار ChatGPT Plus وClaude Pro وGoogle AI Pro هي 20 و20 و19.99 دولارًا شهريًا في الولايات المتحدة قبل الضريبة. فاز Claude في تقييمي لأنني أكتب وأبني طوال اليوم. قد تختلف نتيجتك، وظهيرة واحدة تكفي لتعرفها.",
+    "هذا الدليل لأصحاب الأعمال المشتركين في أحد هذه التطبيقات، أو على وشك الاشتراك، ويريدون التوقف عن التخمين. ستنفّذ ثلاث مهام: رسالة بريد إلكتروني، وعرض سعر، وجدول بيانات غير مرتب. الأمر نفسه والملف نفسه ومحادثة جديدة في كل تطبيق، ثم تقيّم الإجابة الأولى."
+   ],
+   "prereqs": [
+    "حساب على chatgpt.com وclaude.ai وgemini.google.com. الخطط المجانية تكفي لجولة أولى، والخطط المدفوعة تعطي النتيجة الأعدل",
+    "رسالة بريد حقيقية عليك الرد عليها هذا الأسبوع، ورسالتان كتبتهما بنفسك",
+    "ملاحظات لعرض سعر حقيقي عليك إرساله",
+    "جدول بيانات أو ملف CSV غير مرتب: مبيعات أو عملاء محتملون أو مصاريف",
+    "نحو ساعتين"
+   ],
+   "warn": "احذف أي معلومة خاصة قبل رفع الملفات: أسماء العملاء التي لا يجوز مشاركتها، وأرقام البطاقات، ورواتب الموظفين. الخطط المجانية تصل إلى حدودها بسرعة وقد تعطيك نموذجًا أخف، لذا فالخسارة على الخطة المجانية لا تثبت الكثير. الأسعار هنا أسعار أمريكية رسمية تم التحقق منها في 13 نوفمبر 2026. راجع صفحة الأسعار لكل تطبيق قبل الدفع، فهي تتغير.",
+   "steps": [
+    {
+     "h": "افتح ثلاث محادثات جديدة",
+     "p": "سجّل الدخول إلى ChatGPT وClaude وGemini في ثلاث علامات تبويب، وابدأ محادثة جديدة في كل منها. لا تستخدم Project أو Gem أو تعليمات محفوظة بعد. يبدأ كل تطبيق من الصفر، فيكون الاختبار عادلًا."
+    },
+    {
+     "h": "اختر ثلاث مهام من أسبوعك الحقيقي",
+     "p": "رسالة بريد عليك الرد عليها، وعرض سعر عليك إرساله، وجدول بيانات غير مرتب. مهام حقيقية فقط. الاختبار المصطنع يخبرك فقط أي تطبيق يتقن الاختبارات المصطنعة."
+    },
+    {
+     "h": "الصق الأمر نفسه في التطبيقات الثلاثة",
+     "p": "استخدم الأوامر في الصفحات التالية. املأ ما بين [الأقواس] مرة واحدة، ثم الصق النص نفسه تمامًا وأرفق الملف نفسه في كل علامة تبويب. لا أسئلة متابعة ولا تصحيح. أنت تقيّم الإجابة الأولى."
+    },
+    {
+     "h": "املأ بطاقة التقييم",
+     "p": "انسخ البطاقة إلى ملاحظاتك كما هي. قيّم كل سطر من 1 إلى 5، ثم اجمع كل عمود. تحقّق من كل رقم في إجابات جدول البيانات مقابل الملف الحقيقي قبل أن تضع الدرجة."
+    },
+    {
+     "h": "احسم التعادل حسب طريقة عملك",
+     "p": "إذا كان عملك كله يدور في Gmail وGoogle Calendar وDrive، فجرّب Gemini داخل Gmail (متاح مع Google AI Pro) في مهمة البريد. إذا كنت تريد الصور والصوت والأسئلة السريعة على هاتفك، فاختبر ذلك في ChatGPT. إذا كنت تريد بناء أنظمة مثل لوحات المتابعة أو سير عمل N8N، فجرّب بناءً صغيرًا في Claude Code (ضمن خطط Claude المدفوعة)."
+    },
+    {
+     "h": "ادفع لتطبيق واحد لمدة 30 يومًا",
+     "p": "احتفظ بالفائز وألغِ الباقي. ثم زوّده بمعلومات عملك: Project في Claude أو Project في ChatGPT أو Gem في Gemini، مع ملفاتك وتعليماتك. بعد 30 يومًا، شغّل الأوامر الثلاثة نفسها على مهام جديدة. إذا بقي الفائز، فهو يستحق مكانه."
+    }
+   ],
+   "prompts": [
+    "1. رسالة البريد",
+    "2. عرض السعر",
+    "3. جدول البيانات غير المرتب"
+   ]
+  },
+  "perPage": {
+   "prompts": 2
+  }
+ },
+ {
+  "kw": "BILL",
+  "slug": "claude-plans-bill",
+  "style": "club",
+  "number": 41,
+  "date_en": "13 Nov 2026",
+  "date_ar": "13 نوفمبر 2026",
+  "title": "Pick your Claude plan in <span class=\"em\">one week.</span>",
+  "lead": "Claude's four plans differ in one thing that matters: how much you can use before you hit the limit. Run this one-week test on Pro, count the limit hits, and the numbers tell you if you need more.",
+  "inside": "See the 4 plans side by side, find your usage meter, run the one-week test on your real work, and upgrade only if your log says so.",
+  "what": [
+   "Claude has four individual plans: Free, Pro at $20 a month ($17 a month paid yearly, $200 up front), Max at $100 a month and Ultra at $200 a month. Every plan has a limit that resets every 5 hours and one that resets every week. Paying more mostly buys more usage before you hit them. Prices from claude.com/pricing, read 13 Nov 2026, in US dollars before tax.",
+   "It's for owners on Pro who keep hearing they need Max or Ultra, and owners on Free deciding if Pro is worth it. One normal work week and a simple log settle it."
+  ],
+  "prereqs": [
+   "A Claude Pro plan. On Free, upgrade to Pro monthly for the test week: Free doesn't include Claude Code",
+   "A normal work week, not a holiday week",
+   "A notes app or a sheet for the log",
+   "Claude Code installed, if you build with it"
+  ],
+  "warn": "No plan is unlimited. Ultra still has a weekly limit, and only verified accounts lose the 5-hour one. Your use in the Claude app and in Claude Code counts toward the same limits. Plans and multipliers change, so re-read claude.com/pricing the day you pay.",
+  "steps": [
+   {
+    "h": "See the 4 plans side by side",
+    "p": "From claude.com/pricing. The yearly column is the monthly price times 12, except Pro yearly, which is billed $200 up front.",
+    "code": "PLAN   PRICE            USAGE                      PER YEAR\nFree   $0               Limited, no Claude Code    $0\nPro    $20/mo           1x                         $240\n       $17/mo yearly    ($200 up front)            $200\nMax    $100/mo          5x Pro, 5-hour + weekly    $1,200\nUltra  $200/mo          10x Pro weekly,            $2,400\n                        no 5-hour limit (verified)"
+   },
+   {
+    "h": "Find your usage meter",
+    "p": "On claude.ai open Settings, then Usage (claude.ai/settings/usage). It shows how much of your limits you've used and when they reset. Inside Claude Code, type /usage. Check it at the end of every day of the test.",
+    "code": "/usage"
+   },
+   {
+    "h": "Run one real week on Pro",
+    "p": "Do your normal jobs, nothing staged: proposals, follow-ups, client docs, and at least one Claude Code build if you build. Log every time Claude stops you with a limit message.",
+    "code": "ONE-WEEK USAGE TEST (Pro)\n\nDay | Limit hits | Time | What I was doing | App or Claude Code\nMon |            |      |                  |\nTue |            |      |                  |\nWed |            |      |                  |\nThu |            |      |                  |\nFri |            |      |                  |\nSat |            |      |                  |\nSun |            |      |                  |\n\nTotal limit hits this week: __\nHits before lunch: __\nHit the weekly limit? yes / no\nHits on Claude Code work that saves real hours: __"
+   },
+   {
+    "h": "Read your result",
+    "p": "0 to 2 hits: stay on Pro and pay yearly, that saves $40 a year. 3 or more hits, mostly before lunch on Claude Code work that saves you real hours: go up to Max. Already on Max and still hitting it 3 times a week: then Ultra. Mostly chatting and writing, never hit Max's limit: Ultra is wasted on you. Go one plan up, never two."
+   },
+   {
+    "h": "One heavy week? Try usage credits first",
+    "p": "In Settings, Usage you can turn on usage credits. When you hit a limit, Claude keeps working on pay-as-you-go at API rates until the monthly spend cap you set. For a one-off busy week that can cost less than moving up a plan for the whole month."
+   },
+   {
+    "h": "Re-test every 3 months",
+    "p": "Your usage grows as you build more. Run the same week again each quarter. If you stopped hitting the limit, go back down a plan."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Read my log",
+    "code": "Here is my one-week Claude usage log:\n\"\"\"\n[paste your filled-in log]\n\"\"\"\nHere are Claude's plans as of today:\n\"\"\"\n[paste the plan table from step 1]\n\"\"\"\nMy rule: stay on my plan unless I hit the limit 3 or more times in the week, and then go only one plan up.\nTell me which plan I should be on, in one line, and show the math. Then list which tasks caused the most limit hits."
+   },
+   {
+    "h": "2. Use less, get the same work done",
+    "code": "These are the tasks that hit my Claude limit this week:\n[list the tasks from your log]\nFor each one, tell me how to get the same result with less usage: a fresh chat instead of one long thread, a Project instead of re-uploading the same files, a shorter prompt, or splitting a big job into parts.\nGive me the 3 changes that save the most, in order."
+   }
+  ],
+  "credit": [
+   "Claude plans and prices by Anthropic, claude.com/pricing (read 13 Nov 2026)",
+   "Usage limits and usage credits: Anthropic Help Center (support.claude.com)"
+  ],
+  "payoff": "Start the log on Monday. By Sunday you'll know if your plan fits, and you'll never upgrade on someone else's say-so again.",
+  "ar": {
+   "title": "اختر خطة Claude المناسبة في <span class=\"em\">أسبوع واحد.</span>",
+   "lead": "تختلف خطط Claude الأربع في أمر واحد مهم: مقدار ما تستطيع استخدامه قبل أن تصل إلى الحد. نفّذ هذا الاختبار لمدة أسبوع على خطة Pro، واحسب عدد مرات الوصول إلى الحد، وستخبرك الأرقام إن كنت تحتاج إلى المزيد.",
+   "inside": "اطّلع على الخطط الأربع جنبًا إلى جنب، واعثر على عدّاد الاستخدام، ونفّذ اختبار الأسبوع على عملك الحقيقي، ولا ترقِّ خطتك إلا إذا قال سجلّك ذلك.",
+   "what": [
+    "لدى Claude أربع خطط فردية: Free، وPro بسعر 20 دولارًا شهريًا (17 دولارًا شهريًا عند الدفع السنوي، أي 200 دولار مقدمًا)، وMax بسعر 100 دولار شهريًا، وUltra بسعر 200 دولار شهريًا. لكل خطة حد يتجدد كل 5 ساعات وحد يتجدد كل أسبوع. الدفع الأعلى يشتري في الغالب استخدامًا أكبر قبل الوصول إلى هذين الحدّين. الأسعار من claude.com/pricing بتاريخ 13 نوفمبر 2026، بالدولار الأمريكي قبل الضريبة.",
+    "هذا الدليل لأصحاب الأعمال على خطة Pro الذين يسمعون باستمرار أنهم يحتاجون إلى Max أو Ultra، ولمن هم على الخطة المجانية ويتساءلون إن كانت Pro تستحق. أسبوع عمل عادي وسجلّ بسيط يحسمان الأمر."
+   ],
+   "prereqs": [
+    "اشتراك Claude Pro. إن كنت على الخطة المجانية فاشترك في Pro شهريًا لأسبوع الاختبار، لأن الخطة المجانية لا تشمل Claude Code",
+    "أسبوع عمل عادي، وليس أسبوع عطلة",
+    "تطبيق ملاحظات أو جدول بيانات للسجلّ",
+    "Claude Code مثبّت، إن كنت تبني به"
+   ],
+   "warn": "لا توجد خطة بلا حدود. خطة Ultra لها حد أسبوعي أيضًا، والحسابات الموثّقة وحدها يُلغى عنها حد الساعات الخمس. استخدامك في تطبيق Claude وفي Claude Code يُحتسب من الحدود نفسها. الخطط والمضاعفات تتغير، لذا راجع claude.com/pricing يوم الدفع.",
+   "steps": [
+    {
+     "h": "اطّلع على الخطط الأربع جنبًا إلى جنب",
+     "p": "من claude.com/pricing. عمود التكلفة السنوية هو السعر الشهري مضروبًا في 12، باستثناء Pro السنوية التي تُدفع 200 دولار مقدمًا."
+    },
+    {
+     "h": "اعثر على عدّاد الاستخدام",
+     "p": "في claude.ai افتح Settings ثم Usage (claude.ai/settings/usage). تعرض الصفحة مقدار ما استخدمته من حدودك ومتى تتجدد. داخل Claude Code اكتب /usage. راجعه في نهاية كل يوم من أيام الاختبار."
+    },
+    {
+     "h": "اعمل أسبوعًا حقيقيًا على Pro",
+     "p": "أنجز مهامك المعتادة دون تمثيل: عروض الأسعار، والمتابعات، ومستندات العملاء، وبناء واحد على الأقل في Claude Code إن كنت تبني. سجّل كل مرة يوقفك فيها Claude برسالة الوصول إلى الحد."
+    },
+    {
+     "h": "اقرأ نتيجتك",
+     "p": "من 0 إلى 2 مرة: ابقَ على Pro وادفع سنويًا، فهذا يوفّر 40 دولارًا في السنة. 3 مرات أو أكثر، معظمها قبل الظهر في عمل على Claude Code يوفّر لك ساعات حقيقية: انتقل إلى Max. إن كنت على Max وما زلت تصل إلى الحد 3 مرات في الأسبوع: عندها Ultra. إن كان استخدامك في الغالب محادثة وكتابة ولم تصل يومًا إلى حد Max: فخطة Ultra هدر عليك. ارتقِ خطة واحدة فقط، لا خطتين."
+    },
+    {
+     "h": "أسبوع مزدحم واحد؟ جرّب رصيد الاستخدام أولًا",
+     "p": "من Settings ثم Usage يمكنك تفعيل usage credits. عندما تصل إلى الحد، يواصل Claude العمل بالدفع حسب الاستخدام وبأسعار الـ API حتى سقف الإنفاق الشهري الذي تحدده. لأسبوع مزدحم واحد قد يكلّف ذلك أقل من الانتقال إلى خطة أعلى لشهر كامل."
+    },
+    {
+     "h": "أعد الاختبار كل 3 أشهر",
+     "p": "يزداد استخدامك كلما بنيت أكثر. كرّر أسبوع الاختبار نفسه كل ربع سنة. إذا توقفت عن الوصول إلى الحد، فانزل خطة واحدة."
+    }
+   ],
+   "prompts": [
+    "1. اقرأ سجلّي",
+    "2. استخدام أقل للنتيجة نفسها"
+   ]
+  },
+  "perPage": {
+   "steps": 2
+  },
+  "hero": 2
+ },
+ {
+  "kw": "NINE",
+  "slug": "nine-claude-jobs",
+  "style": "club",
+  "number": 43,
+  "hero": "prompt",
+  "date_en": "13 Nov 2026",
+  "date_ar": "13 نوفمبر 2026",
+  "title": "9 jobs Claude can take <span class=\"em\">off your plate.</span>",
+  "lead": "Invoices, meeting slots, quotes, DM replies, a sales dashboard, a messy lead list, call follow-ups, SOPs and your Monday catch-up. Each one comes with the prompt, ready to paste.",
+  "inside": "Connect Gmail and Google Calendar to Claude, set up one Project with your business files, and run all 9 prompts on your own work, starting with #9.",
+  "what": [
+   "These are 9 real jobs an owner does every week that Claude can do in minutes once it has your files and your inbox. 8 run in the normal Claude app. One, the sales dashboard, runs in Claude Code.",
+   "It's for owners who use Claude for quick questions but haven't handed it real work yet. Start with #9: it takes 2 minutes, you run it every Monday, and it shows you which of the other 8 you need most."
+  ],
+  "prereqs": [
+   "A Claude account. The connectors and Projects work on the Free plan, but Pro gives you room to work and you need Pro or above for Claude Code (#5 only)",
+   "The Google account you use for email and meetings",
+   "Your business files: price list, FAQ, 10 of your real DM replies, a month of supplier invoices as PDFs",
+   "A sales export from Airtable as a CSV for #5",
+   "Claude on the web or Claude Desktop to connect Google the first time"
+  ],
+  "warn": "The Gmail connector can send, reply and forward, not only draft. By default Claude asks for your approval before each one, so read every email before you approve it. The Calendar connector can create, change and delete events, so the prompts here tell Claude to wait for your OK. Claude can't open attachment content through Gmail: download invoice PDFs and upload them yourself. And Claude can get a number wrong, so check totals, quotes and due dates before you act on them.",
+  "steps": [
+   {
+    "h": "Connect Gmail and Google Calendar",
+    "p": "On claude.ai or Claude Desktop, open a chat and click the + button in the lower left. Hover over Connectors, then Manage connectors. Click the + next to Connectors, find Gmail, click it and hit Connect. Sign in with your Google account and allow access. Do the same for Google Calendar. You can also start from Customize, then Connectors. On a Team or Enterprise plan, an Owner has to turn connectors on for the org first."
+   },
+   {
+    "h": "Turn them on in the chat",
+    "p": "Connected doesn't mean on in every chat. Click + in the lower left, hover over Connectors and switch on Gmail and Google Calendar for that conversation. Once they're connected on web or Desktop, they also show up in the Claude app on your phone the next time you log in. To cut access, go to Customize, Connectors, pick the Google connector and Disconnect."
+   },
+   {
+    "h": "Build one Project for your business",
+    "p": "Go to Projects in the sidebar (or claude.ai/projects) and click + New Project. Call it [Your business]. Upload your price list, your FAQ, 10 real DM replies and a month of invoice PDFs. Prompts #1, #3 and #4 run inside this Project so Claude already knows your prices and your voice. Free accounts can make up to 5 Projects."
+   },
+   {
+    "h": "Get Claude Code ready for #5",
+    "p": "Only the dashboard needs it. Install Claude Code from claude.com/product/claude-code and sign in with your paid Claude account. In Airtable, open your sales table, use the view menu to download it as a CSV, and put the file in an empty folder. Open Claude Code in that folder and paste prompt #5."
+   },
+   {
+    "h": "Run #9 every Monday",
+    "p": "Open a new chat with Gmail and Calendar switched on and paste prompt #9. Do it first thing Monday for a month. Whatever keeps showing up in the answer is the next job to hand Claude from this list."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Reads your invoices",
+    "code": "I uploaded this month's supplier invoices to this Project.\nMake a table of vendor, invoice number, amount and due date, sorted by due date.\nAdd the total due this month.\nFlag any invoice where you couldn't read the amount or the date, so I can check it myself."
+   },
+   {
+    "h": "2. Finds the meeting slot",
+    "code": "Look at my Google Calendar for next week.\nFind three 30-minute slots that don't touch my mornings (before [12:00]) and don't sit right before or after another meeting.\nThen draft the invite for [name, email] about [topic].\nDon't create anything until I pick a slot and say go."
+   },
+   {
+    "h": "3. Builds the quote",
+    "code": "Here are my notes from the call with [client name]:\n[paste call notes]\n\nWrite the quote for this client using only the prices in my price list in this Project.\nLine items, quantities, subtotal, total.\nFlag anything they asked for that I haven't priced. Don't guess a price."
+   },
+   {
+    "h": "4. Drafts DM replies in your voice",
+    "code": "My FAQ and 10 of my real DM replies are in this Project.\nHere's a new DM:\n[paste the DM]\n\nWrite 2 replies that sound like my examples: same length, same tone, same words I use.\nOnly use facts from my FAQ. If the answer isn't there, say so instead of making it up."
+   },
+   {
+    "h": "5. Builds you a sales dashboard (Claude Code)",
+    "code": "Build me a one-page dashboard from [file name].csv in this folder.\nShow revenue by week, my top 5 products by revenue, and total revenue for the period.\nMake it a single HTML file I can open in my browser.\nTell me which columns you used and flag any rows you had to skip."
+   },
+   {
+    "h": "6. Cleans your lead list",
+    "code": "I uploaded my lead list as a CSV.\nRemove duplicates, fix the name capitals, and split full name into first name and last name.\nGive me the clean file back as a CSV.\nThen list every row with no email, and tell me how many duplicates you removed."
+   },
+   {
+    "h": "7. Turns a call into the follow-up",
+    "code": "Here's the transcript of my call with [client name]:\n[paste transcript]\n\nWrite the follow-up email I send them today, short and in plain words.\nThen give me a task list with who owes what by when.\nIf a deadline wasn't said on the call, mark it as 'to confirm'."
+   },
+   {
+    "h": "8. Writes the SOP",
+    "code": "Here's the transcript of a Loom where I do [task] once:\n[paste transcript]\n\nTurn this into numbered steps a new hire can follow without asking me.\nName the exact tool and button for every step.\nAt the end, list any step I skipped or rushed in the video."
+   },
+   {
+    "h": "9. Tells you what's waiting on you",
+    "code": "Check my Gmail and Google Calendar.\n1. Which emails from the last 7 days still need my reply? Most urgent first, one line each.\n2. What's on my calendar this week that I haven't prepared for?\n3. What's the one thing I should do first today?\nDon't send or change anything."
+   }
+  ],
+  "credit": [
+   "Claude, Projects, Claude Code and the Gmail and Google Calendar connectors by Anthropic (claude.com)",
+   "Setup steps from Anthropic's Help Center: Use Google Workspace connectors, Use connectors to extend Claude's capabilities, What are projects? (support.claude.com)",
+   "Airtable CSV export (airtable.com), Loom (loom.com)"
+  ],
+  "payoff": "Connect Gmail and Calendar tonight and run #9 on Monday morning. Then pick the next job from what it tells you.",
+  "ar": {
+   "title": "9 مهام يستطيع Claude أن <span class=\"em\">يرفعها عنك.</span>",
+   "lead": "الفواتير، ومواعيد الاجتماعات، وعروض الأسعار، والرد على الرسائل الخاصة، ولوحة المبيعات، وقائمة عملاء محتملين غير مرتبة، ومتابعة المكالمات، وإجراءات العمل، ومراجعة يوم الاثنين. لكل مهمة أمرها الجاهز للصق.",
+   "inside": "اربط Gmail وGoogle Calendar بـ Claude، وجهّز مشروعًا واحدًا فيه ملفات عملك، ونفّذ الأوامر التسعة على عملك الحقيقي، بدءًا بالأمر رقم 9.",
+   "what": [
+    "هذه 9 مهام حقيقية يؤديها صاحب العمل كل أسبوع، ويستطيع Claude إنجازها في دقائق بعد أن يحصل على ملفاتك وبريدك. ثمانٍ منها تعمل في تطبيق Claude العادي، وواحدة فقط، لوحة المبيعات، تعمل في Claude Code.",
+    "هذا الدليل لأصحاب الأعمال الذين يستخدمون Claude لأسئلة سريعة ولم يسلّموه عملًا حقيقيًا بعد. ابدأ بالمهمة رقم 9: تستغرق دقيقتين، وتنفّذها كل يوم اثنين، وتكشف لك أي المهام الثماني الأخرى تحتاجها أكثر."
+   ],
+   "prereqs": [
+    "حساب Claude. تعمل الموصّلات والمشاريع على الخطة المجانية، لكن خطة Pro تمنحك مساحة عمل أوسع، وتحتاج Pro أو أعلى لاستخدام Claude Code (للمهمة رقم 5 فقط)",
+    "حساب Google الذي تستخدمه للبريد والاجتماعات",
+    "ملفات عملك: قائمة الأسعار، والأسئلة الشائعة، و10 من ردودك الحقيقية على الرسائل الخاصة، وفواتير الموردين لشهر كامل بصيغة PDF",
+    "ملف مبيعات مُصدَّر من Airtable بصيغة CSV للمهمة رقم 5",
+    "Claude على الويب أو Claude Desktop لربط Google في المرة الأولى"
+   ],
+   "warn": "يستطيع موصّل Gmail الإرسال والرد وإعادة التوجيه، لا كتابة المسودات فقط. يطلب Claude موافقتك افتراضيًا قبل كل إجراء، لذا اقرأ كل رسالة قبل الموافقة عليها. ويستطيع موصّل Calendar إنشاء الأحداث وتعديلها وحذفها، لذلك تطلب الأوامر هنا من Claude أن ينتظر موافقتك. لا يستطيع Claude فتح محتوى المرفقات عبر Gmail: نزّل ملفات الفواتير وارفعها بنفسك. وقد يخطئ Claude في رقم، فتحقّق من المجاميع وعروض الأسعار وتواريخ الاستحقاق قبل أن تتصرف بناءً عليها.",
+   "steps": [
+    {
+     "h": "اربط Gmail وGoogle Calendar",
+     "p": "على claude.ai أو Claude Desktop افتح محادثة واضغط زر + في الزاوية السفلية اليسرى. مرّر المؤشر فوق Connectors ثم اختر Manage connectors. اضغط + بجانب Connectors، وابحث عن Gmail، واضغط عليه ثم Connect. سجّل الدخول بحساب Google واسمح بالوصول. كرّر الخطوات نفسها مع Google Calendar. ويمكنك أيضًا البدء من Customize ثم Connectors. في خطط Team أو Enterprise يجب أن يفعّل المالك الموصّلات للمؤسسة أولًا."
+    },
+    {
+     "h": "فعّلها داخل المحادثة",
+     "p": "الربط لا يعني أنها مفعّلة في كل محادثة. اضغط + في الزاوية السفلية اليسرى، ومرّر المؤشر فوق Connectors، وفعّل Gmail وGoogle Calendar لتلك المحادثة. بعد ربطها على الويب أو Desktop تظهر أيضًا في تطبيق Claude على هاتفك عند تسجيل الدخول التالي. لإيقاف الوصول اذهب إلى Customize ثم Connectors، واختر موصّل Google ثم Disconnect."
+    },
+    {
+     "h": "أنشئ مشروعًا واحدًا لعملك",
+     "p": "اذهب إلى Projects في القائمة الجانبية (أو claude.ai/projects) واضغط + New Project. سمّه باسم عملك. ارفع قائمة الأسعار والأسئلة الشائعة و10 ردود حقيقية على الرسائل الخاصة وفواتير شهر كامل بصيغة PDF. تعمل الأوامر 1 و3 و4 داخل هذا المشروع، فيعرف Claude أسعارك وأسلوبك مسبقًا. يمكن للحسابات المجانية إنشاء 5 مشاريع كحد أقصى."
+    },
+    {
+     "h": "جهّز Claude Code للمهمة رقم 5",
+     "p": "لوحة المبيعات وحدها تحتاجه. ثبّت Claude Code من claude.com/product/claude-code وسجّل الدخول بحسابك المدفوع في Claude. في Airtable افتح جدول المبيعات، ونزّله بصيغة CSV من قائمة العرض، وضع الملف في مجلد فارغ. افتح Claude Code في ذلك المجلد والصق الأمر رقم 5."
+    },
+    {
+     "h": "نفّذ الأمر رقم 9 كل يوم اثنين",
+     "p": "افتح محادثة جديدة مع تفعيل Gmail وCalendar والصق الأمر رقم 9. افعل ذلك أول شيء صباح كل اثنين لمدة شهر. ما يتكرر في الإجابة هو المهمة التالية التي تسلّمها لـ Claude من هذه القائمة."
+    }
+   ],
+   "prompts": [
+    "1. قراءة فواتيرك",
+    "2. إيجاد موعد الاجتماع",
+    "3. إعداد عرض السعر",
+    "4. كتابة ردود الرسائل الخاصة بأسلوبك",
+    "5. بناء لوحة المبيعات (Claude Code)",
+    "6. تنظيف قائمة العملاء المحتملين",
+    "7. تحويل المكالمة إلى متابعة",
+    "8. كتابة إجراءات العمل",
+    "9. ما الذي ينتظرك"
+   ]
+  }
+ },
+ {
+  "kw": "BRIEF",
+  "slug": "business-brief",
+  "style": "club",
+  "number": 44,
+  "hero": 1,
+  "date_en": "13 Nov 2026",
+  "date_ar": "13 نوفمبر 2026",
+  "title": "One brief. Ten documents. <span class=\"em\">One line each.</span>",
+  "lead": "Write your business brief once, paste it into a Claude Project, and every proposal, follow-up and report after that takes one line.",
+  "inside": "Fill in the brief, set it as your Claude Project's instructions, and run the 10 one-line prompts that turn your notes, numbers and transcripts into finished documents.",
+  "what": [
+   "Most people write a new prompt every time and explain their business from zero. The brief fixes that. It holds who you are, what you sell, who buys it, how you talk and what you never promise. You write it once and put it in a Claude Project's instructions, so Claude reads it in every chat inside that project.",
+   "After that, each document is one line: paste the input (a transcript, notes, the week's numbers, reviews) and say what to turn it into. The brief carries your business, the line carries the job. That's why the output sounds like you."
+  ],
+  "prereqs": [
+   "A Claude account. Projects work on every plan, Free included (Free is capped at 5 projects)",
+   "Claude on the web or the Claude Desktop app",
+   "15 minutes to fill in the brief",
+   "One real input to test with: last week's call notes, a voice memo transcript or a few customer reviews"
+  ],
+  "warn": "The brief tells Claude to use only your facts, but it can still get a price, a date or a name wrong. Read every document before it goes to a customer, and never let it promise a discount, a deadline or a result you didn't write in. If a prompt keeps missing, fix the brief, not the line.",
+  "steps": [
+   {
+    "h": "Fill in the brief",
+    "p": "Copy this into a note and replace every [bracket] with your real answer. Be specific: \"short, warm, no jargon\" beats \"professional\". The last three lines stop Claude from making things up, keep them as they are.",
+    "code": "You write for [business name], a [type of business] in [city or country].\nWe sell [main offer] to [who buys it] at [price or price range].\nCustomers pick us because [the real reason, in their words].\nOur voice is [how you talk, e.g. short, warm, no jargon]. Write in [language].\nSign every message as [your name and role].\nNever promise [what you can't: discounts, deadlines, results].\nUse only facts from my input and this brief. Never invent prices, dates, names or numbers.\nIf something is missing, ask me before you write."
+   },
+   {
+    "h": "Put it in a Claude Project",
+    "p": "In Claude, open Projects from the left sidebar (or go to claude.ai/projects) and click + New Project. Name it after your business. Inside the project, click Set project instructions, paste your filled-in brief and click Save instructions. Claude now applies it to every chat in that project."
+   },
+   {
+    "h": "Add the files Claude should know",
+    "p": "Optional, and worth it. In the project knowledge panel on the right, click + and add your price list, a past proposal you liked and your FAQ. Claude uses them as context in every chat in the project, so the facts come from your files and not from memory."
+   },
+   {
+    "h": "Run one line per document",
+    "p": "Start a new chat inside the project. Paste the input, then the one-line prompt for the document you need from the next pages. One document per chat keeps the inputs from mixing. If something is missing, Claude asks, because the brief tells it to."
+   },
+   {
+    "h": "Check it, then fix the brief",
+    "p": "Read every document before it leaves: prices, dates, names, promises. When you keep correcting the same thing (too long, too formal, wrong sign-off), add one line to the brief and save it again. Every chat after that comes out fixed."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Voice note to proposal",
+    "code": "Here's my voice note transcript from the sales call with [client name]:\n[paste the transcript]\n\nTurn this into a proposal with scope, timeline and price."
+   },
+   {
+    "h": "2. Call notes to follow-up email",
+    "code": "My notes from the call with [client name]:\n[paste your notes]\n\nTurn these notes into a follow-up that confirms what we agreed and the next step, under 120 words."
+   },
+   {
+    "h": "3. Spreadsheet to weekly report",
+    "code": "This week's numbers:\n[paste the rows from your sheet]\n\nWrite a 5-line report for my [partner / manager]. What went up, what went down, one thing to fix."
+   },
+   {
+    "h": "4. Reviews to ad copy",
+    "code": "Here are [20] customer reviews:\n[paste the reviews]\n\nPull the exact phrases customers repeat and write 3 ad headlines using their words."
+   },
+   {
+    "h": "5. Loom transcript to SOP",
+    "code": "Transcript of my Loom showing how I [name the task]:\n[paste the transcript]\n\nTurn this into numbered steps a new hire can follow without asking me."
+   },
+   {
+    "h": "6. Messy DM thread to clear reply",
+    "code": "The DM thread with [customer name]:\n[paste the thread]\n\nRead this thread, tell me what the customer actually wants in one line, then draft the reply."
+   },
+   {
+    "h": "7. Price list to FAQ",
+    "code": "Our price list:\n[paste the price list]\n\nWrite the 10 questions customers ask about these prices, with answers that use only this list."
+   },
+   {
+    "h": "8. Complaint to apology",
+    "code": "The complaint:\n[paste the message]\nWhat went wrong on our side: [one line]\n\nWrite a reply that owns the mistake, says what we'll do and by when. No discounts unless I say so."
+   },
+   {
+    "h": "9. Old blog post to LinkedIn post",
+    "code": "My old post:\n[paste the post]\n\nTurn this into one LinkedIn post: one idea, a first line that stops the scroll, no hashtags."
+   },
+   {
+    "h": "10. Meeting agenda to client recap",
+    "code": "The agenda:\n[paste the agenda]\nMy notes from the meeting:\n[paste your notes]\n\nTurn this agenda and my notes into a recap the client can forward to their boss."
+   }
+  ],
+  "credit": [
+   "Claude Projects and project instructions by Anthropic. Setup steps from Anthropic's Help Center: How can I create and manage projects? (support.claude.com)",
+   "Brief and prompts written by Karem AlMoayyad for Karemops.ai"
+  ],
+  "payoff": "Fill in the brief tonight. Tomorrow, paste your next call notes and send the follow-up before lunch.",
+  "ar": {
+   "title": "ملخص واحد. عشر وثائق. <span class=\"em\">سطر واحد لكل منها.</span>",
+   "lead": "اكتب ملخص عملك مرة واحدة، والصقه في مشروع على Claude، وبعدها يحتاج كل عرض ورسالة متابعة وتقرير إلى سطر واحد فقط.",
+   "inside": "املأ الملخص، واجعله تعليمات مشروعك على Claude، ثم استخدم الأوامر العشرة ذات السطر الواحد التي تحوّل ملاحظاتك وأرقامك ونصوصك المفرغة إلى وثائق جاهزة.",
+   "what": [
+    "يكتب معظم الناس أمرًا جديدًا في كل مرة ويشرحون عملهم من البداية. الملخص يحل هذه المشكلة. فيه من أنت، وما تبيعه، ومن يشتري منك، وكيف تتكلم، وما لا تعِد به أبدًا. تكتبه مرة واحدة وتضعه في تعليمات مشروع على Claude، فيقرؤه Claude في كل محادثة داخل هذا المشروع.",
+    "بعد ذلك تصبح كل وثيقة سطرًا واحدًا: الصق المادة الخام (نصًا مفرغًا أو ملاحظات أو أرقام الأسبوع أو مراجعات العملاء) واكتب ما تريد تحويلها إليه. الملخص يحمل عملك، والسطر يحمل المهمة. لهذا تبدو النتيجة بصوتك أنت."
+   ],
+   "prereqs": [
+    "حساب Claude. المشاريع متاحة في كل الخطط، ومنها الخطة المجانية (الحد فيها 5 مشاريع)",
+    "Claude على الويب أو تطبيق Claude Desktop",
+    "15 دقيقة لملء الملخص",
+    "مادة حقيقية واحدة للتجربة: ملاحظات مكالمة الأسبوع الماضي، أو نص مفرغ لتسجيل صوتي، أو بعض مراجعات العملاء"
+   ],
+   "warn": "يطلب الملخص من Claude أن يستخدم معلوماتك فقط، لكنه قد يخطئ في سعر أو تاريخ أو اسم. اقرأ كل وثيقة قبل أن تصل إلى العميل، ولا تسمح لها أن تعِد بخصم أو موعد أو نتيجة لم تكتبها أنت. إذا أخطأ أمر ما مرة بعد مرة، فعدّل الملخص وليس السطر.",
+   "steps": [
+    {
+     "h": "املأ الملخص",
+     "p": "انسخ هذا النص إلى ملاحظة واستبدل كل [قوس] بإجابتك الحقيقية. كن محددًا: عبارة \"قصير، ودود، بلا مصطلحات\" أفضل من \"احترافي\". الأسطر الثلاثة الأخيرة تمنع Claude من اختلاق المعلومات، فاتركها كما هي."
+    },
+    {
+     "h": "ضعه في مشروع على Claude",
+     "p": "في Claude افتح Projects من الشريط الجانبي الأيسر (أو ادخل إلى claude.ai/projects) واضغط + New Project. سمّه باسم عملك. داخل المشروع اضغط Set project instructions، والصق الملخص بعد ملئه، ثم اضغط Save instructions. يطبّقه Claude الآن على كل محادثة في هذا المشروع."
+    },
+    {
+     "h": "أضف الملفات التي يجب أن يعرفها Claude",
+     "p": "خطوة اختيارية لكنها تستحق. في لوحة معرفة المشروع على اليمين اضغط + وأضف قائمة أسعارك، وعرضًا سابقًا أعجبك، وأسئلتك الشائعة. يستخدمها Claude سياقًا في كل محادثة داخل المشروع، فتأتي المعلومات من ملفاتك لا من ذاكرته."
+    },
+    {
+     "h": "سطر واحد لكل وثيقة",
+     "p": "ابدأ محادثة جديدة داخل المشروع. الصق المادة الخام، ثم الأمر ذا السطر الواحد للوثيقة التي تحتاجها من الصفحات التالية. وثيقة واحدة في كل محادثة تمنع اختلاط المواد. إذا نقصت معلومة سيسألك Claude، لأن الملخص يطلب منه ذلك."
+    },
+    {
+     "h": "راجع النتيجة ثم حسّن الملخص",
+     "p": "اقرأ كل وثيقة قبل إرسالها: الأسعار والتواريخ والأسماء والوعود. عندما تجد نفسك تصحح الشيء نفسه مرارًا (طويلة جدًا، رسمية جدًا، توقيع خاطئ)، أضف سطرًا واحدًا إلى الملخص واحفظه من جديد. كل محادثة بعدها ستخرج مصححة."
+    }
+   ],
+   "prompts": [
+    "1. من تسجيل صوتي إلى عرض سعر",
+    "2. من ملاحظات المكالمة إلى رسالة متابعة",
+    "3. من جدول البيانات إلى تقرير أسبوعي",
+    "4. من المراجعات إلى نص إعلاني",
+    "5. من نص فيديو Loom إلى دليل إجراءات",
+    "6. من محادثة رسائل مشوشة إلى رد واضح",
+    "7. من قائمة الأسعار إلى أسئلة شائعة",
+    "8. من شكوى إلى اعتذار",
+    "9. من مقال قديم إلى منشور LinkedIn",
+    "10. من جدول أعمال الاجتماع إلى ملخص للعميل"
+   ]
+  }
+ },
+ {
+  "kw": "HOURS",
+  "slug": "automate-first-job",
+  "style": "club",
+  "number": 45,
+  "hero": 1,
+  "date_en": "13 Nov 2026",
+  "date_ar": "13 نوفمبر 2026",
+  "title": "Automate the first job in your <span class=\"em\">business.</span>",
+  "lead": "Don't automate your business. Automate one job. Log your repeat tasks for a week, pick the biggest total, and run it through the 6 steps in this guide.",
+  "inside": "Set up the one-week task log in Google Sheets, find the job that eats the most minutes, write it out, have Claude Code build it, put it on an N8N trigger, test it 10 times and measure what you got back.",
+  "what": [
+   "People try to automate everything and finish nothing. One job, done properly, teaches you the whole method: find it, break it down, build it, make it run alone, test it, measure it. Then pick the next one. One job a month is 12 jobs a year off your plate.",
+   "Here's what a finished one looks like, the missed-DM job: someone comments a keyword, ManyChat sends them the guide, N8N adds the lead to Airtable and GoHighLevel, and Gmail sends the follow-up 2 days later. Nobody presses start. Your first job doesn't have to be this one. The log decides."
+  ],
+  "prereqs": [
+   "A Google Sheet for the task log (the exact columns are in step 1)",
+   "A paid Claude plan (Pro or higher) with Claude Code installed",
+   "An N8N account, on n8n Cloud or self-hosted",
+   "Logins for the tools the job touches, e.g. Gmail, Airtable, GoHighLevel, ManyChat",
+   "One week of honest logging before you build anything"
+  ],
+  "warn": "The 3 mistakes that kill this: picking the fun job instead of the big one, skipping the 10 tests, and letting the automation talk money with customers. Keep prices, refunds and discounts with a human. And don't guess your hours: if you didn't measure it, you didn't save time.",
+  "steps": [
+   {
+    "h": "Find the bottleneck",
+    "p": "Make a Google Sheet with a tab called Log and these columns. For one week, add a row every time you do a repeat task, with the minutes it took. Then make a second tab called Totals, list each task once in column A and total its minutes with the formula. The biggest total wins, not the task you hate most.",
+    "code": "Tab \"Log\":\nDate | Task | Minutes | What starts it | Tools used | Notes\n\nTab \"Totals\":\nTask | Times this week | Total minutes\nB2: =COUNTIF(Log!B:B, A2)\nC2: =SUMIF(Log!B:B, A2, Log!C:C)"
+   },
+   {
+    "h": "Break it into steps",
+    "p": "Write the job like you're training someone new. Fill in this template for the winning task. If you can't write it, AI can't do it.",
+    "code": "Job: [name]\nWhat comes in: [the email, form, DM or file that starts it]\nWhat I check: [every decision, in order]\nWhat goes out: [the reply, record or file at the end]\nTools: [Gmail, Airtable, GoHighLevel...]\nA human steps in when: [money, complaints, anything unsure]"
+   },
+   {
+    "h": "Let Claude Code build it",
+    "p": "Open Claude Code in an empty folder and paste prompt 2 from the prompts pages with your filled-in template. Ask it to build the flow as an N8N workflow file and to explain each part back to you. If you can't follow the explanation, ask again until you can. You'll be the one fixing it."
+   },
+   {
+    "h": "Make it run on its own",
+    "p": "In N8N, import the file (Import from File in the workflow menu), connect your credentials on each node, and set the trigger: an n8n Form Trigger for a new form, a Webhook for a new DM from ManyChat, or a Schedule Trigger for every Monday at 9. Then hit Publish (older versions call it Active). If you have to press start, it isn't automated yet."
+   },
+   {
+    "h": "Test it 10 times",
+    "p": "Run it on 10 real cases before any customer sees it. Log every run in a third tab. Every wrong output gets a row, and you fix the step that caused it, then run that case again.",
+    "code": "Tab \"Tests\":\nCase | Input | What should happen | What happened | Step to fix | Fixed?"
+   },
+   {
+    "h": "Measure it",
+    "p": "One week after it goes live, log the same way as step 1. Write the before and after minutes on one line. The minutes you got back are the only number that matters, and that line decides your next job: back to step 1 with the next biggest total.",
+    "code": "Job | Minutes per week before | Minutes per week after | Minutes saved"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Read my task log",
+    "code": "Here's my task log for one week, exported from Google Sheets:\n[paste the Log tab, or attach the CSV]\n\nGroup tasks that are the same job under one name.\nTotal the minutes per job and rank them, biggest first.\nFor the top 3, tell me what starts each one and which tools it touches."
+   },
+   {
+    "h": "2. Build it in Claude Code",
+    "code": "I want to automate one job in my business. Here it is, step by step:\n[paste your filled-in template from step 2]\n\nBuild it as an N8N workflow I can import, saved as [job-name].json.\nUse the [trigger] trigger and these tools: [Gmail, Airtable, GoHighLevel].\nAnything that involves money or a complaint goes to me, not the customer.\nThen explain each node back to me in plain words, and list the credentials I need to connect."
+   },
+   {
+    "h": "3. Fix a wrong output",
+    "code": "My N8N workflow [job-name].json gave the wrong output.\nInput: [paste the input]\nWhat it did: [paste the output]\nWhat it should have done: [one line]\n\nFind the node that caused it, fix it, and tell me what you changed."
+   },
+   {
+    "h": "4. Before and after",
+    "code": "Here's my task log from the week before the automation and the week after:\n[paste both logs]\n\nFor the job [job name], give me minutes per week before, after, and saved.\nThen rank what's left in the log so I know my next job."
+   }
+  ],
+  "credit": [
+   "Claude Code by Anthropic (claude.com/product/claude-code)",
+   "N8N workflow automation (n8n.io). Import, trigger and Publish steps from the n8n docs (docs.n8n.io)",
+   "Tools in the example: ManyChat (manychat.com), Airtable (airtable.com), GoHighLevel (gohighlevel.com), Gmail and Google Sheets by Google"
+  ],
+  "payoff": "Start the log tomorrow morning. By next week you'll know your first job, and it's rarely the one you guessed.",
+  "ar": {
+   "title": "أتمِت أول مهمة في <span class=\"em\">عملك.</span>",
+   "lead": "لا تُؤتمِت عملك كله. أتمِت مهمة واحدة. سجّل مهامك المتكررة لمدة أسبوع، واختر صاحبة أكبر مجموع، ثم مرّرها على الخطوات الست في هذا الدليل.",
+   "inside": "جهّز سجل المهام لأسبوع واحد في Google Sheets، واعثر على المهمة التي تستهلك أكثر الدقائق، واكتبها خطوة بخطوة، ودع Claude Code يبنيها، واربطها بمُشغّل في N8N، واختبرها 10 مرات، ثم قِس الوقت الذي استعدته.",
+   "what": [
+    "يحاول الناس أتمتة كل شيء فلا ينهون شيئًا. مهمة واحدة تُنجز كما يجب تعلّمك الطريقة كلها: اعثر عليها، فكّكها، ابنها، اجعلها تعمل وحدها، اختبرها، قِسها. ثم اختر المهمة التالية. مهمة واحدة كل شهر تعني 12 مهمة في السنة تُرفع عن كاهلك.",
+    "هكذا تبدو مهمة مكتملة، مهمة الرسائل الفائتة: يكتب أحدهم كلمة مفتاحية في التعليقات، فيرسل له ManyChat الدليل، ويضيف N8N العميل المحتمل إلى Airtable وGoHighLevel، ثم يرسل Gmail رسالة المتابعة بعد يومين. لا أحد يضغط زر البدء. ليس شرطًا أن تكون مهمتك الأولى هي هذه. السجل هو الذي يقرر."
+   ],
+   "prereqs": [
+    "جدول Google Sheets لسجل المهام (الأعمدة بالضبط في الخطوة 1)",
+    "خطة Claude مدفوعة (Pro أو أعلى) مع تثبيت Claude Code",
+    "حساب N8N، على n8n Cloud أو على خادمك الخاص",
+    "بيانات الدخول إلى الأدوات التي تلمسها المهمة، مثل Gmail وAirtable وGoHighLevel وManyChat",
+    "أسبوع واحد من التسجيل الصادق قبل أن تبني أي شيء"
+   ],
+   "warn": "ثلاثة أخطاء تُفشل هذا كله: اختيار المهمة الممتعة بدل المهمة الكبيرة، وتخطّي الاختبارات العشرة، وترك الأتمتة تتحدث مع العملاء عن المال. أبقِ الأسعار والاسترداد والخصومات في يد إنسان. ولا تخمّن ساعاتك: إن لم تقِسها، فأنت لم توفّر وقتًا.",
+   "steps": [
+    {
+     "h": "اعثر على عنق الزجاجة",
+     "p": "أنشئ جدول Google Sheets فيه تبويب اسمه Log وهذه الأعمدة. لمدة أسبوع، أضف صفًا في كل مرة تنفّذ فيها مهمة متكررة مع الدقائق التي استغرقتها. ثم أنشئ تبويبًا ثانيًا اسمه Totals، واكتب كل مهمة مرة واحدة في العمود A، واجمع دقائقها بالمعادلة. الفائزة صاحبة أكبر مجموع، وليست المهمة التي تكرهها أكثر."
+    },
+    {
+     "h": "فكّكها إلى خطوات",
+     "p": "اكتب المهمة كأنك تدرّب موظفًا جديدًا. املأ هذا القالب للمهمة الفائزة. إن لم تستطع كتابتها، فلن يستطيع الذكاء الاصطناعي تنفيذها."
+    },
+    {
+     "h": "دع Claude Code يبنيها",
+     "p": "افتح Claude Code في مجلد فارغ والصق الأمر 2 من صفحات الأوامر مع القالب بعد ملئه. اطلب منه أن يبني المسار كملف workflow لـ N8N وأن يشرح لك كل جزء. إن لم تفهم الشرح، اطلبه مرة أخرى حتى تفهم. أنت من سيصلحه لاحقًا."
+    },
+    {
+     "h": "اجعلها تعمل وحدها",
+     "p": "في N8N استورد الملف (Import from File من قائمة الـ workflow)، واربط بيانات الدخول في كل عقدة، واضبط المُشغّل: n8n Form Trigger لنموذج جديد، أو Webhook لرسالة جديدة من ManyChat، أو Schedule Trigger لكل يوم اثنين الساعة 9. ثم اضغط Publish (الإصدارات الأقدم تسميه Active). إن كان عليك أن تضغط زر البدء، فهي ليست مؤتمتة بعد."
+    },
+    {
+     "h": "اختبرها 10 مرات",
+     "p": "شغّلها على 10 حالات حقيقية قبل أن يراها أي عميل. سجّل كل تشغيل في تبويب ثالث. كل نتيجة خاطئة تأخذ صفًا، وتصلح الخطوة التي سببتها، ثم تعيد تشغيل الحالة نفسها."
+    },
+    {
+     "h": "قِسها",
+     "p": "بعد أسبوع من التشغيل الفعلي، سجّل بالطريقة نفسها كما في الخطوة 1. اكتب دقائق قبل وبعد في سطر واحد. الدقائق التي استعدتها هي الرقم الوحيد المهم، وهذا السطر يحدد مهمتك التالية: عُد إلى الخطوة 1 مع صاحبة ثاني أكبر مجموع."
+    }
+   ],
+   "prompts": [
+    "1. اقرأ سجل مهامي",
+    "2. ابنها في Claude Code",
+    "3. أصلح نتيجة خاطئة",
+    "4. قبل وبعد"
+   ]
+  },
+  "perPage": {
+   "steps": 2
+  }
+ },
+ {
+  "kw": "SORT",
+  "slug": "sort-into-jobs",
+  "style": "club",
+  "number": 46,
+  "hero": 1,
+  "date_en": "13 Nov 2026",
+  "date_ar": "13 نوفمبر 2026",
+  "title": "Sort every job in your business into <span class=\"em\">3 piles.</span>",
+  "lead": "AI now, AI with you, you only. One sheet, 5 departments, one honest afternoon. At the end you know exactly which jobs Claude or N8N can take off your plate this week.",
+  "inside": "Build the sorting sheet in Airtable or a Google Sheet, start from the 18 example jobs, tag every repeat job you do, write down the blue ones and hand off the first one this week.",
+  "what": [
+   "Your business isn't roles. It's a list of small jobs. \"Marketing\" isn't a job. \"Reply to comments on yesterday's post\" is. This sheet puts every repeat job you do in one place, grouped under 5 departments: Sales, Marketing, Delivery, Admin and Money.",
+   "Each job gets one of 3 tags. AI now: Claude or N8N can do it today with your files. AI with you: it drafts, you decide. You only: trust, money and taste. The AI now jobs are the ones you're still doing by hand that could be off your plate this week. The example rows are examples. Your own tags depend on your business."
+  ],
+  "prereqs": [
+   "Airtable or a Google Sheet (both free to start)",
+   "One afternoon, phone on silent",
+   "Your calendar, inbox and last month's to-do list open, so you list what you really do and not what you think you do",
+   "A Claude account for the prompts at the end (any plan works)"
+  ],
+  "warn": "Be honest with the tags. If a wrong answer would cost you a client or money, the job is AI with you or you only, never AI now. And don't hand off ten jobs at once: one a week, and check its output every day for the first week before you stop looking.",
+  "steps": [
+   {
+    "h": "Build the sheet",
+    "p": "Copy these 8 columns into a new Airtable base or Google Sheet. In Airtable, make Department and Tag single select fields. In Google Sheets, select those two columns and add a dropdown (Insert, then Dropdown) with the 5 departments and the 3 tags, so nobody types \"AI-now\" and breaks your filters.",
+    "code": "Department | Job | Tag | What comes in | What you do | What goes out | Tool | Status\n\nDepartment: Sales, Marketing, Delivery, Admin, Money\nTag: AI now, AI with you, You only\nTool: Claude, N8N, or blank\nStatus: Listed, Written down, Handed off"
+   },
+   {
+    "h": "List every job you repeat",
+    "p": "One afternoon. Go through your calendar, sent emails, WhatsApp and last month's to-dos, and add a row for anything you did more than once. Don't tag yet, just list. If a row says \"marketing\" or \"admin\", break it down until each row is one action."
+   },
+   {
+    "h": "Check your rows against the examples",
+    "p": "These 18 example rows show how small each job should be and how the tags work. Paste them under your list, keep the ones that match your business, and delete the rest. One row per repeat job, small enough to explain in one sentence.",
+    "code": "Sales | Log new leads | AI now\nSales | Write the follow-up | AI with you\nSales | Send the quote | AI with you\nSales | The closing call | You only\nMarketing | Turn a video into captions | AI now\nMarketing | Write the post | AI with you\nMarketing | Answer keyword DMs | AI now\nMarketing | Pick what to post about | You only\nDelivery | Send the onboarding form | AI now\nDelivery | Write the weekly client update | AI with you\nDelivery | The work only you know how to do | You only\nAdmin | Sort the inbox | AI with you\nAdmin | Book meetings | AI with you\nAdmin | Name and file documents | AI now\nAdmin | Hiring | You only\nMoney | Chase late invoices | AI with you\nMoney | Make the monthly numbers sheet | AI now\nMoney | Set prices | You only"
+   },
+   {
+    "h": "Tag each one",
+    "p": "Go row by row and pick one tag. AI now means Claude or an N8N flow can do it end to end with the files you already have. AI with you means it drafts and you approve before anything leaves. You only means trust, money or taste. When you're unsure, pick the safer tag. You can move a job to AI now later, once it has proven itself."
+   },
+   {
+    "h": "Write the blue ones down",
+    "p": "Filter the sheet to AI now. For each of those jobs, fill in the three middle columns: what comes in, what you do, what goes out. Write it like you're training a new hire on their first day. That page is what Claude will follow, so the more exact it is, the less you fix later.",
+    "code": "Job: Log new leads\nWhat comes in: a new form entry or a DM with a name and a phone number\nWhat you do: add them to the CRM, tag the source, set a follow-up date for tomorrow\nWhat goes out: one new contact in GoHighLevel with source and follow-up date filled in"
+   },
+   {
+    "h": "Hand off one this week",
+    "p": "Not all of them. Pick the AI now job that eats the most time and is the easiest to check. Give it to Claude (a Claude Project with your written steps) or build it as an N8N flow. Set Status to Handed off. Check the output every day this week. Next week, the next one."
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Turn a brain dump into rows",
+    "code": "I run a [type of business]. Below is everything I did in the last month, pasted from my calendar, inbox and to-do list.\n[paste it]\n\nTurn it into a list of small repeat jobs, one action per line, grouped under: Sales, Marketing, Delivery, Admin, Money.\nFormat each line as: Department | Job\nDon't tag them yet. Ask me about anything you can't place."
+   },
+   {
+    "h": "2. Check my tags",
+    "code": "Here is my job list with tags (AI now, AI with you, You only):\n[paste your rows]\n\nRules: AI now means Claude or an N8N flow can do it end to end with my files. AI with you means AI drafts and I approve. You only means trust, money or taste.\nFlag every job I tagged AI now where a wrong answer could cost me a client or money, and tell me why.\nThen list jobs I tagged You only that AI could at least draft."
+   },
+   {
+    "h": "3. Write the steps for one blue job",
+    "code": "I want to hand this job to you: [job name].\nWhat comes in: [describe it]\nWhat I do now: [describe it in your own words]\nWhat goes out: [describe it]\n\nInterview me one question at a time until you can do this job without me.\nThen write the steps as numbered instructions I can save in a Claude Project, plus a short checklist I can use to check your output."
+   },
+   {
+    "h": "4. Pick the first handoff",
+    "code": "Here are my AI now jobs with how often I do each one and roughly how long it takes:\n[paste the rows]\n\nRank them by hours saved per month and by how easy the output is to check.\nPick one to hand off this week and tell me whether it fits a Claude Project or an N8N flow better, and why."
+   }
+  ],
+  "credit": [
+   "Sorting method and example jobs by Karemops.ai",
+   "Built for Airtable (airtable.com), Google Sheets (sheets.google.com), Claude (claude.com) and N8N (n8n.io)"
+  ],
+  "payoff": "Block one afternoon this week, fill the sheet, and count your AI now jobs. Then hand off one before Friday.",
+  "ar": {
+   "title": "صنّف كل مهمة في عملك ضمن <span class=\"em\">3 أكوام.</span>",
+   "lead": "الذكاء الاصطناعي الآن، الذكاء الاصطناعي معك، أنت فقط. جدول واحد، 5 أقسام، وفترة بعد ظهر واحدة بصدق. في النهاية ستعرف بالضبط أي المهام يستطيع Claude أو N8N أن يأخذها منك هذا الأسبوع.",
+   "inside": "ابنِ جدول التصنيف في Airtable أو Google Sheet، وابدأ من المهام الثماني عشرة الموضوعة كأمثلة، وصنّف كل مهمة تكررها، ثم اكتب خطوات المهام الزرقاء وسلّم أولاها هذا الأسبوع.",
+   "what": [
+    "عملك ليس أدوارًا، بل قائمة من المهام الصغيرة. \"التسويق\" ليس مهمة. \"الرد على تعليقات منشور الأمس\" مهمة. يجمع هذا الجدول كل مهمة تكررها في مكان واحد، موزعة على 5 أقسام: المبيعات، والتسويق، والتنفيذ، والإدارة، والمال.",
+    "تحصل كل مهمة على واحد من 3 وسوم. الذكاء الاصطناعي الآن (AI now): يستطيع Claude أو N8N تنفيذها اليوم بملفاتك. الذكاء الاصطناعي معك (AI with you): يكتب المسودة وأنت تقرر. أنت فقط (You only): الثقة والمال والذوق. مهام AI now هي التي ما زلت تنفذها بيدك ويمكن أن ترفعها عن كاهلك هذا الأسبوع. الصفوف الموجودة أمثلة فقط، ووسومك الحقيقية تعتمد على طبيعة عملك."
+   ],
+   "prereqs": [
+    "Airtable أو Google Sheet (كلاهما مجاني للبداية)",
+    "فترة بعد ظهر واحدة والهاتف على الوضع الصامت",
+    "تقويمك وبريدك وقائمة مهام الشهر الماضي مفتوحة أمامك، لتسجّل ما تفعله فعلًا لا ما تظن أنك تفعله",
+    "حساب Claude لاستخدام الأوامر في آخر الدليل (أي خطة تكفي)"
+   ],
+   "warn": "كن صادقًا في الوسوم. إذا كانت الإجابة الخاطئة قد تكلفك عميلًا أو مالًا، فالمهمة AI with you أو You only، ولا تكون AI now أبدًا. ولا تسلّم عشر مهام دفعة واحدة: مهمة واحدة في الأسبوع، وراجع نتيجتها كل يوم في الأسبوع الأول قبل أن تتوقف عن المراجعة.",
+   "steps": [
+    {
+     "h": "ابنِ الجدول",
+     "p": "انسخ هذه الأعمدة الثمانية إلى قاعدة جديدة في Airtable أو إلى Google Sheet. في Airtable اجعل عمودي Department وTag من نوع single select. في Google Sheets حدّد العمودين وأضف قائمة منسدلة (Insert ثم Dropdown) بالأقسام الخمسة والوسوم الثلاثة، حتى لا يكتب أحد \"AI-now\" فتتعطل الفلاتر."
+    },
+    {
+     "h": "سجّل كل مهمة تكررها",
+     "p": "فترة بعد ظهر واحدة. راجع تقويمك ورسائلك المرسلة وWhatsApp ومهام الشهر الماضي، وأضف صفًا لكل شيء فعلته أكثر من مرة. لا تضع الوسوم بعد، سجّل فقط. إذا كان صف ما يقول \"تسويق\" أو \"إدارة\"، فقسّمه حتى يصبح كل صف إجراءً واحدًا."
+    },
+    {
+     "h": "قارن صفوفك بالأمثلة",
+     "p": "تُظهر هذه الصفوف الثمانية عشر كم يجب أن تكون كل مهمة صغيرة وكيف تعمل الوسوم. الصقها تحت قائمتك، واحتفظ بما يطابق عملك واحذف الباقي. صف واحد لكل مهمة متكررة، وصغيرة بما يكفي لتشرحها في جملة واحدة."
+    },
+    {
+     "h": "ضع وسمًا لكل مهمة",
+     "p": "مرّ على الصفوف واحدًا واحدًا واختر وسمًا واحدًا. AI now يعني أن Claude أو سير عمل في N8N يستطيع تنفيذ المهمة من أولها إلى آخرها بالملفات المتوفرة لديك. AI with you يعني أنه يكتب المسودة وأنت توافق قبل أن يخرج أي شيء. You only يعني الثقة أو المال أو الذوق. عند الشك اختر الوسم الأكثر أمانًا، ويمكنك نقل المهمة إلى AI now لاحقًا بعد أن تثبت جدارتها."
+    },
+    {
+     "h": "اكتب خطوات المهام الزرقاء",
+     "p": "صفِّ الجدول على AI now. لكل مهمة منها املأ الأعمدة الثلاثة الوسطى: ما الذي يدخل، وما الذي تفعله، وما الذي يخرج. اكتبها كأنك تدرّب موظفًا جديدًا في يومه الأول. هذه الصفحة هي ما سيتبعه Claude، وكلما كانت أدق قلّ ما تصلحه لاحقًا."
+    },
+    {
+     "h": "سلّم مهمة واحدة هذا الأسبوع",
+     "p": "ليس كلها. اختر مهمة AI now التي تستهلك أكثر وقت وتسهل مراجعتها. سلّمها إلى Claude (مشروع Claude Project فيه خطواتك المكتوبة) أو ابنها كسير عمل في N8N. غيّر Status إلى Handed off. راجع النتيجة كل يوم هذا الأسبوع، وفي الأسبوع القادم انتقل إلى المهمة التالية."
+    }
+   ],
+   "prompts": [
+    "1. حوّل أفكارك المبعثرة إلى صفوف",
+    "2. راجع وسومي",
+    "3. اكتب خطوات مهمة زرقاء واحدة",
+    "4. اختر أول مهمة تسلّمها"
+   ]
+  },
+  "perPage": {
+   "steps": 2,
+   "prompts": 2
+  }
+ },
+ {
+  "kw": "ROADMAP",
+  "slug": "claude-roadmap",
+  "style": "club",
+  "number": 48,
+  "hero": "prompt",
+  "date_en": "13 Nov 2026",
+  "date_ar": "13 نوفمبر 2026",
+  "title": "Learn Claude in this order, <span class=\"em\">one hour a day.</span>",
+  "lead": "If I ran an $8K a month business and had one hour a day, I'd learn one tool, Claude, in 6 steps. One step a week, a free source for each, and one prompt per step to start with.",
+  "inside": "Write with Claude, give it your business in a Project, get real files out of it, connect Gmail and Calendar, build your first thing in Claude Code, then hand it a full job.",
+  "heads": {
+   "stepsEyebrow": "02 · The 6 steps",
+   "stepsH": "Learn it <span class=\"em\">in this order.</span>",
+   "promptsH": "One prompt <span class=\"em\">per step.</span>",
+   "payH": "That's the <span class=\"em\">whole path.</span>"
+  },
+  "what": [
+   "Most owners stall because they start with the hardest thing they saw online: agents, five apps at once, coding. Then they quit in a week. This is the opposite: one tool, Claude, learned in order, each step built on the one before.",
+   "One step a week. Week 1 writing, week 2 your business, week 3 files, week 4 your tools, week 5 Claude Code, week 6 a full job handed off. An hour a day is enough. Every source linked here is free."
+  ],
+  "prereqs": [
+   "A Claude account. Steps 1 to 4 work on the Free plan",
+   "Claude Pro or higher for step 5 (Claude Code needs a paid plan)",
+   "A Gmail and Google Calendar account for step 4",
+   "One hour a day for 6 weeks"
+  ],
+  "warn": "Skip these for now: comparing 20 AI tools, adding more apps before Claude has done the job once, and courses that cost more than a month of Claude Pro. And don't jump to step 6 first. That's where most people start, and quit.",
+  "steps": [
+   {
+    "h": "Use Claude for your real writing",
+    "p": "Week 1. Emails, proposals, replies to customers. Only real work, no test prompts. Paste what you'd normally write and ask Claude to draft it or tighten it. Free source: the Claude 101 course on Claude Academy, academy.claude.com"
+   },
+   {
+    "h": "Give it your business",
+    "p": "Week 2. Go to claude.ai/projects, click + New Project and name it after your business. Click Set project instructions and paste prompt 2. Then use the + button to add your offer, your prices, 5 emails you've sent and your FAQ. Now every chat in that project starts from your business, not from zero. Free accounts get up to 5 projects. Free source: support.claude.com/en/articles/9519177"
+   },
+   {
+    "h": "Ask for the file, not the answer",
+    "p": "Week 3. Stop copying replies into Word. Turn on file creation in Settings, Capabilities (newer layouts call it Create and edit files), then ask for the file itself: the proposal as a Word doc, the price list as an Excel sheet, the pitch as a PowerPoint, the invoice as a PDF. It works on every Claude plan, Free included. Free source: support.claude.com/en/articles/12111783"
+   },
+   {
+    "h": "Connect your tools",
+    "p": "Week 4. In a chat, click +, hover over Connectors and switch on Gmail and Google Calendar, then sign in with your Google account. Claude can search your email, draft replies and check your calendar. By default it asks before it sends anything. Then ask it what's waiting on you this week. Free source: support.claude.com/en/articles/10166901"
+   },
+   {
+    "h": "Claude Code on your laptop",
+    "p": "Week 5. This is where it stops being a chat and starts building. Install it with the command below (Mac or Linux), or open the Claude desktop app and click the Code tab. It needs a paid plan. Ask it for one simple thing: a page, a tracker, a dashboard from your sales sheet. Free sources: code.claude.com/docs and the Claude Code 101 course on academy.claude.com",
+    "code": "curl -fsSL https://claude.ai/install.sh | bash\ncd your-project-folder\nclaude"
+   },
+   {
+    "h": "Hand off a full job",
+    "p": "Week 6. Claude Code plus your connected tools can run a whole job end to end: the weekly report as a finished file, the follow-ups drafted, the lead list cleaned. Pick the job you do every week, run prompt 6, and check the result before anything goes out. Free source: code.claude.com/docs/en/quickstart"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Your real writing",
+    "code": "Here's an email I need to send: [paste your draft, or describe it in 2 lines].\nRewrite it so it's short, direct and sounds like me, not like a template.\nGive me 2 subject lines to choose from."
+   },
+   {
+    "h": "2. Project instructions",
+    "code": "You work for [business name]. We sell [offer] to [who buys] at [prices].\nWrite like the emails in this project's files: [3 words for your tone].\nIf a question needs a fact that isn't in the files, ask me instead of guessing."
+   },
+   {
+    "h": "3. Ask for the file",
+    "code": "Make a proposal as a Word document for [client name]: scope [3 bullet points], price [amount], timeline [weeks].\nUse our offer and prices from this project.\nThen make our price list as an Excel sheet."
+   },
+   {
+    "h": "4. What's waiting on me",
+    "code": "Look at my Gmail and Google Calendar for this week.\nList the emails that still need a reply from me and the meetings I need to prepare for.\nDraft replies for the top 3, but don't send anything."
+   },
+   {
+    "h": "5. Your first build",
+    "code": "Here's my sales sheet: [file name].csv.\nBuild me a one-page dashboard in a single index.html: revenue by week, top 5 products, this month vs last month.\nTell me how to open it."
+   },
+   {
+    "h": "6. Hand off a full job",
+    "code": "Every Monday I make [the job, e.g. the weekly report] from [where the data lives].\nDo it end to end and give me the finished file as [Excel or PDF] with [the sections I need].\nWrite the steps you took in a file called job-steps.md so we can run it the same way next week."
+   }
+  ],
+  "credit": [
+   "Claude Academy free courses: Claude 101 and Claude Code 101 (academy.claude.com)",
+   "Claude Help Center: Projects (support.claude.com/en/articles/9519177)",
+   "Claude Help Center: Create and edit files with Claude (support.claude.com/en/articles/12111783)",
+   "Claude Help Center: Use Google Workspace connectors (support.claude.com/en/articles/10166901)",
+   "Claude Code docs: overview and quickstart (code.claude.com/docs)"
+  ],
+  "payoff": "Start step 1 today with one real email. One step a week, and in 6 weeks Claude is doing a full job for you.",
+  "ar": {
+   "title": "تعلّم Claude بهذا الترتيب، <span class=\"em\">ساعة واحدة يوميًا.</span>",
+   "lead": "لو كنت أدير عملًا يحقق 8 آلاف دولار شهريًا ولديّ ساعة واحدة يوميًا، لتعلّمت أداة واحدة هي Claude، في 6 خطوات. خطوة كل أسبوع، ومصدر مجاني لكل خطوة، وأمر واحد لكل خطوة لتبدأ به.",
+   "inside": "اكتب مع Claude، وأعطه تفاصيل عملك في Project، واطلب منه ملفات حقيقية، واربط Gmail وCalendar، وابنِ أول شيء لك في Claude Code، ثم سلّمه عملًا كاملًا.",
+   "heads": {
+    "stepsEyebrow": "02 · الخطوات الست",
+    "stepsH": "تعلّمه <span class=\"em\">بهذا الترتيب.</span>",
+    "promptsH": "أمر واحد <span class=\"em\">لكل خطوة.</span>",
+    "payH": "هذا هو <span class=\"em\">المسار كاملًا.</span>"
+   },
+   "what": [
+    "يتوقف معظم أصحاب الأعمال لأنهم يبدؤون بأصعب ما رأوه على الإنترنت: الوكلاء، وخمسة تطبيقات دفعة واحدة، والبرمجة. ثم يستسلمون خلال أسبوع. هذا الدليل عكس ذلك: أداة واحدة هي Claude، تتعلّمها بالترتيب، وكل خطوة مبنية على التي قبلها.",
+    "خطوة واحدة كل أسبوع. الأسبوع الأول الكتابة، والثاني عملك، والثالث الملفات، والرابع أدواتك، والخامس Claude Code، والسادس تسليم عمل كامل. ساعة يوميًا تكفي. كل مصدر مذكور هنا مجاني."
+   ],
+   "prereqs": [
+    "حساب Claude. الخطوات من 1 إلى 4 تعمل على الخطة المجانية",
+    "Claude Pro أو أعلى للخطوة 5 (يحتاج Claude Code إلى خطة مدفوعة)",
+    "حساب Gmail وGoogle Calendar للخطوة 4",
+    "ساعة يوميًا لمدة 6 أسابيع"
+   ],
+   "warn": "تجاهل هذه الأمور الآن: المقارنة بين 20 أداة ذكاء اصطناعي، وإضافة تطبيقات أكثر قبل أن ينجز Claude العمل مرة واحدة، والدورات التي تكلّف أكثر من شهر من Claude Pro. ولا تقفز إلى الخطوة 6 أولًا، فمن هناك يبدأ معظم الناس ثم يستسلمون.",
+   "steps": [
+    {
+     "h": "استخدم Claude لكتاباتك الحقيقية",
+     "p": "الأسبوع 1. الرسائل والعروض والردود على العملاء. عمل حقيقي فقط، بلا أوامر تجريبية. الصق ما كنت ستكتبه عادة واطلب من Claude أن يكتب المسودة أو يختصرها. مصدر مجاني: دورة Claude 101 على Claude Academy، academy.claude.com"
+    },
+    {
+     "h": "أعطه تفاصيل عملك",
+     "p": "الأسبوع 2. ادخل إلى claude.ai/projects واضغط + New Project وسمّه باسم عملك. اضغط Set project instructions والصق الأمر 2. ثم استخدم زر + لإضافة عرضك وأسعارك و5 رسائل أرسلتها والأسئلة الشائعة. الآن تبدأ كل محادثة في هذا المشروع من عملك، لا من الصفر. الحسابات المجانية تحصل على 5 مشاريع كحد أقصى. مصدر مجاني: support.claude.com/en/articles/9519177"
+    },
+    {
+     "h": "اطلب الملف لا الإجابة",
+     "p": "الأسبوع 3. توقّف عن نسخ الردود إلى Word. فعّل إنشاء الملفات من Settings ثم Capabilities (في الواجهات الأحدث اسمها Create and edit files)، ثم اطلب الملف نفسه: العرض كملف Word، وقائمة الأسعار كجدول Excel، والعرض التقديمي كملف PowerPoint، والفاتورة كملف PDF. يعمل ذلك على كل خطط Claude بما فيها المجانية. مصدر مجاني: support.claude.com/en/articles/12111783"
+    },
+    {
+     "h": "اربط أدواتك",
+     "p": "الأسبوع 4. في أي محادثة اضغط + ومرّر المؤشر فوق Connectors وفعّل Gmail وGoogle Calendar، ثم سجّل الدخول بحساب Google. يستطيع Claude البحث في بريدك وكتابة مسودات الردود ومراجعة تقويمك، ويطلب موافقتك قبل إرسال أي شيء افتراضيًا. ثم اسأله عمّا ينتظرك هذا الأسبوع. مصدر مجاني: support.claude.com/en/articles/10166901"
+    },
+    {
+     "h": "Claude Code على جهازك",
+     "p": "الأسبوع 5. هنا يتوقف عن كونه محادثة ويبدأ في البناء. ثبّته بالأمر أدناه (Mac أو Linux)، أو افتح تطبيق Claude على سطح المكتب واضغط تبويب Code. يحتاج إلى خطة مدفوعة. اطلب منه شيئًا واحدًا بسيطًا: صفحة، أو متتبّعًا، أو لوحة متابعة من جدول مبيعاتك. مصادر مجانية: code.claude.com/docs ودورة Claude Code 101 على academy.claude.com"
+    },
+    {
+     "h": "سلّمه عملًا كاملًا",
+     "p": "الأسبوع 6. يستطيع Claude Code مع أدواتك المتصلة أن ينجز عملًا كاملًا من البداية إلى النهاية: التقرير الأسبوعي كملف جاهز، ومسودات المتابعة، وقائمة العملاء المحتملين بعد تنظيفها. اختر العمل الذي تكرره كل أسبوع، وشغّل الأمر 6، وراجع النتيجة قبل أن يخرج أي شيء. مصدر مجاني: code.claude.com/docs/en/quickstart"
+    }
+   ],
+   "prompts": [
+    "1. كتاباتك الحقيقية",
+    "2. تعليمات المشروع",
+    "3. اطلب الملف",
+    "4. ما الذي ينتظرني",
+    "5. أول شيء تبنيه",
+    "6. سلّمه عملًا كاملًا"
+   ]
+  }
+ },
+ {
+  "kw": "HIRES",
+  "slug": "ai-stack-team",
+  "style": "club",
+  "number": 42,
+  "date_en": "13 Nov 2026",
+  "date_ar": "13 نوفمبر 2026",
+  "title": "Run your AI stack like a <span class=\"em\">12-person admin team.</span>",
+  "lead": "12 public tools, 5 departments, one job title each. Claude sits on top as chief of staff. This page gives you the org chart, a one-line job description per tool and the order to set them up.",
+  "inside": "See the full org chart, know what each of the 12 tools is hired to do, pick your first hire and set the team up in an order that works.",
+  "what": [
+   "Most owners collect AI tools like apps: sign up, play for a day, forget, keep paying. This guide treats each tool like a hire. One tool, one job. If you can't write the job title, you don't need the tool.",
+   "It's for owners who already use Claude or ChatGPT for basic questions and want the rest of the business to run on the same logic. Every tool here is a public product you can sign up for today. You don't need all 12. You need the one for the job you hate doing most."
+  ],
+  "prereqs": [
+   "A Claude account. The Gmail and Google Calendar connectors work on every plan, Claude Code needs a paid plan (Pro or above)",
+   "A Google account with Gmail and Google Calendar",
+   "An Instagram business or creator account if you hire ManyChat",
+   "A list of the 3 jobs that eat most of your week",
+   "Check each tool's own pricing page before you sign up. Prices and free plans change"
+  ],
+  "warn": "Every hire is a subscription and a login that can see your data. The Gmail connector can send, reply and forward, not only draft, so keep the default where Claude asks for your approval before each one. ManyChat and Instantly send messages in your name: test every flow on yourself before it touches a real lead. And don't hire the next tool until the last one runs without you.",
+  "steps": [
+   {
+    "h": "The org chart",
+    "p": "One chief of staff, 5 departments, 12 tools. Claude is the one you talk to. The other 11 do the work and report back.",
+    "code": "CHIEF OF STAFF\n  Claude\n\nFRONT DESK     Gmail, Google Calendar\nSALES          GoHighLevel, Instantly\nMARKETING      ManyChat, Higgsfield\nOPERATIONS     Airtable, n8n, Claude Code\nRECORDS        Fireflies, Loom"
+   },
+   {
+    "h": "Job descriptions: the top and the front desk",
+    "p": "Gmail and Calendar don't need a new subscription. You connect them inside Claude, so Claude does the reading and drafting.",
+    "code": "Claude, Chief of Staff:\n  drafts, plans and reads what the other 11 produce.\n\nGmail, Inbox Manager:\n  Claude searches it through the connector and drafts replies.\n\nGoogle Calendar, Scheduler:\n  Claude finds free time and creates the events."
+   },
+   {
+    "h": "Job descriptions: sales and marketing",
+    "p": "These four touch your leads directly. Each one gets one job and nothing else.",
+    "code": "GoHighLevel, Pipeline Manager:\n  every lead, every stage, every follow-up in one CRM.\n\nInstantly, Outbound Rep:\n  warms up your inboxes and sends the cold email.\n\nManyChat, DM Receptionist:\n  answers keyword comments on Instagram with a DM.\n\nHiggsfield, Photographer:\n  product shots and post images without a shoot."
+   },
+   {
+    "h": "Job descriptions: operations and records",
+    "p": "Operations is where the team talks to itself. Records is what stops you explaining the same thing twice.",
+    "code": "Airtable, Office Manager:\n  clients, content and orders in one base.\n\nn8n, Operations Lead:\n  moves data between every other tool.\n\nClaude Code, In-house Builder:\n  builds your dashboards and small internal tools.\n\nFireflies, Note Taker:\n  joins the call, records it, writes the summary.\n\nLoom, Trainer:\n  records the how-to once so nobody asks twice."
+   },
+   {
+    "h": "How the team talks",
+    "p": "One lead, start to finish: someone comments your keyword, ManyChat sends the DM, n8n adds them to Airtable and GoHighLevel, and Claude drafts the follow-up in Gmail for you to approve. You only see the last step."
+   },
+   {
+    "h": "The setup order",
+    "p": "Default order, built so each hire has something to work with. If one job is bleeding money right now, jump straight to that tool, then come back to this list. Missing DMs: ManyChat. Drowning in email: Gmail with Claude. Leads going cold: GoHighLevel. Same copy-paste every day: n8n.",
+    "code": "1. Claude (your chief of staff)\n2. Gmail + Google Calendar connectors\n3. Airtable (one base for clients and content)\n4. GoHighLevel (your pipeline)\n5. ManyChat (keyword DMs)\n6. n8n (only once 2 tools need to talk)\n7. Fireflies (call notes)\n8. Loom (training videos)\n9. Instantly (only once your offer converts)\n10. Higgsfield (images)\n11. Claude Code (dashboards on top of it all)"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Pick your first hire",
+    "code": "Here are the 3 jobs that eat most of my week: [job 1], [job 2], [job 3].\nMy business: [what you sell, to who, roughly how many leads a week].\nFrom this list of tools, pick ONE to set up first and tell me why:\nGmail and Google Calendar connectors, GoHighLevel, Instantly, ManyChat, Higgsfield, Airtable, n8n, Claude Code, Fireflies, Loom.\nThen give me the first 5 setup steps for that one tool."
+   },
+   {
+    "h": "2. Write the job description",
+    "code": "I'm hiring [tool] as my [job title].\nWrite its job description like a real hire:\n1. The one job it owns\n2. What it gets as input and from where\n3. What it hands over and to who\n4. How I'll know in 2 weeks it's working\n5. What it is NOT allowed to do\nKeep it to one page."
+   },
+   {
+    "h": "3. Audit the team you already have",
+    "code": "Here is every AI or software tool I pay for: [tool, monthly price, what I use it for].\nGive each one a job title from this org chart: Front desk, Sales, Marketing, Operations, Records.\nFlag every tool with no clear job, every 2 tools doing the same job, and the job I have no tool for.\nEnd with what to cancel and what to add, in that order."
+   }
+  ],
+  "credit": [
+   "Claude, Claude Code and the Gmail and Google Calendar connectors by Anthropic (claude.com, support.claude.com)",
+   "GoHighLevel (gohighlevel.com)",
+   "Instantly (instantly.ai)",
+   "ManyChat (manychat.com)",
+   "Higgsfield (higgsfield.ai)",
+   "Airtable (airtable.com)",
+   "n8n (n8n.io)",
+   "Fireflies (fireflies.ai)",
+   "Loom (loom.com)"
+  ],
+  "payoff": "Hire one tool this week, the one for the job you hate most. Add the next only when the first runs without you.",
+  "ar": {
+   "title": "أدِر أدوات الذكاء الاصطناعي <span class=\"em\">كفريق إداري من 12 شخصًا.</span>",
+   "lead": "12 أداة متاحة للجميع، و5 أقسام، ومسمى وظيفي واحد لكل أداة. يجلس Claude في القمة بصفته رئيس الموظفين. تعطيك هذه الصفحة الهيكل التنظيمي، ووصفًا وظيفيًا في سطر واحد لكل أداة، والترتيب الذي تجهّزها به.",
+   "inside": "اطّلع على الهيكل التنظيمي كاملًا، واعرف المهمة التي وُظّفت لها كل أداة من الأدوات الاثنتي عشرة، واختر أول تعيين لك، وجهّز الفريق بترتيب ينجح.",
+   "what": [
+    "يجمع معظم أصحاب الأعمال أدوات الذكاء الاصطناعي كما يجمعون التطبيقات: يشتركون، ويجرّبون يومًا، ثم ينسون ويستمرون في الدفع. يتعامل هذا الدليل مع كل أداة كأنها موظف جديد. أداة واحدة لمهمة واحدة. إن لم تستطع كتابة مسماها الوظيفي، فأنت لا تحتاجها.",
+    "هذا الدليل لأصحاب الأعمال الذين يستخدمون Claude أو ChatGPT لأسئلة بسيطة ويريدون أن يعمل باقي عملهم بالمنطق نفسه. كل أداة هنا منتج متاح للعموم تستطيع الاشتراك فيه اليوم. لا تحتاج الأدوات الاثنتي عشرة كلها. تحتاج الأداة التي تتولى المهمة التي تكرهها أكثر من غيرها."
+   ],
+   "prereqs": [
+    "حساب Claude. موصّلا Gmail وGoogle Calendar يعملان على كل الخطط، أما Claude Code فيحتاج خطة مدفوعة (Pro أو أعلى)",
+    "حساب Google فيه Gmail وGoogle Calendar",
+    "حساب Instagram تجاري أو حساب صانع محتوى إن وظّفت ManyChat",
+    "قائمة بالمهام الثلاث التي تستهلك معظم أسبوعك",
+    "راجع صفحة الأسعار الخاصة بكل أداة قبل الاشتراك. الأسعار والخطط المجانية تتغيّر"
+   ],
+   "warn": "كل تعيين هو اشتراك وحساب دخول يستطيع رؤية بياناتك. يستطيع موصّل Gmail الإرسال والرد وإعادة التوجيه، لا كتابة المسودات فقط، لذا أبقِ الإعداد الافتراضي الذي يطلب فيه Claude موافقتك قبل كل إجراء. يرسل ManyChat وInstantly رسائل باسمك: جرّب كل مسار على نفسك قبل أن يصل إلى عميل حقيقي. ولا توظّف الأداة التالية قبل أن تعمل الأداة السابقة من دونك.",
+   "steps": [
+    {
+     "h": "الهيكل التنظيمي",
+     "p": "رئيس موظفين واحد، و5 أقسام، و12 أداة. Claude هو من تتحدث إليه. الأدوات الإحدى عشرة الأخرى تنجز العمل وترفع إليه النتائج."
+    },
+    {
+     "h": "الأوصاف الوظيفية: القمة والاستقبال",
+     "p": "لا يحتاج Gmail وCalendar إلى اشتراك جديد. تربطهما داخل Claude، فيتولى Claude القراءة وكتابة المسودات."
+    },
+    {
+     "h": "الأوصاف الوظيفية: المبيعات والتسويق",
+     "p": "هذه الأدوات الأربع تتعامل مع عملائك المحتملين مباشرة. كل واحدة منها تأخذ مهمة واحدة ولا شيء غيرها."
+    },
+    {
+     "h": "الأوصاف الوظيفية: العمليات والسجلات",
+     "p": "قسم العمليات هو المكان الذي يتواصل فيه الفريق مع نفسه. وقسم السجلات هو ما يمنعك من شرح الأمر نفسه مرتين."
+    },
+    {
+     "h": "كيف يتواصل الفريق",
+     "p": "عميل محتمل واحد من البداية إلى النهاية: يكتب أحدهم الكلمة المفتاحية في التعليقات، فيرسل ManyChat الرسالة الخاصة، ويضيفه n8n إلى Airtable وGoHighLevel، ثم يكتب Claude مسودة المتابعة في Gmail لتوافق عليها. أنت لا ترى إلا الخطوة الأخيرة."
+    },
+    {
+     "h": "ترتيب التجهيز",
+     "p": "هذا هو الترتيب الافتراضي، وهو مبني بحيث يجد كل تعيين ما يعمل عليه. إن كانت هناك مهمة تستنزف المال الآن، فابدأ مباشرة بأداتها ثم عُد إلى هذه القائمة. رسائل خاصة تضيع: ManyChat. بريد يغرقك: Gmail مع Claude. عملاء يبردون: GoHighLevel. نسخ ولصق متكرر كل يوم: n8n."
+    }
+   ],
+   "prompts": [
+    "1. اختر أول تعيين لك",
+    "2. اكتب الوصف الوظيفي",
+    "3. راجع الفريق الذي لديك الآن"
+   ]
+  },
+  "perPage": {
+   "steps": 2
+  },
+  "hero": "prompt"
+ },
+ {
+  "kw": "FABLE",
+  "slug": "fable-vs-opus",
+  "style": "club",
+  "number": 47,
+  "hero": 3,
+  "date_en": "13 Nov 2026",
+  "date_ar": "13 نوفمبر 2026",
+  "title": "Fable 5.2 vs Opus 5.5: <span class=\"em\">the bill.</span>",
+  "lead": "Same 7 builds, same prompts, first try in Claude Code. Opus 5.5 cost $16.37. Fable 5.2 cost $39.29. Here's the full bill, 7 build prompts to rerun it, the two-command setup that ran all 7 for $25.81, and how to test it on your own work.",
+  "inside": "Read the cost of every run, get 7 build prompts, set up Opus as the builder with Fable as the advisor, run one build on the first try, then run it on Fable alone and compare the bill.",
+  "what": [
+   "Charlie Hills gave Claude's two top models the same 7 build prompts in Claude Code on Nov 10, 2026. One shot each, no fixes. Every prompt asked for a single self-contained HTML file built with Three.js: a black hole, robot arms solving a Rubik's cube, a 3D shooter, a smart speaker, a product configurator, a sales globe and a retro shooter. Fable's versions looked richer on almost every one. On the one build that needed real logic, the Rubik's cube, only Opus wrote a real solver.",
+   "The gap comes from two places. Per token, Fable 5.2 costs twice what Opus 5.5 does on the API ($8 in and $40 out per million tokens, against $4 and $20). And on the 4 builds Charlie timed, Fable also ran longer. His fix is to run both: Opus builds, Fable checks the hard parts. That setup ran all 7 for $25.81."
+  ],
+  "prereqs": [
+   "Claude Code v2.1.321 or later (Fable 5.2 needs it)",
+   "Fable access. Max, Ultra and Team or Enterprise premium seats use plan limits, capped at 50% of the weekly limit. Pro and standard seats bill Fable to usage credits, except Pro's launch window, which ends Nov 16, 2026 at 11:59 pm PT",
+   "Claude Code signed in through Anthropic directly (a Claude plan or an API key). The advisor doesn't run on Amazon Bedrock, Google Cloud or Microsoft Foundry",
+   "One build prompt to test with: one of Charlie's 7, or a real job from your business"
+  ],
+  "warn": "These numbers are one run per build, from one person, priced at API rates. Your bill will be different, so treat it as a direction, not a quote. On a plan, Fable eats your weekly limit faster than other models, and on Pro after Nov 16 it bills usage credits. In non-interactive mode (claude -p) Claude Code bills those credits without asking. Check /usage after every run.",
+  "steps": [
+   {
+    "h": "Update Claude Code",
+    "p": "Fable 5.2 needs Claude Code v2.1.321 or later. Update, then check the version before you start.",
+    "code": "claude update\nclaude --version"
+   },
+   {
+    "h": "Read the bill",
+    "p": "Charlie's numbers, one shot each, no fixes. Build times were published for the first 4 builds only. His exact prompts aren't public, so prompts 1 to 7 in this guide are our own versions of the same 7 builds. Your bill will land close to his, not on the cent.",
+    "code": "Build                 Opus 5.5        Fable 5.2        Gap\nBlack hole            $0.92  5.1 min  $2.78  8.2 min   3.0x\nRobot arms            $2.88 16.7 min  $7.25 27.7 min   2.5x\n3D shooter            $2.31 12.4 min  $5.32 14.8 min   2.3x\nSmart speaker         $2.33 13.3 min  $4.51 13.6 min   1.9x\nProduct configurator  $3.28           $6.60            2.0x\nSales globe           $1.15           $3.40            3.0x\nRetro shooter         $3.50           $9.43            2.7x\nAll 7 builds          $16.37          $39.29           2.4x\n\nOpus builds, Fable advises: $25.81 for all 7"
+   },
+   {
+    "h": "Put Opus on the build",
+    "p": "Open Claude Code in an empty folder and set Opus 5.5 as the main model. Opus does the building.",
+    "code": "/model opus"
+   },
+   {
+    "h": "Turn on Fable as the advisor",
+    "p": "Claude now calls Fable at the hard moments: before it picks an approach, when an error keeps coming back, and before it says it's done. You'll see an Advising line when it does. If Claude Code points you to /model fable instead, your plan needs a one-time OK to bill Fable to usage credits: accept it there, switch back with /model opus, then run /advisor fable again.",
+    "code": "/advisor fable"
+   },
+   {
+    "h": "Paste one prompt, take the first try",
+    "p": "Paste one of prompts 1 to 7 once and let it finish. No fixes, no follow-ups, or the comparison means nothing. When it's done, open the file it built, then run /usage and write down what the session used.",
+    "code": "/usage"
+   },
+   {
+    "h": "Run it on Fable alone and compare",
+    "p": "Turn the advisor off, start a fresh session in a new folder, switch to Fable and paste the exact same prompt. First try again. Put both results side by side and compare the build and the bill. Then decide which jobs earn Fable and which ones Opus handles fine.",
+    "code": "/advisor off\n/model fable"
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Black hole",
+    "code": "Build a single self-contained HTML file with Three.js: a black hole with a glowing, swirling accretion disk and light bending around it.\nI can orbit with the mouse and zoom with the scroll wheel.\nPut everything in one index.html I can open in the browser, no build step."
+   },
+   {
+    "h": "2. Robot arms",
+    "code": "Build a single self-contained HTML file with Three.js: two robot arms that solve a scrambled Rubik's cube, animated move by move.\nAdd a Scramble button and a Solve button. The cube must end fully solved.\nPut everything in one index.html I can open in the browser, no build step."
+   },
+   {
+    "h": "3. 3D shooter",
+    "code": "Build a single self-contained HTML file with Three.js: a playable third-person cover shooter.\nWASD to move, mouse to aim, click to shoot, crates to hide behind, enemies that shoot back, health and score on screen.\nPut everything in one index.html I can open in the browser, no build step."
+   },
+   {
+    "h": "4. Smart speaker",
+    "code": "Build a single self-contained HTML file with Three.js: a smart speaker that assembles itself part by part (base, drivers, fabric mesh, top ring with lights), then turns slowly.\nAdd a Replay button.\nPut everything in one index.html I can open in the browser, no build step."
+   },
+   {
+    "h": "5. Product configurator",
+    "code": "Build a single self-contained HTML file with Three.js: a 3D product configurator for a sneaker.\nColour swatches and 3 materials change the model live, the price updates with each option, and I can rotate it with the mouse.\nPut everything in one index.html I can open in the browser, no build step."
+   },
+   {
+    "h": "6. Sales globe",
+    "code": "Build a single self-contained HTML file with Three.js: a 3D globe that shows sales by city as glowing bars, with sample data for 20 cities.\nHovering a bar shows the city and the revenue. The globe turns slowly on its own.\nPut everything in one index.html I can open in the browser, no build step."
+   },
+   {
+    "h": "7. Retro shooter",
+    "code": "Build a single self-contained HTML file with a canvas: a retro arcade space shooter with a pixel-art ship.\nWaves of enemies, power-ups, score, 3 lives, a game over screen and a restart key.\nPut everything in one index.html I can open in the browser, no build step."
+   },
+   {
+    "h": "8. Judge the two builds",
+    "code": "I ran the same prompt on two models. Their builds are in [folder A] and [folder B].\nOpen both files and compare them on: does it work, does it do everything the prompt asked, and how good does it look.\nList what each one got wrong. Don't tell me which model made which."
+   },
+   {
+    "h": "9. Turn a real job into a test",
+    "code": "Here's a task I do in my business every week: [describe it].\nTurn it into one prompt I can paste into Claude Code and run once, with no fixes, on two different models.\nSpell out exactly what done looks like, so I can judge both results the same way."
+   }
+  ],
+  "credit": [
+   "Test, builds, costs and the advisor setup by Charlie Hills (instagram.com/charliehills, post of Nov 10, 2026: instagram.com/p/DfjNsCyCFXQ)",
+   "Model prices from Anthropic's pricing page (platform.claude.com/docs/en/about-claude/pricing)",
+   "Advisor setup from the Claude Code docs (code.claude.com/docs/en/advisor)",
+   "Fable plan rules from Anthropic's Help Center: Claude Fable models on your plan (support.claude.com)"
+  ],
+  "payoff": "Run one build on Opus with Fable advising this week, then the same prompt on Fable alone. Your own bill tells you more than anyone's test.",
+  "ar": {
+   "title": "Fable 5.2 مقابل Opus 5.5: <span class=\"em\">الفاتورة.</span>",
+   "lead": "سبعة مشاريع بناء، الأوامر نفسها، المحاولة الأولى في Claude Code. كلّف Opus 5.5 مبلغ 16.37 دولارًا، وكلّف Fable 5.2 مبلغ 39.29 دولارًا. في هذا الدليل الفاتورة كاملة، و7 أوامر بناء لتكرار الاختبار، والإعداد بأمرين الذي نفّذ المشاريع السبعة بـ 25.81 دولارًا، وطريقة اختباره على عملك أنت.",
+   "inside": "اطّلع على تكلفة كل تشغيل، وخذ 7 أوامر بناء، واجعل Opus يبني وFable يعمل مستشارًا، ونفّذ مشروعًا واحدًا من المحاولة الأولى، ثم نفّذه على Fable وحده وقارن الفاتورتين.",
+   "what": [
+    "أعطى Charlie Hills أقوى نموذجين لدى Claude الأوامر السبعة نفسها في Claude Code بتاريخ 10 نوفمبر 2026، محاولة واحدة لكلٍّ منها بلا أي تصحيح. طلب كل أمر ملف HTML واحدًا مستقلًا مبنيًا بـ Three.js: ثقب أسود، وذراعان آليتان تحلّان مكعب روبيك، ولعبة تصويب ثلاثية الأبعاد، ومكبّر صوت ذكي، وأداة لتخصيص منتج، وكرة أرضية للمبيعات، ولعبة تصويب بطابع قديم. بدت نسخ Fable أغنى في كل المشاريع تقريبًا. وفي المشروع الوحيد الذي احتاج منطقًا حقيقيًا، مكعب روبيك، كان Opus الوحيد الذي كتب حلًّا فعليًا.",
+    "يأتي الفرق من مصدرين. سعر Fable 5.2 لكل رمز (token) ضعف سعر Opus 5.5 عبر API: ثمانية دولارات للإدخال وأربعون للإخراج لكل مليون رمز، مقابل أربعة دولارات للإدخال وعشرين للإخراج لدى Opus. وفي المشاريع الأربعة التي قاس Charlie وقتها، استغرق Fable وقتًا أطول أيضًا. والحل الذي يقترحه هو تشغيل الاثنين معًا: Opus يبني وFable يراجع الأجزاء الصعبة. نفّذ هذا الإعداد المشاريع السبعة بـ 25.81 دولارًا."
+   ],
+   "prereqs": [
+    "Claude Code بالإصدار v2.1.321 أو أحدث (يحتاجه Fable 5.2)",
+    "إمكانية استخدام Fable. خطط Max وUltra والمقاعد المميزة في Team وEnterprise تستخدم حدود الخطة بسقف 50% من الحد الأسبوعي. أما Pro والمقاعد العادية فتحتسب Fable من رصيد الاستخدام الإضافي، باستثناء فترة إطلاق Pro التي تنتهي في 16 نوفمبر 2026 الساعة 11:59 مساءً بتوقيت المحيط الهادئ",
+    "Claude Code مسجّل الدخول عبر Anthropic مباشرة (خطة Claude أو مفتاح API). لا يعمل المستشار على Amazon Bedrock أو Google Cloud أو Microsoft Foundry",
+    "أمر بناء واحد للاختبار: أحد أوامر Charlie السبعة، أو مهمة حقيقية من عملك"
+   ],
+   "warn": "هذه الأرقام من تشغيل واحد لكل مشروع، ومن شخص واحد، ومحسوبة بأسعار API. فاتورتك ستختلف، فاعتبرها مؤشرًا لا عرض سعر. على الخطط، يستهلك Fable حدّك الأسبوعي أسرع من النماذج الأخرى، وعلى Pro بعد 16 نوفمبر يُحتسب من رصيد الاستخدام الإضافي. وفي الوضع غير التفاعلي (claude -p) يحتسب Claude Code هذا الرصيد دون أن يسألك. راجع /usage بعد كل تشغيل.",
+   "steps": [
+    {
+     "h": "حدّث Claude Code",
+     "p": "يحتاج Fable 5.2 إلى Claude Code بالإصدار v2.1.321 أو أحدث. حدّثه، ثم تحقق من الإصدار قبل أن تبدأ."
+    },
+    {
+     "h": "اقرأ الفاتورة",
+     "p": "أرقام Charlie، محاولة واحدة لكل مشروع بلا تصحيح. نُشرت أوقات البناء لأول أربعة مشاريع فقط. أوامره الأصلية غير منشورة، لذلك الأوامر من 1 إلى 7 في هذا الدليل نسخنا الخاصة من المشاريع السبعة نفسها. ستقترب فاتورتك من فاتورته، لكنها لن تطابقها بالسنت."
+    },
+    {
+     "h": "اجعل Opus يبني",
+     "p": "افتح Claude Code في مجلد فارغ واجعل Opus 5.5 النموذج الرئيسي. Opus هو من يبني."
+    },
+    {
+     "h": "فعّل Fable مستشارًا",
+     "p": "سيستدعي Claude الآن Fable في اللحظات الصعبة: قبل أن يختار طريقة العمل، وعندما يتكرر خطأ ما، وقبل أن يعلن انتهاءه. سترى سطر Advising عندما يحدث ذلك. إذا وجّهك Claude Code إلى /model fable بدلًا من ذلك، فخطتك تحتاج موافقة لمرة واحدة على احتساب Fable من رصيد الاستخدام الإضافي: وافق هناك، ثم عُد بـ /model opus، ثم شغّل /advisor fable مرة أخرى."
+    },
+    {
+     "h": "الصق أمرًا واحدًا وخذ المحاولة الأولى",
+     "p": "الصق أحد الأوامر من 1 إلى 7 مرة واحدة واتركه حتى ينتهي. لا تصحيح ولا أسئلة متابعة، وإلا تفقد المقارنة معناها. عندما ينتهي، افتح الملف الذي بناه، ثم شغّل /usage وسجّل ما استهلكته الجلسة."
+    },
+    {
+     "h": "نفّذه على Fable وحده وقارن",
+     "p": "أوقف المستشار، وابدأ جلسة جديدة في مجلد جديد، وانتقل إلى Fable، والصق الأمر نفسه تمامًا. المحاولة الأولى مجددًا. ضع النتيجتين جنبًا إلى جنب وقارن البناء والفاتورة. ثم قرّر أي المهام تستحق Fable وأيها يكفيها Opus."
+    }
+   ],
+   "prompts": [
+    "1. الثقب الأسود",
+    "2. الذراعان الآليتان",
+    "3. لعبة التصويب ثلاثية الأبعاد",
+    "4. السمّاعة الذكية",
+    "5. أداة تخصيص المنتج",
+    "6. كرة المبيعات الأرضية",
+    "7. لعبة التصويب الكلاسيكية",
+    "8. قيّم النسختين",
+    "9. حوّل مهمة حقيقية إلى اختبار"
+   ]
+  },
+  "perPage": {
+   "steps": 2,
+   "prompts": 3
+  }
  }
 ]

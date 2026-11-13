@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automate the first job in your business | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E7E0D2; --paper:#FBF7EF; --white:#FFFFFF; --ink:#1A1714; --navy:#0E1A33; --muted:#4A4438; --line:#E4DACA;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F6F0E4; --cream:#F2EAD9; --brass:#B08D57;
+  --repp:repeating-linear-gradient(135deg,#0E1A33 0 11px,#0866FF 11px 17px,#0E1A33 17px 28px,#FBF7EF 28px 30px);
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Cormorant Garamond',Georgia,serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(14,26,51,.06),0 12px 40px rgba(14,26,51,.10);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--brass);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--brass);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-family:var(--serif);font-weight:600;font-size:64px;line-height:1;letter-spacing:-.01em;color:var(--navy);text-wrap:balance}
+h2{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.05;letter-spacing:-.01em;color:var(--navy);margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--blue);letter-spacing:0}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--cream);border:0;border-top:1.5px solid var(--brass);border-radius:0;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--navy);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--navy)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:0;padding:34px 40px;background-color:var(--cream);
+  border:1px solid var(--line);outline:1px solid var(--brass);outline-offset:6px}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(14,26,51,.12),0 2px 6px rgba(14,26,51,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:var(--navy);font-size:11px;color:var(--paper)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:rgba(251,247,239,.35);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--brass)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:34px;height:auto;display:block}
+.cover::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
+.step h2{font-size:30px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.prompt{margin-bottom:8px}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--navy);color:#fff;border-radius:0;padding:34px 30px 28px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-family:var(--serif);font-size:32px;letter-spacing:0;text-transform:none;margin:0 0 8px;font-weight:600}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px;color:#4D92FF}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3;font-family:var(--arab);font-weight:800}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+}</style>
+</head>
+<body>
+<div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip"><span class="l-en">Comment</span><span class="l-ar">اكتب</span> · HOURS</span></div>
+  <div class="eyebrow"><span class="l-en">Field guide · No. 45</span><span class="l-ar">دليل عملي · رقم 45</span></div>
+  <h1><span class="l-en">Automate the first job in your <span class="em">business.</span></span><span class="l-ar">أتمِت أول مهمة في <span class="em">عملك.</span></span></h1>
+  <p class="lead"><span class="l-en">Don't automate your business. Automate one job. Log your repeat tasks for a week, pick the biggest total, and run it through the 6 steps in this guide.</span><span class="l-ar">لا تُؤتمِت عملك كله. أتمِت مهمة واحدة. سجّل مهامك المتكررة لمدة أسبوع، واختر صاحبة أكبر مجموع، ثم مرّرها على الخطوات الست في هذا الدليل.</span></p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Prompt</span></div><pre>Tab "Log":
+Date | Task | Minutes | What starts it | Tools used | Notes
+
+Tab "Totals":
+Task | Times this week | Total minutes
+B2: =COUNTIF(Log!B:B, A2)<span class="caret"></span></pre><div class="note"><span class="l-en">Step 01 of this guide. Copy it as is.</span><span class="l-ar">الخطوة 01 من هذا الدليل. انسخها كما هي.</span></div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0"><span class="l-en">Inside</span><span class="l-ar">في هذا الدليل</span></h3><p><span class="l-en">Set up the one-week task log in Google Sheets, find the job that eats the most minutes, write it out, have Claude Code build it, put it on an N8N trigger, test it 10 times and measure what you got back.</span><span class="l-ar">جهّز سجل المهام لأسبوع واحد في Google Sheets، واعثر على المهمة التي تستهلك أكثر الدقائق، واكتبها خطوة بخطوة، ودع Claude Code يبنيها، واربطها بمُشغّل في N8N، واختبرها 10 مرات، ثم قِس الوقت الذي استعدته.</span></p></div>
+    <div class="by"><svg class="mono-k" viewBox="0 0 120 150" aria-label="Karemops crest"><ellipse cx="60" cy="75" rx="57" ry="72" fill="none" stroke="#B08D57" stroke-width="3"/><ellipse cx="60" cy="75" rx="49" ry="64" fill="none" stroke="#B08D57" stroke-width="1.4"/><text x="60" y="98" text-anchor="middle" style="font:600 68px 'Cormorant Garamond',Georgia,serif;fill:#0866FF">K</text></svg><div><b><span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Automate the first job in your business</span><span class="l-ar">أتمِت أول مهمة في عملك</span></span><span>HOURS</span></div>
+  <div class="eyebrow"><span class="l-en">01 · What this is</span><span class="l-ar">01 · ما هذا</span></div>
+  <h2><span class="l-en">What you're <span class="em">setting up.</span></span><span class="l-ar">ما الذي <span class="em">ستُعدّه.</span></span></h2>
+  <p><span class="l-en">People try to automate everything and finish nothing. One job, done properly, teaches you the whole method: find it, break it down, build it, make it run alone, test it, measure it. Then pick the next one. One job a month is 12 jobs a year off your plate.</span><span class="l-ar">يحاول الناس أتمتة كل شيء فلا ينهون شيئًا. مهمة واحدة تُنجز كما يجب تعلّمك الطريقة كلها: اعثر عليها، فكّكها، ابنها، اجعلها تعمل وحدها، اختبرها، قِسها. ثم اختر المهمة التالية. مهمة واحدة كل شهر تعني 12 مهمة في السنة تُرفع عن كاهلك.</span></p>
+  <p><span class="l-en">Here's what a finished one looks like, the missed-DM job: someone comments a keyword, ManyChat sends them the guide, N8N adds the lead to Airtable and GoHighLevel, and Gmail sends the follow-up 2 days later. Nobody presses start. Your first job doesn't have to be this one. The log decides.</span><span class="l-ar">هكذا تبدو مهمة مكتملة، مهمة الرسائل الفائتة: يكتب أحدهم كلمة مفتاحية في التعليقات، فيرسل له ManyChat الدليل، ويضيف N8N العميل المحتمل إلى Airtable وGoHighLevel، ثم يرسل Gmail رسالة المتابعة بعد يومين. لا أحد يضغط زر البدء. ليس شرطًا أن تكون مهمتك الأولى هي هذه. السجل هو الذي يقرر.</span></p>
+  <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">A Google Sheet for the task log (the exact columns are in step 1)</li><li class="l-en">A paid Claude plan (Pro or higher) with Claude Code installed</li><li class="l-en">An N8N account, on n8n Cloud or self-hosted</li><li class="l-en">Logins for the tools the job touches, e.g. Gmail, Airtable, GoHighLevel, ManyChat</li><li class="l-en">One week of honest logging before you build anything</li><li class="l-ar">جدول Google Sheets لسجل المهام (الأعمدة بالضبط في الخطوة 1)</li><li class="l-ar">خطة Claude مدفوعة (Pro أو أعلى) مع تثبيت Claude Code</li><li class="l-ar">حساب N8N، على n8n Cloud أو على خادمك الخاص</li><li class="l-ar">بيانات الدخول إلى الأدوات التي تلمسها المهمة، مثل Gmail وAirtable وGoHighLevel وManyChat</li><li class="l-ar">أسبوع واحد من التسجيل الصادق قبل أن تبني أي شيء</li></ul>
+  <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">The 3 mistakes that kill this: picking the fun job instead of the big one, skipping the 10 tests, and letting the automation talk money with customers. Keep prices, refunds and discounts with a human. And don't guess your hours: if you didn't measure it, you didn't save time.</span><span class="l-ar">ثلاثة أخطاء تُفشل هذا كله: اختيار المهمة الممتعة بدل المهمة الكبيرة، وتخطّي الاختبارات العشرة، وترك الأتمتة تتحدث مع العملاء عن المال. أبقِ الأسعار والاسترداد والخصومات في يد إنسان. ولا تخمّن ساعاتك: إن لم تقِسها، فأنت لم توفّر وقتًا.</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Automate the first job in your business</span><span class="l-ar">أتمِت أول مهمة في عملك</span></span><span>HOURS</span></div>
+  <div class="eyebrow"><span class="l-en">02 · The steps</span><span class="l-ar">02 · الخطوات</span></div><h2><span class="l-en">Set it up, <span class="em">step by step.</span></span><span class="l-ar">الإعداد <span class="em">خطوة بخطوة.</span></span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2><span class="l-en">Find the bottleneck</span><span class="l-ar">اعثر على عنق الزجاجة</span></h2><p><span class="l-en">Make a Google Sheet with a tab called Log and these columns. For one week, add a row every time you do a repeat task, with the minutes it took. Then make a second tab called Totals, list each task once in column A and total its minutes with the formula. The biggest total wins, not the task you hate most.</span><span class="l-ar">أنشئ جدول Google Sheets فيه تبويب اسمه Log وهذه الأعمدة. لمدة أسبوع، أضف صفًا في كل مرة تنفّذ فيها مهمة متكررة مع الدقائق التي استغرقتها. ثم أنشئ تبويبًا ثانيًا اسمه Totals، واكتب كل مهمة مرة واحدة في العمود A، واجمع دقائقها بالمعادلة. الفائزة صاحبة أكبر مجموع، وليست المهمة التي تكرهها أكثر.</span></p><pre>Tab "Log":
+Date | Task | Minutes | What starts it | Tools used | Notes
+
+Tab "Totals":
+Task | Times this week | Total minutes
+B2: =COUNTIF(Log!B:B, A2)
+C2: =SUMIF(Log!B:B, A2, Log!C:C)</pre></div></div>
+  <div class="step"><div class="num">02</div><div>
+    <h2><span class="l-en">Break it into steps</span><span class="l-ar">فكّكها إلى خطوات</span></h2><p><span class="l-en">Write the job like you're training someone new. Fill in this template for the winning task. If you can't write it, AI can't do it.</span><span class="l-ar">اكتب المهمة كأنك تدرّب موظفًا جديدًا. املأ هذا القالب للمهمة الفائزة. إن لم تستطع كتابتها، فلن يستطيع الذكاء الاصطناعي تنفيذها.</span></p><pre>Job: [name]
+What comes in: [the email, form, DM or file that starts it]
+What I check: [every decision, in order]
+What goes out: [the reply, record or file at the end]
+Tools: [Gmail, Airtable, GoHighLevel...]
+A human steps in when: [money, complaints, anything unsure]</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Automate the first job in your business</span><span class="l-ar">أتمِت أول مهمة في عملك</span></span><span>HOURS</span></div>
+  
+  <div class="step"><div class="num">03</div><div>
+    <h2><span class="l-en">Let Claude Code build it</span><span class="l-ar">دع Claude Code يبنيها</span></h2><p><span class="l-en">Open Claude Code in an empty folder and paste prompt 2 from the prompts pages with your filled-in template. Ask it to build the flow as an N8N workflow file and to explain each part back to you. If you can't follow the explanation, ask again until you can. You'll be the one fixing it.</span><span class="l-ar">افتح Claude Code في مجلد فارغ والصق الأمر 2 من صفحات الأوامر مع القالب بعد ملئه. اطلب منه أن يبني المسار كملف workflow لـ N8N وأن يشرح لك كل جزء. إن لم تفهم الشرح، اطلبه مرة أخرى حتى تفهم. أنت من سيصلحه لاحقًا.</span></p></div></div>
+  <div class="step"><div class="num">04</div><div>
+    <h2><span class="l-en">Make it run on its own</span><span class="l-ar">اجعلها تعمل وحدها</span></h2><p><span class="l-en">In N8N, import the file (Import from File in the workflow menu), connect your credentials on each node, and set the trigger: an n8n Form Trigger for a new form, a Webhook for a new DM from ManyChat, or a Schedule Trigger for every Monday at 9. Then hit Publish (older versions call it Active). If you have to press start, it isn't automated yet.</span><span class="l-ar">في N8N استورد الملف (Import from File من قائمة الـ workflow)، واربط بيانات الدخول في كل عقدة، واضبط المُشغّل: n8n Form Trigger لنموذج جديد، أو Webhook لرسالة جديدة من ManyChat، أو Schedule Trigger لكل يوم اثنين الساعة 9. ثم اضغط Publish (الإصدارات الأقدم تسميه Active). إن كان عليك أن تضغط زر البدء، فهي ليست مؤتمتة بعد.</span></p></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Automate the first job in your business</span><span class="l-ar">أتمِت أول مهمة في عملك</span></span><span>HOURS</span></div>
+  
+  <div class="step"><div class="num">05</div><div>
+    <h2><span class="l-en">Test it 10 times</span><span class="l-ar">اختبرها 10 مرات</span></h2><p><span class="l-en">Run it on 10 real cases before any customer sees it. Log every run in a third tab. Every wrong output gets a row, and you fix the step that caused it, then run that case again.</span><span class="l-ar">شغّلها على 10 حالات حقيقية قبل أن يراها أي عميل. سجّل كل تشغيل في تبويب ثالث. كل نتيجة خاطئة تأخذ صفًا، وتصلح الخطوة التي سببتها، ثم تعيد تشغيل الحالة نفسها.</span></p><pre>Tab "Tests":
+Case | Input | What should happen | What happened | Step to fix | Fixed?</pre></div></div>
+  <div class="step"><div class="num">06</div><div>
+    <h2><span class="l-en">Measure it</span><span class="l-ar">قِسها</span></h2><p><span class="l-en">One week after it goes live, log the same way as step 1. Write the before and after minutes on one line. The minutes you got back are the only number that matters, and that line decides your next job: back to step 1 with the next biggest total.</span><span class="l-ar">بعد أسبوع من التشغيل الفعلي، سجّل بالطريقة نفسها كما في الخطوة 1. اكتب دقائق قبل وبعد في سطر واحد. الدقائق التي استعدتها هي الرقم الوحيد المهم، وهذا السطر يحدد مهمتك التالية: عُد إلى الخطوة 1 مع صاحبة ثاني أكبر مجموع.</span></p><pre>Job | Minutes per week before | Minutes per week after | Minutes saved</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Automate the first job in your business</span><span class="l-ar">أتمِت أول مهمة في عملك</span></span><span>HOURS</span></div>
+  <div class="eyebrow"><span class="l-en">03 · Copy and paste</span><span class="l-ar">03 · انسخ والصق</span></div><h2><span class="l-en">Your <span class="em">prompts.</span></span><span class="l-ar">أوامرك <span class="em">الجاهزة.</span></span></h2><p class="muted l-ar">انسخ الأوامر والنصوص كما هي باللغة الإنجليزية، فهي تعمل بدقة أكبر.</p>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">1. Read my task log</span><span class="l-ar">1. اقرأ سجل مهامي</span></h4><pre>Here's my task log for one week, exported from Google Sheets:
+[paste the Log tab, or attach the CSV]
+
+Group tasks that are the same job under one name.
+Total the minutes per job and rank them, biggest first.
+For the top 3, tell me what starts each one and which tools it touches.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">2. Build it in Claude Code</span><span class="l-ar">2. ابنها في Claude Code</span></h4><pre>I want to automate one job in my business. Here it is, step by step:
+[paste your filled-in template from step 2]
+
+Build it as an N8N workflow I can import, saved as [job-name].json.
+Use the [trigger] trigger and these tools: [Gmail, Airtable, GoHighLevel].
+Anything that involves money or a complaint goes to me, not the customer.
+Then explain each node back to me in plain words, and list the credentials I need to connect.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">3. Fix a wrong output</span><span class="l-ar">3. أصلح نتيجة خاطئة</span></h4><pre>My N8N workflow [job-name].json gave the wrong output.
+Input: [paste the input]
+What it did: [paste the output]
+What it should have done: [one line]
+
+Find the node that caused it, fix it, and tell me what you changed.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Automate the first job in your business</span><span class="l-ar">أتمِت أول مهمة في عملك</span></span><span>HOURS</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">4. Before and after</span><span class="l-ar">4. قبل وبعد</span></h4><pre>Here's my task log from the week before the automation and the week after:
+[paste both logs]
+
+For the job [job name], give me minutes per week before, after, and saved.
+Then rank what's left in the log so I know my next job.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 07</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Automate the first job in your business</span><span class="l-ar">أتمِت أول مهمة في عملك</span></span><span>HOURS</span></div>
+  <div class="eyebrow"><span class="l-en">Done</span><span class="l-ar">تم</span></div>
+  <h2><span class="l-en">That's the <span class="em">whole setup.</span></span><span class="l-ar">هذا هو <span class="em">الإعداد كاملًا.</span></span></h2>
+  <p class="lead"><span class="l-en">Start the log tomorrow morning. By next week you'll know your first job, and it's rarely the one you guessed.</span><span class="l-ar">جرّبه هذا الأسبوع على عمل حقيقي، ثم أخبرني بالنتيجة عبر رسالة على إنستغرام، فأنا أقرأ الرسائل بنفسي.</span></p>
+  <h3><span class="l-en">Credit</span><span class="l-ar">المصادر</span></h3><ul><li>Claude Code by Anthropic (claude.com/product/claude-code)</li><li>N8N workflow automation (n8n.io). Import, trigger and Publish steps from the n8n docs (docs.n8n.io)</li><li>Tools in the example: ManyChat (manychat.com), Airtable (airtable.com), GoHighLevel (gohighlevel.com), Gmail and Google Sheets by Google</li></ul>
+  <div class="cta">
+    <div class="k"><span class="l-en">Built by</span><span class="l-ar">إعداد</span> <span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></div>
+    <h3><span class="l-en">Want it built for you?</span><span class="l-ar">تريد أن نبنيه لك؟</span></h3>
+    <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
+    <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
+  </div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 07</span></div>
+</section>
+<script>
+(function(){
+  var root=document.documentElement;
+  function set(l){root.dataset.lang=l;root.lang=l;root.dir=l==="ar"?"rtl":"ltr";
+    document.querySelectorAll(".lang-toggle button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
+    try{localStorage.setItem("karemops-guide-lang",l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem("karemops-guide-lang")}catch(e){}
+  set(location.hash==="#ar"?"ar":location.hash==="#en"?"en":(saved||"en"));
+  document.querySelector(".lang-toggle").addEventListener("click",function(e){var b=e.target.closest("button");if(b)set(b.dataset.l)});
+})();
+</script>
+</body>
+</html>

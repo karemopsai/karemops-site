@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pick your Claude plan in one week | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E7E0D2; --paper:#FBF7EF; --white:#FFFFFF; --ink:#1A1714; --navy:#0E1A33; --muted:#4A4438; --line:#E4DACA;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F6F0E4; --cream:#F2EAD9; --brass:#B08D57;
+  --repp:repeating-linear-gradient(135deg,#0E1A33 0 11px,#0866FF 11px 17px,#0E1A33 17px 28px,#FBF7EF 28px 30px);
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Cormorant Garamond',Georgia,serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(14,26,51,.06),0 12px 40px rgba(14,26,51,.10);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--brass);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--brass);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-family:var(--serif);font-weight:600;font-size:64px;line-height:1;letter-spacing:-.01em;color:var(--navy);text-wrap:balance}
+h2{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.05;letter-spacing:-.01em;color:var(--navy);margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--blue);letter-spacing:0}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--cream);border:0;border-top:1.5px solid var(--brass);border-radius:0;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--navy);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--navy)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:0;padding:34px 40px;background-color:var(--cream);
+  border:1px solid var(--line);outline:1px solid var(--brass);outline-offset:6px}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(14,26,51,.12),0 2px 6px rgba(14,26,51,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:var(--navy);font-size:11px;color:var(--paper)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:rgba(251,247,239,.35);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--brass)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:34px;height:auto;display:block}
+.cover::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
+.step h2{font-size:30px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.prompt{margin-bottom:8px}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--navy);color:#fff;border-radius:0;padding:34px 30px 28px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-family:var(--serif);font-size:32px;letter-spacing:0;text-transform:none;margin:0 0 8px;font-weight:600}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px;color:#4D92FF}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3;font-family:var(--arab);font-weight:800}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+}</style>
+</head>
+<body>
+<div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip"><span class="l-en">Comment</span><span class="l-ar">اكتب</span> · BILL</span></div>
+  <div class="eyebrow"><span class="l-en">Field guide · No. 41</span><span class="l-ar">دليل عملي · رقم 41</span></div>
+  <h1><span class="l-en">Pick your Claude plan in <span class="em">one week.</span></span><span class="l-ar">اختر خطة Claude المناسبة في <span class="em">أسبوع واحد.</span></span></h1>
+  <p class="lead"><span class="l-en">Claude's four plans differ in one thing that matters: how much you can use before you hit the limit. Run this one-week test on Pro, count the limit hits, and the numbers tell you if you need more.</span><span class="l-ar">تختلف خطط Claude الأربع في أمر واحد مهم: مقدار ما تستطيع استخدامه قبل أن تصل إلى الحد. نفّذ هذا الاختبار لمدة أسبوع على خطة Pro، واحسب عدد مرات الوصول إلى الحد، وستخبرك الأرقام إن كنت تحتاج إلى المزيد.</span></p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Claude Code</span></div><pre><span class="p">&gt;</span> /usage<span class="caret"></span></pre><div class="note"><span class="l-en">Step 02 of this guide. Copy it as is.</span><span class="l-ar">الخطوة 02 من هذا الدليل. انسخها كما هي.</span></div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0"><span class="l-en">Inside</span><span class="l-ar">في هذا الدليل</span></h3><p><span class="l-en">See the 4 plans side by side, find your usage meter, run the one-week test on your real work, and upgrade only if your log says so.</span><span class="l-ar">اطّلع على الخطط الأربع جنبًا إلى جنب، واعثر على عدّاد الاستخدام، ونفّذ اختبار الأسبوع على عملك الحقيقي، ولا ترقِّ خطتك إلا إذا قال سجلّك ذلك.</span></p></div>
+    <div class="by"><svg class="mono-k" viewBox="0 0 120 150" aria-label="Karemops crest"><ellipse cx="60" cy="75" rx="57" ry="72" fill="none" stroke="#B08D57" stroke-width="3"/><ellipse cx="60" cy="75" rx="49" ry="64" fill="none" stroke="#B08D57" stroke-width="1.4"/><text x="60" y="98" text-anchor="middle" style="font:600 68px 'Cormorant Garamond',Georgia,serif;fill:#0866FF">K</text></svg><div><b><span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Pick your Claude plan in one week</span><span class="l-ar">اختر خطة Claude المناسبة في أسبوع واحد</span></span><span>BILL</span></div>
+  <div class="eyebrow"><span class="l-en">01 · What this is</span><span class="l-ar">01 · ما هذا</span></div>
+  <h2><span class="l-en">What you're <span class="em">setting up.</span></span><span class="l-ar">ما الذي <span class="em">ستُعدّه.</span></span></h2>
+  <p><span class="l-en">Claude has four individual plans: Free, Pro at $20 a month ($17 a month paid yearly, $200 up front), Max at $100 a month and Ultra at $200 a month. Every plan has a limit that resets every 5 hours and one that resets every week. Paying more mostly buys more usage before you hit them. Prices from claude.com/pricing, read 13 Nov 2026, in US dollars before tax.</span><span class="l-ar">لدى Claude أربع خطط فردية: Free، وPro بسعر 20 دولارًا شهريًا (17 دولارًا شهريًا عند الدفع السنوي، أي 200 دولار مقدمًا)، وMax بسعر 100 دولار شهريًا، وUltra بسعر 200 دولار شهريًا. لكل خطة حد يتجدد كل 5 ساعات وحد يتجدد كل أسبوع. الدفع الأعلى يشتري في الغالب استخدامًا أكبر قبل الوصول إلى هذين الحدّين. الأسعار من claude.com/pricing بتاريخ 13 نوفمبر 2026، بالدولار الأمريكي قبل الضريبة.</span></p>
+  <p><span class="l-en">It's for owners on Pro who keep hearing they need Max or Ultra, and owners on Free deciding if Pro is worth it. One normal work week and a simple log settle it.</span><span class="l-ar">هذا الدليل لأصحاب الأعمال على خطة Pro الذين يسمعون باستمرار أنهم يحتاجون إلى Max أو Ultra، ولمن هم على الخطة المجانية ويتساءلون إن كانت Pro تستحق. أسبوع عمل عادي وسجلّ بسيط يحسمان الأمر.</span></p>
+  <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">A Claude Pro plan. On Free, upgrade to Pro monthly for the test week: Free doesn't include Claude Code</li><li class="l-en">A normal work week, not a holiday week</li><li class="l-en">A notes app or a sheet for the log</li><li class="l-en">Claude Code installed, if you build with it</li><li class="l-ar">اشتراك Claude Pro. إن كنت على الخطة المجانية فاشترك في Pro شهريًا لأسبوع الاختبار، لأن الخطة المجانية لا تشمل Claude Code</li><li class="l-ar">أسبوع عمل عادي، وليس أسبوع عطلة</li><li class="l-ar">تطبيق ملاحظات أو جدول بيانات للسجلّ</li><li class="l-ar">Claude Code مثبّت، إن كنت تبني به</li></ul>
+  <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">No plan is unlimited. Ultra still has a weekly limit, and only verified accounts lose the 5-hour one. Your use in the Claude app and in Claude Code counts toward the same limits. Plans and multipliers change, so re-read claude.com/pricing the day you pay.</span><span class="l-ar">لا توجد خطة بلا حدود. خطة Ultra لها حد أسبوعي أيضًا، والحسابات الموثّقة وحدها يُلغى عنها حد الساعات الخمس. استخدامك في تطبيق Claude وفي Claude Code يُحتسب من الحدود نفسها. الخطط والمضاعفات تتغير، لذا راجع claude.com/pricing يوم الدفع.</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Pick your Claude plan in one week</span><span class="l-ar">اختر خطة Claude المناسبة في أسبوع واحد</span></span><span>BILL</span></div>
+  <div class="eyebrow"><span class="l-en">02 · The steps</span><span class="l-ar">02 · الخطوات</span></div><h2><span class="l-en">Set it up, <span class="em">step by step.</span></span><span class="l-ar">الإعداد <span class="em">خطوة بخطوة.</span></span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2><span class="l-en">See the 4 plans side by side</span><span class="l-ar">اطّلع على الخطط الأربع جنبًا إلى جنب</span></h2><p><span class="l-en">From claude.com/pricing. The yearly column is the monthly price times 12, except Pro yearly, which is billed $200 up front.</span><span class="l-ar">من claude.com/pricing. عمود التكلفة السنوية هو السعر الشهري مضروبًا في 12، باستثناء Pro السنوية التي تُدفع 200 دولار مقدمًا.</span></p><pre>PLAN   PRICE            USAGE                      PER YEAR
+Free   $0               Limited, no Claude Code    $0
+Pro    $20/mo           1x                         $240
+       $17/mo yearly    ($200 up front)            $200
+Max    $100/mo          5x Pro, 5-hour + weekly    $1,200
+Ultra  $200/mo          10x Pro weekly,            $2,400
+                        no 5-hour limit (verified)</pre></div></div>
+  <div class="step"><div class="num">02</div><div>
+    <h2><span class="l-en">Find your usage meter</span><span class="l-ar">اعثر على عدّاد الاستخدام</span></h2><p><span class="l-en">On claude.ai open Settings, then Usage (claude.ai/settings/usage). It shows how much of your limits you've used and when they reset. Inside Claude Code, type /usage. Check it at the end of every day of the test.</span><span class="l-ar">في claude.ai افتح Settings ثم Usage (claude.ai/settings/usage). تعرض الصفحة مقدار ما استخدمته من حدودك ومتى تتجدد. داخل Claude Code اكتب /usage. راجعه في نهاية كل يوم من أيام الاختبار.</span></p><pre>/usage</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Pick your Claude plan in one week</span><span class="l-ar">اختر خطة Claude المناسبة في أسبوع واحد</span></span><span>BILL</span></div>
+  
+  <div class="step"><div class="num">03</div><div>
+    <h2><span class="l-en">Run one real week on Pro</span><span class="l-ar">اعمل أسبوعًا حقيقيًا على Pro</span></h2><p><span class="l-en">Do your normal jobs, nothing staged: proposals, follow-ups, client docs, and at least one Claude Code build if you build. Log every time Claude stops you with a limit message.</span><span class="l-ar">أنجز مهامك المعتادة دون تمثيل: عروض الأسعار، والمتابعات، ومستندات العملاء، وبناء واحد على الأقل في Claude Code إن كنت تبني. سجّل كل مرة يوقفك فيها Claude برسالة الوصول إلى الحد.</span></p><pre>ONE-WEEK USAGE TEST (Pro)
+
+Day | Limit hits | Time | What I was doing | App or Claude Code
+Mon |            |      |                  |
+Tue |            |      |                  |
+Wed |            |      |                  |
+Thu |            |      |                  |
+Fri |            |      |                  |
+Sat |            |      |                  |
+Sun |            |      |                  |
+
+Total limit hits this week: __
+Hits before lunch: __
+Hit the weekly limit? yes / no
+Hits on Claude Code work that saves real hours: __</pre></div></div>
+  <div class="step"><div class="num">04</div><div>
+    <h2><span class="l-en">Read your result</span><span class="l-ar">اقرأ نتيجتك</span></h2><p><span class="l-en">0 to 2 hits: stay on Pro and pay yearly, that saves $40 a year. 3 or more hits, mostly before lunch on Claude Code work that saves you real hours: go up to Max. Already on Max and still hitting it 3 times a week: then Ultra. Mostly chatting and writing, never hit Max's limit: Ultra is wasted on you. Go one plan up, never two.</span><span class="l-ar">من 0 إلى 2 مرة: ابقَ على Pro وادفع سنويًا، فهذا يوفّر 40 دولارًا في السنة. 3 مرات أو أكثر، معظمها قبل الظهر في عمل على Claude Code يوفّر لك ساعات حقيقية: انتقل إلى Max. إن كنت على Max وما زلت تصل إلى الحد 3 مرات في الأسبوع: عندها Ultra. إن كان استخدامك في الغالب محادثة وكتابة ولم تصل يومًا إلى حد Max: فخطة Ultra هدر عليك. ارتقِ خطة واحدة فقط، لا خطتين.</span></p></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Pick your Claude plan in one week</span><span class="l-ar">اختر خطة Claude المناسبة في أسبوع واحد</span></span><span>BILL</span></div>
+  
+  <div class="step"><div class="num">05</div><div>
+    <h2><span class="l-en">One heavy week? Try usage credits first</span><span class="l-ar">أسبوع مزدحم واحد؟ جرّب رصيد الاستخدام أولًا</span></h2><p><span class="l-en">In Settings, Usage you can turn on usage credits. When you hit a limit, Claude keeps working on pay-as-you-go at API rates until the monthly spend cap you set. For a one-off busy week that can cost less than moving up a plan for the whole month.</span><span class="l-ar">من Settings ثم Usage يمكنك تفعيل usage credits. عندما تصل إلى الحد، يواصل Claude العمل بالدفع حسب الاستخدام وبأسعار الـ API حتى سقف الإنفاق الشهري الذي تحدده. لأسبوع مزدحم واحد قد يكلّف ذلك أقل من الانتقال إلى خطة أعلى لشهر كامل.</span></p></div></div>
+  <div class="step"><div class="num">06</div><div>
+    <h2><span class="l-en">Re-test every 3 months</span><span class="l-ar">أعد الاختبار كل 3 أشهر</span></h2><p><span class="l-en">Your usage grows as you build more. Run the same week again each quarter. If you stopped hitting the limit, go back down a plan.</span><span class="l-ar">يزداد استخدامك كلما بنيت أكثر. كرّر أسبوع الاختبار نفسه كل ربع سنة. إذا توقفت عن الوصول إلى الحد، فانزل خطة واحدة.</span></p></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Pick your Claude plan in one week</span><span class="l-ar">اختر خطة Claude المناسبة في أسبوع واحد</span></span><span>BILL</span></div>
+  <div class="eyebrow"><span class="l-en">03 · Copy and paste</span><span class="l-ar">03 · انسخ والصق</span></div><h2><span class="l-en">Your <span class="em">prompts.</span></span><span class="l-ar">أوامرك <span class="em">الجاهزة.</span></span></h2><p class="muted l-ar">انسخ الأوامر والنصوص كما هي باللغة الإنجليزية، فهي تعمل بدقة أكبر.</p>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">1. Read my log</span><span class="l-ar">1. اقرأ سجلّي</span></h4><pre>Here is my one-week Claude usage log:
+"""
+[paste your filled-in log]
+"""
+Here are Claude's plans as of today:
+"""
+[paste the plan table from step 1]
+"""
+My rule: stay on my plan unless I hit the limit 3 or more times in the week, and then go only one plan up.
+Tell me which plan I should be on, in one line, and show the math. Then list which tasks caused the most limit hits.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">2. Use less, get the same work done</span><span class="l-ar">2. استخدام أقل للنتيجة نفسها</span></h4><pre>These are the tasks that hit my Claude limit this week:
+[list the tasks from your log]
+For each one, tell me how to get the same result with less usage: a fresh chat instead of one long thread, a Project instead of re-uploading the same files, a shorter prompt, or splitting a big job into parts.
+Give me the 3 changes that save the most, in order.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Pick your Claude plan in one week</span><span class="l-ar">اختر خطة Claude المناسبة في أسبوع واحد</span></span><span>BILL</span></div>
+  <div class="eyebrow"><span class="l-en">Done</span><span class="l-ar">تم</span></div>
+  <h2><span class="l-en">That's the <span class="em">whole setup.</span></span><span class="l-ar">هذا هو <span class="em">الإعداد كاملًا.</span></span></h2>
+  <p class="lead"><span class="l-en">Start the log on Monday. By Sunday you'll know if your plan fits, and you'll never upgrade on someone else's say-so again.</span><span class="l-ar">جرّبه هذا الأسبوع على عمل حقيقي، ثم أخبرني بالنتيجة عبر رسالة على إنستغرام، فأنا أقرأ الرسائل بنفسي.</span></p>
+  <h3><span class="l-en">Credit</span><span class="l-ar">المصادر</span></h3><ul><li>Claude plans and prices by Anthropic, claude.com/pricing (read 13 Nov 2026)</li><li>Usage limits and usage credits: Anthropic Help Center (support.claude.com)</li></ul>
+  <div class="cta">
+    <div class="k"><span class="l-en">Built by</span><span class="l-ar">إعداد</span> <span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></div>
+    <h3><span class="l-en">Want it built for you?</span><span class="l-ar">تريد أن نبنيه لك؟</span></h3>
+    <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
+    <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
+  </div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 06</span></div>
+</section>
+<script>
+(function(){
+  var root=document.documentElement;
+  function set(l){root.dataset.lang=l;root.lang=l;root.dir=l==="ar"?"rtl":"ltr";
+    document.querySelectorAll(".lang-toggle button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
+    try{localStorage.setItem("karemops-guide-lang",l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem("karemops-guide-lang")}catch(e){}
+  set(location.hash==="#ar"?"ar":location.hash==="#en"?"en":(saved||"en"));
+  document.querySelector(".lang-toggle").addEventListener("click",function(e){var b=e.target.closest("button");if(b)set(b.dataset.l)});
+})();
+</script>
+</body>
+</html>

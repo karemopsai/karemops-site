@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Run your AI stack like a 12-person admin team | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E7E0D2; --paper:#FBF7EF; --white:#FFFFFF; --ink:#1A1714; --navy:#0E1A33; --muted:#4A4438; --line:#E4DACA;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F6F0E4; --cream:#F2EAD9; --brass:#B08D57;
+  --repp:repeating-linear-gradient(135deg,#0E1A33 0 11px,#0866FF 11px 17px,#0E1A33 17px 28px,#FBF7EF 28px 30px);
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Cormorant Garamond',Georgia,serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(14,26,51,.06),0 12px 40px rgba(14,26,51,.10);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--brass);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--brass);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-family:var(--serif);font-weight:600;font-size:64px;line-height:1;letter-spacing:-.01em;color:var(--navy);text-wrap:balance}
+h2{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.05;letter-spacing:-.01em;color:var(--navy);margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--blue);letter-spacing:0}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--cream);border:0;border-top:1.5px solid var(--brass);border-radius:0;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--navy);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--navy)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:0;padding:34px 40px;background-color:var(--cream);
+  border:1px solid var(--line);outline:1px solid var(--brass);outline-offset:6px}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(14,26,51,.12),0 2px 6px rgba(14,26,51,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:var(--navy);font-size:11px;color:var(--paper)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:rgba(251,247,239,.35);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--brass)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:34px;height:auto;display:block}
+.cover::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
+.step h2{font-size:30px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.prompt{margin-bottom:8px}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--navy);color:#fff;border-radius:0;padding:34px 30px 28px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-family:var(--serif);font-size:32px;letter-spacing:0;text-transform:none;margin:0 0 8px;font-weight:600}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px;color:#4D92FF}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3;font-family:var(--arab);font-weight:800}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+}</style>
+</head>
+<body>
+<div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip"><span class="l-en">Comment</span><span class="l-ar">اكتب</span> · HIRES</span></div>
+  <div class="eyebrow"><span class="l-en">Field guide · No. 42</span><span class="l-ar">دليل عملي · رقم 42</span></div>
+  <h1><span class="l-en">Run your AI stack like a <span class="em">12-person admin team.</span></span><span class="l-ar">أدِر أدوات الذكاء الاصطناعي <span class="em">كفريق إداري من 12 شخصًا.</span></span></h1>
+  <p class="lead"><span class="l-en">12 public tools, 5 departments, one job title each. Claude sits on top as chief of staff. This page gives you the org chart, a one-line job description per tool and the order to set them up.</span><span class="l-ar">12 أداة متاحة للجميع، و5 أقسام، ومسمى وظيفي واحد لكل أداة. يجلس Claude في القمة بصفته رئيس الموظفين. تعطيك هذه الصفحة الهيكل التنظيمي، ووصفًا وظيفيًا في سطر واحد لكل أداة، والترتيب الذي تجهّزها به.</span></p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Prompt</span></div><pre>Here are the 3 jobs that eat most of my week: [job 1], [job 2], [job 3].
+My business: [what you sell, to who, roughly how many leads a week].
+From this list of tools, pick ONE to set up first and tell me why:
+Gmail and Google Calendar connectors, GoHighLevel, Instantly, ManyChat, Higgsfield, Airtable, n8n, Claude Code, Fireflies, Loom.
+Then give me the first 5 setup steps for that one tool.<span class="caret"></span></pre><div class="note"><span class="l-en">The first prompt in this guide. Copy it as is.</span><span class="l-ar">أول أمر في هذا الدليل. انسخه كما هو.</span></div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0"><span class="l-en">Inside</span><span class="l-ar">في هذا الدليل</span></h3><p><span class="l-en">See the full org chart, know what each of the 12 tools is hired to do, pick your first hire and set the team up in an order that works.</span><span class="l-ar">اطّلع على الهيكل التنظيمي كاملًا، واعرف المهمة التي وُظّفت لها كل أداة من الأدوات الاثنتي عشرة، واختر أول تعيين لك، وجهّز الفريق بترتيب ينجح.</span></p></div>
+    <div class="by"><svg class="mono-k" viewBox="0 0 120 150" aria-label="Karemops crest"><ellipse cx="60" cy="75" rx="57" ry="72" fill="none" stroke="#B08D57" stroke-width="3"/><ellipse cx="60" cy="75" rx="49" ry="64" fill="none" stroke="#B08D57" stroke-width="1.4"/><text x="60" y="98" text-anchor="middle" style="font:600 68px 'Cormorant Garamond',Georgia,serif;fill:#0866FF">K</text></svg><div><b><span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Run your AI stack like a 12-person admin team</span><span class="l-ar">أدِر أدوات الذكاء الاصطناعي كفريق إداري من 12 شخصًا</span></span><span>HIRES</span></div>
+  <div class="eyebrow"><span class="l-en">01 · What this is</span><span class="l-ar">01 · ما هذا</span></div>
+  <h2><span class="l-en">What you're <span class="em">setting up.</span></span><span class="l-ar">ما الذي <span class="em">ستُعدّه.</span></span></h2>
+  <p><span class="l-en">Most owners collect AI tools like apps: sign up, play for a day, forget, keep paying. This guide treats each tool like a hire. One tool, one job. If you can't write the job title, you don't need the tool.</span><span class="l-ar">يجمع معظم أصحاب الأعمال أدوات الذكاء الاصطناعي كما يجمعون التطبيقات: يشتركون، ويجرّبون يومًا، ثم ينسون ويستمرون في الدفع. يتعامل هذا الدليل مع كل أداة كأنها موظف جديد. أداة واحدة لمهمة واحدة. إن لم تستطع كتابة مسماها الوظيفي، فأنت لا تحتاجها.</span></p>
+  <p><span class="l-en">It's for owners who already use Claude or ChatGPT for basic questions and want the rest of the business to run on the same logic. Every tool here is a public product you can sign up for today. You don't need all 12. You need the one for the job you hate doing most.</span><span class="l-ar">هذا الدليل لأصحاب الأعمال الذين يستخدمون Claude أو ChatGPT لأسئلة بسيطة ويريدون أن يعمل باقي عملهم بالمنطق نفسه. كل أداة هنا منتج متاح للعموم تستطيع الاشتراك فيه اليوم. لا تحتاج الأدوات الاثنتي عشرة كلها. تحتاج الأداة التي تتولى المهمة التي تكرهها أكثر من غيرها.</span></p>
+  <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">A Claude account. The Gmail and Google Calendar connectors work on every plan, Claude Code needs a paid plan (Pro or above)</li><li class="l-en">A Google account with Gmail and Google Calendar</li><li class="l-en">An Instagram business or creator account if you hire ManyChat</li><li class="l-en">A list of the 3 jobs that eat most of your week</li><li class="l-en">Check each tool's own pricing page before you sign up. Prices and free plans change</li><li class="l-ar">حساب Claude. موصّلا Gmail وGoogle Calendar يعملان على كل الخطط، أما Claude Code فيحتاج خطة مدفوعة (Pro أو أعلى)</li><li class="l-ar">حساب Google فيه Gmail وGoogle Calendar</li><li class="l-ar">حساب Instagram تجاري أو حساب صانع محتوى إن وظّفت ManyChat</li><li class="l-ar">قائمة بالمهام الثلاث التي تستهلك معظم أسبوعك</li><li class="l-ar">راجع صفحة الأسعار الخاصة بكل أداة قبل الاشتراك. الأسعار والخطط المجانية تتغيّر</li></ul>
+  <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">Every hire is a subscription and a login that can see your data. The Gmail connector can send, reply and forward, not only draft, so keep the default where Claude asks for your approval before each one. ManyChat and Instantly send messages in your name: test every flow on yourself before it touches a real lead. And don't hire the next tool until the last one runs without you.</span><span class="l-ar">كل تعيين هو اشتراك وحساب دخول يستطيع رؤية بياناتك. يستطيع موصّل Gmail الإرسال والرد وإعادة التوجيه، لا كتابة المسودات فقط، لذا أبقِ الإعداد الافتراضي الذي يطلب فيه Claude موافقتك قبل كل إجراء. يرسل ManyChat وInstantly رسائل باسمك: جرّب كل مسار على نفسك قبل أن يصل إلى عميل حقيقي. ولا توظّف الأداة التالية قبل أن تعمل الأداة السابقة من دونك.</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Run your AI stack like a 12-person admin team</span><span class="l-ar">أدِر أدوات الذكاء الاصطناعي كفريق إداري من 12 شخصًا</span></span><span>HIRES</span></div>
+  <div class="eyebrow"><span class="l-en">02 · The steps</span><span class="l-ar">02 · الخطوات</span></div><h2><span class="l-en">Set it up, <span class="em">step by step.</span></span><span class="l-ar">الإعداد <span class="em">خطوة بخطوة.</span></span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2><span class="l-en">The org chart</span><span class="l-ar">الهيكل التنظيمي</span></h2><p><span class="l-en">One chief of staff, 5 departments, 12 tools. Claude is the one you talk to. The other 11 do the work and report back.</span><span class="l-ar">رئيس موظفين واحد، و5 أقسام، و12 أداة. Claude هو من تتحدث إليه. الأدوات الإحدى عشرة الأخرى تنجز العمل وترفع إليه النتائج.</span></p><pre>CHIEF OF STAFF
+  Claude
+
+FRONT DESK     Gmail, Google Calendar
+SALES          GoHighLevel, Instantly
+MARKETING      ManyChat, Higgsfield
+OPERATIONS     Airtable, n8n, Claude Code
+RECORDS        Fireflies, Loom</pre></div></div>
+  <div class="step"><div class="num">02</div><div>
+    <h2><span class="l-en">Job descriptions: the top and the front desk</span><span class="l-ar">الأوصاف الوظيفية: القمة والاستقبال</span></h2><p><span class="l-en">Gmail and Calendar don't need a new subscription. You connect them inside Claude, so Claude does the reading and drafting.</span><span class="l-ar">لا يحتاج Gmail وCalendar إلى اشتراك جديد. تربطهما داخل Claude، فيتولى Claude القراءة وكتابة المسودات.</span></p><pre>Claude, Chief of Staff:
+  drafts, plans and reads what the other 11 produce.
+
+Gmail, Inbox Manager:
+  Claude searches it through the connector and drafts replies.
+
+Google Calendar, Scheduler:
+  Claude finds free time and creates the events.</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Run your AI stack like a 12-person admin team</span><span class="l-ar">أدِر أدوات الذكاء الاصطناعي كفريق إداري من 12 شخصًا</span></span><span>HIRES</span></div>
+  
+  <div class="step"><div class="num">03</div><div>
+    <h2><span class="l-en">Job descriptions: sales and marketing</span><span class="l-ar">الأوصاف الوظيفية: المبيعات والتسويق</span></h2><p><span class="l-en">These four touch your leads directly. Each one gets one job and nothing else.</span><span class="l-ar">هذه الأدوات الأربع تتعامل مع عملائك المحتملين مباشرة. كل واحدة منها تأخذ مهمة واحدة ولا شيء غيرها.</span></p><pre>GoHighLevel, Pipeline Manager:
+  every lead, every stage, every follow-up in one CRM.
+
+Instantly, Outbound Rep:
+  warms up your inboxes and sends the cold email.
+
+ManyChat, DM Receptionist:
+  answers keyword comments on Instagram with a DM.
+
+Higgsfield, Photographer:
+  product shots and post images without a shoot.</pre></div></div>
+  <div class="step"><div class="num">04</div><div>
+    <h2><span class="l-en">Job descriptions: operations and records</span><span class="l-ar">الأوصاف الوظيفية: العمليات والسجلات</span></h2><p><span class="l-en">Operations is where the team talks to itself. Records is what stops you explaining the same thing twice.</span><span class="l-ar">قسم العمليات هو المكان الذي يتواصل فيه الفريق مع نفسه. وقسم السجلات هو ما يمنعك من شرح الأمر نفسه مرتين.</span></p><pre>Airtable, Office Manager:
+  clients, content and orders in one base.
+
+n8n, Operations Lead:
+  moves data between every other tool.
+
+Claude Code, In-house Builder:
+  builds your dashboards and small internal tools.
+
+Fireflies, Note Taker:
+  joins the call, records it, writes the summary.
+
+Loom, Trainer:
+  records the how-to once so nobody asks twice.</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Run your AI stack like a 12-person admin team</span><span class="l-ar">أدِر أدوات الذكاء الاصطناعي كفريق إداري من 12 شخصًا</span></span><span>HIRES</span></div>
+  
+  <div class="step"><div class="num">05</div><div>
+    <h2><span class="l-en">How the team talks</span><span class="l-ar">كيف يتواصل الفريق</span></h2><p><span class="l-en">One lead, start to finish: someone comments your keyword, ManyChat sends the DM, n8n adds them to Airtable and GoHighLevel, and Claude drafts the follow-up in Gmail for you to approve. You only see the last step.</span><span class="l-ar">عميل محتمل واحد من البداية إلى النهاية: يكتب أحدهم الكلمة المفتاحية في التعليقات، فيرسل ManyChat الرسالة الخاصة، ويضيفه n8n إلى Airtable وGoHighLevel، ثم يكتب Claude مسودة المتابعة في Gmail لتوافق عليها. أنت لا ترى إلا الخطوة الأخيرة.</span></p></div></div>
+  <div class="step"><div class="num">06</div><div>
+    <h2><span class="l-en">The setup order</span><span class="l-ar">ترتيب التجهيز</span></h2><p><span class="l-en">Default order, built so each hire has something to work with. If one job is bleeding money right now, jump straight to that tool, then come back to this list. Missing DMs: ManyChat. Drowning in email: Gmail with Claude. Leads going cold: GoHighLevel. Same copy-paste every day: n8n.</span><span class="l-ar">هذا هو الترتيب الافتراضي، وهو مبني بحيث يجد كل تعيين ما يعمل عليه. إن كانت هناك مهمة تستنزف المال الآن، فابدأ مباشرة بأداتها ثم عُد إلى هذه القائمة. رسائل خاصة تضيع: ManyChat. بريد يغرقك: Gmail مع Claude. عملاء يبردون: GoHighLevel. نسخ ولصق متكرر كل يوم: n8n.</span></p><pre>1. Claude (your chief of staff)
+2. Gmail + Google Calendar connectors
+3. Airtable (one base for clients and content)
+4. GoHighLevel (your pipeline)
+5. ManyChat (keyword DMs)
+6. n8n (only once 2 tools need to talk)
+7. Fireflies (call notes)
+8. Loom (training videos)
+9. Instantly (only once your offer converts)
+10. Higgsfield (images)
+11. Claude Code (dashboards on top of it all)</pre></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Run your AI stack like a 12-person admin team</span><span class="l-ar">أدِر أدوات الذكاء الاصطناعي كفريق إداري من 12 شخصًا</span></span><span>HIRES</span></div>
+  <div class="eyebrow"><span class="l-en">03 · Copy and paste</span><span class="l-ar">03 · انسخ والصق</span></div><h2><span class="l-en">Your <span class="em">prompts.</span></span><span class="l-ar">أوامرك <span class="em">الجاهزة.</span></span></h2><p class="muted l-ar">انسخ الأوامر والنصوص كما هي باللغة الإنجليزية، فهي تعمل بدقة أكبر.</p>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">1. Pick your first hire</span><span class="l-ar">1. اختر أول تعيين لك</span></h4><pre>Here are the 3 jobs that eat most of my week: [job 1], [job 2], [job 3].
+My business: [what you sell, to who, roughly how many leads a week].
+From this list of tools, pick ONE to set up first and tell me why:
+Gmail and Google Calendar connectors, GoHighLevel, Instantly, ManyChat, Higgsfield, Airtable, n8n, Claude Code, Fireflies, Loom.
+Then give me the first 5 setup steps for that one tool.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">2. Write the job description</span><span class="l-ar">2. اكتب الوصف الوظيفي</span></h4><pre>I'm hiring [tool] as my [job title].
+Write its job description like a real hire:
+1. The one job it owns
+2. What it gets as input and from where
+3. What it hands over and to who
+4. How I'll know in 2 weeks it's working
+5. What it is NOT allowed to do
+Keep it to one page.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">3. Audit the team you already have</span><span class="l-ar">3. راجع الفريق الذي لديك الآن</span></h4><pre>Here is every AI or software tool I pay for: [tool, monthly price, what I use it for].
+Give each one a job title from this org chart: Front desk, Sales, Marketing, Operations, Records.
+Flag every tool with no clear job, every 2 tools doing the same job, and the job I have no tool for.
+End with what to cancel and what to add, in that order.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 06</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Run your AI stack like a 12-person admin team</span><span class="l-ar">أدِر أدوات الذكاء الاصطناعي كفريق إداري من 12 شخصًا</span></span><span>HIRES</span></div>
+  <div class="eyebrow"><span class="l-en">Done</span><span class="l-ar">تم</span></div>
+  <h2><span class="l-en">That's the <span class="em">whole setup.</span></span><span class="l-ar">هذا هو <span class="em">الإعداد كاملًا.</span></span></h2>
+  <p class="lead"><span class="l-en">Hire one tool this week, the one for the job you hate most. Add the next only when the first runs without you.</span><span class="l-ar">جرّبه هذا الأسبوع على عمل حقيقي، ثم أخبرني بالنتيجة عبر رسالة على إنستغرام، فأنا أقرأ الرسائل بنفسي.</span></p>
+  <h3><span class="l-en">Credit</span><span class="l-ar">المصادر</span></h3><ul><li>Claude, Claude Code and the Gmail and Google Calendar connectors by Anthropic (claude.com, support.claude.com)</li><li>GoHighLevel (gohighlevel.com)</li><li>Instantly (instantly.ai)</li><li>ManyChat (manychat.com)</li><li>Higgsfield (higgsfield.ai)</li><li>Airtable (airtable.com)</li><li>n8n (n8n.io)</li><li>Fireflies (fireflies.ai)</li><li>Loom (loom.com)</li></ul>
+  <div class="cta">
+    <div class="k"><span class="l-en">Built by</span><span class="l-ar">إعداد</span> <span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></div>
+    <h3><span class="l-en">Want it built for you?</span><span class="l-ar">تريد أن نبنيه لك؟</span></h3>
+    <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
+    <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
+  </div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 06</span></div>
+</section>
+<script>
+(function(){
+  var root=document.documentElement;
+  function set(l){root.dataset.lang=l;root.lang=l;root.dir=l==="ar"?"rtl":"ltr";
+    document.querySelectorAll(".lang-toggle button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
+    try{localStorage.setItem("karemops-guide-lang",l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem("karemops-guide-lang")}catch(e){}
+  set(location.hash==="#ar"?"ar":location.hash==="#en"?"en":(saved||"en"));
+  document.querySelector(".lang-toggle").addEventListener("click",function(e){var b=e.target.closest("button");if(b)set(b.dataset.l)});
+})();
+</script>
+</body>
+</html>
