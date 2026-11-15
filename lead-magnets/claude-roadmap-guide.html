@@ -99,6 +99,36 @@ html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
 .lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
 .lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
 .lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+/* phone layout (2026-11-15): pages stack full width and grow with their content; print stays 8.5x11 */
+@media screen and (max-width:860px){
+  body{padding:0}
+  .page{width:100%;height:auto;min-height:0;margin:0 0 10px;padding:30px 18px 22px;box-shadow:none}
+  .cover{padding-top:58px}
+  .run{font-size:9.5px;gap:10px;margin-bottom:22px}
+  .run span:nth-child(2){display:none}
+  h1{font-size:40px}
+  html[data-lang="ar"] h1{font-size:32px}
+  h2{font-size:30px}
+  .step h2{font-size:24px}
+  p,ul li{font-size:15px}
+  .lead{font-size:16px}
+  .cover .brandrow{margin-bottom:28px}
+  .stage{margin:22px 0;min-height:0;padding:16px 12px;outline-offset:4px}
+  .win pre{font-size:12.5px;padding:16px 14px}
+  .cover .bottom{grid-template-columns:1fr;gap:16px;margin-top:22px}
+  .by{justify-content:flex-start}
+  .step{grid-template-columns:44px 1fr;gap:0 6px;padding:16px 0}
+  .step .num{font-size:32px}
+  .cbox pre{font-size:12.5px}
+  .cbox a.url{font-size:13.5px}
+  .cpy{font-size:12px;padding:8px 12px}
+  .shot img,.shot video{max-height:none}
+  .cta{padding:28px 20px 22px}
+  .cta h3{font-size:28px}
+  .foot{margin-top:20px}
+  .lang-toggle{top:auto;bottom:14px;right:12px}
+  html[data-lang="ar"] .lang-toggle{left:12px}
+}
 @media print{
   @page{size:8.5in 11in;margin:0}
   html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
