@@ -5674,5 +5674,285 @@
    "Setup and prompts written by Karem AlMoayyad for Karemops.ai"
   ],
   "payoff": "Set up the project by Wednesday. On Thursday night, switch on the automations and test them with a DM from a friend."
+ },
+ {
+  "kw": "MOTION",
+  "slug": "claude-animations",
+  "style": "club",
+  "url": "https://www.karemopsai.com/guides/claude-animations",
+  "dm_url": "https://www.karemopsai.com/guides/claude-animations?via=dm",
+  "number": 56,
+  "hero": 1,
+  "date_en": "15 Nov 2026",
+  "date_ar": "15 نوفمبر 2026",
+  "title": "30 animations Claude Code builds <span class=\"em\">from one prompt.</span>",
+  "lead": "No editing app and no AI video model. You paste a prompt, Claude Code writes the animation in code, and you render a clean vertical mp4 for your reels.",
+  "inside": "Set up a blank Remotion project, connect Claude Code to it, and use 30 written-out prompts for 3D, paper, chart and interface effects you can drop on top of any talking-head video.",
+  "what": [
+   "Remotion is a free, open source tool that turns code into video. Every frame is a web page, so anything you can draw in a browser you can animate: charts, 3D cards, maps, phone screens, big type. Claude Code writes that code for you.",
+   "The prompts are the part people get wrong. \"Make a cool animation\" gets you a bouncing logo. Each prompt here fixes the size, the look, the colours, the motion frame by frame and the text, so Claude has nothing left to guess. You swap the words in [brackets] for yours and paste."
+  ],
+  "prereqs": [
+   "Claude Code on a paid Claude plan (Pro or higher) or API credits",
+   "Node.js installed (the LTS version from nodejs.org)",
+   "A Mac, Windows or Linux computer and 10 minutes for the first setup",
+   "A video editor you already use (CapCut, Premiere, Final Cut) to put the clips over your footage"
+  ],
+  "warn": "Remotion is free for individuals and companies of up to 3 people. Bigger companies need a paid Remotion company license (remotion.dev/license). The first render downloads a browser Remotion renders with, so expect one round of fixing an install error. Ask Claude Code to fix what it reports.",
+  "heads": {
+   "promptsEyebrow": "The 30 prompts",
+   "promptsH": "3D, paper, numbers, interface"
+  },
+  "steps": [
+   {
+    "h": "Make a blank Remotion project",
+    "p": "Open Terminal in the folder where you keep projects and run these 3 lines. The first makes an empty Remotion project. The last adds Remotion's official agent skills, so Claude Code writes Remotion the way its makers recommend.",
+    "code": "npx create-video --yes --blank my-animations\ncd my-animations\nnpx remotion skills add",
+    "shot": {
+     "src": "assets/claude-animations/shot-create.png",
+     "alt": "Terminal running npx create-video --yes --blank my-animations, then cd and npx remotion skills add",
+     "cap": "3 lines in Terminal: create the project, go into it, add the skills. Recreated screen."
+    }
+   },
+   {
+    "h": "Open the preview",
+    "p": "In the same folder, start Remotion Studio. It opens in your browser, usually at localhost:3000. Leave it open: every animation Claude builds shows up in the left list, and you scrub it with the timeline at the bottom.",
+    "code": "npm run dev",
+    "shot": {
+     "src": "assets/claude-animations/shot-studio.png",
+     "alt": "Remotion Studio in the browser with the composition list on the left, the animation in the middle and the timeline below",
+     "cap": "Remotion Studio: pick the animation on the left, play it in the middle. Real screen, sample project."
+    }
+   },
+   {
+    "h": "Start Claude Code and paste a prompt",
+    "p": "Open a second Terminal window, go into the same folder and type claude. Pick one prompt from the next pages, change every [bracket] to your own words, paste it and press Enter. Claude writes the file and adds it to the project.",
+    "code": "cd my-animations\nclaude",
+    "loop": {
+     "src": "assets/claude-animations/loop-prompt.mp4",
+     "webm": "assets/claude-animations/loop-prompt.webm",
+     "poster": "assets/claude-animations/loop-prompt.png",
+     "alt": "Claude Code with a Teardown prompt typed in and sent, then the finished animation playing",
+     "cap": "Paste the prompt, press Enter, the animation appears in Studio. Recreated screen."
+    }
+   },
+   {
+    "h": "Fix it in plain words",
+    "p": "Watch it in Studio, then tell Claude what to change. The motion in every prompt is numbered by frame, so you can be exact: \"start the route at frame 20\", \"make the bars 20% slower\", \"swap blue for #E1306C\". One change per message works best.",
+    "shot": {
+     "src": "assets/claude-animations/shot-fix.png",
+     "alt": "Claude Code with a follow-up message asking to start the route at frame 20 and use a red pin",
+     "cap": "Ask for one change at a time, with a frame number when you can. Recreated screen."
+    }
+   },
+   {
+    "h": "Render the mp4",
+    "p": "When it looks right, render it. Use the composition name from the prompt (Teardown, GlobeArcs...). The file lands in the out folder, ready to drop over your talking head in your editor.",
+    "code": "npx remotion render Teardown out/teardown.mp4",
+    "shot": {
+     "src": "assets/claude-animations/shot-render.png",
+     "alt": "Terminal rendering the Teardown composition with a progress bar and the saved file path",
+     "cap": "One line renders the clip to out/. Recreated screen."
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. Product teardown",
+    "code": "Build a Remotion composition called Teardown. 1080x1920, 30 fps, 90 frames.\nLook: a [phone] split into 5 flat layers (glass, screen, board, battery, back). CSS 3D, tilted 30 degrees, soft shadow under each layer, background #F4F1EA.\nMotion: frames 0-20 the stack sits closed. Frames 20-60 the layers spread apart vertically with a spring. Frames 45-75 a thin line and a label draw in next to each layer. Hold to the end.\nText: labels [Glass, Screen, Board, Battery, Back], Inter 600, #111.\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "2. Globe with flight arcs",
+    "code": "Build a Remotion composition called GlobeArcs. 1080x1920, 30 fps, 90 frames.\nLook: a dark navy globe (#0E1A33) made of small dots, drawn in SVG with an orthographic projection (no 3D library), slowly turning.\nMotion: the globe turns 40 degrees over the whole clip. From frame 15, glowing blue arcs (#0866FF) launch from [Beirut] to [Riyadh], [Dubai], [London] and [New York], one every 10 frames, each with a small pulse where it lands.\nText: a caption at the bottom: [Clients in 5 countries], Inter 700, white.\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "3. Bar chart city",
+    "code": "Build a Remotion composition called BarCity. 1080x1920, 30 fps, 90 frames.\nLook: an isometric grid floor (CSS 3D, 55 degree tilt) on #F7F3EA. Each bar is a box building with a lighter top face.\nMotion: 7 buildings rise one after another from frame 10, each taking 12 frames with an ease-out. The last one is twice as tall and turns blue (#0866FF) at frame 70.\nText: month labels [Jan to Jul] on the floor, and [+212%] above the tallest building.\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "4. Card fan",
+    "code": "Build a Remotion composition called CardFan. 1080x1920, 30 fps, 60 frames.\nLook: 3 rounded white cards with a soft shadow on a cream background (#F2EAD9), CSS 3D.\nMotion: frames 0-15 the cards sit stacked. Frames 15-40 they fan out like a hand of playing cards, left card rotates -14 degrees, right card +14. The middle card lifts toward the camera and scales to 1.08.\nText: card titles [Starter], [Growth], [Done for you], big serif, one short line under each.\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "5. Extruded logo spin",
+    "code": "Build a Remotion composition called LogoSpin. 1080x1920, 30 fps, 90 frames.\nLook: the word [YOUR BRAND] as thick 3D letters: stack 24 copies of the text 1px apart in CSS 3D so it looks extruded. Front face white, sides #0866FF, black background.\nMotion: the word turns from -60 to +20 degrees on the Y axis with ease-in-out, a light sweep crosses the front face at frame 50.\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "6. Floating phone",
+    "code": "Build a Remotion composition called FloatingPhone. 1080x1920, 30 fps, 90 frames.\nLook: a phone frame with rounded corners floating at a slight 3D tilt over a soft gradient (#EAF1FF to #FFFFFF). Inside: a simple app home screen drawn with divs.\nMotion: the phone bobs up and down 10px the whole time. From frame 20, 3 notification banners drop in from the top one by one, each with a small bounce.\nText: notifications [New lead: Sara], [Booked: Thursday 3pm], [Paid: $1,200].\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "7. Map route",
+    "code": "Build a Remotion composition called MapRoute. 1080x1920, 30 fps, 90 frames.\nLook: a flat paper map (#EFE6D2) with faint street lines drawn in SVG, tilted back 35 degrees in CSS 3D.\nMotion: frame 10 a pin drops at the start. Frames 15-65 a thick blue dashed route draws itself along a curvy path (SVG stroke-dashoffset). Frame 65 a second pin drops at the end with a ring that ripples out.\nText: a label at the end pin: [Day 30], Inter 700.\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "8. Word cube",
+    "code": "Build a Remotion composition called WordCube. 1080x1920, 30 fps, 90 frames.\nLook: a cube in CSS 3D, each face a solid colour block with one bold word. Faces #0E1A33, #0866FF, #FBF7EF.\nMotion: the cube turns a quarter turn every 30 frames with a spring that overshoots a little, so the viewer reads [Script], then [Film], then [Post].\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "9. Front page",
+    "code": "Build a Remotion composition called FrontPage. 1080x1920, 30 fps, 90 frames.\nLook: a newspaper front page on warm paper (#F3EEE3): masthead, a big headline, 3 columns of grey text lines, a photo box with hatching. Serif type.\nMotion: frames 0-20 the masthead slides in. Frames 20-45 the headline types in letter by letter. Frames 45-75 the columns fill line by line. The whole page slowly pushes in, scale 1 to 1.06.\nText: masthead [THE DAILY OPERATOR], headline [Small business cuts 10 hours a week with Claude].\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "10. Marker on a sentence",
+    "code": "Build a Remotion composition called MarkerNote. 1080x1920, 30 fps, 60 frames.\nLook: a sentence in big black serif on white, like a printed page.\nMotion: frames 10-30 a yellow highlighter swipe draws behind [one key phrase] left to right. Frames 30-45 a red hand-drawn circle (SVG path, slightly wobbly) draws around [one word]. Frames 45-60 a small arrow and a scribbled note appear: [this part].\nText: the sentence: [Most owners lose 10 hours a week to admin].\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "11. Sticky notes sort",
+    "code": "Build a Remotion composition called StickySort. 1080x1920, 30 fps, 90 frames.\nLook: a cork-coloured board (#C9A97A) with 6 square sticky notes in yellow, pink and blue, each with a hand-written style word.\nMotion: frames 0-30 the notes slap onto the board one by one at random angles with a little shake. Frames 40-75 they slide into 3 neat columns with headers [Do], [Delegate], [Automate].\nText: note words [Invoices, Replies, Reports, Posting, Booking, Follow-ups].\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "12. Torn paper reveal",
+    "code": "Build a Remotion composition called TornReveal. 1080x1920, 30 fps, 60 frames.\nLook: a top sheet of kraft paper (#B88A55) covering a white sheet with a headline. The tear edge is a jagged SVG path with a soft shadow.\nMotion: frames 10-40 the top sheet tears away diagonally, the edge following the jagged path, revealing the headline underneath. Frames 40-60 the headline settles with a small scale bounce.\nText: headline [Stop doing it by hand.], heavy serif.\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "13. Blueprint",
+    "code": "Build a Remotion composition called Blueprint. 1080x1920, 30 fps, 90 frames.\nLook: blueprint blue (#1C4E8A) with a fine white grid. Everything is drawn as thin white lines in SVG.\nMotion: one continuous line draws a simple funnel diagram: 3 boxes, arrows between them, then a dollar sign at the bottom (stroke-dashoffset from frame 0 to 70). Labels fade in next to each box as the line reaches it.\nText: boxes [Reel], [DM], [Call], monospace labels.\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "14. Receipt print",
+    "code": "Build a Remotion composition called Receipt. 1080x1920, 30 fps, 90 frames.\nLook: a thermal receipt (white, slightly grey edges, zigzag bottom) coming out of a dark slot at the top of the frame. Monospace type.\nMotion: the receipt slides down line by line from frame 0 to 70, each line appearing as it exits the slot. At frame 72 the total line flashes once.\nText: lines [Writing posts 6h], [Replying to DMs 4h], [Reports 2h], total [12 HOURS SAVED].\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "15. Approved stamp",
+    "code": "Build a Remotion composition called Stamp. 1080x1920, 30 fps, 60 frames.\nLook: a document page on a wooden desk colour (#8B5E3C), grey text lines on the page.\nMotion: frames 0-20 a red rubber stamp comes down from off screen. Frame 22 it hits: the camera shakes for 6 frames and the ink mark appears, slightly rough at the edges, rotated -8 degrees. Frames 30-60 the stamp lifts away.\nText: stamp word [APPROVED].\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "16. Odometer counter",
+    "code": "Build a Remotion composition called Odometer. 1080x1920, 30 fps, 60 frames.\nLook: huge digits in white on #0E1A33, each digit in its own window like a car odometer.\nMotion: each digit column rolls up from 0 to its target between frames 5 and 45, the right-most column spinning fastest, all landing with a small overshoot.\nText: the number [48,700] and a label under it [followers in 90 days].\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "17. Bar breaks the frame",
+    "code": "Build a Remotion composition called BreakoutBar. 1080x1920, 30 fps, 90 frames.\nLook: a clean bar chart on white, 5 grey bars, thin axis lines, a top border line across the chart.\nMotion: bars grow one by one from frame 5. The last bar is blue (#0866FF) and keeps growing past the top line, cracks it (2 SVG crack lines) and goes off the top of the frame at frame 70, the chart shaking for 4 frames.\nText: bar labels [2022 to 2026], and [this year] beside the blue bar.\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "18. Line chart with a glow",
+    "code": "Build a Remotion composition called GlowLine. 1080x1920, 30 fps, 60 frames.\nLook: dark background (#0B0F1A), a faint grid, one line chart in bright blue.\nMotion: frames 0-40 the line draws left to right with a glowing dot at its tip and a soft fading trail. At the peak (frame 40) a label card pops up with a spring.\nText: the peak label [Best month: $18K].\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "19. 30 day calendar",
+    "code": "Build a Remotion composition called Calendar30. 1080x1920, 30 fps, 90 frames.\nLook: a month grid of 30 rounded squares on #FBF7EF, day numbers in small grey type.\nMotion: from frame 5 the squares fill blue one by one (2 frames each). Every 7th square gets a small star. At frame 70 a banner drops over the grid.\nText: banner [30 days. 30 reels.].\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "20. Donut fill",
+    "code": "Build a Remotion composition called Donut. 1080x1920, 30 fps, 60 frames.\nLook: a thick donut ring, grey track, blue fill (#0866FF), on white.\nMotion: the fill sweeps from 0 to [73] percent between frames 5 and 45 with ease-out. The number in the middle counts up in sync and pulses once when it lands.\nText: under the ring: [of DMs answered by AI].\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "21. Before and after",
+    "code": "Build a Remotion composition called BeforeAfter. 1080x1920, 30 fps, 60 frames.\nLook: the frame split down the middle. Left half grey and dull, right half white and bright.\nMotion: frames 0-20 the left number shows. Frames 20-40 a vertical slider line wipes from left to right with a small handle. Frames 40-60 the right number counts down to its value and turns green.\nText: left [Before: 14 hours], right [After: 2 hours], label at the top [Weekly admin].\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "22. Dot grid percent",
+    "code": "Build a Remotion composition called DotGrid. 1080x1920, 30 fps, 60 frames.\nLook: a 10 by 10 grid of small grey dots on #0E1A33.\nMotion: from frame 5, [27] dots light up blue in a wave from the top-left corner, 1 frame apart. At frame 45 the lit dots pulse together once.\nText: big number above: [27%], small line under: [of leads come from one keyword].\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "23. Split flap board",
+    "code": "Build a Remotion composition called SplitFlap. 1080x1920, 30 fps, 90 frames.\nLook: an airport departure board: black tiles with white letters, each tile split in the middle with a thin dark line.\nMotion: every tile flips through random letters with a fast top-half fold animation, then lands on its letter. Tiles land left to right between frames 15 and 60, each with a tiny bounce.\nText: the words [NOW BOARDING] on row 1 and [YOUR AI TEAM] on row 2.\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "24. DM pile up",
+    "code": "Build a Remotion composition called DMPile. 1080x1920, 30 fps, 90 frames.\nLook: an Instagram style inbox screen drawn with divs: white, rounded avatar circles, names, a message preview line. No real logos.\nMotion: new message rows slide in at the top every 6 frames, pushing the list down, while a red badge counter on top climbs from 0 to [47].\nText: names and previews are samples: [Maya: price?], [Omar: link pls], [Lina: MOTION]...\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "25. Terminal to website",
+    "code": "Build a Remotion composition called TerminalSite. 1080x1920, 30 fps, 90 frames.\nLook: a dark terminal window (#16181D) with a navy title bar, monospace text.\nMotion: frames 0-30 a command types in: [claude \"build my landing page\"]. Frames 30-45 three fast green check lines print. Frames 45-75 the terminal window morphs (scale and border-radius) into a light website card with a hero title and a button.\nText: website title [Karemops.ai], button [Book a call].\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "26. Slam type",
+    "code": "Build a Remotion composition called SlamType. 1080x1920, 30 fps, 60 frames.\nLook: pure black background, huge condensed white type filling the width.\nMotion: 3 words slam in one at a time at frames 5, 20 and 35. Each word starts at scale 3, hits scale 1 in 4 frames, and the frame shakes for 5 frames on impact. The last word is blue.\nText: words [STOP], [POSTING], [BLIND].\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "27. Letters assemble",
+    "code": "Build a Remotion composition called Assemble. 1080x1920, 30 fps, 60 frames.\nLook: white background, one bold word in navy.\nMotion: the letters start scattered across the frame at random positions and angles, blurred, then fly into place between frames 5 and 40 with springs, each letter a few frames apart. A thin blue underline draws under the word at frame 45.\nText: the word [AUTOMATE].\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "28. Search and autocomplete",
+    "code": "Build a Remotion composition called SearchBar. 1080x1920, 30 fps, 60 frames.\nLook: a big rounded search bar in the middle of a white screen with a magnifier icon (SVG).\nMotion: frames 5-30 a query types in with a blinking cursor. Frames 30-45 an autocomplete list drops down with 3 suggestions, the first one highlighted.\nText: query [how to get clients with], suggestions [Instagram reels], [cold email], [a free guide].\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "29. Click and done",
+    "code": "Build a Remotion composition called ClickDone. 1080x1920, 30 fps, 60 frames.\nLook: a clean app card with a big blue button on #F4F6FA, drawn with divs.\nMotion: frames 0-20 a mouse cursor (SVG arrow) glides to the button. Frame 22 it clicks: the button presses in and a ripple spreads. Frames 30-45 the button turns green with a check mark, and a toast slides up from the bottom.\nText: button [Send proposal], toast [Sent to 12 clients].\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   },
+   {
+    "h": "30. Lock screen",
+    "code": "Build a Remotion composition called LockScreen. 1080x1920, 30 fps, 90 frames.\nLook: a phone lock screen filling the frame: blurred blue gradient wallpaper, big thin clock at the top.\nMotion: frames 0-15 the clock fades in. From frame 20, 4 notifications stack up from the bottom, each with a soft spring and a light haptic shake of the phone. Frame 75 the top one expands.\nText: clock [9:41], notifications [Stripe: You got paid], [Calendar: Call with Ali], [ManyChat: 23 new DMs], [Claude: Your report is ready].\nOne file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code."
+   }
+  ],
+  "credit": [
+   "Remotion by Jonny Burger and the Remotion team (remotion.dev). Setup commands from Remotion's docs: Prompting videos with Claude Code, and the license page",
+   "Claude Code by Anthropic",
+   "All 30 prompts written by Karem AlMoayyad for Karemops.ai"
+  ],
+  "payoff": "Build one this week, drop it over a reel, and see if people watch longer.",
+  "ar": {
+   "title": "30 رسمًا متحركًا يبنيها Claude Code <span class=\"em\">من أمر واحد.</span>",
+   "lead": "بلا برنامج مونتاج وبلا نموذج فيديو بالذكاء الاصطناعي. تلصق الأمر، فيكتب Claude Code الحركة بالكود، وتصدّر فيديو mp4 عموديًا نظيفًا لمقاطعك القصيرة.",
+   "inside": "أنشئ مشروع Remotion فارغًا، واربطه بـ Claude Code، واستخدم 30 أمرًا مكتوبًا بالتفصيل لمؤثرات ثلاثية الأبعاد وورقية وبيانية وواجهات تضعها فوق أي فيديو تتحدث فيه.",
+   "what": [
+    "Remotion أداة مجانية مفتوحة المصدر تحوّل الكود إلى فيديو. كل إطار صفحة ويب، فكل ما يمكن رسمه في المتصفح يمكن تحريكه: رسوم بيانية، بطاقات ثلاثية الأبعاد، خرائط، شاشات هاتف، عناوين كبيرة. ويكتب Claude Code هذا الكود عنك.",
+    "الأمر المكتوب هو ما يخطئ فيه معظم الناس. عبارة \"اصنع حركة جميلة\" تعطيك شعارًا يقفز. كل أمر هنا يحدد المقاس والشكل والألوان والحركة إطارًا بإطار والنص، فلا يبقى لـ Claude ما يخمّنه. استبدل الكلمات بين [الأقواس] بكلماتك ثم الصق."
+   ],
+   "prereqs": [
+    "Claude Code على خطة Claude مدفوعة (Pro أو أعلى) أو رصيد API",
+    "Node.js مثبّت (نسخة LTS من nodejs.org)",
+    "جهاز Mac أو Windows أو Linux وعشر دقائق للإعداد الأول",
+    "برنامج مونتاج تستخدمه أصلًا (CapCut أو Premiere أو Final Cut) لوضع المقاطع فوق تصويرك"
+   ],
+   "warn": "Remotion مجاني للأفراد وللشركات حتى 3 أشخاص. الشركات الأكبر تحتاج رخصة شركة مدفوعة من Remotion (remotion.dev/license). أول تصدير ينزّل متصفحًا يستخدمه Remotion، فتوقّع جولة واحدة لإصلاح خطأ في التثبيت. اطلب من Claude Code إصلاح ما يظهره.",
+   "steps": [
+    {
+     "h": "أنشئ مشروع Remotion فارغًا",
+     "p": "افتح Terminal في المجلد الذي تحفظ فيه مشاريعك وشغّل هذه الأسطر الثلاثة. الأول ينشئ مشروع Remotion فارغًا، والأخير يضيف مهارات الوكلاء الرسمية من Remotion، فيكتب Claude Code بالطريقة التي يوصي بها صانعو الأداة."
+    },
+    {
+     "h": "افتح المعاينة",
+     "p": "في المجلد نفسه شغّل Remotion Studio. يفتح في المتصفح، عادة على localhost:3000. اتركه مفتوحًا: كل حركة يبنيها Claude تظهر في القائمة اليسرى، وتتنقّل فيها بالشريط الزمني في الأسفل."
+    },
+    {
+     "h": "شغّل Claude Code والصق أمرًا",
+     "p": "افتح نافذة Terminal ثانية، وادخل إلى المجلد نفسه واكتب claude. اختر أمرًا من الصفحات التالية، وغيّر كل [قوس] إلى كلماتك، ثم الصقه واضغط Enter. يكتب Claude الملف ويضيفه إلى المشروع."
+    },
+    {
+     "h": "عدّل بكلام بسيط",
+     "p": "شاهد الحركة في Studio ثم قل لـ Claude ما تريد تغييره. الحركة في كل أمر مرقّمة بالإطارات، فيمكنك أن تكون دقيقًا: \"ابدأ المسار عند الإطار 20\"، \"اجعل الأعمدة أبطأ بنسبة 20%\"، \"استبدل الأزرق بـ #E1306C\". تغيير واحد في كل رسالة هو الأفضل."
+    },
+    {
+     "h": "صدّر ملف mp4",
+     "p": "عندما تصبح الحركة كما تريد، صدّرها. استخدم اسم التكوين الموجود في الأمر (Teardown وGlobeArcs...). يُحفظ الملف في مجلد out، جاهزًا لتضعه فوق فيديوك في برنامج المونتاج."
+    }
+   ],
+   "prompts": [
+    "1. تفكيك منتج",
+    "2. كرة أرضية بخطوط طيران",
+    "3. مدينة من الأعمدة",
+    "4. مروحة بطاقات",
+    "5. شعار مجسّم يدور",
+    "6. هاتف عائم",
+    "7. مسار على خريطة",
+    "8. مكعب الكلمات",
+    "9. صفحة أولى لجريدة",
+    "10. قلم تحديد على جملة",
+    "11. ترتيب الملاحظات اللاصقة",
+    "12. كشف بورق ممزّق",
+    "13. مخطط هندسي",
+    "14. طباعة إيصال",
+    "15. ختم معتمد",
+    "16. عدّاد دوّار",
+    "17. عمود يكسر الإطار",
+    "18. خط بياني متوهّج",
+    "19. تقويم 30 يومًا",
+    "20. حلقة تمتلئ",
+    "21. قبل وبعد",
+    "22. شبكة نقاط بالنسبة المئوية",
+    "23. لوحة رحلات متقلّبة",
+    "24. رسائل تتراكم",
+    "25. من الطرفية إلى موقع",
+    "26. كلمات تصطدم",
+    "27. حروف تتجمّع",
+    "28. بحث وإكمال تلقائي",
+    "29. نقرة وتمّ",
+    "30. شاشة القفل"
+   ]
+  }
  }
 ]

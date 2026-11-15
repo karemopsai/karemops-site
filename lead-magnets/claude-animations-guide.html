@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>30 animations Claude Code builds from one prompt | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E7E0D2; --paper:#FBF7EF; --white:#FFFFFF; --ink:#1A1714; --navy:#0E1A33; --muted:#4A4438; --line:#E4DACA;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F6F0E4; --cream:#F2EAD9; --brass:#B08D57;
+  --repp:repeating-linear-gradient(135deg,#0E1A33 0 11px,#0866FF 11px 17px,#0E1A33 17px 28px,#FBF7EF 28px 30px);
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Cormorant Garamond',Georgia,serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(14,26,51,.06),0 12px 40px rgba(14,26,51,.10);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--brass);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--brass);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-family:var(--serif);font-weight:600;font-size:64px;line-height:1;letter-spacing:-.01em;color:var(--navy);text-wrap:balance}
+h2{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.05;letter-spacing:-.01em;color:var(--navy);margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--blue);letter-spacing:0}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--cream);border:0;border-top:1.5px solid var(--brass);border-radius:0;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--navy);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--navy)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:0;padding:34px 40px;background-color:var(--cream);
+  border:1px solid var(--line);outline:1px solid var(--brass);outline-offset:6px}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(14,26,51,.12),0 2px 6px rgba(14,26,51,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:var(--navy);font-size:11px;color:var(--paper)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:rgba(251,247,239,.35);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--brass)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:34px;height:auto;display:block}
+.cover::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
+.step h2{font-size:30px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.shot{margin:10px 0 2px;border:1px solid var(--line);border-top:1.5px solid var(--brass);background:var(--white);padding:6px}
+.shot img,.shot video{display:block;width:100%;height:auto;max-height:3.3in;object-fit:contain;background:var(--white)}
+.shot figcaption{font-size:10.5px;color:var(--muted);padding:6px 2px 0;letter-spacing:.02em}
+.prompt{margin-bottom:8px}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--navy);color:#fff;border-radius:0;padding:34px 30px 28px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-family:var(--serif);font-size:32px;letter-spacing:0;text-transform:none;margin:0 0 8px;font-weight:600}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px;color:#4D92FF}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3;font-family:var(--arab);font-weight:800}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+}</style>
+</head>
+<body>
+<div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip"><span class="l-en">Comment</span><span class="l-ar">اكتب</span> · MOTION</span></div>
+  <div class="eyebrow"><span class="l-en">Field guide · No. 56</span><span class="l-ar">دليل عملي · رقم 56</span></div>
+  <h1><span class="l-en">30 animations Claude Code builds <span class="em">from one prompt.</span></span><span class="l-ar">30 رسمًا متحركًا يبنيها Claude Code <span class="em">من أمر واحد.</span></span></h1>
+  <p class="lead"><span class="l-en">No editing app and no AI video model. You paste a prompt, Claude Code writes the animation in code, and you render a clean vertical mp4 for your reels.</span><span class="l-ar">بلا برنامج مونتاج وبلا نموذج فيديو بالذكاء الاصطناعي. تلصق الأمر، فيكتب Claude Code الحركة بالكود، وتصدّر فيديو mp4 عموديًا نظيفًا لمقاطعك القصيرة.</span></p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Claude Code</span></div><pre><span class="p">&gt;</span> npx create-video --yes --blank my-animations
+cd my-animations
+npx remotion skills add<span class="caret"></span></pre><div class="note"><span class="l-en">Step 01 of this guide. Copy it as is.</span><span class="l-ar">الخطوة 01 من هذا الدليل. انسخها كما هي.</span></div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0"><span class="l-en">Inside</span><span class="l-ar">في هذا الدليل</span></h3><p><span class="l-en">Set up a blank Remotion project, connect Claude Code to it, and use 30 written-out prompts for 3D, paper, chart and interface effects you can drop on top of any talking-head video.</span><span class="l-ar">أنشئ مشروع Remotion فارغًا، واربطه بـ Claude Code، واستخدم 30 أمرًا مكتوبًا بالتفصيل لمؤثرات ثلاثية الأبعاد وورقية وبيانية وواجهات تضعها فوق أي فيديو تتحدث فيه.</span></p></div>
+    <div class="by"><svg class="mono-k" viewBox="0 0 120 150" aria-label="Karemops crest"><ellipse cx="60" cy="75" rx="57" ry="72" fill="none" stroke="#B08D57" stroke-width="3"/><ellipse cx="60" cy="75" rx="49" ry="64" fill="none" stroke="#B08D57" stroke-width="1.4"/><text x="60" y="98" text-anchor="middle" style="font:600 68px 'Cormorant Garamond',Georgia,serif;fill:#0866FF">K</text></svg><div><b><span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">30 animations Claude Code builds from one prompt</span><span class="l-ar">30 رسمًا متحركًا يبنيها Claude Code من أمر واحد</span></span><span>MOTION</span></div>
+  <div class="eyebrow"><span class="l-en">01 · What this is</span><span class="l-ar">01 · ما هذا</span></div>
+  <h2><span class="l-en">What you're <span class="em">setting up.</span></span><span class="l-ar">ما الذي <span class="em">ستُعدّه.</span></span></h2>
+  <p><span class="l-en">Remotion is a free, open source tool that turns code into video. Every frame is a web page, so anything you can draw in a browser you can animate: charts, 3D cards, maps, phone screens, big type. Claude Code writes that code for you.</span><span class="l-ar">Remotion أداة مجانية مفتوحة المصدر تحوّل الكود إلى فيديو. كل إطار صفحة ويب، فكل ما يمكن رسمه في المتصفح يمكن تحريكه: رسوم بيانية، بطاقات ثلاثية الأبعاد، خرائط، شاشات هاتف، عناوين كبيرة. ويكتب Claude Code هذا الكود عنك.</span></p>
+  <p><span class="l-en">The prompts are the part people get wrong. "Make a cool animation" gets you a bouncing logo. Each prompt here fixes the size, the look, the colours, the motion frame by frame and the text, so Claude has nothing left to guess. You swap the words in [brackets] for yours and paste.</span><span class="l-ar">الأمر المكتوب هو ما يخطئ فيه معظم الناس. عبارة "اصنع حركة جميلة" تعطيك شعارًا يقفز. كل أمر هنا يحدد المقاس والشكل والألوان والحركة إطارًا بإطار والنص، فلا يبقى لـ Claude ما يخمّنه. استبدل الكلمات بين [الأقواس] بكلماتك ثم الصق.</span></p>
+  <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">Claude Code on a paid Claude plan (Pro or higher) or API credits</li><li class="l-en">Node.js installed (the LTS version from nodejs.org)</li><li class="l-en">A Mac, Windows or Linux computer and 10 minutes for the first setup</li><li class="l-en">A video editor you already use (CapCut, Premiere, Final Cut) to put the clips over your footage</li><li class="l-ar">Claude Code على خطة Claude مدفوعة (Pro أو أعلى) أو رصيد API</li><li class="l-ar">Node.js مثبّت (نسخة LTS من nodejs.org)</li><li class="l-ar">جهاز Mac أو Windows أو Linux وعشر دقائق للإعداد الأول</li><li class="l-ar">برنامج مونتاج تستخدمه أصلًا (CapCut أو Premiere أو Final Cut) لوضع المقاطع فوق تصويرك</li></ul>
+  <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">Remotion is free for individuals and companies of up to 3 people. Bigger companies need a paid Remotion company license (remotion.dev/license). The first render downloads a browser Remotion renders with, so expect one round of fixing an install error. Ask Claude Code to fix what it reports.</span><span class="l-ar">Remotion مجاني للأفراد وللشركات حتى 3 أشخاص. الشركات الأكبر تحتاج رخصة شركة مدفوعة من Remotion (remotion.dev/license). أول تصدير ينزّل متصفحًا يستخدمه Remotion، فتوقّع جولة واحدة لإصلاح خطأ في التثبيت. اطلب من Claude Code إصلاح ما يظهره.</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 17</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">30 animations Claude Code builds from one prompt</span><span class="l-ar">30 رسمًا متحركًا يبنيها Claude Code من أمر واحد</span></span><span>MOTION</span></div>
+  <div class="eyebrow"><span class="l-en">02 · The steps</span><span class="l-ar">02 · الخطوات</span></div><h2><span class="l-en">Set it up, <span class="em">step by step.</span></span><span class="l-ar">الإعداد <span class="em">خطوة بخطوة.</span></span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2><span class="l-en">Make a blank Remotion project</span><span class="l-ar">أنشئ مشروع Remotion فارغًا</span></h2><p><span class="l-en">Open Terminal in the folder where you keep projects and run these 3 lines. The first makes an empty Remotion project. The last adds Remotion's official agent skills, so Claude Code writes Remotion the way its makers recommend.</span><span class="l-ar">افتح Terminal في المجلد الذي تحفظ فيه مشاريعك وشغّل هذه الأسطر الثلاثة. الأول ينشئ مشروع Remotion فارغًا، والأخير يضيف مهارات الوكلاء الرسمية من Remotion، فيكتب Claude Code بالطريقة التي يوصي بها صانعو الأداة.</span></p><pre>npx create-video --yes --blank my-animations
+cd my-animations
+npx remotion skills add</pre><figure class="shot"><img src="assets/claude-animations/shot-create.png" alt="Terminal running npx create-video --yes --blank my-animations, then cd and npx remotion skills add" loading="lazy"><figcaption>3 lines in Terminal: create the project, go into it, add the skills. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 17</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">30 animations Claude Code builds from one prompt</span><span class="l-ar">30 رسمًا متحركًا يبنيها Claude Code من أمر واحد</span></span><span>MOTION</span></div>
+  
+  <div class="step"><div class="num">02</div><div>
+    <h2><span class="l-en">Open the preview</span><span class="l-ar">افتح المعاينة</span></h2><p><span class="l-en">In the same folder, start Remotion Studio. It opens in your browser, usually at localhost:3000. Leave it open: every animation Claude builds shows up in the left list, and you scrub it with the timeline at the bottom.</span><span class="l-ar">في المجلد نفسه شغّل Remotion Studio. يفتح في المتصفح، عادة على localhost:3000. اتركه مفتوحًا: كل حركة يبنيها Claude تظهر في القائمة اليسرى، وتتنقّل فيها بالشريط الزمني في الأسفل.</span></p><pre>npm run dev</pre><figure class="shot"><img src="assets/claude-animations/shot-studio.png" alt="Remotion Studio in the browser with the composition list on the left, the animation in the middle and the timeline below" loading="lazy"><figcaption>Remotion Studio: pick the animation on the left, play it in the middle. Real screen, sample project.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 17</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">30 animations Claude Code builds from one prompt</span><span class="l-ar">30 رسمًا متحركًا يبنيها Claude Code من أمر واحد</span></span><span>MOTION</span></div>
+  
+  <div class="step"><div class="num">03</div><div>
+    <h2><span class="l-en">Start Claude Code and paste a prompt</span><span class="l-ar">شغّل Claude Code والصق أمرًا</span></h2><p><span class="l-en">Open a second Terminal window, go into the same folder and type claude. Pick one prompt from the next pages, change every [bracket] to your own words, paste it and press Enter. Claude writes the file and adds it to the project.</span><span class="l-ar">افتح نافذة Terminal ثانية، وادخل إلى المجلد نفسه واكتب claude. اختر أمرًا من الصفحات التالية، وغيّر كل [قوس] إلى كلماتك، ثم الصقه واضغط Enter. يكتب Claude الملف ويضيفه إلى المشروع.</span></p><pre>cd my-animations
+claude</pre><figure class="shot loop"><video poster="assets/claude-animations/loop-prompt.png" autoplay muted loop playsinline preload="metadata" aria-label="Claude Code with a Teardown prompt typed in and sent, then the finished animation playing"><source src="assets/claude-animations/loop-prompt.webm" type="video/webm"><source src="assets/claude-animations/loop-prompt.mp4" type="video/mp4"></video><figcaption>Paste the prompt, press Enter, the animation appears in Studio. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 17</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">30 animations Claude Code builds from one prompt</span><span class="l-ar">30 رسمًا متحركًا يبنيها Claude Code من أمر واحد</span></span><span>MOTION</span></div>
+  
+  <div class="step"><div class="num">04</div><div>
+    <h2><span class="l-en">Fix it in plain words</span><span class="l-ar">عدّل بكلام بسيط</span></h2><p><span class="l-en">Watch it in Studio, then tell Claude what to change. The motion in every prompt is numbered by frame, so you can be exact: "start the route at frame 20", "make the bars 20% slower", "swap blue for #E1306C". One change per message works best.</span><span class="l-ar">شاهد الحركة في Studio ثم قل لـ Claude ما تريد تغييره. الحركة في كل أمر مرقّمة بالإطارات، فيمكنك أن تكون دقيقًا: "ابدأ المسار عند الإطار 20"، "اجعل الأعمدة أبطأ بنسبة 20%"، "استبدل الأزرق بـ #E1306C". تغيير واحد في كل رسالة هو الأفضل.</span></p><figure class="shot"><img src="assets/claude-animations/shot-fix.png" alt="Claude Code with a follow-up message asking to start the route at frame 20 and use a red pin" loading="lazy"><figcaption>Ask for one change at a time, with a frame number when you can. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 17</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">30 animations Claude Code builds from one prompt</span><span class="l-ar">30 رسمًا متحركًا يبنيها Claude Code من أمر واحد</span></span><span>MOTION</span></div>
+  
+  <div class="step"><div class="num">05</div><div>
+    <h2><span class="l-en">Render the mp4</span><span class="l-ar">صدّر ملف mp4</span></h2><p><span class="l-en">When it looks right, render it. Use the composition name from the prompt (Teardown, GlobeArcs...). The file lands in the out folder, ready to drop over your talking head in your editor.</span><span class="l-ar">عندما تصبح الحركة كما تريد، صدّرها. استخدم اسم التكوين الموجود في الأمر (Teardown وGlobeArcs...). يُحفظ الملف في مجلد out، جاهزًا لتضعه فوق فيديوك في برنامج المونتاج.</span></p><pre>npx remotion render Teardown out/teardown.mp4</pre><figure class="shot"><img src="assets/claude-animations/shot-render.png" alt="Terminal rendering the Teardown composition with a progress bar and the saved file path" loading="lazy"><figcaption>One line renders the clip to out/. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 17</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">30 animations Claude Code builds from one prompt</span><span class="l-ar">30 رسمًا متحركًا يبنيها Claude Code من أمر واحد</span></span><span>MOTION</span></div>
+  <div class="eyebrow"><span class="l-en">The 30 prompts</span><span class="l-ar">03 · انسخ والصق</span></div><h2><span class="l-en">3D, paper, numbers, interface</span><span class="l-ar">أوامرك <span class="em">الجاهزة.</span></span></h2><p class="muted l-ar">انسخ الأوامر والنصوص كما هي باللغة الإنجليزية، فهي تعمل بدقة أكبر.</p>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">1. Product teardown</span><span class="l-ar">1. تفكيك منتج</span></h4><pre>Build a Remotion composition called Teardown. 1080x1920, 30 fps, 90 frames.
+Look: a [phone] split into 5 flat layers (glass, screen, board, battery, back). CSS 3D, tilted 30 degrees, soft shadow under each layer, background #F4F1EA.
+Motion: frames 0-20 the stack sits closed. Frames 20-60 the layers spread apart vertically with a spring. Frames 45-75 a thin line and a label draw in next to each layer. Hold to the end.
+Text: labels [Glass, Screen, Board, Battery, Back], Inter 600, #111.
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">2. Globe with flight arcs</span><span class="l-ar">2. كرة أرضية بخطوط طيران</span></h4><pre>Build a Remotion composition called GlobeArcs. 1080x1920, 30 fps, 90 frames.
+Look: a dark navy globe (#0E1A33) made of small dots, drawn in SVG with an orthographic projection (no 3D library), slowly turning.
+Motion: the globe turns 40 degrees over the whole clip. From frame 15, glowing blue arcs (#0866FF) launch from [Beirut] to [Riyadh], [Dubai], [London] and [New York], one every 10 frames, each with a small pulse where it lands.
+Text: a caption at the bottom: [Clients in 5 countries], Inter 700, white.
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">3. Bar chart city</span><span class="l-ar">3. مدينة من الأعمدة</span></h4><pre>Build a Remotion composition called BarCity. 1080x1920, 30 fps, 90 frames.
+Look: an isometric grid floor (CSS 3D, 55 degree tilt) on #F7F3EA. Each bar is a box building with a lighter top face.
+Motion: 7 buildings rise one after another from frame 10, each taking 12 frames with an ease-out. The last one is twice as tall and turns blue (#0866FF) at frame 70.
+Text: month labels [Jan to Jul] on the floor, and [+212%] above the tallest building.
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 17</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">30 animations Claude Code builds from one prompt</span><span class="l-ar">30 رسمًا متحركًا يبنيها Claude Code من أمر واحد</span></span><span>MOTION</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">4. Card fan</span><span class="l-ar">4. مروحة بطاقات</span></h4><pre>Build a Remotion composition called CardFan. 1080x1920, 30 fps, 60 frames.
+Look: 3 rounded white cards with a soft shadow on a cream background (#F2EAD9), CSS 3D.
+Motion: frames 0-15 the cards sit stacked. Frames 15-40 they fan out like a hand of playing cards, left card rotates -14 degrees, right card +14. The middle card lifts toward the camera and scales to 1.08.
+Text: card titles [Starter], [Growth], [Done for you], big serif, one short line under each.
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">5. Extruded logo spin</span><span class="l-ar">5. شعار مجسّم يدور</span></h4><pre>Build a Remotion composition called LogoSpin. 1080x1920, 30 fps, 90 frames.
+Look: the word [YOUR BRAND] as thick 3D letters: stack 24 copies of the text 1px apart in CSS 3D so it looks extruded. Front face white, sides #0866FF, black background.
+Motion: the word turns from -60 to +20 degrees on the Y axis with ease-in-out, a light sweep crosses the front face at frame 50.
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">6. Floating phone</span><span class="l-ar">6. هاتف عائم</span></h4><pre>Build a Remotion composition called FloatingPhone. 1080x1920, 30 fps, 90 frames.
+Look: a phone frame with rounded corners floating at a slight 3D tilt over a soft gradient (#EAF1FF to #FFFFFF). Inside: a simple app home screen drawn with divs.
+Motion: the phone bobs up and down 10px the whole time. From frame 20, 3 notification banners drop in from the top one by one, each with a small bounce.
+Text: notifications [New lead: Sara], [Booked: Thursday 3pm], [Paid: $1,200].
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">08 / 17</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">30 animations Claude Code builds from one prompt</span><span class="l-ar">30 رسمًا متحركًا يبنيها Claude Code من أمر واحد</span></span><span>MOTION</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">7. Map route</span><span class="l-ar">7. مسار على خريطة</span></h4><pre>Build a Remotion composition called MapRoute. 1080x1920, 30 fps, 90 frames.
+Look: a flat paper map (#EFE6D2) with faint street lines drawn in SVG, tilted back 35 degrees in CSS 3D.
+Motion: frame 10 a pin drops at the start. Frames 15-65 a thick blue dashed route draws itself along a curvy path (SVG stroke-dashoffset). Frame 65 a second pin drops at the end with a ring that ripples out.
+Text: a label at the end pin: [Day 30], Inter 700.
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">8. Word cube</span><span class="l-ar">8. مكعب الكلمات</span></h4><pre>Build a Remotion composition called WordCube. 1080x1920, 30 fps, 90 frames.
+Look: a cube in CSS 3D, each face a solid colour block with one bold word. Faces #0E1A33, #0866FF, #FBF7EF.
+Motion: the cube turns a quarter turn every 30 frames with a spring that overshoots a little, so the viewer reads [Script], then [Film], then [Post].
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">9. Front page</span><span class="l-ar">9. صفحة أولى لجريدة</span></h4><pre>Build a Remotion composition called FrontPage. 1080x1920, 30 fps, 90 frames.
+Look: a newspaper front page on warm paper (#F3EEE3): masthead, a big headline, 3 columns of grey text lines, a photo box with hatching. Serif type.
+Motion: frames 0-20 the masthead slides in. Frames 20-45 the headline types in letter by letter. Frames 45-75 the columns fill line by line. The whole page slowly pushes in, scale 1 to 1.06.
+Text: masthead [THE DAILY OPERATOR], headline [Small business cuts 10 hours a week with Claude].
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">09 / 17</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">30 animations Claude Code builds from one prompt</span><span class="l-ar">30 رسمًا متحركًا يبنيها Claude Code من أمر واحد</span></span><span>MOTION</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">10. Marker on a sentence</span><span class="l-ar">10. قلم تحديد على جملة</span></h4><pre>Build a Remotion composition called MarkerNote. 1080x1920, 30 fps, 60 frames.
+Look: a sentence in big black serif on white, like a printed page.
+Motion: frames 10-30 a yellow highlighter swipe draws behind [one key phrase] left to right. Frames 30-45 a red hand-drawn circle (SVG path, slightly wobbly) draws around [one word]. Frames 45-60 a small arrow and a scribbled note appear: [this part].
+Text: the sentence: [Most owners lose 10 hours a week to admin].
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">11. Sticky notes sort</span><span class="l-ar">11. ترتيب الملاحظات اللاصقة</span></h4><pre>Build a Remotion composition called StickySort. 1080x1920, 30 fps, 90 frames.
+Look: a cork-coloured board (#C9A97A) with 6 square sticky notes in yellow, pink and blue, each with a hand-written style word.
+Motion: frames 0-30 the notes slap onto the board one by one at random angles with a little shake. Frames 40-75 they slide into 3 neat columns with headers [Do], [Delegate], [Automate].
+Text: note words [Invoices, Replies, Reports, Posting, Booking, Follow-ups].
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">12. Torn paper reveal</span><span class="l-ar">12. كشف بورق ممزّق</span></h4><pre>Build a Remotion composition called TornReveal. 1080x1920, 30 fps, 60 frames.
+Look: a top sheet of kraft paper (#B88A55) covering a white sheet with a headline. The tear edge is a jagged SVG path with a soft shadow.
+Motion: frames 10-40 the top sheet tears away diagonally, the edge following the jagged path, revealing the headline underneath. Frames 40-60 the headline settles with a small scale bounce.
+Text: headline [Stop doing it by hand.], heavy serif.
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">10 / 17</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">30 animations Claude Code builds from one prompt</span><span class="l-ar">30 رسمًا متحركًا يبنيها Claude Code من أمر واحد</span></span><span>MOTION</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">13. Blueprint</span><span class="l-ar">13. مخطط هندسي</span></h4><pre>Build a Remotion composition called Blueprint. 1080x1920, 30 fps, 90 frames.
+Look: blueprint blue (#1C4E8A) with a fine white grid. Everything is drawn as thin white lines in SVG.
+Motion: one continuous line draws a simple funnel diagram: 3 boxes, arrows between them, then a dollar sign at the bottom (stroke-dashoffset from frame 0 to 70). Labels fade in next to each box as the line reaches it.
+Text: boxes [Reel], [DM], [Call], monospace labels.
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">14. Receipt print</span><span class="l-ar">14. طباعة إيصال</span></h4><pre>Build a Remotion composition called Receipt. 1080x1920, 30 fps, 90 frames.
+Look: a thermal receipt (white, slightly grey edges, zigzag bottom) coming out of a dark slot at the top of the frame. Monospace type.
+Motion: the receipt slides down line by line from frame 0 to 70, each line appearing as it exits the slot. At frame 72 the total line flashes once.
+Text: lines [Writing posts 6h], [Replying to DMs 4h], [Reports 2h], total [12 HOURS SAVED].
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">15. Approved stamp</span><span class="l-ar">15. ختم معتمد</span></h4><pre>Build a Remotion composition called Stamp. 1080x1920, 30 fps, 60 frames.
+Look: a document page on a wooden desk colour (#8B5E3C), grey text lines on the page.
+Motion: frames 0-20 a red rubber stamp comes down from off screen. Frame 22 it hits: the camera shakes for 6 frames and the ink mark appears, slightly rough at the edges, rotated -8 degrees. Frames 30-60 the stamp lifts away.
+Text: stamp word [APPROVED].
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">11 / 17</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">30 animations Claude Code builds from one prompt</span><span class="l-ar">30 رسمًا متحركًا يبنيها Claude Code من أمر واحد</span></span><span>MOTION</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">16. Odometer counter</span><span class="l-ar">16. عدّاد دوّار</span></h4><pre>Build a Remotion composition called Odometer. 1080x1920, 30 fps, 60 frames.
+Look: huge digits in white on #0E1A33, each digit in its own window like a car odometer.
+Motion: each digit column rolls up from 0 to its target between frames 5 and 45, the right-most column spinning fastest, all landing with a small overshoot.
+Text: the number [48,700] and a label under it [followers in 90 days].
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">17. Bar breaks the frame</span><span class="l-ar">17. عمود يكسر الإطار</span></h4><pre>Build a Remotion composition called BreakoutBar. 1080x1920, 30 fps, 90 frames.
+Look: a clean bar chart on white, 5 grey bars, thin axis lines, a top border line across the chart.
+Motion: bars grow one by one from frame 5. The last bar is blue (#0866FF) and keeps growing past the top line, cracks it (2 SVG crack lines) and goes off the top of the frame at frame 70, the chart shaking for 4 frames.
+Text: bar labels [2022 to 2026], and [this year] beside the blue bar.
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">18. Line chart with a glow</span><span class="l-ar">18. خط بياني متوهّج</span></h4><pre>Build a Remotion composition called GlowLine. 1080x1920, 30 fps, 60 frames.
+Look: dark background (#0B0F1A), a faint grid, one line chart in bright blue.
+Motion: frames 0-40 the line draws left to right with a glowing dot at its tip and a soft fading trail. At the peak (frame 40) a label card pops up with a spring.
+Text: the peak label [Best month: $18K].
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">12 / 17</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">30 animations Claude Code builds from one prompt</span><span class="l-ar">30 رسمًا متحركًا يبنيها Claude Code من أمر واحد</span></span><span>MOTION</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">19. 30 day calendar</span><span class="l-ar">19. تقويم 30 يومًا</span></h4><pre>Build a Remotion composition called Calendar30. 1080x1920, 30 fps, 90 frames.
+Look: a month grid of 30 rounded squares on #FBF7EF, day numbers in small grey type.
+Motion: from frame 5 the squares fill blue one by one (2 frames each). Every 7th square gets a small star. At frame 70 a banner drops over the grid.
+Text: banner [30 days. 30 reels.].
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">20. Donut fill</span><span class="l-ar">20. حلقة تمتلئ</span></h4><pre>Build a Remotion composition called Donut. 1080x1920, 30 fps, 60 frames.
+Look: a thick donut ring, grey track, blue fill (#0866FF), on white.
+Motion: the fill sweeps from 0 to [73] percent between frames 5 and 45 with ease-out. The number in the middle counts up in sync and pulses once when it lands.
+Text: under the ring: [of DMs answered by AI].
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">21. Before and after</span><span class="l-ar">21. قبل وبعد</span></h4><pre>Build a Remotion composition called BeforeAfter. 1080x1920, 30 fps, 60 frames.
+Look: the frame split down the middle. Left half grey and dull, right half white and bright.
+Motion: frames 0-20 the left number shows. Frames 20-40 a vertical slider line wipes from left to right with a small handle. Frames 40-60 the right number counts down to its value and turns green.
+Text: left [Before: 14 hours], right [After: 2 hours], label at the top [Weekly admin].
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">13 / 17</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">30 animations Claude Code builds from one prompt</span><span class="l-ar">30 رسمًا متحركًا يبنيها Claude Code من أمر واحد</span></span><span>MOTION</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">22. Dot grid percent</span><span class="l-ar">22. شبكة نقاط بالنسبة المئوية</span></h4><pre>Build a Remotion composition called DotGrid. 1080x1920, 30 fps, 60 frames.
+Look: a 10 by 10 grid of small grey dots on #0E1A33.
+Motion: from frame 5, [27] dots light up blue in a wave from the top-left corner, 1 frame apart. At frame 45 the lit dots pulse together once.
+Text: big number above: [27%], small line under: [of leads come from one keyword].
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">23. Split flap board</span><span class="l-ar">23. لوحة رحلات متقلّبة</span></h4><pre>Build a Remotion composition called SplitFlap. 1080x1920, 30 fps, 90 frames.
+Look: an airport departure board: black tiles with white letters, each tile split in the middle with a thin dark line.
+Motion: every tile flips through random letters with a fast top-half fold animation, then lands on its letter. Tiles land left to right between frames 15 and 60, each with a tiny bounce.
+Text: the words [NOW BOARDING] on row 1 and [YOUR AI TEAM] on row 2.
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">24. DM pile up</span><span class="l-ar">24. رسائل تتراكم</span></h4><pre>Build a Remotion composition called DMPile. 1080x1920, 30 fps, 90 frames.
+Look: an Instagram style inbox screen drawn with divs: white, rounded avatar circles, names, a message preview line. No real logos.
+Motion: new message rows slide in at the top every 6 frames, pushing the list down, while a red badge counter on top climbs from 0 to [47].
+Text: names and previews are samples: [Maya: price?], [Omar: link pls], [Lina: MOTION]...
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">14 / 17</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">30 animations Claude Code builds from one prompt</span><span class="l-ar">30 رسمًا متحركًا يبنيها Claude Code من أمر واحد</span></span><span>MOTION</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">25. Terminal to website</span><span class="l-ar">25. من الطرفية إلى موقع</span></h4><pre>Build a Remotion composition called TerminalSite. 1080x1920, 30 fps, 90 frames.
+Look: a dark terminal window (#16181D) with a navy title bar, monospace text.
+Motion: frames 0-30 a command types in: [claude "build my landing page"]. Frames 30-45 three fast green check lines print. Frames 45-75 the terminal window morphs (scale and border-radius) into a light website card with a hero title and a button.
+Text: website title [Karemops.ai], button [Book a call].
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">26. Slam type</span><span class="l-ar">26. كلمات تصطدم</span></h4><pre>Build a Remotion composition called SlamType. 1080x1920, 30 fps, 60 frames.
+Look: pure black background, huge condensed white type filling the width.
+Motion: 3 words slam in one at a time at frames 5, 20 and 35. Each word starts at scale 3, hits scale 1 in 4 frames, and the frame shakes for 5 frames on impact. The last word is blue.
+Text: words [STOP], [POSTING], [BLIND].
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">27. Letters assemble</span><span class="l-ar">27. حروف تتجمّع</span></h4><pre>Build a Remotion composition called Assemble. 1080x1920, 30 fps, 60 frames.
+Look: white background, one bold word in navy.
+Motion: the letters start scattered across the frame at random positions and angles, blurred, then fly into place between frames 5 and 40 with springs, each letter a few frames apart. A thin blue underline draws under the word at frame 45.
+Text: the word [AUTOMATE].
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">15 / 17</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">30 animations Claude Code builds from one prompt</span><span class="l-ar">30 رسمًا متحركًا يبنيها Claude Code من أمر واحد</span></span><span>MOTION</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">28. Search and autocomplete</span><span class="l-ar">28. بحث وإكمال تلقائي</span></h4><pre>Build a Remotion composition called SearchBar. 1080x1920, 30 fps, 60 frames.
+Look: a big rounded search bar in the middle of a white screen with a magnifier icon (SVG).
+Motion: frames 5-30 a query types in with a blinking cursor. Frames 30-45 an autocomplete list drops down with 3 suggestions, the first one highlighted.
+Text: query [how to get clients with], suggestions [Instagram reels], [cold email], [a free guide].
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">29. Click and done</span><span class="l-ar">29. نقرة وتمّ</span></h4><pre>Build a Remotion composition called ClickDone. 1080x1920, 30 fps, 60 frames.
+Look: a clean app card with a big blue button on #F4F6FA, drawn with divs.
+Motion: frames 0-20 a mouse cursor (SVG arrow) glides to the button. Frame 22 it clicks: the button presses in and a ripple spreads. Frames 30-45 the button turns green with a check mark, and a toast slides up from the bottom.
+Text: button [Send proposal], toast [Sent to 12 clients].
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">30. Lock screen</span><span class="l-ar">30. شاشة القفل</span></h4><pre>Build a Remotion composition called LockScreen. 1080x1920, 30 fps, 90 frames.
+Look: a phone lock screen filling the frame: blurred blue gradient wallpaper, big thin clock at the top.
+Motion: frames 0-15 the clock fades in. From frame 20, 4 notifications stack up from the bottom, each with a soft spring and a light haptic shake of the phone. Frame 75 the top one expands.
+Text: clock [9:41], notifications [Stripe: You got paid], [Calendar: Call with Ali], [ManyChat: 23 new DMs], [Claude: Your report is ready].
+One file in src/. Register it in Root.tsx. No images or video files, everything is drawn in code.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">16 / 17</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">30 animations Claude Code builds from one prompt</span><span class="l-ar">30 رسمًا متحركًا يبنيها Claude Code من أمر واحد</span></span><span>MOTION</span></div>
+  <div class="eyebrow"><span class="l-en">Done</span><span class="l-ar">تم</span></div>
+  <h2><span class="l-en">That's the <span class="em">whole setup.</span></span><span class="l-ar">هذا هو <span class="em">الإعداد كاملًا.</span></span></h2>
+  <p class="lead"><span class="l-en">Build one this week, drop it over a reel, and see if people watch longer.</span><span class="l-ar">جرّبه هذا الأسبوع على عمل حقيقي، ثم أخبرني بالنتيجة عبر رسالة على إنستغرام، فأنا أقرأ الرسائل بنفسي.</span></p>
+  <h3><span class="l-en">Credit</span><span class="l-ar">المصادر</span></h3><ul><li>Remotion by Jonny Burger and the Remotion team (remotion.dev). Setup commands from Remotion's docs: Prompting videos with Claude Code, and the license page</li><li>Claude Code by Anthropic</li><li>All 30 prompts written by Karem AlMoayyad for Karemops.ai</li></ul>
+  <div class="cta">
+    <div class="k"><span class="l-en">Built by</span><span class="l-ar">إعداد</span> <span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></div>
+    <h3><span class="l-en">Want it built for you?</span><span class="l-ar">تريد أن نبنيه لك؟</span></h3>
+    <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
+    <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
+  </div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">17 / 17</span></div>
+</section>
+<script>
+(function(){
+  var root=document.documentElement;
+  function set(l){root.dataset.lang=l;root.lang=l;root.dir=l==="ar"?"rtl":"ltr";
+    document.querySelectorAll(".lang-toggle button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
+    try{localStorage.setItem("karemops-guide-lang",l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem("karemops-guide-lang")}catch(e){}
+  set(location.hash==="#ar"?"ar":location.hash==="#en"?"en":(saved||"en"));
+  document.querySelector(".lang-toggle").addEventListener("click",function(e){var b=e.target.closest("button");if(b)set(b.dataset.l)});
+})();
+</script>
+</body>
+</html>
