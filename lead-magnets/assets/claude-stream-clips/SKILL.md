@@ -34,45 +34,60 @@ Fixes (ask first):
 ## Step 1: pick the stream and the section
 
 1. Ask for the VOD link (YouTube, Twitch or Kick) and the campaign or reason.
-2. Long streams are huge. Ask which 2 hours to clip (default: the last 2 hours). Get the length with `yt-dlp --print duration_string "<link>"`.
+2. Get the length with `yt-dlp --print duration_string "<link>"`. Ask which 2 hours to clip (default: the last 2 hours).
 
-## Step 2: download
+## Step 2: get the chat replay (YouTube)
 
-- The section of video, 1080p max:
-  `yt-dlp -f "bv*[height<=1080]+ba/b[height<=1080]" --download-sections "*<from>-<to>" --merge-output-format mp4 -o work/section.mp4 "<link>"`
-- YouTube only, the chat replay (can take several minutes on a long stream):
-  `yt-dlp --skip-download --write-subs --sub-langs live_chat -o work/vod "<link>"` → `work/vod.live_chat.json`
-- Twitch, Kick, or no chat replay: skip the chat, step 3 uses the audio instead.
+`yt-dlp --skip-download --write-subs --sub-langs live_chat -o work/vod "<link>"` → `work/vod.live_chat.json`
+
+Tell the user this is slow: YouTube sends the chat in small pieces, so a 6 hour stream can take 45 minutes or more. Twitch, Kick, or no chat replay: go to step 3b.
 
 ## Step 3: find the moments
 
-- With chat (best): `python3 work/find_moments.py chat work/vod.live_chat.json --from <from> --to <to> --clips 7 > work/moments.json`
-- Without chat, first make a loudness log, then read it:
-  `ffmpeg -hide_banner -nostats -i work/section.mp4 -vn -af ebur128 -f null - 2> work/loudness.txt`
-  `python3 work/find_moments.py audio work/loudness.txt --clips 7 > work/moments.json`
+**3a. With chat (best):** `python3 work/find_moments.py chat work/vod.live_chat.json --from <from> --to <to> --clips 7 > work/moments.json`
 
-It lists each moment on screen and the JSON lands in `work/moments.json` (start and end in seconds from the start of `section.mp4`, the stream time, a strength score and the words chat repeated most). Show the user the list. Drop any moment that's just gameplay with no reaction.
+It lists each moment on screen. For each one, `vod_start` and `vod_end` are where to cut in the full stream (seconds): chat reacts 10 to 15 s late, so each window starts about 16 s before chat starts rising and ends 2 s after the peak, 15 to 45 s long. Show the user the list with the chat words.
 
-## Step 4: cut each clip to 9:16
+**3b. Without chat:** download the 2 hours first (step 4 with `*<from>-<to>` and `-o work/section.%(ext)s`), then
+`ffmpeg -hide_banner -nostats -i work/section.mp4 -vn -af ebur128 -f null - 2> work/loudness.txt`
+`python3 work/find_moments.py audio work/loudness.txt --clips 7 > work/moments.json`
+Here `start` and `end` are seconds into `work/section.mp4`.
 
-For each moment (n = 01, 02, ...), the stream sits in the middle over a blurred copy of itself:
+## Step 4: download only the clip windows
+
+For each moment (n = 01, 02, ...), fetch just that window, 1080p max:
+`yt-dlp -f "bv*[height<=1080]+ba/b[height<=1080]" --download-sections "*<vod_start>-<vod_end>" --merge-output-format mp4 -o work/raw-<n>.mp4 "<link>"`
+
+- If YouTube answers 403 (Forbidden), run it again with `--extractor-args "youtube:player_client=web_embedded"`.
+- Check the size with `ffprobe -v error -show_entries stream=width,height -of csv=p=0 work/raw-<n>.mp4`. If it came back smaller than 720p, try again: a soft clip loses the face.
+- Black loading screens: `ffmpeg -i work/raw-<n>.mp4 -vf blackdetect=d=0.5:pix_th=0.10 -an -f null -` lists them. Trim black at the start or end of the clip; if a moment is mostly black or only a cutscene with no reaction, tell the user and drop it.
+
+## Step 5: the 9:16 clip
+
+1. **Look first.** Save one frame (`ffmpeg -y -ss 5 -i work/raw-<n>.mp4 -frames:v 1 work/frame-<n>.png`), open it, and find the streamer's face cam box (x, y, width, height in that frame).
+2. **With a face cam (the usual clipper layout):** the face cam on top over a blurred fill, the gameplay below. Download at 1080p so the face cam stays sharp; if the face cam box is wider than it is tall by more than 1.7 times, lower 620 so it fits 1080 wide:
 ```
-ffmpeg -y -ss <start> -to <end> -i work/section.mp4 -filter_complex "[0:v]split[a][b];[a]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=20:2[bg];[b]scale=1080:-2[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2,setsar=1" -r 30 -c:v libx264 -crf 20 -preset veryfast -c:a aac -b:a 160k work/cut-<n>.mp4
+ffmpeg -y -i work/raw-<n>.mp4 -filter_complex "[0:v]split=3[a][b][c];[a]crop=<camW>:<camH>:<camX>:<camY>,scale=1080:760:force_original_aspect_ratio=increase,crop=1080:760,boxblur=20:2[camBg];[b]crop=<camW>:<camH>:<camX>:<camY>,scale=-2:620[cam];[camBg][cam]overlay=(W-w)/2:(H-h)/2[top];[c]crop=<gameW>:<gameH>:<gameX>:<gameY>,scale=1080:1160:force_original_aspect_ratio=increase,crop=1080:1160[game];[top][game]vstack,setsar=1" -r 30 -c:v libx264 -crf 20 -preset veryfast -c:a aac -b:a 160k work/cut-<n>.mp4
 ```
-If the streamer's face cam is in a corner, offer a second version that crops the face cam to the top half and the game to the bottom.
+   Pick the gameplay crop clear of the face cam and of any chat overlay on screen.
+3. **No face cam:** the stream in the middle over a blurred copy of itself:
+```
+ffmpeg -y -i work/raw-<n>.mp4 -filter_complex "[0:v]split[a][b];[a]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=20:2[bg];[b]scale=1080:-2[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2,setsar=1" -r 30 -c:v libx264 -crf 20 -preset veryfast -c:a aac -b:a 160k work/cut-<n>.mp4
+```
+4. Save a frame of each cut and look at it before going on.
 
-## Step 5: captions and a hook
+## Step 6: captions and a hook
 
 1. Captions: `ffmpeg -y -i work/cut-<n>.mp4 -vn -ac 1 -ar 16000 work/cut-<n>.wav`, then
-   `whisper-cli -m models/ggml-base.en.bin -f work/cut-<n>.wav -ml 18 -sow -osrt -of work/cut-<n>`
-   Fix names and slang in `work/cut-<n>.srt` (Whisper mishears names).
-2. Hook: write 3 short hook lines (under 8 words) for each clip from what happens and what chat said (`chat_words`). Let the user pick. Save the pick in `work/hook-<n>.srt` as one subtitle from 00:00:00,000 to 00:00:03,000.
-3. Burn both in, hook at the top, captions low:
+   `whisper-cli -m models/ggml-base.en.bin -f work/cut-<n>.wav -ml 14 -sow -osrt -of work/cut-<n>`
+   Fix names and slang in `work/cut-<n>.srt` (Whisper mishears names) and delete sound tags like (music) or ♪.
+2. Hook: write 3 short hook lines (under 8 words) for each clip from what happens and what chat said (`chat_words`), for example `SPEED GOT WASTED 😭`. Let the user pick. Save it in `work/hook-<n>.srt` as one subtitle from 00:00:00,000 to 00:00:03,000.
+3. Burn both in: the hook at the top for the first seconds, big captions on the seam between face cam and game:
 ```
-ffmpeg -y -i work/cut-<n>.mp4 -vf "subtitles=work/cut-<n>.srt:force_style='FontName=Arial,FontSize=13,Bold=1,Outline=2,Alignment=2,MarginV=60',subtitles=work/hook-<n>.srt:force_style='FontName=Arial,FontSize=16,Bold=1,Outline=3,Alignment=8,MarginV=40'" -c:v libx264 -crf 20 -c:a copy out/clip-<n>.mp4
+ffmpeg -y -i work/cut-<n>.mp4 -vf "subtitles=work/cut-<n>.srt:force_style='FontName=Arial,FontSize=18,Bold=1,BorderStyle=3,Outline=1,BackColour=&H80000000,Alignment=5',subtitles=work/hook-<n>.srt:force_style='FontName=Arial,FontSize=16,Bold=1,Outline=3,Alignment=8,MarginV=60'" -c:v libx264 -crf 20 -c:a copy out/clip-<n>.mp4
 ```
 
-## Step 6: hand it over
+## Step 7: hand it over
 
 1. Open the `out` folder for the user (`open out` on a Mac, `start out` on Windows) and list the clips with their stream time and hook.
 2. Write `out/clips.md`: for each clip a post caption that credits the streamer (@name) and, if the campaign asks for it, its tags or #ad.
@@ -101,8 +116,12 @@ Usage:
   python3 find_moments.py chat  work/vod.live_chat.json --from 1:00:00 --to 3:00:00 [--clips 7] > work/moments.json
   python3 find_moments.py audio work/loudness.txt [--clips 7] > work/moments.json
 
-Prints JSON: for each moment, where to cut (start/end in seconds from the start of the downloaded
-section), the stream time, a strength score and the words chat repeated most (for the hook).
+Prints JSON: for each moment, where to cut, in seconds from the start of the stream (vod_start,
+vod_end: chat mode) and from the start of the file you read (start, end), the stream time, a
+strength score, chat messages per minute at the peak and the words chat repeated most (for the hook).
+
+Chat reacts 10 to 15 s after something happens, so a chat clip starts about 16 s before chat starts
+rising and ends 2 s after the peak, 15 to 45 s long. Peaks are at least 5 minutes apart.
 It only reads the one file you give it and prints the result. Python standard library only.
 """
 import argparse, collections, json, math, re, sys
@@ -125,6 +144,7 @@ def chat_signal(path, t0, t1):
     """Per-second hype score from a YouTube chat replay file (one JSON object per line)."""
     length = int(t1 - t0) + 1
     score = [0.0] * length
+    msgs = [0] * length
     words = collections.defaultdict(collections.Counter)
     count = 0
     with open(path, encoding='utf-8', errors='ignore') as fh:
@@ -155,11 +175,12 @@ def chat_signal(path, t0, t1):
                     s += 0.5
                 sec = int(t - t0)
                 score[sec] += s
+                msgs[sec] += 1
                 count += 1
                 for w in re.findall(r"[A-Za-z']{2,}", text.upper()):
                     if w not in SKIP:
                         words[sec // 10][w] += 1
-    return score, words, count
+    return score, words, count, msgs
 
 
 def audio_signal(log_path):
@@ -204,21 +225,21 @@ def main():
     ap.add_argument('--from', dest='t0', default='0', help='chat mode: start of the section you downloaded, e.g. 1:00:00')
     ap.add_argument('--to', dest='t1', default=None, help='chat mode: end of that section, e.g. 3:00:00')
     ap.add_argument('--clips', type=int, default=7)
-    ap.add_argument('--gap', type=int, default=240, help='minimum seconds between two clips (default 240)')
+    ap.add_argument('--gap', type=int, default=300, help='minimum seconds between two clips (default 300)')
     a = ap.parse_args()
 
     if a.mode == 'chat':
         if not a.t1:
             sys.exit('Chat mode needs --to (the end of the section you downloaded).')
         t0, t1 = secs(a.t0), secs(a.t1)
-        signal, words, count = chat_signal(a.file, t0, t1)
+        signal, words, count, msgs = chat_signal(a.file, t0, t1)
         if count == 0:
             sys.exit('No chat messages found in that time range. Check --from and --to.')
         # chat reacts 10 to 20 s after the moment, so the clip starts well before the spike
         lead, tail, window = 25, 5, 10
     else:
         t0 = 0.0
-        signal, words, count = audio_signal(a.file), {}, 0
+        signal, words, count, msgs = audio_signal(a.file), {}, 0, None
         lead, tail, window = 15, 10, 4
 
     chosen, smooth, mean, sd = peaks(signal, a.clips, a.gap, lead, tail, window)
@@ -228,10 +249,24 @@ def main():
         for j in range(max(0, (p - 20) // 10), p // 10 + 2):
             top.update(words.get(j, {}) if isinstance(words, dict) else words[j])
         said = [w for w, _ in top.most_common(3)]
-        start, end = max(0, p - lead), min(len(signal), p + tail)
+        if a.mode == 'chat':
+            rise = p
+            while rise > 0 and smooth[rise - 1] > mean + 0.5 * sd and p - rise < 60:
+                rise -= 1
+            start, end = max(0, rise - 16), min(len(signal), p + 2)
+            if end - start < 15:
+                start = max(0, end - 15)
+            if end - start > 45:
+                start = end - 45
+            per_min = sum(msgs[max(0, p - 30):p + 30])
+        else:
+            start, end = max(0, p - lead), min(len(signal), p + tail)
+            per_min = None
         moments.append({
             'clip': k,
             'start': start, 'end': end,
+            'vod_start': round(t0 + start), 'vod_end': round(t0 + end),
+            'chat_per_min': per_min,
             'stream_time': clock(t0 + p),
             'strength': round((smooth[p] - mean) / sd, 1),
             'chat_words': said,

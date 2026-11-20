@@ -6355,11 +6355,11 @@
   "date_en": "20 Nov 2026",
   "date_ar": "20 نوفمبر 2026",
   "title": "Clip any stream <span class=\"em\">with Claude Code.</span>",
-  "lead": "Paste a stream link. Claude Code reads the chat replay, finds the moments where chat went wild, and cuts them into vertical clips with captions and a hook. Free tools, on your own computer.",
+  "lead": "The full setup from the reel. Paste a stream link: Claude Code reads the chat replay, finds the moments where chat went wild, and cuts them into vertical clips with captions and a hook. Free tools, on your own computer.",
   "inside": "All inside the Claude app, no Terminal: add the free clipping skill with one message, let Claude Code set up the tools, pick a clipping campaign, paste a stream link and get 9:16 clips with captions. Plus where campaigns pay per 1,000 views, their rules, 6 ready prompts and a paid one-click option.",
   "what": [
    "Every big streamer is playing GTA 6 right now, and brands and streamers pay people to clip them: clipping campaigns pay per 1,000 views on clips you post on your own accounts. The hard part is finding the good moments in a 6-hour stream. This guide gives you a free skill that does it for you.",
-   "How it finds them: when something big happens on stream, chat explodes. The skill reads the chat replay, finds the seconds where messages suddenly speed up and go ALL CAPS, and cuts the 30 seconds around each one. No chat replay (Twitch, Kick)? It listens for the loudest moments instead. We tested it on a real GTA 6 stream: 126,919 chat messages from 2 hours became 7 moments in under 2 seconds.",
+   "How it finds them: when something big happens on stream, chat explodes. The skill reads the chat replay, finds the seconds where messages suddenly speed up and go ALL CAPS, and cuts the 30 seconds around each one. No chat replay (Twitch, Kick)? It listens for the loudest moments instead. Our own run on a real GTA 6 stream: the last 2 hours had 137,709 chat messages, up to 1,507 a minute at the peak. It found 7 moments, and finding them plus fetching just those 7 clip windows took 35 seconds.",
    "Built only from free tools: Claude Code runs it, yt-dlp downloads the stream and its chat, FFmpeg cuts and fits each clip to 9:16, Whisper writes the captions. We wrote the skill from scratch and scanned it with NVIDIA SkillSpector: SAFE, 0 issues. Want a one-click paid tool instead? It's at the end, clearly marked.",
    "Never used Claude Code? This guide is for you. It all happens inside the Claude app: you paste a message and click Allow, no Terminal and no code. Every step has a screen with a gold ring on what to click. Steps 1 to 4 happen once. After that, every new stream is steps 5 to 10."
   ],
@@ -6454,34 +6454,34 @@
    },
    {
     "h": "Paste the stream link",
-    "p": "Copy the message below, swap the [brackets] for the stream's link and your campaign, paste it in Claude Code and press Enter. Click `Allow` when it asks. It downloads that part of the stream and the chat replay, then lists the moments it found. Type `yes` to cut them.",
+    "p": "Copy the message below, swap the [brackets] for the stream's link and your campaign, paste it in Claude Code and press Enter. Click `Allow` when it asks. It reads the chat replay first (the slow part: a 6 hour stream can take 45 minutes), finds the moments, then downloads only those 30 second windows, not the whole stream. Type `yes` to cut them.",
     "code": "/clip-stream clip the last 2 hours of [paste the stream link]. It's for [campaign name].",
     "codeLabel": "Paste in Claude Code, then add your link",
     "codeLabel_ar": "الصق في Claude Code ثم أضف رابطك",
     "shot": {
      "src": "assets/claude-stream-clips/shot-apppaste.png",
-     "alt": "Claude Code listing the moments it found from 126,919 chat messages, with yes typed in the box",
+     "alt": "Claude Code listing the moments it found from 137,709 chat messages, with yes typed in the box",
      "cap": "Paste the link, Enter, then yes. Recreated screen, real moments from our test."
     }
    },
    {
     "h": "How it finds the moments",
-    "p": "This is what the skill does with the chat. It counts messages every second and gives extra weight to ALL CAPS, `W`, `OMG`, `NO WAY` and emojis. Where the line jumps, something happened. Chat reacts a few seconds late, so each clip starts 25 seconds before the jump and ends 5 seconds after.",
+    "p": "This is what the skill does with the chat. It counts messages every second and gives extra weight to ALL CAPS, `W`, `OMG`, `NO WAY` and emojis. Where the line jumps, something happened. Chat reacts 10 to 15 seconds late, so each clip starts about 16 seconds before chat starts rising and ends 2 seconds after the peak: 15 to 45 seconds, with the build-up and the reaction.",
     "loop": {
      "src": "assets/claude-stream-clips/loop-spike.mp4",
      "poster": "assets/claude-stream-clips/loop-spike.png",
      "alt": "A real chat activity line drawing itself, with a spike marked clip here and the 30 second window around it",
-     "cap": "Real chat replay from a GTA 6 stream, 2:11 to 2:21."
+     "cap": "Real chat replay from the GTA 6 stream we clipped, 5:12 to 5:22."
     }
    },
    {
     "h": "It cuts each moment to 9:16",
-    "p": "Streams are wide, phones are tall. The skill puts the stream in the middle of a vertical frame and fills the top and bottom with a blurred copy, so nothing gets cut off. Want the streamer's face on top and the game below? Ask for it (prompt 3 at the end).",
+    "p": "Streams are wide, phones are tall. Claude looks at a frame, finds the streamer's face cam, and builds the clipper layout: the face cam on top over a blurred fill, the gameplay below. No face cam? The stream sits in the middle over a blurred copy. Black loading screens get cut out.",
     "loop": {
      "src": "assets/claude-stream-clips/loop-cut.mp4",
      "poster": "assets/claude-stream-clips/loop-cut.png",
-     "alt": "A wide stream frame shrinking into a phone, with a blurred copy behind it",
-     "cap": "16:9 stream to a 9:16 clip. Recreated."
+     "alt": "A wide stream frame turning into a phone clip with the face cam on top and the gameplay below",
+     "cap": "Face cam on top, gameplay below. Recreated."
     }
    },
    {
@@ -6530,8 +6530,8 @@
     "code": "/clip-stream clip [paste the Twitch or Kick VOD link], from [1:00:00] to [3:00:00].\nThere's no chat replay, so use the audio to find the loud moments."
    },
    {
-    "h": "3. Face cam on top, game below",
-    "code": "/clip-stream for every clip, make a second version:\nthe streamer's face cam cropped to the top half, the game in the bottom half."
+    "h": "3. A centered version too",
+    "code": "/clip-stream for every clip, also make a centered version:\nthe whole stream in the middle over a blurred copy, no face cam split."
    },
    {
     "h": "4. Better hooks",
@@ -6552,16 +6552,17 @@
    "FFmpeg by the FFmpeg developers (ffmpeg.org, LGPL/GPL)",
    "Whisper by OpenAI (MIT), run with whisper.cpp by Georgi Gerganov and contributors (MIT)",
    "Campaign marketplaces named as examples: Whop, Vyro. Creago (creagoai.com) is listed as a paid option we haven't tested; no affiliate link",
+   "Real-run numbers: our own clipping run on a public GTA 6 VOD, last 2 hours, 20 Nov 2026",
    "The starter skill was written from scratch by Karemops.ai and scanned with NVIDIA SkillSpector (SAFE, 0 issues, 20 Nov 2026). Test data: the public chat replay of a GTA 6 stream"
   ],
   "payoff": "Clip one stream this week for a campaign you've joined, post the 3 best clips, and see which hook gets the views.",
   "ar": {
    "title": "قصّ أي بثّ مباشر <span class=\"em\">بـ Claude Code.</span>",
-   "lead": "الصق رابط البثّ. يقرأ Claude Code إعادة المحادثة، ويجد اللحظات التي جُنّت فيها المحادثة، ويقصّها مقاطع عمودية مع ترجمة وافتتاحية. أدوات مجانية، على جهازك.",
+   "lead": "الإعداد الكامل من الفيديو. الصق رابط البثّ: يقرأ Claude Code إعادة المحادثة، ويجد اللحظات التي جُنّت فيها المحادثة، ويقصّها مقاطع عمودية مع ترجمة وافتتاحية. أدوات مجانية، على جهازك.",
    "inside": "كل شيء داخل تطبيق Claude بلا Terminal: أضف مهارة القصّ المجانية برسالة واحدة، ودع Claude Code يجهّز الأدوات، واختر حملة مقاطع، والصق رابط البثّ لتحصل على مقاطع 9:16 مع ترجمة. ومعها أين تدفع الحملات لكل 1,000 مشاهدة، وقواعدها، و6 أوامر جاهزة، وخيار مدفوع بنقرة واحدة.",
    "what": [
     "كل صانع محتوى كبير يلعب GTA 6 الآن، والعلامات التجارية وأصحاب البثّ يدفعون لمن يقصّ بثوثهم: حملات المقاطع تدفع لكل 1,000 مشاهدة على المقاطع التي تنشرها على حساباتك. الصعب هو إيجاد اللحظات الجيدة في بثّ مدته 6 ساعات. يعطيك هذا الدليل مهارة مجانية تفعل ذلك عنك.",
-    "كيف تجدها: حين يحدث شيء كبير في البثّ تنفجر المحادثة. تقرأ المهارة إعادة المحادثة، وتجد الثواني التي تتسارع فيها الرسائل فجأة وتصبح بأحرف كبيرة، وتقصّ الثلاثين ثانية حول كل منها. لا توجد إعادة محادثة (Twitch وKick)؟ تستمع لأعلى اللحظات صوتًا بدلًا منها. جرّبناها على بثّ حقيقي لـ GTA 6: 126,919 رسالة خلال ساعتين أصبحت 7 لحظات في أقل من ثانيتين.",
+    "كيف تجدها: حين يحدث شيء كبير في البثّ تنفجر المحادثة. تقرأ المهارة إعادة المحادثة، وتجد الثواني التي تتسارع فيها الرسائل فجأة وتصبح بأحرف كبيرة، وتقصّ الثلاثين ثانية حول كل منها. لا توجد إعادة محادثة (Twitch وKick)؟ تستمع لأعلى اللحظات صوتًا بدلًا منها. في تجربتنا على بثّ حقيقي لـ GTA 6: آخر ساعتين فيهما 137,709 رسالة، حتى 1,507 رسالة في الدقيقة عند الذروة. وجدت 7 لحظات، واستغرق إيجادها وتنزيل نوافذ هذه المقاطع السبعة فقط 35 ثانية.",
     "مبنية فقط من أدوات مجانية: Claude Code يشغّلها، وyt-dlp ينزّل البثّ ومحادثته، وFFmpeg يقصّ كل مقطع ويضبطه على 9:16، وWhisper يكتب الترجمة. كتبنا المهارة من الصفر وفحصناها بأداة NVIDIA SkillSpector: النتيجة SAFE، بلا أي مشكلة. تريد أداة مدفوعة بنقرة واحدة بدلًا منها؟ تجدها في النهاية بعلامة واضحة.",
     "لم تستخدم Claude Code من قبل؟ هذا الدليل لك. كل شيء داخل تطبيق Claude: تلصق رسالة وتضغط Allow، بلا Terminal وبلا كود. لكل خطوة شاشة فيها حلقة ذهبية على ما تضغطه. الخطوات من 1 إلى 4 مرة واحدة فقط. بعدها كل بثّ جديد هو الخطوات من 5 إلى 10."
    ],
@@ -6599,15 +6600,15 @@
     },
     {
      "h": "الصق رابط البثّ",
-     "p": "انسخ الرسالة أدناه، وضع رابط البثّ واسم حملتك مكان [الأقواس]، والصقها في Claude Code واضغط Enter. اضغط `Allow` حين يسأل. ينزّل ذلك الجزء من البثّ وإعادة المحادثة، ثم يعرض اللحظات التي وجدها. اكتب `yes` ليقصّها."
+     "p": "انسخ الرسالة أدناه، وضع رابط البثّ واسم حملتك مكان [الأقواس]، والصقها في Claude Code واضغط Enter. اضغط `Allow` حين يسأل. يقرأ إعادة المحادثة أولًا (الجزء البطيء: بثّ من 6 ساعات قد يستغرق 45 دقيقة)، ويجد اللحظات، ثم ينزّل نوافذ الثلاثين ثانية هذه فقط، لا البثّ كله. اكتب `yes` ليقصّها."
     },
     {
      "h": "كيف يجد اللحظات",
-     "p": "هذا ما تفعله المهارة بالمحادثة. تعدّ الرسائل كل ثانية وتعطي وزنًا إضافيًا للأحرف الكبيرة و`W` و`OMG` و`NO WAY` والرموز التعبيرية. حيث يقفز الخط حدث شيء ما. المحادثة تتفاعل متأخرة بثوانٍ، لذلك يبدأ كل مقطع قبل القفزة بـ 25 ثانية وينتهي بعدها بـ 5 ثوانٍ."
+     "p": "هذا ما تفعله المهارة بالمحادثة. تعدّ الرسائل كل ثانية وتعطي وزنًا إضافيًا للأحرف الكبيرة و`W` و`OMG` و`NO WAY` والرموز التعبيرية. حيث يقفز الخط حدث شيء ما. المحادثة تتفاعل متأخرة من 10 إلى 15 ثانية، لذلك يبدأ كل مقطع قبل بدء ارتفاع المحادثة بنحو 16 ثانية وينتهي بعد الذروة بثانيتين: من 15 إلى 45 ثانية، مع التمهيد وردّة الفعل."
     },
     {
      "h": "يقصّ كل لحظة إلى 9:16",
-     "p": "البثّ عريض والهاتف طويل. تضع المهارة البثّ في وسط إطار عمودي وتملأ الأعلى والأسفل بنسخة ضبابية منه، فلا يُقطع شيء. تريد وجه صاحب البثّ فوق واللعبة تحت؟ اطلب ذلك (الأمر 3 في النهاية)."
+     "p": "البثّ عريض والهاتف طويل. ينظر Claude إلى إطار من البثّ، ويجد كاميرا وجه صاحب البثّ، ويبني تصميم المقاطع المعتاد: الكاميرا في الأعلى فوق خلفية ضبابية، واللعب في الأسفل. لا توجد كاميرا وجه؟ يوضع البثّ في الوسط فوق نسخة ضبابية منه. وتُحذف شاشات التحميل السوداء."
     },
     {
      "h": "الترجمة والافتتاحية",
@@ -6625,7 +6626,7 @@
    "prompts": [
     "1. آخر ساعتين من بثّ على YouTube",
     "2. بثّ على Twitch أو Kick (بلا محادثة)",
-    "3. الكاميرا فوق واللعبة تحت",
+    "3. نسخة في الوسط أيضًا",
     "4. افتتاحيات أفضل",
     "5. أقوى اللحظات فقط",
     "6. نصوص النشر لحملة"
