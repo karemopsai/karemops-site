@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clip any stream with Claude Code | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E7E0D2; --paper:#FBF7EF; --white:#FFFFFF; --ink:#1A1714; --navy:#0E1A33; --muted:#4A4438; --line:#E4DACA;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F6F0E4; --cream:#F2EAD9; --brass:#B08D57;
+  --repp:repeating-linear-gradient(135deg,#0E1A33 0 11px,#0866FF 11px 17px,#0E1A33 17px 28px,#FBF7EF 28px 30px);
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Cormorant Garamond',Georgia,serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(14,26,51,.06),0 12px 40px rgba(14,26,51,.10);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--brass);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--brass);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-family:var(--serif);font-weight:600;font-size:64px;line-height:1;letter-spacing:-.01em;color:var(--navy);text-wrap:balance}
+h2{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.05;letter-spacing:-.01em;color:var(--navy);margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--blue);letter-spacing:0}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--cream);border:0;border-top:1.5px solid var(--brass);border-radius:0;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--navy);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--navy)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:0;padding:34px 40px;background-color:var(--cream);
+  border:1px solid var(--line);outline:1px solid var(--brass);outline-offset:6px}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(14,26,51,.12),0 2px 6px rgba(14,26,51,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:var(--navy);font-size:11px;color:var(--paper)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:rgba(251,247,239,.35);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--brass)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:34px;height:auto;display:block}
+.cover::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
+.step h2{font-size:30px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.shot{margin:10px 0 2px;border:1px solid var(--line);border-top:1.5px solid var(--brass);background:var(--white);padding:6px}
+.shot img,.shot video{display:block;width:100%;height:auto;max-height:3.3in;object-fit:contain;background:var(--white)}
+.shot figcaption{font-size:10.5px;color:var(--muted);padding:6px 2px 0;letter-spacing:.02em}
+.prompt{margin-bottom:8px}
+/* copy boxes (2026-11-15): every link and every line people paste sits in its own box with a Copy button */
+.ic{font-family:var(--mono);font-size:.88em;background:var(--code);border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:var(--navy);direction:ltr;unicode-bidi:isolate}
+.cbox{margin:10px 0 4px;border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:8px;background:var(--code);overflow:hidden}
+.cbox.lk{border-left-color:var(--brass);background:var(--white)}
+.cbox .ch{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 10px 0 16px}
+.cbox .lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brass)}
+.cbox pre{margin:0;border:0;border-radius:0;background:transparent;padding:6px 16px 12px}
+.cbox a.url{display:block;font-family:var(--mono);font-size:13px;line-height:1.5;color:var(--blue);text-decoration:none;padding:4px 16px 11px;word-break:break-all;direction:ltr;text-align:left}
+.cpy{font:600 10.5px/1 Inter,sans-serif;color:var(--navy);background:var(--white);border:1px solid var(--line);border-radius:6px;padding:5px 9px;cursor:pointer;flex:none}
+.cpy:hover{border-color:var(--blue);color:var(--blue)}
+.prompt h4{display:flex;align-items:center}.prompt h4 .cpy{margin-inline-start:auto}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--navy);color:#fff;border-radius:0;padding:34px 30px 28px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-family:var(--serif);font-size:32px;letter-spacing:0;text-transform:none;margin:0 0 8px;font-weight:600}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px;color:#4D92FF}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3;font-family:var(--arab);font-weight:800}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+/* phone layout (2026-11-15): pages stack full width and grow with their content; print stays 8.5x11 */
+@media screen and (max-width:860px){
+  body{padding:0}
+  .page{width:100%;height:auto;min-height:0;margin:0 0 10px;padding:30px 18px 22px;box-shadow:none}
+  .cover{padding-top:58px}
+  .run{font-size:9.5px;gap:10px;margin-bottom:22px}
+  .run span:nth-child(2){display:none}
+  h1{font-size:40px}
+  html[data-lang="ar"] h1{font-size:32px}
+  h2{font-size:30px}
+  .step h2{font-size:24px}
+  p,ul li{font-size:15px}
+  .lead{font-size:16px}
+  .cover .brandrow{margin-bottom:28px}
+  .stage{margin:22px 0;min-height:0;padding:16px 12px;outline-offset:4px}
+  .win pre{font-size:12.5px;padding:16px 14px}
+  .cover .bottom{grid-template-columns:1fr;gap:16px;margin-top:22px}
+  .by{justify-content:flex-start}
+  .step{grid-template-columns:44px 1fr;gap:0 6px;padding:16px 0}
+  .step .num{font-size:32px}
+  .cbox pre{font-size:12.5px}
+  .cbox a.url{font-size:13.5px}
+  .cpy{font-size:12px;padding:8px 12px}
+  .shot img,.shot video{max-height:none}
+  .cta{padding:28px 20px 22px}
+  .cta h3{font-size:28px}
+  .foot{margin-top:20px}
+  .lang-toggle{top:auto;bottom:14px;right:12px}
+  html[data-lang="ar"] .lang-toggle{left:12px}
+}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+  .cpy{display:none !important}
+}</style>
+</head>
+<body>
+<div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip"><span class="l-en">Comment</span><span class="l-ar">اكتب</span> · CLIPS</span></div>
+  <div class="eyebrow"><span class="l-en">Field guide · No. 58</span><span class="l-ar">دليل عملي · رقم 58</span></div>
+  <h1><span class="l-en">Clip any stream <span class="em">with Claude Code.</span></span><span class="l-ar">قصّ أي بثّ مباشر <span class="em">بـ Claude Code.</span></span></h1>
+  <p class="lead"><span class="l-en">Paste a stream link. Claude Code reads the chat replay, finds the moments where chat went wild, and cuts them into vertical clips with captions and a hook. Free tools, on your own computer.</span><span class="l-ar">الصق رابط البثّ. يقرأ Claude Code إعادة المحادثة، ويجد اللحظات التي جُنّت فيها المحادثة، ويقصّها مقاطع عمودية مع ترجمة وافتتاحية. أدوات مجانية، على جهازك.</span></p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Prompt</span></div><pre>Download https://www.karemopsai.com/lead-magnets/assets/claude-stream-clips/SKILL.md and save it as ~/.claude/skills/clip-stream/SKILL.md. Then tell me in one line what it does.<span class="caret"></span></pre><div class="note"><span class="l-en">Step 03 of this guide. Copy it as is.</span><span class="l-ar">الخطوة 03 من هذا الدليل. انسخها كما هي.</span></div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0"><span class="l-en">Inside</span><span class="l-ar">في هذا الدليل</span></h3><p><span class="l-en">All inside the Claude app, no Terminal: add the free clipping skill with one message, let Claude Code set up the tools, pick a clipping campaign, paste a stream link and get 9:16 clips with captions. Plus where campaigns pay per 1,000 views, their rules, 6 ready prompts and a paid one-click option.</span><span class="l-ar">كل شيء داخل تطبيق Claude بلا Terminal: أضف مهارة القصّ المجانية برسالة واحدة، ودع Claude Code يجهّز الأدوات، واختر حملة مقاطع، والصق رابط البثّ لتحصل على مقاطع 9:16 مع ترجمة. ومعها أين تدفع الحملات لكل 1,000 مشاهدة، وقواعدها، و6 أوامر جاهزة، وخيار مدفوع بنقرة واحدة.</span></p></div>
+    <div class="by"><svg class="mono-k" viewBox="0 0 120 150" aria-label="Karemops crest"><ellipse cx="60" cy="75" rx="57" ry="72" fill="none" stroke="#B08D57" stroke-width="3"/><ellipse cx="60" cy="75" rx="49" ry="64" fill="none" stroke="#B08D57" stroke-width="1.4"/><text x="60" y="98" text-anchor="middle" style="font:600 68px 'Cormorant Garamond',Georgia,serif;fill:#0866FF">K</text></svg><div><b><span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Clip any stream with Claude Code</span><span class="l-ar">قصّ أي بثّ مباشر بـ Claude Code</span></span><span>CLIPS</span></div>
+  <div class="eyebrow"><span class="l-en">01 · What this is</span><span class="l-ar">01 · ما هذا</span></div>
+  <h2><span class="l-en">What you're <span class="em">setting up.</span></span><span class="l-ar">ما الذي <span class="em">ستُعدّه.</span></span></h2>
+  <p><span class="l-en">Every big streamer is playing GTA 6 right now, and brands and streamers pay people to clip them: clipping campaigns pay per 1,000 views on clips you post on your own accounts. The hard part is finding the good moments in a 6-hour stream. This guide gives you a free skill that does it for you.</span><span class="l-ar">كل صانع محتوى كبير يلعب GTA 6 الآن، والعلامات التجارية وأصحاب البثّ يدفعون لمن يقصّ بثوثهم: حملات المقاطع تدفع لكل 1,000 مشاهدة على المقاطع التي تنشرها على حساباتك. الصعب هو إيجاد اللحظات الجيدة في بثّ مدته 6 ساعات. يعطيك هذا الدليل مهارة مجانية تفعل ذلك عنك.</span></p>
+  <p><span class="l-en">How it finds them: when something big happens on stream, chat explodes. The skill reads the chat replay, finds the seconds where messages suddenly speed up and go ALL CAPS, and cuts the 30 seconds around each one. No chat replay (Twitch, Kick)? It listens for the loudest moments instead. We tested it on a real GTA 6 stream: 126,919 chat messages from 2 hours became 7 moments in under 2 seconds.</span><span class="l-ar">كيف تجدها: حين يحدث شيء كبير في البثّ تنفجر المحادثة. تقرأ المهارة إعادة المحادثة، وتجد الثواني التي تتسارع فيها الرسائل فجأة وتصبح بأحرف كبيرة، وتقصّ الثلاثين ثانية حول كل منها. لا توجد إعادة محادثة (Twitch وKick)؟ تستمع لأعلى اللحظات صوتًا بدلًا منها. جرّبناها على بثّ حقيقي لـ GTA 6: 126,919 رسالة خلال ساعتين أصبحت 7 لحظات في أقل من ثانيتين.</span></p>
+  <p><span class="l-en">Built only from free tools: Claude Code runs it, yt-dlp downloads the stream and its chat, FFmpeg cuts and fits each clip to 9:16, Whisper writes the captions. We wrote the skill from scratch and scanned it with NVIDIA SkillSpector: SAFE, 0 issues. Want a one-click paid tool instead? It's at the end, clearly marked.</span><span class="l-ar">مبنية فقط من أدوات مجانية: Claude Code يشغّلها، وyt-dlp ينزّل البثّ ومحادثته، وFFmpeg يقصّ كل مقطع ويضبطه على 9:16، وWhisper يكتب الترجمة. كتبنا المهارة من الصفر وفحصناها بأداة NVIDIA SkillSpector: النتيجة SAFE، بلا أي مشكلة. تريد أداة مدفوعة بنقرة واحدة بدلًا منها؟ تجدها في النهاية بعلامة واضحة.</span></p>
+  <p><span class="l-en">Never used Claude Code? This guide is for you. It all happens inside the Claude app: you paste a message and click Allow, no Terminal and no code. Every step has a screen with a gold ring on what to click. Steps 1 to 4 happen once. After that, every new stream is steps 5 to 10.</span><span class="l-ar">لم تستخدم Claude Code من قبل؟ هذا الدليل لك. كل شيء داخل تطبيق Claude: تلصق رسالة وتضغط Allow، بلا Terminal وبلا كود. لكل خطوة شاشة فيها حلقة ذهبية على ما تضغطه. الخطوات من 1 إلى 4 مرة واحدة فقط. بعدها كل بثّ جديد هو الخطوات من 5 إلى 10.</span></p>
+  <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">A paid Claude plan (Pro or higher)</li><li class="l-en">A Mac or Windows computer, 30 minutes for the first setup, and a few GB of free space</li><li class="l-en">A clipping campaign you've joined, or a streamer who allows clipping</li><li class="l-en">No Terminal, no coding. You paste a message and click Allow</li><li class="l-ar">خطة Claude مدفوعة (Pro أو أعلى)</li><li class="l-ar">جهاز Mac أو Windows، وثلاثون دقيقة للإعداد الأول، وبضعة غيغابايت من المساحة</li><li class="l-ar">حملة مقاطع انضممت إليها، أو صاحب بثّ يسمح بقصّ بثّه</li><li class="l-ar">بلا Terminal وبلا برمجة. تلصق رسالة وتضغط Allow</li></ul>
+  <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">Only post clips of streamers in a campaign you've joined, or who allow clipping: posting someone else's stream otherwise can get your account a copyright strike. Every clip should add something: the reaction, a hook and captions, never just the gameplay. The first setup installs about 1 GB of tools and Claude asks before each one.</span><span class="l-ar">انشر فقط مقاطع أصحاب بثّ ضمن حملة انضممت إليها، أو يسمحون بالقصّ: نشر بثّ شخص آخر بغير ذلك قد يعرّض حسابك لإنذار حقوق نشر. كل مقطع يجب أن يضيف شيئًا: ردّة الفعل، وافتتاحية، وترجمة، لا اللعب وحده أبدًا. الإعداد الأول يثبّت نحو 1 غيغابايت من الأدوات، ويسألك Claude قبل كل واحدة.</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 15</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Clip any stream with Claude Code</span><span class="l-ar">قصّ أي بثّ مباشر بـ Claude Code</span></span><span>CLIPS</span></div>
+  <div class="eyebrow"><span class="l-en">02 · The steps</span><span class="l-ar">02 · الخطوات</span></div><h2><span class="l-en">Set it up, <span class="em">step by step.</span></span><span class="l-ar">الإعداد <span class="em">خطوة بخطوة.</span></span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2><span class="l-en">Get the Claude app (one time only)</span><span class="l-ar">نزّل تطبيق Claude (مرة واحدة فقط)</span></h2><p><span class="l-en">Open the link below and download the Claude app for your computer. Open the file, drag Claude into Applications (on Windows, run the installer), open it and log in with your Claude account. Everything in this guide happens inside this app: no Terminal, no code.</span><span class="l-ar">افتح الرابط أدناه ونزّل تطبيق Claude لجهازك. افتح الملف واسحب Claude إلى Applications (في Windows شغّل المثبّت)، ثم افتحه وسجّل الدخول بحساب Claude. كل ما في هذا الدليل يحدث داخل هذا التطبيق: بلا Terminal وبلا كود.</span></p><div class="cbox lk" dir="ltr"><div class="ch"><span class="lbl"><span class="l-en">Download the Claude app</span><span class="l-ar">نزّل تطبيق Claude</span></span><button class="cpy" type="button">Copy</button></div><a class="url" href="https://claude.ai/download" target="_blank" rel="noopener">https://claude.ai/download</a></div><figure class="shot"><img src="assets/claude-stream-clips/shot-appdl.png" alt="The Claude download page with the Download for Mac button marked" loading="lazy"><figcaption>Download, install, log in. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 15</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Clip any stream with Claude Code</span><span class="l-ar">قصّ أي بثّ مباشر بـ Claude Code</span></span><span>CLIPS</span></div>
+  
+  <div class="step"><div class="num">02</div><div>
+    <h2><span class="l-en">Open the Code tab in a new folder</span><span class="l-ar">افتح تبويب Code في مجلد جديد</span></h2><p><span class="l-en">At the top of the app, click <code class="ic">Code</code>. Click <code class="ic">Choose folder</code>, then <code class="ic">New Folder</code>, name it <code class="ic">stream-clips</code> and click <code class="ic">Open</code>. This is where your clips will be saved. Claude only works inside this folder.</span><span class="l-ar">أعلى التطبيق اضغط <code class="ic">Code</code>. اضغط <code class="ic">Choose folder</code> ثم <code class="ic">New Folder</code>، وسمّه <code class="ic">stream-clips</code> واضغط <code class="ic">Open</code>. هنا ستُحفظ مقاطعك، ويعمل Claude داخل هذا المجلد فقط.</span></p><figure class="shot"><img src="assets/claude-stream-clips/shot-appfolder.png" alt="The Claude app with the Code tab and Choose folder marked, and a new folder called stream-clips" loading="lazy"><figcaption>Code tab, Choose folder, New Folder: stream-clips. Recreated screen, the app may look slightly different.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 15</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Clip any stream with Claude Code</span><span class="l-ar">قصّ أي بثّ مباشر بـ Claude Code</span></span><span>CLIPS</span></div>
+  
+  <div class="step"><div class="num">03</div><div>
+    <h2><span class="l-en">Add the free clipping skill</span><span class="l-ar">أضف مهارة القصّ المجانية</span></h2><p><span class="l-en">A skill is one text file that teaches Claude Code a job. Copy the message below, paste it in the box at the bottom and press Enter. When Claude asks to run a command, click <code class="ic">Allow</code>. Then click <code class="ic">New session</code> at the top left, so Claude loads the skill. Want to read the skill first? Open the link: it's plain English.</span><span class="l-ar">المهارة ملف نصي واحد يعلّم Claude Code مهمة. انسخ الرسالة أدناه والصقها في المربع أسفل الشاشة واضغط Enter. حين يطلب Claude تشغيل أمر اضغط <code class="ic">Allow</code>. ثم اضغط <code class="ic">New session</code> أعلى اليسار ليحمّل Claude المهارة. تريد قراءتها أولًا؟ افتح الرابط: إنجليزية بسيطة.</span></p><div class="cbox lk" dir="ltr"><div class="ch"><span class="lbl"><span class="l-en">Read the skill file</span><span class="l-ar">اقرأ ملف المهارة</span></span><button class="cpy" type="button">Copy</button></div><a class="url" href="https://www.karemopsai.com/lead-magnets/assets/claude-stream-clips/SKILL.md" target="_blank" rel="noopener">https://www.karemopsai.com/lead-magnets/assets/claude-stream-clips/SKILL.md</a></div><div class="cbox" dir="ltr"><div class="ch"><span class="lbl"><span class="l-en">Paste in Claude Code</span><span class="l-ar">الصق في Claude Code</span></span><button class="cpy" type="button">Copy</button></div><pre>Download https://www.karemopsai.com/lead-magnets/assets/claude-stream-clips/SKILL.md and save it as ~/.claude/skills/clip-stream/SKILL.md. Then tell me in one line what it does.</pre></div><figure class="shot"><img src="assets/claude-stream-clips/shot-appskill.png" alt="Claude Code with the install message, the Allow button marked, and New session marked" loading="lazy"><figcaption>Paste, Allow, then New session. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 15</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Clip any stream with Claude Code</span><span class="l-ar">قصّ أي بثّ مباشر بـ Claude Code</span></span><span>CLIPS</span></div>
+  
+  <div class="step"><div class="num">04</div><div>
+    <h2><span class="l-en">Let it set up the tools (one time only)</span><span class="l-ar">دعه يجهّز الأدوات (مرة واحدة فقط)</span></h2><p><span class="l-en">In the new session, paste the line below and press Enter. Claude checks for yt-dlp (downloads streams), FFmpeg (cuts video) and Whisper (captions) and asks before installing each: click <code class="ic">Allow</code>. On a Mac it may open the Homebrew installer: click Continue and Install, and type your Mac password in that window only, never in the chat.</span><span class="l-ar">في الجلسة الجديدة الصق السطر أدناه واضغط Enter. يتحقق Claude من yt-dlp (لتنزيل البثّ) وFFmpeg (لقصّ الفيديو) وWhisper (للترجمة) ويسألك قبل تثبيت كل منها: اضغط <code class="ic">Allow</code>. في Mac قد يفتح مثبّت Homebrew: اضغط Continue ثم Install، واكتب كلمة مرور جهازك في تلك النافذة فقط، لا في المحادثة أبدًا.</span></p><div class="cbox" dir="ltr"><div class="ch"><span class="lbl"><span class="l-en">Paste in Claude Code</span><span class="l-ar">الصق في Claude Code</span></span><button class="cpy" type="button">Copy</button></div><pre>/clip-stream set up my tools</pre></div><figure class="shot"><img src="assets/claude-stream-clips/shot-appsetup.png" alt="Claude Code asking to install the tools, with Allow marked, and the Homebrew installer password window" loading="lazy"><figcaption>Allow, and your password only in the installer window. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 15</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Clip any stream with Claude Code</span><span class="l-ar">قصّ أي بثّ مباشر بـ Claude Code</span></span><span>CLIPS</span></div>
+  
+  <div class="step"><div class="num">05</div><div>
+    <h2><span class="l-en">Pick a clipping campaign first</span><span class="l-ar">اختر حملة مقاطع أولًا</span></h2><p><span class="l-en">Campaigns pay per 1,000 views on clips you post on your own TikTok, Reels or Shorts. Open the links below, pick a GTA 6 or streamer campaign, and read its brief before you clip. Most briefs want the same thing: the streamer's reaction, a hook, captions, their tags and #ad. Reposting the stream as it is gets removed and isn't paid.</span><span class="l-ar">الحملات تدفع لكل 1,000 مشاهدة على المقاطع التي تنشرها على TikTok أو Reels أو Shorts الخاصة بك. افتح الروابط أدناه، واختر حملة GTA 6 أو حملة صاحب بثّ، واقرأ شروطها قبل أن تقصّ. معظم الشروط تطلب الشيء نفسه: ردّة فعل صاحب البثّ، وافتتاحية، وترجمة، ووسومهم و#ad. إعادة نشر البثّ كما هو تُحذف ولا تُدفع.</span></p><div class="cbox lk" dir="ltr"><div class="ch"><span class="lbl"><span class="l-en">Whop: clipping campaigns</span><span class="l-ar">Whop: حملات المقاطع</span></span><button class="cpy" type="button">Copy</button></div><a class="url" href="https://whop.com/discover/clipping/" target="_blank" rel="noopener">https://whop.com/discover/clipping/</a></div><div class="cbox lk" dir="ltr"><div class="ch"><span class="lbl"><span class="l-en">Vyro</span><span class="l-ar">Vyro</span></span><button class="cpy" type="button">Copy</button></div><a class="url" href="https://vyro.com/" target="_blank" rel="noopener">https://vyro.com/</a></div><figure class="shot"><img src="assets/claude-stream-clips/shot-campaign.png" alt="An example campaign brief with do and don't rules" loading="lazy"><figcaption>Read the brief: it decides what gets paid. Recreated example.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 15</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Clip any stream with Claude Code</span><span class="l-ar">قصّ أي بثّ مباشر بـ Claude Code</span></span><span>CLIPS</span></div>
+  
+  <div class="step"><div class="num">06</div><div>
+    <h2><span class="l-en">Paste the stream link</span><span class="l-ar">الصق رابط البثّ</span></h2><p><span class="l-en">Copy the message below, swap the [brackets] for the stream's link and your campaign, paste it in Claude Code and press Enter. Click <code class="ic">Allow</code> when it asks. It downloads that part of the stream and the chat replay, then lists the moments it found. Type <code class="ic">yes</code> to cut them.</span><span class="l-ar">انسخ الرسالة أدناه، وضع رابط البثّ واسم حملتك مكان [الأقواس]، والصقها في Claude Code واضغط Enter. اضغط <code class="ic">Allow</code> حين يسأل. ينزّل ذلك الجزء من البثّ وإعادة المحادثة، ثم يعرض اللحظات التي وجدها. اكتب <code class="ic">yes</code> ليقصّها.</span></p><div class="cbox" dir="ltr"><div class="ch"><span class="lbl"><span class="l-en">Paste in Claude Code, then add your link</span><span class="l-ar">الصق في Claude Code ثم أضف رابطك</span></span><button class="cpy" type="button">Copy</button></div><pre>/clip-stream clip the last 2 hours of [paste the stream link]. It's for [campaign name].</pre></div><figure class="shot"><img src="assets/claude-stream-clips/shot-apppaste.png" alt="Claude Code listing the moments it found from 126,919 chat messages, with yes typed in the box" loading="lazy"><figcaption>Paste the link, Enter, then yes. Recreated screen, real moments from our test.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 15</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Clip any stream with Claude Code</span><span class="l-ar">قصّ أي بثّ مباشر بـ Claude Code</span></span><span>CLIPS</span></div>
+  
+  <div class="step"><div class="num">07</div><div>
+    <h2><span class="l-en">How it finds the moments</span><span class="l-ar">كيف يجد اللحظات</span></h2><p><span class="l-en">This is what the skill does with the chat. It counts messages every second and gives extra weight to ALL CAPS, <code class="ic">W</code>, <code class="ic">OMG</code>, <code class="ic">NO WAY</code> and emojis. Where the line jumps, something happened. Chat reacts a few seconds late, so each clip starts 25 seconds before the jump and ends 5 seconds after.</span><span class="l-ar">هذا ما تفعله المهارة بالمحادثة. تعدّ الرسائل كل ثانية وتعطي وزنًا إضافيًا للأحرف الكبيرة و<code class="ic">W</code> و<code class="ic">OMG</code> و<code class="ic">NO WAY</code> والرموز التعبيرية. حيث يقفز الخط حدث شيء ما. المحادثة تتفاعل متأخرة بثوانٍ، لذلك يبدأ كل مقطع قبل القفزة بـ 25 ثانية وينتهي بعدها بـ 5 ثوانٍ.</span></p><figure class="shot loop"><video poster="assets/claude-stream-clips/loop-spike.png" autoplay muted loop playsinline preload="metadata" aria-label="A real chat activity line drawing itself, with a spike marked clip here and the 30 second window around it"><source src="assets/claude-stream-clips/loop-spike.mp4" type="video/mp4"></video><figcaption>Real chat replay from a GTA 6 stream, 2:11 to 2:21.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">08 / 15</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Clip any stream with Claude Code</span><span class="l-ar">قصّ أي بثّ مباشر بـ Claude Code</span></span><span>CLIPS</span></div>
+  
+  <div class="step"><div class="num">08</div><div>
+    <h2><span class="l-en">It cuts each moment to 9:16</span><span class="l-ar">يقصّ كل لحظة إلى 9:16</span></h2><p><span class="l-en">Streams are wide, phones are tall. The skill puts the stream in the middle of a vertical frame and fills the top and bottom with a blurred copy, so nothing gets cut off. Want the streamer's face on top and the game below? Ask for it (prompt 3 at the end).</span><span class="l-ar">البثّ عريض والهاتف طويل. تضع المهارة البثّ في وسط إطار عمودي وتملأ الأعلى والأسفل بنسخة ضبابية منه، فلا يُقطع شيء. تريد وجه صاحب البثّ فوق واللعبة تحت؟ اطلب ذلك (الأمر 3 في النهاية).</span></p><figure class="shot loop"><video poster="assets/claude-stream-clips/loop-cut.png" autoplay muted loop playsinline preload="metadata" aria-label="A wide stream frame shrinking into a phone, with a blurred copy behind it"><source src="assets/claude-stream-clips/loop-cut.mp4" type="video/mp4"></video><figcaption>16:9 stream to a 9:16 clip. Recreated.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">09 / 15</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Clip any stream with Claude Code</span><span class="l-ar">قصّ أي بثّ مباشر بـ Claude Code</span></span><span>CLIPS</span></div>
+  
+  <div class="step"><div class="num">09</div><div>
+    <h2><span class="l-en">Captions and a hook</span><span class="l-ar">الترجمة والافتتاحية</span></h2><p><span class="l-en">Whisper writes the captions from what the streamer says. Claude Code writes 3 hook lines for each clip from what happened and what chat said, and you pick one. The hook sits at the top for the first 2 seconds, the captions run low, away from the face.</span><span class="l-ar">يكتب Whisper الترجمة مما يقوله صاحب البثّ. ويكتب Claude Code ثلاث افتتاحيات لكل مقطع مما حدث وما قالته المحادثة، وأنت تختار واحدة. الافتتاحية في الأعلى أول ثانيتين، والترجمة في الأسفل بعيدًا عن الوجه.</span></p><figure class="shot loop"><video poster="assets/claude-stream-clips/loop-caps.png" autoplay muted loop playsinline preload="metadata" aria-label="A vertical clip with a hook at the top and captions appearing word by word"><source src="assets/claude-stream-clips/loop-caps.mp4" type="video/mp4"></video><figcaption>Hook first, then captions word by word. Recreated.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">10 / 15</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Clip any stream with Claude Code</span><span class="l-ar">قصّ أي بثّ مباشر بـ Claude Code</span></span><span>CLIPS</span></div>
+  
+  <div class="step"><div class="num">10</div><div>
+    <h2><span class="l-en">Watch, then post</span><span class="l-ar">شاهد ثم انشر</span></h2><p><span class="l-en">Claude opens the <code class="ic">out</code> folder for you: your clips are there, with a <code class="ic">clips.md</code> file that has a post caption for each one (with the streamer's credit and the campaign's tags). Watch every clip, keep the good ones, and post them the way the campaign's brief says.</span><span class="l-ar">يفتح لك Claude مجلد <code class="ic">out</code>: مقاطعك فيه، ومعها ملف <code class="ic">clips.md</code> فيه نص منشور لكل مقطع (مع ذكر صاحب البثّ ووسوم الحملة). شاهد كل مقطع، واحتفظ بالجيدة، وانشرها كما تقول شروط الحملة.</span></p><figure class="shot"><img src="assets/claude-stream-clips/shot-out.png" alt="The out folder with 4 vertical clips and clips.md" loading="lazy"><figcaption>Watch every clip, then post. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">11 / 15</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Clip any stream with Claude Code</span><span class="l-ar">قصّ أي بثّ مباشر بـ Claude Code</span></span><span>CLIPS</span></div>
+  
+  <div class="step"><div class="num">11</div><div>
+    <h2><span class="l-en">+1 option: a paid one-click clipper</span><span class="l-ar">+1 خيار: أداة قصّ مدفوعة بنقرة واحدة</span></h2><p><span class="l-en">Rather not set anything up? The tool from the reel, Creago, says you paste a YouTube, Twitch or Kick stream and get clips back, inside Claude Code. Its site lists it at $50, one time, no subscription. We haven't tested it ourselves, and this link earns us nothing. The free skill above does the same job.</span><span class="l-ar">لا تريد إعداد أي شيء؟ الأداة التي ذُكرت في الفيديو، Creago، تقول إنك تلصق بثّ YouTube أو Twitch أو Kick وتحصل على المقاطع، داخل Claude Code. موقعها يعرض سعرها 50 دولارًا مرة واحدة بلا اشتراك. لم نجرّبها بأنفسنا، وهذا الرابط لا يكسبنا شيئًا. المهارة المجانية أعلاه تقوم بالعمل نفسه.</span></p><div class="cbox lk" dir="ltr"><div class="ch"><span class="lbl"><span class="l-en">Creago (paid, untested by us)</span><span class="l-ar">Creago (مدفوع، لم نجرّبه)</span></span><button class="cpy" type="button">Copy</button></div><a class="url" href="https://creagoai.com/" target="_blank" rel="noopener">https://creagoai.com/</a></div><figure class="shot"><img src="assets/claude-stream-clips/shot-creago.png" alt="A card marked optional and paid: price $50 one time, not tested by us, link earns us nothing" loading="lazy"><figcaption>Optional and paid. Recreated card.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">12 / 15</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Clip any stream with Claude Code</span><span class="l-ar">قصّ أي بثّ مباشر بـ Claude Code</span></span><span>CLIPS</span></div>
+  <div class="eyebrow"><span class="l-en">6 prompts for your next clips</span><span class="l-ar">6 أوامر لمقاطعك التالية</span></div><h2><span class="l-en">Paste one, change the [brackets]</span><span class="l-ar">الصق واحدًا وغيّر ما بين [الأقواس]</span></h2><p class="muted l-ar">انسخ الأوامر والنصوص كما هي باللغة الإنجليزية، فهي تعمل بدقة أكبر.</p>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">1. The last 2 hours of a YouTube stream</span><span class="l-ar">1. آخر ساعتين من بثّ على YouTube</span><button class="cpy" type="button">Copy</button></h4><pre>/clip-stream clip the last 2 hours of [paste the stream link].
+It's for [campaign name]. Find 7 moments, 9:16, captions and a hook on each.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">2. A Twitch or Kick stream (no chat replay)</span><span class="l-ar">2. بثّ على Twitch أو Kick (بلا محادثة)</span><button class="cpy" type="button">Copy</button></h4><pre>/clip-stream clip [paste the Twitch or Kick VOD link], from [1:00:00] to [3:00:00].
+There's no chat replay, so use the audio to find the loud moments.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">3. Face cam on top, game below</span><span class="l-ar">3. الكاميرا فوق واللعبة تحت</span><button class="cpy" type="button">Copy</button></h4><pre>/clip-stream for every clip, make a second version:
+the streamer's face cam cropped to the top half, the game in the bottom half.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">13 / 15</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Clip any stream with Claude Code</span><span class="l-ar">قصّ أي بثّ مباشر بـ Claude Code</span></span><span>CLIPS</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">4. Better hooks</span><span class="l-ar">4. افتتاحيات أفضل</span><button class="cpy" type="button">Copy</button></h4><pre>/clip-stream write 5 new hooks for clip [3], each under 8 words,
+based on what happens and what chat said. Then redo the clip with the one I pick.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">5. Only the biggest moments</span><span class="l-ar">5. أقوى اللحظات فقط</span><button class="cpy" type="button">Copy</button></h4><pre>/clip-stream from the moments you found, keep only the 3 strongest
+where the streamer reacts on camera. Drop anything that's just gameplay.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">6. Post captions for a campaign</span><span class="l-ar">6. نصوص النشر لحملة</span><button class="cpy" type="button">Copy</button></h4><pre>/clip-stream write a post caption for each clip in out/:
+a one-line hook, credit [@streamer], the campaign's tags [#tag1 #tag2], and #ad.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">14 / 15</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Clip any stream with Claude Code</span><span class="l-ar">قصّ أي بثّ مباشر بـ Claude Code</span></span><span>CLIPS</span></div>
+  <div class="eyebrow"><span class="l-en">Done</span><span class="l-ar">تم</span></div>
+  <h2><span class="l-en">That's the <span class="em">whole setup.</span></span><span class="l-ar">هذا هو <span class="em">الإعداد كاملًا.</span></span></h2>
+  <p class="lead"><span class="l-en">Clip one stream this week for a campaign you've joined, post the 3 best clips, and see which hook gets the views.</span><span class="l-ar">قصّ بثًّا واحدًا هذا الأسبوع لحملة انضممت إليها، وانشر أفضل 3 مقاطع، وانظر أي افتتاحية تجلب المشاهدات.</span></p>
+  <h3><span class="l-en">Credit</span><span class="l-ar">المصادر</span></h3><ul><li>Claude Code by Anthropic</li><li>yt-dlp by the yt-dlp contributors (Unlicense)</li><li>FFmpeg by the FFmpeg developers (ffmpeg.org, LGPL/GPL)</li><li>Whisper by OpenAI (MIT), run with whisper.cpp by Georgi Gerganov and contributors (MIT)</li><li>Campaign marketplaces named as examples: Whop, Vyro. Creago (creagoai.com) is listed as a paid option we haven't tested; no affiliate link</li><li>The starter skill was written from scratch by Karemops.ai and scanned with NVIDIA SkillSpector (SAFE, 0 issues, 20 Nov 2026). Test data: the public chat replay of a GTA 6 stream</li></ul>
+  <div class="cta">
+    <div class="k"><span class="l-en">Built by</span><span class="l-ar">إعداد</span> <span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></div>
+    <h3><span class="l-en">Want it built for you?</span><span class="l-ar">تريد أن نبنيه لك؟</span></h3>
+    <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
+    <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
+  </div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">15 / 15</span></div>
+</section>
+<script>
+(function(){
+  var root=document.documentElement;
+  function set(l){root.dataset.lang=l;root.lang=l;root.dir=l==="ar"?"rtl":"ltr";
+    document.querySelectorAll(".lang-toggle button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
+    try{localStorage.setItem("karemops-guide-lang",l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem("karemops-guide-lang")}catch(e){}
+  set(location.hash==="#ar"?"ar":location.hash==="#en"?"en":(saved||"en"));
+  document.querySelector(".lang-toggle").addEventListener("click",function(e){var b=e.target.closest("button");if(b)set(b.dataset.l)});
+})();
+</script>
+<script>document.addEventListener("click",function(e){var b=e.target.closest(".cpy");if(!b)return;e.preventDefault();var box=b.closest(".cbox,.prompt"),el=box&&box.querySelector("pre,a.url");if(!el)return;var txt=el.textContent.trim();function ok(){b.textContent="Copied";setTimeout(function(){b.textContent="Copy"},1500)}if(navigator.clipboard)navigator.clipboard.writeText(txt).then(ok,function(){});else{var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand("copy");ok()}});</script>
+</body>
+</html>

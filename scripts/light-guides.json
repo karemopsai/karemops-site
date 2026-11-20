@@ -6345,5 +6345,294 @@
   },
   "style": "club",
   "url": "https://www.karemopsai.com/guides/claude-video-studio"
+ },
+ {
+  "kw": "CLIPS",
+  "slug": "claude-stream-clips",
+  "dm_url": "https://www.karemopsai.com/guides/claude-stream-clips?via=dm",
+  "number": 58,
+  "hero": 3,
+  "date_en": "20 Nov 2026",
+  "date_ar": "20 نوفمبر 2026",
+  "title": "Clip any stream <span class=\"em\">with Claude Code.</span>",
+  "lead": "Paste a stream link. Claude Code reads the chat replay, finds the moments where chat went wild, and cuts them into vertical clips with captions and a hook. Free tools, on your own computer.",
+  "inside": "All inside the Claude app, no Terminal: add the free clipping skill with one message, let Claude Code set up the tools, pick a clipping campaign, paste a stream link and get 9:16 clips with captions. Plus where campaigns pay per 1,000 views, their rules, 6 ready prompts and a paid one-click option.",
+  "what": [
+   "Every big streamer is playing GTA 6 right now, and brands and streamers pay people to clip them: clipping campaigns pay per 1,000 views on clips you post on your own accounts. The hard part is finding the good moments in a 6-hour stream. This guide gives you a free skill that does it for you.",
+   "How it finds them: when something big happens on stream, chat explodes. The skill reads the chat replay, finds the seconds where messages suddenly speed up and go ALL CAPS, and cuts the 30 seconds around each one. No chat replay (Twitch, Kick)? It listens for the loudest moments instead. We tested it on a real GTA 6 stream: 126,919 chat messages from 2 hours became 7 moments in under 2 seconds.",
+   "Built only from free tools: Claude Code runs it, yt-dlp downloads the stream and its chat, FFmpeg cuts and fits each clip to 9:16, Whisper writes the captions. We wrote the skill from scratch and scanned it with NVIDIA SkillSpector: SAFE, 0 issues. Want a one-click paid tool instead? It's at the end, clearly marked.",
+   "Never used Claude Code? This guide is for you. It all happens inside the Claude app: you paste a message and click Allow, no Terminal and no code. Every step has a screen with a gold ring on what to click. Steps 1 to 4 happen once. After that, every new stream is steps 5 to 10."
+  ],
+  "prereqs": [
+   "A paid Claude plan (Pro or higher)",
+   "A Mac or Windows computer, 30 minutes for the first setup, and a few GB of free space",
+   "A clipping campaign you've joined, or a streamer who allows clipping",
+   "No Terminal, no coding. You paste a message and click Allow"
+  ],
+  "warn": "Only post clips of streamers in a campaign you've joined, or who allow clipping: posting someone else's stream otherwise can get your account a copyright strike. Every clip should add something: the reaction, a hook and captions, never just the gameplay. The first setup installs about 1 GB of tools and Claude asks before each one.",
+  "heads": {
+   "promptsEyebrow": "6 prompts for your next clips",
+   "promptsH": "Paste one, change the [brackets]"
+  },
+  "steps": [
+   {
+    "h": "Get the Claude app (one time only)",
+    "p": "Open the link below and download the Claude app for your computer. Open the file, drag Claude into Applications (on Windows, run the installer), open it and log in with your Claude account. Everything in this guide happens inside this app: no Terminal, no code.",
+    "links": [
+     {
+      "label": "Download the Claude app",
+      "label_ar": "نزّل تطبيق Claude",
+      "url": "https://claude.ai/download"
+     }
+    ],
+    "shot": {
+     "src": "assets/claude-stream-clips/shot-appdl.png",
+     "alt": "The Claude download page with the Download for Mac button marked",
+     "cap": "Download, install, log in. Recreated screen."
+    }
+   },
+   {
+    "h": "Open the Code tab in a new folder",
+    "p": "At the top of the app, click `Code`. Click `Choose folder`, then `New Folder`, name it `stream-clips` and click `Open`. This is where your clips will be saved. Claude only works inside this folder.",
+    "shot": {
+     "src": "assets/claude-stream-clips/shot-appfolder.png",
+     "alt": "The Claude app with the Code tab and Choose folder marked, and a new folder called stream-clips",
+     "cap": "Code tab, Choose folder, New Folder: stream-clips. Recreated screen, the app may look slightly different."
+    }
+   },
+   {
+    "h": "Add the free clipping skill",
+    "p": "A skill is one text file that teaches Claude Code a job. Copy the message below, paste it in the box at the bottom and press Enter. When Claude asks to run a command, click `Allow`. Then click `New session` at the top left, so Claude loads the skill. Want to read the skill first? Open the link: it's plain English.",
+    "code": "Download https://www.karemopsai.com/lead-magnets/assets/claude-stream-clips/SKILL.md and save it as ~/.claude/skills/clip-stream/SKILL.md. Then tell me in one line what it does.",
+    "codeLabel": "Paste in Claude Code",
+    "codeLabel_ar": "الصق في Claude Code",
+    "links": [
+     {
+      "label": "Read the skill file",
+      "label_ar": "اقرأ ملف المهارة",
+      "url": "https://www.karemopsai.com/lead-magnets/assets/claude-stream-clips/SKILL.md"
+     }
+    ],
+    "shot": {
+     "src": "assets/claude-stream-clips/shot-appskill.png",
+     "alt": "Claude Code with the install message, the Allow button marked, and New session marked",
+     "cap": "Paste, Allow, then New session. Recreated screen."
+    }
+   },
+   {
+    "h": "Let it set up the tools (one time only)",
+    "p": "In the new session, paste the line below and press Enter. Claude checks for yt-dlp (downloads streams), FFmpeg (cuts video) and Whisper (captions) and asks before installing each: click `Allow`. On a Mac it may open the Homebrew installer: click Continue and Install, and type your Mac password in that window only, never in the chat.",
+    "code": "/clip-stream set up my tools",
+    "codeLabel": "Paste in Claude Code",
+    "codeLabel_ar": "الصق في Claude Code",
+    "shot": {
+     "src": "assets/claude-stream-clips/shot-appsetup.png",
+     "alt": "Claude Code asking to install the tools, with Allow marked, and the Homebrew installer password window",
+     "cap": "Allow, and your password only in the installer window. Recreated screen."
+    }
+   },
+   {
+    "h": "Pick a clipping campaign first",
+    "p": "Campaigns pay per 1,000 views on clips you post on your own TikTok, Reels or Shorts. Open the links below, pick a GTA 6 or streamer campaign, and read its brief before you clip. Most briefs want the same thing: the streamer's reaction, a hook, captions, their tags and #ad. Reposting the stream as it is gets removed and isn't paid.",
+    "links": [
+     {
+      "label": "Whop: clipping campaigns",
+      "label_ar": "Whop: حملات المقاطع",
+      "url": "https://whop.com/discover/clipping/"
+     },
+     {
+      "label": "Vyro",
+      "label_ar": "Vyro",
+      "url": "https://vyro.com/"
+     }
+    ],
+    "shot": {
+     "src": "assets/claude-stream-clips/shot-campaign.png",
+     "alt": "An example campaign brief with do and don't rules",
+     "cap": "Read the brief: it decides what gets paid. Recreated example."
+    }
+   },
+   {
+    "h": "Paste the stream link",
+    "p": "Copy the message below, swap the [brackets] for the stream's link and your campaign, paste it in Claude Code and press Enter. Click `Allow` when it asks. It downloads that part of the stream and the chat replay, then lists the moments it found. Type `yes` to cut them.",
+    "code": "/clip-stream clip the last 2 hours of [paste the stream link]. It's for [campaign name].",
+    "codeLabel": "Paste in Claude Code, then add your link",
+    "codeLabel_ar": "الصق في Claude Code ثم أضف رابطك",
+    "shot": {
+     "src": "assets/claude-stream-clips/shot-apppaste.png",
+     "alt": "Claude Code listing the moments it found from 126,919 chat messages, with yes typed in the box",
+     "cap": "Paste the link, Enter, then yes. Recreated screen, real moments from our test."
+    }
+   },
+   {
+    "h": "How it finds the moments",
+    "p": "This is what the skill does with the chat. It counts messages every second and gives extra weight to ALL CAPS, `W`, `OMG`, `NO WAY` and emojis. Where the line jumps, something happened. Chat reacts a few seconds late, so each clip starts 25 seconds before the jump and ends 5 seconds after.",
+    "loop": {
+     "src": "assets/claude-stream-clips/loop-spike.mp4",
+     "poster": "assets/claude-stream-clips/loop-spike.png",
+     "alt": "A real chat activity line drawing itself, with a spike marked clip here and the 30 second window around it",
+     "cap": "Real chat replay from a GTA 6 stream, 2:11 to 2:21."
+    }
+   },
+   {
+    "h": "It cuts each moment to 9:16",
+    "p": "Streams are wide, phones are tall. The skill puts the stream in the middle of a vertical frame and fills the top and bottom with a blurred copy, so nothing gets cut off. Want the streamer's face on top and the game below? Ask for it (prompt 3 at the end).",
+    "loop": {
+     "src": "assets/claude-stream-clips/loop-cut.mp4",
+     "poster": "assets/claude-stream-clips/loop-cut.png",
+     "alt": "A wide stream frame shrinking into a phone, with a blurred copy behind it",
+     "cap": "16:9 stream to a 9:16 clip. Recreated."
+    }
+   },
+   {
+    "h": "Captions and a hook",
+    "p": "Whisper writes the captions from what the streamer says. Claude Code writes 3 hook lines for each clip from what happened and what chat said, and you pick one. The hook sits at the top for the first 2 seconds, the captions run low, away from the face.",
+    "loop": {
+     "src": "assets/claude-stream-clips/loop-caps.mp4",
+     "poster": "assets/claude-stream-clips/loop-caps.png",
+     "alt": "A vertical clip with a hook at the top and captions appearing word by word",
+     "cap": "Hook first, then captions word by word. Recreated."
+    }
+   },
+   {
+    "h": "Watch, then post",
+    "p": "Claude opens the `out` folder for you: your clips are there, with a `clips.md` file that has a post caption for each one (with the streamer's credit and the campaign's tags). Watch every clip, keep the good ones, and post them the way the campaign's brief says.",
+    "shot": {
+     "src": "assets/claude-stream-clips/shot-out.png",
+     "alt": "The out folder with 4 vertical clips and clips.md",
+     "cap": "Watch every clip, then post. Recreated screen."
+    }
+   },
+   {
+    "h": "+1 option: a paid one-click clipper",
+    "p": "Rather not set anything up? The tool from the reel, Creago, says you paste a YouTube, Twitch or Kick stream and get clips back, inside Claude Code. Its site lists it at $50, one time, no subscription. We haven't tested it ourselves, and this link earns us nothing. The free skill above does the same job.",
+    "links": [
+     {
+      "label": "Creago (paid, untested by us)",
+      "label_ar": "Creago (مدفوع، لم نجرّبه)",
+      "url": "https://creagoai.com/"
+     }
+    ],
+    "shot": {
+     "src": "assets/claude-stream-clips/shot-creago.png",
+     "alt": "A card marked optional and paid: price $50 one time, not tested by us, link earns us nothing",
+     "cap": "Optional and paid. Recreated card."
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. The last 2 hours of a YouTube stream",
+    "code": "/clip-stream clip the last 2 hours of [paste the stream link].\nIt's for [campaign name]. Find 7 moments, 9:16, captions and a hook on each."
+   },
+   {
+    "h": "2. A Twitch or Kick stream (no chat replay)",
+    "code": "/clip-stream clip [paste the Twitch or Kick VOD link], from [1:00:00] to [3:00:00].\nThere's no chat replay, so use the audio to find the loud moments."
+   },
+   {
+    "h": "3. Face cam on top, game below",
+    "code": "/clip-stream for every clip, make a second version:\nthe streamer's face cam cropped to the top half, the game in the bottom half."
+   },
+   {
+    "h": "4. Better hooks",
+    "code": "/clip-stream write 5 new hooks for clip [3], each under 8 words,\nbased on what happens and what chat said. Then redo the clip with the one I pick."
+   },
+   {
+    "h": "5. Only the biggest moments",
+    "code": "/clip-stream from the moments you found, keep only the 3 strongest\nwhere the streamer reacts on camera. Drop anything that's just gameplay."
+   },
+   {
+    "h": "6. Post captions for a campaign",
+    "code": "/clip-stream write a post caption for each clip in out/:\na one-line hook, credit [@streamer], the campaign's tags [#tag1 #tag2], and #ad."
+   }
+  ],
+  "credit": [
+   "Claude Code by Anthropic",
+   "yt-dlp by the yt-dlp contributors (Unlicense)",
+   "FFmpeg by the FFmpeg developers (ffmpeg.org, LGPL/GPL)",
+   "Whisper by OpenAI (MIT), run with whisper.cpp by Georgi Gerganov and contributors (MIT)",
+   "Campaign marketplaces named as examples: Whop, Vyro. Creago (creagoai.com) is listed as a paid option we haven't tested; no affiliate link",
+   "The starter skill was written from scratch by Karemops.ai and scanned with NVIDIA SkillSpector (SAFE, 0 issues, 20 Nov 2026). Test data: the public chat replay of a GTA 6 stream"
+  ],
+  "payoff": "Clip one stream this week for a campaign you've joined, post the 3 best clips, and see which hook gets the views.",
+  "ar": {
+   "title": "قصّ أي بثّ مباشر <span class=\"em\">بـ Claude Code.</span>",
+   "lead": "الصق رابط البثّ. يقرأ Claude Code إعادة المحادثة، ويجد اللحظات التي جُنّت فيها المحادثة، ويقصّها مقاطع عمودية مع ترجمة وافتتاحية. أدوات مجانية، على جهازك.",
+   "inside": "كل شيء داخل تطبيق Claude بلا Terminal: أضف مهارة القصّ المجانية برسالة واحدة، ودع Claude Code يجهّز الأدوات، واختر حملة مقاطع، والصق رابط البثّ لتحصل على مقاطع 9:16 مع ترجمة. ومعها أين تدفع الحملات لكل 1,000 مشاهدة، وقواعدها، و6 أوامر جاهزة، وخيار مدفوع بنقرة واحدة.",
+   "what": [
+    "كل صانع محتوى كبير يلعب GTA 6 الآن، والعلامات التجارية وأصحاب البثّ يدفعون لمن يقصّ بثوثهم: حملات المقاطع تدفع لكل 1,000 مشاهدة على المقاطع التي تنشرها على حساباتك. الصعب هو إيجاد اللحظات الجيدة في بثّ مدته 6 ساعات. يعطيك هذا الدليل مهارة مجانية تفعل ذلك عنك.",
+    "كيف تجدها: حين يحدث شيء كبير في البثّ تنفجر المحادثة. تقرأ المهارة إعادة المحادثة، وتجد الثواني التي تتسارع فيها الرسائل فجأة وتصبح بأحرف كبيرة، وتقصّ الثلاثين ثانية حول كل منها. لا توجد إعادة محادثة (Twitch وKick)؟ تستمع لأعلى اللحظات صوتًا بدلًا منها. جرّبناها على بثّ حقيقي لـ GTA 6: 126,919 رسالة خلال ساعتين أصبحت 7 لحظات في أقل من ثانيتين.",
+    "مبنية فقط من أدوات مجانية: Claude Code يشغّلها، وyt-dlp ينزّل البثّ ومحادثته، وFFmpeg يقصّ كل مقطع ويضبطه على 9:16، وWhisper يكتب الترجمة. كتبنا المهارة من الصفر وفحصناها بأداة NVIDIA SkillSpector: النتيجة SAFE، بلا أي مشكلة. تريد أداة مدفوعة بنقرة واحدة بدلًا منها؟ تجدها في النهاية بعلامة واضحة.",
+    "لم تستخدم Claude Code من قبل؟ هذا الدليل لك. كل شيء داخل تطبيق Claude: تلصق رسالة وتضغط Allow، بلا Terminal وبلا كود. لكل خطوة شاشة فيها حلقة ذهبية على ما تضغطه. الخطوات من 1 إلى 4 مرة واحدة فقط. بعدها كل بثّ جديد هو الخطوات من 5 إلى 10."
+   ],
+   "prereqs": [
+    "خطة Claude مدفوعة (Pro أو أعلى)",
+    "جهاز Mac أو Windows، وثلاثون دقيقة للإعداد الأول، وبضعة غيغابايت من المساحة",
+    "حملة مقاطع انضممت إليها، أو صاحب بثّ يسمح بقصّ بثّه",
+    "بلا Terminal وبلا برمجة. تلصق رسالة وتضغط Allow"
+   ],
+   "warn": "انشر فقط مقاطع أصحاب بثّ ضمن حملة انضممت إليها، أو يسمحون بالقصّ: نشر بثّ شخص آخر بغير ذلك قد يعرّض حسابك لإنذار حقوق نشر. كل مقطع يجب أن يضيف شيئًا: ردّة الفعل، وافتتاحية، وترجمة، لا اللعب وحده أبدًا. الإعداد الأول يثبّت نحو 1 غيغابايت من الأدوات، ويسألك Claude قبل كل واحدة.",
+   "heads": {
+    "promptsEyebrow": "6 أوامر لمقاطعك التالية",
+    "promptsH": "الصق واحدًا وغيّر ما بين [الأقواس]"
+   },
+   "steps": [
+    {
+     "h": "نزّل تطبيق Claude (مرة واحدة فقط)",
+     "p": "افتح الرابط أدناه ونزّل تطبيق Claude لجهازك. افتح الملف واسحب Claude إلى Applications (في Windows شغّل المثبّت)، ثم افتحه وسجّل الدخول بحساب Claude. كل ما في هذا الدليل يحدث داخل هذا التطبيق: بلا Terminal وبلا كود."
+    },
+    {
+     "h": "افتح تبويب Code في مجلد جديد",
+     "p": "أعلى التطبيق اضغط `Code`. اضغط `Choose folder` ثم `New Folder`، وسمّه `stream-clips` واضغط `Open`. هنا ستُحفظ مقاطعك، ويعمل Claude داخل هذا المجلد فقط."
+    },
+    {
+     "h": "أضف مهارة القصّ المجانية",
+     "p": "المهارة ملف نصي واحد يعلّم Claude Code مهمة. انسخ الرسالة أدناه والصقها في المربع أسفل الشاشة واضغط Enter. حين يطلب Claude تشغيل أمر اضغط `Allow`. ثم اضغط `New session` أعلى اليسار ليحمّل Claude المهارة. تريد قراءتها أولًا؟ افتح الرابط: إنجليزية بسيطة."
+    },
+    {
+     "h": "دعه يجهّز الأدوات (مرة واحدة فقط)",
+     "p": "في الجلسة الجديدة الصق السطر أدناه واضغط Enter. يتحقق Claude من yt-dlp (لتنزيل البثّ) وFFmpeg (لقصّ الفيديو) وWhisper (للترجمة) ويسألك قبل تثبيت كل منها: اضغط `Allow`. في Mac قد يفتح مثبّت Homebrew: اضغط Continue ثم Install، واكتب كلمة مرور جهازك في تلك النافذة فقط، لا في المحادثة أبدًا."
+    },
+    {
+     "h": "اختر حملة مقاطع أولًا",
+     "p": "الحملات تدفع لكل 1,000 مشاهدة على المقاطع التي تنشرها على TikTok أو Reels أو Shorts الخاصة بك. افتح الروابط أدناه، واختر حملة GTA 6 أو حملة صاحب بثّ، واقرأ شروطها قبل أن تقصّ. معظم الشروط تطلب الشيء نفسه: ردّة فعل صاحب البثّ، وافتتاحية، وترجمة، ووسومهم و#ad. إعادة نشر البثّ كما هو تُحذف ولا تُدفع."
+    },
+    {
+     "h": "الصق رابط البثّ",
+     "p": "انسخ الرسالة أدناه، وضع رابط البثّ واسم حملتك مكان [الأقواس]، والصقها في Claude Code واضغط Enter. اضغط `Allow` حين يسأل. ينزّل ذلك الجزء من البثّ وإعادة المحادثة، ثم يعرض اللحظات التي وجدها. اكتب `yes` ليقصّها."
+    },
+    {
+     "h": "كيف يجد اللحظات",
+     "p": "هذا ما تفعله المهارة بالمحادثة. تعدّ الرسائل كل ثانية وتعطي وزنًا إضافيًا للأحرف الكبيرة و`W` و`OMG` و`NO WAY` والرموز التعبيرية. حيث يقفز الخط حدث شيء ما. المحادثة تتفاعل متأخرة بثوانٍ، لذلك يبدأ كل مقطع قبل القفزة بـ 25 ثانية وينتهي بعدها بـ 5 ثوانٍ."
+    },
+    {
+     "h": "يقصّ كل لحظة إلى 9:16",
+     "p": "البثّ عريض والهاتف طويل. تضع المهارة البثّ في وسط إطار عمودي وتملأ الأعلى والأسفل بنسخة ضبابية منه، فلا يُقطع شيء. تريد وجه صاحب البثّ فوق واللعبة تحت؟ اطلب ذلك (الأمر 3 في النهاية)."
+    },
+    {
+     "h": "الترجمة والافتتاحية",
+     "p": "يكتب Whisper الترجمة مما يقوله صاحب البثّ. ويكتب Claude Code ثلاث افتتاحيات لكل مقطع مما حدث وما قالته المحادثة، وأنت تختار واحدة. الافتتاحية في الأعلى أول ثانيتين، والترجمة في الأسفل بعيدًا عن الوجه."
+    },
+    {
+     "h": "شاهد ثم انشر",
+     "p": "يفتح لك Claude مجلد `out`: مقاطعك فيه، ومعها ملف `clips.md` فيه نص منشور لكل مقطع (مع ذكر صاحب البثّ ووسوم الحملة). شاهد كل مقطع، واحتفظ بالجيدة، وانشرها كما تقول شروط الحملة."
+    },
+    {
+     "h": "+1 خيار: أداة قصّ مدفوعة بنقرة واحدة",
+     "p": "لا تريد إعداد أي شيء؟ الأداة التي ذُكرت في الفيديو، Creago، تقول إنك تلصق بثّ YouTube أو Twitch أو Kick وتحصل على المقاطع، داخل Claude Code. موقعها يعرض سعرها 50 دولارًا مرة واحدة بلا اشتراك. لم نجرّبها بأنفسنا، وهذا الرابط لا يكسبنا شيئًا. المهارة المجانية أعلاه تقوم بالعمل نفسه."
+    }
+   ],
+   "prompts": [
+    "1. آخر ساعتين من بثّ على YouTube",
+    "2. بثّ على Twitch أو Kick (بلا محادثة)",
+    "3. الكاميرا فوق واللعبة تحت",
+    "4. افتتاحيات أفضل",
+    "5. أقوى اللحظات فقط",
+    "6. نصوص النشر لحملة"
+   ],
+   "payoff": "قصّ بثًّا واحدًا هذا الأسبوع لحملة انضممت إليها، وانشر أفضل 3 مقاطع، وانظر أي افتتاحية تجلب المشاهدات."
+  },
+  "style": "club",
+  "url": "https://www.karemopsai.com/guides/claude-stream-clips"
  }
 ]
