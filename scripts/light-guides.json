@@ -6060,5 +6060,290 @@
   },
   "style": "club",
   "url": "https://www.karemopsai.com/guides/claude-animations"
+ },
+ {
+  "kw": "MONTAGE",
+  "slug": "claude-video-studio",
+  "dm_url": "https://www.karemopsai.com/guides/claude-video-studio?via=dm",
+  "number": 57,
+  "hero": 3,
+  "date_en": "20 Nov 2026",
+  "date_ar": "20 نوفمبر 2026",
+  "title": "Build your own video studio <span class=\"em\">in Claude Code.</span>",
+  "lead": "One idea in, a finished vertical reel out: script, captions, screenshots, music and the final mp4. A free starter skill, built from free tools, that runs on your own computer.",
+  "inside": "Add the free video studio skill with copy and paste, let Claude Code set up the tools, then make your first reel: give it an idea, record your voice on your phone, and type build it. Plus 6 ready prompts for your next reels.",
+  "what": [
+   "This guide gives you a starter video studio inside Claude Code. You give it an idea. It researches it and writes the script. You record your voice on your phone. It captions your voice, takes screenshots of the pages you name, puts a free music track under it and renders a 1080x1920 mp4, ready to post.",
+   "It's built only from free, well-known tools: Claude Code writes and runs everything, Whisper turns your voice into captions, FFmpeg cuts and renders the video, Chrome takes the screenshots and Pixabay gives you the music. It all runs on your own computer, nothing is uploaded.",
+   "The reel mentions OpenMontage. Our security scan flagged it, so here's a safer starter you build yourself. We wrote this skill from scratch and scanned it with NVIDIA SkillSpector: it came back SAFE, 0 issues. It's simple on purpose: basic captions, screenshots with a slow zoom, music under your voice.",
+   "Never opened Terminal? This guide is for you. On every screen a gold ring shows what to click or paste, and gold numbers show the order. Steps 1 to 5 happen once. After that, every new reel is steps 6 to 10."
+  ],
+  "prereqs": [
+   "A paid Claude plan (Pro or higher)",
+   "A Mac or Windows computer, and 30 minutes for the first setup",
+   "Your phone, to record your voice",
+   "No coding. You copy, paste and press Enter"
+  ],
+  "warn": "The first setup installs FFmpeg and Whisper (about 1 GB). Claude Code asks before every install, and Terminal may ask for your computer password: type it (nothing shows while you type) and press Enter. If Terminal ever shows red error text, copy it, paste it into Claude Code and ask it to fix it.",
+  "heads": {
+   "promptsEyebrow": "6 reels to make next",
+   "promptsH": "Paste one, change the [brackets]"
+  },
+  "steps": [
+   {
+    "h": "Open Terminal",
+    "p": "Terminal is a window where you paste a line and press Enter. That's all you do in it, no coding. On a Mac: press Command and Space together, type `Terminal`, press Enter. On Windows: click Start, type `PowerShell`, press Enter.",
+    "shot": {
+     "src": "assets/claude-video-studio/shot-spot.png",
+     "alt": "Mac Spotlight search with Terminal typed in and the Terminal app highlighted",
+     "cap": "Command + Space, type Terminal, press Enter. Recreated screen."
+    }
+   },
+   {
+    "h": "Install Claude Code (one time only)",
+    "p": "Copy the line below, click inside the Terminal window, paste it (Command V on a Mac, Ctrl V on Windows) and press Enter. Wait until the `%` sign comes back. On Windows, use the second box. Already have Claude Code? Skip to step 3.",
+    "code": "curl -fsSL https://claude.ai/install.sh | bash",
+    "codeLabel": "Mac: paste this in Terminal",
+    "codeLabel_ar": "Mac: الصق هذا في Terminal",
+    "extra": [
+     {
+      "label": "Windows: paste this in PowerShell",
+      "label_ar": "Windows: الصق هذا في PowerShell",
+      "code": "irm https://claude.ai/install.ps1 | iex"
+     }
+    ],
+    "shot": {
+     "src": "assets/claude-video-studio/shot-install.png",
+     "alt": "Terminal with the Claude Code install line pasted in",
+     "cap": "Paste, press Enter, wait for the % sign. Recreated screen."
+    }
+   },
+   {
+    "h": "Add the free video studio skill",
+    "p": "A skill is one text file that teaches Claude Code a job. Paste the 3 lines below one at a time, Enter after each. They make a folder for the skill and download the file into it. Want to read it first? Open the link: it's plain English.",
+    "code": "mkdir -p ~/.claude/skills/video-studio\ncd ~/.claude/skills/video-studio\ncurl -fsSLO https://www.karemopsai.com/lead-magnets/assets/claude-video-studio/SKILL.md",
+    "codeLabel": "Mac: paste in Terminal, one line at a time",
+    "codeLabel_ar": "Mac: الصق في Terminal، سطرًا سطرًا",
+    "extra": [
+     {
+      "label": "Windows: paste this in PowerShell",
+      "label_ar": "Windows: الصق هذا في PowerShell",
+      "code": "mkdir \"$HOME\\.claude\\skills\\video-studio\" -Force; iwr https://www.karemopsai.com/lead-magnets/assets/claude-video-studio/SKILL.md -OutFile \"$HOME\\.claude\\skills\\video-studio\\SKILL.md\""
+     }
+    ],
+    "links": [
+     {
+      "label": "Read the skill file",
+      "label_ar": "اقرأ ملف المهارة",
+      "url": "https://www.karemopsai.com/lead-magnets/assets/claude-video-studio/SKILL.md"
+     }
+    ],
+    "shot": {
+     "src": "assets/claude-video-studio/shot-skill.png",
+     "alt": "Terminal with the 3 lines that create the skill folder and download SKILL.md",
+     "cap": "3 lines, Enter after each. Recreated screen."
+    }
+   },
+   {
+    "h": "Open Claude Code in your studio folder",
+    "p": "Paste the 3 lines below, Enter after each. They make a folder called `video-studio` for your reels and open Claude Code inside it. Claude Code asks if you trust the folder: press Enter on Yes. The very first time it also asks you to log in: press Enter and log in to your Claude account in the browser.",
+    "code": "mkdir -p ~/video-studio\ncd ~/video-studio\nclaude",
+    "codeLabel": "Mac: paste in Terminal, one line at a time",
+    "codeLabel_ar": "Mac: الصق في Terminal، سطرًا سطرًا",
+    "extra": [
+     {
+      "label": "Windows: paste this in PowerShell",
+      "label_ar": "Windows: الصق هذا في PowerShell",
+      "code": "mkdir \"$HOME\\video-studio\" -Force; cd \"$HOME\\video-studio\"; claude"
+     }
+    ],
+    "shot": {
+     "src": "assets/claude-video-studio/shot-open.png",
+     "alt": "Terminal making the video-studio folder, opening Claude Code, and the trust question with Yes selected",
+     "cap": "3 lines, then Enter on Yes. Recreated screen."
+    }
+   },
+   {
+    "h": "Let it set up the tools (one time only)",
+    "p": "Paste the line below into Claude Code and press Enter. It checks what's missing (FFmpeg for video, Whisper for captions) and asks before installing each one: press Enter on Yes. If it asks for your computer password, type it and press Enter. This takes 5 to 15 minutes the first time.",
+    "code": "/video-studio set up my tools",
+    "codeLabel": "Paste in Claude Code",
+    "codeLabel_ar": "الصق في Claude Code",
+    "shot": {
+     "src": "assets/claude-video-studio/shot-setup.png",
+     "alt": "Claude Code checking the tools and asking permission to install FFmpeg and the Whisper model",
+     "cap": "Paste, then Enter on Yes. Recreated screen."
+    }
+   },
+   {
+    "h": "Give it your idea",
+    "p": "Type `/video-studio`, then your idea in your own words, and press Enter. Say who it's for and how it should end, for example `comment TOOLS`. Claude Code researches it and writes a 30 to 45 second script with a hook, 3 short points and your ending.",
+    "code": "/video-studio make a 30 second reel about 3 free tools that save me an hour a day. End with: comment TOOLS.",
+    "codeLabel": "Example: paste in Claude Code, then change the idea",
+    "codeLabel_ar": "مثال: الصقه في Claude Code ثم غيّر الفكرة",
+    "shot": {
+     "src": "assets/claude-video-studio/shot-idea.png",
+     "alt": "Claude Code with a reel idea typed in and the script it wrote: hook, 3 points and the ending",
+     "cap": "Type your idea, read the script it writes. Recreated screen."
+    }
+   },
+   {
+    "h": "Record your voice on your phone",
+    "p": "Read the script out loud into the Voice Memos app (or film a selfie video if you want your face in it). Send the file to your computer (AirDrop, WhatsApp to yourself, or email) and drag it into the `input` folder inside `video-studio`. Can't find the folder? Type `open the input folder` in Claude Code.",
+    "shot": {
+     "src": "assets/claude-video-studio/shot-record.png",
+     "alt": "A phone with Voice Memos recording, and the video-studio input folder with voice.m4a inside",
+     "cap": "Record on your phone, then drop the file in input. Recreated screen."
+    }
+   },
+   {
+    "h": "Pick free music",
+    "p": "Open Pixabay Music, search a mood (for example `upbeat` or `calm`), play a few and click Download on the one you like. Rename the file `music.mp3` and drag it into the same `input` folder. Pixabay's music is free to use in your videos, no credit needed. Skip this step for no music.",
+    "links": [
+     {
+      "label": "Pixabay Music",
+      "label_ar": "Pixabay Music",
+      "url": "https://pixabay.com/music/"
+     }
+    ],
+    "shot": {
+     "src": "assets/claude-video-studio/shot-music.png",
+     "alt": "A music page with a gold ring on a Download button",
+     "cap": "Play, download, rename to music.mp3. Recreated screen, sample tracks."
+    }
+   },
+   {
+    "h": "Build the reel",
+    "p": "Go back to Claude Code, type `build it` and press Enter. It captions your voice, takes the screenshots, adds a slow zoom, puts the music under your voice and saves `reel.mp4` in the `out` folder, then opens the folder for you. A 30 second reel takes 2 to 5 minutes.",
+    "code": "build it",
+    "codeLabel": "Paste in Claude Code",
+    "codeLabel_ar": "الصق في Claude Code",
+    "shot": {
+     "src": "assets/claude-video-studio/shot-build.png",
+     "alt": "Claude Code showing the build steps and the saved reel.mp4",
+     "cap": "Type build it, then find reel.mp4 in out. Recreated screen."
+    }
+   },
+   {
+    "h": "Change it in plain words",
+    "p": "Not quite right? Type the change the way you'd text a friend and press Enter, for example `make the captions bigger`, `music a bit softer`, or `use my selfie video instead of screenshots`. One change per message works best. Then post it.",
+    "shot": {
+     "src": "assets/claude-video-studio/shot-fix.png",
+     "alt": "Claude Code with a follow-up asking for bigger captions and softer music",
+     "cap": "Type the change, press Enter. Recreated screen."
+    }
+   }
+  ],
+  "prompts": [
+   {
+    "h": "1. A voice-only tool tour",
+    "code": "/video-studio make a 30 second voice-only reel about [3 free tools that save me an hour a day].\nUse a screenshot of each tool's homepage, one per beat.\nEnd with: comment [TOOLS] and I'll send you the list."
+   },
+   {
+    "h": "2. Captions on your selfie video",
+    "code": "/video-studio I put a selfie video in the input folder.\nAdd captions in the lower third, away from my face.\nPut the music from input softly under my voice."
+   },
+   {
+    "h": "3. Walk through a website",
+    "code": "/video-studio make a 30 second reel that walks through [my website address].\n4 screenshots, one per section, a slow zoom on each.\nWrite the script first and wait for my voice memo."
+   },
+   {
+    "h": "4. This week's news in 40 seconds",
+    "code": "/video-studio research [this week's news about AI tools for small businesses].\nWrite a 40 second script with 3 points and list your sources.\nThen wait for my voice memo."
+   },
+   {
+    "h": "5. Old way vs new way",
+    "code": "/video-studio make a reel comparing [doing invoices by hand] with [doing them with Claude Code].\nUse 2 screenshots I'll put in input, one for each side.\nHook in the first line, call to action at the end: [comment INVOICE]."
+   },
+   {
+    "h": "6. Turn a post into a reel",
+    "code": "/video-studio turn this post into a 30 second script I can read out loud:\n[paste your post here]\nKeep my words where you can. Then wait for my voice memo."
+   }
+  ],
+  "credit": [
+   "Claude Code by Anthropic",
+   "Whisper by OpenAI (MIT license), run with whisper.cpp by Georgi Gerganov and contributors (MIT license)",
+   "FFmpeg by the FFmpeg developers (ffmpeg.org, LGPL/GPL)",
+   "Google Chrome for the screenshots, Homebrew for installing tools on a Mac",
+   "Free music from Pixabay (Pixabay Content License)",
+   "For animated title cards later: Remotion (remotion.dev) or HyperFrames",
+   "The starter skill was written from scratch by Karemops.ai and scanned with NVIDIA SkillSpector (SAFE, 0 issues, 20 Nov 2026). The reel mentions OpenMontage: we didn't use it, because our scan flagged it."
+  ],
+  "payoff": "Make one reel this week with your own voice, post it, and see how long it took you. Then make the next one faster.",
+  "ar": {
+   "title": "ابنِ استوديو فيديو خاصًّا بك <span class=\"em\">داخل Claude Code.</span>",
+   "lead": "فكرة واحدة تدخل، وفيديو عمودي جاهز يخرج: النص، والترجمة، ولقطات الشاشة، والموسيقى، وملف mp4 النهائي. مهارة مجانية للبداية، مبنية من أدوات مجانية، وتعمل على جهازك أنت.",
+   "inside": "أضف مهارة استوديو الفيديو المجانية بالنسخ واللصق، ودع Claude Code يجهّز الأدوات، ثم اصنع أول فيديو: أعطه فكرة، وسجّل صوتك على هاتفك، واكتب build it. ومعها 6 أوامر جاهزة لفيديوهاتك التالية.",
+   "what": [
+    "يعطيك هذا الدليل استوديو فيديو للبداية داخل Claude Code. تعطيه فكرة، فيبحث فيها ويكتب النص. تسجّل صوتك على هاتفك. فيضيف الترجمة لصوتك، ويلتقط صور الصفحات التي تسمّيها، ويضع موسيقى مجانية تحته، ويصدّر ملف mp4 بمقاس 1080x1920 جاهزًا للنشر.",
+    "مبني فقط من أدوات مجانية ومعروفة: Claude Code يكتب كل شيء ويشغّله، وWhisper يحوّل صوتك إلى ترجمة، وFFmpeg يقصّ الفيديو ويصدّره، وChrome يلتقط صور الشاشة، وPixabay يعطيك الموسيقى. كل شيء يعمل على جهازك، ولا يُرفع أي شيء.",
+    "يذكر الفيديو أداة OpenMontage. فحصنا الأمني نبّه عليها، لذلك هذه بداية أكثر أمانًا تبنيها بنفسك. كتبنا هذه المهارة من الصفر وفحصناها بأداة NVIDIA SkillSpector: النتيجة SAFE، بلا أي مشكلة. وهي بسيطة عن قصد: ترجمة أساسية، ولقطات شاشة مع تقريب بطيء، وموسيقى تحت صوتك.",
+    "لم تفتح Terminal من قبل؟ هذا الدليل لك. في كل شاشة حلقة ذهبية تبيّن ما تضغطه أو تلصقه، وأرقام ذهبية تبيّن الترتيب. الخطوات من 1 إلى 5 مرة واحدة فقط. بعدها كل فيديو جديد هو الخطوات من 6 إلى 10."
+   ],
+   "prereqs": [
+    "خطة Claude مدفوعة (Pro أو أعلى)",
+    "جهاز Mac أو Windows، وثلاثون دقيقة للإعداد الأول",
+    "هاتفك لتسجيل صوتك",
+    "بلا برمجة. تنسخ وتلصق وتضغط Enter"
+   ],
+   "warn": "الإعداد الأول يثبّت FFmpeg وWhisper (نحو 1 غيغابايت). يسألك Claude Code قبل كل تثبيت، وقد يطلب Terminal كلمة مرور جهازك: اكتبها (لن يظهر شيء أثناء الكتابة) واضغط Enter. إذا ظهر في Terminal نص خطأ أحمر، انسخه والصقه في Claude Code واطلب منه إصلاحه.",
+   "heads": {
+    "promptsEyebrow": "6 فيديوهات تصنعها بعد ذلك",
+    "promptsH": "الصق واحدًا وغيّر ما بين [الأقواس]"
+   },
+   "steps": [
+    {
+     "h": "افتح Terminal",
+     "p": "Terminal نافذة تلصق فيها سطرًا وتضغط Enter. هذا كل ما ستفعله فيها، بلا برمجة. في Mac: اضغط Command وSpace معًا، واكتب `Terminal`، واضغط Enter. في Windows: اضغط Start، واكتب `PowerShell`، واضغط Enter."
+    },
+    {
+     "h": "ثبّت Claude Code (مرة واحدة فقط)",
+     "p": "انسخ السطر أدناه، واضغط داخل نافذة Terminal، والصقه (Command V في Mac أو Ctrl V في Windows) ثم اضغط Enter. انتظر حتى تعود علامة `%`. في Windows استخدم المربع الثاني. عندك Claude Code أصلًا؟ انتقل إلى الخطوة 3."
+    },
+    {
+     "h": "أضف مهارة استوديو الفيديو المجانية",
+     "p": "المهارة ملف نصي واحد يعلّم Claude Code مهمة. الصق الأسطر الثلاثة أدناه واحدًا تلو الآخر، مع Enter بعد كل سطر. تنشئ مجلدًا للمهارة وتنزّل الملف إليه. تريد قراءته أولًا؟ افتح الرابط: إنه إنجليزية بسيطة."
+    },
+    {
+     "h": "افتح Claude Code داخل مجلد الاستوديو",
+     "p": "الصق الأسطر الثلاثة أدناه، مع Enter بعد كل سطر. تنشئ مجلدًا اسمه `video-studio` لفيديوهاتك وتفتح Claude Code داخله. يسألك Claude Code هل تثق بالمجلد: اضغط Enter على Yes. في المرة الأولى فقط يطلب منك تسجيل الدخول: اضغط Enter وسجّل الدخول إلى حساب Claude في المتصفح."
+    },
+    {
+     "h": "دعه يجهّز الأدوات (مرة واحدة فقط)",
+     "p": "الصق السطر أدناه في Claude Code واضغط Enter. يتحقق مما ينقص (FFmpeg للفيديو، وWhisper للترجمة) ويسألك قبل تثبيت كل منهما: اضغط Enter على Yes. إذا طلب كلمة مرور جهازك فاكتبها واضغط Enter. يستغرق هذا من 5 إلى 15 دقيقة في المرة الأولى."
+    },
+    {
+     "h": "أعطه فكرتك",
+     "p": "اكتب `/video-studio` ثم فكرتك بكلماتك، واضغط Enter. قل لمن هي وكيف تنتهي، مثلًا `comment TOOLS`. يبحث Claude Code فيها ويكتب نصًّا من 30 إلى 45 ثانية فيه افتتاحية و3 نقاط قصيرة وخاتمتك."
+    },
+    {
+     "h": "سجّل صوتك على هاتفك",
+     "p": "اقرأ النص بصوت عالٍ في تطبيق Voice Memos (أو صوّر فيديو سيلفي إن أردت أن يظهر وجهك). أرسل الملف إلى جهازك (AirDrop، أو واتساب لنفسك، أو البريد) واسحبه إلى مجلد `input` داخل `video-studio`. لا تجد المجلد؟ اكتب `open the input folder` في Claude Code."
+    },
+    {
+     "h": "اختر موسيقى مجانية",
+     "p": "افتح Pixabay Music، وابحث عن مزاج (مثلًا `upbeat` أو `calm`)، واستمع لبعضها واضغط Download على التي تعجبك. غيّر اسم الملف إلى `music.mp3` واسحبه إلى مجلد `input` نفسه. موسيقى Pixabay مجانية للاستخدام في فيديوهاتك بلا ذكر للمصدر. تجاوز هذه الخطوة إن لم ترد موسيقى."
+    },
+    {
+     "h": "اصنع الفيديو",
+     "p": "ارجع إلى Claude Code، واكتب `build it` واضغط Enter. يضيف الترجمة لصوتك، ويلتقط صور الشاشة، ويضيف تقريبًا بطيئًا، ويضع الموسيقى تحت صوتك، ويحفظ `reel.mp4` في مجلد `out`، ثم يفتح لك المجلد. فيديو من 30 ثانية يستغرق من 2 إلى 5 دقائق."
+    },
+    {
+     "h": "عدّله بكلام بسيط",
+     "p": "ليس كما تريد تمامًا؟ اكتب التعديل كأنك تراسل صديقًا واضغط Enter، مثلًا `make the captions bigger`، أو `music a bit softer`، أو `use my selfie video instead of screenshots`. تعديل واحد في كل رسالة هو الأفضل. ثم انشره."
+    }
+   ],
+   "prompts": [
+    "1. جولة بالأدوات بالصوت فقط",
+    "2. ترجمة على فيديو السيلفي",
+    "3. جولة في موقع إلكتروني",
+    "4. أخبار الأسبوع في 40 ثانية",
+    "5. الطريقة القديمة مقابل الجديدة",
+    "6. حوّل منشورًا إلى فيديو"
+   ],
+   "payoff": "اصنع فيديو واحدًا هذا الأسبوع بصوتك، وانشره، وانظر كم استغرق منك. ثم اصنع التالي أسرع."
+  },
+  "style": "club",
+  "url": "https://www.karemopsai.com/guides/claude-video-studio"
  }
 ]

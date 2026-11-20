@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build your own video studio in Claude Code | Karemops.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#E7E0D2; --paper:#FBF7EF; --white:#FFFFFF; --ink:#1A1714; --navy:#0E1A33; --muted:#4A4438; --line:#E4DACA;
+  --blue:#0866FF; --blue-soft:#EAF2FF; --blue-line:#C9DCFF; --code:#F6F0E4; --cream:#F2EAD9; --brass:#B08D57;
+  --repp:repeating-linear-gradient(135deg,#0E1A33 0 11px,#0866FF 11px 17px,#0E1A33 17px 28px,#FBF7EF 28px 30px);
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif; --serif:'Cormorant Garamond',Georgia,serif;
+  --mono:'JetBrains Mono','SF Mono',Menlo,monospace; --arab:'IBM Plex Sans Arabic','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{padding:40px 0}
+.page{width:8.5in;height:11in;margin:0 auto 28px;background:var(--paper);padding:0.65in 0.75in 0.6in;position:relative;
+  overflow:hidden;box-shadow:0 1px 2px rgba(14,26,51,.06),0 12px 40px rgba(14,26,51,.10);display:flex;flex-direction:column}
+.run{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:12px;border-bottom:1px solid var(--brass);margin-bottom:34px}
+.run b{color:var(--blue);letter-spacing:.02em;text-transform:none;font-size:12px}
+.foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--brass);display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.foot .n{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+h1{font-family:var(--serif);font-weight:600;font-size:64px;line-height:1;letter-spacing:-.01em;color:var(--navy);text-wrap:balance}
+h2{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1.05;letter-spacing:-.01em;color:var(--navy);margin-bottom:14px;text-wrap:balance}
+h3{font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
+h4{font-weight:700;font-size:15px;margin:22px 0 8px}
+.em{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--blue);letter-spacing:0}
+p{font-size:14px;line-height:1.65;margin-bottom:12px}
+.lead{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:5.6in}
+ul{list-style:none;margin:6px 0}
+ul li{font-size:14px;line-height:1.55;padding:6px 0 6px 20px;position:relative}
+ul li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;background:var(--blue);border-radius:1.5px}
+pre{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--code);border:1px solid var(--line);border-left:3px solid var(--blue);
+  border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:var(--ink);margin:10px 0 4px}
+.callout{background:var(--cream);border:0;border-top:1.5px solid var(--brass);border-radius:0;padding:14px 18px;font-size:13.5px;line-height:1.6;margin-top:22px}
+.callout strong{color:var(--navy);margin-inline-end:4px}
+.muted{color:var(--muted)}
+/* cover */
+.cover .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.wordmark{font-weight:800;font-size:17px;letter-spacing:-.01em;color:var(--navy)} .wordmark i{font-style:normal;color:var(--blue)}
+.chip{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--blue-line);color:var(--blue);background:var(--white);padding:6px 11px;border-radius:999px}
+.cover h1{margin-bottom:18px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.stage{margin:auto 0;min-height:3.3in;display:flex;align-items:center;border-radius:0;padding:34px 40px;background-color:var(--cream);
+  border:1px solid var(--line);outline:1px solid var(--brass);outline-offset:6px}
+.win{background:var(--white);border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(14,26,51,.12),0 2px 6px rgba(14,26,51,.05);overflow:hidden;direction:ltr}
+.win .bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:var(--navy);font-size:11px;color:var(--paper)}
+.win .bar i{width:9px;height:9px;border-radius:50%;background:rgba(251,247,239,.35);display:inline-block}
+.win .bar span{margin-left:8px;font-weight:600}
+.win{width:100%}
+.win pre{margin:0;border:0;border-radius:0;background:var(--white);padding:22px 22px;font-size:14px;line-height:1.75}
+.win .note{padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+html[data-lang="ar"] .win .note{direction:rtl;text-align:right}
+.win pre .p{color:var(--blue);font-weight:700}
+.caret{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-2px;margin-left:2px}
+.cover .bottom{margin-top:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:end;padding-top:24px;border-top:1px solid var(--brass)}
+.cover .inside p{font-size:13.5px;margin:0}
+.by{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mono-k{width:34px;height:auto;display:block}
+.cover::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.by small{display:block;color:var(--muted);font-size:11.5px} .by b{font-size:13.5px}
+/* steps */
+.step{display:grid;grid-template-columns:0.85in 1fr;gap:0 4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.step:has(+ .foot){border-bottom:0}
+.step .num{font-family:var(--serif);font-size:48px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums}
+.step h2{font-size:30px;margin-bottom:6px}
+.step p{color:var(--muted);margin-bottom:6px}
+.shot{margin:10px 0 2px;border:1px solid var(--line);border-top:1.5px solid var(--brass);background:var(--white);padding:6px}
+.shot img,.shot video{display:block;width:100%;height:auto;max-height:3.3in;object-fit:contain;background:var(--white)}
+.shot figcaption{font-size:10.5px;color:var(--muted);padding:6px 2px 0;letter-spacing:.02em}
+.prompt{margin-bottom:8px}
+/* copy boxes (2026-11-15): every link and every line people paste sits in its own box with a Copy button */
+.ic{font-family:var(--mono);font-size:.88em;background:var(--code);border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:var(--navy);direction:ltr;unicode-bidi:isolate}
+.cbox{margin:10px 0 4px;border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:8px;background:var(--code);overflow:hidden}
+.cbox.lk{border-left-color:var(--brass);background:var(--white)}
+.cbox .ch{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 10px 0 16px}
+.cbox .lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brass)}
+.cbox pre{margin:0;border:0;border-radius:0;background:transparent;padding:6px 16px 12px}
+.cbox a.url{display:block;font-family:var(--mono);font-size:13px;line-height:1.5;color:var(--blue);text-decoration:none;padding:4px 16px 11px;word-break:break-all;direction:ltr;text-align:left}
+.cpy{font:600 10.5px/1 Inter,sans-serif;color:var(--navy);background:var(--white);border:1px solid var(--line);border-radius:6px;padding:5px 9px;cursor:pointer;flex:none}
+.cpy:hover{border-color:var(--blue);color:var(--blue)}
+.prompt h4{display:flex;align-items:center}.prompt h4 .cpy{margin-inline-start:auto}
+.prompt h4 .tag{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--blue);background:var(--blue-soft);padding:3px 7px;border-radius:4px;margin-inline-end:8px;vertical-align:2px}
+/* payoff */
+.cta{margin-top:26px;background:var(--navy);color:#fff;border-radius:0;padding:34px 30px 28px;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--repp)}
+.cta .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.cta h3{color:#fff;font-family:var(--serif);font-size:32px;letter-spacing:0;text-transform:none;margin:0 0 8px;font-weight:600}
+.cta p{color:#fff;opacity:.92;margin:0}
+.cta .h{margin-top:16px;font-weight:700;font-size:15px;color:#4D92FF}
+/* language */
+html[data-lang="en"] .l-ar, html[data-lang="ar"] .l-en{display:none !important}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1, html[data-lang="ar"] h2{letter-spacing:0;line-height:1.3;font-family:var(--arab);font-weight:800}
+html[data-lang="ar"] h1{font-size:46px}
+html[data-lang="ar"] .em{font-family:var(--arab);font-style:normal;font-weight:700}
+html[data-lang="ar"] .run, html[data-lang="ar"] .foot, html[data-lang="ar"] .eyebrow, html[data-lang="ar"] h3, html[data-lang="ar"] .chip{letter-spacing:0}
+html[data-lang="ar"] p, html[data-lang="ar"] li{line-height:1.85}
+html[data-lang="ar"] ul li{padding:6px 20px 6px 0} html[data-lang="ar"] ul li::before{left:auto;right:0}
+html[data-lang="ar"] .by{justify-content:flex-start}
+pre, code{direction:ltr;text-align:left;unicode-bidi:isolate}
+.lang-toggle{position:fixed;top:14px;right:16px;z-index:50;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--white);
+  border:1px solid var(--line);box-shadow:0 4px 14px rgba(11,18,32,.08);font-family:var(--sans),var(--arab)}
+html[data-lang="ar"] .lang-toggle{right:auto;left:16px}
+.lang-toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13px;font-family:inherit;padding:7px 14px;border-radius:999px;cursor:pointer}
+.lang-toggle button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.lang-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+/* phone layout (2026-11-15): pages stack full width and grow with their content; print stays 8.5x11 */
+@media screen and (max-width:860px){
+  body{padding:0}
+  .page{width:100%;height:auto;min-height:0;margin:0 0 10px;padding:30px 18px 22px;box-shadow:none}
+  .cover{padding-top:58px}
+  .run{font-size:9.5px;gap:10px;margin-bottom:22px}
+  .run span:nth-child(2){display:none}
+  h1{font-size:40px}
+  html[data-lang="ar"] h1{font-size:32px}
+  h2{font-size:30px}
+  .step h2{font-size:24px}
+  p,ul li{font-size:15px}
+  .lead{font-size:16px}
+  .cover .brandrow{margin-bottom:28px}
+  .stage{margin:22px 0;min-height:0;padding:16px 12px;outline-offset:4px}
+  .win pre{font-size:12.5px;padding:16px 14px}
+  .cover .bottom{grid-template-columns:1fr;gap:16px;margin-top:22px}
+  .by{justify-content:flex-start}
+  .step{grid-template-columns:44px 1fr;gap:0 6px;padding:16px 0}
+  .step .num{font-size:32px}
+  .cbox pre{font-size:12.5px}
+  .cbox a.url{font-size:13.5px}
+  .cpy{font-size:12px;padding:8px 12px}
+  .shot img,.shot video{max-height:none}
+  .cta{padding:28px 20px 22px}
+  .cta h3{font-size:28px}
+  .foot{margin-top:20px}
+  .lang-toggle{top:auto;bottom:14px;right:12px}
+  html[data-lang="ar"] .lang-toggle{left:12px}
+}
+@media print{
+  @page{size:8.5in 11in;margin:0}
+  html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{margin:0;box-shadow:none;page-break-after:always} .page:last-child{page-break-after:auto}
+  .lang-toggle{display:none !important}
+  .cpy{display:none !important}
+}</style>
+</head>
+<body>
+<div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>
+<section class="page cover">
+  <div class="brandrow"><span class="wordmark">karemops<i>.ai</i></span><span class="chip"><span class="l-en">Comment</span><span class="l-ar">اكتب</span> · MONTAGE</span></div>
+  <div class="eyebrow"><span class="l-en">Field guide · No. 57</span><span class="l-ar">دليل عملي · رقم 57</span></div>
+  <h1><span class="l-en">Build your own video studio <span class="em">in Claude Code.</span></span><span class="l-ar">ابنِ استوديو فيديو خاصًّا بك <span class="em">داخل Claude Code.</span></span></h1>
+  <p class="lead"><span class="l-en">One idea in, a finished vertical reel out: script, captions, screenshots, music and the final mp4. A free starter skill, built from free tools, that runs on your own computer.</span><span class="l-ar">فكرة واحدة تدخل، وفيديو عمودي جاهز يخرج: النص، والترجمة، ولقطات الشاشة، والموسيقى، وملف mp4 النهائي. مهارة مجانية للبداية، مبنية من أدوات مجانية، وتعمل على جهازك أنت.</span></p>
+  <div class="stage"><div class="win"><div class="bar"><i></i><i></i><i></i><span>Claude Code</span></div><pre><span class="p">&gt;</span> mkdir -p ~/.claude/skills/video-studio
+cd ~/.claude/skills/video-studio
+curl -fsSLO https://www.karemopsai.com/lead-magnets/assets/claude-video-studio/SKILL.md<span class="caret"></span></pre><div class="note"><span class="l-en">Step 03 of this guide. Copy it as is.</span><span class="l-ar">الخطوة 03 من هذا الدليل. انسخها كما هي.</span></div></div></div>
+  <div class="bottom">
+    <div class="inside"><h3 style="margin-top:0"><span class="l-en">Inside</span><span class="l-ar">في هذا الدليل</span></h3><p><span class="l-en">Add the free video studio skill with copy and paste, let Claude Code set up the tools, then make your first reel: give it an idea, record your voice on your phone, and type build it. Plus 6 ready prompts for your next reels.</span><span class="l-ar">أضف مهارة استوديو الفيديو المجانية بالنسخ واللصق، ودع Claude Code يجهّز الأدوات، ثم اصنع أول فيديو: أعطه فكرة، وسجّل صوتك على هاتفك، واكتب build it. ومعها 6 أوامر جاهزة لفيديوهاتك التالية.</span></p></div>
+    <div class="by"><svg class="mono-k" viewBox="0 0 120 150" aria-label="Karemops crest"><ellipse cx="60" cy="75" rx="57" ry="72" fill="none" stroke="#B08D57" stroke-width="3"/><ellipse cx="60" cy="75" rx="49" ry="64" fill="none" stroke="#B08D57" stroke-width="1.4"/><text x="60" y="98" text-anchor="middle" style="font:600 68px 'Cormorant Garamond',Georgia,serif;fill:#0866FF">K</text></svg><div><b><span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></b><small><span class="ltr">@karemops.ai</span></small></div></div>
+  </div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Build your own video studio in Claude Code</span><span class="l-ar">ابنِ استوديو فيديو خاصًّا بك داخل Claude Code</span></span><span>MONTAGE</span></div>
+  <div class="eyebrow"><span class="l-en">01 · What this is</span><span class="l-ar">01 · ما هذا</span></div>
+  <h2><span class="l-en">What you're <span class="em">setting up.</span></span><span class="l-ar">ما الذي <span class="em">ستُعدّه.</span></span></h2>
+  <p><span class="l-en">This guide gives you a starter video studio inside Claude Code. You give it an idea. It researches it and writes the script. You record your voice on your phone. It captions your voice, takes screenshots of the pages you name, puts a free music track under it and renders a 1080x1920 mp4, ready to post.</span><span class="l-ar">يعطيك هذا الدليل استوديو فيديو للبداية داخل Claude Code. تعطيه فكرة، فيبحث فيها ويكتب النص. تسجّل صوتك على هاتفك. فيضيف الترجمة لصوتك، ويلتقط صور الصفحات التي تسمّيها، ويضع موسيقى مجانية تحته، ويصدّر ملف mp4 بمقاس 1080x1920 جاهزًا للنشر.</span></p>
+  <p><span class="l-en">It's built only from free, well-known tools: Claude Code writes and runs everything, Whisper turns your voice into captions, FFmpeg cuts and renders the video, Chrome takes the screenshots and Pixabay gives you the music. It all runs on your own computer, nothing is uploaded.</span><span class="l-ar">مبني فقط من أدوات مجانية ومعروفة: Claude Code يكتب كل شيء ويشغّله، وWhisper يحوّل صوتك إلى ترجمة، وFFmpeg يقصّ الفيديو ويصدّره، وChrome يلتقط صور الشاشة، وPixabay يعطيك الموسيقى. كل شيء يعمل على جهازك، ولا يُرفع أي شيء.</span></p>
+  <p><span class="l-en">The reel mentions OpenMontage. Our security scan flagged it, so here's a safer starter you build yourself. We wrote this skill from scratch and scanned it with NVIDIA SkillSpector: it came back SAFE, 0 issues. It's simple on purpose: basic captions, screenshots with a slow zoom, music under your voice.</span><span class="l-ar">يذكر الفيديو أداة OpenMontage. فحصنا الأمني نبّه عليها، لذلك هذه بداية أكثر أمانًا تبنيها بنفسك. كتبنا هذه المهارة من الصفر وفحصناها بأداة NVIDIA SkillSpector: النتيجة SAFE، بلا أي مشكلة. وهي بسيطة عن قصد: ترجمة أساسية، ولقطات شاشة مع تقريب بطيء، وموسيقى تحت صوتك.</span></p>
+  <p><span class="l-en">Never opened Terminal? This guide is for you. On every screen a gold ring shows what to click or paste, and gold numbers show the order. Steps 1 to 5 happen once. After that, every new reel is steps 6 to 10.</span><span class="l-ar">لم تفتح Terminal من قبل؟ هذا الدليل لك. في كل شاشة حلقة ذهبية تبيّن ما تضغطه أو تلصقه، وأرقام ذهبية تبيّن الترتيب. الخطوات من 1 إلى 5 مرة واحدة فقط. بعدها كل فيديو جديد هو الخطوات من 6 إلى 10.</span></p>
+  <h3><span class="l-en">You need</span><span class="l-ar">ما تحتاجه</span></h3><ul><li class="l-en">A paid Claude plan (Pro or higher)</li><li class="l-en">A Mac or Windows computer, and 30 minutes for the first setup</li><li class="l-en">Your phone, to record your voice</li><li class="l-en">No coding. You copy, paste and press Enter</li><li class="l-ar">خطة Claude مدفوعة (Pro أو أعلى)</li><li class="l-ar">جهاز Mac أو Windows، وثلاثون دقيقة للإعداد الأول</li><li class="l-ar">هاتفك لتسجيل صوتك</li><li class="l-ar">بلا برمجة. تنسخ وتلصق وتضغط Enter</li></ul>
+  <div class="callout"><strong><span class="l-en">Heads up:</span><span class="l-ar">تنبيه:</span></strong> <span class="l-en">The first setup installs FFmpeg and Whisper (about 1 GB). Claude Code asks before every install, and Terminal may ask for your computer password: type it (nothing shows while you type) and press Enter. If Terminal ever shows red error text, copy it, paste it into Claude Code and ask it to fix it.</span><span class="l-ar">الإعداد الأول يثبّت FFmpeg وWhisper (نحو 1 غيغابايت). يسألك Claude Code قبل كل تثبيت، وقد يطلب Terminal كلمة مرور جهازك: اكتبها (لن يظهر شيء أثناء الكتابة) واضغط Enter. إذا ظهر في Terminal نص خطأ أحمر، انسخه والصقه في Claude Code واطلب منه إصلاحه.</span></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">01 / 14</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Build your own video studio in Claude Code</span><span class="l-ar">ابنِ استوديو فيديو خاصًّا بك داخل Claude Code</span></span><span>MONTAGE</span></div>
+  <div class="eyebrow"><span class="l-en">02 · The steps</span><span class="l-ar">02 · الخطوات</span></div><h2><span class="l-en">Set it up, <span class="em">step by step.</span></span><span class="l-ar">الإعداد <span class="em">خطوة بخطوة.</span></span></h2>
+  <div class="step"><div class="num">01</div><div>
+    <h2><span class="l-en">Open Terminal</span><span class="l-ar">افتح Terminal</span></h2><p><span class="l-en">Terminal is a window where you paste a line and press Enter. That's all you do in it, no coding. On a Mac: press Command and Space together, type <code class="ic">Terminal</code>, press Enter. On Windows: click Start, type <code class="ic">PowerShell</code>, press Enter.</span><span class="l-ar">Terminal نافذة تلصق فيها سطرًا وتضغط Enter. هذا كل ما ستفعله فيها، بلا برمجة. في Mac: اضغط Command وSpace معًا، واكتب <code class="ic">Terminal</code>، واضغط Enter. في Windows: اضغط Start، واكتب <code class="ic">PowerShell</code>، واضغط Enter.</span></p><figure class="shot"><img src="assets/claude-video-studio/shot-spot.png" alt="Mac Spotlight search with Terminal typed in and the Terminal app highlighted" loading="lazy"><figcaption>Command + Space, type Terminal, press Enter. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">02 / 14</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Build your own video studio in Claude Code</span><span class="l-ar">ابنِ استوديو فيديو خاصًّا بك داخل Claude Code</span></span><span>MONTAGE</span></div>
+  
+  <div class="step"><div class="num">02</div><div>
+    <h2><span class="l-en">Install Claude Code (one time only)</span><span class="l-ar">ثبّت Claude Code (مرة واحدة فقط)</span></h2><p><span class="l-en">Copy the line below, click inside the Terminal window, paste it (Command V on a Mac, Ctrl V on Windows) and press Enter. Wait until the <code class="ic">%</code> sign comes back. On Windows, use the second box. Already have Claude Code? Skip to step 3.</span><span class="l-ar">انسخ السطر أدناه، واضغط داخل نافذة Terminal، والصقه (Command V في Mac أو Ctrl V في Windows) ثم اضغط Enter. انتظر حتى تعود علامة <code class="ic">%</code>. في Windows استخدم المربع الثاني. عندك Claude Code أصلًا؟ انتقل إلى الخطوة 3.</span></p><div class="cbox" dir="ltr"><div class="ch"><span class="lbl"><span class="l-en">Mac: paste this in Terminal</span><span class="l-ar">Mac: الصق هذا في Terminal</span></span><button class="cpy" type="button">Copy</button></div><pre>curl -fsSL https://claude.ai/install.sh | bash</pre></div><div class="cbox" dir="ltr"><div class="ch"><span class="lbl"><span class="l-en">Windows: paste this in PowerShell</span><span class="l-ar">Windows: الصق هذا في PowerShell</span></span><button class="cpy" type="button">Copy</button></div><pre>irm https://claude.ai/install.ps1 | iex</pre></div><figure class="shot"><img src="assets/claude-video-studio/shot-install.png" alt="Terminal with the Claude Code install line pasted in" loading="lazy"><figcaption>Paste, press Enter, wait for the % sign. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">03 / 14</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Build your own video studio in Claude Code</span><span class="l-ar">ابنِ استوديو فيديو خاصًّا بك داخل Claude Code</span></span><span>MONTAGE</span></div>
+  
+  <div class="step"><div class="num">03</div><div>
+    <h2><span class="l-en">Add the free video studio skill</span><span class="l-ar">أضف مهارة استوديو الفيديو المجانية</span></h2><p><span class="l-en">A skill is one text file that teaches Claude Code a job. Paste the 3 lines below one at a time, Enter after each. They make a folder for the skill and download the file into it. Want to read it first? Open the link: it's plain English.</span><span class="l-ar">المهارة ملف نصي واحد يعلّم Claude Code مهمة. الصق الأسطر الثلاثة أدناه واحدًا تلو الآخر، مع Enter بعد كل سطر. تنشئ مجلدًا للمهارة وتنزّل الملف إليه. تريد قراءته أولًا؟ افتح الرابط: إنه إنجليزية بسيطة.</span></p><div class="cbox lk" dir="ltr"><div class="ch"><span class="lbl"><span class="l-en">Read the skill file</span><span class="l-ar">اقرأ ملف المهارة</span></span><button class="cpy" type="button">Copy</button></div><a class="url" href="https://www.karemopsai.com/lead-magnets/assets/claude-video-studio/SKILL.md" target="_blank" rel="noopener">https://www.karemopsai.com/lead-magnets/assets/claude-video-studio/SKILL.md</a></div><div class="cbox" dir="ltr"><div class="ch"><span class="lbl"><span class="l-en">Mac: paste in Terminal, one line at a time</span><span class="l-ar">Mac: الصق في Terminal، سطرًا سطرًا</span></span><button class="cpy" type="button">Copy</button></div><pre>mkdir -p ~/.claude/skills/video-studio
+cd ~/.claude/skills/video-studio
+curl -fsSLO https://www.karemopsai.com/lead-magnets/assets/claude-video-studio/SKILL.md</pre></div><div class="cbox" dir="ltr"><div class="ch"><span class="lbl"><span class="l-en">Windows: paste this in PowerShell</span><span class="l-ar">Windows: الصق هذا في PowerShell</span></span><button class="cpy" type="button">Copy</button></div><pre>mkdir "$HOME\.claude\skills\video-studio" -Force; iwr https://www.karemopsai.com/lead-magnets/assets/claude-video-studio/SKILL.md -OutFile "$HOME\.claude\skills\video-studio\SKILL.md"</pre></div><figure class="shot"><img src="assets/claude-video-studio/shot-skill.png" alt="Terminal with the 3 lines that create the skill folder and download SKILL.md" loading="lazy"><figcaption>3 lines, Enter after each. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">04 / 14</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Build your own video studio in Claude Code</span><span class="l-ar">ابنِ استوديو فيديو خاصًّا بك داخل Claude Code</span></span><span>MONTAGE</span></div>
+  
+  <div class="step"><div class="num">04</div><div>
+    <h2><span class="l-en">Open Claude Code in your studio folder</span><span class="l-ar">افتح Claude Code داخل مجلد الاستوديو</span></h2><p><span class="l-en">Paste the 3 lines below, Enter after each. They make a folder called <code class="ic">video-studio</code> for your reels and open Claude Code inside it. Claude Code asks if you trust the folder: press Enter on Yes. The very first time it also asks you to log in: press Enter and log in to your Claude account in the browser.</span><span class="l-ar">الصق الأسطر الثلاثة أدناه، مع Enter بعد كل سطر. تنشئ مجلدًا اسمه <code class="ic">video-studio</code> لفيديوهاتك وتفتح Claude Code داخله. يسألك Claude Code هل تثق بالمجلد: اضغط Enter على Yes. في المرة الأولى فقط يطلب منك تسجيل الدخول: اضغط Enter وسجّل الدخول إلى حساب Claude في المتصفح.</span></p><div class="cbox" dir="ltr"><div class="ch"><span class="lbl"><span class="l-en">Mac: paste in Terminal, one line at a time</span><span class="l-ar">Mac: الصق في Terminal، سطرًا سطرًا</span></span><button class="cpy" type="button">Copy</button></div><pre>mkdir -p ~/video-studio
+cd ~/video-studio
+claude</pre></div><div class="cbox" dir="ltr"><div class="ch"><span class="lbl"><span class="l-en">Windows: paste this in PowerShell</span><span class="l-ar">Windows: الصق هذا في PowerShell</span></span><button class="cpy" type="button">Copy</button></div><pre>mkdir "$HOME\video-studio" -Force; cd "$HOME\video-studio"; claude</pre></div><figure class="shot"><img src="assets/claude-video-studio/shot-open.png" alt="Terminal making the video-studio folder, opening Claude Code, and the trust question with Yes selected" loading="lazy"><figcaption>3 lines, then Enter on Yes. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">05 / 14</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Build your own video studio in Claude Code</span><span class="l-ar">ابنِ استوديو فيديو خاصًّا بك داخل Claude Code</span></span><span>MONTAGE</span></div>
+  
+  <div class="step"><div class="num">05</div><div>
+    <h2><span class="l-en">Let it set up the tools (one time only)</span><span class="l-ar">دعه يجهّز الأدوات (مرة واحدة فقط)</span></h2><p><span class="l-en">Paste the line below into Claude Code and press Enter. It checks what's missing (FFmpeg for video, Whisper for captions) and asks before installing each one: press Enter on Yes. If it asks for your computer password, type it and press Enter. This takes 5 to 15 minutes the first time.</span><span class="l-ar">الصق السطر أدناه في Claude Code واضغط Enter. يتحقق مما ينقص (FFmpeg للفيديو، وWhisper للترجمة) ويسألك قبل تثبيت كل منهما: اضغط Enter على Yes. إذا طلب كلمة مرور جهازك فاكتبها واضغط Enter. يستغرق هذا من 5 إلى 15 دقيقة في المرة الأولى.</span></p><div class="cbox" dir="ltr"><div class="ch"><span class="lbl"><span class="l-en">Paste in Claude Code</span><span class="l-ar">الصق في Claude Code</span></span><button class="cpy" type="button">Copy</button></div><pre>/video-studio set up my tools</pre></div><figure class="shot"><img src="assets/claude-video-studio/shot-setup.png" alt="Claude Code checking the tools and asking permission to install FFmpeg and the Whisper model" loading="lazy"><figcaption>Paste, then Enter on Yes. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">06 / 14</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Build your own video studio in Claude Code</span><span class="l-ar">ابنِ استوديو فيديو خاصًّا بك داخل Claude Code</span></span><span>MONTAGE</span></div>
+  
+  <div class="step"><div class="num">06</div><div>
+    <h2><span class="l-en">Give it your idea</span><span class="l-ar">أعطه فكرتك</span></h2><p><span class="l-en">Type <code class="ic">/video-studio</code>, then your idea in your own words, and press Enter. Say who it's for and how it should end, for example <code class="ic">comment TOOLS</code>. Claude Code researches it and writes a 30 to 45 second script with a hook, 3 short points and your ending.</span><span class="l-ar">اكتب <code class="ic">/video-studio</code> ثم فكرتك بكلماتك، واضغط Enter. قل لمن هي وكيف تنتهي، مثلًا <code class="ic">comment TOOLS</code>. يبحث Claude Code فيها ويكتب نصًّا من 30 إلى 45 ثانية فيه افتتاحية و3 نقاط قصيرة وخاتمتك.</span></p><div class="cbox" dir="ltr"><div class="ch"><span class="lbl"><span class="l-en">Example: paste in Claude Code, then change the idea</span><span class="l-ar">مثال: الصقه في Claude Code ثم غيّر الفكرة</span></span><button class="cpy" type="button">Copy</button></div><pre>/video-studio make a 30 second reel about 3 free tools that save me an hour a day. End with: comment TOOLS.</pre></div><figure class="shot"><img src="assets/claude-video-studio/shot-idea.png" alt="Claude Code with a reel idea typed in and the script it wrote: hook, 3 points and the ending" loading="lazy"><figcaption>Type your idea, read the script it writes. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">07 / 14</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Build your own video studio in Claude Code</span><span class="l-ar">ابنِ استوديو فيديو خاصًّا بك داخل Claude Code</span></span><span>MONTAGE</span></div>
+  
+  <div class="step"><div class="num">07</div><div>
+    <h2><span class="l-en">Record your voice on your phone</span><span class="l-ar">سجّل صوتك على هاتفك</span></h2><p><span class="l-en">Read the script out loud into the Voice Memos app (or film a selfie video if you want your face in it). Send the file to your computer (AirDrop, WhatsApp to yourself, or email) and drag it into the <code class="ic">input</code> folder inside <code class="ic">video-studio</code>. Can't find the folder? Type <code class="ic">open the input folder</code> in Claude Code.</span><span class="l-ar">اقرأ النص بصوت عالٍ في تطبيق Voice Memos (أو صوّر فيديو سيلفي إن أردت أن يظهر وجهك). أرسل الملف إلى جهازك (AirDrop، أو واتساب لنفسك، أو البريد) واسحبه إلى مجلد <code class="ic">input</code> داخل <code class="ic">video-studio</code>. لا تجد المجلد؟ اكتب <code class="ic">open the input folder</code> في Claude Code.</span></p><figure class="shot"><img src="assets/claude-video-studio/shot-record.png" alt="A phone with Voice Memos recording, and the video-studio input folder with voice.m4a inside" loading="lazy"><figcaption>Record on your phone, then drop the file in input. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">08 / 14</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Build your own video studio in Claude Code</span><span class="l-ar">ابنِ استوديو فيديو خاصًّا بك داخل Claude Code</span></span><span>MONTAGE</span></div>
+  
+  <div class="step"><div class="num">08</div><div>
+    <h2><span class="l-en">Pick free music</span><span class="l-ar">اختر موسيقى مجانية</span></h2><p><span class="l-en">Open Pixabay Music, search a mood (for example <code class="ic">upbeat</code> or <code class="ic">calm</code>), play a few and click Download on the one you like. Rename the file <code class="ic">music.mp3</code> and drag it into the same <code class="ic">input</code> folder. Pixabay's music is free to use in your videos, no credit needed. Skip this step for no music.</span><span class="l-ar">افتح Pixabay Music، وابحث عن مزاج (مثلًا <code class="ic">upbeat</code> أو <code class="ic">calm</code>)، واستمع لبعضها واضغط Download على التي تعجبك. غيّر اسم الملف إلى <code class="ic">music.mp3</code> واسحبه إلى مجلد <code class="ic">input</code> نفسه. موسيقى Pixabay مجانية للاستخدام في فيديوهاتك بلا ذكر للمصدر. تجاوز هذه الخطوة إن لم ترد موسيقى.</span></p><div class="cbox lk" dir="ltr"><div class="ch"><span class="lbl"><span class="l-en">Pixabay Music</span><span class="l-ar">Pixabay Music</span></span><button class="cpy" type="button">Copy</button></div><a class="url" href="https://pixabay.com/music/" target="_blank" rel="noopener">https://pixabay.com/music/</a></div><figure class="shot"><img src="assets/claude-video-studio/shot-music.png" alt="A music page with a gold ring on a Download button" loading="lazy"><figcaption>Play, download, rename to music.mp3. Recreated screen, sample tracks.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">09 / 14</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Build your own video studio in Claude Code</span><span class="l-ar">ابنِ استوديو فيديو خاصًّا بك داخل Claude Code</span></span><span>MONTAGE</span></div>
+  
+  <div class="step"><div class="num">09</div><div>
+    <h2><span class="l-en">Build the reel</span><span class="l-ar">اصنع الفيديو</span></h2><p><span class="l-en">Go back to Claude Code, type <code class="ic">build it</code> and press Enter. It captions your voice, takes the screenshots, adds a slow zoom, puts the music under your voice and saves <code class="ic">reel.mp4</code> in the <code class="ic">out</code> folder, then opens the folder for you. A 30 second reel takes 2 to 5 minutes.</span><span class="l-ar">ارجع إلى Claude Code، واكتب <code class="ic">build it</code> واضغط Enter. يضيف الترجمة لصوتك، ويلتقط صور الشاشة، ويضيف تقريبًا بطيئًا، ويضع الموسيقى تحت صوتك، ويحفظ <code class="ic">reel.mp4</code> في مجلد <code class="ic">out</code>، ثم يفتح لك المجلد. فيديو من 30 ثانية يستغرق من 2 إلى 5 دقائق.</span></p><div class="cbox" dir="ltr"><div class="ch"><span class="lbl"><span class="l-en">Paste in Claude Code</span><span class="l-ar">الصق في Claude Code</span></span><button class="cpy" type="button">Copy</button></div><pre>build it</pre></div><figure class="shot"><img src="assets/claude-video-studio/shot-build.png" alt="Claude Code showing the build steps and the saved reel.mp4" loading="lazy"><figcaption>Type build it, then find reel.mp4 in out. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">10 / 14</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Build your own video studio in Claude Code</span><span class="l-ar">ابنِ استوديو فيديو خاصًّا بك داخل Claude Code</span></span><span>MONTAGE</span></div>
+  
+  <div class="step"><div class="num">10</div><div>
+    <h2><span class="l-en">Change it in plain words</span><span class="l-ar">عدّله بكلام بسيط</span></h2><p><span class="l-en">Not quite right? Type the change the way you'd text a friend and press Enter, for example <code class="ic">make the captions bigger</code>, <code class="ic">music a bit softer</code>, or <code class="ic">use my selfie video instead of screenshots</code>. One change per message works best. Then post it.</span><span class="l-ar">ليس كما تريد تمامًا؟ اكتب التعديل كأنك تراسل صديقًا واضغط Enter، مثلًا <code class="ic">make the captions bigger</code>، أو <code class="ic">music a bit softer</code>، أو <code class="ic">use my selfie video instead of screenshots</code>. تعديل واحد في كل رسالة هو الأفضل. ثم انشره.</span></p><figure class="shot"><img src="assets/claude-video-studio/shot-fix.png" alt="Claude Code with a follow-up asking for bigger captions and softer music" loading="lazy"><figcaption>Type the change, press Enter. Recreated screen.</figcaption></figure></div></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">11 / 14</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Build your own video studio in Claude Code</span><span class="l-ar">ابنِ استوديو فيديو خاصًّا بك داخل Claude Code</span></span><span>MONTAGE</span></div>
+  <div class="eyebrow"><span class="l-en">6 reels to make next</span><span class="l-ar">6 فيديوهات تصنعها بعد ذلك</span></div><h2><span class="l-en">Paste one, change the [brackets]</span><span class="l-ar">الصق واحدًا وغيّر ما بين [الأقواس]</span></h2><p class="muted l-ar">انسخ الأوامر والنصوص كما هي باللغة الإنجليزية، فهي تعمل بدقة أكبر.</p>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">1. A voice-only tool tour</span><span class="l-ar">1. جولة بالأدوات بالصوت فقط</span><button class="cpy" type="button">Copy</button></h4><pre>/video-studio make a 30 second voice-only reel about [3 free tools that save me an hour a day].
+Use a screenshot of each tool's homepage, one per beat.
+End with: comment [TOOLS] and I'll send you the list.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">2. Captions on your selfie video</span><span class="l-ar">2. ترجمة على فيديو السيلفي</span><button class="cpy" type="button">Copy</button></h4><pre>/video-studio I put a selfie video in the input folder.
+Add captions in the lower third, away from my face.
+Put the music from input softly under my voice.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">3. Walk through a website</span><span class="l-ar">3. جولة في موقع إلكتروني</span><button class="cpy" type="button">Copy</button></h4><pre>/video-studio make a 30 second reel that walks through [my website address].
+4 screenshots, one per section, a slow zoom on each.
+Write the script first and wait for my voice memo.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">12 / 14</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Build your own video studio in Claude Code</span><span class="l-ar">ابنِ استوديو فيديو خاصًّا بك داخل Claude Code</span></span><span>MONTAGE</span></div>
+  
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">4. This week's news in 40 seconds</span><span class="l-ar">4. أخبار الأسبوع في 40 ثانية</span><button class="cpy" type="button">Copy</button></h4><pre>/video-studio research [this week's news about AI tools for small businesses].
+Write a 40 second script with 3 points and list your sources.
+Then wait for my voice memo.</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">5. Old way vs new way</span><span class="l-ar">5. الطريقة القديمة مقابل الجديدة</span><button class="cpy" type="button">Copy</button></h4><pre>/video-studio make a reel comparing [doing invoices by hand] with [doing them with Claude Code].
+Use 2 screenshots I'll put in input, one for each side.
+Hook in the first line, call to action at the end: [comment INVOICE].</pre></div>
+  <div class="prompt"><h4><span class="tag">PROMPT</span><span class="l-en">6. Turn a post into a reel</span><span class="l-ar">6. حوّل منشورًا إلى فيديو</span><button class="cpy" type="button">Copy</button></h4><pre>/video-studio turn this post into a 30 second script I can read out loud:
+[paste your post here]
+Keep my words where you can. Then wait for my voice memo.</pre></div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">13 / 14</span></div>
+</section>
+
+<section class="page"><div class="run"><b>karemops.ai</b><span><span class="l-en">Build your own video studio in Claude Code</span><span class="l-ar">ابنِ استوديو فيديو خاصًّا بك داخل Claude Code</span></span><span>MONTAGE</span></div>
+  <div class="eyebrow"><span class="l-en">Done</span><span class="l-ar">تم</span></div>
+  <h2><span class="l-en">That's the <span class="em">whole setup.</span></span><span class="l-ar">هذا هو <span class="em">الإعداد كاملًا.</span></span></h2>
+  <p class="lead"><span class="l-en">Make one reel this week with your own voice, post it, and see how long it took you. Then make the next one faster.</span><span class="l-ar">اصنع فيديو واحدًا هذا الأسبوع بصوتك، وانشره، وانظر كم استغرق منك. ثم اصنع التالي أسرع.</span></p>
+  <h3><span class="l-en">Credit</span><span class="l-ar">المصادر</span></h3><ul><li>Claude Code by Anthropic</li><li>Whisper by OpenAI (MIT license), run with whisper.cpp by Georgi Gerganov and contributors (MIT license)</li><li>FFmpeg by the FFmpeg developers (ffmpeg.org, LGPL/GPL)</li><li>Google Chrome for the screenshots, Homebrew for installing tools on a Mac</li><li>Free music from Pixabay (Pixabay Content License)</li><li>For animated title cards later: Remotion (remotion.dev) or HyperFrames</li><li>The starter skill was written from scratch by Karemops.ai and scanned with NVIDIA SkillSpector (SAFE, 0 issues, 20 Nov 2026). The reel mentions OpenMontage: we didn't use it, because our scan flagged it.</li></ul>
+  <div class="cta">
+    <div class="k"><span class="l-en">Built by</span><span class="l-ar">إعداد</span> <span class="l-en">Karem AlMoayyad</span><span class="l-ar">كريم المؤيد</span></div>
+    <h3><span class="l-en">Want it built for you?</span><span class="l-ar">تريد أن نبنيه لك؟</span></h3>
+    <p><span class="l-en">AI operator and educator. I build AI systems for business owners: content, ads and automation, with Claude Code at the center. If you want it built for you, DM me.</span><span class="l-ar">مشغّل ومعلّم في مجال الذكاء الاصطناعي. أبني أنظمة ذكاء اصطناعي لأصحاب الأعمال في المحتوى والإعلانات والأتمتة، ويكون Claude Code في قلبها. إذا أردت أن أبنيها لك، راسلني.</span></p>
+    <div class="h"><span class="ltr">@karemops.ai</span><span class="l-en"> · Instagram · TikTok · LinkedIn</span><span class="l-ar"> · إنستغرام · تيك توك · لينكدإن</span></div>
+  </div>
+  <div class="foot"><span><span class="l-en">Field guide</span><span class="l-ar">دليل عملي</span> · <span class="ltr">@karemops.ai</span></span><span class="n">14 / 14</span></div>
+</section>
+<script>
+(function(){
+  var root=document.documentElement;
+  function set(l){root.dataset.lang=l;root.lang=l;root.dir=l==="ar"?"rtl":"ltr";
+    document.querySelectorAll(".lang-toggle button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===l)});
+    try{localStorage.setItem("karemops-guide-lang",l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem("karemops-guide-lang")}catch(e){}
+  set(location.hash==="#ar"?"ar":location.hash==="#en"?"en":(saved||"en"));
+  document.querySelector(".lang-toggle").addEventListener("click",function(e){var b=e.target.closest("button");if(b)set(b.dataset.l)});
+})();
+</script>
+<script>document.addEventListener("click",function(e){var b=e.target.closest(".cpy");if(!b)return;e.preventDefault();var box=b.closest(".cbox,.prompt"),el=box&&box.querySelector("pre,a.url");if(!el)return;var txt=el.textContent.trim();function ok(){b.textContent="Copied";setTimeout(function(){b.textContent="Copy"},1500)}if(navigator.clipboard)navigator.clipboard.writeText(txt).then(ok,function(){});else{var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand("copy");ok()}});</script>
+</body>
+</html>
