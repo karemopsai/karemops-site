@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The SID Process — Karemops.ai</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,6 +49,20 @@
   .meta-row{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0 6px 0;}
   .meta-row .chip{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent-1);background:rgba(59,130,246,0.1);border:1px solid var(--stroke);padding:5px 10px;border-radius:6px;letter-spacing:0.05em;}
   .meta-row .chip strong{color:var(--text);font-family:'Inter',sans-serif;font-weight:700;margin-left:4px;}
+  /* phone layout (2026-11-26): pages stack full width and grow with their content; desktop and print stay 8.5x11 */
+  @media screen and (max-width:640px){
+    .page{width:100%;height:auto;min-height:0;padding:34px 18px 26px;overflow:hidden}
+    .page::before{width:300px;height:300px;top:-120px;right:-120px}
+    h1,.cover h1{font-size:40px}
+    h2{font-size:28px}
+    h3{font-size:18px}
+    .cover .lead,.lead{font-size:16px;max-width:none}
+    .cover-meta,.brand-bar{flex-wrap:wrap;gap:6px 14px}
+    pre{white-space:pre-wrap;word-break:break-word;overflow-x:hidden}
+    img,svg,video,table{max-width:100%;height:auto}
+    .panel{padding:18px 16px}
+    .cover > div > img:first-child{width:calc(100% + 36px)!important;max-height:none!important;height:auto!important;margin:-34px -18px 20px!important}
+  }
   @media print{
     @page{size:8.5in 11in;margin:0;}
     html,body{background:var(--bg) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}

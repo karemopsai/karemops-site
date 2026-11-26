@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>4 Claude Skills That Make Your Resume Unrejectable — Karemops.ai</title>
 <meta name="description" content="Four Claude skills that turn a resume that isn't landing offers into one that clears the ATS, matches recruiter keywords, and reads like the top 5% of candidates." />
 <meta property="og:title" content="4 Claude Skills That Make Your Resume Unrejectable — Karemops.ai" />
@@ -153,6 +154,19 @@
     color:var(--text-muted);margin:10px 0 14px 0;
   }
   .trigger-row strong{color:var(--accent-1);text-transform:uppercase;letter-spacing:0.1em;font-size:10.5px;font-weight:700;display:block;margin-bottom:4px;}
+  /* phone layout (2026-11-26): pages stack full width and grow with their content; desktop and print stay 8.5x11 */
+  @media screen and (max-width:640px){
+    .page{width:100%;height:auto;min-height:0;padding:34px 18px 26px;overflow:hidden}
+    .page::before{width:300px;height:300px;top:-120px;right:-120px}
+    h1,.cover h1{font-size:40px}
+    h2{font-size:28px}
+    h3{font-size:18px}
+    .cover .lead,.lead{font-size:16px;max-width:none}
+    .cover-meta,.brand-bar{flex-wrap:wrap;gap:6px 14px}
+    pre{white-space:pre-wrap;word-break:break-word;overflow-x:hidden}
+    img,svg,video,table{max-width:100%;height:auto}
+    .panel{padding:18px 16px}
+  }
   @media print{
     @page{size:8.5in 11in;margin:0;}
     html,body{background:var(--bg) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
