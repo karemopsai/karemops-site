@@ -722,7 +722,7 @@
 <script>
   // Guide catalog: edit here to add/remove.
   // href points to the guide's PDF/HTML in /lead-magnets/ (or wherever you host it)
-  const GUIDES = [
+  const ALL_GUIDES = [
     {
       title: "Automate your Instagram with Claude",
       badge: "NEW",
@@ -738,6 +738,94 @@
       thumb: "Prompt\nPyramid",
       pdp: "claude-prompt-pyramid",
       href: "lead-magnets/claude-prompt-pyramid-guide.html"
+    },
+    {
+      title: "400 Claude videos, with their prompts",
+      badge: "NEW",
+      desc: "A free library of videos people made with Claude, each with its prompt. Copy one, add your brand name and colors, get your own version.",
+      thumb: "Video\nLibrary",
+      pdp: "claude-video-library",
+      href: "lead-magnets/claude-video-library-guide.html"
+    },
+    {
+      title: "Claude learns from any YouTube video",
+      badge: "NEW",
+      desc: "A free skill hands Claude the transcript of any video or playlist. One prompt turns what it teaches into a skill Claude keeps.",
+      thumb: "Learn From\nYouTube",
+      pdp: "claude-learns-youtube",
+      href: "lead-magnets/claude-learns-youtube-guide.html"
+    },
+    {
+      title: "Is Google's AI naming your competitor?",
+      badge: "NEW",
+      desc: "One command checks how ready your website is for AI answers in Google and ChatGPT, then lists what's missing and how to fix it.",
+      thumb: "AI\nSearch",
+      pdp: "claude-seo-ai-search",
+      href: "lead-magnets/claude-seo-ai-search-guide.html"
+    },
+    {
+      title: "3 things before your first Claude Code prompt",
+      badge: "NEW",
+      desc: "Plan mode, a CLAUDE.md with your business, and stepping in early. The 3 habits that get you what you actually wanted.",
+      thumb: "Plan\nFirst",
+      pdp: "claude-code-plan",
+      href: "lead-magnets/claude-code-plan-guide.html"
+    },
+    {
+      title: "Ask Claude which product is losing you money",
+      badge: "NEW",
+      desc: "Export your orders sheet, drop it in a folder, ask one question. Get the losing product, the reason and what to change.",
+      thumb: "Orders\nSheet",
+      pdp: "claude-orders-sheet",
+      href: "lead-magnets/claude-orders-sheet-guide.html"
+    },
+    {
+      title: "See your competitors' Google ads in Claude",
+      badge: "NEW",
+      desc: "A free plugin plus Google's Ads Transparency Center: the headlines, offers and landing pages your competitors pay for.",
+      thumb: "Competitor\nAds",
+      pdp: "claude-ads-competitors",
+      href: "lead-magnets/claude-ads-competitors-guide.html"
+    },
+    {
+      title: "5 Claude Code plugins to install first",
+      badge: "NEW",
+      desc: "The 5 plugins from the reel with the link and install steps for each, plus the scan to run before you install anything.",
+      thumb: "5\nPlugins",
+      pdp: "claude-code-5-plugins",
+      href: "lead-magnets/claude-code-5-plugins-guide.html"
+    },
+    {
+      title: "Make Claude read a 400-page PDF and cite the page",
+      badge: "NEW",
+      desc: "Drop any long PDF in a folder and ask. Claude answers with the page number and the exact sentence, so you can check every point.",
+      thumb: "PDF\nCitations",
+      pdp: "claude-pdf-citations",
+      href: "lead-magnets/claude-pdf-citations-guide.html"
+    },
+    {
+      title: "Build your own AI team HQ in Claude Code",
+      badge: "NEW",
+      desc: "One CEO session you talk to, desks that each do one job, a board and a weekly review. Prompts you adapt to your business. No code.",
+      thumb: "AI Team\nHQ",
+      pdp: "claude-ai-team-hq",
+      href: "lead-magnets/claude-ai-team-hq-guide.html"
+    },
+    {
+      title: "Clip any stream with Claude Code",
+      badge: "NEW",
+      desc: "Paste a stream link. Claude Code reads the chat replay, finds where chat went wild and cuts vertical clips with captions and a hook.",
+      thumb: "Stream\nClips",
+      pdp: "claude-stream-clips",
+      href: "lead-magnets/claude-stream-clips-guide.html"
+    },
+    {
+      title: "Build your own video studio in Claude Code",
+      badge: "NEW",
+      desc: "One idea in, a finished vertical reel out: script, captions, screenshots, music and the mp4. A free starter skill on your own computer.",
+      thumb: "Video\nStudio",
+      pdp: "claude-video-studio",
+      href: "lead-magnets/claude-video-studio-guide.html"
     },
     {
       title: "18 jobs Claude can do in your business",
@@ -1338,8 +1426,22 @@
       thumb: "Routines",
       pdp: "routines",
       href: "lead-magnets/routines-guide.html"
+    },
+    {
+      title: "Build your own Claude Code skills",
+      badge: "NEW",
+      desc: "The no-code setup: from a blank Terminal to your first working skill, plus 3 skills you can copy and run today.",
+      thumb: "Skills\nSetup",
+      pdp: "skills-setup",
+      href: "lead-magnets/skills-setup-guide.html"
     }
   ];
+
+  // Homepage list: only guides with a live ManyChat keyword (Karem, 2026-11-26).
+  // Hidden guides keep their pages and links, so old reels and DMs still work.
+  // New guides added above show up by default. Remove a slug here to show it again.
+  const HIDE_FROM_HOME = new Set(["claude-owner-map","write-it-down","ai-email-giveaways","three-ai-systems","monday-report","call-notes-proposal","black-friday-inbox","ai-council","meta-ads-claude","reverse-engineer","phone-agent","lean-setup","website-to-video","auto-posting","one-agent-playbooks","claude-code-commands","marketing-skills","prompt-builder","pro-ui-design","small-business-plugin","youtube-to-skill","job-agent","room-redesign","claude-starter-pack","humanizer","infinite-content","claude-skill-builder","finance-agents","truth-prompt","content-agent-dashboard","employee-context","md-file-builder","higgs-field-claude","morning","headroom","fable-5","infinite-leads","5-platforms","sid-carousels","resume-stack","6-agent-stack","shopify-toolkit","courses-roadmap","routines"]);
+  const GUIDES = ALL_GUIDES.filter(g => !HIDE_FROM_HOME.has(g.pdp));
 
   const INITIAL_COUNT = 2;
   const list = document.getElementById('guides-list');
