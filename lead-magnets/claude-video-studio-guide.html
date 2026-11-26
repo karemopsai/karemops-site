@@ -303,5 +303,6 @@ Keep my words where you can. Then wait for my voice memo.</pre></div>
 })();
 </script>
 <script>document.addEventListener("click",function(e){var b=e.target.closest(".cpy");if(!b)return;e.preventDefault();var box=b.closest(".cbox,.prompt"),el=box&&box.querySelector("pre,a.url");if(!el)return;var txt=el.textContent.trim();function ok(){b.textContent="Copied";setTimeout(function(){b.textContent="Copy"},1500)}if(navigator.clipboard)navigator.clipboard.writeText(txt).then(ok,function(){});else{var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand("copy");ok()}});</script>
+<!-- km-extras --><script src="/assets/site/km-extras.js" defer></script>
 </body>
 </html>

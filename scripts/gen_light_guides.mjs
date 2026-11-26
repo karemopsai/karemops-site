@@ -308,6 +308,7 @@ ${CLUB ? `<div class="repp"></div>\n` : ""}<div class="container">
 
 ${BI ? LANG_SCRIPT : ""}
 ${gs}
+<!-- km-extras --><script src="/assets/site/km-extras.js" defer></script>
 </body>
 </html>
 `;
