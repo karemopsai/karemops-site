@@ -89,11 +89,9 @@
     'html[data-lang="ar"] .kc-strip b{letter-spacing:0;font-size:14px}',
     '.kc-strip small{display:block;font-size:13px;opacity:.92}',
     '.kc-photo{position:relative;overflow:hidden}',
-    '.kc-photo img{position:absolute;bottom:0;right:2%;width:min(100%,360px);transform:translateY(36px);opacity:0;transition:transform 1s var(--ease),opacity .7s}',
+    '.kc-photo img{position:absolute;bottom:0;right:2%;width:auto;height:auto;max-width:min(100%,360px);max-height:calc(100% - 16px);transform:translateY(36px);opacity:0;transition:transform 1s var(--ease),opacity .7s}',
     'html[dir=rtl] .kc-photo img{right:auto;left:2%}',
     '.sk.in .kc-photo img{transform:none;opacity:1}',
-    '.kc-glow{position:absolute;right:-10%;bottom:-20%;width:90%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(8,102,255,.14),transparent 65%)}',
-    'html[dir=rtl] .kc-glow{right:auto;left:-10%}',
     '.kc-top .sk-h{font-size:36px}',
     '.kc-course{margin:0 30px 34px;background:#fff;border-radius:12px;border:1px solid var(--skln);box-shadow:0 1px 2px rgba(14,26,51,.06),0 14px 32px rgba(14,26,51,.10);overflow:hidden;position:relative;z-index:2}',
     '.kc-course .bar{background:var(--sknv);color:#E9E1D0;font-size:12px;font-weight:600;padding:9px 14px;display:flex;align-items:center;gap:8px}',
@@ -138,16 +136,18 @@
     '@media (max-width:640px){',
     '.sk-h{font-size:33px}',
     '.sk-card .sk-btn{width:100%}',
-    '.kc-ban{display:block;min-height:0}',
-    '.kc-ban .txt{padding:22px 18px 24px!important}',
-    '.kc-ban .sk-h{max-width:64%;font-size:28px}',
+    /* phone: photo beside the headline, its bottom on the top edge of the blue strip, so head, chest and arms all show */
+    '.kc-ban{display:grid;grid-template-columns:1fr 142px;column-gap:6px;align-items:start;min-height:0;padding:22px 18px 24px}',
+    '.kc-ban .txt{display:contents}',
+    '.kc-ban .kc-brand{grid-column:1;grid-row:1}',
+    '.kc-ban .kc-free{grid-column:1;grid-row:2;justify-self:start}',
+    '.kc-ban .sk-h{grid-column:1;grid-row:3;font-size:27px;margin-bottom:14px}',
     'html[data-lang="ar"] .kc-ban .sk-h{font-size:20px}',
-    '.kc-photo{position:absolute;top:26px;right:6px;width:148px;height:210px;z-index:1}',
-    'html[dir=rtl] .kc-photo{right:auto;left:6px}',
-    '.kc-photo img{width:148px;right:0;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent 98%);mask-image:linear-gradient(180deg,#000 72%,transparent 98%)}',
-    'html[dir=rtl] .kc-photo img{left:0}',
-    '.kc-glow{right:-30%;bottom:-10%;width:150%}',
-    '.kc-strip{position:relative;z-index:3;max-width:none}',
+    '.kc-photo{grid-column:2;grid-row:1/4;align-self:end;position:relative;overflow:visible;margin-inline-end:-12px;z-index:1}',
+    '.kc-photo img{position:relative;right:auto;left:auto;bottom:auto;display:block;width:100%;height:auto;max-width:none;max-height:none}',
+    'html[dir=rtl] .kc-photo img{left:auto}',
+    '.kc-strip{grid-column:1/-1;grid-row:4;position:relative;z-index:3;max-width:none;margin:-3px 0 14px}',
+    '.kc-ban .sk-btn{grid-column:1/-1;grid-row:5}',
     '.kc-ban .sk-btn{width:100%}',
     '.kc-course{margin:0 14px 30px}',
     '.kc-cb{grid-template-columns:1fr;gap:12px}',
@@ -169,7 +169,7 @@
       '<h2 class="sk-h rv d2">' + T('Set up Claude Code for your <em>business.</em>', 'خلّي Claude Code <em>يشتغل عنك.</em>') + '</h2>' +
       '<div class="kc-strip"><span class="ic"><img src="' + IMG + 'icon-skool.png" alt=""></span><span><b>' + T('Free on Skool', 'مجانًا على Skool') + '</b><small>' + T('5 short videos. No coding. No card.', '5 فيديوهات قصيرة. بدون برمجة. بدون بطاقة.') + '</small></span></div>' +
       go(big ? 'Join free on Skool ›' : 'Start free ›', big ? 'انضم مجانًا على Skool ›' : 'ابدأ مجانًا ›', from, 'rv d4') +
-      '</div><div class="kc-photo"><i class="kc-glow"></i><img src="' + IMG + 'karem-arms.png" alt="Karem AlMoayyad"></div></div>';
+      '</div><div class="kc-photo"><img src="' + IMG + 'karem-arms.png" alt="Karem AlMoayyad"></div></div>';
   }
   function cTop() {
     var d = document.createElement('div'); d.className = 'sk sk-card kc-top sk-wrap';
