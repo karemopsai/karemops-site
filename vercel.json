@@ -1,3 +1,6 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/skool", "destination": "https://www.skool.com/karemopsai-4658/about", "permanent": false }
+  ]
 }
