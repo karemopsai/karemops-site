@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The AI Office course: waitlist | Karemops.ai</title>
+<meta name="description" content="A paid course: the 3D AI office from my reel, with every prompt I used and a step by step video. $30 founding price for the waitlist, $50 after launch." />
+<meta property="og:title" content="The AI office from the reel: paid course waitlist | Karemops.ai" />
+<meta property="og:description" content="Every prompt I used plus a step by step video. Waitlist locks in $30. It's $50 after launch." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://www.karemopsai.com/assets/site/office/overview.jpg" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="googlebot" content="noindex,nofollow" />
+<meta name="theme-color" content="#FBF7EF" />
+<link rel="icon" href="/avatar.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#0866FF;--blue-h:#1E7AFF;--blue-nv:#4D92FF;--iv:#FBF7EF;--cr:#F2EAD9;--wh:#FFFFFF;--nv:#0E1A33;
+  --ink:#1A1714;--mu:#4A4438;--su:#7A7262;--br:#B08D57;--ln:#E4DACA;--ok:#12805C;--or:#CC785C;
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:Inter,system-ui,-apple-system,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--arab:'IBM Plex Sans Arabic',Inter,sans-serif;
+  --shadow:0 1px 2px rgba(14,26,51,.06),0 10px 30px rgba(14,26,51,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-feature-settings:'lnum' 1;margin:0;background:var(--iv);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{max-width:100%;display:block}
+a{color:var(--blue)}
+.repp{height:8px;background:repeating-linear-gradient(135deg,#0E1A33 0 11px,#0866FF 11px 17px,#0E1A33 17px 28px,#FBF7EF 28px 30px)}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.eb{font:700 11px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin:0 0 12px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--nv);letter-spacing:-.01em;margin:0}
+h1 em,h2 em,h3 em{font-style:italic;color:var(--blue)}
+.lead{color:var(--mu);font-size:17px;line-height:1.6;margin:14px 0 0;max-width:56ch}
+
+/* nav */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--ln)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--nv);font:700 13px var(--sans);letter-spacing:.12em}
+.brand img{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--br)}
+.nav .ghost{font:600 13px var(--sans);color:var(--nv);text-decoration:none;border:1px solid var(--nv);border-radius:999px;padding:7px 14px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:start;padding:28px 0 56px}
+.hero h1{font-size:54px;line-height:1.0;margin-top:2px}
+.hero .lead{font-size:16.5px;margin-top:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
+.chips li{font:600 12.5px var(--sans);color:var(--nv);background:var(--wh);border:1px solid var(--ln);border-top:1.5px solid var(--br);padding:6px 10px}
+.chips li b{color:var(--blue)}
+
+/* form card */
+.fcard{background:var(--wh);border:1px solid var(--ln);box-shadow:var(--shadow);border-radius:14px;padding:18px 20px;margin-top:18px;position:relative}
+.fcard h3{font-size:26px;line-height:1.1}
+.fcard .sub{font-size:13.5px;color:var(--mu);margin:6px 0 14px}
+.price{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:center;margin:0 0 14px;padding:12px 14px;background:var(--cr);border-top:1.5px solid var(--br)}
+.price .amt{font:700 40px/1 var(--sans);color:var(--nv);letter-spacing:-.02em;grid-row:span 2}
+.price .pl b{display:block;font:700 14px var(--sans);color:var(--nv)}
+.price .pl small{display:block;font:500 12.5px var(--sans);color:var(--mu)}
+.price .tag{grid-column:1/-1;justify-self:start;font:700 10.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--blue);padding:4px 9px;border-radius:999px;margin-top:6px}
+.paidnote{font:600 12.5px/1.45 var(--sans);color:var(--nv);background:var(--cr);border-inline-start:3px solid var(--blue);padding:8px 10px;margin:12px 0 0}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label{display:block;font:600 12.5px var(--sans);color:var(--nv);margin:0 0 5px}
+label small{font-weight:500;color:var(--su)}
+input{width:100%;font:500 16px var(--sans);color:var(--ink);padding:12px 12px;border:1px solid var(--ln);border-bottom:1.5px solid var(--br);border-radius:8px;background:var(--iv);outline:none}
+input:focus{border-color:var(--blue);background:#fff;box-shadow:0 0 0 3px rgba(8,102,255,.14)}
+.field{margin:0 0 10px}
+.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;opacity:0;pointer-events:none}
+.btn{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:0;border-radius:999px;background:var(--blue);color:#fff;font:700 16px var(--sans);padding:15px 18px;cursor:pointer;text-decoration:none;transition:background .2s,transform .2s}
+.btn:hover{background:var(--blue-h);transform:translateY(-1px)}
+.btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-18deg);animation:shine 3.6s ease-in-out 1.2s infinite}
+@keyframes shine{0%{left:-60%}45%,100%{left:130%}}
+.btn[disabled]{opacity:.7;cursor:wait}
+.micro{font-size:12.5px;color:var(--su);margin:10px 0 0;text-align:center}
+.err{font:600 13px var(--sans);color:#B42318;margin:8px 0 0;min-height:0}
+.done{display:none;text-align:left}
+.fcard.ok form{display:none}
+.fcard.ok .done{display:block;animation:pop .5s ease both}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.done .tick{width:44px;height:44px;border-radius:50%;background:var(--ok);display:grid;place-items:center;margin-bottom:10px}
+.done .tick svg{width:24px;height:24px;stroke:#fff;stroke-width:3;fill:none;stroke-dasharray:30;stroke-dashoffset:30;animation:draw .6s .2s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.done h3{font-size:32px}
+.done p{color:var(--mu);font-size:15px;margin:8px 0 14px}
+.btn.ig{background:var(--nv)}
+.btn.ig:hover{background:#1b2b4f}
+
+/* office stage */
+.stage{position:relative;background:var(--cr);padding:14px;outline:1.5px solid var(--br);outline-offset:6px;margin:6px}
+.screen{position:relative;border-radius:10px;overflow:hidden;background:var(--nv);aspect-ratio:1300/1150;box-shadow:var(--shadow)}
+.screen video,.screen img{width:100%;height:100%;object-fit:cover}
+.live{position:absolute;top:12px;inset-inline-start:12px;display:flex;align-items:center;gap:7px;background:rgba(14,26,51,.86);color:#fff;font:700 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:6px 10px;border-radius:999px}
+.live i{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 rgba(61,220,132,.6);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
+.desks{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.desk{background:var(--wh);border:1px solid var(--ln);border-radius:8px;padding:8px 10px;opacity:.45;transition:opacity .4s,border-color .4s,box-shadow .4s}
+.desk b{display:block;font:700 12.5px var(--sans);color:var(--nv)}
+.desk .st{display:flex;align-items:center;gap:6px;font:500 11.5px var(--sans);color:var(--su)}
+.desk .st::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ln);transition:background .4s}
+.desk.on{opacity:1;border-color:var(--blue);box-shadow:0 0 0 2px rgba(8,102,255,.12)}
+.desk.on .st{color:var(--ok)}
+.desk.on .st::before{background:var(--ok)}
+.caption{font-size:12.5px;color:var(--su);margin:12px 2px 0}
+
+/* sections */
+section{padding:64px 0;border-top:1px solid var(--ln)}
+.sec-h{max-width:720px;margin-bottom:30px}
+.sec-h h2{font-size:44px;line-height:1.04}
+.navy{background:var(--nv);color:#E9E4D8;border-top:0}
+.navy h2,.navy h3{color:#fff}
+.navy h2 em{color:#fff;background:linear-gradient(transparent 62%,var(--blue) 62% 92%,transparent 92%)}
+.navy .eb{color:var(--blue-nv)}
+.navy .lead{color:#C9C2B3}
+
+/* value stack */
+.stack{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.item{background:var(--wh);border:1px solid var(--ln);border-top:1.5px solid var(--br);padding:22px;display:flex;flex-direction:column}
+.item .num{font:600 44px/1 var(--serif);color:var(--blue)}
+.item h3{font-size:30px;line-height:1.08;margin:8px 0 6px}
+.item p{color:var(--mu);margin:0 0 14px;font-size:15px}
+ul.ticks{list-style:none;padding:0;margin:0 0 18px}
+ul.ticks li{position:relative;padding-inline-start:24px;margin:7px 0;font-size:14.5px}
+ul.ticks li::before{content:"";position:absolute;inset-inline-start:2px;top:7px;width:11px;height:11px;border-radius:2px;background:var(--blue)}
+.mock{margin-top:auto}
+
+/* guide mock */
+.gmock{background:var(--cr);padding:16px;outline:1.5px solid var(--br);outline-offset:5px;margin:5px}
+.gpage{background:var(--iv);border-radius:6px;box-shadow:var(--shadow);overflow:hidden}
+.gpage .gtop{height:6px;background:repeating-linear-gradient(135deg,#0E1A33 0 8px,#0866FF 8px 12px,#0E1A33 12px 20px,#FBF7EF 20px 22px)}
+.gpage .gin{padding:14px 16px 16px}
+.gpage .run{font:500 9.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--su);border-bottom:1px solid var(--br);padding-bottom:6px;display:flex;justify-content:space-between}
+.gpage .gt{font:600 26px/1.02 var(--serif);color:var(--nv);margin:12px 0 4px}
+.gpage .gt em{color:var(--blue)}
+.gpage .gs{font-size:11.5px;color:var(--mu);margin:0 0 10px}
+.win{background:#fff;border-radius:9px;overflow:hidden;border:1px solid var(--ln)}
+.win .bar{background:var(--nv);height:24px;display:flex;align-items:center;gap:5px;padding:0 9px}
+.win .bar i{width:8px;height:8px;border-radius:50%;background:#ff5f57}
+.win .bar i:nth-child(2){background:#febc2e}.win .bar i:nth-child(3){background:#28c840}
+.win .bar span{margin-left:6px;font:600 10px var(--sans);color:#cfd6e6}
+.win .body{padding:10px 12px;font:13px/1.7 var(--mono);color:var(--ink);min-height:92px}
+.win .body b{color:var(--blue)}
+.copy{float:inline-end;font:600 10px var(--sans);color:var(--nv);border:1px solid var(--ln);border-radius:6px;padding:2px 7px;background:var(--iv)}
+.caret{display:inline-block;width:7px;height:15px;background:var(--blue);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.steps-mini{display:flex;gap:6px;margin-top:10px}
+.steps-mini span{flex:1;font:600 10px var(--sans);color:var(--nv);background:#fff;border:1px solid var(--ln);border-radius:6px;padding:5px 6px;text-align:center}
+
+/* video mock */
+.vmock{background:var(--nv);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+.vscreen{position:relative;aspect-ratio:16/9;overflow:hidden}
+.vscreen img{width:100%;height:100%;object-fit:cover;filter:saturate(.95)}
+.vscreen .play{position:absolute;inset:0;margin:auto;width:66px;height:66px;border-radius:50%;background:var(--blue);display:grid;place-items:center;box-shadow:0 8px 24px rgba(8,102,255,.45)}
+.vscreen .play::after{content:"";border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px}
+.vscreen .cap{position:absolute;inset-inline-start:12px;bottom:12px;background:rgba(14,26,51,.88);color:#fff;font:600 11.5px var(--sans);padding:5px 9px;border-radius:6px}
+.vbar{height:4px;background:#24345a}
+.vbar i{display:block;height:100%;width:0;background:var(--blue);transition:width 2.4s cubic-bezier(.2,.7,.2,1)}
+.in .vbar i{width:38%}
+.chap{list-style:none;margin:0;padding:8px 12px 12px;counter-reset:c}
+.chap li{display:flex;justify-content:space-between;gap:10px;font:500 13px var(--sans);color:#D9D3C6;padding:7px 0;border-bottom:1px solid #22314f}
+.chap li:last-child{border-bottom:0}
+.chap li::before{counter-increment:c;content:counter(c,decimal-leading-zero);font:600 15px var(--serif);color:var(--blue-nv);width:24px;flex:none}
+.chap li span{flex:1}
+.chap li em{font-style:normal;color:#8E9AB5;font-size:12px}
+.chap .now{color:#fff}
+.planned{font:600 10.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#8E9AB5;padding:10px 12px 0}
+
+/* compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--ln);background:var(--wh)}
+.compare > div{padding:22px}
+.compare > div + div{border-inline-start:1px solid var(--ln);background:linear-gradient(var(--wh),var(--wh)) padding-box;box-shadow:inset 0 3px 0 var(--blue)}
+.compare h3{font-size:26px;margin-bottom:4px}
+.compare .k{font:700 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--su)}
+.compare > div + div .k{color:var(--blue)}
+.compare ul{list-style:none;padding:0;margin:12px 0 0}
+.compare li{padding-block:8px;padding-inline:26px 0;position:relative;border-top:1px solid var(--ln);font-size:14.5px}
+.compare li::before{content:"";position:absolute;inset-inline-start:3px;top:15px;width:10px;height:2px;background:var(--su)}
+.compare > div + div li::before{width:12px;height:12px;top:12px;border-radius:2px;background:var(--blue)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gal figure{margin:0;background:var(--wh);border:1px solid var(--ln);padding:8px;opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}
+.gal figure.in{opacity:1;transform:none}
+.gal figure.big{grid-column:span 2;grid-row:span 2}
+.gal img{width:100%;aspect-ratio:1300/1150;object-fit:cover;border-radius:4px}
+.gal figcaption{font-size:12.5px;color:var(--mu);margin:8px 2px 2px}
+.gal figcaption b{color:var(--nv)}
+
+/* proof */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:6px 0 0}
+.stat{border-top:1.5px solid var(--br);padding:14px 0 0}
+.stat .n{font:600 54px/1 var(--serif);color:#fff;font-variant-numeric:tabular-nums}
+.stat .l{font:600 13px var(--sans);color:#C9C2B3;margin-top:6px}
+.proofrow{display:grid;grid-template-columns:260px 1fr;gap:34px;align-items:center;margin-top:34px}
+.reel{border-radius:12px;overflow:hidden;border:1.5px solid var(--br);aspect-ratio:9/16;background:#000}
+.reel img{width:100%;height:100%;object-fit:cover}
+.quote{font:600 28px/1.2 var(--serif);color:#fff;margin:0}
+.quote em{color:var(--blue-nv)}
+.src{font-size:12.5px;color:#8E9AB5;margin-top:12px}
+
+/* who */
+.who{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.who > div{background:var(--wh);border:1px solid var(--ln);border-top:1.5px solid var(--br);padding:22px}
+.who h3{font-size:26px;margin-bottom:6px}
+.who .no li::before{background:transparent;border:1.5px solid var(--su)}
+
+/* faq */
+.faq{max-width:780px}
+.faq details{border-top:1px solid var(--br);padding:4px 0}
+.faq details:last-child{border-bottom:1px solid var(--br)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center;padding:14px 0;font:600 22px/1.2 var(--serif);color:var(--nv)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:400 26px var(--sans);color:var(--blue);transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{margin:0 0 16px;color:var(--mu);font-size:15.5px}
+
+/* final */
+.final{display:grid;grid-template-columns:1fr 420px;gap:44px;align-items:center}
+.final h2{font-size:50px;line-height:1.02}
+.final .fcard{margin-top:0}
+.walker{position:relative;height:150px;margin-top:22px}
+.walker img{position:absolute;inset-inline-start:0;bottom:0;height:150px;width:auto;image-rendering:pixelated}
+.bub{position:absolute;inset-inline-start:112px;top:8px;background:var(--wh);border:1px solid var(--ln);border-top:1.5px solid var(--br);font:600 14px var(--sans);color:var(--nv);padding:9px 12px;border-radius:10px;opacity:0;transform:translateY(6px) scale(.96);transition:opacity .4s,transform .4s;white-space:nowrap}
+.walker.in .bub{opacity:1;transform:none}
+
+/* reveal + type */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.type{white-space:pre-wrap}
+
+/* footer */
+footer{border-top:1px solid var(--br);padding:22px 0 90px;font-size:12.5px;color:var(--su)}
+footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+footer a{color:var(--nv)}
+
+/* sticky (phones) */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(251,247,239,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1.5px solid var(--br);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:none;align-items:center;gap:12px;transform:translateY(110%);transition:transform .35s ease}
+.sticky.show{transform:none}
+.sticky div{flex:1;min-width:0;font:600 13px/1.3 var(--sans);color:var(--nv)}
+.sticky div small{display:block;font-weight:500;color:var(--su)}
+.sticky .btn{width:auto;padding:12px 18px;font-size:14.5px;white-space:nowrap}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;gap:22px;padding:26px 0 40px}
+  .hero h1{font-size:42px}
+  .hero .lead{font-size:16px}
+  .hero-media{order:3}
+  .hero-copy{display:contents}
+  .hero-top{order:1}
+  .hero-form{order:2}
+  .hero .chips{display:none}
+  .hero{padding-top:20px}
+  .fcard{margin-top:0}
+  .stack,.who,.compare{grid-template-columns:1fr}
+  .compare > div + div{border-inline-start:0;border-top:1px solid var(--ln)}
+  .gal{grid-template-columns:1fr 1fr;gap:10px}
+  .gal figure.big{grid-column:span 2;grid-row:auto}
+  .stats{grid-template-columns:1fr 1fr;gap:18px}
+  .stat .n{font-size:42px}
+  .proofrow{grid-template-columns:1fr;gap:22px}
+  .reel{max-width:220px}
+  .final{grid-template-columns:1fr;gap:26px}
+  .final h2{font-size:38px}
+  .sec-h h2{font-size:34px}
+  section{padding:46px 0}
+  .sticky{display:flex}
+  .desks{grid-template-columns:repeat(3,1fr);gap:6px}
+  .desk{padding:6px 7px}
+  .desk b{font-size:11.5px}
+  .desk .st{font-size:10.5px}
+  .stage{padding:10px}
+}
+@media (max-width:420px){
+  .wrap{padding:0 16px}
+  .row{grid-template-columns:1fr;gap:0}
+  .hero h1{font-size:38px}
+  .item{padding:18px}
+  .item h3{font-size:26px}
+  .gpage .gt{font-size:22px}
+  .win .body{font-size:12px}
+  .quote{font-size:23px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv,.gal figure{opacity:1;transform:none}
+  .desk{opacity:1}
+  .bub{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+.wl > h3{margin-bottom:12px}
+.fig{font-family:var(--sans);font-weight:600;font-size:.84em;letter-spacing:-.01em}
+.price .amt s{font:600 20px var(--sans);color:var(--su);margin-inline-start:8px;vertical-align:6px;text-decoration-thickness:2px}
+.stats{grid-template-columns:repeat(2,minmax(0,320px))}
+.stat .n{font:700 60px/1 var(--sans);letter-spacing:-.02em}
+@media (max-width:900px){.stats{grid-template-columns:1fr 1fr}.stat .n{font-size:44px}}
+
+/* language */
+html[data-lang="en"] .l-ar,html[data-lang="ar"] .l-en{display:none !important}
+.navr{display:flex;align-items:center;gap:10px}
+.lang{display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--wh);border:1px solid var(--ln)}
+.lang button{border:0;background:transparent;color:var(--mu);font:600 12.5px var(--sans),var(--arab);padding:6px 12px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--blue);color:#fff}
+html[data-lang="ar"] body{font-family:var(--arab)}
+html[data-lang="ar"] h1,html[data-lang="ar"] h2,html[data-lang="ar"] h3,html[data-lang="ar"] .gpage .gt,html[data-lang="ar"] .quote,html[data-lang="ar"] .faq summary{font-family:var(--arab);font-weight:700;letter-spacing:0;line-height:1.35}
+html[data-lang="ar"] h1 em,html[data-lang="ar"] h2 em,html[data-lang="ar"] h3 em,html[data-lang="ar"] .gpage .gt em,html[data-lang="ar"] .quote em{font-style:normal;font-weight:800}
+html[data-lang="ar"] .hero h1{font-size:44px}
+html[data-lang="ar"] .sec-h h2{font-size:36px}
+html[data-lang="ar"] .final h2{font-size:40px}
+html[data-lang="ar"] .item h3,html[data-lang="ar"] .compare h3,html[data-lang="ar"] .who h3{font-size:23px}
+html[data-lang="ar"] .fcard h3{font-size:22px}
+html[data-lang="ar"] .faq summary{font-size:18px}
+html[data-lang="ar"] .quote{font-size:24px}
+html[data-lang="ar"] .eb,html[data-lang="ar"] .price .tag,html[data-lang="ar"] .live,html[data-lang="ar"] .compare .k,html[data-lang="ar"] .planned{letter-spacing:0}
+html[data-lang="ar"] .lead,html[data-lang="ar"] .item p,html[data-lang="ar"] .faq p,html[data-lang="ar"] ul.ticks li,html[data-lang="ar"] .compare li{line-height:1.85}
+html[data-lang="ar"] .walker img{transform:scaleX(-1)}
+.ltr{direction:ltr;unicode-bidi:isolate}
+@media (max-width:900px){html[data-lang="ar"] .hero h1{font-size:32px}html[data-lang="ar"] .sec-h h2{font-size:28px}html[data-lang="ar"] .final h2{font-size:30px}}
+@media (max-width:480px){.hero{padding-top:14px}.price .amt s{display:block;margin:3px 0 0;font-size:15px;vertical-align:0}.price .pl b{font-size:13.5px}.hero h1{font-size:36px}.wl > h3{margin-bottom:8px}.hero .lead{font-size:15.5px;line-height:1.55}.price{padding:10px 12px;margin-bottom:12px}.price .amt{font-size:34px}.price .tag{margin-top:4px}.nav .ghost{display:none}.brand{font-size:12px;gap:8px}.lang button{padding:6px 10px}}
+</style>
+</head>
+<body>
+<div class="repp"></div>
+<div class="wrap">
+  <nav class="nav">
+    <a class="brand" href="/"><img src="/avatar.jpg" alt="" />KAREMOPS.AI</a>
+    <div class="navr">
+      <div class="lang" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="ar" aria-pressed="false">العربية</button></div>
+      <a class="ghost" href="#join" data-join><span class="l-en">Join the waitlist</span><span class="l-ar">انضم للقائمة</span></a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-copy">
+      <div class="hero-top">
+        <p class="eb"><span class="l-en">Paid course · Waitlist</span><span class="l-ar">كورس مدفوع · قائمة انتظار</span></p>
+        <h1><span class="l-en">Run your business from your own AI <em>office.</em></span><span class="l-ar">أدِر عملك من مكتبك <em>الذكي.</em></span></h1>
+        <p class="lead"><span class="l-en">The office from my reel: a team of AI employees at their desks, each doing one job in Claude Code, while you watch the work happen. I'm turning the full build into a paid course: a guide with every prompt I used and a step by step video.</span><span class="l-ar">المكتب الذي رأيته في الفيديو: فريق موظفين بالذكاء الاصطناعي على مكاتبهم، كل واحد يقوم بمهمة واحدة داخل Claude Code، وأنت تشاهد الشغل يحصل أمامك. أحوّل البناء الكامل إلى كورس مدفوع: دليل فيه كل prompt استخدمته، وفيديو يشرح الخطوات واحدة واحدة.</span></p>
+        <ul class="chips">
+          <li><span class="l-en"><b>100K+</b> views on Instagram</span><span class="l-ar"><b class='ltr'>100K+</b> مشاهدة على Instagram</span></li>
+          <li><span class="l-en"><b>319+</b> people commented and saved</span><span class="l-ar"><b class='ltr'>+319</b> شخصًا علّقوا وحفظوا</span></li>
+          <li><span class="l-en">No code. All in the Claude app</span><span class="l-ar">بلا كود. كل شيء داخل تطبيق Claude</span></li>
+        </ul>
+      </div>
+      <div class="hero-form">
+        <div class="fcard" id="join">
+          <form class="wl" novalidate>
+            <h3><span class="l-en">Lock in the <span class='fig'>$30</span> founding price</span><span class="l-ar">ثبّت سعر المؤسسين 30$</span></h3>
+            
+            <div class="price"><div class="amt ltr">$30<s>$50</s></div><div class="pl"><b><span class="l-en">Founding price, waitlist only</span><span class="l-ar">سعر المؤسسين، لقائمة الانتظار فقط</span></b><small><span class="l-en">$50 after launch · one-time · paid</span><span class="l-ar">50$ بعد الإطلاق · مرة واحدة · مدفوع</span></small></div><span class="tag"><span class="l-en">Waitlist price: $30. Everyone else pays $50.</span><span class="l-ar">سعر القائمة: 30$. الباقي يدفعون 50$.</span></span></div>
+            <div class="row">
+              <div class="field"><label for="n1"><span class="l-en">First name</span><span class="l-ar">الاسم الأول</span></label><input id="n1" name="name" autocomplete="given-name" required></div>
+              <div class="field"><label for="e1"><span class="l-en">Email</span><span class="l-ar">البريد الإلكتروني</span></label><input id="e1" name="email" type="email" autocomplete="email" inputmode="email" dir="ltr" required></div>
+            </div>
+            <div class="field"><label for="p1"><span class="l-en">WhatsApp <small>(optional)</small></span><span class="l-ar">واتساب <small>(اختياري)</small></span></label><input id="p1" name="phone" type="tel" autocomplete="tel" inputmode="tel" dir="ltr" placeholder="+961 ..."></div>
+            <div class="hp" aria-hidden="true"><label>Company website<input name="company_website" tabindex="-1" autocomplete="off"></label></div>
+            <button class="btn" type="submit"><span class="l-en">Join the waitlist: lock in $30 ›</span><span class="l-ar">انضم لقائمة الانتظار: ثبّت سعر 30$ ›</span></button>
+            <p class="err" role="alert"></p>
+            <p class="paidnote"><span class="l-en">This is a paid product. Joining the waitlist is free and locks in the $30 founding price. It's $50 for everyone else.</span><span class="l-ar">هذا منتج مدفوع. الانضمام لقائمة الانتظار مجاني ويثبّت لك سعر المؤسسين 30$. السعر 50$ لغير المسجّلين.</span></p>
+          </form>
+          <div class="done" aria-live="polite">
+            <div class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+            <h3 class="dh"><span class="l-en">You've locked in the <span class='fig'>$30</span> founding price for the Office <em>build.</em></span><span class="l-ar">ثبّت سعر المؤسسين 30$ لكورس المكتب.</span></h3>
+            <p><span class="l-en">I'll email you the day it's ready, with your founding price. Nothing to pay until then. One ask: follow <b>@karemops.ai</b> so you catch the updates while I record it.</span><span class="l-ar">سأرسل لك إيميلًا يوم يجهز، مع سعر المؤسسين الخاص بك. لا تدفع شيئًا قبل ذلك. طلب واحد: تابع <b class='ltr'>@karemops.ai</b> لتصلك التحديثات وأنا أسجّله.</span></p>
+            <a class="btn ig" href="https://instagram.com/karemops.ai" target="_blank" rel="noopener"><span class="l-en">Follow on Instagram ›</span><span class="l-ar">تابعني على Instagram ›</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="stage">
+        <div class="screen">
+          <video id="tour" muted loop playsinline preload="metadata" poster="/assets/site/office/office-tour-poster.jpg" aria-label="A tour of the 3D AI office with desks working">
+            <source src="/assets/site/office/office-tour.mp4" type="video/mp4">
+          </video>
+          <div class="live"><i></i><span class="l-en">Office live</span><span class="l-ar">المكتب يعمل الآن</span></div>
+        </div>
+        <div class="desks" id="desks">
+          <div class="desk"><b>Aya · <span class="l-en">CEO</span><span class="l-ar">المديرة التنفيذية</span></b><em class="st"><span class="l-en">Working</span><span class="l-ar">يعمل</span></em></div>
+          <div class="desk"><b>Mark · <span class="l-en">Edit bay</span><span class="l-ar">المونتاج</span></b><em class="st"><span class="l-en">Working</span><span class="l-ar">يعمل</span></em></div>
+          <div class="desk"><b>Maya · <span class="l-en">Design</span><span class="l-ar">التصميم</span></b><em class="st"><span class="l-en">Working</span><span class="l-ar">يعمل</span></em></div>
+          <div class="desk"><b>Leen · <span class="l-en">Writers</span><span class="l-ar">الكتابة</span></b><em class="st"><span class="l-en">Working</span><span class="l-ar">يعمل</span></em></div>
+          <div class="desk"><b>Sami · <span class="l-en">Publishing</span><span class="l-ar">النشر</span></b><em class="st"><span class="l-en">Working</span><span class="l-ar">يعمل</span></em></div>
+          <div class="desk"><b>Maroun · <span class="l-en">Growth</span><span class="l-ar">النمو</span></b><em class="st"><span class="l-en">Working</span><span class="l-ar">يعمل</span></em></div>
+        </div>
+      </div>
+      <p class="caption"><span class="l-en">Real footage of my office. Every desk is a Claude Code session with one job.</span><span class="l-ar">لقطات حقيقية من مكتبي. كل مكتب هو جلسة Claude Code بمهمة واحدة.</span></p>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-h rv">
+      <p class="eb"><span class="l-en">What you pay for</span><span class="l-ar">على ماذا تدفع</span></p>
+      <h2><span class="l-en">The exact build, in two <em>parts.</em></span><span class="l-ar">البناء نفسه، على <em>جزأين.</em></span></h2>
+      <p class="lead"><span class="l-en">You don't get a template to guess with. You get what I used, in the order I used it, and you watch me do it.</span><span class="l-ar">لن تحصل على قالب تخمّن به. ستحصل على ما استخدمته أنا، بالترتيب نفسه، وتشاهدني وأنا أبنيه.</span></p>
+    </div>
+    <div class="stack">
+      <div class="item rv">
+        <div class="num">01</div>
+        <h3><span class="l-en">The complete guide, with every prompt I used</span><span class="l-ar">الدليل الكامل، مع كل prompt استخدمته</span></h3>
+        <p><span class="l-en">Each step of the office build as a prompt you paste into Claude Code, with a Copy button and a line on what you'll see after.</span><span class="l-ar">كل خطوة من بناء المكتب على شكل prompt تلصقه في Claude Code، مع زر نسخ وسطر يشرح ما ستراه بعده.</span></p>
+        <ul class="ticks">
+          <li><span class="l-en">Every prompt from the build, in order</span><span class="l-ar">كل prompts البناء، بالترتيب</span></li>
+          <li><span class="l-en">How each desk gets one job and its limits</span><span class="l-ar">كيف يأخذ كل مكتب مهمة واحدة وحدودها</span></li>
+          <li><span class="l-en">How the 3D office shows who is working, live</span><span class="l-ar">كيف يُظهر المكتب ثلاثي الأبعاد من يعمل، مباشرة</span></li>
+          <li><span class="l-en">How to swap my desks for the jobs in your business</span><span class="l-ar">كيف تستبدل مكاتبي بمهام عملك أنت</span></li>
+        </ul>
+        <div class="mock">
+          <div class="gmock">
+            <div class="gpage">
+              <div class="gtop"></div>
+              <div class="gin">
+                <div class="run"><span>Karemops.ai</span><span><span class="l-en">The AI office</span><span class="l-ar">المكتب الذكي</span></span></div>
+                <div class="gt"><span class="l-en">Build your AI <em>office.</em></span><span class="l-ar">ابنِ مكتبك <em>الذكي.</em></span></div>
+                <p class="gs"><span class="l-en">Step 03 · Hire one desk per job</span><span class="l-ar">الخطوة 03 · مكتب لكل مهمة</span></p>
+                <div class="win" dir="ltr">
+                  <div class="bar"><i></i><i></i><i></i><span>Claude Code · Karemops.ai</span></div>
+                  <div class="body"><span class="copy">Copy</span><b>&gt;</b> <span class="type" data-type="Hire a desk for my weekly content. Give it one job, the files it can touch, and what it must ask me first."></span><span class="caret"></span></div>
+                </div>
+                <div class="steps-mini"><span><span class="l-en">01 Folder</span><span class="l-ar">01 المجلد</span></span><span><span class="l-en">02 Business</span><span class="l-ar">02 عملك</span></span><span style="border-color:var(--blue);color:var(--blue)"><span class="l-en">03 Desks</span><span class="l-ar">03 المكاتب</span></span><span><span class="l-en">04 Office</span><span class="l-ar">04 المكتب</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item rv">
+        <div class="num">02</div>
+        <h3><span class="l-en">A step by step video, from an empty folder</span><span class="l-ar">فيديو خطوة بخطوة، من مجلد فارغ</span></h3>
+        <p><span class="l-en">Watch me build the office from zero. Pause, paste the prompt from the guide, keep going. You end with your own office running.</span><span class="l-ar">شاهدني أبني المكتب من الصفر. أوقف الفيديو، الصق الـ prompt من الدليل، وكمّل. في النهاية يكون مكتبك يعمل.</span></p>
+        <ul class="ticks">
+          <li><span class="l-en">The full build on screen, start to finish</span><span class="l-ar">البناء الكامل على الشاشة، من البداية للنهاية</span></li>
+          <li><span class="l-en">Every prompt matches a step in the guide</span><span class="l-ar">كل prompt يطابق خطوة في الدليل</span></li>
+          <li><span class="l-en">Pause any time and paste the matching prompt</span><span class="l-ar">أوقف في أي لحظة والصق الـ prompt المطابق</span></li>
+          <li><span class="l-en">Made for people who never opened Claude Code</span><span class="l-ar">مصنوع لمن لم يفتح Claude Code من قبل</span></li>
+        </ul>
+        <div class="mock">
+          <div class="vmock rv">
+            <div class="vscreen"><img src="/assets/site/office/ceo_in.jpg" alt="The CEO suite in the AI office" loading="lazy"><div class="play"></div><div class="cap"><span class="l-en">Chapter 3 · Hiring the desks</span><span class="l-ar">الفصل 3 · توظيف المكاتب</span></div></div>
+            <div class="vbar"><i></i></div>
+            <p class="planned"><span class="l-en">Planned chapters</span><span class="l-ar">الفصول المخطط لها</span></p>
+            <ol class="chap">
+              <li><span><span class="l-en">An empty folder and the Claude app</span><span class="l-ar">مجلد فارغ وتطبيق Claude</span></span></li>
+              <li><span><span class="l-en">Telling Claude what your business does</span><span class="l-ar">تخبر Claude ماذا يفعل عملك</span></span></li>
+              <li class="now"><span><span class="l-en">Hiring one desk per job</span><span class="l-ar">توظيف مكتب لكل مهمة</span></span><em><span class="l-en">now playing</span><span class="l-ar">يعرض الآن</span></em></li>
+              <li><span><span class="l-en">Building the 3D office</span><span class="l-ar">بناء المكتب ثلاثي الأبعاد</span></span></li>
+              <li><span><span class="l-en">Making the desks show live work</span><span class="l-ar">جعل المكاتب تُظهر الشغل مباشرة</span></span></li>
+              <li><span><span class="l-en">Your CEO session runs the day</span><span class="l-ar">جلسة المدير التنفيذي تدير يومك</span></span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-h rv">
+      <p class="eb"><span class="l-en">Already got the free OFFICE guide?</span><span class="l-ar">حصلت على دليل OFFICE المجاني؟</span></p>
+      <h2><span class="l-en">The free guide is the method. This is the whole <em>office.</em></span><span class="l-ar">الدليل المجاني هو الطريقة. هذا هو المكتب <em>كاملًا.</em></span></h2>
+    </div>
+    <div class="compare rv">
+      <div>
+        <p class="k"><span class="l-en">Free guide (comment OFFICE)</span><span class="l-ar">الدليل المجاني (اكتب OFFICE)</span></p>
+        <h3><span class="l-en">The method · free</span><span class="l-ar">الطريقة · مجاني</span></h3>
+        <ul>
+          <li><span class="l-en">Prompts you adapt to your business</span><span class="l-ar">prompts تعدّلها لعملك</span></li>
+          <li><span class="l-en">A simple board in your browser</span><span class="l-ar">لوحة بسيطة في متصفحك</span></li>
+          <li><span class="l-en">Text steps, no video</span><span class="l-ar">خطوات مكتوبة، بلا فيديو</span></li>
+        </ul>
+      </div>
+      <div>
+        <p class="k"><span class="l-en">The office build (paid · $30 waitlist, $50 after)</span><span class="l-ar">بناء المكتب (مدفوع · 30$ للقائمة، 50$ بعدها)</span></p>
+        <h3><span class="l-en">The office from the reel</span><span class="l-ar">المكتب من الفيديو</span></h3>
+        <ul>
+          <li><span class="l-en">Every prompt I used, word for word, in order</span><span class="l-ar">كل prompt استخدمته، حرفيًا وبالترتيب</span></li>
+          <li><span class="l-en">The 3D office with desks you can watch work</span><span class="l-ar">المكتب ثلاثي الأبعاد بمكاتب تشاهدها تعمل</span></li>
+          <li><span class="l-en">A step by step video of the full build</span><span class="l-ar">فيديو خطوة بخطوة للبناء الكامل</span></li>
+          <li><span class="l-en">First access and the $30 founding price ($50 after launch)</span><span class="l-ar">أول وصول وسعر المؤسسين 30$ (50$ بعد الإطلاق)</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-h rv">
+      <p class="eb"><span class="l-en">Look inside</span><span class="l-ar">من الداخل</span></p>
+      <h2><span class="l-en">Every room has a <em>job.</em></span><span class="l-ar">لكل غرفة <em>مهمة.</em></span></h2>
+      <p class="lead"><span class="l-en">These are stills from my own office. When a desk works, its screen lights up and its status says so. When nothing's on, the team heads to the lounge.</span><span class="l-ar">هذه لقطات من مكتبي. حين يعمل مكتب، تضيء شاشته وتتغير حالته. وحين لا يوجد شغل، يذهب الفريق إلى الاستراحة.</span></p>
+    </div>
+    <div class="gal">
+      <figure class="big"><img src="/assets/site/office/overview.jpg" alt="The whole AI office floor from above" loading="lazy"><figcaption><span class="l-en"><b>The whole floor.</b> One room per desk, all running at once.</span><span class="l-ar"><b>الطابق كاملًا.</b> غرفة لكل مكتب، وكلها تعمل معًا.</span></figcaption></figure>
+      <figure><img src="/assets/site/office/ceo_in.jpg" alt="CEO suite" loading="lazy"><figcaption><span class="l-en"><b>CEO suite.</b> The one session I talk to.</span><span class="l-ar"><b>جناح المدير التنفيذي.</b> الجلسة الوحيدة التي أكلّمها.</span></figcaption></figure>
+      <figure><img src="/assets/site/office/strat_in.jpg" alt="Strategy room" loading="lazy"><figcaption><span class="l-en"><b>Strategy room.</b> Plans before anyone builds.</span><span class="l-ar"><b>غرفة الاستراتيجية.</b> الخطة قبل أي بناء.</span></figcaption></figure>
+      <figure><img src="/assets/site/office/growth_in.jpg" alt="Growth lab" loading="lazy"><figcaption><span class="l-en"><b>Growth lab.</b> Reads the numbers every week.</span><span class="l-ar"><b>مختبر النمو.</b> يقرأ الأرقام كل أسبوع.</span></figcaption></figure>
+      <figure><img src="/assets/site/office/edit_in.jpg" alt="Edit bay" loading="lazy"><figcaption><span class="l-en"><b>Edit bay.</b> Two desks cutting reels.</span><span class="l-ar"><b>غرفة المونتاج.</b> مكتبان يقطّعان الفيديوهات.</span></figcaption></figure>
+      <figure><img src="/assets/site/office/booth_in.jpg" alt="Recording booth with pixel Karem" loading="lazy"><figcaption><span class="l-en"><b>Recording booth.</b> That's me, in pixels.</span><span class="l-ar"><b>غرفة التسجيل.</b> هذا أنا، بالبكسل.</span></figcaption></figure>
+      <figure><img src="/assets/site/office/lib_in.jpg" alt="The study" loading="lazy"><figcaption><span class="l-en"><b>The study.</b> Where the research lands.</span><span class="l-ar"><b>المكتبة.</b> هنا تصل الأبحاث.</span></figcaption></figure>
+      <figure><img src="/assets/site/office/write_in.jpg" alt="Writers' room" loading="lazy"><figcaption><span class="l-en"><b>Writers' room.</b> Scripts and captions.</span><span class="l-ar"><b>غرفة الكتّاب.</b> سكربتات وتعليقات.</span></figcaption></figure>
+      <figure><img src="/assets/site/office/lounge.jpg" alt="The lounge" loading="lazy"><figcaption><span class="l-en"><b>The lounge.</b> Idle desks wait here.</span><span class="l-ar"><b>الاستراحة.</b> المكاتب غير المشغولة تنتظر هنا.</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="navy">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <p class="eb"><span class="l-en">Why I'm asking first</span><span class="l-ar">لماذا أسأل أولًا</span></p>
+      <h2><span class="l-en">People asked for this <em>build.</em></span><span class="l-ar">الناس طلبوا هذا <em>البناء.</em></span></h2>
+      <p class="lead"><span class="l-en">The office reel brought more requests for the guide than any reel I've posted. Before I spend days recording the paid version, I want to know you want it.</span><span class="l-ar">فيديو المكتب جاب طلبات على الدليل أكثر من أي فيديو نشرته. قبل أن أقضي أيامًا في تسجيل النسخة المدفوعة، أريد أن أعرف أنك تريدها.</span></p>
+    </div>
+    <div class="stats" id="stats">
+      <div class="stat rv"><div class="n ltr" data-count="100" data-suffix="K+">100K+</div><div class="l"><span class="l-en">views on Instagram</span><span class="l-ar">مشاهدة على Instagram</span></div></div>
+      <div class="stat rv"><div class="n ltr" data-count="319" data-suffix="+">319+</div><div class="l"><span class="l-en">people commented and saved</span><span class="l-ar">شخصًا علّقوا وحفظوا</span></div></div>
+    </div>
+    <div class="proofrow">
+      <div class="reel rv"><img src="/assets/site/office/reel-cover.jpg" alt="Cover of the office reel" loading="lazy"></div>
+      <div class="rv">
+        <p class="quote"><span class="l-en">"My company has 17 employees, and not one of them is a <em>person.</em>"</span><span class="l-ar">«عندي شركة فيها 17 موظف، وولا واحد منهم <em>إنسان.</em>»</span></p>
+        <p class="src"><span class="l-en">The hook of the office reel, @karemops.ai.</span><span class="l-ar">افتتاحية فيديو المكتب على <span class='ltr'>@karemops.ai</span>.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-h rv">
+      <p class="eb"><span class="l-en">Who it's for</span><span class="l-ar">لمن هذا الكورس</span></p>
+      <h2><span class="l-en">Built for owners who do it <em>all.</em></span><span class="l-ar">لأصحاب الأعمال الذين يفعلون <em>كل شيء.</em></span></h2>
+    </div>
+    <div class="who">
+      <div class="rv">
+        <h3><span class="l-en">For you if</span><span class="l-ar">مناسب لك إذا</span></h3>
+        <ul class="ticks">
+          <li><span class="l-en">You run a business and the same jobs eat your week</span><span class="l-ar">عندك عمل والمهام نفسها تأكل أسبوعك</span></li>
+          <li><span class="l-en">You saw the reel and want the exact build, not a summary</span><span class="l-ar">شاهدت الفيديو وتريد البناء نفسه، لا ملخصًا</span></li>
+          <li><span class="l-en">You use ChatGPT or Claude for questions and want it to do the work</span><span class="l-ar">تستخدم ChatGPT أو Claude للأسئلة وتريده أن يشتغل عنك</span></li>
+          <li><span class="l-en">You'd rather paste prompts than write code</span><span class="l-ar">تفضّل لصق prompts على كتابة الكود</span></li>
+        </ul>
+      </div>
+      <div class="rv">
+        <h3><span class="l-en">Not for you if</span><span class="l-ar">غير مناسب لك إذا</span></h3>
+        <ul class="ticks no">
+          <li><span class="l-en">You want someone to build it for you</span><span class="l-ar">تريد أحدًا يبنيه عنك</span></li>
+          <li><span class="l-en">You want a finished app to download and never touch</span><span class="l-ar">تريد تطبيقًا جاهزًا تحمّله ولا تلمسه</span></li>
+          <li><span class="l-en">You only want free resources</span><span class="l-ar">تبحث عن محتوى مجاني فقط</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-h rv">
+      <p class="eb"><span class="l-en">Questions</span><span class="l-ar">أسئلة</span></p>
+      <h2><span class="l-en">Before you <em>join.</em></span><span class="l-ar">قبل أن <em>تنضم.</em></span></h2>
+    </div>
+    <div class="faq rv">
+      <details><summary><span class="l-en">Is this free?</span><span class="l-ar">هل هذا مجاني؟</span></summary><p><span class="l-en">No. It's a paid product, one-time, for the guide and the video: $30 for the waitlist, $50 for everyone else. Joining the waitlist is free. The free OFFICE guide covers the basics, and this is the full paid build.</span><span class="l-ar">لا. هذا منتج مدفوع، مرة واحدة، للدليل والفيديو: 30$ لقائمة الانتظار و50$ للباقي. الانضمام لقائمة الانتظار مجاني. دليل OFFICE المجاني يغطي الأساسيات، وهذا هو البناء الكامل المدفوع.</span></p></details>
+      <details><summary><span class="l-en">Why join the waitlist?</span><span class="l-ar">لماذا أنضم لقائمة الانتظار؟</span></summary><p><span class="l-en">You pay $30 instead of $50, and you get it first. Joining is free and you pay nothing now.</span><span class="l-ar">تدفع 30$ بدل 50$، وتحصل عليه قبل الجميع. الانضمام مجاني ولا تدفع شيئًا الآن.</span></p></details>
+      <details><summary><span class="l-en">How much will it be?</span><span class="l-ar">كم سعره؟</span></summary><p><span class="l-en">$30 one-time if you're on the waitlist. $50 after launch for everyone else.</span><span class="l-ar">30$ مرة واحدة إذا كنت في قائمة الانتظار. 50$ بعد الإطلاق للباقي.</span></p></details>
+      <details><summary><span class="l-en">Is it ready now?</span><span class="l-ar">هل هو جاهز الآن؟</span></summary><p><span class="l-en">Not yet. This waitlist tells me if enough people want it before I record the video. If they do, everyone on the list hears first and pays the $30 founding price.</span><span class="l-ar">ليس بعد. قائمة الانتظار تخبرني إن كان عدد كافٍ من الناس يريده قبل أن أسجّل الفيديو. إن كان كذلك، يعرف كل من في القائمة أولًا ويدفع سعر المؤسسين 30$.</span></p></details>
+      <details><summary><span class="l-en">Do I need to know how to code?</span><span class="l-ar">هل أحتاج أن أعرف البرمجة؟</span></summary><p><span class="l-en">No. Everything happens inside the Claude app: you paste a prompt and click Allow when Claude asks. The video shows every click.</span><span class="l-ar">لا. كل شيء داخل تطبيق Claude: تلصق prompt وتضغط Allow حين يسألك Claude. الفيديو يُظهر كل نقرة.</span></p></details>
+      <details><summary><span class="l-en">What do I need?</span><span class="l-ar">ماذا أحتاج؟</span></summary><p><span class="l-en">A computer and a paid Claude plan that includes Claude Code. The guide shows how to set it up if you've never opened it.</span><span class="l-ar">كمبيوتر واشتراك Claude مدفوع يشمل Claude Code. الدليل يشرح الإعداد إن لم تفتحه من قبل.</span></p></details>
+      <details><summary><span class="l-en">Will it work for my kind of business?</span><span class="l-ar">هل يناسب نوع عملي؟</span></summary><p><span class="l-en">Yes, if you have jobs you repeat every week. The guide shows how to swap my desks (content, design, growth) for yours, like bookings, orders or leads.</span><span class="l-ar">نعم، إذا عندك مهام تكررها كل أسبوع. الدليل يشرح كيف تستبدل مكاتبي (المحتوى، التصميم، النمو) بمكاتبك، مثل الحجوزات أو الطلبات أو العملاء المحتملين.</span></p></details>
+      <details><summary><span class="l-en">Will you spam me?</span><span class="l-ar">هل سترسل لي رسائل مزعجة؟</span></summary><p><span class="l-en">No. You get one email when it's ready. Your details go to me only, and you can ask to be removed any time.</span><span class="l-ar">لا. تصلك رسالة واحدة حين يجهز. بياناتك تصلني أنا فقط، وتقدر تطلب حذفها في أي وقت.</span></p></details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap final">
+    <div class="rv">
+      <p class="eb"><span class="l-en">Last thing</span><span class="l-ar">آخر شيء</span></p>
+      <h2><span class="l-en">Want the office from the <em>reel?</em></span><span class="l-ar">تريد المكتب من <em>الفيديو؟</em></span></h2>
+      <p class="lead"><span class="l-en">Join the waitlist and lock in $30 for the paid course ($50 after launch): every prompt I used plus a step by step video, and you get it first.</span><span class="l-ar">انضم لقائمة الانتظار وثبّت سعر 30$ للكورس المدفوع (50$ بعد الإطلاق): كل prompt استخدمته وفيديو خطوة بخطوة، وتحصل عليه قبل الجميع.</span></p>
+      <div class="walker" id="walker"><img src="/assets/site/office/karem-pixel-wave-a.png" alt="Pixel Karem waving"><div class="bub"><span class="l-en">See you inside the office.</span><span class="l-ar">نراك داخل المكتب.</span></div></div>
+    </div>
+    <div class="fcard" id="join2">
+      <form class="wl" novalidate>
+            <h3><span class="l-en">Join the waitlist</span><span class="l-ar">انضم لقائمة الانتظار</span></h3>
+            <div class="price"><div class="amt ltr">$30<s>$50</s></div><div class="pl"><b><span class="l-en">Founding price, waitlist only</span><span class="l-ar">سعر المؤسسين، لقائمة الانتظار فقط</span></b><small><span class="l-en">$50 after launch · one-time · paid</span><span class="l-ar">50$ بعد الإطلاق · مرة واحدة · مدفوع</span></small></div><span class="tag"><span class="l-en">Waitlist price: $30. Everyone else pays $50.</span><span class="l-ar">سعر القائمة: 30$. الباقي يدفعون 50$.</span></span></div>
+            
+            <div class="row">
+              <div class="field"><label for="n2"><span class="l-en">First name</span><span class="l-ar">الاسم الأول</span></label><input id="n2" name="name" autocomplete="given-name" required></div>
+              <div class="field"><label for="e2"><span class="l-en">Email</span><span class="l-ar">البريد الإلكتروني</span></label><input id="e2" name="email" type="email" autocomplete="email" inputmode="email" dir="ltr" required></div>
+            </div>
+            <div class="field"><label for="p2"><span class="l-en">WhatsApp <small>(optional)</small></span><span class="l-ar">واتساب <small>(اختياري)</small></span></label><input id="p2" name="phone" type="tel" autocomplete="tel" inputmode="tel" dir="ltr" placeholder="+961 ..."></div>
+            <div class="hp" aria-hidden="true"><label>Company website<input name="company_website" tabindex="-1" autocomplete="off"></label></div>
+            <button class="btn" type="submit"><span class="l-en">Join the waitlist: lock in $30 ›</span><span class="l-ar">انضم لقائمة الانتظار: ثبّت سعر 30$ ›</span></button>
+            <p class="err" role="alert"></p>
+            <p class="paidnote"><span class="l-en">This is a paid product. Joining the waitlist is free and locks in the $30 founding price. It's $50 for everyone else.</span><span class="l-ar">هذا منتج مدفوع. الانضمام لقائمة الانتظار مجاني ويثبّت لك سعر المؤسسين 30$. السعر 50$ لغير المسجّلين.</span></p>
+          </form>
+          <div class="done" aria-live="polite">
+            <div class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+            <h3 class="dh"><span class="l-en">You've locked in the <span class='fig'>$30</span> founding price for the Office <em>build.</em></span><span class="l-ar">ثبّت سعر المؤسسين 30$ لكورس المكتب.</span></h3>
+            <p><span class="l-en">I'll email you the day it's ready, with your founding price. Nothing to pay until then. One ask: follow <b>@karemops.ai</b> so you catch the updates while I record it.</span><span class="l-ar">سأرسل لك إيميلًا يوم يجهز، مع سعر المؤسسين الخاص بك. لا تدفع شيئًا قبل ذلك. طلب واحد: تابع <b class='ltr'>@karemops.ai</b> لتصلك التحديثات وأنا أسجّله.</span></p>
+            <a class="btn ig" href="https://instagram.com/karemops.ai" target="_blank" rel="noopener"><span class="l-en">Follow on Instagram ›</span><span class="l-ar">تابعني على Instagram ›</span></a>
+          </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span><span class="l-en">Karemops.ai · Karem AlMoayyad · Beirut · Riyadh</span><span class="l-ar">Karemops.ai · كارم المؤيد · بيروت · الرياض</span></span>
+    <span><a href="/"><span class="l-en">Free guides</span><span class="l-ar">أدلة مجانية</span></a> · <a href="mailto:Karem@karemopsai.com">Karem@karemopsai.com</a></span>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky" aria-hidden="true">
+  <div><span class="l-en">The AI office course</span><span class="l-ar">كورس المكتب الذكي</span><small><span class="l-en">$30 founding · $50 after</span><span class="l-ar">30$ للمؤسسين · 50$ بعدها</span></small></div>
+  <a class="btn" href="#join" data-join tabindex="-1"><span class="l-en">Join the waitlist</span><span class="l-ar">انضم للقائمة</span></a>
+</div>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var MSG = {
+    en: {name:'Please add your first name.', email:'Please check your email.', saving:'Saving...', fail:'Could not save, please try again.',
+         soon:'Signups open very soon. Comment OFFICE on my latest reel and I\'ll DM you.',
+         done:function(n){ return n + ', you\'ve locked in the <span class="fig">$30</span> founding price for the Office <em>build.</em>'; }},
+    ar: {name:'أضف اسمك الأول من فضلك.', email:'تأكد من بريدك الإلكتروني.', saving:'جارٍ الحفظ...', fail:'لم نتمكن من الحفظ، حاول مرة أخرى.',
+         soon:'التسجيل يفتح قريبًا جدًا. اكتب OFFICE على آخر فيديو لي وسأرسل لك رسالة.',
+         done:function(n){ return n + '، ثبّت سعر المؤسسين 30$ لكورس المكتب.'; }}
+  };
+  function L(){ return root.dataset.lang === 'ar' ? 'ar' : 'en'; }
+  var TITLES = {en:'The AI Office course: waitlist | Karemops.ai', ar:'كورس المكتب الذكي: قائمة الانتظار | Karemops.ai'};
+  function setLang(l){
+    root.dataset.lang = l; root.lang = l; root.dir = l === 'ar' ? 'rtl' : 'ltr'; document.title = TITLES[l];
+    [].forEach.call(document.querySelectorAll('.lang button'), function(b){ b.setAttribute('aria-pressed', b.dataset.l === l); });
+    try { localStorage.setItem('karemops-guide-lang', l); } catch(e){}
+  }
+  var saved = null; try { saved = localStorage.getItem('karemops-guide-lang'); } catch(e){}
+  var qlang = new URLSearchParams(location.search).get('lang');
+  setLang(qlang === 'ar' || qlang === 'en' ? qlang : (location.hash === '#ar' ? 'ar' : (saved === 'ar' ? 'ar' : 'en')));
+  document.querySelector('.lang').addEventListener('click', function(e){ var b = e.target.closest('button'); if (b) setLang(b.dataset.l); });
+
+  var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var started = Date.now();
+  var qs = new URLSearchParams(location.search);
+  var host = location.hostname;
+  var TEST = qs.has('test') || host === 'localhost' || host === '127.0.0.1';
+
+  /* video: play in view, pause out of view; no autoplay under reduced motion */
+  var v = document.getElementById('tour');
+  if (v) {
+    if (RM) { v.controls = true; }
+    else if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function(){ v.controls = true; }); } else v.pause(); }); }, {threshold:.25}).observe(v);
+    } else { v.autoplay = true; }
+  }
+
+  /* desk tiles light up one by one, then cycle */
+  var desks = [].slice.call(document.querySelectorAll('.desk'));
+  if (RM) desks.forEach(function(d){ d.classList.add('on'); });
+  else {
+    desks.forEach(function(d,i){ setTimeout(function(){ d.classList.add('on'); }, 500 + i*420); });
+    var k = 0;
+    setTimeout(function(){
+      setInterval(function(){
+        var d = desks[k % desks.length]; k++;
+        d.classList.remove('on'); setTimeout(function(){ d.classList.add('on'); }, 700);
+      }, 1900);
+    }, 500 + desks.length*420 + 1500);
+  }
+
+  /* type-on */
+  function typeOn(el){
+    var full = el.getAttribute('data-type'); if (el.dataset.done) return; el.dataset.done = 1;
+    if (RM) { el.textContent = full; return; }
+    var i = 0; (function step(){ el.textContent = full.slice(0, ++i); if (i < full.length) setTimeout(step, 22 + Math.random()*30); })();
+  }
+
+  /* count-up */
+  function countUp(el){
+    var to = +el.getAttribute('data-count'); if (el.dataset.done) return; el.dataset.done = 1;
+    if (RM) return; var t0 = performance.now(), d = 1400;
+    (function f(t){ var p = Math.min(1,(t-t0)/d), e = 1-Math.pow(1-p,3); el.textContent = Math.round(to*e).toLocaleString('en-US') + (el.getAttribute('data-suffix') || ''); if (p<1) requestAnimationFrame(f); })(t0);
+  }
+
+  /* pixel Karem waves */
+  var walker = document.getElementById('walker');
+  function wave(){
+    if (walker.dataset.done) return; walker.dataset.done = 1; walker.classList.add('in');
+    if (RM) return; var img = walker.querySelector('img'), n = 0;
+    var t = setInterval(function(){ img.src = '/assets/site/office/karem-pixel-wave-' + (n%2 ? 'a' : 'b') + '.png'; if (++n > 11) clearInterval(t); }, 260);
+  }
+
+  var targets = [].slice.call(document.querySelectorAll('.rv, .gal figure, [data-type], [data-count], #walker'));
+  if (RM || !('IntersectionObserver' in window)) {
+    targets.forEach(function(el){ el.classList.add('in'); if (el.hasAttribute('data-type')) typeOn(el); if (el.id==='walker') wave(); });
+  } else {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){
+      if (!e.isIntersecting) return; var el = e.target; el.classList.add('in');
+      if (el.hasAttribute('data-type')) typeOn(el);
+      if (el.hasAttribute('data-count')) countUp(el);
+      if (el.id === 'walker') wave();
+      io.unobserve(el);
+    }); }, {threshold:.18, rootMargin:'0px 0px -6% 0px'});
+    targets.forEach(function(el){ io.observe(el); });
+  }
+
+  /* sticky bar: phones, shown while no form is on screen */
+  var sticky = document.getElementById('sticky');
+  var forms = [document.getElementById('join'), document.getElementById('join2')];
+  var vis = {join:false, join2:false}, scrolled = false;
+  function upd(){ var any = vis.join || vis.join2; var done = document.querySelector('.fcard.ok'); sticky.classList.toggle('show', !any && !done && scrolled); }
+  if ('IntersectionObserver' in window) {
+    var so = new IntersectionObserver(function(es){ es.forEach(function(e){ vis[e.target.id] = e.isIntersecting; }); upd(); }, {threshold:.15});
+    forms.forEach(function(f){ so.observe(f); });
+  }
+  window.addEventListener('scroll', function(){ if (!scrolled && scrollY > 120) { scrolled = true; upd(); } }, {passive:true});
+
+  /* CTA links focus the nearest form */
+  [].forEach.call(document.querySelectorAll('[data-join]'), function(a){
+    a.addEventListener('click', function(ev){
+      ev.preventDefault();
+      var f = document.getElementById('join');
+      f.scrollIntoView({behavior: RM ? 'auto' : 'smooth', block:'center'});
+      setTimeout(function(){ var i = f.querySelector('input[name=name]'); if (i) i.focus({preventScroll:true}); }, RM ? 0 : 500);
+    });
+  });
+
+  /* submit */
+  [].forEach.call(document.querySelectorAll('form.wl'), function(form){
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var card = form.parentNode, err = form.querySelector('.err'), btn = form.querySelector('button');
+      var name = form.name.value.trim(), email = form.email.value.trim(), phone = form.phone.value.trim();
+      var M = MSG[L()];
+      err.textContent = '';
+      if (name.length < 2) { err.textContent = M.name; form.name.focus(); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { err.textContent = M.email; form.email.focus(); return; }
+      btn.disabled = true; var keep = btn.innerHTML; btn.textContent = M.saving;
+      var payload = { name:name, email:email, phone:phone, waitlist:'hq-office', source:location.pathname + '?lang=' + L() + (TEST ? '&test' : ''),
+        company_website: form.company_website.value, started_at: started, test: TEST };
+      fetch('/api/waitlist', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) })
+        .then(function(r){ return r.json().catch(function(){ return {ok:false}; }).then(function(j){ return {status:r.status, j:j}; }); })
+        .then(function(res){
+          if (res.j && res.j.ok) {
+            var safe = name.replace(/[<>&"]/g,'');
+            [].forEach.call(document.querySelectorAll('.fcard'), function(c){ c.classList.add('ok'); });
+            [].forEach.call(document.querySelectorAll('.done .dh'), function(h){ h.innerHTML = '<span class="l-en">' + MSG.en.done(safe) + '</span><span class="l-ar">' + MSG.ar.done(safe) + '</span>'; });
+            upd();
+          } else {
+            err.textContent = res.status === 503 ? M.soon : (L() === 'en' && res.j && res.j.error ? res.j.error : M.fail);
+            btn.disabled = false; btn.innerHTML = keep;
+          }
+        })
+        .catch(function(){ err.textContent = MSG[L()].fail; btn.disabled = false; btn.innerHTML = keep; });
+    });
+  });
+})();
+</script>
+</body>
+</html>
